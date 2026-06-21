@@ -52,6 +52,12 @@ const SOURCES = [
     site: "https://substack.com/@reboundcapital",
     rss: "https://reboundcapital.substack.com/feed",
   },
+  {
+    name: "Citrini Research",
+    category: "Substack",
+    site: "https://substack.com/@citrini",
+    rss: "https://citrini.substack.com/feed",
+  },
 ];
 
 // ─── HANDLER ──────────────────────────────────────────────────────────────────
