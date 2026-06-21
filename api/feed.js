@@ -58,6 +58,12 @@ const SOURCES = [
     site: "https://substack.com/@citrini",
     rss: "https://citrini.substack.com/feed",
   },
+  {
+    name: "Gregory Blotnick",
+    category: "X",
+    site: "https://x.com/gregoryblotnick",
+    rss: "https://gregoryblotnick.com/posts/feed/",
+  },
 ];
 
 // ─── HANDLER ──────────────────────────────────────────────────────────────────
