@@ -70,6 +70,12 @@ const SOURCES = [
     site: "https://kylesamani.com/",
     rss: "https://kylesamani.com/rss.xml",
   },
+  {
+    name: "Paul Graham",
+    category: "Blog",
+    site: "https://paulgraham.com/articles.html",
+    rss: "https://raw.githubusercontent.com/olshansk/pgessays-rss/main/feed.xml",
+  },
 ];
 
 // ─── HANDLER ──────────────────────────────────────────────────────────────────
