@@ -5,7 +5,7 @@ const Parser = require("rss-parser");
 //
 // Schema: { name, category, site, rss }
 //   name     – display name shown in the UI
-//   category – one of: "Substack" | "YouTube" | "Blog" | "Macro/Official" | "X"
+//   category – one of: "Substack" | "YouTube" | "Blog" | "Macro/Official"
 //   site     – homepage URL (used for the launchpad card link)
 //   rss      – feed URL, or null if no usable feed exists (source still appears
 //              in the launchpad but not in Latest)
@@ -16,9 +16,6 @@ const Parser = require("rss-parser");
 //               (Find channel_id: go to the channel page → view source → search
 //               for "channelId" or use a site like commentpicker.com/youtube-channel-id.php)
 //   Blog      → try https://DOMAIN/feed or https://DOMAIN/rss or https://DOMAIN/rss.xml
-//   X/Twitter → X does not offer native RSS. Leave rss: null (launchpad only).
-//               If you use RSS.app or Inoreader to create a feed for an X account,
-//               paste that URL here and it will work like any other feed.
 // ─────────────────────────────────────────────────────────────────────────────
 
 const SOURCES = [
@@ -60,8 +57,8 @@ const SOURCES = [
   },
   {
     name: "Gregory Blotnick",
-    category: "X",
-    site: "https://x.com/gregoryblotnick",
+    category: "Blog",
+    site: "https://gregoryblotnick.com/posts/",
     rss: "https://gregoryblotnick.com/posts/feed/",
   },
   {
@@ -75,6 +72,12 @@ const SOURCES = [
     category: "Blog",
     site: "https://paulgraham.com/articles.html",
     rss: "https://raw.githubusercontent.com/olshansk/pgessays-rss/main/feed.xml",
+  },
+  {
+    name: "Ray Dalio",
+    category: "Substack",
+    site: "https://raydalio.substack.com",
+    rss: "https://raydalio.substack.com/feed",
   },
 ];
 
