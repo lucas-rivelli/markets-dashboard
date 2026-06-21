@@ -28,6 +28,30 @@ const SOURCES = [
     site: "https://visserlabs.substack.com",
     rss: "https://visserlabs.substack.com/feed",
   },
+  {
+    name: "Jordi Visser Labs",
+    category: "YouTube",
+    site: "https://www.youtube.com/@JordiVisserLabs",
+    rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSLOw8JrFTBb3qF-p4v0v_w",
+  },
+  {
+    name: "Consilient Observer",
+    category: "Macro/Official",
+    site: "https://www.morganstanley.com/im/en-us/financial-advisor/insights/series/consilient-observer.html",
+    rss: null, // Morgan Stanley does not publish RSS for this series
+  },
+  {
+    name: "ARK Next Gen Internet",
+    category: "Substack",
+    site: "https://substack.com/@arknextgeninternetteam",
+    rss: "https://arknextgeninternetteam.substack.com/feed",
+  },
+  {
+    name: "Rebound Capital",
+    category: "Substack",
+    site: "https://substack.com/@reboundcapital",
+    rss: "https://reboundcapital.substack.com/feed",
+  },
 ];
 
 // ─── HANDLER ──────────────────────────────────────────────────────────────────

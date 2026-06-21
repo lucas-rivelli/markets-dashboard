@@ -23,6 +23,10 @@
       --accent:     #ff6719;
       --accent-soft:#fff4ee;
       --accent-hover:#e85a0f;
+      --c-yt:       #cf222e;
+      --c-yt-soft:  #fff0f0;
+      --c-macro:    #953800;
+      --c-macro-soft:#fff8f0;
       --shadow:     0 1px 3px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.04);
       --shadow-hover: 0 2px 8px rgba(26, 26, 26, 0.08), 0 12px 32px rgba(26, 26, 26, 0.06);
       --radius:     12px;
@@ -170,8 +174,47 @@
       color: white;
     }
 
+    /* ── Read filters ───────────────────────────────────────────────────── */
+    .feed-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .read-filters {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .filter-btn:hover { color: var(--text); border-color: var(--text-faint); }
+    .filter-btn[aria-pressed="true"] {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent-hover);
+    }
+
+    .read-count {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      margin-top: -0.25rem;
+    }
+
     /* ── Search ─────────────────────────────────────────────────────────── */
-    .search-bar { margin-bottom: 1.25rem; }
+    .search-bar { margin-bottom: 0; }
 
     #search {
       width: 100%;
@@ -219,6 +262,12 @@
       border-color: #ddd8d2;
       transform: translateY(-1px);
     }
+    .feed-item.is-read {
+      opacity: 0.72;
+      background: var(--bg-muted);
+    }
+    .feed-item.is-read .item-title { color: var(--text-muted); }
+    .feed-item.is-read:hover { opacity: 0.85; }
 
     .article-meta {
       display: flex;
@@ -236,18 +285,16 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--accent);
-      background: var(--accent-soft);
       padding: 0.2rem 0.55rem;
       border-radius: 999px;
     }
+    .source-pill[data-category="Substack"]       { color: var(--accent-hover); background: var(--accent-soft); }
+    .source-pill[data-category="YouTube"]        { color: var(--c-yt); background: var(--c-yt-soft); }
+    .source-pill[data-category="Macro/Official"] { color: var(--c-macro); background: var(--c-macro-soft); }
+    .source-pill[data-category="Blog"]           { color: #8250df; background: #fbefff; }
+    .source-pill[data-category="X"]              { color: #0550ae; background: #eef6ff; }
 
-    .source-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
+    .source-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 
     .article-date {
       font-size: 0.75rem;
@@ -262,6 +309,49 @@
       background: var(--accent);
       padding: 0.15rem 0.45rem;
       border-radius: 999px;
+    }
+
+    .read-badge {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-faint);
+      background: var(--border-soft);
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+    }
+
+    .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.15rem;
+    }
+
+    .read-toggle {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .read-toggle:hover {
+      border-color: var(--text-faint);
+      color: var(--text);
+      background: var(--bg-muted);
+    }
+    .read-toggle.is-read {
+      border-color: var(--accent);
+      color: var(--accent-hover);
+      background: var(--accent-soft);
     }
 
     .item-title {
@@ -448,14 +538,22 @@
   </nav>
 
   <section id="view-latest" role="tabpanel" aria-labelledby="tab-latest">
-    <div class="search-bar">
-      <input
-        type="search"
-        id="search"
-        placeholder="Search articles…"
-        aria-label="Filter items"
-        autocomplete="off"
-      />
+    <div class="feed-controls">
+      <div class="search-bar">
+        <input
+          type="search"
+          id="search"
+          placeholder="Search articles…"
+          aria-label="Filter items"
+          autocomplete="off"
+        />
+      </div>
+      <div class="read-filters" role="group" aria-label="Reading status filter">
+        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" type="button" data-filter="unread" aria-pressed="false">Unread</button>
+        <button class="filter-btn" type="button" data-filter="read" aria-pressed="false">Read</button>
+      </div>
+      <p class="read-count" id="read-count" hidden></p>
     </div>
     <div id="feed-container">
       <p class="loading">Fetching feeds</p>
@@ -475,14 +573,58 @@
 
   let allItems   = [];
   let allSources = [];
+  let readFilter = "all";
 
-  const LAST_VISIT_KEY = "markets_last_visit";
-  const lastVisit = localStorage.getItem(LAST_VISIT_KEY)
-    ? new Date(localStorage.getItem(LAST_VISIT_KEY))
-    : null;
+  const READ_KEY = "markets_read";
+  const lastVisit = null;
 
-  function recordVisit() {
-    localStorage.setItem(LAST_VISIT_KEY, new Date().toISOString());
+  function getReadSet() {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]"));
+    } catch {
+      return new Set();
+    }
+  }
+
+  function saveReadSet(set) {
+    localStorage.setItem(READ_KEY, JSON.stringify([...set]));
+  }
+
+  function isRead(link) {
+    return getReadSet().has(link);
+  }
+
+  function setRead(link, read) {
+    const set = getReadSet();
+    if (read) set.add(link);
+    else set.delete(link);
+    saveReadSet(set);
+  }
+
+  function updateReadCount() {
+    const el = document.getElementById("read-count");
+    if (!allItems.length) {
+      el.hidden = true;
+      return;
+    }
+    const read = allItems.filter(i => isRead(i.link)).length;
+    el.textContent = `${read} read · ${allItems.length - read} unread`;
+    el.hidden = false;
+  }
+
+  function applyFeedFilters() {
+    const q = document.getElementById("search").value.toLowerCase().trim();
+    document.querySelectorAll(".feed-item").forEach(li => {
+      const matchesSearch = !q
+        || li.dataset.title.includes(q)
+        || li.dataset.source.includes(q);
+      const itemRead = li.dataset.read === "true";
+      const matchesFilter =
+        readFilter === "all"
+        || (readFilter === "read" && itemRead)
+        || (readFilter === "unread" && !itemRead);
+      li.style.display = (matchesSearch && matchesFilter) ? "" : "none";
+    });
   }
 
   const tabBtns     = document.querySelectorAll(".tab-btn");
@@ -544,22 +686,29 @@
     ul.setAttribute("role", "list");
 
     items.forEach(item => {
-      const isNew = lastVisit && item.date && new Date(item.date) > lastVisit;
+      const read = isRead(item.link);
 
       const li = document.createElement("li");
-      li.className = "feed-item";
+      li.className = "feed-item" + (read ? " is-read" : "");
       li.dataset.title  = (item.title  || "").toLowerCase();
       li.dataset.source = (item.source || "").toLowerCase();
+      li.dataset.read   = read ? "true" : "false";
+      li.dataset.link   = item.link;
 
       li.innerHTML = `
         <div class="article-meta">
-          <span class="source-pill"><span class="source-dot"></span>${esc(item.source)}</span>
+          <span class="source-pill" data-category="${esc(item.category)}"><span class="source-dot"></span>${esc(item.source)}</span>
           <span class="article-date">${formatDate(item.date)}</span>
-          ${isNew ? '<span class="new-badge">New</span>' : ""}
+          ${read ? '<span class="read-badge">Read</span>' : '<span class="new-badge">Unread</span>'}
         </div>
-        <a class="item-title" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a>
+        <a class="item-title" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer" data-read-link="${esc(item.link)}">${esc(item.title)}</a>
         ${item.snippet ? `<p class="item-snippet">${esc(item.snippet)}</p>` : ""}
-        <a class="read-link" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Read article →</a>
+        <div class="article-footer">
+          <a class="read-link" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer" data-read-link="${esc(item.link)}">Read article →</a>
+          <button type="button" class="read-toggle${read ? " is-read" : ""}" data-link="${esc(item.link)}" aria-pressed="${read}">
+            ${read ? "Mark unread" : "Mark as read"}
+          </button>
+        </div>
       `;
 
       ul.appendChild(li);
@@ -567,6 +716,24 @@
 
     container.innerHTML = "";
     container.appendChild(ul);
+
+    container.querySelectorAll("[data-read-link]").forEach(link => {
+      link.addEventListener("click", () => setRead(link.dataset.readLink, true));
+    });
+
+    container.querySelectorAll(".read-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const link = btn.dataset.link;
+        const nowRead = !isRead(link);
+        setRead(link, nowRead);
+        renderFeed(allItems);
+        applyFeedFilters();
+        updateReadCount();
+      });
+    });
+
+    applyFeedFilters();
+    updateReadCount();
   }
 
   function renderSources(sources) {
@@ -626,13 +793,15 @@
     });
   }
 
-  document.getElementById("search").addEventListener("input", function () {
-    const q = this.value.toLowerCase().trim();
-    document.querySelectorAll(".feed-item").forEach(li => {
-      const match = !q
-        || li.dataset.title.includes(q)
-        || li.dataset.source.includes(q);
-      li.style.display = match ? "" : "none";
+  document.getElementById("search").addEventListener("input", applyFeedFilters);
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      readFilter = btn.dataset.filter;
+      document.querySelectorAll(".filter-btn").forEach(b => {
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      applyFeedFilters();
     });
   });
 
@@ -669,7 +838,6 @@
 
       renderFeed(allItems);
       renderSources(allSources);
-      recordVisit();
 
     } catch (err) {
       document.getElementById("feed-container").innerHTML =
