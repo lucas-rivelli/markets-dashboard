@@ -64,6 +64,12 @@ const SOURCES = [
     site: "https://x.com/gregoryblotnick",
     rss: "https://gregoryblotnick.com/posts/feed/",
   },
+  {
+    name: "Kyle Samani",
+    category: "Blog",
+    site: "https://kylesamani.com/",
+    rss: "https://kylesamani.com/rss.xml",
+  },
 ];
 
 // ─── HANDLER ──────────────────────────────────────────────────────────────────
