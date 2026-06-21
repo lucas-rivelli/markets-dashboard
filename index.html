@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>Markets Reading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-page:    #f4f1ec;
+      --bg-surface: #ffffff;
+      --bg-muted:   #faf9f7;
+      --border:     #e8e4df;
+      --border-soft:#f0ece6;
+      --text:       #1a1a1a;
+      --text-muted: #6b6560;
+      --text-faint: #9c9590;
+      --accent:     #ff6719;
+      --accent-soft:#fff4ee;
+      --accent-hover:#e85a0f;
+      --shadow:     0 1px 3px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.04);
+      --shadow-hover: 0 2px 8px rgba(26, 26, 26, 0.08), 0 12px 32px rgba(26, 26, 26, 0.06);
+      --radius:     12px;
+      --radius-sm:  8px;
+      --max-w:      680px;
+      --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+    }
+
+    html { font-size: 16px; color-scheme: light; }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────────────── */
+    header {
+      padding: 2.5rem 0 1.75rem;
+      text-align: center;
+    }
+
+    .masthead {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .masthead-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .site-tagline {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .updated-line {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+
+    #btn-refresh {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+    #btn-refresh:hover {
+      border-color: var(--text-faint);
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .failed-line {
+      font-size: 0.75rem;
+      color: #c0392b;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    /* ── Tabs ───────────────────────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.25rem;
+      width: fit-content;
+      margin: 0 auto 1.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .tab-btn {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.45rem 1.25rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn[aria-selected="true"] {
+      background: var(--text);
+      color: white;
+    }
+
+    /* ── Search ─────────────────────────────────────────────────────────── */
+    .search-bar { margin-bottom: 1.25rem; }
+
+    #search {
+      width: 100%;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      border-radius: var(--radius);
+      outline: none;
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239c9590' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 0.9rem center;
+    }
+    #search::placeholder { color: var(--text-faint); }
+    #search:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    /* ── Article cards ──────────────────────────────────────────────────── */
+    #view-latest { display: block; }
+    #view-sources { display: none; }
+
+    .feed-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feed-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .feed-item:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: #ddd8d2;
+      transform: translateY(-1px);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+
+    .source-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+    }
+
+    .source-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .article-date {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+
+    .new-badge {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: white;
+      background: var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+    }
+
+    .item-title {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.375rem;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      transition: color 0.15s;
+    }
+    .feed-item:hover .item-title { color: var(--accent-hover); }
+
+    .item-snippet {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--accent);
+      transition: gap 0.15s;
+    }
+    .feed-item:hover .read-link { gap: 0.5rem; }
+
+    /* ── Sources ────────────────────────────────────────────────────────── */
+    .sources-intro {
+      text-align: center;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .sources-group { margin-bottom: 2rem; }
+
+    .sources-group-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 0.75rem;
+      padding-left: 0.25rem;
+    }
+
+    .chip-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .chip:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: #ddd8d2;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .chip-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .chip-body { flex: 1; min-width: 0; }
+
+    .chip-name {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .chip-meta {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+    }
+
+    .chip-arrow {
+      color: var(--text-faint);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .chip:hover .chip-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    /* ── States ─────────────────────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      padding: 3rem 1rem;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-faint);
+      padding: 3rem 0;
+    }
+    .loading::after {
+      content: "";
+      display: inline-block;
+      width: 0.75em;
+      height: 0.75em;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      margin-left: 0.5em;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 600px) {
+      header { padding-top: 1.75rem; }
+      .site-title { font-size: 1.5rem; }
+      .feed-item { padding: 1.1rem 1.15rem; }
+      .item-title { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="masthead">
+      <span class="masthead-icon" aria-hidden="true">M</span>
+      <h1 class="site-title">Markets Reading</h1>
+    </div>
+    <p class="site-tagline">Your personal feed for macro, markets &amp; ideas</p>
+    <div class="toolbar">
+      <span class="updated-line" id="updated-line">Loading…</span>
+      <button id="btn-refresh" aria-label="Refresh feed">Refresh</button>
+    </div>
+    <div id="failed-line" class="failed-line" hidden></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="view-latest"  id="tab-latest"  data-view="latest">Latest</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="view-sources" id="tab-sources" data-view="sources">Sources</button>
+  </nav>
+
+  <section id="view-latest" role="tabpanel" aria-labelledby="tab-latest">
+    <div class="search-bar">
+      <input
+        type="search"
+        id="search"
+        placeholder="Search articles…"
+        aria-label="Filter items"
+        autocomplete="off"
+      />
+    </div>
+    <div id="feed-container">
+      <p class="loading">Fetching feeds</p>
+    </div>
+  </section>
+
+  <section id="view-sources" role="tabpanel" aria-labelledby="tab-sources" hidden>
+    <p class="sources-intro">Publications you follow</p>
+    <div id="sources-container">
+      <p class="loading">Loading sources</p>
+    </div>
+  </section>
+</main>
+
+<script>
+  "use strict";
+
+  let allItems   = [];
+  let allSources = [];
+
+  const LAST_VISIT_KEY = "markets_last_visit";
+  const lastVisit = localStorage.getItem(LAST_VISIT_KEY)
+    ? new Date(localStorage.getItem(LAST_VISIT_KEY))
+    : null;
+
+  function recordVisit() {
+    localStorage.setItem(LAST_VISIT_KEY, new Date().toISOString());
+  }
+
+  const tabBtns     = document.querySelectorAll(".tab-btn");
+  const viewLatest  = document.getElementById("view-latest");
+  const viewSources = document.getElementById("view-sources");
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabBtns.forEach(b => b.setAttribute("aria-selected", "false"));
+      btn.setAttribute("aria-selected", "true");
+      const view = btn.dataset.view;
+      viewLatest.hidden  = (view !== "latest");
+      viewSources.hidden = (view !== "sources");
+      viewLatest.style.display  = (view === "latest")  ? "block" : "none";
+      viewSources.style.display = (view === "sources") ? "block" : "none";
+    });
+  });
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "";
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return "";
+
+    const diff = Date.now() - d.getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 60) return mins <= 1 ? "Just now" : `${mins}m ago`;
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return `${hrs}h ago`;
+    const days = Math.floor(hrs / 24);
+    if (days < 7) return `${days}d ago`;
+
+    return d.toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+      year: d.getFullYear() !== new Date().getFullYear() ? "numeric" : undefined,
+    });
+  }
+
+  function initials(name) {
+    return String(name || "?")
+      .split(/\s+/)
+      .slice(0, 2)
+      .map(w => w[0])
+      .join("")
+      .toUpperCase();
+  }
+
+  function renderFeed(items) {
+    const container = document.getElementById("feed-container");
+
+    if (!items.length) {
+      container.innerHTML =
+        '<p class="empty-state">No articles yet — add sources in <code>api/feed.js</code></p>';
+      return;
+    }
+
+    const ul = document.createElement("ul");
+    ul.className = "feed-list";
+    ul.setAttribute("role", "list");
+
+    items.forEach(item => {
+      const isNew = lastVisit && item.date && new Date(item.date) > lastVisit;
+
+      const li = document.createElement("li");
+      li.className = "feed-item";
+      li.dataset.title  = (item.title  || "").toLowerCase();
+      li.dataset.source = (item.source || "").toLowerCase();
+
+      li.innerHTML = `
+        <div class="article-meta">
+          <span class="source-pill"><span class="source-dot"></span>${esc(item.source)}</span>
+          <span class="article-date">${formatDate(item.date)}</span>
+          ${isNew ? '<span class="new-badge">New</span>' : ""}
+        </div>
+        <a class="item-title" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">${esc(item.title)}</a>
+        ${item.snippet ? `<p class="item-snippet">${esc(item.snippet)}</p>` : ""}
+        <a class="read-link" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Read article →</a>
+      `;
+
+      ul.appendChild(li);
+    });
+
+    container.innerHTML = "";
+    container.appendChild(ul);
+  }
+
+  function renderSources(sources) {
+    const container = document.getElementById("sources-container");
+
+    if (!sources.length) {
+      container.innerHTML =
+        '<p class="empty-state">No sources — add them in <code>api/feed.js</code></p>';
+      return;
+    }
+
+    const groups = {};
+    sources.forEach(s => {
+      if (!groups[s.category]) groups[s.category] = [];
+      groups[s.category].push(s);
+    });
+
+    const ORDER = ["Substack", "YouTube", "Blog", "Macro/Official", "X"];
+    const sortedKeys = [
+      ...ORDER.filter(k => groups[k]),
+      ...Object.keys(groups).filter(k => !ORDER.includes(k)),
+    ];
+
+    container.innerHTML = "";
+
+    sortedKeys.forEach(cat => {
+      const group = document.createElement("div");
+      group.className = "sources-group";
+
+      const label = document.createElement("div");
+      label.className = "sources-group-label";
+      label.textContent = cat;
+      group.appendChild(label);
+
+      const grid = document.createElement("div");
+      grid.className = "chip-grid";
+
+      groups[cat].forEach(s => {
+        const a = document.createElement("a");
+        a.className = "chip";
+        a.href = s.site;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.innerHTML = `
+          <span class="chip-avatar">${esc(initials(s.name))}</span>
+          <span class="chip-body">
+            <div class="chip-name">${esc(s.name)}</div>
+            <div class="chip-meta">${s.hasFeed ? "RSS feed connected" : "Launchpad only — no RSS"}</div>
+          </span>
+          <span class="chip-arrow" aria-hidden="true">→</span>
+        `;
+        grid.appendChild(a);
+      });
+
+      group.appendChild(grid);
+      container.appendChild(group);
+    });
+  }
+
+  document.getElementById("search").addEventListener("input", function () {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll(".feed-item").forEach(li => {
+      const match = !q
+        || li.dataset.title.includes(q)
+        || li.dataset.source.includes(q);
+      li.style.display = match ? "" : "none";
+    });
+  });
+
+  async function loadFeed() {
+    document.getElementById("feed-container").innerHTML =
+      '<p class="loading">Fetching feeds</p>';
+    document.getElementById("sources-container").innerHTML =
+      '<p class="loading">Loading sources</p>';
+    document.getElementById("updated-line").textContent = "Loading…";
+    document.getElementById("failed-line").hidden = true;
+
+    try {
+      const res = await fetch("/api/feed");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      allItems   = data.items   || [];
+      allSources = data.sources || [];
+
+      const updatedEl = document.getElementById("updated-line");
+      if (data.updated) {
+        const d = new Date(data.updated);
+        updatedEl.textContent =
+          "Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+      } else {
+        updatedEl.textContent = "";
+      }
+
+      if (data.failed && data.failed.length) {
+        const el = document.getElementById("failed-line");
+        el.textContent = "Some feeds unavailable: " + data.failed.join(", ");
+        el.hidden = false;
+      }
+
+      renderFeed(allItems);
+      renderSources(allSources);
+      recordVisit();
+
+    } catch (err) {
+      document.getElementById("feed-container").innerHTML =
+        `<p class="empty-state">Could not load feed — ${esc(err.message)}<br><br>
+        Run <code>npm run dev</code> locally.</p>`;
+      document.getElementById("updated-line").textContent = "Error";
+    }
+  }
+
+  document.getElementById("btn-refresh").addEventListener("click", loadFeed);
+
+  function esc(str) {
+    return String(str ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  loadFeed();
+</script>
+</body>
+</html>
