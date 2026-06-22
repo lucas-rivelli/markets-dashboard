@@ -101,7 +101,13 @@
     .site-tagline {
       font-size: 0.875rem;
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .auto-refresh-note {
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      margin-bottom: 1.25rem;
     }
 
     .toolbar {
@@ -523,6 +529,7 @@
       <h1 class="site-title">Markets Reading</h1>
     </div>
     <p class="site-tagline">Your personal feed for macro, markets &amp; ideas</p>
+    <p class="auto-refresh-note">Checks for new posts every morning · first visit each day loads fresh</p>
     <div class="toolbar">
       <span class="updated-line" id="updated-line">Loading…</span>
       <button id="btn-refresh" aria-label="Refresh feed">Refresh</button>
@@ -576,7 +583,30 @@
   let readFilter = "all";
 
   const READ_KEY = "markets_read";
-  const lastVisit = null;
+  const LAST_DAY_KEY = "markets_last_fetch_day";
+
+  function isNewDay() {
+    const today = new Date().toDateString();
+    return localStorage.getItem(LAST_DAY_KEY) !== today;
+  }
+
+  function markFetchedToday() {
+    localStorage.setItem(LAST_DAY_KEY, new Date().toDateString());
+  }
+
+  function startOfYesterday() {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - 1);
+    return d;
+  }
+
+  function countRecentUnread(items) {
+    const cutoff = startOfYesterday();
+    return items.filter(
+      (i) => i.date && new Date(i.date) >= cutoff && !isRead(i.link)
+    ).length;
+  }
 
   function getReadSet() {
     try {
@@ -805,7 +835,7 @@
     });
   });
 
-  async function loadFeed() {
+  async function loadFeed(forceFresh = false) {
     document.getElementById("feed-container").innerHTML =
       '<p class="loading">Fetching feeds</p>';
     document.getElementById("sources-container").innerHTML =
@@ -813,8 +843,11 @@
     document.getElementById("updated-line").textContent = "Loading…";
     document.getElementById("failed-line").hidden = true;
 
+    const fresh = forceFresh || isNewDay();
+    const feedUrl = fresh ? "/api/feed?fresh=1" : "/api/feed";
+
     try {
-      const res = await fetch("/api/feed");
+      const res = await fetch(feedUrl, fresh ? { cache: "no-store" } : {});
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
 
@@ -824,8 +857,11 @@
       const updatedEl = document.getElementById("updated-line");
       if (data.updated) {
         const d = new Date(data.updated);
+        const recent = countRecentUnread(allItems);
         updatedEl.textContent =
-          "Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+          "Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
+          + (fresh ? " · live fetch" : "")
+          + (recent > 0 ? ` · ${recent} new since yesterday` : "");
       } else {
         updatedEl.textContent = "";
       }
@@ -838,6 +874,7 @@
 
       renderFeed(allItems);
       renderSources(allSources);
+      markFetchedToday();
 
     } catch (err) {
       document.getElementById("feed-container").innerHTML =
@@ -847,7 +884,7 @@
     }
   }
 
-  document.getElementById("btn-refresh").addEventListener("click", loadFeed);
+  document.getElementById("btn-refresh").addEventListener("click", () => loadFeed(true));
 
   function esc(str) {
     return String(str ?? "")

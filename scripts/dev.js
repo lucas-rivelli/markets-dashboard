@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const feedHandler = require("../api/feed");
+const cronHandler = require("../api/cron");
 
 const ROOT = path.join(__dirname, "..");
 const PORT = 3000;
@@ -53,10 +54,22 @@ function serveStatic(urlPath, nodeRes) {
   });
 }
 
-const server = http.createServer(async (nodeReq, nodeRes) => {
-  const urlPath = nodeReq.url.split("?")[0];
+function parseUrl(url) {
+  const [pathname, search = ""] = url.split("?");
+  const query = {};
+  for (const part of search.split("&")) {
+    if (!part) continue;
+    const [key, value = ""] = part.split("=");
+    query[decodeURIComponent(key)] = decodeURIComponent(value);
+  }
+  return { pathname, query };
+}
 
-  if (urlPath === "/api/feed") {
+const server = http.createServer(async (nodeReq, nodeRes) => {
+  const { pathname, query } = parseUrl(nodeReq.url);
+  nodeReq.query = query;
+
+  if (pathname === "/api/feed") {
     try {
       await feedHandler(nodeReq, vercelRes(nodeRes));
     } catch (err) {
@@ -66,7 +79,17 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
     return;
   }
 
-  serveStatic(urlPath, nodeRes);
+  if (pathname === "/api/cron") {
+    try {
+      await cronHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  serveStatic(pathname, nodeRes);
 });
 
 server.listen(PORT, () => {

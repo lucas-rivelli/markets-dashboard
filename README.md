@@ -94,7 +94,25 @@ paste that URL in `rss:` and it will be treated as a normal feed.
 
 ---
 
-## Caching
+## Caching & automatic refresh
+
+**Every morning (7:00 AM US Eastern)** a Vercel Cron job hits `/api/cron` and fetches all RSS feeds in the background — even if you don't open the page.
+
+**When you open the dashboard** the first time each day, it does a live fetch (`?fresh=1`) so you see overnight posts. Later visits that day use the cached API response (fast).
+
+**Refresh button** always does a live fetch.
+
+### One-time Vercel setup for cron
+
+1. In your Vercel project → **Settings** → **Environment Variables**
+2. Add `CRON_SECRET` — any long random string (e.g. from `openssl rand -hex 32`)
+3. Redeploy. Vercel sends this secret when calling `/api/cron`.
+
+Cron schedule is in `vercel.json` (`0 12 * * *` UTC ≈ 7 AM EST). Edit if you want a different time.
+
+---
+
+## Caching (manual visits)
 
 The API response is cached at Vercel's edge for **30 minutes**
 (`s-maxage=1800, stale-while-revalidate=3600`), so the dashboard stays fast and
