@@ -213,18 +213,6 @@
     #search:focus { border-bottom-color: var(--rubric); }
     #search::-webkit-search-cancel-button { -webkit-appearance: none; }
 
-    .read-filters { display: flex; gap: 1.1rem; }
-    .filter-btn {
-      color: var(--ink-faint);
-      padding: 0.35rem 0;
-      min-height: 2.75rem;
-      border-bottom: 1px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
-      touch-action: manipulation;
-    }
-    .filter-btn:hover { color: var(--ink); }
-    .filter-btn[aria-pressed="true"] { color: var(--rubric); border-bottom-color: var(--rubric); }
-
     .msg-list { list-style: none; }
     .msg {
       display: block;
@@ -639,11 +627,6 @@
       </div>
       <div class="list-tools">
         <input type="search" id="search" placeholder="Search this view…" aria-label="Search items" autocomplete="off" />
-        <div class="read-filters label" role="group" aria-label="Reading status">
-          <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-btn" data-filter="unread" aria-pressed="false">Unread</button>
-          <button class="filter-btn" data-filter="read" aria-pressed="false">Read</button>
-        </div>
       </div>
       <div id="list-container"><p class="loading">Loading…</p></div>
     </section>
@@ -693,13 +676,13 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
-  let activeView = "inbox"; // inbox | saved | sources | folder:<name> | tag:<id>
-  let readFilter = "all";
+  let activeView = "inbox"; // inbox | saw | read | trash | saved | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
 
   const READ_KEY          = "markets_read";
   const FOLDERS_KEY       = "markets_folders";
   const ITEM_FOLDERS_KEY  = "markets_item_folders";
+  const ITEM_STATUS_KEY   = "markets_item_status";
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
   const SAVED_KEY       = "markets_saved";
@@ -733,6 +716,7 @@
     return {
       folders: getFolders(),
       item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
+      item_status: readJSON(ITEM_STATUS_KEY, {}),
       tags: getTags(),
       item_tags: readJSON(ITEM_TAGS_KEY, {}),
       read: readJSON(READ_KEY, []),
@@ -744,6 +728,13 @@
     if (!data || typeof data !== "object") return;
     writeJSON(FOLDERS_KEY, Array.isArray(data.folders) ? data.folders : []);
     writeJSON(ITEM_FOLDERS_KEY, data.item_folders && typeof data.item_folders === "object" ? data.item_folders : {});
+    if (data.item_status && typeof data.item_status === "object") {
+      writeJSON(ITEM_STATUS_KEY, data.item_status);
+    } else if (Array.isArray(data.read)) {
+      const migrated = {};
+      for (const k of data.read) migrated[k] = "read";
+      writeJSON(ITEM_STATUS_KEY, migrated);
+    }
     writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
     writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
     writeJSON(READ_KEY, Array.isArray(data.read) ? data.read : []);
@@ -755,6 +746,7 @@
     return getFolders().length > 0
       || getTags().length > 0
       || Object.keys(readJSON(ITEM_FOLDERS_KEY, {})).length > 0
+      || Object.keys(readJSON(ITEM_STATUS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_TAGS_KEY, {})).length > 0
       || readJSON(READ_KEY, []).length > 0
       || readJSON(SAVED_KEY, []).length > 0;
@@ -798,6 +790,7 @@
         || (remote.tags?.length || 0) > 0
         || Object.keys(remote.item_folders || {}).length > 0
         || Object.keys(remote.item_tags || {}).length > 0
+        || Object.keys(remote.item_status || {}).length > 0
         || (remote.read?.length || 0) > 0
         || (remote.saved?.length || 0) > 0;
 
@@ -846,8 +839,9 @@
     String(name || "").trim().toLowerCase()
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tag";
 
-  /* read state (synced via /api/workspace) */
+  /* item status (synced via /api/workspace) */
   const getReadSet = () => new Set(readJSON(READ_KEY, []));
+  const getStatusMap = () => readJSON(ITEM_STATUS_KEY, {});
   const readKeysFor = (item) => {
     const keys = [];
     const id = keyOf(item);
@@ -855,19 +849,31 @@
     if (item.link && item.link !== id) keys.push(item.link);
     return keys;
   };
+  const itemStatus = (item) => {
+    const map = getStatusMap();
+    for (const k of readKeysFor(item)) {
+      if (map[k]) return map[k];
+    }
+    return isRead(item) ? "read" : "inbox";
+  };
+  const setItemStatus = (item, status) => {
+    const next = ["inbox", "saw", "read", "trash"].includes(status) ? status : "inbox";
+    const map = getStatusMap();
+    const readSet = getReadSet();
+    for (const k of readKeysFor(item)) {
+      map[k] = next;
+      next === "read" ? readSet.add(k) : readSet.delete(k);
+    }
+    writeJSON(ITEM_STATUS_KEY, map);
+    writeJSON(READ_KEY, [...readSet]);
+    scheduleWorkspaceSync();
+  };
   const isRead = (item) => {
     const s = getReadSet();
     if (typeof item === "string") return s.has(item);
     return readKeysFor(item).some((k) => s.has(k));
   };
-  const setRead = (item, read) => {
-    const s = getReadSet();
-    for (const k of readKeysFor(item)) {
-      read ? s.add(k) : s.delete(k);
-    }
-    writeJSON(READ_KEY, [...s]);
-    scheduleWorkspaceSync();
-  };
+  const visibleItems = () => allItems.filter((it) => itemStatus(it) !== "trash");
 
   /* folders */
   const getFolders = () => readJSON(FOLDERS_KEY, []);
@@ -893,7 +899,7 @@
     scheduleWorkspaceSync();
   };
   const folderCount = (name) =>
-    allItems.filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
+    visibleItems().filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
   const renameFolder = (oldName, newName) => {
     newName = String(newName || "").trim();
     if (!newName || oldName === newName) return false;
@@ -953,7 +959,7 @@
     scheduleWorkspaceSync();
   };
   const tagCount = (tagId) =>
-    allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
+    visibleItems().filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
   const renameTag = (id, newName, newColor) => {
     newName = String(newName || "").trim();
     if (!newName) return false;
@@ -1115,9 +1121,16 @@
 
   /* ── Rail ─────────────────────────────────────────────────────────────── */
   function renderRail() {
-    const savedCount = allItems.filter((it) => isSaved(keyOf(it))).length;
+    const inboxCount = allItems.filter((it) => itemStatus(it) === "inbox").length;
+    const sawCount = allItems.filter((it) => itemStatus(it) === "saw").length;
+    const readCount = allItems.filter((it) => itemStatus(it) === "read").length;
+    const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
+    const savedCount = visibleItems().filter((it) => isSaved(keyOf(it))).length;
     const fixed = [
-      { id: "inbox",   glyph: "✦", name: "Inbox",   count: allItems.length },
+      { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
+      { id: "saw",     glyph: "☉", name: "Saw",     count: sawCount },
+      { id: "read",    glyph: "☑", name: "Read",    count: readCount },
+      { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
       { id: "saved",   glyph: "❦", name: "Saved",   count: savedCount },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
     ];
@@ -1413,6 +1426,9 @@
   /* ── Message list ─────────────────────────────────────────────────────── */
   function viewLabel() {
     if (activeView === "inbox") return "Inbox";
+    if (activeView === "saw") return "Saw";
+    if (activeView === "read") return "Read";
+    if (activeView === "trash") return "Trash";
     if (activeView === "saved") return "Saved";
     if (activeView === "sources") return "Sources";
     if (activeView.startsWith("folder:")) return activeView.slice(7);
@@ -1421,16 +1437,20 @@
   }
 
   function itemsForView() {
-    if (activeView === "saved") return allItems.filter((it) => isSaved(keyOf(it)));
+    if (activeView === "inbox") return allItems.filter((it) => itemStatus(it) === "inbox");
+    if (activeView === "saw") return allItems.filter((it) => itemStatus(it) === "saw");
+    if (activeView === "read") return allItems.filter((it) => itemStatus(it) === "read");
+    if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
+    if (activeView === "saved") return visibleItems().filter((it) => isSaved(keyOf(it)));
     if (activeView.startsWith("folder:")) {
       const name = activeView.slice(7);
-      return allItems.filter((it) => getItemFolders(keyOf(it)).includes(name));
+      return visibleItems().filter((it) => getItemFolders(keyOf(it)).includes(name));
     }
     if (activeView.startsWith("tag:")) {
       const tagId = activeView.slice(4);
-      return allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId));
+      return visibleItems().filter((it) => getItemTagIds(keyOf(it)).includes(tagId));
     }
-    return allItems;
+    return allItems.filter((it) => itemStatus(it) === "inbox");
   }
 
   function renderTagChips(tags) {
@@ -1463,16 +1483,18 @@
         || (it.snippet || "").toLowerCase().includes(q)
         || tagNames.toLowerCase().includes(q)
         || folderNames.toLowerCase().includes(q);
-      const rd = isRead(it);
-      const matchR = readFilter === "all" || (readFilter === "read" && rd) || (readFilter === "unread" && !rd);
-      return matchQ && matchR;
+      return matchQ;
     });
 
     byId("list-count").textContent = items.length ? `${items.length}` : "";
 
     if (!items.length) {
       container.innerHTML = `<p class="empty-state">${
-        activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
+        activeView === "inbox" && allItems.length ? "Inbox is clear. Saw, Read, and Trash hold processed items."
+        : activeView === "saw" ? "Nothing in Saw yet. Open an item from Inbox to park it here."
+        : activeView === "read" ? "Nothing in Read yet. Mark finished items as Read."
+        : activeView === "trash" ? "Trash is empty."
+        : activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
         : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
@@ -1483,13 +1505,14 @@
     ul.className = "msg-list";
     ul.setAttribute("role", "list");
     items.forEach((item) => {
-      const read = isRead(item);
+      const status = itemStatus(item);
+      const processed = status !== "inbox";
       const k = keyOf(item);
       const tags = getItemTags(k);
       const folders = getItemFolders(k);
       const li = document.createElement("li");
       const btn = document.createElement("button");
-      btn.className = "msg" + (read ? " is-read" : "");
+      btn.className = "msg" + (processed ? " is-read" : "");
       btn.dataset.id = k;
       btn.setAttribute("aria-selected", selectedId === k);
       btn.innerHTML = `
@@ -1522,14 +1545,10 @@
     selectedId = k;
     const item = allItems.find((it) => keyOf(it) === k);
     if (!item) return;
-    setRead(item, true);
+    if (itemStatus(item) === "inbox") setItemStatus(item, "saw");
     showReaderPane();
     renderReader(item);
-    // refresh selection highlight + read fade without full rebuild
-    document.querySelectorAll(".msg").forEach((m) => {
-      m.setAttribute("aria-selected", m.dataset.id === k);
-      if (m.dataset.id === k) m.classList.add("is-read");
-    });
+    renderList();
     updateCounts();
     renderGraph();
   }
@@ -1540,10 +1559,18 @@
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
     const hasArticleContent = item.category === "Substack" && item.contentHtml;
+    const status = itemStatus(item);
     const saved = isSaved(k);
-    const read = isRead(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
+    const statusButtons = [
+      ["inbox", "Inbox"],
+      ["saw", "Saw"],
+      ["read", "Read"],
+      ["trash", "Trash"],
+    ].map(([id, label]) =>
+      `<button class="action-btn ${status === id ? "is-on" : ""}" data-status="${id}">${label}</button>`
+    ).join("");
 
     let embedHTML = "";
     if (yt) {
@@ -1577,7 +1604,7 @@
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           <button class="action-btn ${saved ? "is-on" : ""}" id="btn-save">${saved ? "Saved ✓" : "Save"}</button>
-          <button class="action-btn ${read ? "is-on" : ""}" id="btn-read">${read ? "Read ✓" : "Mark read"}</button>
+          ${statusButtons}
           <button class="action-btn" id="btn-folder">Folder ❧</button>
           <button class="action-btn" id="btn-tag">Tag</button>
         </div>
@@ -1600,7 +1627,8 @@
     if (tweet) hydrateTwitterEmbed(reader);
 
     byId("btn-save").addEventListener("click", () => toggleSaveItem(item));
-    byId("btn-read").addEventListener("click", () => toggleReadItem(item));
+    reader.querySelectorAll("[data-status]").forEach((btn) =>
+      btn.addEventListener("click", () => moveItemStatus(item, btn.dataset.status)));
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
     byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     wireReaderBack();
@@ -1700,11 +1728,12 @@
     attachPopoverDismiss(pop, anchor);
   }
 
-  function toggleReadItem(item) {
-    setRead(item, !isRead(item));
+  function moveItemStatus(item, status) {
+    setItemStatus(item, status);
     if (selectedId === keyOf(item)) renderReader(item);
     renderList();
     updateCounts();
+    renderGraph();
   }
 
   /* ── Email-style context menu on list items ───────────────────────────── */
@@ -1713,11 +1742,18 @@
     const k = keyOf(item);
     const pop = document.createElement("div");
     pop.className = "popover";
-    const read = isRead(item);
+    const status = itemStatus(item);
     const saved = isSaved(k);
+    const statusActions = [
+      ["inbox", "✦", "Move to Inbox"],
+      ["saw", "☉", "Move to Saw"],
+      ["read", "☑", "Move to Read"],
+      ["trash", "×", "Move to Trash"],
+    ].filter(([id]) => id !== status).map(([id, glyph, label]) =>
+      `<button class="pop-item" data-status="${id}"><span class="check">${glyph}</span>${label}</button>`
+    ).join("");
     pop.innerHTML = `
-      <button class="pop-item" data-act="read">
-        <span class="check">${read ? "○" : "●"}</span>${read ? "Mark as unread" : "Mark as read"}</button>
+      ${statusActions}
       <button class="pop-item" data-act="save">
         <span class="check">❦</span>${saved ? "Unsave" : "Save"}</button>
       <button class="pop-item" data-act="folder">
@@ -1725,10 +1761,11 @@
       <button class="pop-item" data-act="tag">
         <span class="check">◦</span>Tag…</button>`;
 
-    pop.querySelector('[data-act="read"]').addEventListener("click", () => {
-      pop.remove();
-      toggleReadItem(item);
-    });
+    pop.querySelectorAll("[data-status]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        pop.remove();
+        moveItemStatus(item, btn.dataset.status);
+      }));
     pop.querySelector('[data-act="save"]').addEventListener("click", () => {
       pop.remove();
       toggleSaveItem(item);
@@ -1904,7 +1941,7 @@
       });
     });
 
-    allItems.forEach((item) => {
+    visibleItems().forEach((item) => {
       const k = keyOf(item);
       const itemFolders = getItemFolders(k);
       const itemTags = getItemTagIds(k);
@@ -2242,15 +2279,8 @@
     ensureRunning();
   }
 
-  /* ── Filters / tabs wiring ────────────────────────────────────────────── */
+  /* ── Search / controls wiring ─────────────────────────────────────────── */
   byId("search").addEventListener("input", renderList);
-  document.querySelectorAll(".filter-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      readFilter = btn.dataset.filter;
-      document.querySelectorAll(".filter-btn").forEach((b) => b.setAttribute("aria-pressed", b === btn));
-      renderList();
-    });
-  });
   byId("aside-toggle").addEventListener("click", toggleMapFull);
   byId("aside-close").addEventListener("click", () => {
     document.body.dataset.aside = "closed";
