@@ -4,7 +4,7 @@
 
 ## Current resume point — July 4, 2026, 8:45 PM
 
-- Spotify credentials are present locally, but Spotify episode calls are currently returning `HTTP 429` after repeated testing. The backend now reports Spotify as unavailable instead of silently showing zero Spotify episodes when rate-limited.
+- Spotify credentials are present locally, but Spotify episode calls are currently returning `HTTP 429` (retry-after ~18h). Root cause: each feed build made ~57 Spotify calls and the old code retried 429s after only 3s, which Spotify punishes with escalating penalties. `lib/spotify.js` now caches episodes in memory for 1 hour, honors the full retry-after cooldown (never calls Spotify during it), and serves stale episodes instead of dropping the section. Spotify should reappear on its own once the penalty expires — do not hammer it with `?fresh=1` tests.
 - The 5-minute GitHub Actions refresh now pings `/api/feed`, the endpoint the page actually uses, so it warms the Vercel edge cache. `/api/cron` remains a daily Vercel backup.
 - Local setup check passes for Spotify credentials, birdclaw, bookmarks, and `CRON_SECRET`.
 - Spotify now loads all saved podcast shows, limits episodes to the past 7 days, excludes `Posse de Bola`, and paces episode requests to avoid Spotify rate limits.
