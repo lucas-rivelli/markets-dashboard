@@ -1,11 +1,12 @@
 # Optional: sync X bookmarks without a Mac. Requires GitHub secrets AUTH_TOKEN and CT0
 # (from x.com cookies). Runs every 6 hours; skips gracefully if secrets are missing.
+# Copy to .github/workflows/sync-bookmarks.yml
 
 name: Sync X bookmarks
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -24,14 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Export bookmarks via bird
+      - name: Sync and export bookmarks
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           CT0: ${{ secrets.CT0 }}
         run: |
           if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
             echo "AUTH_TOKEN or CT0 not set — skipping bookmark sync."
-            echo "Run: npm run setup:github-x-secrets"
+            echo "Add both as GitHub Actions secrets to enable automated X bookmarks."
             exit 0
           fi
           npx bird bookmarks --count 100 --json | node scripts/export-bookmarks.js

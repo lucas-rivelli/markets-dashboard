@@ -1,5 +1,6 @@
 # Keeps the Vercel edge cache warm every 5 minutes — free on GitHub, no Vercel Pro needed.
 # Requires repo secret: CRON_SECRET (same value as Vercel env var)
+# Copy to .github/workflows/feed-refresh.yml
 
 name: Refresh feed
 
