@@ -5,7 +5,7 @@ const { buildFeedResponse } = require("../lib/aggregate");
 //
 // Schema: { name, category, site, rss }
 //   name     – display name shown in the UI
-//   category – one of: "Substack" | "YouTube" | "Blog" | "Macro/Official"
+//   category – one of: "Substack" | "YouTube" | "Blog" | "Macro/Official" | "Spotify" | "Bookmarks"
 //   site     – homepage URL (used for the launchpad card link)
 //   rss      – feed URL, or null if no usable feed exists (source still appears
 //              in the launchpad but not in Latest)
@@ -76,6 +76,20 @@ const SOURCES = [
     category: "Substack",
     site: "https://raydalio.substack.com",
     rss: "https://raydalio.substack.com/feed",
+  },
+  {
+    name: "Spotify Podcasts",
+    category: "Spotify",
+    site: "https://open.spotify.com/collection/shows",
+    rss: null,
+    dynamic: true,
+  },
+  {
+    name: "X Bookmarks",
+    category: "Bookmarks",
+    site: "https://x.com/i/bookmarks",
+    rss: null,
+    dynamic: true,
   },
 ];
 

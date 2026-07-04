@@ -298,7 +298,8 @@
     .source-pill[data-category="YouTube"]        { color: var(--c-yt); background: var(--c-yt-soft); }
     .source-pill[data-category="Macro/Official"] { color: var(--c-macro); background: var(--c-macro-soft); }
     .source-pill[data-category="Blog"]           { color: #8250df; background: #fbefff; }
-    .source-pill[data-category="X"]              { color: #0550ae; background: #eef6ff; }
+    .source-pill[data-category="Spotify"]        { color: #1a7f37; background: #e8f5ee; }
+    .source-pill[data-category="Bookmarks"]      { color: #0550ae; background: #eef6ff; }
 
     .source-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 
@@ -781,7 +782,7 @@
       groups[s.category].push(s);
     });
 
-    const ORDER = ["Substack", "YouTube", "Blog", "Macro/Official", "X"];
+    const ORDER = ["Substack", "YouTube", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
     const sortedKeys = [
       ...ORDER.filter(k => groups[k]),
       ...Object.keys(groups).filter(k => !ORDER.includes(k)),
@@ -861,7 +862,9 @@
         updatedEl.textContent =
           "Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
           + (fresh ? " · live fetch" : "")
-          + (recent > 0 ? ` · ${recent} new since yesterday` : "");
+          + (recent > 0 ? ` · ${recent} new since yesterday` : "")
+          + (data.meta?.spotifyEpisodes ? ` · ${data.meta.spotifyEpisodes} podcast episodes` : "")
+          + (data.meta?.bookmarks ? ` · ${data.meta.bookmarks} bookmarks` : "");
       } else {
         updatedEl.textContent = "";
       }

@@ -85,12 +85,61 @@ https://DOMAIN/atom.xml
 ```
 Most WordPress and Ghost sites use `/feed`.
 
-### X / Twitter
-X removed native RSS in 2023 and its API is now paywalled.
-Set `rss: null` for X accounts — they appear as launchpad links only.
-If you subscribe to a third-party RSS bridge for an X account
-(e.g. via [RSS.app](https://rss.app) or [Inoreader](https://www.inoreader.com)),
-paste that URL in `rss:` and it will be treated as a normal feed.
+---
+
+## Spotify podcasts (new episodes)
+
+Shows **new episodes from your saved Spotify podcasts** (last 14 days).
+
+### One-time setup
+
+1. Create an app at [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard)
+2. Add redirect URI: `http://127.0.0.1:8888/callback`
+3. Run locally:
+
+```bash
+SPOTIFY_CLIENT_ID=your_id SPOTIFY_CLIENT_SECRET=your_secret node scripts/spotify-auth.js
+```
+
+4. Add to Vercel → **Environment Variables**:
+   - `SPOTIFY_CLIENT_ID`
+   - `SPOTIFY_CLIENT_SECRET`
+   - `SPOTIFY_REFRESH_TOKEN`
+5. Redeploy
+
+The morning Vercel cron fetches Spotify automatically — no Mac needed.
+
+---
+
+## X bookmarks (via birdclaw)
+
+[birdclaw](https://birdclaw.sh/) syncs your X bookmarks locally on your Mac, then pushes them to GitHub.
+
+### One-time setup on your Mac
+
+```bash
+npm i -g birdclaw
+birdclaw init          # follow prompts; install xurl or bird for live sync
+birdclaw sync bookmarks --mode auto --limit 100 --refresh --json
+```
+
+### Sync bookmarks to the dashboard
+
+```bash
+chmod +x scripts/sync-bookmarks.sh
+./scripts/sync-bookmarks.sh
+```
+
+This runs birdclaw → writes `data/bookmarks.json` → pushes to GitHub → Vercel redeploys.
+
+**Automate on Mac** (optional, every morning at 8 AM):
+
+```bash
+# crontab -e
+0 8 * * * cd /path/to/markets-dashboard && ./scripts/sync-bookmarks.sh >> ~/.markets-sync.log 2>&1
+```
+
+Or use birdclaw's built-in scheduler (`birdclaw jobs install-bookmarks-launchd`) plus the sync script.
 
 ---
 
