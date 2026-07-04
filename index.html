@@ -101,7 +101,6 @@
       touch-action: manipulation;
     }
     .topbar button.link-btn:hover { color: var(--rubric); }
-    .pane-toggle { display: none; }
 
     .drawer-scrim {
       position: fixed;
@@ -173,6 +172,14 @@
     .rail-item .glyph { color: var(--rubric); width: 1.1em; text-align: center; flex-shrink: 0; }
     .rail-item .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .rail-item .count { font-size: 0.78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+    .rail-row { display: flex; align-items: stretch; gap: 0.1rem; padding-right: 0.35rem; }
+    .rail-row .rail-item { flex: 1; min-width: 0; }
+    .rail-item[data-meta-kind] { -webkit-touch-callout: none; }
+    .rail-hint {
+      padding: 0 1rem 0.35rem; font-size: 0.72rem; font-style: italic;
+      color: var(--ink-faint); line-height: 1.35;
+    }
 
     .rail-divider {
       display: flex; align-items: center; gap: 0.6rem;
@@ -390,21 +397,37 @@
     .aside-section + .aside-section { border-top: 1px solid var(--rule); }
     .aside-section .col-head { position: static; }
 
-    .graph-wrap { flex: 1; min-height: 0; position: relative; }
+    .graph-wrap { flex: 1; min-height: 0; position: relative; background: radial-gradient(circle at 50% 50%, #faf6ec 0%, var(--paper) 70%); }
     .graph-wrap svg { width: 100%; height: 100%; display: block; }
+    .graph-legend {
+      position: absolute; left: 0.65rem; bottom: 0.55rem; z-index: 2;
+      display: flex; flex-wrap: wrap; gap: 0.55rem 0.85rem;
+      font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-faint); pointer-events: none;
+    }
+    .graph-legend span { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .graph-legend i { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; }
+    .graph-legend i.article { background: var(--ink-soft); }
+    .graph-legend i.folder { background: var(--gold); border: 1px solid var(--gold); }
+    .graph-legend i.tag { background: var(--rubric); opacity: 0.55; }
     .graph-empty {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
       text-align: center; color: var(--ink-faint); font-style: italic; font-size: 0.9rem; padding: 1.4rem;
     }
-    .g-link { stroke: var(--rule); stroke-width: 1; }
+    .g-link { stroke: var(--rule); stroke-width: 1; stroke-opacity: 0.55; }
     .g-node { cursor: pointer; }
-    .g-node circle { fill: var(--paper); stroke: var(--rubric); stroke-width: 1.2; transition: fill 0.12s; }
-    .g-node:hover circle { fill: var(--paper-sel); }
-    .g-node.center circle { fill: var(--rubric); stroke: var(--rubric); }
-    .g-node.active circle { fill: var(--rubric); }
-    .g-node text { font-family: var(--serif); font-size: 11px; fill: var(--ink-soft); text-anchor: middle; }
-    .g-node.center text { fill: #f3ecdd; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
-    .g-node.active text { fill: var(--rubric); }
+    .g-node circle { fill: var(--paper); stroke: var(--rubric); stroke-width: 1.2; transition: fill 0.12s, stroke-width 0.12s; }
+    .g-node:hover circle { fill: var(--paper-sel); stroke-width: 1.6; }
+    .g-node.active circle { fill: var(--paper-sel); stroke-width: 2; }
+    .g-node.article circle { fill: var(--ink-soft); stroke: var(--ink-soft); stroke-opacity: 0.35; }
+    .g-node.article:hover circle { fill: var(--ink); stroke: var(--ink); stroke-opacity: 0.8; }
+    .g-node.folder circle { fill: #faf3df; stroke: var(--gold); stroke-width: 1.4; }
+    .g-node.tag circle { stroke-width: 1.4; }
+    .g-node text { font-family: var(--serif); font-size: 10px; fill: var(--ink-soft); text-anchor: middle; pointer-events: none; }
+    .g-node.meta text { font-size: 11px; font-weight: 500; }
+    .g-node.active text { fill: var(--rubric); font-weight: 600; }
+    .pop-danger { color: var(--rubric); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.45rem; width: 100%; text-align: left; }
+    .pop-danger:hover { background: var(--paper-sel); }
 
     /* chat */
     .chat { display: flex; flex-direction: column; min-height: 0; }
@@ -457,6 +480,20 @@
 
     /* ── Responsive ─────────────────────────────────────────────────────── */
     .back-btn { display: none; }
+
+    .pane-toggle { display: inline-flex; }
+    #btn-refresh.is-syncing { color: var(--rubric); pointer-events: none; opacity: 0.75; }
+    #btn-refresh.is-syncing .sync-label::after {
+      content: ""; display: inline-block; width: 0.65em; height: 0.65em; margin-left: 0.35em;
+      border: 1px solid currentColor; border-top-color: transparent; border-radius: 50%;
+      animation: spin 0.8s linear infinite; vertical-align: middle;
+    }
+    body[data-aside="open"] #aside-toggle { color: var(--rubric); }
+
+    @media (min-width: 1201px) {
+      body[data-aside="closed"] .workspace { grid-template-columns: 208px 340px 1fr; }
+      body[data-aside="closed"] .aside { display: none; }
+    }
 
     @media (max-width: 1200px) {
       .workspace { grid-template-columns: 190px 320px 1fr; }
@@ -543,9 +580,11 @@
       <div class="col-head"><span class="label">Reading Room</span></div>
       <ul class="rail-list" id="rail-fixed"></ul>
       <div class="rail-divider label">Folders</div>
+      <p class="rail-hint">Dois dedos: renomear ou excluir</p>
       <ul class="rail-list" id="rail-folders"></ul>
       <button class="rail-add" id="rail-add-folder">＋ New folder</button>
       <div class="rail-divider label">Tags</div>
+      <p class="rail-hint">Dois dedos: renomear ou excluir</p>
       <ul class="rail-list" id="rail-tags"></ul>
       <button class="rail-add" id="rail-add-tag">＋ New tag</button>
     </nav>
@@ -583,7 +622,12 @@
           <button class="link-btn label pane-toggle" id="aside-close" aria-label="Close panel">✕</button>
         </div>
         <div class="graph-wrap" id="graph-wrap">
-          <div class="graph-empty" id="graph-empty">Create folders and tags as you read — your map grows here.</div>
+          <div class="graph-empty" id="graph-empty">Tag or file articles — the map links each piece to its folders and tags.</div>
+          <div class="graph-legend" id="graph-legend" hidden>
+            <span><i class="article"></i> Article</span>
+            <span><i class="folder"></i> Folder</span>
+            <span><i class="tag"></i> Tag</span>
+          </div>
         </div>
       </div>
       <div class="aside-section chat">
@@ -617,9 +661,9 @@
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
   const SAVED_KEY       = "markets_saved";
+  const SAVE_SECRET_KEY = "markets_save_secret";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
-  const SAVE_SECRET_KEY   = "markets_save_secret";
   const REFRESH_MS      = 5 * 60 * 1000;
 
   let workspaceSyncTimer = null;
@@ -637,8 +681,10 @@
   const writeJSON = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 
   function syncHeaders() {
+    const headers = { "Content-Type": "application/json" };
     const secret = localStorage.getItem(SAVE_SECRET_KEY) || "";
-    return secret ? { "X-Save-Secret": secret } : {};
+    if (secret) headers["X-Save-Secret"] = secret;
+    return headers;
   }
 
   function collectWorkspacePayload() {
@@ -683,7 +729,7 @@
     try {
       const res = await fetch("/api/workspace", {
         method: "PUT",
-        headers: { "Content-Type": "application/json", ...syncHeaders() },
+        headers: syncHeaders(),
         body: JSON.stringify(collectWorkspacePayload()),
       });
       if (res.status === 401) {
@@ -723,6 +769,13 @@
       } else if (localWorkspaceHasData()) {
         await pushWorkspaceState(true);
       }
+      renderRail();
+      renderList();
+      renderGraph();
+      if (selectedId) {
+        const item = allItems.find((it) => keyOf(it) === selectedId);
+        if (item) renderReader(item);
+      }
     } catch (err) {
       console.warn("Workspace load failed:", err.message);
     }
@@ -751,12 +804,25 @@
     String(name || "").trim().toLowerCase()
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tag";
 
-  /* read state (keyed by link, preserves earlier behavior) */
+  /* read state (synced via /api/workspace) */
   const getReadSet = () => new Set(readJSON(READ_KEY, []));
-  const isRead = (link) => getReadSet().has(link);
-  const setRead = (link, read) => {
+  const readKeysFor = (item) => {
+    const keys = [];
+    const id = keyOf(item);
+    if (id) keys.push(id);
+    if (item.link && item.link !== id) keys.push(item.link);
+    return keys;
+  };
+  const isRead = (item) => {
     const s = getReadSet();
-    read ? s.add(link) : s.delete(link);
+    if (typeof item === "string") return s.has(item);
+    return readKeysFor(item).some((k) => s.has(k));
+  };
+  const setRead = (item, read) => {
+    const s = getReadSet();
+    for (const k of readKeysFor(item)) {
+      read ? s.add(k) : s.delete(k);
+    }
     writeJSON(READ_KEY, [...s]);
     scheduleWorkspaceSync();
   };
@@ -786,6 +852,33 @@
   };
   const folderCount = (name) =>
     allItems.filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
+  const renameFolder = (oldName, newName) => {
+    newName = String(newName || "").trim();
+    if (!newName || oldName === newName) return false;
+    const folders = getFolders();
+    if (folders.some((f) => f.toLowerCase() === newName.toLowerCase() && f !== oldName)) return false;
+    const idx = folders.indexOf(oldName);
+    if (idx === -1) return false;
+    folders[idx] = newName;
+    writeJSON(FOLDERS_KEY, folders);
+    const map = readJSON(ITEM_FOLDERS_KEY, {});
+    for (const [k, names] of Object.entries(map)) {
+      map[k] = names.map((n) => (n === oldName ? newName : n));
+    }
+    writeJSON(ITEM_FOLDERS_KEY, map);
+    if (activeView === "folder:" + oldName) selectView("folder:" + newName);
+    return true;
+  };
+  const removeFolder = (name) => {
+    writeJSON(FOLDERS_KEY, getFolders().filter((f) => f !== name));
+    const map = readJSON(ITEM_FOLDERS_KEY, {});
+    for (const k of Object.keys(map)) {
+      map[k] = map[k].filter((n) => n !== name);
+      if (!map[k].length) delete map[k];
+    }
+    writeJSON(ITEM_FOLDERS_KEY, map);
+    if (activeView === "folder:" + name) selectView("inbox");
+  };
 
   /* tags */
   const getTags = () => readJSON(TAGS_KEY, []);
@@ -819,6 +912,28 @@
   };
   const tagCount = (tagId) =>
     allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
+  const renameTag = (id, newName, newColor) => {
+    newName = String(newName || "").trim();
+    if (!newName) return false;
+    const tags = getTags();
+    const tag = tags.find((t) => t.id === id);
+    if (!tag) return false;
+    if (tags.some((t) => t.id !== id && t.name.toLowerCase() === newName.toLowerCase())) return false;
+    tag.name = newName;
+    if (newColor) tag.color = newColor;
+    writeJSON(TAGS_KEY, tags);
+    return true;
+  };
+  const removeTag = (id) => {
+    writeJSON(TAGS_KEY, getTags().filter((t) => t.id !== id));
+    const map = readJSON(ITEM_TAGS_KEY, {});
+    for (const k of Object.keys(map)) {
+      map[k] = map[k].filter((tid) => tid !== id);
+      if (!map[k].length) delete map[k];
+    }
+    writeJSON(ITEM_TAGS_KEY, map);
+    if (activeView === "tag:" + id) selectView("inbox");
+  };
 
   /* saved */
   const getSavedSet = () => new Set(readJSON(SAVED_KEY, []));
@@ -946,8 +1061,15 @@
       : `<li style="padding:0.3rem 1rem;color:var(--ink-faint);font-style:italic;font-size:0.85rem">No tags yet</li>`;
 
     document.querySelectorAll(".rail-item").forEach((btn) => {
-      btn.addEventListener("click", () => selectView(btn.dataset.view));
+      btn.addEventListener("click", () => {
+        if (btn.dataset.metaSuppressClick === "1") {
+          btn.dataset.metaSuppressClick = "0";
+          return;
+        }
+        selectView(btn.dataset.view);
+      });
     });
+    wireRailMetaGestures();
   }
   function railItemHTML(f) {
     const cur = activeView === f.id;
@@ -959,7 +1081,7 @@
   function railFolderHTML(name) {
     const id = "folder:" + name;
     const cur = activeView === id;
-    return `<li><button class="rail-item" data-view="${esc(id)}" aria-current="${cur}">
+    return `<li class="rail-row"><button class="rail-item" data-view="${esc(id)}" data-meta-kind="folder" data-meta-name="${esc(name)}" aria-current="${cur}">
       <span class="glyph" aria-hidden="true">❧</span>
       <span class="name">${esc(name)}</span>
       <span class="count">${folderCount(name)}</span></button></li>`;
@@ -967,10 +1089,53 @@
   function railTagHTML(tag) {
     const id = "tag:" + tag.id;
     const cur = activeView === id;
-    return `<li><button class="rail-item" data-view="${esc(id)}" aria-current="${cur}">
+    return `<li class="rail-row"><button class="rail-item" data-view="${esc(id)}" data-meta-kind="tag" data-meta-id="${esc(tag.id)}" aria-current="${cur}">
       <span class="tag-dot" style="background:${esc(tag.color)}" aria-hidden="true"></span>
       <span class="name">${esc(tag.name)}</span>
       <span class="count">${tagCount(tag.id)}</span></button></li>`;
+  }
+
+  function metaFromRailButton(btn) {
+    if (btn.dataset.metaKind === "folder") {
+      return { kind: "folder", name: btn.dataset.metaName };
+    }
+    return { kind: "tag", id: btn.dataset.metaId };
+  }
+
+  function wireRailMetaGestures() {
+    document.querySelectorAll(".rail-item[data-meta-kind]").forEach((btn) => {
+      const openMenu = (point) => {
+        btn.dataset.metaSuppressClick = "1";
+        openMetaManager(btn, metaFromRailButton(btn), point);
+      };
+
+      btn.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        openMenu({ x: e.clientX, y: e.clientY });
+      });
+
+      let pressTimer = null;
+
+      btn.addEventListener("touchstart", (e) => {
+        if (e.touches.length >= 2) {
+          clearTimeout(pressTimer);
+          e.preventDefault();
+          const t = e.touches[0];
+          openMenu({ x: t.clientX, y: t.clientY });
+          return;
+        }
+        clearTimeout(pressTimer);
+        const t = e.touches[0];
+        pressTimer = setTimeout(() => {
+          openMenu({ x: t.clientX, y: t.clientY });
+        }, 600);
+      }, { passive: false });
+
+      const cancelPress = () => clearTimeout(pressTimer);
+      btn.addEventListener("touchend", cancelPress);
+      btn.addEventListener("touchmove", cancelPress);
+      btn.addEventListener("touchcancel", cancelPress);
+    });
   }
 
   function selectView(id) {
@@ -978,10 +1143,123 @@
     closeDrawers();
     renderRail();
     renderList();
+    renderGraph();
     if (activeView === "sources") {
       showReaderPane();
     } else if (isMobileLayout() && mobilePane() === "reader" && !selectedId) {
       setMobilePane("list");
+    }
+  }
+
+  function openMetaManager(anchor, meta, point) {
+    document.querySelector(".popover")?.remove();
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    const isFolder = meta.kind === "folder";
+    const tag = !isFolder ? tagById(meta.id) : null;
+    const currentName = isFolder ? meta.name : (tag?.name || "");
+    let pickedColor = tag?.color || TAG_COLORS[0];
+
+    pop.innerHTML = `<span class="label">${isFolder ? "Folder" : "Tag"}</span>
+      <div class="pop-new"><input value="${esc(currentName)}" aria-label="Name" /></div>
+      ${isFolder ? "" : `<div class="color-swatches">${TAG_COLORS.map((c) =>
+        `<button type="button" class="color-swatch" data-color="${esc(c)}" style="background:${esc(c)}" aria-label="Color ${esc(c)}" aria-pressed="${c === pickedColor}"></button>`).join("")}</div>`}
+      <div class="tag-create-actions"><button type="button">Rename</button></div>
+      <button type="button" class="pop-danger">Exclude ${isFolder ? "folder" : "tag"}</button>`;
+
+    const input = pop.querySelector("input");
+    if (!isFolder) {
+      pop.querySelectorAll(".color-swatch").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          pickedColor = btn.dataset.color;
+          pop.querySelectorAll(".color-swatch").forEach((b) =>
+            b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+        });
+      });
+    }
+
+    pop.querySelector(".tag-create-actions button").addEventListener("click", () => {
+      const ok = isFolder
+        ? renameFolder(meta.name, input.value)
+        : renameTag(meta.id, input.value, pickedColor);
+      if (ok) {
+        pop.remove();
+        renderRail();
+        renderGraph();
+        renderList();
+        if (selectedId) {
+          const item = allItems.find((it) => keyOf(it) === selectedId);
+          if (item) renderReader(item);
+        }
+      } else {
+        input.focus();
+      }
+    });
+
+    pop.querySelector(".pop-danger").addEventListener("click", () => {
+      if (isFolder) removeFolder(meta.name);
+      else removeTag(meta.id);
+      pop.remove();
+      renderRail();
+      renderGraph();
+      renderList();
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") pop.querySelector(".tag-create-actions button").click();
+    });
+
+    document.body.appendChild(pop);
+    if (point) {
+      pop.style.top = `${Math.min(point.y + 6, window.innerHeight - pop.offsetHeight - 12)}px`;
+      pop.style.left = `${Math.min(Math.max(point.x - 20, 8), window.innerWidth - 240)}px`;
+    } else {
+      const r = anchor.getBoundingClientRect();
+      pop.style.top = `${r.bottom + 6}px`;
+      pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    }
+    input.focus();
+    input.select();
+    const dismiss = (e) => {
+      if (!pop.contains(e.target) && e.target !== anchor) {
+        pop.remove();
+        document.removeEventListener("mousedown", dismiss);
+        document.removeEventListener("touchstart", dismiss);
+      }
+    };
+    setTimeout(() => {
+      document.addEventListener("mousedown", dismiss);
+      document.addEventListener("touchstart", dismiss, { passive: true });
+    }, 0);
+  }
+
+  function openMapPanel() {
+    const open = document.body.dataset.aside === "open";
+    if (open) {
+      document.body.dataset.aside = "closed";
+      return;
+    }
+    openDrawer("aside");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => renderGraph());
+    });
+  }
+
+  async function syncAll() {
+    const btn = byId("btn-refresh");
+    if (btn.classList.contains("is-syncing")) return;
+    btn.classList.add("is-syncing");
+    btn.setAttribute("aria-busy", "true");
+    setUpdatedLine({ updated: readJSON(FEED_SNAPSHOT_KEY, {})?.updated }, { syncing: true });
+    try {
+      await Promise.all([
+        loadFeed({ force: true, background: true }),
+        loadWorkspaceFromServer(),
+      ]);
+      await pushWorkspaceState(true);
+    } finally {
+      btn.classList.remove("is-syncing");
+      btn.removeAttribute("aria-busy");
     }
   }
 
@@ -1102,7 +1380,7 @@
         || (it.snippet || "").toLowerCase().includes(q)
         || tagNames.toLowerCase().includes(q)
         || folderNames.toLowerCase().includes(q);
-      const rd = isRead(it.link);
+      const rd = isRead(it);
       const matchR = readFilter === "all" || (readFilter === "read" && rd) || (readFilter === "unread" && !rd);
       return matchQ && matchR;
     });
@@ -1122,7 +1400,7 @@
     ul.className = "msg-list";
     ul.setAttribute("role", "list");
     items.forEach((item) => {
-      const read = isRead(item.link);
+      const read = isRead(item);
       const k = keyOf(item);
       const tags = getItemTags(k);
       const folders = getItemFolders(k);
@@ -1154,7 +1432,7 @@
     selectedId = k;
     const item = allItems.find((it) => keyOf(it) === k);
     if (!item) return;
-    setRead(item.link, true);
+    setRead(item, true);
     showReaderPane();
     renderReader(item);
     // refresh selection highlight + read fade without full rebuild
@@ -1163,6 +1441,7 @@
       if (m.dataset.id === k) m.classList.add("is-read");
     });
     updateCounts();
+    renderGraph();
   }
 
   function renderReader(item) {
@@ -1170,6 +1449,7 @@
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const saved = isSaved(k);
+    const read = isRead(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
 
@@ -1199,6 +1479,7 @@
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           <button class="action-btn ${saved ? "is-on" : ""}" id="btn-save">${saved ? "Saved ✓" : "Save"}</button>
+          <button class="action-btn ${read ? "is-on" : ""}" id="btn-read">${read ? "Read ✓" : "Mark read"}</button>
           <button class="action-btn" id="btn-folder">Folder ❧</button>
           <button class="action-btn" id="btn-tag">Tag</button>
         </div>
@@ -1218,6 +1499,7 @@
     byId("reader-empty") && (byId("reader-empty").hidden = true);
 
     byId("btn-save").addEventListener("click", () => toggleSaveItem(item));
+    byId("btn-read").addEventListener("click", () => toggleReadItem(item));
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
     byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     wireReaderBack();
@@ -1317,6 +1599,16 @@
     attachPopoverDismiss(pop, anchor);
   }
 
+  function toggleReadItem(item) {
+    setRead(item, !isRead(item));
+    renderReader(item);
+    renderList();
+    updateCounts();
+    document.querySelectorAll(".msg").forEach((m) => {
+      if (m.dataset.id === keyOf(item)) m.classList.toggle("is-read", isRead(item));
+    });
+  }
+
   /* save / unsave → POST|DELETE /api/save (falls back to local marker on failure) */
   async function toggleSaveItem(item) {
     const k = keyOf(item);
@@ -1327,7 +1619,7 @@
       try {
         const res = await fetch("/api/save", {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
+          headers: syncHeaders(),
           body: JSON.stringify({ id: k, link: item.link }),
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1352,7 +1644,7 @@
     };
     try {
       const res = await fetch("/api/save", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+        method: "POST", headers: syncHeaders(), body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       markSavedLocal(k);
@@ -1404,100 +1696,233 @@
     back && back.addEventListener("click", () => setMobilePane("list"));
   }
 
-  /* ── Tag + folder map ─────────────────────────────────────────────────── */
-  function renderGraph() {
+  /* ── Obsidian-style graph (articles ↔ folders/tags) ───────────────────── */
+  function buildGraphData() {
     const folders = getFolders();
     const tags = getTags();
+    const nodes = [];
+    const links = [];
+    const nodeIndex = new Map();
+
+    const addNode = (node) => {
+      if (nodeIndex.has(node.id)) return nodeIndex.get(node.id);
+      nodes.push(node);
+      nodeIndex.set(node.id, node);
+      return node;
+    };
+
+    folders.forEach((name) => {
+      addNode({
+        id: "folder:" + name,
+        kind: "folder",
+        label: name,
+        r: 9 + Math.min(folderCount(name), 8),
+      });
+    });
+
+    tags.forEach((tag) => {
+      addNode({
+        id: "tag:" + tag.id,
+        kind: "tag",
+        label: tag.name,
+        color: tag.color,
+        r: 8 + Math.min(tagCount(tag.id), 8),
+      });
+    });
+
+    allItems.forEach((item) => {
+      const k = keyOf(item);
+      const itemFolders = getItemFolders(k);
+      const itemTags = getItemTagIds(k);
+      if (!itemFolders.length && !itemTags.length) return;
+
+      const article = addNode({
+        id: "article:" + k,
+        kind: "article",
+        label: item.title || "Untitled",
+        itemKey: k,
+        r: 4,
+      });
+
+      itemFolders.forEach((name) => {
+        links.push({ source: article.id, target: "folder:" + name });
+      });
+      itemTags.forEach((tagId) => {
+        links.push({ source: article.id, target: "tag:" + tagId });
+      });
+    });
+
+    return { nodes, links };
+  }
+
+  function simulateGraph(nodes, links, width, height, iterations = 160) {
+    const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+    const edges = links.map((l) => ({
+      source: byId[l.source] || byId[l.source?.id],
+      target: byId[l.target] || byId[l.target?.id],
+      len: 72,
+    })).filter((e) => e.source && e.target);
+
+    nodes.forEach((n, i) => {
+      const ring = n.kind === "article" ? 0.22 : 0.34;
+      const a = (i / nodes.length) * Math.PI * 2;
+      n.x = width / 2 + Math.cos(a) * width * ring;
+      n.y = height / 2 + Math.sin(a) * height * ring;
+      n.vx = 0;
+      n.vy = 0;
+    });
+
+    const repulseBase = 520;
+    for (let tick = 0; tick < iterations; tick++) {
+      const t = 1 - tick / iterations;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          let dx = nodes[j].x - nodes[i].x;
+          let dy = nodes[j].y - nodes[i].y;
+          let dist = Math.hypot(dx, dy) || 1;
+          const bothMeta = nodes[i].kind !== "article" && nodes[j].kind !== "article";
+          const hasArticle = nodes[i].kind === "article" || nodes[j].kind === "article";
+          const base = hasArticle ? repulseBase : repulseBase * 1.65;
+          const strength = (bothMeta ? base * 1.25 : base) / (dist * dist);
+          dx = (dx / dist) * strength;
+          dy = (dy / dist) * strength;
+          nodes[i].vx -= dx;
+          nodes[i].vy -= dy;
+          nodes[j].vx += dx;
+          nodes[j].vy += dy;
+        }
+      }
+
+      edges.forEach((e) => {
+        let dx = e.target.x - e.source.x;
+        let dy = e.target.y - e.source.y;
+        let dist = Math.hypot(dx, dy) || 1;
+        const pull = (dist - e.len) * (0.035 + (e.source.kind === "article" ? 0.02 : 0.01));
+        dx = (dx / dist) * pull;
+        dy = (dy / dist) * pull;
+        e.source.vx += dx;
+        e.source.vy += dy;
+        e.target.vx -= dx * 0.35;
+        e.target.vy -= dy * 0.35;
+      });
+
+      nodes.forEach((n) => {
+        n.vx += (width / 2 - n.x) * (0.012 + t * 0.01);
+        n.vy += (height / 2 - n.y) * (0.012 + t * 0.01);
+        n.vx *= 0.84;
+        n.vy *= 0.84;
+        n.x += n.vx;
+        n.y += n.vy;
+      });
+    }
+
+    return { nodes, edges };
+  }
+
+  function graphBounds(nodes, pad = 28) {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    nodes.forEach((n) => {
+      const labelPad = n.kind === "article" ? 0 : 14;
+      minX = Math.min(minX, n.x - n.r - labelPad);
+      minY = Math.min(minY, n.y - n.r - labelPad);
+      maxX = Math.max(maxX, n.x + n.r + labelPad);
+      maxY = Math.max(maxY, n.y + n.r + labelPad + (n.kind === "article" ? 0 : 12));
+    });
+    if (!isFinite(minX)) return { minX: 0, minY: 0, width: 100, height: 100 };
+    return {
+      minX: minX - pad,
+      minY: minY - pad,
+      width: maxX - minX + pad * 2,
+      height: maxY - minY + pad * 2,
+    };
+  }
+
+  function renderGraph() {
     const wrap = byId("graph-wrap");
     const empty = byId("graph-empty");
-    const existing = wrap.querySelector("svg");
-    if (existing) existing.remove();
+    const legend = byId("graph-legend");
+    wrap.querySelector("svg")?.remove();
 
-    if (!folders.length && !tags.length) { empty.style.display = ""; return; }
+    const { nodes, links } = buildGraphData();
+    if (!nodes.length) {
+      empty.style.display = "";
+      legend.hidden = true;
+      return;
+    }
     empty.style.display = "none";
+    legend.hidden = false;
 
-    const W = wrap.clientWidth || 320, H = wrap.clientHeight || 200;
-    const cx = W / 2, cy = H / 2;
-    const R = Math.min(W, H) / 2 - 34;
+    const W = wrap.clientWidth || 320;
+    const H = wrap.clientHeight || 280;
+    const { nodes: laidOut, edges } = simulateGraph(nodes, links, W, H);
+    const bounds = graphBounds(laidOut);
     const svgns = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgns, "svg");
-    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.setAttribute("viewBox", `${bounds.minX} ${bounds.minY} ${bounds.width} ${bounds.height}`);
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
 
-    const folderNodes = folders.map((name) => ({
-      id: "folder:" + name, label: name, count: folderCount(name),
-      rScale: folders.length && tags.length ? 0.58 : 1,
-    }));
-    const tagNodes = tags.map((tag) => ({
-      id: "tag:" + tag.id, label: tag.name, count: tagCount(tag.id), color: tag.color,
-    }));
-
-    folderNodes.forEach((node, i) => {
-      const a = (i / folderNodes.length) * Math.PI * 2 - Math.PI / 2;
-      const rad = R * node.rScale;
-      const x = cx + Math.cos(a) * rad, y = cy + Math.sin(a) * rad;
+    const linkLayer = document.createElementNS(svgns, "g");
+    linkLayer.setAttribute("class", "g-links");
+    edges.forEach((e) => {
       const line = document.createElementNS(svgns, "line");
       line.setAttribute("class", "g-link");
-      line.setAttribute("x1", cx); line.setAttribute("y1", cy);
-      line.setAttribute("x2", x); line.setAttribute("y2", y);
-      svg.appendChild(line);
+      line.setAttribute("x1", e.source.x);
+      line.setAttribute("y1", e.source.y);
+      line.setAttribute("x2", e.target.x);
+      line.setAttribute("y2", e.target.y);
+      linkLayer.appendChild(line);
     });
+    svg.appendChild(linkLayer);
 
-    tagNodes.forEach((node, i) => {
-      const a = (i / tagNodes.length) * Math.PI * 2 - Math.PI / 2;
-      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
-      const line = document.createElementNS(svgns, "line");
-      line.setAttribute("class", "g-link");
-      line.setAttribute("x1", cx); line.setAttribute("y1", cy);
-      line.setAttribute("x2", x); line.setAttribute("y2", y);
-      svg.appendChild(line);
+    const nodeLayer = document.createElementNS(svgns, "g");
+    laidOut.forEach((node) => {
+      const active =
+        (node.kind === "folder" && activeView === node.id) ||
+        (node.kind === "tag" && activeView === node.id) ||
+        (node.kind === "article" && selectedId === node.itemKey);
+      const g = document.createElementNS(svgns, "g");
+      g.setAttribute("class", `g-node ${node.kind}${active ? " active" : ""}${node.kind !== "article" ? " meta" : ""}`);
+      g.dataset.nodeId = node.id;
+
+      const c = document.createElementNS(svgns, "circle");
+      c.setAttribute("cx", node.x);
+      c.setAttribute("cy", node.y);
+      c.setAttribute("r", node.r);
+      if (node.color) {
+        c.setAttribute("fill", node.color);
+        c.setAttribute("fill-opacity", "0.24");
+        c.setAttribute("stroke", node.color);
+      }
+      g.appendChild(c);
+
+      const title = document.createElementNS(svgns, "title");
+      title.textContent = node.label;
+      g.appendChild(title);
+
+      if (node.kind !== "article") {
+        const t = document.createElementNS(svgns, "text");
+        t.setAttribute("x", node.x);
+        t.setAttribute("y", node.y + node.r + 12);
+        const label = node.label.length > 18 ? node.label.slice(0, 17) + "…" : node.label;
+        t.textContent = label;
+        g.appendChild(t);
+      }
+
+      g.addEventListener("click", () => {
+        if (node.kind === "article") {
+          openItem(node.itemKey);
+          if (isMobileLayout()) document.body.dataset.aside = "closed";
+        } else {
+          selectView(node.id);
+          if (isMobileLayout()) document.body.dataset.aside = "closed";
+        }
+        renderGraph();
+      });
+
+      nodeLayer.appendChild(g);
     });
-
-    svg.appendChild(nodeEl(svgns, cx, cy, 22, "Inbox", "center", null, null));
-
-    const maxFolder = Math.max(1, ...folderNodes.map((n) => n.count));
-    folderNodes.forEach((node, i) => {
-      const a = (i / folderNodes.length) * Math.PI * 2 - Math.PI / 2;
-      const rad = R * node.rScale;
-      const x = cx + Math.cos(a) * rad, y = cy + Math.sin(a) * rad;
-      const r = 9 + (node.count / maxFolder) * 12;
-      const cls = node.id === activeView ? "active" : "";
-      svg.appendChild(nodeEl(svgns, x, y, r, node.label, cls, null, () => {
-        selectView(node.id);
-        if (isMobileLayout()) document.body.dataset.aside = "closed";
-      }));
-    });
-
-    const maxTag = Math.max(1, ...tagNodes.map((n) => n.count));
-    tagNodes.forEach((node, i) => {
-      const a = (i / tagNodes.length) * Math.PI * 2 - Math.PI / 2;
-      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
-      const r = 9 + (node.count / maxTag) * 12;
-      const cls = node.id === activeView ? "active" : "";
-      svg.appendChild(nodeEl(svgns, x, y, r, node.label, cls, node.color, () => {
-        selectView(node.id);
-        if (isMobileLayout()) document.body.dataset.aside = "closed";
-      }));
-    });
-
+    svg.appendChild(nodeLayer);
     wrap.appendChild(svg);
-  }
-  function nodeEl(ns, x, y, r, label, cls, color, onClick) {
-    const g = document.createElementNS(ns, "g");
-    g.setAttribute("class", "g-node " + (cls || ""));
-    const c = document.createElementNS(ns, "circle");
-    c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", r);
-    if (color) {
-      c.setAttribute("fill", color);
-      c.setAttribute("fill-opacity", "0.22");
-      c.setAttribute("stroke", color);
-    }
-    g.appendChild(c);
-    const t = document.createElementNS(ns, "text");
-    t.setAttribute("x", x); t.setAttribute("y", y + (cls === "center" ? 3 : r + 13));
-    t.textContent = label.length > 16 ? label.slice(0, 15) + "…" : label;
-    g.appendChild(t);
-    if (onClick) g.addEventListener("click", onClick);
-    return g;
   }
 
   /* ── Filters / tabs wiring ────────────────────────────────────────────── */
@@ -1509,7 +1934,7 @@
       renderList();
     });
   });
-  byId("aside-toggle").addEventListener("click", () => toggleDrawer("aside"));
+  byId("aside-toggle").addEventListener("click", openMapPanel);
   byId("aside-close").addEventListener("click", () => { document.body.dataset.aside = "closed"; });
 
   window.addEventListener("popstate", (e) => {
@@ -1629,11 +2054,16 @@
 
   function startFeedPolling() {
     if (feedPollTimer) clearInterval(feedPollTimer);
-    feedPollTimer = setInterval(() => loadFeed({ background: true }), REFRESH_MS);
+    feedPollTimer = setInterval(() => {
+      loadFeed({ background: true });
+      loadWorkspaceFromServer();
+    }, REFRESH_MS);
   }
 
-  byId("btn-refresh").addEventListener("click", () => loadFeed({ force: true }));
-  window.addEventListener("resize", () => { if (getFolders().length || getTags().length) renderGraph(); });
+  byId("btn-refresh").addEventListener("click", syncAll);
+  window.addEventListener("resize", () => { if (buildGraphData().nodes.length) renderGraph(); });
+
+  if (window.innerWidth > 1200) document.body.dataset.aside = "open";
 
   loadWorkspaceFromServer().then(() => {
     renderRail();
