@@ -13,10 +13,16 @@ if [ -f .env.local ]; then
 fi
 
 : "${CRON_SECRET:?Set CRON_SECRET in .env.local or the environment}"
-SITE_URL="${SITE_URL:-https://markets-dashboard.vercel.app}"
+SITE_URL="${SITE_URL:-https://markets-dashboard-knowledgemaxxing.vercel.app}"
+
+BYPASS_ARGS=()
+if [ -n "${VERCEL_BYPASS_SECRET:-}" ]; then
+  BYPASS_ARGS=(-H "x-vercel-protection-bypass: ${VERCEL_BYPASS_SECRET}")
+fi
 
 curl -fsS --retry 2 --retry-delay 5 \
   -H "Authorization: Bearer ${CRON_SECRET}" \
+  "${BYPASS_ARGS[@]}" \
   "${SITE_URL%/}/api/cron"
 
 echo "Feed refreshed at ${SITE_URL}/api/cron"

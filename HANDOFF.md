@@ -25,8 +25,8 @@ npm run sync:bookmarks
 Personal **markets reading dashboard** — one page that merges RSS feeds (Substack, blogs, YouTube), Spotify podcast episodes, and X bookmarks into a single timeline with read/unread tracking.
 
 - **Repo:** https://github.com/lucas-rivelli/markets-dashboard
-- **Deploy:** Vercel (auto-deploy on push to `main`)
-- **Live URL:** `https://markets-dashboard.vercel.app` (or check Vercel dashboard)
+- **Deploy:** Vercel (auto-deploy on push to `main`, team scope `knowledgemaxxing`)
+- **Live URL:** check Vercel dashboard → project → Domains. Note: `markets-dashboard.vercel.app` belongs to **another project** — do not use it.
 - **Local dev:** `npm run dev` → http://localhost:3000
 
 ## Architecture

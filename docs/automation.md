@@ -9,7 +9,14 @@ Pings `/api/cron` every 5 minutes to warm the Vercel edge cache.
 
 Requires GitHub repo secret: `CRON_SECRET` (same value as Vercel).
 
-Optional repo variable: `SITE_URL` (defaults to `https://markets-dashboard.vercel.app`).
+**Required** repo variable: `SITE_URL` — your real production URL from the
+Vercel dashboard (project → Domains). The old default
+`https://markets-dashboard.vercel.app` belongs to another project and 404s.
+
+If Vercel **Deployment Protection** is enabled, requests get a 302 to Vercel SSO.
+Either disable it for Production, or create a **Protection Bypass for Automation**
+secret (Vercel → Project → Settings → Deployment Protection) and add it as
+GitHub secret `VERCEL_BYPASS_SECRET`.
 
 ## sync-bookmarks.yml
 
@@ -20,9 +27,10 @@ Commits `data/bookmarks.json` back to the repo so Vercel redeploys with fresh bo
 ## Alternative: cron-job.org (no GitHub Actions)
 
 1. Create a free job at [cron-job.org](https://cron-job.org)
-2. URL: `https://markets-dashboard.vercel.app/api/cron`
+2. URL: `https://YOUR-SITE-URL/api/cron` (check Vercel dashboard → Domains)
 3. Schedule: every 5 minutes
 4. Request header: `Authorization: Bearer YOUR_CRON_SECRET`
+5. If Deployment Protection is on, add header `x-vercel-protection-bypass: YOUR_BYPASS_SECRET`
 
 Or run locally / from any scheduler:
 
