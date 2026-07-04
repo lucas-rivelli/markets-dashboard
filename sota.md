@@ -9,8 +9,6 @@
 ---
 
 ## 1. Vision
-
-A personal **learning environment** for markets, macro, and ideas — not just a feed reader.
 The end state is a funnel:
 
 ```
@@ -88,23 +86,40 @@ Anti-goals: emoji in UI, rounded pill-everything, drop shadows, bright saturated
 `index.html` is now a full-viewport four-region workspace, not a reading column:
 
 ```
-top bar: ❦ MARKETS READING · updated · refresh · (KB toggle on narrow screens)
+top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (drawer on narrow)
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
-│ Inbox    │ source·title·  │ opened item:      │ KB graph     │
-│ Saved    │ snippet rows,  │ embed (YouTube/   │ (themes,     │
-│ Sources  │ email-style,   │ Spotify) or drop- │ clickable)   │
-│ +folders │ filtered by    │ cap preview;      ├──────────────┤
-│          │ folder+search+ │ Open · Save ·     │ Ask the KB   │
-│          │ read state     │ Classify ❧        │ (chat)       │
+│ Inbox    │ source·title·  │ opened item or    │ Tag map      │
+│ Saved    │ snippet rows,  │ Sources launchpad;│ (SVG graph,  │
+│ Sources  │ email-style,   │ embed (YT/Spotify)│ clickable)   │
+│ + tags   │ filtered by    │ Open · Save ·     │              │
+│          │ tag+search+    │ Tag ❧             │              │
+│          │ read state     │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-- **Folders = user-created themes.** Stored client-side (`localStorage`: `markets_folders`, `markets_item_folders`). "Classify" assigns an item to one or more folders, Gmail-style. On **Save**, the item's folders are sent as `themes` to `POST /api/save`, so classification persists into the KB. Local folders are the fast UI layer; the KB is the durable layer.
+- **Tags = user-created themes.** Stored client-side (`localStorage`: `markets_tags`, `markets_item_tags`; legacy `markets_folders` migrates on first load). **Tag** assigns an item to one or more tags. On **Save**, tag names are sent as `themes` to `POST /api/save`. Tags are the fast UI layer; `kb/` is the durable layer.
 - **Reading pane** embeds YouTube (`youtube-nocookie`) and Spotify; articles show a drop-cap preview + "Open original" (publishers block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
-- **Knowledge graph** (top-right) is hand-rolled SVG: a central "Library" node with a radial spoke per folder, node size ∝ item count, click to filter. Grows as you classify.
-- **Ask the KB** (bottom-right) does **client-side retrieval** now — keyword-ranks saved items (falls back to the feed if nothing saved yet), returns clickable hits. LLM synthesis is Phase 3; a future `/api/ask` can slot in behind the same UI.
-- **Responsive:** 4 cols → 3 cols with a KB drawer (<1200px) → single-column drill-down with Back + folder/KB toggles (<820px).
-- **localStorage keys:** `markets_read` (link-keyed, preserved), `markets_folders`, `markets_item_folders`, `markets_saved`, `markets_last_fetch_day`.
+- **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
+- **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
+
+### Responsive (shipped)
+
+| Breakpoint | Behavior |
+|------------|----------|
+| **>1200px** | Four columns visible |
+| **≤1200px** | Hide aside column; **❦ Map** opens fixed right drawer (`data-aside`) |
+| **≤820px** | Single-column drill-down: list **or** reader (`data-mobile`); **☰ Tags** opens left rail drawer (`data-rail`); **‹ Back** returns to list |
+| **≤480px** | Compact top bar: hide idle "Updated …" line; Sync shows ↻ only |
+
+**Mobile UX details (July 2026):**
+
+- **Sources** auto-opens the reader pane on narrow screens (fixes empty launchpad).
+- **Drawer scrim** — tap outside rail/map to dismiss; Escape closes drawers then reader.
+- **History API** — OS back button matches in-app Back (`pushState` / `popstate`).
+- **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
+- **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
+
+- **localStorage keys:** `markets_read` (link-keyed), `markets_tags`, `markets_item_tags`, `markets_saved`, `markets_feed_snapshot`, `markets_tags_migrated`.
 
 ## 5. Roadmap (agreed direction)
 
@@ -120,9 +135,9 @@ Production env vars for saves:
 and required `SAVE_SECRET` when GitHub-backed saves are enabled. Frontend should send the secret as
 `X-Save-Secret` or `Authorization: Bearer ...`.
 
-Frontend is now built: the reading pane has **Save** (POST to `/api/save`) and **Classify** (folder
-assignment → sent as `themes` on save). Save degrades gracefully to a local marker if the endpoint is
-unavailable. This replaces the old `saved.json` backlog idea.
+Frontend is now built: the reading pane has **Save** (POST to `/api/save`) and **Tag ❧**
+(assignment → sent as `themes` on save). Save degrades gracefully to a local marker if the endpoint is
+unavailable. Mobile drill-down, drawer scrim, and History API back stack shipped July 2026.
 
 > Note: the local dev server must be **restarted** to pick up the `/api/save` and `/api/library`
 > routes if it was started before they were added (`npm run dev`).
@@ -162,10 +177,13 @@ Each index item includes `id`, `title`, `url`, `source`, `category`, `type`, `da
 
 ## 8. Working conventions (for Cursor / Claude sessions)
 
+- Read [Claude.md](Claude.md) for agent-facing UI contracts (mobile datasets, DOM ids, localStorage).
 - Push to GitHub after every change — Vercel auto-deploys `main`.
 - `npm run dev` for local (not `vercel dev`); loads `.env.local`.
-- The JS in `index.html` depends on these class/id contracts — don't rename without updating both:
-  `.tab-btn .filter-btn .feed-item .item-title .read-toggle .source-pill .chip`,
-  `#search #feed-container #sources-container #updated-line #failed-line #btn-refresh`.
+- The JS in `index.html` depends on these contracts — don't rename without updating CSS + JS:
+  body datasets `data-mobile`, `data-rail`, `data-aside`;
+  regions `.rail .list-col .reader-col .aside .drawer-scrim`;
+  controls `.rail-item .msg .filter-btn .action-btn`, `#search`, `#list-container`, `#reader-back`,
+  `#rail-toggle`, `#aside-toggle`, `#drawer-scrim`, `#updated-line`, `#failed-line`, `#btn-refresh`.
 - Respect the design language in §4 for any UI work.
-- Update **this file** (§5/§6 especially) when a phase ships or a decision is made.
+- Update **this file** (§4/§5 especially) and **Claude.md** when UI behavior or direction changes.

@@ -1,22 +1,23 @@
 ---
-description: Markets dashboard project context — read HANDOFF.md first
+description: Markets dashboard project context — read sota.md + Claude.md first
 alwaysApply: true
 ---
 
 # Markets Dashboard
 
-Before making changes, read `HANDOFF.md` for full project state, architecture, sources, and pending setup.
+Before making changes, read `sota.md` (vision/roadmap) and `Claude.md` (agent UI contracts). Operational detail: `HANDOFF.md`.
 
 ## Quick facts
 
 - Personal RSS aggregator deployed on Vercel: https://github.com/lucas-rivelli/markets-dashboard
 - Sources live in `api/feed.js` (`SOURCES` array)
 - Feed merge logic: `lib/aggregate.js`
-- UI: `index.html` (vanilla JS, white Substack-style theme)
+- UI: `index.html` (vanilla JS, parchment manuscript workspace — four regions, mobile drill-down)
 - Local dev: `npm run dev` (port 3000) — not `vercel dev`
 
 ## Conventions
 
 - Commit and push to `main` after every source or feature change (Vercel auto-deploys)
+- Update `sota.md` and `Claude.md` when UI behavior or direction changes
 - Do not add X/Twitter RSS bridges — bookmarks use birdclaw → `data/bookmarks.json`
 - Spotify needs Vercel env vars (`SPOTIFY_*`); see HANDOFF.md setup section
