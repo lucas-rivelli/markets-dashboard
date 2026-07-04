@@ -368,7 +368,7 @@
 
     /* classify popover */
     .popover {
-      position: absolute; z-index: 40; background: var(--paper);
+      position: absolute; z-index: 70; background: var(--paper);
       border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 6px 24px rgba(41,32,24,0.18);
       padding: 0.5rem; min-width: 210px; max-height: 320px; overflow-y: auto;
     }
@@ -495,6 +495,7 @@
       .back-btn { display: inline-flex; min-height: 2.75rem; touch-action: manipulation; }
       .rail-toggle { display: inline-flex; }
       .popover {
+        position: fixed;
         left: 50% !important;
         right: auto !important;
         top: auto !important;
@@ -617,7 +618,12 @@
   const ITEM_TAGS_KEY     = "markets_item_tags";
   const SAVED_KEY       = "markets_saved";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
+  const WORKSPACE_TS_KEY  = "markets_workspace_updated";
+  const SAVE_SECRET_KEY   = "markets_save_secret";
   const REFRESH_MS      = 5 * 60 * 1000;
+
+  let workspaceSyncTimer = null;
+  let workspaceSyncing = false;
 
   const TAG_COLORS = [
     "#7f2a1a", "#96762f", "#a04f1e", "#9a2b21",
@@ -629,6 +635,115 @@
     try { return JSON.parse(localStorage.getItem(k)) ?? fallback; } catch { return fallback; }
   };
   const writeJSON = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+
+  function syncHeaders() {
+    const secret = localStorage.getItem(SAVE_SECRET_KEY) || "";
+    return secret ? { "X-Save-Secret": secret } : {};
+  }
+
+  function collectWorkspacePayload() {
+    return {
+      folders: getFolders(),
+      item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
+      tags: getTags(),
+      item_tags: readJSON(ITEM_TAGS_KEY, {}),
+      read: readJSON(READ_KEY, []),
+      saved: readJSON(SAVED_KEY, []),
+    };
+  }
+
+  function applyWorkspacePayload(data) {
+    if (!data || typeof data !== "object") return;
+    writeJSON(FOLDERS_KEY, Array.isArray(data.folders) ? data.folders : []);
+    writeJSON(ITEM_FOLDERS_KEY, data.item_folders && typeof data.item_folders === "object" ? data.item_folders : {});
+    writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
+    writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
+    writeJSON(READ_KEY, Array.isArray(data.read) ? data.read : []);
+    writeJSON(SAVED_KEY, Array.isArray(data.saved) ? data.saved : []);
+    if (data.updated_at) writeJSON(WORKSPACE_TS_KEY, data.updated_at);
+  }
+
+  function localWorkspaceHasData() {
+    return getFolders().length > 0
+      || getTags().length > 0
+      || Object.keys(readJSON(ITEM_FOLDERS_KEY, {})).length > 0
+      || Object.keys(readJSON(ITEM_TAGS_KEY, {})).length > 0
+      || readJSON(READ_KEY, []).length > 0
+      || readJSON(SAVED_KEY, []).length > 0;
+  }
+
+  function scheduleWorkspaceSync() {
+    clearTimeout(workspaceSyncTimer);
+    workspaceSyncTimer = setTimeout(pushWorkspaceState, 450);
+  }
+
+  async function pushWorkspaceState(force = false) {
+    if (workspaceSyncing && !force) return;
+    workspaceSyncing = true;
+    try {
+      const res = await fetch("/api/workspace", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", ...syncHeaders() },
+        body: JSON.stringify(collectWorkspacePayload()),
+      });
+      if (res.status === 401) {
+        console.warn("Workspace sync: set localStorage.markets_save_secret to your SAVE_SECRET");
+        return;
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      applyWorkspacePayload(data);
+    } catch (err) {
+      console.warn("Workspace sync failed:", err.message);
+    } finally {
+      workspaceSyncing = false;
+    }
+  }
+
+  async function loadWorkspaceFromServer() {
+    try {
+      const res = await fetch("/api/workspace", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const remote = await res.json();
+      const localTs = readJSON(WORKSPACE_TS_KEY, null);
+      const remoteHasData = (remote.folders?.length || 0) > 0
+        || (remote.tags?.length || 0) > 0
+        || Object.keys(remote.item_folders || {}).length > 0
+        || Object.keys(remote.item_tags || {}).length > 0
+        || (remote.read?.length || 0) > 0
+        || (remote.saved?.length || 0) > 0;
+
+      if (!remoteHasData && localWorkspaceHasData()) {
+        await pushWorkspaceState(true);
+        return;
+      }
+
+      if (!remote.updated_at || !localTs || remote.updated_at >= localTs) {
+        applyWorkspacePayload(remote);
+      } else if (localWorkspaceHasData()) {
+        await pushWorkspaceState(true);
+      }
+    } catch (err) {
+      console.warn("Workspace load failed:", err.message);
+    }
+  }
+
+  function attachPopoverDismiss(pop, anchor) {
+    let armed = false;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { armed = true; });
+    });
+    const dismiss = (e) => {
+      if (!armed) return;
+      if (!pop.contains(e.target) && e.target !== anchor) {
+        pop.remove();
+        document.removeEventListener("mousedown", dismiss);
+        document.removeEventListener("touchstart", dismiss);
+      }
+    };
+    document.addEventListener("mousedown", dismiss);
+    document.addEventListener("touchstart", dismiss, { passive: true });
+  }
 
   const keyOf = (item) => item.id || item.link || item.url;
 
@@ -643,6 +758,7 @@
     const s = getReadSet();
     read ? s.add(link) : s.delete(link);
     writeJSON(READ_KEY, [...s]);
+    scheduleWorkspaceSync();
   };
 
   /* folders */
@@ -656,6 +772,7 @@
     }
     folders.push(name);
     writeJSON(FOLDERS_KEY, folders);
+    scheduleWorkspaceSync();
     return name;
   };
   const getItemFolders = (k) => readJSON(ITEM_FOLDERS_KEY, {})[k] || [];
@@ -665,6 +782,7 @@
     cur.has(name) ? cur.delete(name) : cur.add(name);
     map[k] = [...cur];
     writeJSON(ITEM_FOLDERS_KEY, map);
+    scheduleWorkspaceSync();
   };
   const folderCount = (name) =>
     allItems.filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
@@ -685,6 +803,7 @@
     };
     tags.push(tag);
     writeJSON(TAGS_KEY, tags);
+    scheduleWorkspaceSync();
     return tag;
   };
   const getItemTagIds = (k) => readJSON(ITEM_TAGS_KEY, {})[k] || [];
@@ -696,6 +815,7 @@
     cur.has(tagId) ? cur.delete(tagId) : cur.add(tagId);
     map[k] = [...cur];
     writeJSON(ITEM_TAGS_KEY, map);
+    scheduleWorkspaceSync();
   };
   const tagCount = (tagId) =>
     allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
@@ -703,13 +823,19 @@
   /* saved */
   const getSavedSet = () => new Set(readJSON(SAVED_KEY, []));
   const isSaved = (k) => getSavedSet().has(k);
-  const markSavedLocal = (k) => { const s = getSavedSet(); s.add(k); writeJSON(SAVED_KEY, [...s]); };
+  const markSavedLocal = (k) => {
+    const s = getSavedSet();
+    s.add(k);
+    writeJSON(SAVED_KEY, [...s]);
+    scheduleWorkspaceSync();
+  };
   const markUnsavedLocal = (item) => {
     const s = getSavedSet();
     for (const k of [keyOf(item), item.link, item.url, item.id]) {
       if (k) s.delete(k);
     }
     writeJSON(SAVED_KEY, [...s]);
+    scheduleWorkspaceSync();
   };
 
   /* ── Utilities ────────────────────────────────────────────────────────── */
@@ -861,6 +987,7 @@
 
   function openFolderCreator(anchor) {
     document.querySelector(".popover")?.remove();
+    closeDrawers();
     const pop = document.createElement("div");
     pop.className = "popover";
     pop.innerHTML = `<span class="label">New folder</span>
@@ -876,23 +1003,14 @@
       if (e.key === "Escape") pop.remove();
     });
     document.body.appendChild(pop);
-    const r = anchor.getBoundingClientRect();
-    pop.style.top = `${r.bottom + 6}px`;
-    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    positionPopover(pop, anchor);
     input.focus();
-    setTimeout(() => {
-      const close = (e) => {
-        if (!pop.contains(e.target) && e.target !== anchor) {
-          pop.remove();
-          document.removeEventListener("mousedown", close);
-        }
-      };
-      document.addEventListener("mousedown", close);
-    }, 0);
+    attachPopoverDismiss(pop, anchor);
   }
 
   function openTagCreator(anchor) {
     document.querySelector(".popover")?.remove();
+    closeDrawers();
     const pop = document.createElement("div");
     pop.className = "popover";
     let picked = TAG_COLORS[0];
@@ -923,17 +1041,7 @@
     document.body.appendChild(pop);
     positionPopover(pop, anchor);
     input.focus();
-    const dismiss = (e) => {
-      if (!pop.contains(e.target) && e.target !== anchor) {
-        pop.remove();
-        document.removeEventListener("mousedown", dismiss);
-        document.removeEventListener("touchstart", dismiss);
-      }
-    };
-    setTimeout(() => {
-      document.addEventListener("mousedown", dismiss);
-      document.addEventListener("touchstart", dismiss, { passive: true });
-    }, 0);
+    attachPopoverDismiss(pop, anchor);
   }
 
   byId("rail-add-folder").addEventListener("click", (e) => openFolderCreator(e.currentTarget));
@@ -1130,6 +1238,7 @@
   /* folder popover */
   function openFolderPicker(anchor, item) {
     document.querySelector(".popover")?.remove();
+    closeDrawers();
     const k = keyOf(item);
     const pop = document.createElement("div");
     pop.className = "popover";
@@ -1156,18 +1265,14 @@
     };
     render();
     document.body.appendChild(pop);
-    const r = anchor.getBoundingClientRect();
-    pop.style.top = `${r.bottom + 6}px`;
-    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
-    setTimeout(() => {
-      const close = (e) => { if (!pop.contains(e.target) && e.target !== anchor) { pop.remove(); document.removeEventListener("mousedown", close); } };
-      document.addEventListener("mousedown", close);
-    }, 0);
+    positionPopover(pop, anchor);
+    attachPopoverDismiss(pop, anchor);
   }
 
   /* tag popover */
   function openTagPicker(anchor, item) {
     document.querySelector(".popover")?.remove();
+    closeDrawers();
     const k = keyOf(item);
     const pop = document.createElement("div");
     pop.className = "popover";
@@ -1209,17 +1314,7 @@
     render();
     document.body.appendChild(pop);
     positionPopover(pop, anchor);
-    const dismiss = (e) => {
-      if (!pop.contains(e.target) && e.target !== anchor) {
-        pop.remove();
-        document.removeEventListener("mousedown", dismiss);
-        document.removeEventListener("touchstart", dismiss);
-      }
-    };
-    setTimeout(() => {
-      document.addEventListener("mousedown", dismiss);
-      document.addEventListener("touchstart", dismiss, { passive: true });
-    }, 0);
+    attachPopoverDismiss(pop, anchor);
   }
 
   /* save / unsave → POST|DELETE /api/save (falls back to local marker on failure) */
@@ -1539,6 +1634,12 @@
 
   byId("btn-refresh").addEventListener("click", () => loadFeed({ force: true }));
   window.addEventListener("resize", () => { if (getFolders().length || getTags().length) renderGraph(); });
+
+  loadWorkspaceFromServer().then(() => {
+    renderRail();
+    renderList();
+    renderGraph();
+  });
 
   if (!loadFeedSnapshot()) {
     byId("updated-line").textContent = "Loading…";

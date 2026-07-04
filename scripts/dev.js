@@ -5,6 +5,7 @@ const feedHandler = require("../api/feed");
 const cronHandler = require("../api/cron");
 const libraryHandler = require("../api/library");
 const saveHandler = require("../api/save");
+const workspaceHandler = require("../api/workspace");
 const { refreshFeedCache, REFRESH_MS } = require("../lib/feed-cache");
 const { SOURCES } = require("../api/feed");
 
@@ -123,6 +124,16 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
   if (pathname === "/api/save") {
     try {
       await saveHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/workspace") {
+    try {
+      await workspaceHandler(nodeReq, vercelRes(nodeRes));
     } catch (err) {
       nodeRes.statusCode = 500;
       nodeRes.end(JSON.stringify({ error: err.message }));

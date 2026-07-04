@@ -29,11 +29,12 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 │ Inbox    │ search + rows  │ item / Sources    │ Tag Map SVG  │
 │ Saved    │                │ Save · Tag ❧      │ (chat hidden)│
 │ Sources  │                │                   │              │
+│ + folders│                │                   │              │
 │ + tags   │                │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-**Tags** replaced legacy “folders”. localStorage: `markets_tags`, `markets_item_tags` (with migration from `markets_folders`).
+**Cross-device sync:** folders, tags, item assignments, read links, and saved keys merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 
 ## Mobile interaction (shipped July 2026)
 
@@ -93,8 +94,10 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 ## API surface (frontend uses)
 
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
-- `POST /api/save` — persist to `kb/inbox/` (needs `SAVE_SECRET` in prod)
-- `GET /api/library` — KB index (Phase 3 hook for enriched notes)
+- `GET /api/workspace` — folders, tags, item assignments, read, saved
+- `PUT /api/workspace` — merge + persist workspace (debounced from UI)
+- `POST /api/save` — persist to `kb/inbox/`
+- `GET /api/library` — KB index (Phase 3 hook)
 
 ## What not to do
 

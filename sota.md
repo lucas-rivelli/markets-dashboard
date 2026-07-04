@@ -38,7 +38,7 @@ lib/spotify.js      → Spotify Web API (saved shows → episodes, last 7 days)
 lib/bookmarks.js    → reads data/bookmarks.json
 lib/kb-index.js     → builds the Library read model from kb files
 data/bookmarks.json → X bookmarks, synced from Mac via birdclaw
-data/tags.json      → theme tags by item id (Phase 2 target)
+data/workspace.json     → synced folders, tags, read + saved keys (cross-device)
 kb/                 → repo-backed knowledge base database
 scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 ```
@@ -99,7 +99,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-- **Tags = user-created themes.** Stored client-side (`localStorage`: `markets_tags`, `markets_item_tags`; legacy `markets_folders` migrates on first load). **Tag** assigns an item to one or more tags. On **Save**, tag names are sent as `themes` to `POST /api/save`. Tags are the fast UI layer; `kb/` is the durable layer.
+- **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items; on **Save**, folder names + tag names go to `POST /api/save` as `themes`.
 - **Reading pane** embeds YouTube (`youtube-nocookie`) and Spotify; articles show a drop-cap preview + "Open original" (publishers block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
@@ -121,7 +121,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
 - **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
 
-- **localStorage keys:** `markets_read` (link-keyed), `markets_tags`, `markets_item_tags`, `markets_saved`, `markets_feed_snapshot`, `markets_tags_migrated`.
+- **localStorage keys:** `markets_read`, `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_saved`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
 
 ## 5. Roadmap (agreed direction)
 
@@ -145,7 +145,7 @@ unavailable. Mobile drill-down, drawer scrim, and History API back stack shipped
 > routes if it was started before they were added (`npm run dev`).
 
 **Phase 2 — triage tagging.**
-Deferred. Manual tags with optional colors live in the browser for now (`markets_tags`, `markets_item_tags`).
+Folders + colored tags ship in the UI and sync via `/api/workspace`. LLM auto-tagging of the firehose remains deferred (`data/tags.json`).
 
 **Phase 3 — enrichment → knowledge base (Karpathy LLM wiki).**
 Deferred. Save/inbox plumbing exists but enrichment, notes, and “ask the KB” are future work.
