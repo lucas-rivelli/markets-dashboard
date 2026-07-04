@@ -109,7 +109,7 @@ SPOTIFY_CLIENT_ID=your_id SPOTIFY_CLIENT_SECRET=your_secret node scripts/spotify
    - `SPOTIFY_REFRESH_TOKEN`
 5. Redeploy
 
-The morning Vercel cron fetches Spotify automatically — no Mac needed.
+The feed refresh workflow fetches Spotify automatically every 5 minutes — no Mac needed.
 
 ---
 
@@ -147,26 +147,24 @@ Or use birdclaw's built-in scheduler (`birdclaw jobs install-bookmarks-launchd`)
 
 ## Caching & automatic refresh
 
-**Every morning (7:00 AM US Eastern)** a Vercel Cron job hits `/api/cron` and fetches all RSS feeds in the background — even if you don't open the page.
+**Every 5 minutes** the GitHub Actions feed refresh workflow hits `/api/feed` and warms the Vercel edge cache — even if you don't open the page.
 
-**When you open the dashboard** the first time each day, it does a live fetch (`?fresh=1`) so you see overnight posts. Later visits that day use the cached API response (fast).
+**When you open the dashboard** it shows the last browser snapshot instantly, then syncs in the background. While open, the page polls the feed every 5 minutes.
 
 **Refresh button** always does a live fetch.
 
-### One-time Vercel setup for cron
+### One-time production setup
 
-1. In your Vercel project → **Settings** → **Environment Variables**
-2. Add `CRON_SECRET` — any long random string (e.g. from `openssl rand -hex 32`)
-3. Redeploy. Vercel sends this secret when calling `/api/cron`.
+1. In your Vercel project → **Settings** → **Environment Variables**, add `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, and `SPOTIFY_REFRESH_TOKEN`.
+2. In GitHub → **Settings** → **Secrets and variables** → **Actions**, add repo variable `SITE_URL` with the real Vercel production URL.
+3. If Vercel Deployment Protection is enabled, add GitHub secret `VERCEL_BYPASS_SECRET`.
+4. Redeploy or push a commit.
 
-Cron schedule is in `vercel.json` (`0 12 * * *` UTC ≈ 7 AM EST). Edit if you want a different time.
+Vercel Hobby cron remains configured as a daily backup in `vercel.json`; the 5-minute refresh lives in `.github/workflows/feed-refresh.yml`.
 
 ---
 
 ## Caching (manual visits)
 
-The API response is cached at Vercel's edge for **30 minutes**
-(`s-maxage=1800, stale-while-revalidate=3600`), so the dashboard stays fast and
-won't hammer feed servers. Click **↻ refresh** in the UI to get fresh data when you
-want it (the request bypasses the browser cache but still serves the edge cache if
-it's warm).
+The API response is cached at Vercel's edge for **5 minutes**, so the dashboard stays
+fast without hammering feed servers. Click **↻ Sync** in the UI to force a live fetch.

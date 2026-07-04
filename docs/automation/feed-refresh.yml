@@ -1,5 +1,4 @@
-# Keeps the Vercel edge cache warm every 5 minutes — free on GitHub, no Vercel Pro needed.
-# Requires repo secret: CRON_SECRET (same value as Vercel env var)
+# Keeps the Vercel /api/feed edge cache warm every 5 minutes — free on GitHub, no Vercel Pro needed.
 # Requires repo variable: SITE_URL (your production URL from the Vercel dashboard)
 # If Vercel Deployment Protection is on, also add secret VERCEL_BYPASS_SECRET
 # (Vercel → Project → Settings → Deployment Protection → Protection Bypass for Automation)
@@ -15,18 +14,13 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping /api/cron
+      - name: Ping /api/feed
         env:
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
           SITE_URL: ${{ vars.SITE_URL }}
           VERCEL_BYPASS_SECRET: ${{ secrets.VERCEL_BYPASS_SECRET }}
         run: |
-          if [ -z "$CRON_SECRET" ]; then
-            echo "CRON_SECRET not set — add it in GitHub → Settings → Secrets → Actions"
-            exit 1
-          fi
           BASE="${SITE_URL:-https://markets-dashboard-knowledgemaxxing.vercel.app}"
-          echo "Refreshing feed at ${BASE}/api/cron"
+          echo "Refreshing feed at ${BASE}/api/feed"
 
           EXTRA_HEADERS=()
           if [ -n "$VERCEL_BYPASS_SECRET" ]; then
@@ -34,13 +28,12 @@ jobs:
           fi
 
           HTTP_CODE=$(curl -sS --retry 2 --retry-delay 5 \
-            -o /tmp/cron-body.txt -w "%{http_code}" \
-            -H "Authorization: Bearer ${CRON_SECRET}" \
+            -o /tmp/feed-body.txt -w "%{http_code}" \
             "${EXTRA_HEADERS[@]}" \
-            "${BASE}/api/cron")
+            "${BASE}/api/feed")
 
           echo "HTTP ${HTTP_CODE}"
-          cat /tmp/cron-body.txt || true
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('/tmp/feed-body.txt','utf8')); console.log(JSON.stringify({updated:d.updated,total:d.items?.length||0,failed:d.failed||[],meta:d.meta||{}}, null, 2));" || true
 
           if [ "$HTTP_CODE" = "200" ]; then
             exit 0

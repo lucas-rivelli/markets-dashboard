@@ -2,10 +2,12 @@
 
 > Read this file first when opening a new chat to continue work on this project.
 
-## Current resume point — July 4, 2026, 3:15 PM
+## Current resume point — July 4, 2026, 8:45 PM
 
-- Spotify is working locally: `/api/feed?fresh=1` returned `failed: []`, `spotifyEpisodes: 65`, `total: 152`.
-- Spotify now loads all saved podcast shows, limits episodes to the past 7 days, excludes `Posse de Bola`, and fetches shows in parallel to avoid Vercel timeout.
+- Spotify credentials are present locally, but Spotify episode calls are currently returning `HTTP 429` after repeated testing. The backend now reports Spotify as unavailable instead of silently showing zero Spotify episodes when rate-limited.
+- The 5-minute GitHub Actions refresh now pings `/api/feed`, the endpoint the page actually uses, so it warms the Vercel edge cache. `/api/cron` remains a daily Vercel backup.
+- Local setup check passes for Spotify credentials, birdclaw, bookmarks, and `CRON_SECRET`.
+- Spotify now loads all saved podcast shows, limits episodes to the past 7 days, excludes `Posse de Bola`, and paces episode requests to avoid Spotify rate limits.
 - Local dev server was restarted and is running at `http://localhost:3000`.
 - Twitter/X bookmarks are working locally after Safari login and Full Disk Access: birdclaw synced 70 bookmarks and `data/bookmarks.json` was exported successfully.
 - Local `/api/feed?fresh=1` verified `failed: []`, `bookmarks: 70`, `bookmarkItems: 70`, `total: 157` after Twitter export.

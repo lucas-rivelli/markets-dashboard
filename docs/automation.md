@@ -5,9 +5,7 @@ Copy them into `.github/workflows/` after running `gh auth refresh -s workflow`.
 
 ## feed-refresh.yml
 
-Pings `/api/cron` every 5 minutes to warm the Vercel edge cache.
-
-Requires GitHub repo secret: `CRON_SECRET` (same value as Vercel).
+Pings `/api/feed` every 5 minutes to warm the Vercel edge cache used by the page.
 
 **Required** repo variable: `SITE_URL` — your real production URL from the
 Vercel dashboard (project → Domains). The old default
@@ -27,10 +25,9 @@ Commits `data/bookmarks.json` back to the repo so Vercel redeploys with fresh bo
 ## Alternative: cron-job.org (no GitHub Actions)
 
 1. Create a free job at [cron-job.org](https://cron-job.org)
-2. URL: `https://YOUR-SITE-URL/api/cron` (check Vercel dashboard → Domains)
+2. URL: `https://YOUR-SITE-URL/api/feed` (check Vercel dashboard → Domains)
 3. Schedule: every 5 minutes
-4. Request header: `Authorization: Bearer YOUR_CRON_SECRET`
-5. If Deployment Protection is on, add header `x-vercel-protection-bypass: YOUR_BYPASS_SECRET`
+4. If Deployment Protection is on, add header `x-vercel-protection-bypass: YOUR_BYPASS_SECRET`
 
 Or run locally / from any scheduler:
 
