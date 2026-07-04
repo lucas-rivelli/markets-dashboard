@@ -24,19 +24,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Sync and export bookmarks
+      - name: Export bookmarks via bird
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           CT0: ${{ secrets.CT0 }}
         run: |
           if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
             echo "AUTH_TOKEN or CT0 not set — skipping bookmark sync."
-            echo "Add both as GitHub Actions secrets to enable automated X bookmarks."
+            echo "Run: npm run setup:github-x-secrets"
             exit 0
           fi
-          npx birdclaw sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json
-          npx birdclaw search tweets --bookmarked --limit 100 --json \
-            | node scripts/export-bookmarks.js
+          npx bird bookmarks --count 100 --json | node scripts/export-bookmarks.js
 
       - name: Commit bookmark changes
         env:

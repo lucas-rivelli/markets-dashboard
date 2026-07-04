@@ -35,9 +35,7 @@ jobs:
             echo "Add both as GitHub Actions secrets to enable automated X bookmarks."
             exit 0
           fi
-          npx birdclaw sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json
-          npx birdclaw search tweets --bookmarked --limit 100 --json \
-            | node scripts/export-bookmarks.js
+          npx bird bookmarks --count 100 --json | node scripts/export-bookmarks.js
 
       - name: Commit bookmark changes
         env:
