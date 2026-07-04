@@ -145,7 +145,7 @@
     }
     .col-head .label { color: var(--rubric); }
 
-    /* ── Rail (tags) ────────────────────────────────────────────────────── */
+    /* ── Rail (folders + tags) ──────────────────────────────────────────── */
     .rail { background: var(--paper-rail); }
     .rail .col-head { background: var(--paper-rail); }
 
@@ -273,6 +273,10 @@
       border: 1px solid currentColor; border-radius: 999px;
       padding: 0.02rem 0.45rem; opacity: 0.92;
     }
+    .msg-folder {
+      font-size: 0.66rem; color: var(--gold); font-style: italic;
+    }
+    .msg-folder::before { content: "❧ "; }
 
     /* ── Reading pane ───────────────────────────────────────────────────── */
     .reader { display: flex; flex-direction: column; }
@@ -336,6 +340,13 @@
       border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.6rem;
       display: inline-flex; align-items: center; gap: 0.3rem;
     }
+    .chip-folder {
+      font-size: 0.72rem; color: var(--gold); font-style: italic;
+      border: 1px solid var(--rule-soft); border-radius: 999px; padding: 0.1rem 0.6rem;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+    .chip-folder button { color: var(--ink-faint); font-size: 0.9em; line-height: 1; }
+    .chip-folder button:hover { color: var(--rubric); }
     .rail-item .tag-dot {
       width: 0.55rem; height: 0.55rem; border-radius: 50%; flex-shrink: 0;
       border: 1px solid rgba(41,32,24,0.15);
@@ -513,7 +524,7 @@
 
 <div class="app">
   <header class="topbar">
-    <button class="link-btn rail-toggle label" id="rail-toggle" aria-label="Open tags">☰ Tags</button>
+    <button class="link-btn rail-toggle label" id="rail-toggle" aria-label="Open sidebar">☰ Menu</button>
     <div class="brand">
       <span class="brand-mark" aria-hidden="true">❦</span>
       <span class="brand-name">Markets Reading</span>
@@ -526,13 +537,16 @@
   </header>
 
   <div class="workspace">
-    <!-- Tag rail -->
-    <nav class="col rail" aria-label="Tags">
+    <!-- Folder + tag rail -->
+    <nav class="col rail" aria-label="Reading room">
       <div class="col-head"><span class="label">Reading Room</span></div>
       <ul class="rail-list" id="rail-fixed"></ul>
+      <div class="rail-divider label">Folders</div>
+      <ul class="rail-list" id="rail-folders"></ul>
+      <button class="rail-add" id="rail-add-folder">＋ New folder</button>
       <div class="rail-divider label">Tags</div>
       <ul class="rail-list" id="rail-tags"></ul>
-      <button class="rail-add" id="rail-add">＋ New tag</button>
+      <button class="rail-add" id="rail-add-tag">＋ New tag</button>
     </nav>
 
     <!-- Message list -->
@@ -564,11 +578,11 @@
     <aside class="aside">
       <div class="aside-section">
         <div class="col-head">
-          <span class="label">Tag Map</span>
+          <span class="label">Map</span>
           <button class="link-btn label pane-toggle" id="aside-close" aria-label="Close panel">✕</button>
         </div>
         <div class="graph-wrap" id="graph-wrap">
-          <div class="graph-empty" id="graph-empty">Create tags and classify what you read — your map grows here.</div>
+          <div class="graph-empty" id="graph-empty">Create folders and tags as you read — your map grows here.</div>
         </div>
       </div>
       <div class="aside-section chat">
@@ -592,13 +606,15 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
-  let activeView = "inbox"; // inbox | saved | sources | tag:<id>
+  let activeView = "inbox"; // inbox | saved | sources | folder:<name> | tag:<id>
   let readFilter = "all";
   let feedPollTimer = null;
 
-  const READ_KEY        = "markets_read";
-  const TAGS_KEY        = "markets_tags";
-  const ITEM_TAGS_KEY   = "markets_item_tags";
+  const READ_KEY          = "markets_read";
+  const FOLDERS_KEY       = "markets_folders";
+  const ITEM_FOLDERS_KEY  = "markets_item_folders";
+  const TAGS_KEY          = "markets_tags";
+  const ITEM_TAGS_KEY     = "markets_item_tags";
   const SAVED_KEY       = "markets_saved";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
   const REFRESH_MS      = 5 * 60 * 1000;
@@ -628,6 +644,30 @@
     read ? s.add(link) : s.delete(link);
     writeJSON(READ_KEY, [...s]);
   };
+
+  /* folders */
+  const getFolders = () => readJSON(FOLDERS_KEY, []);
+  const addFolder = (name) => {
+    name = String(name || "").trim();
+    if (!name) return null;
+    const folders = getFolders();
+    if (folders.some((x) => x.toLowerCase() === name.toLowerCase())) {
+      return folders.find((x) => x.toLowerCase() === name.toLowerCase());
+    }
+    folders.push(name);
+    writeJSON(FOLDERS_KEY, folders);
+    return name;
+  };
+  const getItemFolders = (k) => readJSON(ITEM_FOLDERS_KEY, {})[k] || [];
+  const toggleItemFolder = (k, name) => {
+    const map = readJSON(ITEM_FOLDERS_KEY, {});
+    const cur = new Set(map[k] || []);
+    cur.has(name) ? cur.delete(name) : cur.add(name);
+    map[k] = [...cur];
+    writeJSON(ITEM_FOLDERS_KEY, map);
+  };
+  const folderCount = (name) =>
+    allItems.filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
 
   /* tags */
   const getTags = () => readJSON(TAGS_KEY, []);
@@ -660,30 +700,17 @@
   const tagCount = (tagId) =>
     allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
 
-  function migrateLegacyFolders() {
-    if (localStorage.getItem("markets_tags_migrated")) return;
-    const folders = readJSON("markets_folders", []);
-    const itemFolders = readJSON("markets_item_folders", {});
-    if (folders.length || Object.keys(itemFolders).length) {
-      const tags = folders.map((name, i) => ({
-        id: slugify(name),
-        name,
-        color: TAG_COLORS[i % TAG_COLORS.length],
-      }));
-      writeJSON(TAGS_KEY, tags);
-      const itemTags = {};
-      for (const [k, names] of Object.entries(itemFolders)) {
-        itemTags[k] = names.map((n) => slugify(n)).filter(Boolean);
-      }
-      writeJSON(ITEM_TAGS_KEY, itemTags);
-    }
-    localStorage.setItem("markets_tags_migrated", "1");
-  }
-
   /* saved */
   const getSavedSet = () => new Set(readJSON(SAVED_KEY, []));
   const isSaved = (k) => getSavedSet().has(k);
   const markSavedLocal = (k) => { const s = getSavedSet(); s.add(k); writeJSON(SAVED_KEY, [...s]); };
+  const markUnsavedLocal = (item) => {
+    const s = getSavedSet();
+    for (const k of [keyOf(item), item.link, item.url, item.id]) {
+      if (k) s.delete(k);
+    }
+    writeJSON(SAVED_KEY, [...s]);
+  };
 
   /* ── Utilities ────────────────────────────────────────────────────────── */
   function esc(str) {
@@ -782,6 +809,11 @@
     ];
     byId("rail-fixed").innerHTML = fixed.map(railItemHTML).join("");
 
+    const folders = getFolders();
+    byId("rail-folders").innerHTML = folders.length
+      ? folders.map((name) => railFolderHTML(name)).join("")
+      : `<li style="padding:0.3rem 1rem;color:var(--ink-faint);font-style:italic;font-size:0.85rem">No folders yet</li>`;
+
     const tags = getTags();
     byId("rail-tags").innerHTML = tags.length
       ? tags.map((tag) => railTagHTML(tag)).join("")
@@ -797,6 +829,14 @@
       <span class="glyph" aria-hidden="true">${f.glyph}</span>
       <span class="name">${esc(f.name)}</span>
       <span class="count">${f.count}</span></button></li>`;
+  }
+  function railFolderHTML(name) {
+    const id = "folder:" + name;
+    const cur = activeView === id;
+    return `<li><button class="rail-item" data-view="${esc(id)}" aria-current="${cur}">
+      <span class="glyph" aria-hidden="true">❧</span>
+      <span class="name">${esc(name)}</span>
+      <span class="count">${folderCount(name)}</span></button></li>`;
   }
   function railTagHTML(tag) {
     const id = "tag:" + tag.id;
@@ -817,6 +857,38 @@
     } else if (isMobileLayout() && mobilePane() === "reader" && !selectedId) {
       setMobilePane("list");
     }
+  }
+
+  function openFolderCreator(anchor) {
+    document.querySelector(".popover")?.remove();
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    pop.innerHTML = `<span class="label">New folder</span>
+      <div class="pop-new"><input placeholder="Folder name…" aria-label="Folder name" /></div>
+      <div class="tag-create-actions"><button type="button">Create folder</button></div>`;
+    const input = pop.querySelector("input");
+    const create = () => {
+      if (addFolder(input.value)) { renderRail(); renderGraph(); input.value = ""; pop.remove(); }
+    };
+    pop.querySelector("button").addEventListener("click", create);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { e.preventDefault(); create(); }
+      if (e.key === "Escape") pop.remove();
+    });
+    document.body.appendChild(pop);
+    const r = anchor.getBoundingClientRect();
+    pop.style.top = `${r.bottom + 6}px`;
+    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    input.focus();
+    setTimeout(() => {
+      const close = (e) => {
+        if (!pop.contains(e.target) && e.target !== anchor) {
+          pop.remove();
+          document.removeEventListener("mousedown", close);
+        }
+      };
+      document.addEventListener("mousedown", close);
+    }, 0);
   }
 
   function openTagCreator(anchor) {
@@ -864,7 +936,8 @@
     }, 0);
   }
 
-  byId("rail-add").addEventListener("click", (e) => openTagCreator(e.currentTarget));
+  byId("rail-add-folder").addEventListener("click", (e) => openFolderCreator(e.currentTarget));
+  byId("rail-add-tag").addEventListener("click", (e) => openTagCreator(e.currentTarget));
   byId("rail-toggle").addEventListener("click", () => toggleDrawer("rail"));
   byId("drawer-scrim").addEventListener("click", closeDrawers);
 
@@ -873,12 +946,17 @@
     if (activeView === "inbox") return "Inbox";
     if (activeView === "saved") return "Saved";
     if (activeView === "sources") return "Sources";
+    if (activeView.startsWith("folder:")) return activeView.slice(7);
     const tag = tagById(activeView.slice(4));
     return tag ? tag.name : "Tag";
   }
 
   function itemsForView() {
     if (activeView === "saved") return allItems.filter((it) => isSaved(keyOf(it)));
+    if (activeView.startsWith("folder:")) {
+      const name = activeView.slice(7);
+      return allItems.filter((it) => getItemFolders(keyOf(it)).includes(name));
+    }
     if (activeView.startsWith("tag:")) {
       const tagId = activeView.slice(4);
       return allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId));
@@ -908,11 +986,14 @@
     const container = byId("list-container");
     const q = byId("search").value.toLowerCase().trim();
     let items = itemsForView().filter((it) => {
-      const tagNames = getItemTags(keyOf(it)).map((t) => t.name).join(" ");
+      const k = keyOf(it);
+      const tagNames = getItemTags(k).map((t) => t.name).join(" ");
+      const folderNames = getItemFolders(k).join(" ");
       const matchQ = !q || (it.title || "").toLowerCase().includes(q)
         || (it.source || "").toLowerCase().includes(q)
         || (it.snippet || "").toLowerCase().includes(q)
-        || tagNames.toLowerCase().includes(q);
+        || tagNames.toLowerCase().includes(q)
+        || folderNames.toLowerCase().includes(q);
       const rd = isRead(it.link);
       const matchR = readFilter === "all" || (readFilter === "read" && rd) || (readFilter === "unread" && !rd);
       return matchQ && matchR;
@@ -923,6 +1004,7 @@
     if (!items.length) {
       container.innerHTML = `<p class="empty-state">${
         activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
+        : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
         : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
       return;
@@ -935,6 +1017,7 @@
       const read = isRead(item.link);
       const k = keyOf(item);
       const tags = getItemTags(k);
+      const folders = getItemFolders(k);
       const li = document.createElement("li");
       const btn = document.createElement("button");
       btn.className = "msg" + (read ? " is-read" : "");
@@ -947,6 +1030,7 @@
         </div>
         <div class="msg-title"><span class="msg-dot" aria-hidden="true"></span>${esc(item.title)}</div>
         ${item.snippet ? `<div class="msg-snippet">${esc(item.snippet)}</div>` : ""}
+        ${folders.length ? `<div class="msg-folder">${folders.map((f) => esc(f)).join(" · ")}</div>` : ""}
         ${tags.length ? `<div class="msg-tags">${renderTagChips(tags)}</div>` : ""}
       `;
       btn.addEventListener("click", () => openItem(k));
@@ -979,6 +1063,7 @@
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const saved = isSaved(k);
     const tags = getItemTags(k);
+    const folders = getItemFolders(k);
 
     let embedHTML = "";
     if (yt) {
@@ -1006,10 +1091,14 @@
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           <button class="action-btn ${saved ? "is-on" : ""}" id="btn-save">${saved ? "Saved ✓" : "Save"}</button>
-          <button class="action-btn" id="btn-classify">Tag ❧</button>
+          <button class="action-btn" id="btn-folder">Folder ❧</button>
+          <button class="action-btn" id="btn-tag">Tag</button>
         </div>
-        ${tags.length ? `<div class="chip-row" id="reader-tags">${tags.map((tag) =>
-            `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}</div>` : `<div class="chip-row" id="reader-tags"></div>`}
+        ${folders.length || tags.length ? `<div class="chip-row" id="reader-meta">${
+          folders.map((f) =>
+            `<span class="chip-folder">${esc(f)} <button data-unfolder="${esc(f)}" aria-label="Remove from ${esc(f)}">✕</button></span>`).join("")
+        }${tags.map((tag) =>
+            `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}</div>` : `<div class="chip-row" id="reader-meta"></div>`}
         ${embedHTML}
         ${bodyHTML}
         <p class="reader-note">${
@@ -1020,14 +1109,17 @@
       </div>`;
     byId("reader-empty") && (byId("reader-empty").hidden = true);
 
-    byId("btn-save").addEventListener("click", () => saveItem(item));
-    byId("btn-classify").addEventListener("click", (e) => openClassify(e.currentTarget, item));
+    byId("btn-save").addEventListener("click", () => toggleSaveItem(item));
+    byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
+    byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     wireReaderBack();
     reader.querySelectorAll("[data-untag]").forEach((b) =>
-      b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterTagChange(item); }));
+      b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterMetaChange(item); }));
+    reader.querySelectorAll("[data-unfolder]").forEach((b) =>
+      b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.unfolder); afterMetaChange(item); }));
   }
 
-  function afterTagChange(item) {
+  function afterMetaChange(item) {
     renderReader(item);
     renderRail();
     renderGraph();
@@ -1035,8 +1127,46 @@
     document.querySelectorAll(".msg").forEach((m) => m.setAttribute("aria-selected", m.dataset.id === selectedId));
   }
 
+  /* folder popover */
+  function openFolderPicker(anchor, item) {
+    document.querySelector(".popover")?.remove();
+    const k = keyOf(item);
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    const render = () => {
+      const assigned = getItemFolders(k);
+      const folders = getFolders();
+      pop.innerHTML = `<span class="label">File into folder</span>
+        ${folders.length ? folders.map((f) =>
+          `<button class="pop-item" data-folder="${esc(f)}"><span class="check">${assigned.includes(f) ? "✓" : ""}</span>${esc(f)}</button>`).join("")
+          : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No folders yet — create one below.</div>`}
+        <div class="pop-new"><input placeholder="New folder…" aria-label="New folder name" /></div>
+        <div class="tag-create-actions"><button type="button">Create &amp; file</button></div>`;
+      pop.querySelectorAll("[data-folder]").forEach((b) =>
+        b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.folder); render(); afterMetaChange(item); }));
+      const input = pop.querySelector(".pop-new input");
+      const create = () => {
+        const n = addFolder(input.value);
+        if (n) { toggleItemFolder(k, n); render(); afterMetaChange(item); }
+        input.value = "";
+        input.focus();
+      };
+      pop.querySelector(".tag-create-actions button").addEventListener("click", create);
+      input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); create(); } });
+    };
+    render();
+    document.body.appendChild(pop);
+    const r = anchor.getBoundingClientRect();
+    pop.style.top = `${r.bottom + 6}px`;
+    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    setTimeout(() => {
+      const close = (e) => { if (!pop.contains(e.target) && e.target !== anchor) { pop.remove(); document.removeEventListener("mousedown", close); } };
+      document.addEventListener("mousedown", close);
+    }, 0);
+  }
+
   /* tag popover */
-  function openClassify(anchor, item) {
+  function openTagPicker(anchor, item) {
     document.querySelector(".popover")?.remove();
     const k = keyOf(item);
     const pop = document.createElement("div");
@@ -1058,7 +1188,7 @@
         </div>
         <div class="tag-create-actions"><button type="button">Create &amp; apply</button></div>`;
       pop.querySelectorAll(".pop-item").forEach((b) =>
-        b.addEventListener("click", () => { toggleItemTag(k, b.dataset.tag); render(); afterTagChange(item); }));
+        b.addEventListener("click", () => { toggleItemTag(k, b.dataset.tag); render(); afterMetaChange(item); }));
       pop.querySelectorAll(".color-swatch").forEach((btn) => {
         btn.addEventListener("click", () => {
           picked = btn.dataset.color;
@@ -1069,7 +1199,7 @@
       const input = pop.querySelector(".pop-new input");
       const create = () => {
         const tag = addTag(input.value, picked);
-        if (tag) { toggleItemTag(k, tag.id); render(); afterTagChange(item); }
+        if (tag) { toggleItemTag(k, tag.id); render(); afterMetaChange(item); }
         input.value = "";
         input.focus();
       };
@@ -1092,15 +1222,38 @@
     }, 0);
   }
 
-  /* save → POST /api/save (falls back to local marker on failure) */
-  async function saveItem(item) {
+  /* save / unsave → POST|DELETE /api/save (falls back to local marker on failure) */
+  async function toggleSaveItem(item) {
     const k = keyOf(item);
     const btn = byId("btn-save");
+
+    if (isSaved(k)) {
+      btn.textContent = "Removing…";
+      try {
+        const res = await fetch("/api/save", {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: k, link: item.link }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        markUnsavedLocal(item);
+        btn.textContent = "Save";
+        btn.classList.remove("is-on");
+      } catch (err) {
+        markUnsavedLocal(item);
+        btn.textContent = "Save";
+        btn.classList.remove("is-on");
+      }
+      renderRail();
+      if (activeView === "saved") renderList();
+      return;
+    }
+
     btn.textContent = "Saving…";
     const payload = {
       title: item.title, link: item.link, source: item.source,
       category: item.category, date: item.date, snippet: item.snippet,
-      themes: getItemTags(k).map((t) => t.name),
+      themes: [...getItemFolders(k), ...getItemTags(k).map((t) => t.name)],
     };
     try {
       const res = await fetch("/api/save", {
@@ -1156,15 +1309,16 @@
     back && back.addEventListener("click", () => setMobilePane("list"));
   }
 
-  /* ── Tag map ──────────────────────────────────────────────────────────── */
+  /* ── Tag + folder map ─────────────────────────────────────────────────── */
   function renderGraph() {
+    const folders = getFolders();
     const tags = getTags();
     const wrap = byId("graph-wrap");
     const empty = byId("graph-empty");
     const existing = wrap.querySelector("svg");
     if (existing) existing.remove();
 
-    if (!tags.length) { empty.style.display = ""; return; }
+    if (!folders.length && !tags.length) { empty.style.display = ""; return; }
     empty.style.display = "none";
 
     const W = wrap.clientWidth || 320, H = wrap.clientHeight || 200;
@@ -1174,11 +1328,27 @@
     const svg = document.createElementNS(svgns, "svg");
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-    const counts = tags.map((tag) => tagCount(tag.id));
-    const maxC = Math.max(1, ...counts);
+    const folderNodes = folders.map((name) => ({
+      id: "folder:" + name, label: name, count: folderCount(name),
+      rScale: folders.length && tags.length ? 0.58 : 1,
+    }));
+    const tagNodes = tags.map((tag) => ({
+      id: "tag:" + tag.id, label: tag.name, count: tagCount(tag.id), color: tag.color,
+    }));
 
-    tags.forEach((_, i) => {
-      const a = (i / tags.length) * Math.PI * 2 - Math.PI / 2;
+    folderNodes.forEach((node, i) => {
+      const a = (i / folderNodes.length) * Math.PI * 2 - Math.PI / 2;
+      const rad = R * node.rScale;
+      const x = cx + Math.cos(a) * rad, y = cy + Math.sin(a) * rad;
+      const line = document.createElementNS(svgns, "line");
+      line.setAttribute("class", "g-link");
+      line.setAttribute("x1", cx); line.setAttribute("y1", cy);
+      line.setAttribute("x2", x); line.setAttribute("y2", y);
+      svg.appendChild(line);
+    });
+
+    tagNodes.forEach((node, i) => {
+      const a = (i / tagNodes.length) * Math.PI * 2 - Math.PI / 2;
       const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
       const line = document.createElementNS(svgns, "line");
       line.setAttribute("class", "g-link");
@@ -1189,16 +1359,29 @@
 
     svg.appendChild(nodeEl(svgns, cx, cy, 22, "Inbox", "center", null, null));
 
-    tags.forEach((tag, i) => {
-      const a = (i / tags.length) * Math.PI * 2 - Math.PI / 2;
-      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
-      const rad = 9 + (counts[i] / maxC) * 12;
-      const cls = "tag:" + tag.id === activeView ? "active" : "";
-      const g = nodeEl(svgns, x, y, rad, tag.name, cls, tag.color, () => {
-        selectView("tag:" + tag.id);
+    const maxFolder = Math.max(1, ...folderNodes.map((n) => n.count));
+    folderNodes.forEach((node, i) => {
+      const a = (i / folderNodes.length) * Math.PI * 2 - Math.PI / 2;
+      const rad = R * node.rScale;
+      const x = cx + Math.cos(a) * rad, y = cy + Math.sin(a) * rad;
+      const r = 9 + (node.count / maxFolder) * 12;
+      const cls = node.id === activeView ? "active" : "";
+      svg.appendChild(nodeEl(svgns, x, y, r, node.label, cls, null, () => {
+        selectView(node.id);
         if (isMobileLayout()) document.body.dataset.aside = "closed";
-      });
-      svg.appendChild(g);
+      }));
+    });
+
+    const maxTag = Math.max(1, ...tagNodes.map((n) => n.count));
+    tagNodes.forEach((node, i) => {
+      const a = (i / tagNodes.length) * Math.PI * 2 - Math.PI / 2;
+      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
+      const r = 9 + (node.count / maxTag) * 12;
+      const cls = node.id === activeView ? "active" : "";
+      svg.appendChild(nodeEl(svgns, x, y, r, node.label, cls, node.color, () => {
+        selectView(node.id);
+        if (isMobileLayout()) document.body.dataset.aside = "closed";
+      }));
     });
 
     wrap.appendChild(svg);
@@ -1355,9 +1538,8 @@
   }
 
   byId("btn-refresh").addEventListener("click", () => loadFeed({ force: true }));
-  window.addEventListener("resize", () => { if (getTags().length) renderGraph(); });
+  window.addEventListener("resize", () => { if (getFolders().length || getTags().length) renderGraph(); });
 
-  migrateLegacyFolders();
   if (!loadFeedSnapshot()) {
     byId("updated-line").textContent = "Loading…";
   }

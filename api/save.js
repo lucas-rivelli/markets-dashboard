@@ -3,6 +3,7 @@ const {
   SaveError,
   hasGithubToken,
   saveKnowledgeItem,
+  unsaveKnowledgeItem,
 } = require("../lib/kb-save");
 
 const MAX_BODY_BYTES = 1024 * 1024;
@@ -68,14 +69,29 @@ async function readJsonBody(req) {
 }
 
 module.exports = async function handler(req, res) {
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+  if (req.method !== "POST" && req.method !== "DELETE") {
+    res.setHeader("Allow", "POST, DELETE");
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const body = await readJsonBody(req);
     assertAuthorized(req, body);
+
+    if (req.method === "DELETE") {
+      const removed = await unsaveKnowledgeItem(body);
+
+      res.setHeader("Cache-Control", "no-store");
+      res.setHeader("Content-Type", "application/json");
+
+      return res.status(200).json({
+        ok: true,
+        id: removed.id,
+        path: removed.result.path,
+        persistence: removed.persistence,
+        alreadyRemoved: removed.result.alreadyRemoved,
+      });
+    }
 
     const saved = await saveKnowledgeItem(body);
 
