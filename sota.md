@@ -9,6 +9,8 @@
 ---
 
 ## 1. Vision
+
+A personal **learning environment** for markets, macro, and ideas — not just a feed reader.
 The end state is a funnel:
 
 ```
