@@ -1,8 +1,10 @@
 # Markets Dashboard
 
 A personal RSS aggregator for markets reading. One page, two views:
-- **Latest** — merged feed from all sources, sorted by date, with NEW badges and search.
+- **Latest** — merged feed from all sources, sorted by date, with read/unread tracking and search.
 - **Sources** — launchpad of all followed accounts, grouped by category.
+
+**Continuing work in a new chat?** Read [`HANDOFF.md`](HANDOFF.md) first — it has full project state, setup TODOs, and architecture.
 
 ## Project structure
 
