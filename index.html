@@ -239,6 +239,9 @@
       cursor: pointer;
       transition: background 0.12s;
       touch-action: manipulation;
+      -webkit-touch-callout: none;
+      user-select: none;
+      -webkit-user-select: none;
     }
     .msg:hover { background: var(--paper-rail); }
     .msg[aria-selected="true"] {
@@ -1442,7 +1445,14 @@
         ${folders.length ? `<div class="msg-folder">${folders.map((f) => esc(f)).join(" · ")}</div>` : ""}
         ${tags.length ? `<div class="msg-tags">${renderTagChips(tags)}</div>` : ""}
       `;
-      btn.addEventListener("click", () => openItem(k));
+      btn.addEventListener("click", () => {
+        if (btn.dataset.ctxSuppressClick === "1") {
+          btn.dataset.ctxSuppressClick = "0";
+          return;
+        }
+        openItem(k);
+      });
+      wireMsgContextGestures(btn, item);
       li.appendChild(btn);
       ul.appendChild(li);
     });
@@ -1624,21 +1634,99 @@
 
   function toggleReadItem(item) {
     setRead(item, !isRead(item));
-    renderReader(item);
+    if (selectedId === keyOf(item)) renderReader(item);
     renderList();
     updateCounts();
-    document.querySelectorAll(".msg").forEach((m) => {
-      if (m.dataset.id === keyOf(item)) m.classList.toggle("is-read", isRead(item));
+  }
+
+  /* ── Email-style context menu on list items ───────────────────────────── */
+  function openMsgContextMenu(anchor, item, point) {
+    document.querySelector(".popover")?.remove();
+    const k = keyOf(item);
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    const read = isRead(item);
+    const saved = isSaved(k);
+    pop.innerHTML = `
+      <button class="pop-item" data-act="read">
+        <span class="check">${read ? "○" : "●"}</span>${read ? "Mark as unread" : "Mark as read"}</button>
+      <button class="pop-item" data-act="save">
+        <span class="check">❦</span>${saved ? "Unsave" : "Save"}</button>
+      <button class="pop-item" data-act="folder">
+        <span class="check">❧</span>Folder…</button>
+      <button class="pop-item" data-act="tag">
+        <span class="check">◦</span>Tag…</button>`;
+
+    pop.querySelector('[data-act="read"]').addEventListener("click", () => {
+      pop.remove();
+      toggleReadItem(item);
     });
+    pop.querySelector('[data-act="save"]').addEventListener("click", () => {
+      pop.remove();
+      toggleSaveItem(item);
+    });
+    pop.querySelector('[data-act="folder"]').addEventListener("click", () => {
+      pop.remove();
+      openFolderPicker(anchor, item);
+    });
+    pop.querySelector('[data-act="tag"]').addEventListener("click", () => {
+      pop.remove();
+      openTagPicker(anchor, item);
+    });
+
+    document.body.appendChild(pop);
+    if (point && !isMobileLayout()) {
+      pop.style.top = `${Math.min(point.y + 4, window.innerHeight - pop.offsetHeight - 12)}px`;
+      pop.style.left = `${Math.min(Math.max(point.x - 10, 8), window.innerWidth - pop.offsetWidth - 12)}px`;
+    } else {
+      positionPopover(pop, anchor);
+    }
+    attachPopoverDismiss(pop, anchor);
+  }
+
+  function wireMsgContextGestures(btn, item) {
+    const openMenu = (point) => {
+      btn.dataset.ctxSuppressClick = "1";
+      openMsgContextMenu(btn, item, point);
+    };
+
+    /* two-finger tap on trackpad / right-click */
+    btn.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      openMenu({ x: e.clientX, y: e.clientY });
+    });
+
+    /* smartphone: two-finger touch or long-press */
+    let pressTimer = null;
+    btn.addEventListener("touchstart", (e) => {
+      if (e.touches.length >= 2) {
+        clearTimeout(pressTimer);
+        e.preventDefault();
+        const t = e.touches[0];
+        openMenu({ x: t.clientX, y: t.clientY });
+        return;
+      }
+      clearTimeout(pressTimer);
+      const t = e.touches[0];
+      pressTimer = setTimeout(() => {
+        openMenu({ x: t.clientX, y: t.clientY });
+      }, 550);
+    }, { passive: false });
+
+    const cancelPress = () => clearTimeout(pressTimer);
+    btn.addEventListener("touchend", cancelPress);
+    btn.addEventListener("touchmove", cancelPress);
+    btn.addEventListener("touchcancel", cancelPress);
   }
 
   /* save / unsave → POST|DELETE /api/save (falls back to local marker on failure) */
   async function toggleSaveItem(item) {
     const k = keyOf(item);
-    const btn = byId("btn-save");
+    /* reader button only exists when this item is open in the reading pane */
+    const btn = selectedId === k ? byId("btn-save") : null;
 
     if (isSaved(k)) {
-      btn.textContent = "Removing…";
+      if (btn) btn.textContent = "Removing…";
       try {
         const res = await fetch("/api/save", {
           method: "DELETE",
@@ -1646,37 +1734,32 @@
           body: JSON.stringify({ id: k, link: item.link }),
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        markUnsavedLocal(item);
-        btn.textContent = "Save";
-        btn.classList.remove("is-on");
-      } catch (err) {
-        markUnsavedLocal(item);
-        btn.textContent = "Save";
-        btn.classList.remove("is-on");
-      }
+      } catch (err) {}
+      markUnsavedLocal(item);
+      if (btn) { btn.textContent = "Save"; btn.classList.remove("is-on"); }
       renderRail();
       if (activeView === "saved") renderList();
       return;
     }
 
-    btn.textContent = "Saving…";
+    if (btn) btn.textContent = "Saving…";
     const payload = {
       title: item.title, link: item.link, source: item.source,
       category: item.category, date: item.date, snippet: item.snippet,
       themes: [...getItemFolders(k), ...getItemTags(k).map((t) => t.name)],
     };
+    let savedRemotely = true;
     try {
       const res = await fetch("/api/save", {
         method: "POST", headers: syncHeaders(), body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      markSavedLocal(k);
-      btn.textContent = "Saved ✓";
-      btn.classList.add("is-on");
     } catch (err) {
-      // Still record locally so the workspace stays usable offline / pre-config.
-      markSavedLocal(k);
-      btn.textContent = "Saved locally ✓";
+      savedRemotely = false;   // still record locally so the workspace stays usable offline
+    }
+    markSavedLocal(k);
+    if (btn) {
+      btn.textContent = savedRemotely ? "Saved ✓" : "Saved locally ✓";
       btn.classList.add("is-on");
     }
     renderRail();
