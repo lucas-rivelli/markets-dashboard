@@ -555,6 +555,9 @@
       body[data-mobile="reader"] .reader-col { display: flex; }
       .back-btn { display: inline-flex; min-height: 2.75rem; touch-action: manipulation; }
       .rail-toggle { display: inline-flex; }
+      /* no map on mobile */
+      #aside-toggle { display: none; }
+      .aside, body[data-map="full"] .aside { display: none; }
       .popover {
         position: fixed;
         left: 50% !important;
@@ -1257,15 +1260,23 @@
     }, 0);
   }
 
+  function exitMapFull() {
+    delete document.body.dataset.map;
+    graphView.fitted = false;   // refit to the small side panel
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => renderGraph());
+    });
+  }
+
   function toggleMapFull() {
-    const full = document.body.dataset.map === "full";
-    if (full) {
-      delete document.body.dataset.map;
-    } else {
-      document.body.dataset.map = "full";
-      closeDrawers();
+    if (isMobileLayout()) return;   // no map on mobile
+    if (document.body.dataset.map === "full") {
+      exitMapFull();
+      return;
     }
-    graphView.fitted = false;   // refit to the new panel size
+    document.body.dataset.map = "full";
+    closeDrawers();
+    graphView.fitted = false;   // refit to the fullscreen panel
     requestAnimationFrame(() => {
       requestAnimationFrame(() => renderGraph());
     });
@@ -1867,6 +1878,7 @@
   let graphRaf = null;
 
   function renderGraph() {
+    if (isMobileLayout()) return;   // map disabled on mobile
     const wrap = byId("graph-wrap");
     const empty = byId("graph-empty");
     const legend = byId("graph-legend");
@@ -2085,7 +2097,7 @@
       g.addEventListener("click", () => {
         if (dragMoved) return;
         if (node.kind === "article") {
-          if (document.body.dataset.map === "full") delete document.body.dataset.map;
+          if (document.body.dataset.map === "full") exitMapFull();
           openItem(node.itemKey);
           if (isMobileLayout()) document.body.dataset.aside = "closed";
           renderGraph();
@@ -2184,9 +2196,8 @@
   });
   byId("aside-toggle").addEventListener("click", toggleMapFull);
   byId("aside-close").addEventListener("click", () => {
-    delete document.body.dataset.map;
     document.body.dataset.aside = "closed";
-    requestAnimationFrame(() => renderGraph());
+    exitMapFull();
   });
 
   window.addEventListener("popstate", (e) => {
@@ -2210,8 +2221,7 @@
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     if (document.body.dataset.map === "full") {
-      delete document.body.dataset.map;
-      requestAnimationFrame(() => renderGraph());
+      exitMapFull();
       return;
     }
     if (document.body.dataset.rail === "open" || document.body.dataset.aside === "open") {
@@ -2225,8 +2235,11 @@
     if (!isMobileLayout()) {
       document.body.dataset.mobile = "list";
       closeDrawers();
-    } else if (activeView === "sources") {
-      showReaderPane({ fromPopstate: true });
+      graphView.fitted = false;
+      requestAnimationFrame(() => renderGraph());
+    } else {
+      delete document.body.dataset.map;
+      if (activeView === "sources") showReaderPane({ fromPopstate: true });
     }
   });
 
