@@ -676,7 +676,7 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
-  let activeView = "inbox"; // inbox | saw | read | trash | saved | sources | folder:<name> | tag:<id>
+  let activeView = "inbox"; // inbox | to-read | read | trash | saved | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
 
   const READ_KEY          = "markets_read";
@@ -729,7 +729,7 @@
     writeJSON(FOLDERS_KEY, Array.isArray(data.folders) ? data.folders : []);
     writeJSON(ITEM_FOLDERS_KEY, data.item_folders && typeof data.item_folders === "object" ? data.item_folders : {});
     if (data.item_status && typeof data.item_status === "object") {
-      writeJSON(ITEM_STATUS_KEY, data.item_status);
+      writeJSON(ITEM_STATUS_KEY, normalizeStatusMap(data.item_status));
     } else if (Array.isArray(data.read)) {
       const migrated = {};
       for (const k of data.read) migrated[k] = "read";
@@ -841,7 +841,18 @@
 
   /* item status (synced via /api/workspace) */
   const getReadSet = () => new Set(readJSON(READ_KEY, []));
-  const getStatusMap = () => readJSON(ITEM_STATUS_KEY, {});
+  const normalizeStatus = (status) => {
+    const next = String(status || "").trim().toLowerCase();
+    if (next === "saw") return "to-read";
+    return ["inbox", "to-read", "read", "trash"].includes(next) ? next : "inbox";
+  };
+  const normalizeStatusMap = (raw) => {
+    const out = {};
+    if (!raw || typeof raw !== "object") return out;
+    for (const [key, value] of Object.entries(raw)) out[key] = normalizeStatus(value);
+    return out;
+  };
+  const getStatusMap = () => normalizeStatusMap(readJSON(ITEM_STATUS_KEY, {}));
   const readKeysFor = (item) => {
     const keys = [];
     const id = keyOf(item);
@@ -857,7 +868,7 @@
     return isRead(item) ? "read" : "inbox";
   };
   const setItemStatus = (item, status) => {
-    const next = ["inbox", "saw", "read", "trash"].includes(status) ? status : "inbox";
+    const next = normalizeStatus(status);
     const map = getStatusMap();
     const readSet = getReadSet();
     for (const k of readKeysFor(item)) {
@@ -1122,13 +1133,13 @@
   /* ── Rail ─────────────────────────────────────────────────────────────── */
   function renderRail() {
     const inboxCount = allItems.filter((it) => itemStatus(it) === "inbox").length;
-    const sawCount = allItems.filter((it) => itemStatus(it) === "saw").length;
+    const toReadCount = allItems.filter((it) => itemStatus(it) === "to-read").length;
     const readCount = allItems.filter((it) => itemStatus(it) === "read").length;
     const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
     const savedCount = visibleItems().filter((it) => isSaved(keyOf(it))).length;
     const fixed = [
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
-      { id: "saw",     glyph: "☉", name: "Saw",     count: sawCount },
+      { id: "to-read", glyph: "☉", name: "To-read", count: toReadCount },
       { id: "read",    glyph: "☑", name: "Read",    count: readCount },
       { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
       { id: "saved",   glyph: "❦", name: "Saved",   count: savedCount },
@@ -1426,7 +1437,7 @@
   /* ── Message list ─────────────────────────────────────────────────────── */
   function viewLabel() {
     if (activeView === "inbox") return "Inbox";
-    if (activeView === "saw") return "Saw";
+    if (activeView === "to-read") return "To-read";
     if (activeView === "read") return "Read";
     if (activeView === "trash") return "Trash";
     if (activeView === "saved") return "Saved";
@@ -1438,7 +1449,7 @@
 
   function itemsForView() {
     if (activeView === "inbox") return allItems.filter((it) => itemStatus(it) === "inbox");
-    if (activeView === "saw") return allItems.filter((it) => itemStatus(it) === "saw");
+    if (activeView === "to-read") return allItems.filter((it) => itemStatus(it) === "to-read");
     if (activeView === "read") return allItems.filter((it) => itemStatus(it) === "read");
     if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
     if (activeView === "saved") return visibleItems().filter((it) => isSaved(keyOf(it)));
@@ -1490,8 +1501,8 @@
 
     if (!items.length) {
       container.innerHTML = `<p class="empty-state">${
-        activeView === "inbox" && allItems.length ? "Inbox is clear. Saw, Read, and Trash hold processed items."
-        : activeView === "saw" ? "Nothing in Saw yet. Open an item from Inbox to park it here."
+        activeView === "inbox" && allItems.length ? "Inbox is clear. To-read, Read, and Trash hold processed items."
+        : activeView === "to-read" ? "Nothing in To-read yet. Open an item from Inbox to park it here."
         : activeView === "read" ? "Nothing in Read yet. Mark finished items as Read."
         : activeView === "trash" ? "Trash is empty."
         : activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
@@ -1545,7 +1556,7 @@
     selectedId = k;
     const item = allItems.find((it) => keyOf(it) === k);
     if (!item) return;
-    if (itemStatus(item) === "inbox") setItemStatus(item, "saw");
+    if (itemStatus(item) === "inbox") setItemStatus(item, "to-read");
     showReaderPane();
     renderReader(item);
     renderList();
@@ -1565,7 +1576,7 @@
     const folders = getItemFolders(k);
     const statusButtons = [
       ["inbox", "Inbox"],
-      ["saw", "Saw"],
+      ["to-read", "To-read"],
       ["read", "Read"],
       ["trash", "Trash"],
     ].map(([id, label]) =>
@@ -1746,7 +1757,7 @@
     const saved = isSaved(k);
     const statusActions = [
       ["inbox", "✦", "Move to Inbox"],
-      ["saw", "☉", "Move to Saw"],
+      ["to-read", "☉", "Move to To-read"],
       ["read", "☑", "Move to Read"],
       ["trash", "×", "Move to Trash"],
     ].filter(([id]) => id !== status).map(([id, glyph, label]) =>
