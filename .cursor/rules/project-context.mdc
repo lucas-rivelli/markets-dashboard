@@ -1,0 +1,22 @@
+---
+description: Markets dashboard project context — read HANDOFF.md first
+alwaysApply: true
+---
+
+# Markets Dashboard
+
+Before making changes, read `HANDOFF.md` for full project state, architecture, sources, and pending setup.
+
+## Quick facts
+
+- Personal RSS aggregator deployed on Vercel: https://github.com/lucas-rivelli/markets-dashboard
+- Sources live in `api/feed.js` (`SOURCES` array)
+- Feed merge logic: `lib/aggregate.js`
+- UI: `index.html` (vanilla JS, white Substack-style theme)
+- Local dev: `npm run dev` (port 3000) — not `vercel dev`
+
+## Conventions
+
+- Commit and push to `main` after every source or feature change (Vercel auto-deploys)
+- Do not add X/Twitter RSS bridges — bookmarks use birdclaw → `data/bookmarks.json`
+- Spotify needs Vercel env vars (`SPOTIFY_*`); see HANDOFF.md setup section
