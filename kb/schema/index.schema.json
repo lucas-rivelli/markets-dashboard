@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kb-index.schema.json",
+  "title": "Knowledge Base Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "counts", "facets", "items"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "generated_at": { "type": "string" },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inbox", "notes", "items"],
+      "properties": {
+        "inbox": { "type": "integer" },
+        "notes": { "type": "integer" },
+        "items": { "type": "integer" }
+      }
+    },
+    "facets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["themes", "tickers", "sources", "types", "statuses"],
+      "properties": {
+        "themes": { "$ref": "#/$defs/facet_list" },
+        "tickers": { "$ref": "#/$defs/facet_list" },
+        "sources": { "$ref": "#/$defs/facet_list" },
+        "types": { "$ref": "#/$defs/facet_list" },
+        "statuses": { "$ref": "#/$defs/facet_list" }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "facet_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "count"],
+        "properties": {
+          "name": { "type": "string" },
+          "count": { "type": "integer" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "url",
+        "source",
+        "category",
+        "type",
+        "date",
+        "saved_at",
+        "status",
+        "themes",
+        "tickers",
+        "summary",
+        "snippet",
+        "inbox_path",
+        "note_path",
+        "search_text"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "source": { "type": "string" },
+        "category": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": ["string", "null"] },
+        "saved_at": { "type": ["string", "null"] },
+        "status": { "type": "string", "enum": ["saved", "enriched"] },
+        "themes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "tickers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "summary": { "type": "string" },
+        "snippet": { "type": "string" },
+        "inbox_path": { "type": ["string", "null"] },
+        "note_path": { "type": ["string", "null"] },
+        "search_text": { "type": "string" }
+      }
+    }
+  }
+}

@@ -2,6 +2,24 @@
 
 > Read this file first when opening a new chat to continue work on this project.
 
+## Current resume point — July 4, 2026, 3:15 PM
+
+- Spotify is working locally: `/api/feed?fresh=1` returned `failed: []`, `spotifyEpisodes: 65`, `total: 152`.
+- Spotify now loads all saved podcast shows, limits episodes to the past 7 days, excludes `Posse de Bola`, and fetches shows in parallel to avoid Vercel timeout.
+- Local dev server was restarted and is running at `http://localhost:3000`.
+- Twitter/X bookmarks are working locally after Safari login and Full Disk Access: birdclaw synced 70 bookmarks and `data/bookmarks.json` was exported successfully.
+- Local `/api/feed?fresh=1` verified `failed: []`, `bookmarks: 70`, `bookmarkItems: 70`, `total: 157` after Twitter export.
+- Spotify hit temporary `HTTP 429` rate limits after repeated testing; code now backs off, lowers concurrency, and prevents one rate-limited show from marking the whole Spotify source unavailable. Let the rate limit cool down before re-testing Spotify repeatedly.
+- To refresh bookmarks again:
+
+```bash
+npm run setup:check
+npm run sync:bookmarks
+```
+
+- `scripts/sync-bookmarks.sh` now loads `.env.local` and stops on auth failure instead of overwriting bookmarks with an empty export.
+- Changes are saved on disk but not committed/pushed yet. Review `git status --short` before committing.
+
 ## What this is
 
 Personal **markets reading dashboard** — one page that merges RSS feeds (Substack, blogs, YouTube), Spotify podcast episodes, and X bookmarks into a single timeline with read/unread tracking.
@@ -18,7 +36,7 @@ index.html          → UI (vanilla JS, white Substack-style theme)
 api/feed.js         → GET /api/feed — merges all sources into JSON
 api/cron.js         → GET /api/cron — morning cron (Vercel, 7 AM ET)
 lib/aggregate.js    → RSS fetch + merge Spotify + bookmarks
-lib/spotify.js      → Spotify Web API (saved shows → new episodes, 14 days)
+lib/spotify.js      → Spotify Web API (saved shows → new episodes, 7 days; excludes Posse de Bola)
 lib/bookmarks.js    → reads data/bookmarks.json
 data/bookmarks.json → X bookmarks synced from Mac via birdclaw
 scripts/dev.js      → local server (no Vercel login needed)
@@ -79,11 +97,21 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 
 ### birdclaw (X bookmarks) on Mac
 
+birdclaw is a **local dev dependency** (no global install needed). Already initialized at `~/.birdclaw`.
+
 ```bash
-npm i -g birdclaw
-birdclaw init
-npm run sync:bookmarks   # from project folder
+npm install
+npm run birdclaw:init    # already done if ~/.birdclaw exists
+npm run setup:check      # diagnose what's left
+npm run sync:bookmarks   # after X auth (see below)
 ```
+
+**X auth options (pick one):**
+
+1. **Browser cookies (easiest):** Log into [x.com](https://x.com) in Safari or Chrome, then run `npm run sync:bookmarks`. Safari may need Full Disk Access for Terminal/Cursor in System Settings → Privacy.
+2. **X archive (no live API):** Request at [x.com/settings/download_your_data](https://x.com/settings/download_your_data), then `npx birdclaw import archive ~/Downloads/twitter-archive-*.zip --select bookmarks --json`
+3. **Manual cookies:** Set `AUTH_TOKEN` and `CT0` in `.env.local` (from browser dev tools → Application → Cookies → x.com)
+
 
 Optional cron (8 AM daily):
 ```
@@ -102,7 +130,9 @@ Optional cron (8 AM daily):
 
 ```bash
 npm install
-npm run dev              # local server :3000
+npm run setup:check    # diagnose Spotify + X setup
+npm run dev              # local server :3000 (loads .env.local)
+npm run birdclaw:init    # one-time birdclaw workspace
 npm run spotify:auth     # one-time Spotify OAuth
 npm run sync:bookmarks   # birdclaw → git push
 git add . && git commit && git push origin main
@@ -151,7 +181,8 @@ markets-dashboard/
 ├── data/
 │   └── bookmarks.json   ← synced from birdclaw
 ├── scripts/
-│   ├── dev.js           ← local dev server
+│   ├── dev.js           ← local dev server (loads .env.local)
+│   ├── setup-check.js   ← diagnose Spotify + X setup
 │   ├── spotify-auth.js
 │   ├── sync-bookmarks.sh
 │   └── export-bookmarks.js

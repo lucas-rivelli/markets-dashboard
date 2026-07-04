@@ -1,5 +1,7 @@
-const { buildFeedResponse } = require("../lib/aggregate");
+const { refreshFeedCache } = require("../lib/feed-cache");
 const { SOURCES } = require("./feed");
+
+const CACHE_SECONDS = 5 * 60;
 
 module.exports = async function handler(req, res) {
   if (req.method !== "GET") {
@@ -13,9 +15,12 @@ module.exports = async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const data = await buildFeedResponse(SOURCES);
+  const data = await refreshFeedCache(SOURCES);
 
-  res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=7200");
+  res.setHeader(
+    "Cache-Control",
+    `s-maxage=${CACHE_SECONDS}, stale-while-revalidate=${CACHE_SECONDS * 2}`
+  );
   res.setHeader("Content-Type", "application/json");
 
   return res.status(200).json({
@@ -23,5 +28,6 @@ module.exports = async function handler(req, res) {
     refreshed: data.updated,
     items: data.items.length,
     failed: data.failed,
+    meta: data.meta,
   });
 };

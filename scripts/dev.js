@@ -3,9 +3,30 @@ const fs = require("fs");
 const path = require("path");
 const feedHandler = require("../api/feed");
 const cronHandler = require("../api/cron");
+const libraryHandler = require("../api/library");
+const saveHandler = require("../api/save");
+const { refreshFeedCache, REFRESH_MS } = require("../lib/feed-cache");
+const { SOURCES } = require("../api/feed");
 
 const ROOT = path.join(__dirname, "..");
 const PORT = 3000;
+
+function loadEnvLocal() {
+  const envPath = path.join(ROOT, ".env.local");
+  if (!fs.existsSync(envPath)) return;
+
+  for (const line of fs.readFileSync(envPath, "utf8").split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+    const idx = trimmed.indexOf("=");
+    if (idx === -1) continue;
+    const key = trimmed.slice(0, idx).trim();
+    const val = trimmed.slice(idx + 1).trim().replace(/^["']|["']$/g, "");
+    if (!process.env[key]) process.env[key] = val;
+  }
+}
+
+loadEnvLocal();
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -89,9 +110,43 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
     return;
   }
 
+  if (pathname === "/api/library") {
+    try {
+      await libraryHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/save") {
+    try {
+      await saveHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
   serveStatic(pathname, nodeRes);
 });
 
+async function warmFeedCache() {
+  try {
+    const data = await refreshFeedCache(SOURCES);
+    console.log(
+      `Feed cache refreshed — ${data.items.length} items` +
+        (data.failed?.length ? ` (${data.failed.length} source(s) failed)` : "")
+    );
+  } catch (err) {
+    console.error("Feed cache refresh failed:", err.message);
+  }
+}
+
 server.listen(PORT, () => {
   console.log(`Markets dashboard running at http://localhost:${PORT}`);
+  warmFeedCache();
+  setInterval(warmFeedCache, REFRESH_MS);
 });

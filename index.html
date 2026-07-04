@@ -7,897 +7,1180 @@
   <title>Markets Reading</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg-page:    #f4f1ec;
-      --bg-surface: #ffffff;
-      --bg-muted:   #faf9f7;
-      --border:     #e8e4df;
-      --border-soft:#f0ece6;
-      --text:       #1a1a1a;
-      --text-muted: #6b6560;
-      --text-faint: #9c9590;
-      --accent:     #ff6719;
-      --accent-soft:#fff4ee;
-      --accent-hover:#e85a0f;
-      --c-yt:       #cf222e;
-      --c-yt-soft:  #fff0f0;
-      --c-macro:    #953800;
-      --c-macro-soft:#fff8f0;
-      --shadow:     0 1px 3px rgba(26, 26, 26, 0.06), 0 8px 24px rgba(26, 26, 26, 0.04);
-      --shadow-hover: 0 2px 8px rgba(26, 26, 26, 0.08), 0 12px 32px rgba(26, 26, 26, 0.06);
-      --radius:     12px;
-      --radius-sm:  8px;
-      --max-w:      680px;
-      --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
-      --font-sans:  "Inter", system-ui, -apple-system, sans-serif;
+      --paper:      #f3ecdd;
+      --paper-rail: #efe6d3;
+      --paper-sel:  #e9dcc0;
+      --ink:        #292018;
+      --ink-soft:   #5f5240;
+      --ink-faint:  #93836c;
+      --rule:       #d8cbae;
+      --rule-soft:  #e4dac2;
+      --rubric:     #7f2a1a;
+      --rubric-soft:#a24a34;
+      --gold:       #96762f;
+      --c-substack: #a04f1e;
+      --c-yt:       #9a2b21;
+      --c-blog:     #5e4370;
+      --c-spotify:  #3e6b4e;
+      --c-bookmarks:#3a5684;
+      --c-macro:    #7c5a26;
+      --serif: "EB Garamond", Georgia, "Times New Roman", serif;
     }
 
+    html, body { height: 100%; }
     html { font-size: 16px; color-scheme: light; }
 
     body {
-      background: var(--bg-page);
-      color: var(--text);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      min-height: 100vh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      overflow: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
     a:focus-visible, button:focus-visible, input:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 1px solid var(--rubric);
       outline-offset: 2px;
+    }
+    button { font-family: var(--serif); background: none; border: none; color: inherit; cursor: pointer; }
+
+    .label {
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
 
-    .wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 1.25rem 4rem;
-    }
+    /* ── App shell ──────────────────────────────────────────────────────── */
+    .app { height: 100vh; display: grid; grid-template-rows: auto 1fr; }
 
-    /* ── Header ─────────────────────────────────────────────────────────── */
-    header {
-      padding: 2.5rem 0 1.75rem;
-      text-align: center;
-    }
-
-    .masthead {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .masthead-icon {
-      width: 28px;
-      height: 28px;
-      background: var(--accent);
-      border-radius: 6px;
+    .topbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: white;
-      font-family: var(--font-serif);
-      font-weight: 700;
+      gap: 1rem;
+      padding: 0.6rem 1.1rem;
+      border-bottom: 3px double var(--rule);
+      background: var(--paper);
+    }
+    .brand { display: flex; align-items: baseline; gap: 0.55rem; }
+    .brand-mark { color: var(--rubric); font-size: 1rem; }
+    .brand-name {
       font-size: 0.95rem;
-    }
-
-    .site-title {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .site-tagline {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .auto-refresh-note {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-      margin-bottom: 1.25rem;
-    }
-
-    .toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .updated-line {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-    }
-
-    #btn-refresh {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
       font-weight: 500;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
-    #btn-refresh:hover {
-      border-color: var(--text-faint);
-      color: var(--text);
-      box-shadow: var(--shadow);
-    }
+    .topbar-spacer { flex: 1; }
+    .topbar .updated-line { color: var(--ink-faint); }
+    .topbar button.link-btn { color: var(--ink-soft); transition: color 0.15s; }
+    .topbar button.link-btn:hover { color: var(--rubric); }
+    .pane-toggle { display: none; }
 
     .failed-line {
-      font-size: 0.75rem;
-      color: #c0392b;
-      margin-top: 0.75rem;
-      text-align: center;
+      font-style: italic; font-size: 0.78rem; color: var(--rubric);
     }
 
-    /* ── Tabs ───────────────────────────────────────────────────────────── */
-    .tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0.25rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.25rem;
-      width: fit-content;
-      margin: 0 auto 1.75rem;
-      box-shadow: var(--shadow);
+    /* ── Workspace grid ─────────────────────────────────────────────────── */
+    .workspace {
+      display: grid;
+      grid-template-columns: 208px 340px 1fr 342px;
+      min-height: 0;
     }
+    .col { min-height: 0; overflow-y: auto; overflow-x: hidden; }
+    .col + .col { border-left: 1px solid var(--rule); }
 
-    .tab-btn {
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      padding: 0.45rem 1.25rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
-    .tab-btn:hover { color: var(--text); }
-    .tab-btn[aria-selected="true"] {
-      background: var(--text);
-      color: white;
-    }
-
-    /* ── Read filters ───────────────────────────────────────────────────── */
-    .feed-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .read-filters {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-    }
-    .filter-btn:hover { color: var(--text); border-color: var(--text-faint); }
-    .filter-btn[aria-pressed="true"] {
-      background: var(--accent-soft);
-      border-color: var(--accent);
-      color: var(--accent-hover);
-    }
-
-    .read-count {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-      margin-top: -0.25rem;
-    }
-
-    /* ── Search ─────────────────────────────────────────────────────────── */
-    .search-bar { margin-bottom: 0; }
-
-    #search {
-      width: 100%;
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.65rem 1rem 0.65rem 2.5rem;
-      border-radius: var(--radius);
-      outline: none;
-      box-shadow: var(--shadow);
-      transition: border-color 0.15s, box-shadow 0.15s;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239c9590' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: 0.9rem center;
-    }
-    #search::placeholder { color: var(--text-faint); }
-    #search:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-soft);
-    }
-
-    /* ── Article cards ──────────────────────────────────────────────────── */
-    #view-latest { display: block; }
-    #view-sources { display: none; }
-
-    .feed-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .feed-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.35rem 1.5rem;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-    }
-    .feed-item:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: #ddd8d2;
-      transform: translateY(-1px);
-    }
-    .feed-item.is-read {
-      opacity: 0.72;
-      background: var(--bg-muted);
-    }
-    .feed-item.is-read .item-title { color: var(--text-muted); }
-    .feed-item.is-read:hover { opacity: 0.85; }
-
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.6rem;
-    }
-
-    .source-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-    }
-    .source-pill[data-category="Substack"]       { color: var(--accent-hover); background: var(--accent-soft); }
-    .source-pill[data-category="YouTube"]        { color: var(--c-yt); background: var(--c-yt-soft); }
-    .source-pill[data-category="Macro/Official"] { color: var(--c-macro); background: var(--c-macro-soft); }
-    .source-pill[data-category="Blog"]           { color: #8250df; background: #fbefff; }
-    .source-pill[data-category="Spotify"]        { color: #1a7f37; background: #e8f5ee; }
-    .source-pill[data-category="Bookmarks"]      { color: #0550ae; background: #eef6ff; }
-
-    .source-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
-
-    .article-date {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-    }
-
-    .new-badge {
-      font-size: 0.625rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: white;
-      background: var(--accent);
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-    }
-
-    .read-badge {
-      font-size: 0.625rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--text-faint);
-      background: var(--border-soft);
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-    }
-
-    .article-footer {
+    .col-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin-top: 0.15rem;
+      gap: 0.5rem;
+      padding: 0.85rem 1rem 0.55rem;
+      position: sticky;
+      top: 0;
+      background: var(--paper);
+      z-index: 2;
     }
+    .col-head .label { color: var(--rubric); }
 
-    .read-toggle {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
-      white-space: nowrap;
-    }
-    .read-toggle:hover {
-      border-color: var(--text-faint);
-      color: var(--text);
-      background: var(--bg-muted);
-    }
-    .read-toggle.is-read {
-      border-color: var(--accent);
-      color: var(--accent-hover);
-      background: var(--accent-soft);
-    }
+    /* ── Rail (tags) ────────────────────────────────────────────────────── */
+    .rail { background: var(--paper-rail); }
+    .rail .col-head { background: var(--paper-rail); }
 
-    .item-title {
+    .rail-list { list-style: none; padding: 0 0.55rem; }
+    .rail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: 100%;
+      text-align: left;
+      padding: 0.4rem 0.55rem;
+      border-radius: 3px;
+      color: var(--ink-soft);
+      font-size: 0.98rem;
+      transition: background 0.12s, color 0.12s;
+    }
+    .rail-item:hover { background: var(--paper-sel); color: var(--ink); }
+    .rail-item[aria-current="true"] {
+      background: var(--paper-sel);
+      color: var(--ink);
+      box-shadow: inset 2px 0 0 var(--rubric);
+    }
+    .rail-item .glyph { color: var(--rubric); width: 1.1em; text-align: center; flex-shrink: 0; }
+    .rail-item .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .rail-item .count { font-size: 0.78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+    .rail-divider {
+      display: flex; align-items: center; gap: 0.6rem;
+      color: var(--ink-faint);
+      padding: 0.9rem 1.1rem 0.3rem;
+    }
+    .rail-divider::after { content: ""; flex: 1; border-top: 1px solid var(--rule-soft); }
+
+    .rail-add {
+      display: flex; align-items: center; gap: 0.4rem;
+      margin: 0.35rem 0.9rem;
+      color: var(--ink-faint);
+      font-style: italic;
+      font-size: 0.9rem;
+      transition: color 0.12s;
+    }
+    .rail-add:hover { color: var(--rubric); }
+
+    /* ── Message list ───────────────────────────────────────────────────── */
+    .list-tools { padding: 0 1rem 0.6rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    #search {
+      width: 100%;
+      font-family: var(--serif);
+      font-size: 0.92rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      color: var(--ink);
+      padding: 0.35rem 0.1rem;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.15s;
+    }
+    #search::placeholder { color: var(--ink-faint); font-style: italic; }
+    #search:focus { border-bottom-color: var(--rubric); }
+    #search::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+    .read-filters { display: flex; gap: 1.1rem; }
+    .filter-btn {
+      color: var(--ink-faint);
+      padding: 0.05rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .filter-btn:hover { color: var(--ink); }
+    .filter-btn[aria-pressed="true"] { color: var(--rubric); border-bottom-color: var(--rubric); }
+
+    .msg-list { list-style: none; }
+    .msg {
       display: block;
-      font-family: var(--font-serif);
-      font-size: 1.375rem;
-      font-weight: 600;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      transition: color 0.15s;
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-top: 1px solid var(--rule-soft);
+      cursor: pointer;
+      transition: background 0.12s;
     }
-    .feed-item:hover .item-title { color: var(--accent-hover); }
-
-    .item-snippet {
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 0.85rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    .msg:hover { background: var(--paper-rail); }
+    .msg[aria-selected="true"] {
+      background: var(--paper-sel);
+      box-shadow: inset 3px 0 0 var(--rubric);
     }
+    .msg.is-read .msg-title { color: var(--ink-soft); font-weight: 500; }
+    .msg.is-read { opacity: 0.72; }
 
-    .read-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--accent);
-      transition: gap 0.15s;
+    .msg-meta { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.15rem; }
+    .msg-source {
+      font-size: 0.66rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60%;
     }
-    .feed-item:hover .read-link { gap: 0.5rem; }
-
-    /* ── Sources ────────────────────────────────────────────────────────── */
-    .sources-intro {
-      text-align: center;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .sources-group { margin-bottom: 2rem; }
-
-    .sources-group-label {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 0.75rem;
-      padding-left: 0.25rem;
-    }
-
-    .chip-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .chip {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.1rem 1.25rem;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-      text-decoration: none;
-      color: var(--text);
-    }
-    .chip:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: #ddd8d2;
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .chip-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .chip-body { flex: 1; min-width: 0; }
-
-    .chip-name {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      font-weight: 600;
+    .msg-source[data-category="Substack"]       { color: var(--c-substack); }
+    .msg-source[data-category="YouTube"]        { color: var(--c-yt); }
+    .msg-source[data-category="Macro/Official"] { color: var(--c-macro); }
+    .msg-source[data-category="Blog"]           { color: var(--c-blog); }
+    .msg-source[data-category="Spotify"]        { color: var(--c-spotify); }
+    .msg-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
+    .msg-date { font-size: 0.76rem; font-style: italic; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
+    .msg-title {
+      font-size: 1.05rem; font-weight: 600; line-height: 1.25; color: var(--ink);
       margin-bottom: 0.15rem;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .msg-snippet {
+      font-size: 0.86rem; color: var(--ink-faint); line-height: 1.4;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .msg-dot {
+      display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--rubric); margin-right: 0.1rem; vertical-align: middle;
+    }
+    .msg.is-read .msg-dot { visibility: hidden; }
+    .msg-tags { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .msg-tag {
+      font-size: 0.66rem; font-style: italic;
+      border: 1px solid currentColor; border-radius: 999px;
+      padding: 0.02rem 0.45rem; opacity: 0.92;
     }
 
-    .chip-meta {
-      font-size: 0.75rem;
-      color: var(--text-faint);
-    }
+    /* ── Reading pane ───────────────────────────────────────────────────── */
+    .reader { display: flex; flex-direction: column; }
+    .reader-inner { padding: 0 clamp(1.1rem, 4vw, 2.6rem) 3rem; max-width: 760px; margin: 0 auto; width: 100%; }
 
-    .chip-arrow {
-      color: var(--text-faint);
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      transition: transform 0.15s, color 0.15s;
+    .reader-empty {
+      height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.8rem;
+      color: var(--ink-faint); font-style: italic; padding: 2rem; text-align: center;
     }
-    .chip:hover .chip-arrow {
-      transform: translateX(3px);
-      color: var(--accent);
+    .reader-empty .fleuron { color: var(--rubric); font-size: 1.6rem; }
+
+    .reader-kicker { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin: 1.6rem 0 0.6rem; }
+    .reader-source { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .reader-source[data-category="Substack"]       { color: var(--c-substack); }
+    .reader-source[data-category="YouTube"]        { color: var(--c-yt); }
+    .reader-source[data-category="Macro/Official"] { color: var(--c-macro); }
+    .reader-source[data-category="Blog"]           { color: var(--c-blog); }
+    .reader-source[data-category="Spotify"]        { color: var(--c-spotify); }
+    .reader-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
+    .reader-date { font-size: 0.85rem; font-style: italic; color: var(--ink-faint); }
+
+    .reader-title { font-size: 1.9rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.7rem; }
+    @media (max-width: 1100px) { .reader-title { font-size: 1.6rem; } }
+
+    .reader-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+      padding: 0.6rem 0 1rem; border-bottom: 1px solid var(--rule-soft); margin-bottom: 1.2rem; }
+    .action-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 0.8rem; border: 1px solid var(--rule); border-radius: 3px;
+      color: var(--ink-soft); transition: border-color 0.12s, color 0.12s, background 0.12s;
     }
+    .action-btn:hover { border-color: var(--rubric); color: var(--rubric); }
+    .action-btn.primary { border-color: var(--rubric); color: var(--rubric); }
+    .action-btn.is-on { background: var(--rubric); border-color: var(--rubric); color: #f3ecdd; }
+    .action-btn.is-on:hover { color: #f3ecdd; }
+
+    .reader-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.3rem;
+      border: 1px solid var(--rule); background: #000; }
+    .reader-embed.audio { aspect-ratio: auto; height: 232px; background: transparent; border: none; }
+    .reader-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .reader-embed.audio iframe { position: static; }
+
+    .reader-body { font-size: 1.12rem; line-height: 1.7; color: var(--ink); }
+    .reader-body p { margin-bottom: 1rem; }
+    .reader-body .dropcap::first-letter {
+      font-size: 3.1rem; line-height: 0.8; float: left; padding: 0.15rem 0.5rem 0 0; color: var(--rubric); font-weight: 500;
+    }
+    .reader-note {
+      font-style: italic; color: var(--ink-faint); font-size: 0.95rem;
+      border-top: 1px solid var(--rule-soft); margin-top: 1.6rem; padding-top: 1rem;
+    }
+    .reader-summary-label { color: var(--rubric); margin-bottom: 0.5rem; }
+
+    .chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.2rem 0 0; }
+    .chip-tag {
+      font-size: 0.72rem; font-style: italic;
+      border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.6rem;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+    .rail-item .tag-dot {
+      width: 0.55rem; height: 0.55rem; border-radius: 50%; flex-shrink: 0;
+      border: 1px solid rgba(41,32,24,0.15);
+    }
+    .color-swatches { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.35rem 0.4rem; }
+    .color-swatch {
+      width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 2px solid transparent;
+      cursor: pointer; transition: transform 0.1s, border-color 0.1s;
+    }
+    .color-swatch[aria-pressed="true"] { border-color: var(--ink); transform: scale(1.08); }
+    .tag-create-actions { display: flex; justify-content: flex-end; padding: 0.35rem 0.4rem 0.2rem; }
+    .tag-create-actions button {
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rubric); padding: 0.25rem 0.5rem;
+    }
+    .chip-tag button { color: var(--ink-faint); font-size: 0.9em; line-height: 1; }
+    .chip-tag button:hover { color: var(--rubric); }
+
+    /* classify popover */
+    .popover {
+      position: absolute; z-index: 40; background: var(--paper);
+      border: 1px solid var(--rule); border-radius: 4px; box-shadow: 0 6px 24px rgba(41,32,24,0.18);
+      padding: 0.5rem; min-width: 210px; max-height: 320px; overflow-y: auto;
+    }
+    .popover .label { color: var(--rubric); padding: 0.2rem 0.4rem 0.4rem; display: block; }
+    .pop-item { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left;
+      padding: 0.35rem 0.45rem; border-radius: 3px; font-size: 0.95rem; color: var(--ink-soft); }
+    .pop-item:hover { background: var(--paper-sel); color: var(--ink); }
+    .pop-item .check { color: var(--rubric); width: 1em; }
+    .pop-new { display: flex; gap: 0.35rem; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px solid var(--rule-soft); }
+    .pop-new input { flex: 1; font-family: var(--serif); font-size: 0.9rem; background: transparent;
+      border: none; border-bottom: 1px solid var(--rule); padding: 0.2rem; outline: none; }
+    .pop-new input:focus { border-bottom-color: var(--rubric); }
+    .pop-new button { color: var(--rubric); font-size: 1.1rem; padding: 0 0.3rem; }
+
+    /* ── Aside (tag map) ────────────────────────────────────────────────── */
+    .aside { display: grid; grid-template-rows: 1fr; overflow: hidden; }
+    .aside-section.chat { display: none; }
+    .aside-section { min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+    .aside-section + .aside-section { border-top: 1px solid var(--rule); }
+    .aside-section .col-head { position: static; }
+
+    .graph-wrap { flex: 1; min-height: 0; position: relative; }
+    .graph-wrap svg { width: 100%; height: 100%; display: block; }
+    .graph-empty {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      text-align: center; color: var(--ink-faint); font-style: italic; font-size: 0.9rem; padding: 1.4rem;
+    }
+    .g-link { stroke: var(--rule); stroke-width: 1; }
+    .g-node { cursor: pointer; }
+    .g-node circle { fill: var(--paper); stroke: var(--rubric); stroke-width: 1.2; transition: fill 0.12s; }
+    .g-node:hover circle { fill: var(--paper-sel); }
+    .g-node.center circle { fill: var(--rubric); stroke: var(--rubric); }
+    .g-node.active circle { fill: var(--rubric); }
+    .g-node text { font-family: var(--serif); font-size: 11px; fill: var(--ink-soft); text-anchor: middle; }
+    .g-node.center text { fill: #f3ecdd; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .g-node.active text { fill: var(--rubric); }
+
+    /* chat */
+    .chat { display: flex; flex-direction: column; min-height: 0; }
+    .chat-log { flex: 1; min-height: 0; overflow-y: auto; padding: 0.4rem 1rem 0.8rem;
+      display: flex; flex-direction: column; gap: 0.7rem; }
+    .chat-intro { color: var(--ink-faint); font-style: italic; font-size: 0.9rem; padding: 0.6rem 0; }
+    .bubble { font-size: 0.92rem; line-height: 1.45; }
+    .bubble.you { color: var(--ink); }
+    .bubble.you::before { content: "You — "; color: var(--rubric); font-variant: small-caps; letter-spacing: 0.04em; }
+    .bubble.kb { color: var(--ink-soft); border-left: 2px solid var(--rule); padding-left: 0.7rem; }
+    .bubble.kb .kb-head { color: var(--rubric); font-variant: small-caps; letter-spacing: 0.04em; display: block; margin-bottom: 0.2rem; }
+    .kb-hit { display: block; padding: 0.25rem 0; border-top: 1px dotted var(--rule-soft); cursor: pointer; }
+    .kb-hit:first-of-type { border-top: none; }
+    .kb-hit .h-src { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+    .kb-hit .h-title { color: var(--ink); }
+    .kb-hit:hover .h-title { color: var(--rubric); }
+    .chat-form { display: flex; gap: 0.5rem; padding: 0.6rem 1rem 0.9rem; border-top: 1px solid var(--rule-soft); }
+    .chat-form input { flex: 1; font-family: var(--serif); font-size: 0.95rem; background: transparent;
+      border: none; border-bottom: 1px solid var(--rule); padding: 0.35rem 0.1rem; outline: none; }
+    .chat-form input::placeholder { color: var(--ink-faint); font-style: italic; }
+    .chat-form input:focus { border-bottom-color: var(--rubric); }
+    .chat-form button { color: var(--rubric); font-size: 1.2rem; }
+
+    /* ── Sources launchpad (in reader) ──────────────────────────────────── */
+    .sources-group { margin-bottom: 2rem; }
+    .sources-group-label { display: flex; align-items: center; gap: 0.9rem;
+      color: var(--rubric); margin-bottom: 0.3rem; }
+    .sources-group-label::after { content: ""; flex: 1; border-top: 1px solid var(--rule-soft); }
+    .chip { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 0.1rem;
+      border-top: 1px solid var(--rule-soft); color: var(--ink); }
+    .chip:first-child { border-top: none; }
+    .chip-avatar { width: 38px; height: 38px; border: 1px solid var(--rule); border-radius: 2px;
+      color: var(--rubric); font-weight: 500; font-size: 0.9rem; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; transition: border-color 0.12s; }
+    .chip:hover .chip-avatar { border-color: var(--rubric); }
+    .chip-body { flex: 1; min-width: 0; }
+    .chip-name { font-size: 1.05rem; font-weight: 600; transition: color 0.12s; }
+    .chip:hover .chip-name { color: var(--rubric); }
+    .chip-meta { font-size: 0.78rem; font-style: italic; color: var(--ink-faint); }
+    .chip-arrow { color: var(--ink-faint); transition: transform 0.12s, color 0.12s; }
+    .chip:hover .chip-arrow { transform: translateX(3px); color: var(--rubric); }
 
     /* ── States ─────────────────────────────────────────────────────────── */
-    .empty-state {
-      text-align: center;
-      font-size: 0.9375rem;
-      color: var(--text-muted);
-      padding: 3rem 1rem;
-      background: var(--bg-surface);
-      border: 1px dashed var(--border);
-      border-radius: var(--radius);
-    }
-
-    .loading {
-      text-align: center;
-      font-size: 0.875rem;
-      color: var(--text-faint);
-      padding: 3rem 0;
-    }
-    .loading::after {
-      content: "";
-      display: inline-block;
-      width: 0.75em;
-      height: 0.75em;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      margin-left: 0.5em;
-      animation: spin 0.7s linear infinite;
-      vertical-align: middle;
-    }
+    .empty-state, .loading { text-align: center; font-style: italic; color: var(--ink-faint);
+      padding: 2.5rem 1.2rem; font-size: 0.92rem; }
+    .loading::after { content: ""; display: inline-block; width: 0.7em; height: 0.7em;
+      border: 1px solid var(--rule); border-top-color: var(--rubric); border-radius: 50%;
+      margin-left: 0.5em; animation: spin 0.8s linear infinite; vertical-align: middle; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    @media (max-width: 600px) {
-      header { padding-top: 1.75rem; }
-      .site-title { font-size: 1.5rem; }
-      .feed-item { padding: 1.1rem 1.15rem; }
-      .item-title { font-size: 1.2rem; }
+    /* ── Responsive ─────────────────────────────────────────────────────── */
+    .back-btn { display: none; }
+
+    @media (max-width: 1200px) {
+      .workspace { grid-template-columns: 190px 320px 1fr; }
+      .aside {
+        position: fixed; top: 0; right: 0; bottom: 0; width: 340px; z-index: 50;
+        background: var(--paper); border-left: 1px solid var(--rule);
+        box-shadow: -8px 0 28px rgba(41,32,24,0.14);
+        transform: translateX(100%); transition: transform 0.2s;
+      }
+      body[data-aside="open"] .aside { transform: translateX(0); }
+      .pane-toggle { display: inline-flex; }
     }
+
+    @media (max-width: 820px) {
+      .workspace { grid-template-columns: 1fr; }
+      .rail {
+        position: fixed; top: 0; bottom: 0; left: 0; width: 240px; z-index: 55;
+        transform: translateX(-100%); transition: transform 0.2s;
+        box-shadow: 8px 0 28px rgba(41,32,24,0.14);
+      }
+      body[data-rail="open"] .rail { transform: translateX(0); }
+      .list-col { display: block; }
+      .reader-col { display: none; }
+      body[data-mobile="reader"] .list-col { display: none; }
+      body[data-mobile="reader"] .reader-col { display: flex; }
+      .back-btn { display: inline-flex; }
+      .rail-toggle { display: inline-flex; }
+    }
+    .rail-toggle { display: none; }
+    @media (max-width: 820px) { .rail-toggle { display: inline-flex; } }
   </style>
 </head>
-<body>
+<body data-mobile="list">
 
-<header>
-  <div class="wrap">
-    <div class="masthead">
-      <span class="masthead-icon" aria-hidden="true">M</span>
-      <h1 class="site-title">Markets Reading</h1>
+<div class="app">
+  <header class="topbar">
+    <button class="link-btn rail-toggle label" id="rail-toggle" aria-label="Open tags">☰ Tags</button>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">❦</span>
+      <span class="brand-name">Markets Reading</span>
     </div>
-    <p class="site-tagline">Your personal feed for macro, markets &amp; ideas</p>
-    <p class="auto-refresh-note">Checks for new posts every morning · first visit each day loads fresh</p>
-    <div class="toolbar">
-      <span class="updated-line" id="updated-line">Loading…</span>
-      <button id="btn-refresh" aria-label="Refresh feed">Refresh</button>
-    </div>
-    <div id="failed-line" class="failed-line" hidden></div>
+    <span class="topbar-spacer"></span>
+    <span class="updated-line label" id="updated-line">Loading…</span>
+    <span id="failed-line" class="failed-line" hidden></span>
+    <button class="link-btn label" id="btn-refresh" aria-label="Force refresh feed">↻ Sync</button>
+    <button class="link-btn pane-toggle label" id="aside-toggle" aria-label="Toggle tag map">❦ Map</button>
+  </header>
+
+  <div class="workspace">
+    <!-- Tag rail -->
+    <nav class="col rail" aria-label="Tags">
+      <div class="col-head"><span class="label">Reading Room</span></div>
+      <ul class="rail-list" id="rail-fixed"></ul>
+      <div class="rail-divider label">Tags</div>
+      <ul class="rail-list" id="rail-tags"></ul>
+      <button class="rail-add" id="rail-add">＋ New tag</button>
+    </nav>
+
+    <!-- Message list -->
+    <section class="col list-col" aria-label="Items">
+      <div class="col-head">
+        <span class="label" id="list-title">Inbox</span>
+        <span class="label" id="list-count" style="color:var(--ink-faint)"></span>
+      </div>
+      <div class="list-tools">
+        <input type="search" id="search" placeholder="Search this view…" aria-label="Search items" autocomplete="off" />
+        <div class="read-filters label" role="group" aria-label="Reading status">
+          <button class="filter-btn" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="unread" aria-pressed="false">Unread</button>
+          <button class="filter-btn" data-filter="read" aria-pressed="false">Read</button>
+        </div>
+      </div>
+      <div id="list-container"><p class="loading">Loading…</p></div>
+    </section>
+
+    <!-- Reading pane -->
+    <section class="col reader reader-col" aria-label="Reading pane" id="reader">
+      <div class="reader-empty" id="reader-empty">
+        <span class="fleuron" aria-hidden="true">❦</span>
+        <p>Select something to read.</p>
+      </div>
+    </section>
+
+    <!-- Aside: graph + chat -->
+    <aside class="aside">
+      <div class="aside-section">
+        <div class="col-head">
+          <span class="label">Tag Map</span>
+          <button class="link-btn label pane-toggle" id="aside-close" aria-label="Close panel">✕</button>
+        </div>
+        <div class="graph-wrap" id="graph-wrap">
+          <div class="graph-empty" id="graph-empty">Create tags and classify what you read — your map grows here.</div>
+        </div>
+      </div>
+      <div class="aside-section chat">
+        <div class="col-head"><span class="label">Ask the Knowledge Base</span></div>
+        <div class="chat-log" id="chat-log">
+          <p class="chat-intro">Ask about what you’ve read — “What have I saved on AI capex?” I’ll search your saved items and feed. <span style="font-style:normal">✦</span></p>
+        </div>
+        <form class="chat-form" id="chat-form">
+          <input id="chat-input" placeholder="Ask your library…" autocomplete="off" aria-label="Ask the knowledge base" />
+          <button type="submit" aria-label="Ask">→</button>
+        </form>
+      </div>
+    </aside>
   </div>
-</header>
-
-<main class="wrap">
-  <nav class="tabs" role="tablist" aria-label="Views">
-    <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="view-latest"  id="tab-latest"  data-view="latest">Latest</button>
-    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="view-sources" id="tab-sources" data-view="sources">Sources</button>
-  </nav>
-
-  <section id="view-latest" role="tabpanel" aria-labelledby="tab-latest">
-    <div class="feed-controls">
-      <div class="search-bar">
-        <input
-          type="search"
-          id="search"
-          placeholder="Search articles…"
-          aria-label="Filter items"
-          autocomplete="off"
-        />
-      </div>
-      <div class="read-filters" role="group" aria-label="Reading status filter">
-        <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-btn" type="button" data-filter="unread" aria-pressed="false">Unread</button>
-        <button class="filter-btn" type="button" data-filter="read" aria-pressed="false">Read</button>
-      </div>
-      <p class="read-count" id="read-count" hidden></p>
-    </div>
-    <div id="feed-container">
-      <p class="loading">Fetching feeds</p>
-    </div>
-  </section>
-
-  <section id="view-sources" role="tabpanel" aria-labelledby="tab-sources" hidden>
-    <p class="sources-intro">Publications you follow</p>
-    <div id="sources-container">
-      <p class="loading">Loading sources</p>
-    </div>
-  </section>
-</main>
+</div>
 
 <script>
   "use strict";
 
+  /* ── State ────────────────────────────────────────────────────────────── */
   let allItems   = [];
   let allSources = [];
+  let selectedId = null;
+  let activeView = "inbox"; // inbox | saved | sources | tag:<id>
   let readFilter = "all";
+  let feedPollTimer = null;
 
-  const READ_KEY = "markets_read";
-  const LAST_DAY_KEY = "markets_last_fetch_day";
+  const READ_KEY        = "markets_read";
+  const TAGS_KEY        = "markets_tags";
+  const ITEM_TAGS_KEY   = "markets_item_tags";
+  const SAVED_KEY       = "markets_saved";
+  const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
+  const REFRESH_MS      = 5 * 60 * 1000;
 
-  function isNewDay() {
-    const today = new Date().toDateString();
-    return localStorage.getItem(LAST_DAY_KEY) !== today;
-  }
+  const TAG_COLORS = [
+    "#7f2a1a", "#96762f", "#a04f1e", "#9a2b21",
+    "#5e4370", "#3e6b4e", "#3a5684", "#7c5a26",
+  ];
 
-  function markFetchedToday() {
-    localStorage.setItem(LAST_DAY_KEY, new Date().toDateString());
-  }
+  /* ── Small storage helpers ────────────────────────────────────────────── */
+  const readJSON = (k, fallback) => {
+    try { return JSON.parse(localStorage.getItem(k)) ?? fallback; } catch { return fallback; }
+  };
+  const writeJSON = (k, v) => localStorage.setItem(k, JSON.stringify(v));
 
-  function startOfYesterday() {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    d.setDate(d.getDate() - 1);
-    return d;
-  }
+  const keyOf = (item) => item.id || item.link || item.url;
 
-  function countRecentUnread(items) {
-    const cutoff = startOfYesterday();
-    return items.filter(
-      (i) => i.date && new Date(i.date) >= cutoff && !isRead(i.link)
-    ).length;
-  }
+  const slugify = (name) =>
+    String(name || "").trim().toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tag";
 
-  function getReadSet() {
-    try {
-      return new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]"));
-    } catch {
-      return new Set();
+  /* read state (keyed by link, preserves earlier behavior) */
+  const getReadSet = () => new Set(readJSON(READ_KEY, []));
+  const isRead = (link) => getReadSet().has(link);
+  const setRead = (link, read) => {
+    const s = getReadSet();
+    read ? s.add(link) : s.delete(link);
+    writeJSON(READ_KEY, [...s]);
+  };
+
+  /* tags */
+  const getTags = () => readJSON(TAGS_KEY, []);
+  const tagById = (id) => getTags().find((t) => t.id === id) || null;
+  const addTag = (name, color) => {
+    name = String(name || "").trim();
+    if (!name) return null;
+    const tags = getTags();
+    const existing = tags.find((t) => t.name.toLowerCase() === name.toLowerCase());
+    if (existing) return existing;
+    const tag = {
+      id: slugify(name),
+      name,
+      color: color || TAG_COLORS[tags.length % TAG_COLORS.length],
+    };
+    tags.push(tag);
+    writeJSON(TAGS_KEY, tags);
+    return tag;
+  };
+  const getItemTagIds = (k) => readJSON(ITEM_TAGS_KEY, {})[k] || [];
+  const getItemTags = (k) =>
+    getItemTagIds(k).map(tagById).filter(Boolean);
+  const toggleItemTag = (k, tagId) => {
+    const map = readJSON(ITEM_TAGS_KEY, {});
+    const cur = new Set(map[k] || []);
+    cur.has(tagId) ? cur.delete(tagId) : cur.add(tagId);
+    map[k] = [...cur];
+    writeJSON(ITEM_TAGS_KEY, map);
+  };
+  const tagCount = (tagId) =>
+    allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
+
+  function migrateLegacyFolders() {
+    if (localStorage.getItem("markets_tags_migrated")) return;
+    const folders = readJSON("markets_folders", []);
+    const itemFolders = readJSON("markets_item_folders", {});
+    if (folders.length || Object.keys(itemFolders).length) {
+      const tags = folders.map((name, i) => ({
+        id: slugify(name),
+        name,
+        color: TAG_COLORS[i % TAG_COLORS.length],
+      }));
+      writeJSON(TAGS_KEY, tags);
+      const itemTags = {};
+      for (const [k, names] of Object.entries(itemFolders)) {
+        itemTags[k] = names.map((n) => slugify(n)).filter(Boolean);
+      }
+      writeJSON(ITEM_TAGS_KEY, itemTags);
     }
+    localStorage.setItem("markets_tags_migrated", "1");
   }
 
-  function saveReadSet(set) {
-    localStorage.setItem(READ_KEY, JSON.stringify([...set]));
+  /* saved */
+  const getSavedSet = () => new Set(readJSON(SAVED_KEY, []));
+  const isSaved = (k) => getSavedSet().has(k);
+  const markSavedLocal = (k) => { const s = getSavedSet(); s.add(k); writeJSON(SAVED_KEY, [...s]); };
+
+  /* ── Utilities ────────────────────────────────────────────────────────── */
+  function esc(str) {
+    return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
-
-  function isRead(link) {
-    return getReadSet().has(link);
-  }
-
-  function setRead(link, read) {
-    const set = getReadSet();
-    if (read) set.add(link);
-    else set.delete(link);
-    saveReadSet(set);
-  }
-
-  function updateReadCount() {
-    const el = document.getElementById("read-count");
-    if (!allItems.length) {
-      el.hidden = true;
-      return;
-    }
-    const read = allItems.filter(i => isRead(i.link)).length;
-    el.textContent = `${read} read · ${allItems.length - read} unread`;
-    el.hidden = false;
-  }
-
-  function applyFeedFilters() {
-    const q = document.getElementById("search").value.toLowerCase().trim();
-    document.querySelectorAll(".feed-item").forEach(li => {
-      const matchesSearch = !q
-        || li.dataset.title.includes(q)
-        || li.dataset.source.includes(q);
-      const itemRead = li.dataset.read === "true";
-      const matchesFilter =
-        readFilter === "all"
-        || (readFilter === "read" && itemRead)
-        || (readFilter === "unread" && !itemRead);
-      li.style.display = (matchesSearch && matchesFilter) ? "" : "none";
-    });
-  }
-
-  const tabBtns     = document.querySelectorAll(".tab-btn");
-  const viewLatest  = document.getElementById("view-latest");
-  const viewSources = document.getElementById("view-sources");
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      tabBtns.forEach(b => b.setAttribute("aria-selected", "false"));
-      btn.setAttribute("aria-selected", "true");
-      const view = btn.dataset.view;
-      viewLatest.hidden  = (view !== "latest");
-      viewSources.hidden = (view !== "sources");
-      viewLatest.style.display  = (view === "latest")  ? "block" : "none";
-      viewSources.style.display = (view === "sources") ? "block" : "none";
-    });
-  });
-
   function formatDate(dateStr) {
     if (!dateStr) return "";
     const d = new Date(dateStr);
     if (isNaN(d.getTime())) return "";
-
-    const diff = Date.now() - d.getTime();
-    const mins = Math.floor(diff / 60000);
+    const mins = Math.floor((Date.now() - d.getTime()) / 60000);
     if (mins < 60) return mins <= 1 ? "Just now" : `${mins}m ago`;
     const hrs = Math.floor(mins / 60);
     if (hrs < 24) return `${hrs}h ago`;
     const days = Math.floor(hrs / 24);
     if (days < 7) return `${days}d ago`;
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric",
+      year: d.getFullYear() !== new Date().getFullYear() ? "numeric" : undefined });
+  }
+  function fullDate(dateStr) {
+    if (!dateStr) return "";
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return "";
+    return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  }
+  const initials = (name) => String(name || "?").split(/\s+/).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  const byId = (id) => document.getElementById(id);
 
-    return d.toLocaleDateString(undefined, {
-      month: "short",
-      day: "numeric",
-      year: d.getFullYear() !== new Date().getFullYear() ? "numeric" : undefined,
+  /* embed detection */
+  function youtubeId(url) {
+    const m = String(url || "").match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);
+    return m ? m[1] : null;
+  }
+  function spotifyEmbed(url) {
+    const m = String(url || "").match(/open\.spotify\.com\/(episode|show|track|playlist)\/([\w]+)/);
+    return m ? `https://open.spotify.com/embed/${m[1]}/${m[2]}` : null;
+  }
+
+  /* ── Rail ─────────────────────────────────────────────────────────────── */
+  function renderRail() {
+    const savedCount = allItems.filter((it) => isSaved(keyOf(it))).length;
+    const fixed = [
+      { id: "inbox",   glyph: "✦", name: "Inbox",   count: allItems.length },
+      { id: "saved",   glyph: "❦", name: "Saved",   count: savedCount },
+      { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
+    ];
+    byId("rail-fixed").innerHTML = fixed.map(railItemHTML).join("");
+
+    const tags = getTags();
+    byId("rail-tags").innerHTML = tags.length
+      ? tags.map((tag) => railTagHTML(tag)).join("")
+      : `<li style="padding:0.3rem 1rem;color:var(--ink-faint);font-style:italic;font-size:0.85rem">No tags yet</li>`;
+
+    document.querySelectorAll(".rail-item").forEach((btn) => {
+      btn.addEventListener("click", () => selectView(btn.dataset.view));
     });
   }
-
-  function initials(name) {
-    return String(name || "?")
-      .split(/\s+/)
-      .slice(0, 2)
-      .map(w => w[0])
-      .join("")
-      .toUpperCase();
+  function railItemHTML(f) {
+    const cur = activeView === f.id;
+    return `<li><button class="rail-item" data-view="${esc(f.id)}" aria-current="${cur}">
+      <span class="glyph" aria-hidden="true">${f.glyph}</span>
+      <span class="name">${esc(f.name)}</span>
+      <span class="count">${f.count}</span></button></li>`;
+  }
+  function railTagHTML(tag) {
+    const id = "tag:" + tag.id;
+    const cur = activeView === id;
+    return `<li><button class="rail-item" data-view="${esc(id)}" aria-current="${cur}">
+      <span class="tag-dot" style="background:${esc(tag.color)}" aria-hidden="true"></span>
+      <span class="name">${esc(tag.name)}</span>
+      <span class="count">${tagCount(tag.id)}</span></button></li>`;
   }
 
-  function renderFeed(items) {
-    const container = document.getElementById("feed-container");
+  function selectView(id) {
+    activeView = id;
+    document.body.dataset.rail = "closed";
+    renderRail();
+    renderList();
+  }
+
+  function openTagCreator(anchor) {
+    document.querySelector(".popover")?.remove();
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    let picked = TAG_COLORS[0];
+    pop.innerHTML = `<span class="label">New tag</span>
+      <div class="pop-new"><input placeholder="Tag name…" aria-label="Tag name" /></div>
+      <div class="color-swatches" role="group" aria-label="Tag color">
+        ${TAG_COLORS.map((c, i) =>
+          `<button type="button" class="color-swatch" style="background:${c}" data-color="${c}" aria-pressed="${i === 0}"></button>`).join("")}
+      </div>
+      <div class="tag-create-actions"><button type="button">Create tag</button></div>`;
+    pop.querySelectorAll(".color-swatch").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        picked = btn.dataset.color;
+        pop.querySelectorAll(".color-swatch").forEach((b) =>
+          b.setAttribute("aria-pressed", b === btn));
+      });
+    });
+    const input = pop.querySelector("input");
+    const create = () => {
+      const tag = addTag(input.value, picked);
+      if (tag) { renderRail(); renderGraph(); input.value = ""; pop.remove(); }
+    };
+    pop.querySelector(".tag-create-actions button").addEventListener("click", create);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { e.preventDefault(); create(); }
+      if (e.key === "Escape") pop.remove();
+    });
+    document.body.appendChild(pop);
+    const r = anchor.getBoundingClientRect();
+    pop.style.top = `${r.bottom + 6}px`;
+    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    input.focus();
+    setTimeout(() => {
+      const close = (e) => {
+        if (!pop.contains(e.target) && e.target !== anchor) {
+          pop.remove();
+          document.removeEventListener("mousedown", close);
+        }
+      };
+      document.addEventListener("mousedown", close);
+    }, 0);
+  }
+
+  byId("rail-add").addEventListener("click", (e) => openTagCreator(e.currentTarget));
+  byId("rail-toggle").addEventListener("click", () => {
+    document.body.dataset.rail = document.body.dataset.rail === "open" ? "closed" : "open";
+  });
+
+  /* ── Message list ─────────────────────────────────────────────────────── */
+  function viewLabel() {
+    if (activeView === "inbox") return "Inbox";
+    if (activeView === "saved") return "Saved";
+    if (activeView === "sources") return "Sources";
+    const tag = tagById(activeView.slice(4));
+    return tag ? tag.name : "Tag";
+  }
+
+  function itemsForView() {
+    if (activeView === "saved") return allItems.filter((it) => isSaved(keyOf(it)));
+    if (activeView.startsWith("tag:")) {
+      const tagId = activeView.slice(4);
+      return allItems.filter((it) => getItemTagIds(keyOf(it)).includes(tagId));
+    }
+    return allItems;
+  }
+
+  function renderTagChips(tags) {
+    return tags.map((tag) =>
+      `<span class="msg-tag" style="color:${esc(tag.color)}">${esc(tag.name)}</span>`
+    ).join("");
+  }
+
+  function renderList() {
+    byId("list-title").textContent = viewLabel();
+
+    if (activeView === "sources") {
+      byId("list-count").textContent = "";
+      byId("list-container").innerHTML =
+        `<p class="empty-state">Your followed publications — shown in the reading pane. →</p>`;
+      renderSources();
+      return;
+    }
+
+    const container = byId("list-container");
+    const q = byId("search").value.toLowerCase().trim();
+    let items = itemsForView().filter((it) => {
+      const tagNames = getItemTags(keyOf(it)).map((t) => t.name).join(" ");
+      const matchQ = !q || (it.title || "").toLowerCase().includes(q)
+        || (it.source || "").toLowerCase().includes(q)
+        || (it.snippet || "").toLowerCase().includes(q)
+        || tagNames.toLowerCase().includes(q);
+      const rd = isRead(it.link);
+      const matchR = readFilter === "all" || (readFilter === "read" && rd) || (readFilter === "unread" && !rd);
+      return matchQ && matchR;
+    });
+
+    byId("list-count").textContent = items.length ? `${items.length}` : "";
 
     if (!items.length) {
-      container.innerHTML =
-        '<p class="empty-state">No articles yet — add sources in <code>api/feed.js</code></p>';
+      container.innerHTML = `<p class="empty-state">${
+        activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
+        : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
+        : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
       return;
     }
 
     const ul = document.createElement("ul");
-    ul.className = "feed-list";
+    ul.className = "msg-list";
     ul.setAttribute("role", "list");
-
-    items.forEach(item => {
+    items.forEach((item) => {
       const read = isRead(item.link);
-
+      const k = keyOf(item);
+      const tags = getItemTags(k);
       const li = document.createElement("li");
-      li.className = "feed-item" + (read ? " is-read" : "");
-      li.dataset.title  = (item.title  || "").toLowerCase();
-      li.dataset.source = (item.source || "").toLowerCase();
-      li.dataset.read   = read ? "true" : "false";
-      li.dataset.link   = item.link;
-
-      li.innerHTML = `
-        <div class="article-meta">
-          <span class="source-pill" data-category="${esc(item.category)}"><span class="source-dot"></span>${esc(item.source)}</span>
-          <span class="article-date">${formatDate(item.date)}</span>
-          ${read ? '<span class="read-badge">Read</span>' : '<span class="new-badge">Unread</span>'}
+      const btn = document.createElement("button");
+      btn.className = "msg" + (read ? " is-read" : "");
+      btn.dataset.id = k;
+      btn.setAttribute("aria-selected", selectedId === k);
+      btn.innerHTML = `
+        <div class="msg-meta">
+          <span class="msg-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
+          <span class="msg-date">${formatDate(item.date)}</span>
         </div>
-        <a class="item-title" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer" data-read-link="${esc(item.link)}">${esc(item.title)}</a>
-        ${item.snippet ? `<p class="item-snippet">${esc(item.snippet)}</p>` : ""}
-        <div class="article-footer">
-          <a class="read-link" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer" data-read-link="${esc(item.link)}">Read article →</a>
-          <button type="button" class="read-toggle${read ? " is-read" : ""}" data-link="${esc(item.link)}" aria-pressed="${read}">
-            ${read ? "Mark unread" : "Mark as read"}
-          </button>
-        </div>
+        <div class="msg-title"><span class="msg-dot" aria-hidden="true"></span>${esc(item.title)}</div>
+        ${item.snippet ? `<div class="msg-snippet">${esc(item.snippet)}</div>` : ""}
+        ${tags.length ? `<div class="msg-tags">${renderTagChips(tags)}</div>` : ""}
       `;
-
+      btn.addEventListener("click", () => openItem(k));
+      li.appendChild(btn);
       ul.appendChild(li);
     });
-
     container.innerHTML = "";
     container.appendChild(ul);
-
-    container.querySelectorAll("[data-read-link]").forEach(link => {
-      link.addEventListener("click", () => setRead(link.dataset.readLink, true));
-    });
-
-    container.querySelectorAll(".read-toggle").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const link = btn.dataset.link;
-        const nowRead = !isRead(link);
-        setRead(link, nowRead);
-        renderFeed(allItems);
-        applyFeedFilters();
-        updateReadCount();
-      });
-    });
-
-    applyFeedFilters();
-    updateReadCount();
   }
 
-  function renderSources(sources) {
-    const container = document.getElementById("sources-container");
+  /* ── Reading pane ─────────────────────────────────────────────────────── */
+  function openItem(k) {
+    selectedId = k;
+    const item = allItems.find((it) => keyOf(it) === k);
+    if (!item) return;
+    setRead(item.link, true);
+    document.body.dataset.mobile = "reader";
+    renderReader(item);
+    // refresh selection highlight + read fade without full rebuild
+    document.querySelectorAll(".msg").forEach((m) => {
+      m.setAttribute("aria-selected", m.dataset.id === k);
+      if (m.dataset.id === k) m.classList.add("is-read");
+    });
+    updateCounts();
+  }
 
-    if (!sources.length) {
-      container.innerHTML =
-        '<p class="empty-state">No sources — add them in <code>api/feed.js</code></p>';
+  function renderReader(item) {
+    const k = keyOf(item);
+    const yt = youtubeId(item.link);
+    const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
+    const saved = isSaved(k);
+    const tags = getItemTags(k);
+
+    let embedHTML = "";
+    if (yt) {
+      embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
+        title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe></div>`;
+    } else if (sp) {
+      embedHTML = `<div class="reader-embed audio"><iframe src="${esc(sp)}" title="Podcast"
+        allow="encrypted-media; clipboard-write" loading="lazy"></iframe></div>`;
+    }
+
+    const bodyHTML = item.snippet
+      ? `<div class="reader-body"><p class="dropcap">${esc(item.snippet)}</p></div>`
+      : `<div class="reader-body"><p style="color:var(--ink-faint);font-style:italic">No preview text — open the original to read in full.</p></div>`;
+
+    const reader = byId("reader");
+    reader.innerHTML = `
+      <div class="reader-inner">
+        <button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>
+        <div class="reader-kicker">
+          <span class="reader-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
+          <span class="reader-date">${esc(fullDate(item.date) || formatDate(item.date))}</span>
+        </div>
+        <h1 class="reader-title">${esc(item.title)}</h1>
+        <div class="reader-actions">
+          <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+          <button class="action-btn ${saved ? "is-on" : ""}" id="btn-save">${saved ? "Saved ✓" : "Save"}</button>
+          <button class="action-btn" id="btn-classify">Tag ❧</button>
+        </div>
+        ${tags.length ? `<div class="chip-row" id="reader-tags">${tags.map((tag) =>
+            `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}</div>` : `<div class="chip-row" id="reader-tags"></div>`}
+        ${embedHTML}
+        ${bodyHTML}
+        <p class="reader-note">${
+          yt ? "Watching here — full context and comments on the original."
+          : sp ? "Listening here — episode notes on the original."
+          : "Reading-room preview. Publishers usually block embedding, so the full piece opens in a new tab."
+        }</p>
+      </div>`;
+    byId("reader-empty") && (byId("reader-empty").hidden = true);
+
+    byId("btn-save").addEventListener("click", () => saveItem(item));
+    byId("btn-classify").addEventListener("click", (e) => openClassify(e.currentTarget, item));
+    const back = byId("reader-back");
+    back && back.addEventListener("click", () => { document.body.dataset.mobile = "list"; });
+    reader.querySelectorAll("[data-untag]").forEach((b) =>
+      b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterTagChange(item); }));
+  }
+
+  function afterTagChange(item) {
+    renderReader(item);
+    renderRail();
+    renderGraph();
+    renderList();
+    document.querySelectorAll(".msg").forEach((m) => m.setAttribute("aria-selected", m.dataset.id === selectedId));
+  }
+
+  /* tag popover */
+  function openClassify(anchor, item) {
+    document.querySelector(".popover")?.remove();
+    const k = keyOf(item);
+    const pop = document.createElement("div");
+    pop.className = "popover";
+    let picked = TAG_COLORS[0];
+    const render = () => {
+      const assigned = getItemTagIds(k);
+      const tags = getTags();
+      pop.innerHTML = `<span class="label">Tag this item</span>
+        ${tags.length ? tags.map((tag) =>
+          `<button class="pop-item" data-tag="${esc(tag.id)}">
+            <span class="check">${assigned.includes(tag.id) ? "✓" : ""}</span>
+            <span class="tag-dot" style="background:${esc(tag.color)}"></span>${esc(tag.name)}</button>`).join("")
+          : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No tags yet — create one below.</div>`}
+        <div class="pop-new"><input placeholder="New tag…" aria-label="New tag name" /></div>
+        <div class="color-swatches" role="group" aria-label="Tag color">
+          ${TAG_COLORS.map((c, i) =>
+            `<button type="button" class="color-swatch" style="background:${c}" data-color="${c}" aria-pressed="${i === 0}"></button>`).join("")}
+        </div>
+        <div class="tag-create-actions"><button type="button">Create &amp; apply</button></div>`;
+      pop.querySelectorAll(".pop-item").forEach((b) =>
+        b.addEventListener("click", () => { toggleItemTag(k, b.dataset.tag); render(); afterTagChange(item); }));
+      pop.querySelectorAll(".color-swatch").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          picked = btn.dataset.color;
+          pop.querySelectorAll(".color-swatch").forEach((b) =>
+            b.setAttribute("aria-pressed", b === btn));
+        });
+      });
+      const input = pop.querySelector(".pop-new input");
+      const create = () => {
+        const tag = addTag(input.value, picked);
+        if (tag) { toggleItemTag(k, tag.id); render(); afterTagChange(item); }
+        input.value = "";
+        input.focus();
+      };
+      pop.querySelector(".tag-create-actions button").addEventListener("click", create);
+      input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); create(); } });
+    };
+    render();
+    document.body.appendChild(pop);
+    const r = anchor.getBoundingClientRect();
+    pop.style.top = `${r.bottom + 6}px`;
+    pop.style.left = `${Math.min(r.left, window.innerWidth - 240)}px`;
+    setTimeout(() => {
+      const close = (e) => { if (!pop.contains(e.target) && e.target !== anchor) { pop.remove(); document.removeEventListener("mousedown", close); } };
+      document.addEventListener("mousedown", close);
+    }, 0);
+  }
+
+  /* save → POST /api/save (falls back to local marker on failure) */
+  async function saveItem(item) {
+    const k = keyOf(item);
+    const btn = byId("btn-save");
+    btn.textContent = "Saving…";
+    const payload = {
+      title: item.title, link: item.link, source: item.source,
+      category: item.category, date: item.date, snippet: item.snippet,
+      themes: getItemTags(k).map((t) => t.name),
+    };
+    try {
+      const res = await fetch("/api/save", {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      markSavedLocal(k);
+      btn.textContent = "Saved ✓";
+      btn.classList.add("is-on");
+    } catch (err) {
+      // Still record locally so the workspace stays usable offline / pre-config.
+      markSavedLocal(k);
+      btn.textContent = "Saved locally ✓";
+      btn.classList.add("is-on");
+    }
+    renderRail();
+    if (activeView === "saved") renderList();
+  }
+
+  /* ── Sources launchpad (rendered into reader pane) ────────────────────── */
+  function renderSources() {
+    const reader = byId("reader");
+    if (!allSources.length) {
+      reader.innerHTML = `<div class="reader-inner"><p class="empty-state">No sources yet.</p></div>`;
       return;
     }
-
     const groups = {};
-    sources.forEach(s => {
-      if (!groups[s.category]) groups[s.category] = [];
-      groups[s.category].push(s);
+    allSources.forEach((s) => { (groups[s.category] ||= []).push(s); });
+    const ORDER = ["Substack", "YouTube", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
+    const keys = [...ORDER.filter((k) => groups[k]), ...Object.keys(groups).filter((k) => !ORDER.includes(k))];
+    reader.innerHTML = `<div class="reader-inner">
+      <h1 class="reader-title" style="margin-top:1.4rem">Sources</h1>
+      <p style="color:var(--ink-soft);font-style:italic;margin-bottom:1.4rem">Publications you follow.</p>
+      ${keys.map((cat) => `<div class="sources-group">
+        <div class="sources-group-label label">${esc(cat)}</div>
+        ${groups[cat].map((s) => `<a class="chip" href="${esc(s.site)}" target="_blank" rel="noopener noreferrer">
+          <span class="chip-avatar">${esc(initials(s.name))}</span>
+          <span class="chip-body"><div class="chip-name">${esc(s.name)}</div>
+          <div class="chip-meta">${s.hasFeed ? "RSS feed connected" : "Launchpad only — no RSS"}</div></span>
+          <span class="chip-arrow" aria-hidden="true">→</span></a>`).join("")}
+      </div>`).join("")}
+    </div>`;
+    byId("reader-empty") && byId("reader-empty").remove();
+  }
+
+  /* ── Tag map ──────────────────────────────────────────────────────────── */
+  function renderGraph() {
+    const tags = getTags();
+    const wrap = byId("graph-wrap");
+    const empty = byId("graph-empty");
+    const existing = wrap.querySelector("svg");
+    if (existing) existing.remove();
+
+    if (!tags.length) { empty.style.display = ""; return; }
+    empty.style.display = "none";
+
+    const W = wrap.clientWidth || 320, H = wrap.clientHeight || 200;
+    const cx = W / 2, cy = H / 2;
+    const R = Math.min(W, H) / 2 - 34;
+    const svgns = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgns, "svg");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+    const counts = tags.map((tag) => tagCount(tag.id));
+    const maxC = Math.max(1, ...counts);
+
+    tags.forEach((_, i) => {
+      const a = (i / tags.length) * Math.PI * 2 - Math.PI / 2;
+      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
+      const line = document.createElementNS(svgns, "line");
+      line.setAttribute("class", "g-link");
+      line.setAttribute("x1", cx); line.setAttribute("y1", cy);
+      line.setAttribute("x2", x); line.setAttribute("y2", y);
+      svg.appendChild(line);
     });
 
-    const ORDER = ["Substack", "YouTube", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
-    const sortedKeys = [
-      ...ORDER.filter(k => groups[k]),
-      ...Object.keys(groups).filter(k => !ORDER.includes(k)),
-    ];
+    svg.appendChild(nodeEl(svgns, cx, cy, 22, "Inbox", "center", null, null));
 
-    container.innerHTML = "";
+    tags.forEach((tag, i) => {
+      const a = (i / tags.length) * Math.PI * 2 - Math.PI / 2;
+      const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
+      const rad = 9 + (counts[i] / maxC) * 12;
+      const cls = "tag:" + tag.id === activeView ? "active" : "";
+      const g = nodeEl(svgns, x, y, rad, tag.name, cls, tag.color, () => selectView("tag:" + tag.id));
+      svg.appendChild(g);
+    });
 
-    sortedKeys.forEach(cat => {
-      const group = document.createElement("div");
-      group.className = "sources-group";
+    wrap.appendChild(svg);
+  }
+  function nodeEl(ns, x, y, r, label, cls, color, onClick) {
+    const g = document.createElementNS(ns, "g");
+    g.setAttribute("class", "g-node " + (cls || ""));
+    const c = document.createElementNS(ns, "circle");
+    c.setAttribute("cx", x); c.setAttribute("cy", y); c.setAttribute("r", r);
+    if (color) {
+      c.setAttribute("fill", color);
+      c.setAttribute("fill-opacity", "0.22");
+      c.setAttribute("stroke", color);
+    }
+    g.appendChild(c);
+    const t = document.createElementNS(ns, "text");
+    t.setAttribute("x", x); t.setAttribute("y", y + (cls === "center" ? 3 : r + 13));
+    t.textContent = label.length > 16 ? label.slice(0, 15) + "…" : label;
+    g.appendChild(t);
+    if (onClick) g.addEventListener("click", onClick);
+    return g;
+  }
 
-      const label = document.createElement("div");
-      label.className = "sources-group-label";
-      label.textContent = cat;
-      group.appendChild(label);
+  /* ── Filters / tabs wiring ────────────────────────────────────────────── */
+  byId("search").addEventListener("input", renderList);
+  document.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      readFilter = btn.dataset.filter;
+      document.querySelectorAll(".filter-btn").forEach((b) => b.setAttribute("aria-pressed", b === btn));
+      renderList();
+    });
+  });
+  byId("aside-toggle").addEventListener("click", () =>
+    document.body.dataset.aside = document.body.dataset.aside === "open" ? "closed" : "open");
+  byId("aside-close").addEventListener("click", () => document.body.dataset.aside = "closed");
 
-      const grid = document.createElement("div");
-      grid.className = "chip-grid";
+  function updateCounts() { renderRail(); }
 
-      groups[cat].forEach(s => {
-        const a = document.createElement("a");
-        a.className = "chip";
-        a.href = s.site;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.innerHTML = `
-          <span class="chip-avatar">${esc(initials(s.name))}</span>
-          <span class="chip-body">
-            <div class="chip-name">${esc(s.name)}</div>
-            <div class="chip-meta">${s.hasFeed ? "RSS feed connected" : "Launchpad only — no RSS"}</div>
-          </span>
-          <span class="chip-arrow" aria-hidden="true">→</span>
-        `;
-        grid.appendChild(a);
-      });
-
-      group.appendChild(grid);
-      container.appendChild(group);
+  function saveFeedSnapshot(data) {
+    writeJSON(FEED_SNAPSHOT_KEY, {
+      items: data.items || [],
+      sources: data.sources || [],
+      updated: data.updated || null,
+      failed: data.failed || [],
+      meta: data.meta || {},
+      cache: data.cache || null,
     });
   }
 
-  document.getElementById("search").addEventListener("input", applyFeedFilters);
+  function loadFeedSnapshot() {
+    const snap = readJSON(FEED_SNAPSHOT_KEY, null);
+    if (!snap?.items?.length) return false;
+    applyFeedData(snap, { fromSnapshot: true });
+    return true;
+  }
 
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      readFilter = btn.dataset.filter;
-      document.querySelectorAll(".filter-btn").forEach(b => {
-        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
-      });
-      applyFeedFilters();
-    });
-  });
+  function setUpdatedLine(data, { syncing = false } = {}) {
+    if (!data?.updated) {
+      byId("updated-line").textContent = syncing ? "Syncing…" : "Waiting…";
+      return;
+    }
+    const d = new Date(data.updated);
+    const age = data.cache?.age_ms != null ? Math.round(data.cache.age_ms / 60000) : null;
+    const bits = ["Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })];
+    if (syncing) bits.push("syncing");
+    else if (age != null && age > 0) bits.push(`${age}m ago`);
+    byId("updated-line").textContent = bits.join(" · ");
+  }
 
-  async function loadFeed(forceFresh = false) {
-    document.getElementById("feed-container").innerHTML =
-      '<p class="loading">Fetching feeds</p>';
-    document.getElementById("sources-container").innerHTML =
-      '<p class="loading">Loading sources</p>';
-    document.getElementById("updated-line").textContent = "Loading…";
-    document.getElementById("failed-line").hidden = true;
-
-    const fresh = forceFresh || isNewDay();
-    const feedUrl = fresh ? "/api/feed?fresh=1" : "/api/feed";
-
-    try {
-      const res = await fetch(feedUrl, fresh ? { cache: "no-store" } : {});
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-
-      allItems   = data.items   || [];
-      allSources = data.sources || [];
-
-      const updatedEl = document.getElementById("updated-line");
-      if (data.updated) {
-        const d = new Date(data.updated);
-        const recent = countRecentUnread(allItems);
-        updatedEl.textContent =
-          "Updated " + d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
-          + (fresh ? " · live fetch" : "")
-          + (recent > 0 ? ` · ${recent} new since yesterday` : "")
-          + (data.meta?.spotifyEpisodes ? ` · ${data.meta.spotifyEpisodes} podcast episodes` : "")
-          + (data.meta?.bookmarks ? ` · ${data.meta.bookmarks} bookmarks` : "");
-      } else {
-        updatedEl.textContent = "";
-      }
-
-      if (data.failed && data.failed.length) {
-        const el = document.getElementById("failed-line");
-        el.textContent = "Some feeds unavailable: " + data.failed.join(", ");
-        el.hidden = false;
-      }
-
-      renderFeed(allItems);
-      renderSources(allSources);
-      markFetchedToday();
-
-    } catch (err) {
-      document.getElementById("feed-container").innerHTML =
-        `<p class="empty-state">Could not load feed — ${esc(err.message)}<br><br>
-        Run <code>npm run dev</code> locally.</p>`;
-      document.getElementById("updated-line").textContent = "Error";
+  function setFailedLine(failed) {
+    const el = byId("failed-line");
+    if (failed?.length) {
+      el.textContent = "· unavailable: " + failed.join(", ");
+      el.hidden = false;
+    } else {
+      el.hidden = true;
     }
   }
 
-  document.getElementById("btn-refresh").addEventListener("click", () => loadFeed(true));
-
-  function esc(str) {
-    return String(str ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
+  function applyFeedData(data, { fromSnapshot = false } = {}) {
+    allItems = data.items || [];
+    allSources = data.sources || [];
+    setUpdatedLine(data, { syncing: false });
+    setFailedLine(data.failed);
+    renderRail();
+    renderList();
+    renderGraph();
+    if (!fromSnapshot) saveFeedSnapshot(data);
   }
 
-  loadFeed();
+  async function loadFeed({ force = false, background = false } = {}) {
+    if (!background && !allItems.length) {
+      byId("list-container").innerHTML = '<p class="loading">Loading…</p>';
+    } else if (background) {
+      setUpdatedLine({ updated: readJSON(FEED_SNAPSHOT_KEY, {})?.updated }, { syncing: true });
+    }
+
+    const url = force ? "/api/feed?fresh=1" : "/api/feed";
+    try {
+      const res = await fetch(url, force ? { cache: "no-store" } : {});
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      applyFeedData(data);
+    } catch (err) {
+      if (!allItems.length) {
+        byId("list-container").innerHTML =
+          `<p class="empty-state">Could not load feed — ${esc(err.message)}.<br><br>Run <code>npm run dev</code> locally.</p>`;
+        byId("updated-line").textContent = "Offline";
+      }
+    }
+  }
+
+  function startFeedPolling() {
+    if (feedPollTimer) clearInterval(feedPollTimer);
+    feedPollTimer = setInterval(() => loadFeed({ background: true }), REFRESH_MS);
+  }
+
+  byId("btn-refresh").addEventListener("click", () => loadFeed({ force: true }));
+  window.addEventListener("resize", () => { if (getTags().length) renderGraph(); });
+
+  migrateLegacyFolders();
+  if (!loadFeedSnapshot()) {
+    byId("updated-line").textContent = "Loading…";
+  }
+  loadFeed({ background: true });
+  startFeedPolling();
 </script>
 </body>
 </html>

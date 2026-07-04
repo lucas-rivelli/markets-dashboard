@@ -4,10 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/dev.js",
+    "kb:index": "node scripts/build-kb-index.js",
+    "setup:check": "node scripts/setup-check.js",
+    "birdclaw:init": "birdclaw init",
     "sync:bookmarks": "bash scripts/sync-bookmarks.sh",
     "spotify:auth": "node scripts/spotify-auth.js"
   },
   "dependencies": {
     "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@steipete/bird": "^0.8.0",
+    "birdclaw": "^0.9.2"
   }
 }

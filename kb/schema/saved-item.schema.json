@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "saved-item.schema.json",
+  "title": "Saved Knowledge Base Item",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "status",
+    "title",
+    "url",
+    "source",
+    "category",
+    "date",
+    "saved_at",
+    "themes",
+    "tickers",
+    "type",
+    "snippet"
+  ],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "status": { "type": "string", "enum": ["saved"] },
+    "title": { "type": "string" },
+    "url": { "type": "string" },
+    "source": { "type": "string" },
+    "category": { "type": "string" },
+    "date": { "type": ["string", "null"] },
+    "saved_at": { "type": "string" },
+    "themes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tickers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "type": {
+      "type": "string",
+      "enum": ["article", "bookmark", "podcast", "video"]
+    },
+    "snippet": { "type": "string" }
+  }
+}

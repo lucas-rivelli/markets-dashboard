@@ -26,9 +26,15 @@ function pickTweet(node) {
 function tweetUrl(t) {
   if (t.url) return t.url;
   if (t.permalink) return t.permalink;
-  const author = t.author?.username || t.author?.screen_name || t.username;
+  const author =
+    t.author?.username ||
+    t.author?.screen_name ||
+    t.author?.handle ||
+    t.username;
   const id = t.id || t.tweet_id || t.rest_id;
-  if (author && id) return `https://x.com/${author}/status/${id}`;
+  if (author && /^\d+$/.test(String(id))) {
+    return `https://x.com/${String(author).replace(/^@/, "")}/status/${id}`;
+  }
   return null;
 }
 
@@ -43,7 +49,7 @@ function tweetText(t) {
 }
 
 function tweetDate(t) {
-  const raw = t.created_at || t.createdAt || t.bookmarked_at || t.date;
+  const raw = t.created_at || t.createdAt || t.bookmarked_at || t.bookmarkedAt || t.date;
   if (!raw) return null;
   const d = new Date(raw);
   return isNaN(d.getTime()) ? null : d.toISOString();

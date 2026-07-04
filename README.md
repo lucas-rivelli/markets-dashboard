@@ -91,7 +91,7 @@ Most WordPress and Ghost sites use `/feed`.
 
 ## Spotify podcasts (new episodes)
 
-Shows **new episodes from your saved Spotify podcasts** (last 14 days).
+Shows **new episodes from your saved Spotify podcasts** (last 7 days). Excludes *Posse de Bola*.
 
 ### One-time setup
 

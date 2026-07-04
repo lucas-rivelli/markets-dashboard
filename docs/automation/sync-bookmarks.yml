@@ -1,0 +1,58 @@
+# Optional: sync X bookmarks without a Mac. Requires GitHub secrets AUTH_TOKEN and CT0
+# (from x.com cookies). Runs every 6 hours; skips gracefully if secrets are missing.
+# Copy to .github/workflows/sync-bookmarks.yml
+
+name: Sync X bookmarks
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync and export bookmarks
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          CT0: ${{ secrets.CT0 }}
+        run: |
+          if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
+            echo "AUTH_TOKEN or CT0 not set — skipping bookmark sync."
+            echo "Add both as GitHub Actions secrets to enable automated X bookmarks."
+            exit 0
+          fi
+          npx birdclaw sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json
+          npx birdclaw search tweets --bookmarked --limit 100 --json \
+            | node scripts/export-bookmarks.js
+
+      - name: Commit bookmark changes
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          CT0: ${{ secrets.CT0 }}
+        run: |
+          if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/bookmarks.json
+          if git diff --staged --quiet; then
+            echo "No bookmark changes."
+            exit 0
+          fi
+          git commit -m "Update X bookmarks from GitHub Actions"
+          git push

@@ -1,21 +1,6 @@
-const { buildFeedResponse } = require("../lib/aggregate");
+const { getFeed, REFRESH_MS } = require("../lib/feed-cache");
 
-// ─── SOURCES ──────────────────────────────────────────────────────────────────
-// This is the ONLY place you need to edit to add or remove sources.
-//
-// Schema: { name, category, site, rss }
-//   name     – display name shown in the UI
-//   category – one of: "Substack" | "YouTube" | "Blog" | "Macro/Official" | "Spotify" | "Bookmarks"
-//   site     – homepage URL (used for the launchpad card link)
-//   rss      – feed URL, or null if no usable feed exists (source still appears
-//              in the launchpad but not in Latest)
-//
-// ── How to find feed URLs ─────────────────────────────────────────────────────
-//   Substack  → https://PUBLICATION.substack.com/feed
-//   YouTube   → https://www.youtube.com/feeds/videos.xml?channel_id=CHANNEL_ID
-//   Blog      → try https://DOMAIN/feed or https://DOMAIN/rss or https://DOMAIN/rss.xml
-// ─────────────────────────────────────────────────────────────────────────────
-
+// SOURCES array — edit here to add/remove sources
 const SOURCES = [
   {
     name: "Jordi Visser",
@@ -93,22 +78,24 @@ const SOURCES = [
   },
 ];
 
+const CACHE_SECONDS = Math.floor(REFRESH_MS / 1000);
+
 module.exports = async function handler(req, res) {
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const fresh =
+  const force =
     req.query?.fresh === "1" ||
     req.query?.fresh === "true";
 
-  const data = await buildFeedResponse(SOURCES);
+  const data = await getFeed(SOURCES, { force });
 
   res.setHeader(
     "Cache-Control",
-    fresh
+    force
       ? "no-store, no-cache, must-revalidate"
-      : "s-maxage=1800, stale-while-revalidate=3600"
+      : `s-maxage=${CACHE_SECONDS}, stale-while-revalidate=${CACHE_SECONDS * 2}`
   );
   res.setHeader("Content-Type", "application/json");
 

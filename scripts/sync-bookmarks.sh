@@ -6,16 +6,27 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-if ! command -v birdclaw >/dev/null 2>&1; then
-  echo "birdclaw not found. Install: npm i -g birdclaw (or see https://birdclaw.sh/)" >&2
+if [ -f .env.local ]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env.local
+  set +a
+fi
+
+BIRDCLAW="npx birdclaw"
+if ! $BIRDCLAW --version >/dev/null 2>&1; then
+  echo "birdclaw not found. Run: npm install" >&2
   exit 1
 fi
 
 echo "Syncing bookmarks from X…" >&2
-birdclaw sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json >/dev/null 2>&1 || true
+if ! $BIRDCLAW sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json >/dev/null; then
+  echo "Bookmark sync failed. Log into x.com in Safari/Chrome, enable Full Disk Access for Cursor/Terminal, or set AUTH_TOKEN and CT0 in .env.local." >&2
+  exit 1
+fi
 
 echo "Exporting bookmarks…" >&2
-birdclaw search tweets --bookmarked --limit 100 --json \
+$BIRDCLAW search tweets --bookmarked --limit 100 --json \
   | node scripts/export-bookmarks.js
 
 if git diff --quiet data/bookmarks.json; then
