@@ -6,6 +6,7 @@
     "dev": "node scripts/dev.js",
     "kb:index": "node scripts/build-kb-index.js",
     "setup:check": "node scripts/setup-check.js",
+    "setup:github-x-secrets": "node scripts/setup-github-x-secrets.js",
     "birdclaw:init": "birdclaw init",
     "sync:bookmarks": "bash scripts/sync-bookmarks.sh",
     "spotify:auth": "node scripts/spotify-auth.js"

@@ -13,7 +13,8 @@ Optional repo variable: `SITE_URL` (defaults to `https://markets-dashboard.verce
 
 ## sync-bookmarks.yml
 
-Syncs X bookmarks every 6 hours when `AUTH_TOKEN` and `CT0` GitHub secrets are set.
+Syncs X bookmarks every 30 minutes when `AUTH_TOKEN` and `CT0` GitHub secrets are set.
+Run `npm run setup:github-x-secrets` once to copy cookies from Safari into GitHub secrets.
 Commits `data/bookmarks.json` back to the repo so Vercel redeploys with fresh bookmarks.
 
 ## Alternative: cron-job.org (no GitHub Actions)
