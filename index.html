@@ -398,7 +398,8 @@
     .aside-section .col-head { position: static; }
 
     .graph-wrap { flex: 1; min-height: 0; position: relative; background: radial-gradient(circle at 50% 50%, #faf6ec 0%, var(--paper) 70%); }
-    .graph-wrap svg { width: 100%; height: 100%; display: block; }
+    .graph-wrap svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; user-select: none; }
+    .graph-wrap svg.is-panning { cursor: grabbing; }
     .graph-legend {
       position: absolute; left: 0.65rem; bottom: 0.55rem; z-index: 2;
       display: flex; flex-wrap: wrap; gap: 0.55rem 0.85rem;
@@ -414,8 +415,8 @@
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
       text-align: center; color: var(--ink-faint); font-style: italic; font-size: 0.9rem; padding: 1.4rem;
     }
-    .g-link { stroke: var(--rule); stroke-width: 1; stroke-opacity: 0.55; }
-    .g-node { cursor: pointer; }
+    .g-link { stroke: var(--rule); stroke-width: 1; stroke-opacity: 0.55; transition: stroke-opacity 0.15s, stroke 0.15s; }
+    .g-node { cursor: pointer; transition: opacity 0.15s; }
     .g-node circle { fill: var(--paper); stroke: var(--rubric); stroke-width: 1.2; transition: fill 0.12s, stroke-width 0.12s; }
     .g-node:hover circle { fill: var(--paper-sel); stroke-width: 1.6; }
     .g-node.active circle { fill: var(--paper-sel); stroke-width: 2; }
@@ -426,6 +427,12 @@
     .g-node text { font-family: var(--serif); font-size: 10px; fill: var(--ink-soft); text-anchor: middle; pointer-events: none; }
     .g-node.meta text { font-size: 11px; font-weight: 500; }
     .g-node.active text { fill: var(--rubric); font-weight: 600; }
+    .g-node.article text { display: none; }
+    svg.zoom-in .g-node.article text { display: block; }
+    .g-node.article.is-hot text { display: block; }
+    svg.has-hover .g-link { stroke-opacity: 0.08; }
+    svg.has-hover .g-link.is-hot { stroke: var(--rubric-soft); stroke-opacity: 0.85; stroke-width: 1.4; }
+    svg.has-hover .g-node:not(.is-hot) { opacity: 0.2; }
     .pop-danger { color: var(--rubric); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.45rem; width: 100%; text-align: left; }
     .pop-danger:hover { background: var(--paper-sel); }
 
@@ -488,11 +495,25 @@
       border: 1px solid currentColor; border-top-color: transparent; border-radius: 50%;
       animation: spin 0.8s linear infinite; vertical-align: middle;
     }
-    body[data-aside="open"] #aside-toggle { color: var(--rubric); }
+    body[data-map="full"] #aside-toggle { color: var(--rubric); }
 
     @media (min-width: 1201px) {
-      body[data-aside="closed"] .workspace { grid-template-columns: 208px 340px 1fr; }
-      body[data-aside="closed"] .aside { display: none; }
+      body:not([data-map="full"]) #aside-close { display: none; }
+    }
+
+    /* Fullscreen map overlay (Map button) */
+    body[data-map="full"] .aside {
+      display: grid;
+      position: fixed;
+      inset: 0;
+      width: auto;
+      max-width: none;
+      z-index: 70;
+      transform: none;
+      transition: none;
+      border-left: none;
+      background: var(--paper);
+      box-shadow: none;
     }
 
     @media (max-width: 1200px) {
@@ -1233,13 +1254,15 @@
     }, 0);
   }
 
-  function openMapPanel() {
-    const open = document.body.dataset.aside === "open";
-    if (open) {
-      document.body.dataset.aside = "closed";
-      return;
+  function toggleMapFull() {
+    const full = document.body.dataset.map === "full";
+    if (full) {
+      delete document.body.dataset.map;
+    } else {
+      document.body.dataset.map = "full";
+      closeDrawers();
     }
-    openDrawer("aside");
+    graphView.fitted = false;   // refit to the new panel size
     requestAnimationFrame(() => {
       requestAnimationFrame(() => renderGraph());
     });
@@ -1755,92 +1778,16 @@
     return { nodes, links };
   }
 
-  function simulateGraph(nodes, links, width, height, iterations = 160) {
-    const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
-    const edges = links.map((l) => ({
-      source: byId[l.source] || byId[l.source?.id],
-      target: byId[l.target] || byId[l.target?.id],
-      len: 72,
-    })).filter((e) => e.source && e.target);
-
-    nodes.forEach((n, i) => {
-      const ring = n.kind === "article" ? 0.22 : 0.34;
-      const a = (i / nodes.length) * Math.PI * 2;
-      n.x = width / 2 + Math.cos(a) * width * ring;
-      n.y = height / 2 + Math.sin(a) * height * ring;
-      n.vx = 0;
-      n.vy = 0;
-    });
-
-    const repulseBase = 520;
-    for (let tick = 0; tick < iterations; tick++) {
-      const t = 1 - tick / iterations;
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          let dx = nodes[j].x - nodes[i].x;
-          let dy = nodes[j].y - nodes[i].y;
-          let dist = Math.hypot(dx, dy) || 1;
-          const bothMeta = nodes[i].kind !== "article" && nodes[j].kind !== "article";
-          const hasArticle = nodes[i].kind === "article" || nodes[j].kind === "article";
-          const base = hasArticle ? repulseBase : repulseBase * 1.65;
-          const strength = (bothMeta ? base * 1.25 : base) / (dist * dist);
-          dx = (dx / dist) * strength;
-          dy = (dy / dist) * strength;
-          nodes[i].vx -= dx;
-          nodes[i].vy -= dy;
-          nodes[j].vx += dx;
-          nodes[j].vy += dy;
-        }
-      }
-
-      edges.forEach((e) => {
-        let dx = e.target.x - e.source.x;
-        let dy = e.target.y - e.source.y;
-        let dist = Math.hypot(dx, dy) || 1;
-        const pull = (dist - e.len) * (0.035 + (e.source.kind === "article" ? 0.02 : 0.01));
-        dx = (dx / dist) * pull;
-        dy = (dy / dist) * pull;
-        e.source.vx += dx;
-        e.source.vy += dy;
-        e.target.vx -= dx * 0.35;
-        e.target.vy -= dy * 0.35;
-      });
-
-      nodes.forEach((n) => {
-        n.vx += (width / 2 - n.x) * (0.012 + t * 0.01);
-        n.vy += (height / 2 - n.y) * (0.012 + t * 0.01);
-        n.vx *= 0.84;
-        n.vy *= 0.84;
-        n.x += n.vx;
-        n.y += n.vy;
-      });
-    }
-
-    return { nodes, edges };
-  }
-
-  function graphBounds(nodes, pad = 28) {
-    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
-    nodes.forEach((n) => {
-      const labelPad = n.kind === "article" ? 0 : 14;
-      minX = Math.min(minX, n.x - n.r - labelPad);
-      minY = Math.min(minY, n.y - n.r - labelPad);
-      maxX = Math.max(maxX, n.x + n.r + labelPad);
-      maxY = Math.max(maxY, n.y + n.r + labelPad + (n.kind === "article" ? 0 : 12));
-    });
-    if (!isFinite(minX)) return { minX: 0, minY: 0, width: 100, height: 100 };
-    return {
-      minX: minX - pad,
-      minY: minY - pad,
-      width: maxX - minX + pad * 2,
-      height: maxY - minY + pad * 2,
-    };
-  }
+  /* Persistent layout + viewport so re-renders don't restart the graph */
+  const graphPos = new Map();                       // node id → { x, y }
+  const graphView = { tx: 0, ty: 0, scale: 1, fitted: false };
+  let graphRaf = null;
 
   function renderGraph() {
     const wrap = byId("graph-wrap");
     const empty = byId("graph-empty");
     const legend = byId("graph-legend");
+    if (graphRaf) { cancelAnimationFrame(graphRaf); graphRaf = null; }
     wrap.querySelector("svg")?.remove();
 
     const { nodes, links } = buildGraphData();
@@ -1854,39 +1801,157 @@
 
     const W = wrap.clientWidth || 320;
     const H = wrap.clientHeight || 280;
-    const { nodes: laidOut, edges } = simulateGraph(nodes, links, W, H);
-    const bounds = graphBounds(laidOut);
+
+    /* seed positions (reuse persisted ones so the layout stays put) */
+    let hadPositions = false;
+    let seedI = 0;
+    nodes.forEach((n) => {
+      const p = graphPos.get(n.id);
+      if (p) { n.x = p.x; n.y = p.y; hadPositions = true; }
+      else {
+        const a = seedI * 2.399963;                  // golden angle spiral
+        const rad = 30 + 9 * Math.sqrt(seedI);
+        seedI++;
+        n.x = W / 2 + Math.cos(a) * rad;
+        n.y = H / 2 + Math.sin(a) * rad;
+      }
+      n.vx = 0; n.vy = 0; n.fx = null; n.fy = null;
+    });
+
+    const nodeMap = new Map(nodes.map((n) => [n.id, n]));
+    const edges = links
+      .map((l) => ({ source: nodeMap.get(l.source), target: nodeMap.get(l.target) }))
+      .filter((e) => e.source && e.target);
+
+    const adj = new Map();
+    const addAdj = (a, b) => { if (!adj.has(a)) adj.set(a, new Set()); adj.get(a).add(b); };
+    edges.forEach((e) => { addAdj(e.source.id, e.target.id); addAdj(e.target.id, e.source.id); });
+
+    /* force pass */
+    const repulseBase = 520;
+    function forceTick(temp) {
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          let dx = nodes[j].x - nodes[i].x;
+          let dy = nodes[j].y - nodes[i].y;
+          const dist = Math.hypot(dx, dy) || 1;
+          const bothMeta = nodes[i].kind !== "article" && nodes[j].kind !== "article";
+          const strength = (bothMeta ? repulseBase * 2 : repulseBase) / (dist * dist);
+          dx = (dx / dist) * strength;
+          dy = (dy / dist) * strength;
+          nodes[i].vx -= dx; nodes[i].vy -= dy;
+          nodes[j].vx += dx; nodes[j].vy += dy;
+        }
+      }
+      edges.forEach((e) => {
+        let dx = e.target.x - e.source.x;
+        let dy = e.target.y - e.source.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const pull = (dist - 72) * 0.045;
+        dx = (dx / dist) * pull;
+        dy = (dy / dist) * pull;
+        e.source.vx += dx; e.source.vy += dy;
+        e.target.vx -= dx * 0.35; e.target.vy -= dy * 0.35;
+      });
+      nodes.forEach((n) => {
+        n.vx += (W / 2 - n.x) * 0.012 * temp;
+        n.vy += (H / 2 - n.y) * 0.012 * temp;
+        n.vx *= 0.84; n.vy *= 0.84;
+        if (n.fx != null) { n.x = n.fx; n.y = n.fy; n.vx = 0; n.vy = 0; }
+        else { n.x += n.vx * temp; n.y += n.vy * temp; }
+      });
+    }
+
+    /* cold start: settle synchronously before first paint */
+    if (!hadPositions) for (let i = 0; i < 120; i++) forceTick(1);
+
+    /* build DOM */
     const svgns = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgns, "svg");
-    svg.setAttribute("viewBox", `${bounds.minX} ${bounds.minY} ${bounds.width} ${bounds.height}`);
-    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-
+    const viewG = document.createElementNS(svgns, "g");
     const linkLayer = document.createElementNS(svgns, "g");
-    linkLayer.setAttribute("class", "g-links");
+    const nodeLayer = document.createElementNS(svgns, "g");
+    viewG.appendChild(linkLayer);
+    viewG.appendChild(nodeLayer);
+    svg.appendChild(viewG);
+
     edges.forEach((e) => {
       const line = document.createElementNS(svgns, "line");
       line.setAttribute("class", "g-link");
-      line.setAttribute("x1", e.source.x);
-      line.setAttribute("y1", e.source.y);
-      line.setAttribute("x2", e.target.x);
-      line.setAttribute("y2", e.target.y);
+      e.el = line;
       linkLayer.appendChild(line);
     });
-    svg.appendChild(linkLayer);
 
-    const nodeLayer = document.createElementNS(svgns, "g");
-    laidOut.forEach((node) => {
+    let alpha = hadPositions ? 0.12 : 0.5;
+    let hoverId = null;
+
+    const applyView = () => {
+      viewG.setAttribute("transform", `translate(${graphView.tx} ${graphView.ty}) scale(${graphView.scale})`);
+      svg.classList.toggle("zoom-in", graphView.scale > 1.5);
+    };
+
+    function fitView() {
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      nodes.forEach((n) => {
+        minX = Math.min(minX, n.x - n.r); minY = Math.min(minY, n.y - n.r);
+        maxX = Math.max(maxX, n.x + n.r); maxY = Math.max(maxY, n.y + n.r + 14);
+      });
+      const pad = 46;
+      const bw = maxX - minX + pad * 2, bh = maxY - minY + pad * 2;
+      graphView.scale = Math.min(W / bw, H / bh, 1.6);
+      graphView.tx = W / 2 - graphView.scale * (minX + maxX) / 2;
+      graphView.ty = H / 2 - graphView.scale * (minY + maxY) / 2;
+      applyView();
+    }
+
+    const toWorld = (ev) => {
+      const rect = svg.getBoundingClientRect();
+      return {
+        x: (ev.clientX - rect.left - graphView.tx) / graphView.scale,
+        y: (ev.clientY - rect.top - graphView.ty) / graphView.scale,
+      };
+    };
+
+    function setHover(id) {
+      hoverId = id;
+      svg.classList.toggle("has-hover", !!id);
+      nodes.forEach((m) => m.el.classList.toggle(
+        "is-hot", !!id && (m.id === id || adj.get(id)?.has(m.id))));
+      edges.forEach((e) => e.el.classList.toggle(
+        "is-hot", !!id && (e.source.id === id || e.target.id === id)));
+    }
+
+    function syncDom() {
+      edges.forEach((e) => {
+        e.el.setAttribute("x1", e.source.x); e.el.setAttribute("y1", e.source.y);
+        e.el.setAttribute("x2", e.target.x); e.el.setAttribute("y2", e.target.y);
+      });
+      nodes.forEach((n) => {
+        n.circle.setAttribute("cx", n.x); n.circle.setAttribute("cy", n.y);
+        n.text.setAttribute("x", n.x); n.text.setAttribute("y", n.y + n.r + 12);
+        graphPos.set(n.id, { x: n.x, y: n.y });
+      });
+    }
+
+    function ensureRunning() {
+      if (!graphRaf) graphRaf = requestAnimationFrame(loop);
+    }
+    function loop() {
+      graphRaf = null;
+      forceTick(Math.min(alpha * 3, 1));
+      syncDom();
+      alpha *= 0.96;
+      if (alpha > 0.004) ensureRunning();
+    }
+
+    nodes.forEach((node) => {
       const active =
-        (node.kind === "folder" && activeView === node.id) ||
-        (node.kind === "tag" && activeView === node.id) ||
+        ((node.kind === "folder" || node.kind === "tag") && activeView === node.id) ||
         (node.kind === "article" && selectedId === node.itemKey);
       const g = document.createElementNS(svgns, "g");
       g.setAttribute("class", `g-node ${node.kind}${active ? " active" : ""}${node.kind !== "article" ? " meta" : ""}`);
-      g.dataset.nodeId = node.id;
 
       const c = document.createElementNS(svgns, "circle");
-      c.setAttribute("cx", node.x);
-      c.setAttribute("cy", node.y);
       c.setAttribute("r", node.r);
       if (node.color) {
         c.setAttribute("fill", node.color);
@@ -1899,30 +1964,130 @@
       title.textContent = node.label;
       g.appendChild(title);
 
-      if (node.kind !== "article") {
-        const t = document.createElementNS(svgns, "text");
-        t.setAttribute("x", node.x);
-        t.setAttribute("y", node.y + node.r + 12);
-        const label = node.label.length > 18 ? node.label.slice(0, 17) + "…" : node.label;
-        t.textContent = label;
-        g.appendChild(t);
-      }
+      const t = document.createElementNS(svgns, "text");
+      const maxLen = node.kind === "article" ? 26 : 18;
+      t.textContent = node.label.length > maxLen ? node.label.slice(0, maxLen - 1) + "…" : node.label;
+      g.appendChild(t);
+
+      node.el = g; node.circle = c; node.text = t;
+
+      let dragMoved = false;
+      g.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0 && e.pointerType === "mouse") return;
+        e.stopPropagation();
+        g.setPointerCapture(e.pointerId);
+        dragMoved = false;
+        const sx = e.clientX, sy = e.clientY;
+        const move = (ev) => {
+          if (!dragMoved && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 4) return;
+          dragMoved = true;
+          const p = toWorld(ev);
+          node.fx = p.x; node.fy = p.y;
+          node.x = p.x; node.y = p.y;
+          alpha = Math.max(alpha, 0.25);
+          ensureRunning();
+        };
+        const up = (ev) => {
+          node.fx = null; node.fy = null;
+          g.removeEventListener("pointermove", move);
+          g.removeEventListener("pointerup", up);
+          g.removeEventListener("pointercancel", up);
+          try { g.releasePointerCapture(ev.pointerId); } catch (_) {}
+        };
+        g.addEventListener("pointermove", move);
+        g.addEventListener("pointerup", up);
+        g.addEventListener("pointercancel", up);
+      });
 
       g.addEventListener("click", () => {
+        if (dragMoved) return;
         if (node.kind === "article") {
+          if (document.body.dataset.map === "full") delete document.body.dataset.map;
           openItem(node.itemKey);
           if (isMobileLayout()) document.body.dataset.aside = "closed";
+          renderGraph();
         } else {
           selectView(node.id);
           if (isMobileLayout()) document.body.dataset.aside = "closed";
         }
-        renderGraph();
       });
+
+      g.addEventListener("pointerenter", () => setHover(node.id));
+      g.addEventListener("pointerleave", () => setHover(null));
 
       nodeLayer.appendChild(g);
     });
-    svg.appendChild(nodeLayer);
+
+    /* pan (background drag) + pinch zoom */
+    const activePointers = new Map();
+    let pinchStart = null;
+    svg.addEventListener("pointerdown", (e) => {
+      activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (activePointers.size === 2) {
+        const [a, b] = [...activePointers.values()];
+        pinchStart = {
+          dist: Math.hypot(a.x - b.x, a.y - b.y),
+          scale: graphView.scale,
+          mid: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+          tx: graphView.tx, ty: graphView.ty,
+        };
+        return;
+      }
+      svg.setPointerCapture(e.pointerId);
+      svg.classList.add("is-panning");
+      let last = { x: e.clientX, y: e.clientY };
+      const move = (ev) => {
+        if (activePointers.size === 2 && pinchStart) {
+          activePointers.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+          const [a, b] = [...activePointers.values()];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y) || 1;
+          const rect = svg.getBoundingClientRect();
+          const ns = Math.min(Math.max(pinchStart.scale * (dist / pinchStart.dist), 0.2), 5);
+          const mx = pinchStart.mid.x - rect.left, my = pinchStart.mid.y - rect.top;
+          graphView.tx = mx - (mx - pinchStart.tx) * (ns / pinchStart.scale);
+          graphView.ty = my - (my - pinchStart.ty) * (ns / pinchStart.scale);
+          graphView.scale = ns;
+          applyView();
+          return;
+        }
+        graphView.tx += ev.clientX - last.x;
+        graphView.ty += ev.clientY - last.y;
+        last = { x: ev.clientX, y: ev.clientY };
+        applyView();
+      };
+      const up = (ev) => {
+        activePointers.delete(ev.pointerId);
+        if (activePointers.size < 2) pinchStart = null;
+        svg.classList.remove("is-panning");
+        svg.removeEventListener("pointermove", move);
+        svg.removeEventListener("pointerup", up);
+        svg.removeEventListener("pointercancel", up);
+        try { svg.releasePointerCapture(ev.pointerId); } catch (_) {}
+      };
+      svg.addEventListener("pointermove", move);
+      svg.addEventListener("pointerup", up);
+      svg.addEventListener("pointercancel", up);
+    });
+
+    svg.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const rect = svg.getBoundingClientRect();
+      const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+      const ns = Math.min(Math.max(graphView.scale * Math.exp(-e.deltaY * 0.002), 0.2), 5);
+      graphView.tx = mx - (mx - graphView.tx) * (ns / graphView.scale);
+      graphView.ty = my - (my - graphView.ty) * (ns / graphView.scale);
+      graphView.scale = ns;
+      applyView();
+    }, { passive: false });
+
+    svg.addEventListener("dblclick", (e) => { e.preventDefault(); fitView(); });
+
     wrap.appendChild(svg);
+
+    if (!graphView.fitted) { fitView(); graphView.fitted = true; }
+    else applyView();
+    syncDom();
+    ensureRunning();
   }
 
   /* ── Filters / tabs wiring ────────────────────────────────────────────── */
@@ -1934,8 +2099,12 @@
       renderList();
     });
   });
-  byId("aside-toggle").addEventListener("click", openMapPanel);
-  byId("aside-close").addEventListener("click", () => { document.body.dataset.aside = "closed"; });
+  byId("aside-toggle").addEventListener("click", toggleMapFull);
+  byId("aside-close").addEventListener("click", () => {
+    delete document.body.dataset.map;
+    document.body.dataset.aside = "closed";
+    requestAnimationFrame(() => renderGraph());
+  });
 
   window.addEventListener("popstate", (e) => {
     if (!isMobileLayout()) return;
@@ -1957,6 +2126,11 @@
 
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
+    if (document.body.dataset.map === "full") {
+      delete document.body.dataset.map;
+      requestAnimationFrame(() => renderGraph());
+      return;
+    }
     if (document.body.dataset.rail === "open" || document.body.dataset.aside === "open") {
       closeDrawers();
       return;
@@ -2062,8 +2236,6 @@
 
   byId("btn-refresh").addEventListener("click", syncAll);
   window.addEventListener("resize", () => { if (buildGraphData().nodes.length) renderGraph(); });
-
-  if (window.innerWidth > 1200) document.body.dataset.aside = "open";
 
   loadWorkspaceFromServer().then(() => {
     renderRail();
