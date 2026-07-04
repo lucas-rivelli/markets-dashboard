@@ -50,10 +50,10 @@ scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 **Item shape** (from `lib/aggregate.js`):
 
 ```js
-{ id, source, category, title, link, date, snippet }
+{ id, source, category, title, link, date, snippet, contentHtml }
 ```
 
-`id` is a stable SHA-256 hash of `link`.
+`id` is a stable SHA-256 hash of `link`. `contentHtml` is sanitized RSS body HTML for Substack posts when the feed provides it.
 
 Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks`.
 
@@ -92,7 +92,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
 │ Inbox    │ source·title·  │ opened item or    │ Tag map      │
 │ Saved    │ snippet rows,  │ Sources launchpad;│ (SVG graph,  │
-│ Sources  │ email-style,   │ embed (YT/Spotify)│ clickable)   │
+│ Sources  │ email-style,   │ embeds + articles │ clickable)   │
 │ + tags   │ filtered by    │ Open · Save ·     │              │
 │          │ tag+search+    │ Tag ❧             │              │
 │          │ read state     │                   │              │
@@ -100,7 +100,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 ```
 
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items; on **Save**, folder names + tag names go to `POST /api/save` as `themes`.
-- **Reading pane** embeds YouTube (`youtube-nocookie`) and Spotify; articles show a drop-cap preview + "Open original" (publishers block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
+- **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
 

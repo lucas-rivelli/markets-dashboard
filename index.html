@@ -176,10 +176,6 @@
     .rail-row { display: flex; align-items: stretch; gap: 0.1rem; padding-right: 0.35rem; }
     .rail-row .rail-item { flex: 1; min-width: 0; }
     .rail-item[data-meta-kind] { -webkit-touch-callout: none; }
-    .rail-hint {
-      padding: 0 1rem 0.35rem; font-size: 0.72rem; font-style: italic;
-      color: var(--ink-faint); line-height: 1.35;
-    }
 
     .rail-divider {
       display: flex; align-items: center; gap: 0.6rem;
@@ -330,11 +326,32 @@
     .reader-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.3rem;
       border: 1px solid var(--rule); background: #000; }
     .reader-embed.audio { aspect-ratio: auto; height: 232px; background: transparent; border: none; }
+    .reader-embed.tweet {
+      aspect-ratio: auto; min-height: 180px; display: flex; justify-content: center;
+      background: transparent; border: none;
+    }
     .reader-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .reader-embed.audio iframe { position: static; }
+    .reader-embed.tweet iframe { position: static !important; max-width: 100%; }
+    .reader-embed .twitter-tweet { margin: 0 auto !important; }
 
     .reader-body { font-size: 1.12rem; line-height: 1.7; color: var(--ink); }
     .reader-body p { margin-bottom: 1rem; }
+    .reader-body.article-body > * { margin-bottom: 1rem; }
+    .reader-body.article-body a { color: var(--rubric); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.12em; }
+    .reader-body.article-body blockquote {
+      margin: 1.2rem 0; padding-left: 1rem; border-left: 2px solid var(--rule);
+      color: var(--ink-soft); font-style: italic;
+    }
+    .reader-body.article-body img {
+      display: block; max-width: 100%; height: auto; margin: 1.2rem auto;
+      border: 1px solid var(--rule-soft);
+    }
+    .reader-body.article-body h2,
+    .reader-body.article-body h3,
+    .reader-body.article-body h4 {
+      color: var(--rubric); font-weight: 500; line-height: 1.2; margin-top: 1.6rem;
+    }
     .reader-body .dropcap::first-letter {
       font-size: 3.1rem; line-height: 0.8; float: left; padding: 0.15rem 0.5rem 0 0; color: var(--rubric); font-weight: 500;
     }
@@ -607,11 +624,9 @@
       <div class="col-head"><span class="label">Reading Room</span></div>
       <ul class="rail-list" id="rail-fixed"></ul>
       <div class="rail-divider label">Folders</div>
-      <p class="rail-hint">Dois dedos: renomear ou excluir</p>
       <ul class="rail-list" id="rail-folders"></ul>
       <button class="rail-add" id="rail-add-folder">＋ New folder</button>
       <div class="rail-divider label">Tags</div>
-      <p class="rail-hint">Dois dedos: renomear ou excluir</p>
       <ul class="rail-list" id="rail-tags"></ul>
       <button class="rail-add" id="rail-add-tag">＋ New tag</button>
     </nav>
@@ -1066,6 +1081,37 @@
     const m = String(url || "").match(/open\.spotify\.com\/(episode|show|track|playlist)\/([\w]+)/);
     return m ? `https://open.spotify.com/embed/${m[1]}/${m[2]}` : null;
   }
+  function xStatusUrl(url) {
+    try {
+      const u = new URL(url);
+      if (!/(^|\.)((x|twitter)\.com)$/.test(u.hostname)) return null;
+      const parts = u.pathname.split("/").filter(Boolean);
+      const statusIndex = parts.findIndex((part) => part === "status" || part === "statuses");
+      const id = statusIndex >= 0 ? parts[statusIndex + 1] : null;
+      if (!parts[0] || !/^\d+$/.test(id || "")) return null;
+      return `https://x.com/${parts[0]}/status/${id}`;
+    } catch {
+      return null;
+    }
+  }
+  function hydrateTwitterEmbed(root) {
+    const load = () => window.twttr?.widgets?.load(root);
+    if (window.twttr?.widgets) {
+      load();
+      return;
+    }
+    const existing = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
+    if (existing) {
+      setTimeout(load, 500);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    script.charset = "utf-8";
+    script.onload = load;
+    document.head.appendChild(script);
+  }
 
   /* ── Rail ─────────────────────────────────────────────────────────────── */
   function renderRail() {
@@ -1492,6 +1538,8 @@
     const k = keyOf(item);
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
+    const tweet = xStatusUrl(item.link);
+    const hasArticleContent = item.category === "Substack" && item.contentHtml;
     const saved = isSaved(k);
     const read = isRead(item);
     const tags = getItemTags(k);
@@ -1505,9 +1553,15 @@
     } else if (sp) {
       embedHTML = `<div class="reader-embed audio"><iframe src="${esc(sp)}" title="Podcast"
         allow="encrypted-media; clipboard-write" loading="lazy"></iframe></div>`;
+    } else if (tweet) {
+      embedHTML = `<div class="reader-embed tweet"><blockquote class="twitter-tweet" data-dnt="true">
+        <a href="${esc(tweet)}">${esc(item.title)}</a>
+      </blockquote></div>`;
     }
 
-    const bodyHTML = item.snippet
+    const bodyHTML = hasArticleContent
+      ? `<div class="reader-body article-body">${item.contentHtml}</div>`
+      : item.snippet
       ? `<div class="reader-body"><p class="dropcap">${esc(item.snippet)}</p></div>`
       : `<div class="reader-body"><p style="color:var(--ink-faint);font-style:italic">No preview text — open the original to read in full.</p></div>`;
 
@@ -1537,10 +1591,13 @@
         <p class="reader-note">${
           yt ? "Watching here — full context and comments on the original."
           : sp ? "Listening here — episode notes on the original."
+          : tweet ? "X post embedded here when the platform script is available."
+          : hasArticleContent ? "Substack body loaded from the feed. Open original for comments, paywalled sections, and the canonical page."
           : "Reading-room preview. Publishers usually block embedding, so the full piece opens in a new tab."
         }</p>
       </div>`;
     byId("reader-empty") && (byId("reader-empty").hidden = true);
+    if (tweet) hydrateTwitterEmbed(reader);
 
     byId("btn-save").addEventListener("click", () => toggleSaveItem(item));
     byId("btn-read").addEventListener("click", () => toggleReadItem(item));

@@ -36,6 +36,8 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 
 **Cross-device sync:** folders, tags, item assignments, read links, and saved keys merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 
+**Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
+
 ## Mobile interaction (shipped July 2026)
 
 Breakpoints and body `dataset` contracts — **do not rename without updating CSS + JS together**:
@@ -94,6 +96,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 ## API surface (frontend uses)
 
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
+  - Substack items can include sanitized `contentHtml` for inline reading.
 - `GET /api/workspace` — folders, tags, item assignments, read, saved
 - `PUT /api/workspace` — merge + persist workspace (debounced from UI)
 - `POST /api/save` — persist to `kb/inbox/`
