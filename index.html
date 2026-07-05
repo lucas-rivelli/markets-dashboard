@@ -340,6 +340,29 @@
     .reader-body.article-body h4 {
       color: var(--rubric); font-weight: 500; line-height: 1.2; margin-top: 1.6rem;
     }
+    .reader-highlight-mark {
+      background: rgba(150, 118, 47, 0.22);
+      color: inherit;
+      padding: 0 0.08em;
+    }
+    .reader-highlights {
+      border-top: 1px solid var(--rule-soft);
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+    }
+    .reader-highlights .quote {
+      color: var(--ink-soft);
+      font-style: italic;
+      border-left: 2px solid var(--gold);
+      padding-left: 0.8rem;
+      margin: 0.7rem 0;
+    }
+    .reader-highlights button {
+      color: var(--ink-faint);
+      font-size: 0.9rem;
+      margin-left: 0.4rem;
+    }
+    .reader-highlights button:hover { color: var(--rubric); }
     .reader-body .dropcap::first-letter {
       font-size: 3.1rem; line-height: 0.8; float: left; padding: 0.15rem 0.5rem 0 0; color: var(--rubric); font-weight: 500;
     }
@@ -683,6 +706,7 @@
   const FOLDERS_KEY       = "markets_folders";
   const ITEM_FOLDERS_KEY  = "markets_item_folders";
   const ITEM_STATUS_KEY   = "markets_item_status";
+  const ITEM_HIGHLIGHTS_KEY = "markets_item_highlights";
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
   const SAVE_SECRET_KEY = "markets_save_secret";
@@ -745,6 +769,7 @@
       folders: getFolders(),
       item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
       item_status: getStatusMap(),
+      item_highlights: readJSON(ITEM_HIGHLIGHTS_KEY, {}),
       tags: getTags(),
       item_tags: readJSON(ITEM_TAGS_KEY, {}),
       read: readJSON(READ_KEY, []),
@@ -758,6 +783,7 @@
     if (data.item_status && typeof data.item_status === "object") {
       writeJSON(ITEM_STATUS_KEY, normalizeStatusMap(data.item_status));
     }
+    writeJSON(ITEM_HIGHLIGHTS_KEY, data.item_highlights && typeof data.item_highlights === "object" ? data.item_highlights : {});
     writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
     writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
     writeJSON(READ_KEY, Array.isArray(data.read) ? data.read : []);
@@ -769,6 +795,7 @@
       || getTags().length > 0
       || Object.keys(readJSON(ITEM_FOLDERS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_STATUS_KEY, {})).length > 0
+      || Object.keys(readJSON(ITEM_HIGHLIGHTS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_TAGS_KEY, {})).length > 0
       || readJSON(READ_KEY, []).length > 0;
   }
@@ -816,6 +843,7 @@
         || Object.keys(remote.item_folders || {}).length > 0
         || Object.keys(remote.item_tags || {}).length > 0
         || Object.keys(remote.item_status || {}).length > 0
+        || Object.keys(remote.item_highlights || {}).length > 0
         || (remote.read?.length || 0) > 0;
 
       if (!remoteHasData && localWorkspaceHasData()) {
@@ -914,6 +942,75 @@
   const visibleItems = () => allItems.filter((it) => itemStatus(it) !== "trash");
   const isFiled = (item) => getItemFolders(keyOf(item)).length > 0;
   const statusItems = () => allItems.filter((it) => !isFiled(it));
+
+  /* highlights */
+  const getHighlightsMap = () => readJSON(ITEM_HIGHLIGHTS_KEY, {});
+  const getItemHighlights = (k) => getHighlightsMap()[k] || [];
+  function highlightId(text) {
+    return String(Date.now()) + "-" + btoa(unescape(encodeURIComponent(text))).replace(/[^a-z0-9]/gi, "").slice(0, 18);
+  }
+  function selectedTextWithin(root) {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) return "";
+    if (!root.contains(sel.anchorNode) || !root.contains(sel.focusNode)) return "";
+    return sel.toString().replace(/\s+/g, " ").trim();
+  }
+  function addItemHighlight(item, text) {
+    const k = keyOf(item);
+    const clean = String(text || "").replace(/\s+/g, " ").trim();
+    if (!clean) return false;
+    const map = getHighlightsMap();
+    const current = map[k] || [];
+    if (current.some((h) => h.text === clean)) return false;
+    map[k] = [...current, { id: highlightId(clean), text: clean, created_at: new Date().toISOString() }];
+    writeJSON(ITEM_HIGHLIGHTS_KEY, map);
+    scheduleWorkspaceSync();
+    return true;
+  }
+  function removeItemHighlight(item, id) {
+    const k = keyOf(item);
+    const map = getHighlightsMap();
+    map[k] = (map[k] || []).filter((h) => h.id !== id);
+    if (!map[k].length) delete map[k];
+    writeJSON(ITEM_HIGHLIGHTS_KEY, map);
+    scheduleWorkspaceSync();
+  }
+  function renderHighlightsHTML(highlights) {
+    if (!highlights.length) return "";
+    return `<div class="reader-highlights">
+      <div class="reader-summary-label label">Highlights</div>
+      ${highlights.map((h) => `<p class="quote">“${esc(h.text)}”
+        <button type="button" data-unhighlight="${esc(h.id)}" aria-label="Remove highlight">×</button></p>`).join("")}
+    </div>`;
+  }
+  function applyHighlightMarks(root, highlights) {
+    if (!root) return;
+    for (const highlight of highlights) markFirstTextMatch(root, highlight.text);
+  }
+  function markFirstTextMatch(root, text) {
+    if (!text) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || parent.closest("mark, button, script, style")) return NodeFilter.FILTER_REJECT;
+        return node.nodeValue.includes(text) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      },
+    });
+    const node = walker.nextNode();
+    if (!node) return;
+    const idx = node.nodeValue.indexOf(text);
+    const before = node.nodeValue.slice(0, idx);
+    const match = node.nodeValue.slice(idx, idx + text.length);
+    const after = node.nodeValue.slice(idx + text.length);
+    const frag = document.createDocumentFragment();
+    if (before) frag.appendChild(document.createTextNode(before));
+    const mark = document.createElement("mark");
+    mark.className = "reader-highlight-mark";
+    mark.textContent = match;
+    frag.appendChild(mark);
+    if (after) frag.appendChild(document.createTextNode(after));
+    node.parentNode.replaceChild(frag, node);
+  }
 
   /* folders */
   const getFolders = () => readJSON(FOLDERS_KEY, []);
@@ -1578,6 +1675,7 @@
     const status = itemStatus(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
+    const highlights = getItemHighlights(k);
     const statusButtons = [
       ["inbox", "Inbox"],
       ["trash", "Trash"],
@@ -1617,6 +1715,7 @@
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           ${statusButtons}
+          <button class="action-btn" id="btn-highlight">Highlight</button>
           <button class="action-btn" id="btn-folder">Folder ❧</button>
           <button class="action-btn" id="btn-tag">Tag</button>
         </div>
@@ -1627,6 +1726,7 @@
             `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}</div>` : `<div class="chip-row" id="reader-meta"></div>`}
         ${embedHTML}
         ${bodyHTML}
+        ${renderHighlightsHTML(highlights)}
         <p class="reader-note">${
           yt ? "Watching here — full context and comments on the original."
           : sp ? "Listening here — episode notes on the original."
@@ -1637,9 +1737,20 @@
       </div>`;
     byId("reader-empty") && (byId("reader-empty").hidden = true);
     if (tweet) hydrateTwitterEmbed(reader);
+    applyHighlightMarks(reader.querySelector(".reader-body"), highlights);
 
     reader.querySelectorAll("[data-status]").forEach((btn) =>
       btn.addEventListener("click", () => moveItemStatus(item, btn.dataset.status)));
+    byId("btn-highlight").addEventListener("click", () => {
+      const text = selectedTextWithin(reader.querySelector(".reader-body"));
+      if (!text) {
+        window.alert("Select text in the reading pane first.");
+        return;
+      }
+      addItemHighlight(item, text);
+      window.getSelection()?.removeAllRanges();
+      renderReader(item);
+    });
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
     byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     wireReaderBack();
@@ -1647,6 +1758,8 @@
       b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterMetaChange(item); }));
     reader.querySelectorAll("[data-unfolder]").forEach((b) =>
       b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.unfolder); afterMetaChange(item); }));
+    reader.querySelectorAll("[data-unhighlight]").forEach((b) =>
+      b.addEventListener("click", () => { removeItemHighlight(item, b.dataset.unhighlight); renderReader(item); }));
   }
 
   function afterMetaChange(item) {

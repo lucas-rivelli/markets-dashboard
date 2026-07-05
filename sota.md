@@ -102,7 +102,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache; the remote workspace is the cross-device source of truth. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
 - **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **Trash** or back to **Inbox** only when chosen from the reader or context menu. Assigning any folder removes the item from Inbox so it rests only in that folder; filing from Trash restores the item into the folder. Trash is hidden from folders, tags, and the graph except in the Trash view. **To-read is now a normal tag**, not a mailbox state.
-- **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
+- **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). Select text inside the reader and click **Highlight** to save a synced quote under `item_highlights`; saved quotes render below the article and matching text is marked when possible. When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
 
@@ -123,7 +123,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
 - **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
 
-- **localStorage keys:** `markets_item_status`, `markets_read` (seen/fade marker), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
+- **localStorage keys:** `markets_item_status`, `markets_item_highlights`, `markets_read` (seen/fade marker), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
 
 ## 5. Roadmap (agreed direction)
 
