@@ -39,7 +39,8 @@ jobs:
             echo "Add both as GitHub Actions secrets to enable automated X bookmarks."
             exit 0
           fi
-          npx bird bookmarks --count 100 --json | node scripts/export-bookmarks.js
+          SINCE="$(node -e "const d=new Date(); d.setUTCFullYear(d.getUTCFullYear()-1); console.log(d.toISOString().slice(0,10));")"
+          npx bird bookmarks --all --max-pages 250 --json | BOOKMARKS_SINCE="$SINCE" node scripts/export-bookmarks.js
 
       - name: Commit bookmark changes
         env:

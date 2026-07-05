@@ -122,7 +122,7 @@ The feed refresh workflow fetches Spotify automatically every 5 minutes — no M
 ```bash
 npm i -g birdclaw
 birdclaw init          # follow prompts; install xurl or bird for live sync
-birdclaw sync bookmarks --mode auto --limit 100 --refresh --json
+birdclaw sync bookmarks --mode auto --limit 100 --all --max-pages 100 --refresh --json
 ```
 
 ### Sync bookmarks to the dashboard
@@ -132,7 +132,7 @@ chmod +x scripts/sync-bookmarks.sh
 ./scripts/sync-bookmarks.sh
 ```
 
-This runs birdclaw → writes `data/bookmarks.json` → pushes to GitHub → Vercel redeploys.
+This runs birdclaw → writes the last year of retrievable bookmarks to `data/bookmarks.json` → pushes to GitHub → Vercel redeploys.
 
 **Automate on Mac** (optional, every morning at 8 AM):
 

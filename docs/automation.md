@@ -18,7 +18,7 @@ GitHub secret `VERCEL_BYPASS_SECRET`.
 
 ## sync-bookmarks.yml
 
-Syncs X bookmarks every 5 minutes when `AUTH_TOKEN` and `CT0` GitHub secrets are set.
+Syncs all retrievable X bookmark pages every 5 minutes when `AUTH_TOKEN` and `CT0` GitHub secrets are set, then exports the rolling last-year window to `data/bookmarks.json`.
 Run `npm run setup:github-x-secrets` once to copy cookies from Safari into GitHub secrets.
 Commits `data/bookmarks.json` back to the repo so Vercel redeploys with fresh bookmarks.
 

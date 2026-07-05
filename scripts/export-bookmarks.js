@@ -4,6 +4,7 @@
  *
  * Usage:
  *   birdclaw search tweets --bookmarked --limit 100 --json | node scripts/export-bookmarks.js
+ *   BOOKMARKS_SINCE=2025-07-04 bird bookmarks --all --json | node scripts/export-bookmarks.js
  *   node scripts/export-bookmarks.js path/to/birdclaw-output.json
  */
 
@@ -55,6 +56,13 @@ function tweetDate(t) {
   return isNaN(d.getTime()) ? null : d.toISOString();
 }
 
+function sinceCutoff() {
+  const raw = process.env.BOOKMARKS_SINCE;
+  if (!raw) return null;
+  const date = new Date(raw);
+  return isNaN(date.getTime()) ? null : date;
+}
+
 function flattenTweets(payload) {
   if (!payload) return [];
 
@@ -78,6 +86,7 @@ function flattenTweets(payload) {
 function toItems(raw) {
   const tweets = flattenTweets(raw);
   const seen = new Set();
+  const since = sinceCutoff();
 
   return tweets
     .map((t) => {
@@ -99,6 +108,7 @@ function toItems(raw) {
       };
     })
     .filter(Boolean)
+    .filter((item) => !since || (item.date && new Date(item.date) >= since))
     .sort((a, b) => {
       if (!a.date && !b.date) return 0;
       if (!a.date) return 1;
