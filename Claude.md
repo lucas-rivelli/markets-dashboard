@@ -36,6 +36,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 ```
 
 **Cross-device sync:** folders, tags, item assignments, mailbox state, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
+On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
 **Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to any state, including back to Inbox. Assigning any folder removes the item from Inbox/To-read so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. The prior short-lived `saw` value should be migrated to `to-read`; old `read` statuses should be normalized back to `inbox`.
 
@@ -101,7 +102,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
   - Substack items can include sanitized `contentHtml` for inline reading.
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, seen/fade links
-- `PUT /api/workspace` — merge + persist workspace, including `item_status`
+- `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, and `item_status`
 - `POST /api/save` — backend KB plumbing only; no Save button in the current UI
 - `GET /api/library` — KB index (Phase 3 hook)
 

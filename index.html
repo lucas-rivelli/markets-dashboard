@@ -711,6 +711,35 @@
     return headers;
   }
 
+  function captureSyncSecretFromUrl() {
+    const url = new URL(window.location.href);
+    const hashParams = new URLSearchParams(url.hash.replace(/^#\??/, ""));
+    const secret = url.searchParams.get("sync")
+      || url.searchParams.get("sync_secret")
+      || url.searchParams.get("save_secret")
+      || hashParams.get("sync")
+      || hashParams.get("sync_secret")
+      || hashParams.get("save_secret");
+    if (!secret) return;
+
+    localStorage.setItem(SAVE_SECRET_KEY, secret);
+    ["sync", "sync_secret", "save_secret"].forEach((key) => {
+      url.searchParams.delete(key);
+      hashParams.delete(key);
+    });
+    const hash = hashParams.toString();
+    url.hash = hash ? `#${hash}` : "";
+    window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+  }
+
+  function promptForSyncSecret() {
+    const existing = localStorage.getItem(SAVE_SECRET_KEY) || "";
+    const secret = window.prompt("Enter sync secret to save reading state on this device:", existing);
+    if (!secret) return false;
+    localStorage.setItem(SAVE_SECRET_KEY, secret.trim());
+    return true;
+  }
+
   function collectWorkspacePayload() {
     return {
       folders: getFolders(),
@@ -749,7 +778,7 @@
     workspaceSyncTimer = setTimeout(pushWorkspaceState, 450);
   }
 
-  async function pushWorkspaceState(force = false) {
+  async function pushWorkspaceState(force = false, retryAuth = true) {
     if (workspaceSyncing && !force) return;
     workspaceSyncing = true;
     try {
@@ -759,6 +788,10 @@
         body: JSON.stringify(collectWorkspacePayload()),
       });
       if (res.status === 401) {
+        if (retryAuth && promptForSyncSecret()) {
+          workspaceSyncing = false;
+          return pushWorkspaceState(true, false);
+        }
         console.warn("Workspace sync: set localStorage.markets_save_secret to your SAVE_SECRET");
         return;
       }
@@ -2349,6 +2382,8 @@
 
   byId("btn-refresh").addEventListener("click", syncAll);
   window.addEventListener("resize", () => { if (buildGraphData().nodes.length) renderGraph(); });
+
+  captureSyncSecretFromUrl();
 
   loadWorkspaceFromServer().then(() => {
     renderRail();

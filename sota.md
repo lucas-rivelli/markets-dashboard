@@ -61,6 +61,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks`.
 
 - Feed items still flow through the API and vanish past the feed cap (10/feed, 100 total), but every returned item now has a stable `id`.
 - Item mailbox state syncs through `/api/workspace` as `item_status`; `read` keys are now only seen/fade markers, not category state.
+- Cross-device writes persist the current workspace state, including deletions/restores. New devices can be paired by opening the site once with `?sync=<SAVE_SECRET>` or `#sync=<SAVE_SECRET>`; the browser stores it in `localStorage.markets_save_secret` and removes it from the URL.
 - Feed auto-refreshes every **5 minutes** via a free external cron (see `docs/automation.md`) or GitHub Actions templates — no Vercel Pro.
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
@@ -99,7 +100,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-- **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
+- **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache; the remote workspace is the cross-device source of truth. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
 - **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **To-read**, **Trash**, or back to **Inbox** only when chosen from the reader or context menu. Assigning any folder removes the item from Inbox/To-read so it rests only in that folder; filing from Trash restores the item into the folder. Trash is hidden from folders, tags, and the graph except in the Trash view.
 - **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
