@@ -1184,6 +1184,13 @@
     return name;
   };
   const getItemFolders = (k) => sortFolders((readJSON(ITEM_FOLDERS_KEY, {})[k] || []).map(normalizeFolderPath).filter(Boolean));
+  const restoreItemFromTrash = (k) => {
+    const statuses = getStatusMap();
+    if (statuses[k] === "trash") {
+      statuses[k] = "inbox";
+      writeJSON(ITEM_STATUS_KEY, statuses);
+    }
+  };
   const toggleItemFolder = (k, name) => {
     name = normalizeFolderPath(name);
     if (!name) return;
@@ -1194,13 +1201,26 @@
     adding ? cur.add(name) : cur.delete(existing);
     map[k] = [...cur];
     writeJSON(ITEM_FOLDERS_KEY, map);
-    if (adding) {
-      const statuses = getStatusMap();
-      if (statuses[k] === "trash") {
-        statuses[k] = "inbox";
-        writeJSON(ITEM_STATUS_KEY, statuses);
-      }
-    }
+    if (adding) restoreItemFromTrash(k);
+    scheduleWorkspaceSync();
+  };
+  const moveItemToFolder = (k, name) => {
+    name = addFolder(name);
+    if (!name) return false;
+    const map = readJSON(ITEM_FOLDERS_KEY, {});
+    map[k] = [name];
+    writeJSON(ITEM_FOLDERS_KEY, map);
+    restoreItemFromTrash(k);
+    scheduleWorkspaceSync();
+    return true;
+  };
+  const moveItemToInbox = (k) => {
+    const map = readJSON(ITEM_FOLDERS_KEY, {});
+    delete map[k];
+    writeJSON(ITEM_FOLDERS_KEY, map);
+    const statuses = getStatusMap();
+    statuses[k] = "inbox";
+    writeJSON(ITEM_STATUS_KEY, statuses);
     scheduleWorkspaceSync();
   };
   const folderCount = (name) =>
@@ -2019,18 +2039,33 @@
     const render = () => {
       const assigned = getItemFolders(k);
       const folders = getFolders();
-      pop.innerHTML = `<span class="label">File into folder</span>
+      pop.innerHTML = `<span class="label">Move to folder</span>
+        ${assigned.length ? `<button class="pop-item" data-move-inbox><span class="check">✦</span>Move to Inbox</button>` : ""}
         ${folders.length ? folders.map((f) =>
           `<button class="pop-item" data-folder="${esc(f)}" title="${esc(f)}" style="padding-left:${0.45 + folderDepth(f) * 0.85}rem"><span class="check">${assigned.some((n) => isSameFolder(n, f)) ? "✓" : ""}</span>${esc(folderLeaf(f))}</button>`).join("")
           : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No folders yet — create one below.</div>`}
         <div class="pop-new"><input placeholder="New folder or Parent/Subfolder…" aria-label="New folder name" /></div>
-        <div class="tag-create-actions"><button type="button">Create &amp; file</button></div>`;
+        <div class="tag-create-actions"><button type="button">Create &amp; move</button></div>`;
+      pop.querySelector("[data-move-inbox]")?.addEventListener("click", () => {
+        moveItemToInbox(k);
+        pop.remove();
+        afterMetaChange(item);
+      });
       pop.querySelectorAll("[data-folder]").forEach((b) =>
-        b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.folder); render(); afterMetaChange(item); }));
+        b.addEventListener("click", () => {
+          moveItemToFolder(k, b.dataset.folder);
+          pop.remove();
+          afterMetaChange(item);
+        }));
       const input = pop.querySelector(".pop-new input");
       const create = () => {
         const n = addFolder(input.value);
-        if (n) { toggleItemFolder(k, n); render(); afterMetaChange(item); }
+        if (n) {
+          moveItemToFolder(k, n);
+          pop.remove();
+          afterMetaChange(item);
+          return;
+        }
         input.value = "";
         input.focus();
       };
