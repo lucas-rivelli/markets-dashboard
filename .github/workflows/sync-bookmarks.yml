@@ -1,13 +1,17 @@
-# Optional: sync X bookmarks without a Mac. Requires GitHub secrets AUTH_TOKEN and CT0
-# (from x.com cookies). Runs every 6 hours; skips gracefully if secrets are missing.
-# Copy to .github/workflows/sync-bookmarks.yml
+# Sync X bookmarks without a Mac. Requires GitHub secrets AUTH_TOKEN and CT0
+# (from x.com cookies — refresh with: npm run setup:github-x-secrets).
+# Runs every 5 minutes; skips gracefully if secrets are missing.
 
 name: Sync X bookmarks
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
+
+concurrency:
+  group: sync-bookmarks
+  cancel-in-progress: false
 
 jobs:
   sync:
@@ -53,4 +57,5 @@ jobs:
             exit 0
           fi
           git commit -m "Update X bookmarks from GitHub Actions"
+          git pull --rebase origin main
           git push
