@@ -111,8 +111,19 @@ const input = readInput();
 const parsed = JSON.parse(input);
 const items = toItems(parsed);
 
+// Keep the previous timestamp when items are unchanged so the file stays
+// byte-identical — otherwise the 5-minute CI sync would commit (and redeploy
+// Vercel) on every run just for the timestamp.
+let previous = null;
+try {
+  previous = JSON.parse(fs.readFileSync(OUT, "utf8"));
+} catch {}
+
+const unchanged =
+  previous && JSON.stringify(previous.items) === JSON.stringify(items);
+
 const out = {
-  updated: new Date().toISOString(),
+  updated: unchanged ? previous.updated : new Date().toISOString(),
   items,
 };
 
