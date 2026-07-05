@@ -45,7 +45,7 @@ scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 
 **Sources:** ~9 RSS feeds (Substacks, blogs, YouTube), Spotify podcast episodes (dynamic), X bookmarks (birdclaw → git). Full list in `api/feed.js`.
 
-**Features:** merged Latest timeline · Sources launchpad grouped by category · email-style item states (`Inbox`, `To-read`, `Read`, `Trash`) · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
+**Features:** merged Latest timeline · Sources launchpad grouped by category · email-style item states (`Inbox`, `To-read`, `Trash`) plus folders · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
 
 **Item shape** (from `lib/aggregate.js`):
 
@@ -79,7 +79,7 @@ rubricated manuscript / private reading room — not a SaaS dashboard.
 - **Category inks** (muted manuscript pigments, text-only — no pill backgrounds):
   Substack `#a04f1e` · YouTube `#9a2b21` · Blog `#5e4370` · Spotify `#3e6b4e` · Bookmarks `#3a5684` · Macro `#7c5a26`.
 - **Ornament with restraint.** A fleuron (❦) as brand mark / empty-state; ❧ marks folders; ✦ marks the inbox. A drop-cap opens the reading pane. Double rule under the top bar. Nothing else.
-- Processed items (`To-read`, `Read`, `Trash`) fade (opacity), like ink that has been absorbed.
+- Seen or processed items fade (opacity), like ink that has been absorbed.
 
 Anti-goals: emoji in UI, rounded pill-everything, drop shadows, bright saturated colors, dark mode (parchment is the identity).
 
@@ -95,12 +95,12 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 │ Sources  │ email-style,   │ embeds + articles │ clickable)   │
 │ + tags   │ filtered by    │ Open · states ·   │              │
 │          │ tag+search+    │ Tag ❧             │              │
-│          │ read state     │                   │              │
+│          │ folder state   │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
-- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **To-read**, **Read**, **Trash**, or back to **Inbox** only when chosen from the reader or context menu. Trash is hidden from folders, tags, and the graph except in the Trash view.
+- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **To-read**, **Trash**, or back to **Inbox** only when chosen from the reader or context menu. Assigning any folder removes the item from Inbox/To-read so it rests only in that folder; filing from Trash restores the item into the folder. Trash is hidden from folders, tags, and the graph except in the Trash view.
 - **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
@@ -138,7 +138,7 @@ Production env vars for saves:
 and required `SAVE_SECRET` when GitHub-backed saves are enabled. Frontend should send the secret as
 `X-Save-Secret` or `Authorization: Bearer ...`.
 
-Frontend mailbox state is now built: **Inbox**, **To-read**, **Read**, and **Trash** replace the old Save action. **Folder ❧** and **Tag** remain for classification. Mobile drill-down, drawer scrim, and History API back stack shipped July 2026.
+Frontend mailbox state is now built: **Inbox**, **To-read**, and **Trash** replace the old Save/Read actions. **Folder ❧** and **Tag** remain for classification. Mobile drill-down, drawer scrim, and History API back stack shipped July 2026.
 
 > Note: the local dev server must be **restarted** to pick up the `/api/save` and `/api/library`
 > routes if it was started before they were added (`npm run dev`).

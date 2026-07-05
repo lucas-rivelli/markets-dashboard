@@ -676,7 +676,7 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
-  let activeView = "inbox"; // inbox | to-read | read | trash | sources | folder:<name> | tag:<id>
+  let activeView = "inbox"; // inbox | to-read | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
 
   const READ_KEY          = "markets_read";
@@ -715,7 +715,7 @@
     return {
       folders: getFolders(),
       item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
-      item_status: readJSON(ITEM_STATUS_KEY, {}),
+      item_status: getStatusMap(),
       tags: getTags(),
       item_tags: readJSON(ITEM_TAGS_KEY, {}),
       read: readJSON(READ_KEY, []),
@@ -728,10 +728,6 @@
     writeJSON(ITEM_FOLDERS_KEY, data.item_folders && typeof data.item_folders === "object" ? data.item_folders : {});
     if (data.item_status && typeof data.item_status === "object") {
       writeJSON(ITEM_STATUS_KEY, normalizeStatusMap(data.item_status));
-    } else if (Array.isArray(data.read)) {
-      const migrated = {};
-      for (const k of data.read) migrated[k] = "read";
-      writeJSON(ITEM_STATUS_KEY, migrated);
     }
     writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
     writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
@@ -839,7 +835,8 @@
   const normalizeStatus = (status) => {
     const next = String(status || "").trim().toLowerCase();
     if (next === "saw") return "to-read";
-    return ["inbox", "to-read", "read", "trash"].includes(next) ? next : "inbox";
+    if (next === "read") return "inbox";
+    return ["inbox", "to-read", "trash"].includes(next) ? next : "inbox";
   };
   const normalizeStatusMap = (raw) => {
     const out = {};
@@ -871,13 +868,10 @@
   const setItemStatus = (item, status) => {
     const next = normalizeStatus(status);
     const map = getStatusMap();
-    const readSet = getReadSet();
     for (const k of readKeysFor(item)) {
       map[k] = next;
-      if (next === "read") readSet.add(k);
     }
     writeJSON(ITEM_STATUS_KEY, map);
-    writeJSON(READ_KEY, [...readSet]);
     scheduleWorkspaceSync();
   };
   const isRead = (item) => {
@@ -886,6 +880,8 @@
     return readKeysFor(item).some((k) => s.has(k));
   };
   const visibleItems = () => allItems.filter((it) => itemStatus(it) !== "trash");
+  const isFiled = (item) => getItemFolders(keyOf(item)).length > 0;
+  const statusItems = () => allItems.filter((it) => !isFiled(it));
 
   /* folders */
   const getFolders = () => readJSON(FOLDERS_KEY, []);
@@ -905,9 +901,17 @@
   const toggleItemFolder = (k, name) => {
     const map = readJSON(ITEM_FOLDERS_KEY, {});
     const cur = new Set(map[k] || []);
-    cur.has(name) ? cur.delete(name) : cur.add(name);
+    const adding = !cur.has(name);
+    adding ? cur.add(name) : cur.delete(name);
     map[k] = [...cur];
     writeJSON(ITEM_FOLDERS_KEY, map);
+    if (adding) {
+      const statuses = getStatusMap();
+      if (statuses[k] === "trash") {
+        statuses[k] = "inbox";
+        writeJSON(ITEM_STATUS_KEY, statuses);
+      }
+    }
     scheduleWorkspaceSync();
   };
   const folderCount = (name) =>
@@ -1115,14 +1119,13 @@
 
   /* ── Rail ─────────────────────────────────────────────────────────────── */
   function renderRail() {
-    const inboxCount = allItems.filter((it) => itemStatus(it) === "inbox").length;
-    const toReadCount = allItems.filter((it) => itemStatus(it) === "to-read").length;
-    const readCount = allItems.filter((it) => itemStatus(it) === "read").length;
+    const bucketItems = statusItems();
+    const inboxCount = bucketItems.filter((it) => itemStatus(it) === "inbox").length;
+    const toReadCount = bucketItems.filter((it) => itemStatus(it) === "to-read").length;
     const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
     const fixed = [
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
       { id: "to-read", glyph: "☉", name: "To-read", count: toReadCount },
-      { id: "read",    glyph: "☑", name: "Read",    count: readCount },
       { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
     ];
@@ -1419,7 +1422,6 @@
   function viewLabel() {
     if (activeView === "inbox") return "Inbox";
     if (activeView === "to-read") return "To-read";
-    if (activeView === "read") return "Read";
     if (activeView === "trash") return "Trash";
     if (activeView === "sources") return "Sources";
     if (activeView.startsWith("folder:")) return activeView.slice(7);
@@ -1428,9 +1430,8 @@
   }
 
   function itemsForView() {
-    if (activeView === "inbox") return allItems.filter((it) => itemStatus(it) === "inbox");
-    if (activeView === "to-read") return allItems.filter((it) => itemStatus(it) === "to-read");
-    if (activeView === "read") return allItems.filter((it) => itemStatus(it) === "read");
+    if (activeView === "inbox") return statusItems().filter((it) => itemStatus(it) === "inbox");
+    if (activeView === "to-read") return statusItems().filter((it) => itemStatus(it) === "to-read");
     if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
     if (activeView.startsWith("folder:")) {
       const name = activeView.slice(7);
@@ -1440,7 +1441,7 @@
       const tagId = activeView.slice(4);
       return visibleItems().filter((it) => getItemTagIds(keyOf(it)).includes(tagId));
     }
-    return allItems.filter((it) => itemStatus(it) === "inbox");
+    return statusItems().filter((it) => itemStatus(it) === "inbox");
   }
 
   function renderTagChips(tags) {
@@ -1480,9 +1481,8 @@
 
     if (!items.length) {
       container.innerHTML = `<p class="empty-state">${
-        activeView === "inbox" && allItems.length ? "Inbox is clear. To-read, Read, and Trash hold processed items."
-        : activeView === "to-read" ? "Nothing in To-read yet. Open an item from Inbox to park it here."
-        : activeView === "read" ? "Nothing in Read yet. Mark finished items as Read."
+        activeView === "inbox" && allItems.length ? "Inbox is clear. To-read, folders, and Trash hold processed items."
+        : activeView === "to-read" ? "Nothing in To-read yet. Choose To-read on an item to park it here."
         : activeView === "trash" ? "Trash is empty."
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
@@ -1554,7 +1554,6 @@
     const statusButtons = [
       ["inbox", "Inbox"],
       ["to-read", "To-read"],
-      ["read", "Read"],
       ["trash", "Trash"],
     ].map(([id, label]) =>
       `<button class="action-btn ${status === id ? "is-on" : ""}" data-status="${id}">${label}</button>`
@@ -1732,7 +1731,6 @@
     const statusActions = [
       ["inbox", "✦", "Move to Inbox"],
       ["to-read", "☉", "Move to To-read"],
-      ["read", "☑", "Move to Read"],
       ["trash", "×", "Move to Trash"],
     ].filter(([id]) => id !== status).map(([id, glyph, label]) =>
       `<button class="pop-item" data-status="${id}"><span class="check">${glyph}</span>${label}</button>`
