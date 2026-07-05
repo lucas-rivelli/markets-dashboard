@@ -452,6 +452,19 @@
       border: none; border-bottom: 1px solid var(--rule); padding: 0.2rem; outline: none; }
     .pop-new input:focus { border-bottom-color: var(--rubric); }
     .pop-new button { color: var(--rubric); font-size: 1.1rem; padding: 0 0.3rem; }
+    .pop-select {
+      width: 100%;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      border-radius: 0;
+      padding: 0.25rem 0.15rem;
+      outline: none;
+    }
+    .pop-select:focus { border-bottom-color: var(--rubric); color: var(--ink); }
 
     /* ── Aside (tag map) ────────────────────────────────────────────────── */
     .aside { display: grid; grid-template-rows: 1fr; overflow: hidden; }
@@ -1140,6 +1153,7 @@
   const folderParts = (name) => normalizeFolderPath(name).split("/").filter(Boolean);
   const folderLeaf = (name) => folderParts(name).at(-1) || normalizeFolderPath(name);
   const folderDepth = (name) => Math.max(folderParts(name).length - 1, 0);
+  const folderParent = (name) => folderParts(name).slice(0, -1).join("/");
   const isSameFolder = (a, b) => normalizeFolderPath(a).toLowerCase() === normalizeFolderPath(b).toLowerCase();
   const isFolderDescendant = (name, parent) => {
     const child = normalizeFolderPath(name).toLowerCase();
@@ -1191,6 +1205,11 @@
   };
   const folderCount = (name) =>
     visibleItems().filter((it) => getItemFolders(keyOf(it)).some((f) => isSameFolder(f, name))).length;
+  const movedFolderPath = (name, parent) => {
+    const leaf = folderLeaf(name);
+    const dest = normalizeFolderPath(parent);
+    return dest ? `${dest}/${leaf}` : leaf;
+  };
   const renameFolder = (oldName, newName) => {
     oldName = normalizeFolderPath(oldName);
     newName = normalizeFolderPath(newName);
@@ -1219,6 +1238,23 @@
     }
     scheduleWorkspaceSync();
     return true;
+  };
+  const moveFolder = (name, parent) => {
+    name = normalizeFolderPath(name);
+    parent = normalizeFolderPath(parent);
+    if (!name) return false;
+    if (parent && (isSameFolder(parent, name) || isFolderDescendant(parent, name))) return false;
+    return renameFolder(name, movedFolderPath(name, parent));
+  };
+  const moveFolderDestinations = (name) => {
+    name = normalizeFolderPath(name);
+    const currentParent = folderParent(name);
+    return [
+      { path: "", label: "Top level", disabled: currentParent === "" },
+      ...getFolders()
+        .filter((f) => !isSameFolder(f, name) && !isFolderDescendant(f, name) && !isSameFolder(f, currentParent))
+        .map((f) => ({ path: f, label: f, disabled: false })),
+    ];
   };
   const removeFolder = (name) => {
     name = normalizeFolderPath(name);
@@ -1528,12 +1564,18 @@
     const tag = !isFolder ? tagById(meta.id) : null;
     const currentName = isFolder ? meta.name : (tag?.name || "");
     let pickedColor = tag?.color || TAG_COLORS[0];
+    const moveDestinations = isFolder ? moveFolderDestinations(meta.name) : [];
 
     pop.innerHTML = `<span class="label">${isFolder ? "Folder" : "Tag"}</span>
       <div class="pop-new"><input value="${esc(currentName)}" aria-label="Name" /></div>
       ${isFolder ? "" : `<div class="color-swatches">${TAG_COLORS.map((c) =>
         `<button type="button" class="color-swatch" data-color="${esc(c)}" style="background:${esc(c)}" aria-label="Color ${esc(c)}" aria-pressed="${c === pickedColor}"></button>`).join("")}</div>`}
       <div class="tag-create-actions"><button type="button">Rename</button></div>
+      ${isFolder ? `<div class="pop-new"><select class="pop-select" data-move-folder aria-label="Move folder to">
+        ${moveDestinations.map((dest) =>
+          `<option value="${esc(dest.path)}" ${dest.disabled ? "disabled" : ""}>${esc(dest.label)}</option>`).join("")}
+        </select></div>
+        <div class="tag-create-actions"><button type="button" data-move-folder-button>Move</button></div>` : ""}
       ${isFolder ? `<div class="pop-new"><input data-subfolder-input placeholder="New subfolder…" aria-label="New subfolder name" /></div>
         <div class="tag-create-actions"><button type="button" data-create-subfolder>Create subfolder</button></div>` : ""}
       <button type="button" class="pop-danger">Exclude ${isFolder ? "folder + subfolders" : "tag"}</button>`;
@@ -1568,6 +1610,24 @@
     });
 
     if (isFolder) {
+      const moveSelect = pop.querySelector("[data-move-folder]");
+      const moveCurrentFolder = () => {
+        const ok = moveFolder(meta.name, moveSelect.value);
+        if (!ok) {
+          moveSelect.focus();
+          return;
+        }
+        pop.remove();
+        renderRail();
+        renderGraph();
+        renderList();
+        if (selectedId) {
+          const item = allItems.find((it) => keyOf(it) === selectedId);
+          if (item) renderReader(item);
+        }
+      };
+      pop.querySelector("[data-move-folder-button]").addEventListener("click", moveCurrentFolder);
+
       const subInput = pop.querySelector("[data-subfolder-input]");
       const createSubfolder = () => {
         const leaf = normalizeFolderPath(subInput.value);
