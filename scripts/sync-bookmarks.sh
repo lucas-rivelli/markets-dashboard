@@ -20,13 +20,14 @@ if ! $BIRDCLAW --version >/dev/null 2>&1; then
 fi
 
 echo "Syncing bookmarks from X…" >&2
-if ! $BIRDCLAW sync bookmarks --mode auto --limit 100 --max-pages 5 --early-stop --refresh --json >/dev/null; then
+if ! $BIRDCLAW sync bookmarks --mode auto --limit 100 --all --max-pages 100 --early-stop --refresh --json >/dev/null; then
   echo "Bookmark sync failed. Log into x.com in Safari/Chrome, enable Full Disk Access for Cursor/Terminal, or set AUTH_TOKEN and CT0 in .env.local." >&2
   exit 1
 fi
 
 echo "Exporting bookmarks…" >&2
-$BIRDCLAW search tweets --bookmarked --limit 100 --json \
+SINCE="$(node -e "const d=new Date(); d.setUTCFullYear(d.getUTCFullYear()-1); console.log(d.toISOString().slice(0,10));")"
+$BIRDCLAW search tweets --bookmarked --since "$SINCE" --limit 10000 --json \
   | node scripts/export-bookmarks.js
 
 if git diff --quiet data/bookmarks.json; then

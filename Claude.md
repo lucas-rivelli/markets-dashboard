@@ -41,7 +41,7 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
-**Highlights:** The reader has a `Highlight` action. Select text inside `.reader-body`, click Highlight, and save the quote into `markets_item_highlights` / workspace `item_highlights`. Saved highlights render under the article and matching text is marked with `.reader-highlight-mark` when possible. Highlight entries are `{ id, text, created_at }` by item key.
+**Highlights:** Highlighting is contextual, not a fixed reader action button. Select text inside `.reader-body` and show a small `.reader-selection-toolbar` above the selection with `Highlight`; clicking an existing `.reader-highlight-mark` shows `Remove highlight`. Save quotes into `markets_item_highlights` / workspace `item_highlights`. Saved highlights render under the article and matching text is marked when possible. Highlight entries are `{ id, text, created_at }` by item key.
 
 ## Mobile interaction (shipped July 2026)
 
@@ -73,7 +73,7 @@ Do not rename without updating CSS selectors and JS together:
 
 **List:** `.msg-list`, `.msg`, `#search`, `#list-container`, `#list-title`, `#list-count`
 
-**Reader:** `.reader-inner`, `.reader-title`, `.action-btn`, `#btn-folder`, `#btn-tag`, `#reader-back`
+**Reader:** `.reader-inner`, `.reader-title`, `.action-btn`, `#btn-folder`, `#btn-tag`, `#reader-back`, `.reader-selection-toolbar`, `.reader-highlight-mark`
 
 **Rail / tags:** `.rail-item`, `#rail-fixed`, `#rail-tags`, `#rail-add`, `#rail-toggle`
 

@@ -344,7 +344,34 @@
       background: rgba(150, 118, 47, 0.22);
       color: inherit;
       padding: 0 0.08em;
+      cursor: pointer;
     }
+    .reader-selection-toolbar {
+      position: fixed;
+      z-index: 80;
+      transform: translate(-50%, calc(-100% - 0.55rem));
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink-soft);
+      padding: 0.42rem 0.7rem;
+      font: 0.7rem var(--font);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 0.35rem 1rem rgba(41, 32, 24, 0.18);
+    }
+    .reader-selection-toolbar::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.32rem;
+      transform: translateX(-50%) rotate(45deg);
+      width: 0.55rem;
+      height: 0.55rem;
+      background: var(--ink);
+      border-right: 1px solid var(--ink-soft);
+      border-bottom: 1px solid var(--ink-soft);
+    }
+    .reader-selection-toolbar:hover { background: var(--rubric); }
     .reader-highlights {
       border-top: 1px solid var(--rule-soft);
       margin-top: 1.4rem;
@@ -701,6 +728,8 @@
   let selectedId = null;
   let activeView = "inbox"; // inbox | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
+  let highlightToolbar = null;
+  let highlightToolbarCleanup = null;
 
   const READ_KEY          = "markets_read";
   const FOLDERS_KEY       = "markets_folders";
@@ -950,6 +979,7 @@
     return String(Date.now()) + "-" + btoa(unescape(encodeURIComponent(text))).replace(/[^a-z0-9]/gi, "").slice(0, 18);
   }
   function selectedTextWithin(root) {
+    if (!root) return "";
     const sel = window.getSelection();
     if (!sel || sel.isCollapsed || !sel.toString().trim()) return "";
     if (!root.contains(sel.anchorNode) || !root.contains(sel.focusNode)) return "";
@@ -985,9 +1015,10 @@
   }
   function applyHighlightMarks(root, highlights) {
     if (!root) return;
-    for (const highlight of highlights) markFirstTextMatch(root, highlight.text);
+    for (const highlight of highlights) markFirstTextMatch(root, highlight);
   }
-  function markFirstTextMatch(root, text) {
+  function markFirstTextMatch(root, highlight) {
+    const text = highlight?.text || "";
     if (!text) return;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
@@ -1006,10 +1037,90 @@
     if (before) frag.appendChild(document.createTextNode(before));
     const mark = document.createElement("mark");
     mark.className = "reader-highlight-mark";
+    mark.dataset.highlightId = highlight.id;
     mark.textContent = match;
     frag.appendChild(mark);
     if (after) frag.appendChild(document.createTextNode(after));
     node.parentNode.replaceChild(frag, node);
+  }
+  function hideHighlightToolbar() {
+    if (highlightToolbarCleanup) {
+      highlightToolbarCleanup();
+      highlightToolbarCleanup = null;
+    }
+    highlightToolbar?.remove();
+    highlightToolbar = null;
+  }
+  function showHighlightToolbar(label, rect, action) {
+    hideHighlightToolbar();
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "reader-selection-toolbar";
+    btn.textContent = label;
+    btn.style.left = `${Math.min(Math.max(rect.left + rect.width / 2, 52), window.innerWidth - 52)}px`;
+    btn.style.top = `${Math.max(rect.top, 48)}px`;
+    btn.addEventListener("mousedown", (e) => e.preventDefault());
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      action();
+      hideHighlightToolbar();
+    });
+    document.body.appendChild(btn);
+    highlightToolbar = btn;
+
+    const dismiss = (e) => {
+      if (btn.contains(e.target)) return;
+      hideHighlightToolbar();
+    };
+    const dismissOnEscape = (e) => {
+      if (e.key === "Escape") hideHighlightToolbar();
+    };
+    const dismissPassive = () => hideHighlightToolbar();
+    setTimeout(() => {
+      document.addEventListener("mousedown", dismiss);
+      document.addEventListener("touchstart", dismiss, { passive: true });
+      document.addEventListener("keydown", dismissOnEscape);
+      window.addEventListener("scroll", dismissPassive, true);
+      window.addEventListener("resize", dismissPassive);
+    }, 0);
+    highlightToolbarCleanup = () => {
+      document.removeEventListener("mousedown", dismiss);
+      document.removeEventListener("touchstart", dismiss);
+      document.removeEventListener("keydown", dismissOnEscape);
+      window.removeEventListener("scroll", dismissPassive, true);
+      window.removeEventListener("resize", dismissPassive);
+    };
+  }
+  function wireHighlightToolbar(reader, item) {
+    const body = reader.querySelector(".reader-body");
+    if (!body) return;
+
+    const showForSelection = () => {
+      const text = selectedTextWithin(body);
+      if (!text) return;
+      const sel = window.getSelection();
+      const rect = sel.rangeCount ? sel.getRangeAt(0).getBoundingClientRect() : null;
+      if (!rect || (!rect.width && !rect.height)) return;
+      showHighlightToolbar("Highlight", rect, () => {
+        addItemHighlight(item, text);
+        window.getSelection()?.removeAllRanges();
+        renderReader(item);
+      });
+    };
+
+    body.addEventListener("mouseup", () => setTimeout(showForSelection, 0));
+    body.addEventListener("touchend", () => setTimeout(showForSelection, 80), { passive: true });
+    body.addEventListener("keyup", showForSelection);
+    body.addEventListener("click", (e) => {
+      const mark = e.target.closest(".reader-highlight-mark");
+      if (!mark || !body.contains(mark)) return;
+      const rect = mark.getBoundingClientRect();
+      showHighlightToolbar("Remove highlight", rect, () => {
+        removeItemHighlight(item, mark.dataset.highlightId);
+        renderReader(item);
+      });
+    });
   }
 
   /* folders */
@@ -1667,6 +1778,7 @@
   }
 
   function renderReader(item) {
+    hideHighlightToolbar();
     const k = keyOf(item);
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
@@ -1715,7 +1827,6 @@
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           ${statusButtons}
-          <button class="action-btn" id="btn-highlight">Highlight</button>
           <button class="action-btn" id="btn-folder">Folder ❧</button>
           <button class="action-btn" id="btn-tag">Tag</button>
         </div>
@@ -1738,19 +1849,10 @@
     byId("reader-empty") && (byId("reader-empty").hidden = true);
     if (tweet) hydrateTwitterEmbed(reader);
     applyHighlightMarks(reader.querySelector(".reader-body"), highlights);
+    wireHighlightToolbar(reader, item);
 
     reader.querySelectorAll("[data-status]").forEach((btn) =>
       btn.addEventListener("click", () => moveItemStatus(item, btn.dataset.status)));
-    byId("btn-highlight").addEventListener("click", () => {
-      const text = selectedTextWithin(reader.querySelector(".reader-body"));
-      if (!text) {
-        window.alert("Select text in the reading pane first.");
-        return;
-      }
-      addItemHighlight(item, text);
-      window.getSelection()?.removeAllRanges();
-      renderReader(item);
-    });
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
     byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     wireReaderBack();
