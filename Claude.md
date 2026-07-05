@@ -27,7 +27,6 @@ Four-region manuscript workspace (not a feed column):
 top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
 │ Inbox    │ search + rows  │ item / Sources    │ Tag Map SVG  │
-│ To-read  │                │ state actions     │ (chat hidden)│
 │ Trash    │                │                   │              │
 │ Sources  │                │                   │              │
 │ + folders│                │                   │              │
@@ -38,7 +37,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 **Cross-device sync:** folders, tags, item assignments, mailbox state, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
-**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to any state, including back to Inbox. Assigning any folder removes the item from Inbox/To-read so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. The prior short-lived `saw` value should be migrated to `to-read`; old `read` statuses should be normalized back to `inbox`.
+**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. To-read is a normal tag, not a mailbox state; old `saw`, `to-read`, and `read` statuses should normalize back to `inbox`.
 
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
@@ -90,7 +89,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 
 | Key | Purpose |
 |-----|---------|
-| `markets_item_status` | Item → `inbox/to-read/trash` map |
+| `markets_item_status` | Item → `inbox/trash` map |
 | `markets_read` | Seen/faded item links; does not determine mailbox category |
 | `markets_tags` | Tag definitions `{ id, name, color }` |
 | `markets_item_tags` | Item → tag id[] map |
