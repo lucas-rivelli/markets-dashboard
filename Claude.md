@@ -39,6 +39,8 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 
 **Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. To-read is a normal tag, not a mailbox state; old `saw`, `to-read`, and `read` statuses should normalize back to `inbox`.
 
+**Folders:** Folders are hierarchical paths stored as strings in `markets_folders` / workspace `folders`, e.g. `Macro/Rates`. Item assignments in `markets_item_folders` use the same full path. Creating `Parent/Child` auto-creates ancestors. Rename and exclude actions must update descendant folder paths and all item assignments, so editing a mistaken parent folder behaves like email folders/subfolders.
+
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
 **Highlights:** Highlighting is contextual, not a fixed reader action button. Select text inside `.reader-body` and show a small `.reader-selection-toolbar` above the selection with `Highlight`; clicking an existing `.reader-highlight-mark` shows `Remove highlight`. Save quotes into `markets_item_highlights` / workspace `item_highlights`. Saved highlights render under the article and matching text is marked when possible. Highlight entries are `{ id, text, created_at }` by item key.
@@ -92,6 +94,8 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 | Key | Purpose |
 |-----|---------|
 | `markets_item_status` | Item → `inbox/trash` map |
+| `markets_folders` | Folder path[]; subfolders use `Parent/Child` |
+| `markets_item_folders` | Item → folder path[] map |
 | `markets_read` | Seen/faded item links; does not determine mailbox category |
 | `markets_item_highlights` | Item → saved quote highlights |
 | `markets_tags` | Tag definitions `{ id, name, color }` |

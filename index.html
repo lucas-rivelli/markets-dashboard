@@ -172,6 +172,11 @@
     .rail-item .glyph { color: var(--rubric); width: 1.1em; text-align: center; flex-shrink: 0; }
     .rail-item .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .rail-item .count { font-size: 0.78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+    .rail-item.folder-depth-1 { padding-left: 1.45rem; }
+    .rail-item.folder-depth-2 { padding-left: 2.2rem; }
+    .rail-item.folder-depth-3 { padding-left: 2.95rem; }
+    .rail-item.folder-depth-4 { padding-left: 3.7rem; }
+    .rail-item[class*="folder-depth-"] .name { font-size: 0.93rem; }
 
     .rail-row { display: flex; align-items: stretch; gap: 0.1rem; padding-right: 0.35rem; }
     .rail-row .rail-item { flex: 1; min-width: 0; }
@@ -1124,25 +1129,55 @@
   }
 
   /* folders */
-  const getFolders = () => readJSON(FOLDERS_KEY, []);
+  function normalizeFolderPath(name) {
+    return String(name || "")
+      .split("/")
+      .map((part) => part.trim().replace(/\s+/g, " "))
+      .filter(Boolean)
+      .join("/")
+      .slice(0, 160);
+  }
+  const folderParts = (name) => normalizeFolderPath(name).split("/").filter(Boolean);
+  const folderLeaf = (name) => folderParts(name).at(-1) || normalizeFolderPath(name);
+  const folderDepth = (name) => Math.max(folderParts(name).length - 1, 0);
+  const isSameFolder = (a, b) => normalizeFolderPath(a).toLowerCase() === normalizeFolderPath(b).toLowerCase();
+  const isFolderDescendant = (name, parent) => {
+    const child = normalizeFolderPath(name).toLowerCase();
+    const root = normalizeFolderPath(parent).toLowerCase();
+    return child.startsWith(root + "/");
+  };
+  function folderAncestors(name) {
+    const parts = folderParts(name);
+    return parts.slice(0, -1).map((_, i) => parts.slice(0, i + 1).join("/"));
+  }
+  function sortFolders(folders) {
+    return [...folders].sort((a, b) =>
+      normalizeFolderPath(a).localeCompare(normalizeFolderPath(b), undefined, { sensitivity: "base" })
+    );
+  }
+  const getFolders = () => sortFolders(readJSON(FOLDERS_KEY, []).map(normalizeFolderPath).filter(Boolean));
   const addFolder = (name) => {
-    name = String(name || "").trim();
+    name = normalizeFolderPath(name);
     if (!name) return null;
     const folders = getFolders();
-    if (folders.some((x) => x.toLowerCase() === name.toLowerCase())) {
-      return folders.find((x) => x.toLowerCase() === name.toLowerCase());
+    const existing = folders.find((x) => isSameFolder(x, name));
+    if (existing) {
+      return existing;
     }
-    folders.push(name);
-    writeJSON(FOLDERS_KEY, folders);
+    const next = sortFolders([...folders, ...folderAncestors(name), name]);
+    writeJSON(FOLDERS_KEY, [...new Set(next)]);
     scheduleWorkspaceSync();
     return name;
   };
-  const getItemFolders = (k) => readJSON(ITEM_FOLDERS_KEY, {})[k] || [];
+  const getItemFolders = (k) => sortFolders((readJSON(ITEM_FOLDERS_KEY, {})[k] || []).map(normalizeFolderPath).filter(Boolean));
   const toggleItemFolder = (k, name) => {
+    name = normalizeFolderPath(name);
+    if (!name) return;
     const map = readJSON(ITEM_FOLDERS_KEY, {});
-    const cur = new Set(map[k] || []);
-    const adding = !cur.has(name);
-    adding ? cur.add(name) : cur.delete(name);
+    const cur = new Set((map[k] || []).map(normalizeFolderPath).filter(Boolean));
+    const existing = [...cur].find((f) => isSameFolder(f, name));
+    const adding = !existing;
+    adding ? cur.add(name) : cur.delete(existing);
     map[k] = [...cur];
     writeJSON(ITEM_FOLDERS_KEY, map);
     if (adding) {
@@ -1155,33 +1190,47 @@
     scheduleWorkspaceSync();
   };
   const folderCount = (name) =>
-    visibleItems().filter((it) => getItemFolders(keyOf(it)).includes(name)).length;
+    visibleItems().filter((it) => getItemFolders(keyOf(it)).some((f) => isSameFolder(f, name))).length;
   const renameFolder = (oldName, newName) => {
-    newName = String(newName || "").trim();
-    if (!newName || oldName === newName) return false;
+    oldName = normalizeFolderPath(oldName);
+    newName = normalizeFolderPath(newName);
+    if (!newName || isSameFolder(oldName, newName)) return false;
+    if (isFolderDescendant(newName, oldName)) return false;
     const folders = getFolders();
-    if (folders.some((f) => f.toLowerCase() === newName.toLowerCase() && f !== oldName)) return false;
-    const idx = folders.indexOf(oldName);
-    if (idx === -1) return false;
-    folders[idx] = newName;
-    writeJSON(FOLDERS_KEY, folders);
+    if (folders.some((f) => isSameFolder(f, newName) && !isSameFolder(f, oldName))) return false;
+    if (!folders.some((f) => isSameFolder(f, oldName))) return false;
+    const rewrite = (folder) => {
+      if (isSameFolder(folder, oldName)) return newName;
+      if (isFolderDescendant(folder, oldName)) return newName + folder.slice(oldName.length);
+      return folder;
+    };
+    const nextFolders = sortFolders([...new Set(folders.flatMap((folder) => {
+      const next = rewrite(folder);
+      return [...folderAncestors(next), next];
+    }))]);
+    writeJSON(FOLDERS_KEY, nextFolders);
     const map = readJSON(ITEM_FOLDERS_KEY, {});
     for (const [k, names] of Object.entries(map)) {
-      map[k] = names.map((n) => (n === oldName ? newName : n));
+      map[k] = sortFolders([...new Set(names.map(normalizeFolderPath).filter(Boolean).map(rewrite))]);
     }
     writeJSON(ITEM_FOLDERS_KEY, map);
-    if (activeView === "folder:" + oldName) selectView("folder:" + newName);
+    if (activeView === "folder:" + oldName || activeView.startsWith("folder:" + oldName + "/")) {
+      selectView("folder:" + rewrite(activeView.slice(7)));
+    }
+    scheduleWorkspaceSync();
     return true;
   };
   const removeFolder = (name) => {
-    writeJSON(FOLDERS_KEY, getFolders().filter((f) => f !== name));
+    name = normalizeFolderPath(name);
+    writeJSON(FOLDERS_KEY, getFolders().filter((f) => !isSameFolder(f, name) && !isFolderDescendant(f, name)));
     const map = readJSON(ITEM_FOLDERS_KEY, {});
     for (const k of Object.keys(map)) {
-      map[k] = map[k].filter((n) => n !== name);
+      map[k] = map[k].map(normalizeFolderPath).filter((n) => !isSameFolder(n, name) && !isFolderDescendant(n, name));
       if (!map[k].length) delete map[k];
     }
     writeJSON(ITEM_FOLDERS_KEY, map);
-    if (activeView === "folder:" + name) selectView("inbox");
+    if (activeView === "folder:" + name || activeView.startsWith("folder:" + name + "/")) selectView("inbox");
+    scheduleWorkspaceSync();
   };
 
   /* tags */
@@ -1400,9 +1449,10 @@
   function railFolderHTML(name) {
     const id = "folder:" + name;
     const cur = activeView === id;
-    return `<li class="rail-row"><button class="rail-item" data-view="${esc(id)}" data-meta-kind="folder" data-meta-name="${esc(name)}" aria-current="${cur}">
-      <span class="glyph" aria-hidden="true">❧</span>
-      <span class="name">${esc(name)}</span>
+    const depth = Math.min(folderDepth(name), 4);
+    return `<li class="rail-row"><button class="rail-item folder-depth-${depth}" data-view="${esc(id)}" data-meta-kind="folder" data-meta-name="${esc(name)}" aria-current="${cur}" title="${esc(name)}">
+      <span class="glyph" aria-hidden="true">${depth ? "⌞" : "❧"}</span>
+      <span class="name">${esc(folderLeaf(name))}</span>
       <span class="count">${folderCount(name)}</span></button></li>`;
   }
   function railTagHTML(tag) {
@@ -1484,7 +1534,9 @@
       ${isFolder ? "" : `<div class="color-swatches">${TAG_COLORS.map((c) =>
         `<button type="button" class="color-swatch" data-color="${esc(c)}" style="background:${esc(c)}" aria-label="Color ${esc(c)}" aria-pressed="${c === pickedColor}"></button>`).join("")}</div>`}
       <div class="tag-create-actions"><button type="button">Rename</button></div>
-      <button type="button" class="pop-danger">Exclude ${isFolder ? "folder" : "tag"}</button>`;
+      ${isFolder ? `<div class="pop-new"><input data-subfolder-input placeholder="New subfolder…" aria-label="New subfolder name" /></div>
+        <div class="tag-create-actions"><button type="button" data-create-subfolder>Create subfolder</button></div>` : ""}
+      <button type="button" class="pop-danger">Exclude ${isFolder ? "folder + subfolders" : "tag"}</button>`;
 
     const input = pop.querySelector("input");
     if (!isFolder) {
@@ -1514,6 +1566,28 @@
         input.focus();
       }
     });
+
+    if (isFolder) {
+      const subInput = pop.querySelector("[data-subfolder-input]");
+      const createSubfolder = () => {
+        const leaf = normalizeFolderPath(subInput.value);
+        const child = leaf ? addFolder(`${normalizeFolderPath(meta.name)}/${leaf}`) : null;
+        if (!child) {
+          subInput.focus();
+          return;
+        }
+        pop.remove();
+        renderRail();
+        renderGraph();
+      };
+      pop.querySelector("[data-create-subfolder]").addEventListener("click", createSubfolder);
+      subInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          createSubfolder();
+        }
+      });
+    }
 
     pop.querySelector(".pop-danger").addEventListener("click", () => {
       if (isFolder) removeFolder(meta.name);
@@ -1592,17 +1666,20 @@
     }
   }
 
-  function openFolderCreator(anchor) {
+  function openFolderCreator(anchor, parent = "") {
     document.querySelector(".popover")?.remove();
     closeDrawers();
+    parent = normalizeFolderPath(parent);
     const pop = document.createElement("div");
     pop.className = "popover";
-    pop.innerHTML = `<span class="label">New folder</span>
-      <div class="pop-new"><input placeholder="Folder name…" aria-label="Folder name" /></div>
+    pop.innerHTML = `<span class="label">${parent ? `New subfolder in ${esc(parent)}` : "New folder"}</span>
+      <div class="pop-new"><input placeholder="${parent ? "Subfolder name…" : "Folder name or Parent/Subfolder…"}" aria-label="Folder name" /></div>
       <div class="tag-create-actions"><button type="button">Create folder</button></div>`;
     const input = pop.querySelector("input");
     const create = () => {
-      if (addFolder(input.value)) { renderRail(); renderGraph(); input.value = ""; pop.remove(); }
+      const leaf = normalizeFolderPath(input.value);
+      const path = parent && leaf ? `${parent}/${leaf}` : leaf;
+      if (addFolder(path)) { renderRail(); renderGraph(); input.value = ""; pop.remove(); }
     };
     pop.querySelector("button").addEventListener("click", create);
     input.addEventListener("keydown", (e) => {
@@ -1884,9 +1961,9 @@
       const folders = getFolders();
       pop.innerHTML = `<span class="label">File into folder</span>
         ${folders.length ? folders.map((f) =>
-          `<button class="pop-item" data-folder="${esc(f)}"><span class="check">${assigned.includes(f) ? "✓" : ""}</span>${esc(f)}</button>`).join("")
+          `<button class="pop-item" data-folder="${esc(f)}" title="${esc(f)}" style="padding-left:${0.45 + folderDepth(f) * 0.85}rem"><span class="check">${assigned.some((n) => isSameFolder(n, f)) ? "✓" : ""}</span>${esc(folderLeaf(f))}</button>`).join("")
           : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No folders yet — create one below.</div>`}
-        <div class="pop-new"><input placeholder="New folder…" aria-label="New folder name" /></div>
+        <div class="pop-new"><input placeholder="New folder or Parent/Subfolder…" aria-label="New folder name" /></div>
         <div class="tag-create-actions"><button type="button">Create &amp; file</button></div>`;
       pop.querySelectorAll("[data-folder]").forEach((b) =>
         b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.folder); render(); afterMetaChange(item); }));
