@@ -36,9 +36,9 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-**Cross-device sync:** folders, tags, item assignments, mailbox state, and read-compat links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
+**Cross-device sync:** folders, tags, item assignments, mailbox state, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 
-**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, `read`, and `trash`. New items default to `inbox`; opening an Inbox item moves it to `to-read`; reader/context-menu actions can move an item to any state, including back to Inbox. Trash is hidden from folders, tags, and graph data except in the Trash view. Legacy `markets_read` remains only for compatibility; the prior short-lived `saw` value should be migrated to `to-read`.
+**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, `read`, and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to any state, including back to Inbox. Trash is hidden from folders, tags, and graph data except in the Trash view. The prior short-lived `saw` value should be migrated to `to-read`.
 
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
@@ -91,7 +91,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 | Key | Purpose |
 |-----|---------|
 | `markets_item_status` | Item → `inbox/to-read/read/trash` map |
-| `markets_read` | Legacy read links, kept for compatibility |
+| `markets_read` | Seen/faded item links; does not determine mailbox category |
 | `markets_tags` | Tag definitions `{ id, name, color }` |
 | `markets_item_tags` | Item → tag id[] map |
 | `markets_feed_snapshot` | Last feed JSON for instant load |
@@ -101,7 +101,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
   - Substack items can include sanitized `contentHtml` for inline reading.
-- `GET /api/workspace` — folders, tags, item assignments, `item_status`, read-compat links
+- `GET /api/workspace` — folders, tags, item assignments, `item_status`, seen/fade links
 - `PUT /api/workspace` — merge + persist workspace, including `item_status`
 - `POST /api/save` — backend KB plumbing only; no Save button in the current UI
 - `GET /api/library` — KB index (Phase 3 hook)

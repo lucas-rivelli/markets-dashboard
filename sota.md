@@ -60,7 +60,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks`.
 ## 3. Hard constraints
 
 - Feed items still flow through the API and vanish past the feed cap (10/feed, 100 total), but every returned item now has a stable `id`.
-- Item mailbox state syncs through `/api/workspace` as `item_status`; legacy `read` keys remain for compatibility.
+- Item mailbox state syncs through `/api/workspace` as `item_status`; `read` keys are now only seen/fade markers, not category state.
 - Feed auto-refreshes every **5 minutes** via a free external cron (see `docs/automation.md`) or GitHub Actions templates — no Vercel Pro.
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
@@ -100,7 +100,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 ```
 
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
-- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item moves it to **To-read**; items can be moved to **Read**, **Trash**, or back to **Inbox** from the reader or context menu. Trash is hidden from folders, tags, and the graph except in the Trash view.
+- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **To-read**, **Read**, **Trash**, or back to **Inbox** only when chosen from the reader or context menu. Trash is hidden from folders, tags, and the graph except in the Trash view.
 - **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
@@ -122,7 +122,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
 - **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
 
-- **localStorage keys:** `markets_item_status`, `markets_read` (legacy/read compatibility), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
+- **localStorage keys:** `markets_item_status`, `markets_read` (seen/fade marker), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
 
 ## 5. Roadmap (agreed direction)
 
