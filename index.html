@@ -658,7 +658,7 @@
       <div class="aside-section chat">
         <div class="col-head"><span class="label">Ask the Knowledge Base</span></div>
         <div class="chat-log" id="chat-log">
-          <p class="chat-intro">Ask about what you’ve read — “What have I saved on AI capex?” I’ll search your saved items and feed. <span style="font-style:normal">✦</span></p>
+          <p class="chat-intro">Ask about what you’ve read — “What have I parked on AI capex?” I’ll search your reading state and feed. <span style="font-style:normal">✦</span></p>
         </div>
         <form class="chat-form" id="chat-form">
           <input id="chat-input" placeholder="Ask your library…" autocomplete="off" aria-label="Ask the knowledge base" />
@@ -676,7 +676,7 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
-  let activeView = "inbox"; // inbox | to-read | read | trash | saved | sources | folder:<name> | tag:<id>
+  let activeView = "inbox"; // inbox | to-read | read | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
 
   const READ_KEY          = "markets_read";
@@ -685,7 +685,6 @@
   const ITEM_STATUS_KEY   = "markets_item_status";
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
-  const SAVED_KEY       = "markets_saved";
   const SAVE_SECRET_KEY = "markets_save_secret";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
@@ -720,7 +719,6 @@
       tags: getTags(),
       item_tags: readJSON(ITEM_TAGS_KEY, {}),
       read: readJSON(READ_KEY, []),
-      saved: readJSON(SAVED_KEY, []),
     };
   }
 
@@ -738,7 +736,6 @@
     writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
     writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
     writeJSON(READ_KEY, Array.isArray(data.read) ? data.read : []);
-    writeJSON(SAVED_KEY, Array.isArray(data.saved) ? data.saved : []);
     if (data.updated_at) writeJSON(WORKSPACE_TS_KEY, data.updated_at);
   }
 
@@ -748,8 +745,7 @@
       || Object.keys(readJSON(ITEM_FOLDERS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_STATUS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_TAGS_KEY, {})).length > 0
-      || readJSON(READ_KEY, []).length > 0
-      || readJSON(SAVED_KEY, []).length > 0;
+      || readJSON(READ_KEY, []).length > 0;
   }
 
   function scheduleWorkspaceSync() {
@@ -791,8 +787,7 @@
         || Object.keys(remote.item_folders || {}).length > 0
         || Object.keys(remote.item_tags || {}).length > 0
         || Object.keys(remote.item_status || {}).length > 0
-        || (remote.read?.length || 0) > 0
-        || (remote.saved?.length || 0) > 0;
+        || (remote.read?.length || 0) > 0;
 
       if (!remoteHasData && localWorkspaceHasData()) {
         await pushWorkspaceState(true);
@@ -994,24 +989,6 @@
     if (activeView === "tag:" + id) selectView("inbox");
   };
 
-  /* saved */
-  const getSavedSet = () => new Set(readJSON(SAVED_KEY, []));
-  const isSaved = (k) => getSavedSet().has(k);
-  const markSavedLocal = (k) => {
-    const s = getSavedSet();
-    s.add(k);
-    writeJSON(SAVED_KEY, [...s]);
-    scheduleWorkspaceSync();
-  };
-  const markUnsavedLocal = (item) => {
-    const s = getSavedSet();
-    for (const k of [keyOf(item), item.link, item.url, item.id]) {
-      if (k) s.delete(k);
-    }
-    writeJSON(SAVED_KEY, [...s]);
-    scheduleWorkspaceSync();
-  };
-
   /* ── Utilities ────────────────────────────────────────────────────────── */
   function esc(str) {
     return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -1136,13 +1113,11 @@
     const toReadCount = allItems.filter((it) => itemStatus(it) === "to-read").length;
     const readCount = allItems.filter((it) => itemStatus(it) === "read").length;
     const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
-    const savedCount = visibleItems().filter((it) => isSaved(keyOf(it))).length;
     const fixed = [
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
       { id: "to-read", glyph: "☉", name: "To-read", count: toReadCount },
       { id: "read",    glyph: "☑", name: "Read",    count: readCount },
       { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
-      { id: "saved",   glyph: "❦", name: "Saved",   count: savedCount },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
     ];
     byId("rail-fixed").innerHTML = fixed.map(railItemHTML).join("");
@@ -1440,7 +1415,6 @@
     if (activeView === "to-read") return "To-read";
     if (activeView === "read") return "Read";
     if (activeView === "trash") return "Trash";
-    if (activeView === "saved") return "Saved";
     if (activeView === "sources") return "Sources";
     if (activeView.startsWith("folder:")) return activeView.slice(7);
     const tag = tagById(activeView.slice(4));
@@ -1452,7 +1426,6 @@
     if (activeView === "to-read") return allItems.filter((it) => itemStatus(it) === "to-read");
     if (activeView === "read") return allItems.filter((it) => itemStatus(it) === "read");
     if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
-    if (activeView === "saved") return visibleItems().filter((it) => isSaved(keyOf(it)));
     if (activeView.startsWith("folder:")) {
       const name = activeView.slice(7);
       return visibleItems().filter((it) => getItemFolders(keyOf(it)).includes(name));
@@ -1505,7 +1478,6 @@
         : activeView === "to-read" ? "Nothing in To-read yet. Open an item from Inbox to park it here."
         : activeView === "read" ? "Nothing in Read yet. Mark finished items as Read."
         : activeView === "trash" ? "Trash is empty."
-        : activeView === "saved" ? "Nothing saved yet. Open an item and choose “Save”."
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
         : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
@@ -1571,7 +1543,6 @@
     const tweet = xStatusUrl(item.link);
     const hasArticleContent = item.category === "Substack" && item.contentHtml;
     const status = itemStatus(item);
-    const saved = isSaved(k);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
     const statusButtons = [
@@ -1614,7 +1585,6 @@
         <h1 class="reader-title">${esc(item.title)}</h1>
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
-          <button class="action-btn ${saved ? "is-on" : ""}" id="btn-save">${saved ? "Saved ✓" : "Save"}</button>
           ${statusButtons}
           <button class="action-btn" id="btn-folder">Folder ❧</button>
           <button class="action-btn" id="btn-tag">Tag</button>
@@ -1637,7 +1607,6 @@
     byId("reader-empty") && (byId("reader-empty").hidden = true);
     if (tweet) hydrateTwitterEmbed(reader);
 
-    byId("btn-save").addEventListener("click", () => toggleSaveItem(item));
     reader.querySelectorAll("[data-status]").forEach((btn) =>
       btn.addEventListener("click", () => moveItemStatus(item, btn.dataset.status)));
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
@@ -1754,7 +1723,6 @@
     const pop = document.createElement("div");
     pop.className = "popover";
     const status = itemStatus(item);
-    const saved = isSaved(k);
     const statusActions = [
       ["inbox", "✦", "Move to Inbox"],
       ["to-read", "☉", "Move to To-read"],
@@ -1765,8 +1733,6 @@
     ).join("");
     pop.innerHTML = `
       ${statusActions}
-      <button class="pop-item" data-act="save">
-        <span class="check">❦</span>${saved ? "Unsave" : "Save"}</button>
       <button class="pop-item" data-act="folder">
         <span class="check">❧</span>Folder…</button>
       <button class="pop-item" data-act="tag">
@@ -1777,10 +1743,6 @@
         pop.remove();
         moveItemStatus(item, btn.dataset.status);
       }));
-    pop.querySelector('[data-act="save"]').addEventListener("click", () => {
-      pop.remove();
-      toggleSaveItem(item);
-    });
     pop.querySelector('[data-act="folder"]').addEventListener("click", () => {
       pop.remove();
       openFolderPicker(anchor, item);
@@ -1833,53 +1795,6 @@
     btn.addEventListener("touchend", cancelPress);
     btn.addEventListener("touchmove", cancelPress);
     btn.addEventListener("touchcancel", cancelPress);
-  }
-
-  /* save / unsave → POST|DELETE /api/save (falls back to local marker on failure) */
-  async function toggleSaveItem(item) {
-    const k = keyOf(item);
-    /* reader button only exists when this item is open in the reading pane */
-    const btn = selectedId === k ? byId("btn-save") : null;
-
-    if (isSaved(k)) {
-      if (btn) btn.textContent = "Removing…";
-      try {
-        const res = await fetch("/api/save", {
-          method: "DELETE",
-          headers: syncHeaders(),
-          body: JSON.stringify({ id: k, link: item.link }),
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      } catch (err) {}
-      markUnsavedLocal(item);
-      if (btn) { btn.textContent = "Save"; btn.classList.remove("is-on"); }
-      renderRail();
-      if (activeView === "saved") renderList();
-      return;
-    }
-
-    if (btn) btn.textContent = "Saving…";
-    const payload = {
-      title: item.title, link: item.link, source: item.source,
-      category: item.category, date: item.date, snippet: item.snippet,
-      themes: [...getItemFolders(k), ...getItemTags(k).map((t) => t.name)],
-    };
-    let savedRemotely = true;
-    try {
-      const res = await fetch("/api/save", {
-        method: "POST", headers: syncHeaders(), body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    } catch (err) {
-      savedRemotely = false;   // still record locally so the workspace stays usable offline
-    }
-    markSavedLocal(k);
-    if (btn) {
-      btn.textContent = savedRemotely ? "Saved ✓" : "Saved locally ✓";
-      btn.classList.add("is-on");
-    }
-    renderRail();
-    if (activeView === "saved") renderList();
   }
 
   /* ── Sources launchpad (rendered into reader pane) ────────────────────── */

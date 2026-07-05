@@ -27,19 +27,18 @@ Four-region manuscript workspace (not a feed column):
 top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
 │ Inbox    │ search + rows  │ item / Sources    │ Tag Map SVG  │
-│ To-read  │                │ Save · states     │ (chat hidden)│
+│ To-read  │                │ state actions     │ (chat hidden)│
 │ Read     │                │ Folder ❧ · Tag    │              │
 │ Trash    │                │                   │              │
-│ Saved    │                │                   │              │
 │ Sources  │                │                   │              │
 │ + folders│                │                   │              │
 │ + tags   │                │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-**Cross-device sync:** folders, tags, item assignments, mailbox state, read-compat links, and saved keys merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
+**Cross-device sync:** folders, tags, item assignments, mailbox state, and read-compat links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 
-**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, `read`, and `trash`. New items default to `inbox`; opening an Inbox item moves it to `to-read`; reader/context-menu actions can move an item to any state, including back to Inbox. Trash is hidden from Saved, folders, tags, and graph data except in the Trash view. Legacy `markets_read` remains only for compatibility; the prior short-lived `saw` value should be migrated to `to-read`.
+**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox`, `to-read`, `read`, and `trash`. New items default to `inbox`; opening an Inbox item moves it to `to-read`; reader/context-menu actions can move an item to any state, including back to Inbox. Trash is hidden from folders, tags, and graph data except in the Trash view. Legacy `markets_read` remains only for compatibility; the prior short-lived `saw` value should be migrated to `to-read`.
 
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
@@ -73,7 +72,7 @@ Do not rename without updating CSS selectors and JS together:
 
 **List:** `.msg-list`, `.msg`, `#search`, `#list-container`, `#list-title`, `#list-count`
 
-**Reader:** `.reader-inner`, `.reader-title`, `.action-btn`, `#btn-save`, `#btn-classify`, `#reader-back`
+**Reader:** `.reader-inner`, `.reader-title`, `.action-btn`, `#btn-folder`, `#btn-tag`, `#reader-back`
 
 **Rail / tags:** `.rail-item`, `#rail-fixed`, `#rail-tags`, `#rail-add`, `#rail-toggle`
 
@@ -95,7 +94,6 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 | `markets_read` | Legacy read links, kept for compatibility |
 | `markets_tags` | Tag definitions `{ id, name, color }` |
 | `markets_item_tags` | Item → tag id[] map |
-| `markets_saved` | Saved item keys |
 | `markets_feed_snapshot` | Last feed JSON for instant load |
 | `markets_tags_migrated` | One-time folders→tags migration flag |
 
@@ -103,9 +101,9 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
   - Substack items can include sanitized `contentHtml` for inline reading.
-- `GET /api/workspace` — folders, tags, item assignments, `item_status`, read-compat links, saved
+- `GET /api/workspace` — folders, tags, item assignments, `item_status`, read-compat links
 - `PUT /api/workspace` — merge + persist workspace, including `item_status`
-- `POST /api/save` — persist to `kb/inbox/`
+- `POST /api/save` — backend KB plumbing only; no Save button in the current UI
 - `GET /api/library` — KB index (Phase 3 hook)
 
 ## What not to do

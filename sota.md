@@ -38,7 +38,7 @@ lib/spotify.js      → Spotify Web API (saved shows → episodes, last 7 days)
 lib/bookmarks.js    → reads data/bookmarks.json
 lib/kb-index.js     → builds the Library read model from kb files
 data/bookmarks.json → X bookmarks, synced from Mac via birdclaw
-data/workspace.json     → synced folders, tags, read + saved keys (cross-device)
+data/workspace.json     → synced folders, tags, mailbox state (cross-device)
 kb/                 → repo-backed knowledge base database
 scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 ```
@@ -91,16 +91,16 @@ Anti-goals: emoji in UI, rounded pill-everything, drop shadows, bright saturated
 top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (drawer on narrow)
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
 │ Inbox    │ source·title·  │ opened item or    │ Tag map      │
-│ Saved    │ snippet rows,  │ Sources launchpad;│ (SVG graph,  │
+│ To-read  │ snippet rows,  │ Sources launchpad;│ (SVG graph,  │
 │ Sources  │ email-style,   │ embeds + articles │ clickable)   │
-│ + tags   │ filtered by    │ Open · Save ·     │              │
+│ + tags   │ filtered by    │ Open · states ·   │              │
 │          │ tag+search+    │ Tag ❧             │              │
 │          │ read state     │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-- **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items; on **Save**, folder names + tag names go to `POST /api/save` as `themes`.
-- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item moves it to **To-read**; items can be moved to **Read**, **Trash**, or back to **Inbox** from the reader or context menu. Trash is hidden from Saved, folders, tags, and the graph except in the Trash view.
+- **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache. **Folder ❧** and **Tag** assign items. The old Save UI is intentionally removed as redundant with mailbox states.
+- **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item moves it to **To-read**; items can be moved to **Read**, **Trash**, or back to **Inbox** from the reader or context menu. Trash is hidden from folders, tags, and the graph except in the Trash view.
 - **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Tag map** (right column / drawer) is hand-rolled SVG: central "Inbox" node, radial spokes per tag, node size ∝ item count, click to filter. Grows as you classify.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
@@ -122,7 +122,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map (draw
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
 - **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
 
-- **localStorage keys:** `markets_item_status`, `markets_read` (legacy/read compatibility), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_saved`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
+- **localStorage keys:** `markets_item_status`, `markets_read` (legacy/read compatibility), `markets_folders`, `markets_item_folders`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
 
 ## 5. Roadmap (agreed direction)
 
@@ -138,9 +138,7 @@ Production env vars for saves:
 and required `SAVE_SECRET` when GitHub-backed saves are enabled. Frontend should send the secret as
 `X-Save-Secret` or `Authorization: Bearer ...`.
 
-Frontend is now built: the reading pane has **Save** (POST to `/api/save`) and **Tag ❧**
-(assignment → sent as `themes` on save). Save degrades gracefully to a local marker if the endpoint is
-unavailable. Mobile drill-down, drawer scrim, and History API back stack shipped July 2026.
+Frontend mailbox state is now built: **Inbox**, **To-read**, **Read**, and **Trash** replace the old Save action. **Folder ❧** and **Tag** remain for classification. Mobile drill-down, drawer scrim, and History API back stack shipped July 2026.
 
 > Note: the local dev server must be **restarted** to pick up the `/api/save` and `/api/library`
 > routes if it was started before they were added (`npm run dev`).
@@ -149,7 +147,7 @@ unavailable. Mobile drill-down, drawer scrim, and History API back stack shipped
 Folders + colored tags ship in the UI and sync via `/api/workspace`. LLM auto-tagging of the firehose remains deferred (`data/tags.json`).
 
 **Phase 3 — enrichment → knowledge base (Karpathy LLM wiki).**
-Deferred. Save/inbox plumbing exists but enrichment, notes, and “ask the KB” are future work.
+Deferred. Save/inbox backend plumbing exists but the visible Save UI is removed; enrichment, notes, and “ask the KB” are future work.
 
 **Deferred:** in-page "ask the KB" endpoint (Claude Code over the repo does this better) ·
 Notion mirror for mobile browsing · email digest.
