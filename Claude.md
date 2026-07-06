@@ -41,7 +41,7 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 
 **Reading menu:** `#rail-toggle` (☰ Menu) and **⌘/Ctrl+S** toggle `data-folders=hidden|visible`, hiding `.rail-folders-block` (folder list + New folder). On mobile (≤820px), opening the menu also opens the rail drawer (`data-rail=open`).
 
-**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. To-read is a normal tag, not a mailbox state; old `saw`, `to-read`, and `read` statuses should normalize back to `inbox`.
+**Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. **To-read** is a normal tag: new inbox items receive it automatically (including Spotify). Removing To-read from a filed item triggers a knowledge-base save to `kb/inbox/<id>.json` with enriched X/YouTube body text when available. Spotify is tagged but not written to `kb/` yet.
 
 **Folders:** Folders are hierarchical paths stored as strings in `markets_folders` / workspace `folders`, e.g. `Macro/Rates`. Item assignments in `markets_item_folders` use the same full path. Creating `Parent/Child` auto-creates ancestors. Rename, move, and exclude actions must update descendant folder paths and all item assignments, so editing a mistaken parent folder behaves like email folders/subfolders. The folder manager can move a folder to top level or under another non-descendant folder. The item folder picker is also a move action: choosing a folder replaces the item's current folder location; `Move to Inbox` clears folder assignment.
 
@@ -107,6 +107,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 | `markets_tags` | Tag definitions `{ id, name, color }` |
 | `markets_item_tags` | Item → tag id[] map |
 | `markets_feed_snapshot` | Last feed JSON for instant load |
+| `markets_kb_saved` | Item ids already written to `kb/inbox/` this browser |
 | `markets_tags_migrated` | One-time folders→tags migration flag |
 
 ## API surface (frontend uses)
@@ -116,7 +117,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - `POST /api/manual-link` — add one-off links to `data/manual-links.json`, then merged into `/api/feed`
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
-- `POST /api/save` — backend KB plumbing only; no Save button in the current UI
+- `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read)
 - `GET /api/library` — KB index (Phase 3 hook)
 
 ## What not to do

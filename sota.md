@@ -130,12 +130,18 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 
 ## 5. Roadmap (agreed direction)
 
-**Phase 1 — identity + save.**
-Backend is in place: stable item ID = SHA-256 hash of `link`; `POST /api/save` normalizes an item into
-`kb/inbox/<id>.json`. `GET /api/library` builds the Library index from `kb/inbox/*.json` and
-`kb/notes/*.md`. In production, saves commit through the GitHub Contents API. Locally, if no GitHub
-token is configured, saves write to the filesystem for testing. `npm run kb:index` writes the generated
-`kb/index.json` snapshot.
+**Phase 1 — identity + save (in progress).**
+Backend: stable item ID = SHA-256 hash of `link`; `POST /api/save` writes `kb/inbox/<id>.json`.
+`GET /api/library` builds the Library index from `kb/inbox/*.json` and `kb/notes/*.md`.
+Production saves commit through the GitHub Contents API; locally, saves write to the filesystem when no GitHub token is set.
+`npm run kb:index` writes `kb/index.json`.
+
+**Triage → Library funnel (July 2026):**
+- New inbox items auto-receive the **To-read** tag (including Spotify; Spotify is still excluded from `kb/` saves).
+- When an item is **filed to a folder** and no longer carries **To-read**, it is saved to `kb/inbox/<id>.json` with folders, tags, highlights, and fetched body text when available.
+- **X/Twitter** saves pull full tweet/thread text via FxTwitter (`content_kind`: `tweet`, `thread`, `note`, or `article`).
+- **YouTube** saves pull captions/transcript via `youtube-transcript` (`content_kind`: `video_transcript`).
+- Enrichment into `kb/notes/*.md` and in-app “ask the KB” remain deferred.
 
 Production env vars for saves and manual link writes:
 `GITHUB_TOKEN` or `GH_TOKEN` (Contents read/write), optional `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_BRANCH`,

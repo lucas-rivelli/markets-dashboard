@@ -834,6 +834,9 @@
   const ITEM_HIGHLIGHTS_KEY = "markets_item_highlights";
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
+  const KB_SAVED_KEY      = "markets_kb_saved";
+  const TO_READ_TAG_NAME  = "To-read";
+  const TO_READ_TAG_COLOR = "#7f2a1a";
   const SAVE_SECRET_KEY = "markets_save_secret";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
@@ -1397,6 +1400,8 @@
     map[k] = [...cur];
     writeJSON(ITEM_TAGS_KEY, map);
     scheduleWorkspaceSync();
+    const item = allItems.find((it) => keyOf(it) === k);
+    if (item) evaluateKnowledgeSave(item);
   };
   const tagCount = (tagId) =>
     visibleItems().filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
@@ -1422,6 +1427,125 @@
     writeJSON(ITEM_TAGS_KEY, map);
     if (activeView === "tag:" + id) selectView("inbox");
   };
+
+  /* knowledge base (kb/) */
+  const getKbSavedSet = () => new Set(readJSON(KB_SAVED_KEY, []));
+  const markKbSaved = (id) => {
+    const next = getKbSavedSet();
+    next.add(id);
+    writeJSON(KB_SAVED_KEY, [...next]);
+  };
+
+  function ensureToReadTag() {
+    const tags = getTags();
+    let tag = tags.find((t) => t.name.toLowerCase() === TO_READ_TAG_NAME.toLowerCase());
+    if (tag) return tag;
+    tag = {
+      id: slugify(TO_READ_TAG_NAME),
+      name: TO_READ_TAG_NAME,
+      color: TO_READ_TAG_COLOR,
+    };
+    tags.push(tag);
+    writeJSON(TAGS_KEY, tags);
+    scheduleWorkspaceSync();
+    return tag;
+  }
+
+  function hasToReadTag(k) {
+    const toRead = getTags().find((t) => t.name.toLowerCase() === TO_READ_TAG_NAME.toLowerCase());
+    return Boolean(toRead && getItemTagIds(k).includes(toRead.id));
+  }
+
+  function shouldSaveToKnowledgeBase(item) {
+    if (!item || item.category === "Spotify") return false;
+    const k = keyOf(item);
+    if (!getItemFolders(k).length) return false;
+    if (hasToReadTag(k)) return false;
+    return true;
+  }
+
+  function itemToSavePayload(item) {
+    const k = keyOf(item);
+    return {
+      item: {
+        link: item.link,
+        title: item.title,
+        source: item.source,
+        category: item.category,
+        date: item.date,
+        snippet: item.snippet || "",
+        content_html: item.contentHtml || "",
+        folders: getItemFolders(k),
+        tags: getItemTags(k).map((tag) => tag.name),
+        highlights: getItemHighlights(k),
+      },
+    };
+  }
+
+  async function saveItemToKnowledgeBase(item, { retryAuth = true } = {}) {
+    if (!shouldSaveToKnowledgeBase(item)) return null;
+    const k = keyOf(item);
+    if (getKbSavedSet().has(k)) return { alreadySaved: true, id: k };
+
+    const res = await fetch("/api/save", {
+      method: "POST",
+      headers: syncHeaders(),
+      body: JSON.stringify(itemToSavePayload(item)),
+    });
+
+    if (res.status === 401) {
+      if (retryAuth && promptForSyncSecret()) return saveItemToKnowledgeBase(item, { retryAuth: false });
+      return null;
+    }
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      console.warn("Knowledge save failed:", data.error || res.status);
+      return null;
+    }
+
+    markKbSaved(data.id || k);
+    return data;
+  }
+
+  function applyInboxToReadTags() {
+    const toRead = ensureToReadTag();
+    const map = readJSON(ITEM_TAGS_KEY, {});
+    let changed = false;
+
+    for (const item of allItems) {
+      if (itemStatus(item) !== "inbox") continue;
+      if (getItemFolders(keyOf(item)).length > 0) continue;
+      const k = keyOf(item);
+      const cur = new Set(map[k] || []);
+      if (cur.has(toRead.id)) continue;
+      cur.add(toRead.id);
+      map[k] = [...cur];
+      changed = true;
+    }
+
+    if (changed) {
+      writeJSON(ITEM_TAGS_KEY, map);
+      scheduleWorkspaceSync();
+    }
+  }
+
+  async function evaluateKnowledgeSave(item) {
+    if (!item || !shouldSaveToKnowledgeBase(item)) return null;
+    return saveItemToKnowledgeBase(item);
+  }
+
+  async function syncKnowledgeSaves() {
+    const pending = allItems.filter((item) => shouldSaveToKnowledgeBase(item));
+    for (const item of pending) {
+      await saveItemToKnowledgeBase(item);
+    }
+  }
+
+  async function afterWorkspaceMutation(item) {
+    if (item) await evaluateKnowledgeSave(item);
+    else await syncKnowledgeSaves();
+  }
 
   /* ── Utilities ────────────────────────────────────────────────────────── */
   function esc(str) {
@@ -2255,6 +2379,7 @@
     renderList();
     renderRecentRead();
     document.querySelectorAll(".msg").forEach((m) => m.setAttribute("aria-selected", m.dataset.id === selectedId));
+    evaluateKnowledgeSave(item);
   }
 
   /* folder popover */
@@ -3011,11 +3136,14 @@
     allSources = data.sources || [];
     setUpdatedLine(data, { syncing: false });
     setFailedLine(data.failed);
+    ensureToReadTag();
+    applyInboxToReadTags();
     renderRail();
     renderList();
     renderGraph();
     renderRecentRead();
     if (!fromSnapshot) saveFeedSnapshot(data);
+    syncKnowledgeSaves();
   }
 
   async function loadFeed({ force = false, background = false } = {}) {
@@ -3054,10 +3182,13 @@
   captureSyncSecretFromUrl();
 
   loadWorkspaceFromServer().then(() => {
+    ensureToReadTag();
+    applyInboxToReadTags();
     renderRail();
     renderList();
     renderGraph();
     renderRecentRead();
+    syncKnowledgeSaves();
   });
 
   if (!loadFeedSnapshot()) {

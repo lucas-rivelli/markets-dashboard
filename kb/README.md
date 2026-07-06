@@ -6,6 +6,8 @@ This folder is the database. Keep it plain, boring, and friendly to git diffs.
 
 `inbox/` is raw saved input. One JSON file per saved feed item, named `<id>.json`. These files are append-only: saving an item creates the file, but enrichment should not rewrite it.
 
+**When items land here (July 2026):** the UI auto-saves when an item is filed to a folder and no longer has the **To-read** tag. Spotify is tagged in the UI but excluded from KB writes. Saved records include folders, tags, highlights, Substack `content_html` when available, plus enriched `content_text` for X (tweet/thread/note/article) and YouTube transcripts.
+
 `notes/` is the compiled wiki. One markdown file per enriched item, named `<id>.md`, with YAML frontmatter followed by human-readable notes.
 
 `index.json` is a generated read model for the app. It is built from `inbox/` and `notes/`, so it can always be regenerated.

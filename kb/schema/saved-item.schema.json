@@ -41,6 +41,33 @@
       "type": "string",
       "enum": ["article", "bookmark", "podcast", "video"]
     },
-    "snippet": { "type": "string" }
+    "snippet": { "type": "string" },
+    "folders": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "highlights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "text": { "type": "string" },
+          "created_at": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "content_html": { "type": "string" },
+    "content_kind": {
+      "type": "string",
+      "enum": ["tweet", "thread", "note", "article", "video_transcript", "html"]
+    },
+    "content_text": { "type": "string" },
+    "content_meta": { "type": "object" }
   }
 }
