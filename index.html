@@ -982,8 +982,8 @@
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
   const REFRESH_MS      = 5 * 60 * 1000;
 
-  let listFilterFolder = String(readJSON(LIST_FILTER_FOLDER_KEY, "") || "");
-  let listFilterTag = String(readJSON(LIST_FILTER_TAG_KEY, "") || "");
+  let listFilterFolder = "";
+  let listFilterTag = "";
 
   let workspaceSyncing = false;
 
@@ -997,6 +997,9 @@
     try { return JSON.parse(localStorage.getItem(k)) ?? fallback; } catch { return fallback; }
   };
   const writeJSON = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+
+  listFilterFolder = String(readJSON(LIST_FILTER_FOLDER_KEY, "") || "");
+  listFilterTag = String(readJSON(LIST_FILTER_TAG_KEY, "") || "");
 
   function syncHeaders() {
     const headers = { "Content-Type": "application/json" };
