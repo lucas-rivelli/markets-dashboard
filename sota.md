@@ -94,8 +94,8 @@ Anti-goals: emoji in UI, rounded pill-everything, drop shadows, bright saturated
 top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · ❦ Map (drawer on narrow)
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
 │ Inbox    │ source·title·  │ opened item or    │ Tag map      │
-│ Trash    │ snippet rows,  │ Sources launchpad;│ above recent │
-│ Sources  │ email-style,   │ embeds + articles │ read links   │
+│ All      │ snippet rows,  │ Sources launchpad;│ above recent │
+│ Trash    │ email-style,   │ embeds + articles │ read links   │
 │ + tags   │ filtered by    │ Open · states ·   │              │
 │          │ tag+search+    │ Tag ❧             │              │
 │          │ folder state   │                   │              │
@@ -126,7 +126,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.
 - **Touch** — 44px min tap targets on primary controls; tag popovers anchor bottom-center on mobile.
 
-- **localStorage keys:** `markets_item_status`, `markets_item_highlights`, `markets_read` (seen/fade marker), `markets_folders` (folder paths), `markets_item_folders` (item → folder paths), `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret` (optional).
+- **localStorage keys:** `markets_item_status`, `markets_item_added`, `markets_item_highlights`, `markets_read` (seen/fade marker), `markets_folders`, `markets_item_folders`, `markets_item_titles`, `markets_tags`, `markets_item_tags`, `markets_feed_snapshot`, `markets_workspace_updated`, `markets_save_secret`, `markets_list_filter_folder`, `markets_list_filter_tag`.
 
 ## 5. Roadmap (agreed direction)
 

@@ -1,26 +1,84 @@
 # Markets Dashboard — Project Handoff
 
 > Read this file first when opening a new chat to continue work on this project.
+> Also read `sota.md` (vision/roadmap) and `Claude.md` (UI/API contracts).
 
-## Current resume point — July 4, 2026, 8:45 PM
+## Current resume point — July 6, 2026, ~3:15 PM BRT
 
-- Spotify credentials are present locally, but Spotify episode calls are currently returning `HTTP 429` (retry-after ~18h). Root cause: each feed build made ~57 Spotify calls and the old code retried 429s after only 3s, which Spotify punishes with escalating penalties. `lib/spotify.js` now caches episodes in memory for 1 hour, honors the full retry-after cooldown (never calls Spotify during it), and serves stale episodes instead of dropping the section. Spotify should reappear on its own once the penalty expires — do not hammer it with `?fresh=1` tests.
-- The 5-minute GitHub Actions refresh now pings `/api/feed`, the endpoint the page actually uses, so it warms the Vercel edge cache. `/api/cron` remains a daily Vercel backup.
-- Local setup check passes for Spotify credentials, birdclaw, bookmarks, and `CRON_SECRET`.
-- Spotify now loads all saved podcast shows, limits episodes to the past 7 days, excludes `Posse de Bola`, and paces episode requests to avoid Spotify rate limits.
-- Local dev server was restarted and is running at `http://localhost:3000`.
-- Twitter/X bookmarks are working locally after Safari login and Full Disk Access: birdclaw synced 70 bookmarks and `data/bookmarks.json` was exported successfully.
-- Local `/api/feed?fresh=1` verified `failed: []`, `bookmarks: 70`, `bookmarkItems: 70`, `total: 157` after Twitter export.
-- Spotify hit temporary `HTTP 429` rate limits after repeated testing; code now backs off, lowers concurrency, and prevents one rate-limited show from marking the whole Spotify source unavailable. Let the rate limit cool down before re-testing Spotify repeatedly.
-- To refresh bookmarks again:
+### Spotify cooldown
+
+- `data/spotify-cache.json` → `cooldown_until`: **2026-07-06T18:45:45Z** (~**15:45 BRT**).
+- Cache `items` is currently **empty** — when cooldown expires the next `/api/feed` fetch will call Spotify again. Episodes appear only if that fetch succeeds (no 429).
+- **Do not** hammer `?fresh=1` while cooling down — Spotify escalates penalties (up to 24h). Cache TTL is **6 hours** when healthy.
+- Check: `node -e "const c=require('./data/spotify-cache.json'); console.log(c.cooldown_until, c.items?.length)"`
+
+### Vercel deploy (blocked)
+
+- Hobby plan hit **100 deploys / 24h** on July 6. Latest code commits (`b38c0a7`, `36a2678`) show **"Deployment rate limited — retry in 24 hours"** on GitHub → Vercel check.
+- **Production lags local** until a deploy succeeds. After limit clears: Vercel → Deployments → **Redeploy** latest commit (or push again).
+- `scripts/vercel-ignore.sh` was fixed (bash 3.2, no `mapfile`) — workspace/cache-only commits should **skip** deploy once that code is live on Vercel.
+
+### Cross-device sync
+
+- Workspace writes batched: **pull + push every 5 min**; ↻ Sync or tab close pushes immediately.
+- Pair new devices: open once with `?sync=<SAVE_SECRET>` (same value as Vercel env `SAVE_SECRET` and `.env.local`).
+- Prompt "Enter sync secret" = paste `SAVE_SECRET` from `.env.local` / Vercel env vars.
+
+### Shipped July 6 (in git `main`, may not be on Vercel yet)
+
+- **Value Investors Club** — `lib/vic.js`, `VIC_SESSION` in env, `data/vic-cache.json`, Investing category pinned in feed.
+- **Item rename** — `item_titles` in workspace.
+- **Arrival dates** — `item_added` in workspace; list sorts/displays platform arrival, not RSS publish date (reader shows "Published …" when different).
+- **All** rail view — every non-trash item.
+- **Folder + tag filters** — `#filter-folder` / `#filter-tag` narrow any view (Inbox, All, Trash, folder, tag).
+- **Gmail-style multi-select** — ⌘/Ctrl+click, Shift+click, bulk bar, J/K/X/E/# shortcuts (`?` for panel).
+- **vercel-ignore** + batched workspace sync (above).
+
+### Local vs production data
+
+| Data | Local | Production |
+|------|-------|------------|
+| RSS, VIC API, manual-links | disk / env | runtime + GitHub |
+| `bookmarks.json` | disk immediately | **bundled in deploy** — needs successful Vercel deploy after sync |
+| `workspace.json` | disk + GitHub via API | GitHub via API |
+| Spotify cache | `data/spotify-cache.json` | GitHub at runtime |
+
+### Env vars (`.env.local` + Vercel)
+
+| Variable | Purpose |
+|----------|---------|
+| `SAVE_SECRET` | Workspace + manual-link writes; device pairing |
+| `GITHUB_TOKEN` / `GH_TOKEN` | Production writes to repo |
+| `SPOTIFY_*` | Podcast episodes |
+| `VIC_SESSION` (+ optional `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest) |
+| `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
+| `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
+
+### Key commands
 
 ```bash
-npm run setup:check
-npm run sync:bookmarks
+npm run dev              # localhost:3000
+npm run sync:bookmarks   # Mac → data/bookmarks.json
+npm run setup:check      # diagnose env
 ```
 
-- `scripts/sync-bookmarks.sh` now loads `.env.local` and stops on auth failure instead of overwriting bookmarks with an empty export.
-- Changes are saved on disk but not committed/pushed yet. Review `git status --short` before committing.
+### Recent commits (July 6)
+
+```
+36a2678 Add All view, cross-filters, and platform arrival dates in the list.
+b38c0a7 Fix deploy skip script and add batched workspace sync with bulk list shortcuts.
+3511284 Track inbox arrival dates and harden VIC cache loading.
+42052ba Fix VIC inbox visibility and add item rename across the workspace.
+```
+
+### Open / next
+
+- [ ] Redeploy Vercel when rate limit clears
+- [ ] Confirm `SAVE_SECRET` + `VIC_SESSION` on Vercel production env
+- [ ] Optional: `lib/bookmarks.js` read GitHub at runtime (bookmarks wouldn't need redeploy)
+- [ ] Spotify: wait for cooldown; verify episodes return
+
+---
 
 ## What this is
 
@@ -28,7 +86,7 @@ Personal **markets reading dashboard** — one page that merges RSS feeds (Subst
 
 - **Repo:** https://github.com/lucas-rivelli/markets-dashboard
 - **Deploy:** Vercel (auto-deploy on push to `main`, team scope `knowledgemaxxing`)
-- **Live URL:** check Vercel dashboard → project → Domains. Note: `markets-dashboard.vercel.app` belongs to **another project** — do not use it.
+- **Live URL:** `https://markets-dashboard-knowledgemaxxing.vercel.app` (team `knowledgemaxxing`). Do not use `markets-dashboard.vercel.app` — different project.
 - **Local dev:** `npm run dev` → http://localhost:3000
 
 ## Architecture
@@ -37,10 +95,16 @@ Personal **markets reading dashboard** — one page that merges RSS feeds (Subst
 index.html          → UI (vanilla JS, white Substack-style theme)
 api/feed.js         → GET /api/feed — merges all sources into JSON
 api/cron.js         → GET /api/cron — morning cron (Vercel, 7 AM ET)
-lib/aggregate.js    → RSS fetch + merge Spotify + bookmarks
+lib/aggregate.js    → RSS + Spotify + VIC + bookmarks + manual links
+lib/vic.js          → Value Investors Club API (session cookie)
 lib/spotify.js      → Spotify Web API (saved shows → new episodes, 7 days; excludes Posse de Bola)
-lib/bookmarks.js    → reads data/bookmarks.json
-data/bookmarks.json → X bookmarks synced from Mac via birdclaw
+lib/bookmarks.js    → reads data/bookmarks.json (deploy bundle in production)
+lib/manual-links.js → reads/writes data/manual-links.json (GitHub at runtime in prod)
+lib/workspace-state.js → workspace merge logic
+data/workspace.json → synced folders, tags, mailbox, highlights, item_added, item_titles
+data/vic-cache.json → VIC ideas cache
+data/spotify-cache.json → Spotify episodes + rate-limit cooldown
+scripts/vercel-ignore.sh → skip deploy for workspace/cache-only commits
 scripts/dev.js      → local server (no Vercel login needed)
 scripts/sync-bookmarks.sh  → birdclaw → JSON → git push
 scripts/spotify-auth.js    → one-time OAuth to get refresh token
@@ -62,6 +126,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | Kyle Samani | Blog | kylesamani.com/rss.xml |
 | Paul Graham | Blog | olshansk/pgessays-rss community feed |
 | Consilient Observer | Macro/Official | launchpad only (no RSS) |
+| Value Investors Club | Investing | dynamic — `lib/vic.js` + `data/vic-cache.json` |
 | Spotify Podcasts | Spotify | dynamic — Spotify Web API |
 | X Bookmarks | Bookmarks | dynamic — data/bookmarks.json |
 | Saved Links | Bookmarks/auto | dynamic — in-app Add link → data/manual-links.json |
@@ -71,17 +136,12 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 
 ## Features built
 
-- [x] Merged RSS feed (Latest tab)
-- [x] Sources launchpad grouped by category
-- [x] White Substack-style UI with article cards + snippets
-- [x] Read / unread tracking (localStorage, filter pills)
-- [x] Search by title or source
-- [x] Morning auto-refresh (Vercel cron + first visit each day live fetch)
-- [x] Refresh button bypasses cache (`?fresh=1`)
-- [x] Spotify new podcast episodes (needs env vars — see below)
-- [x] X bookmarks via birdclaw → GitHub sync (needs Mac setup — see below)
-- [x] In-app Add link for one-off articles, YouTube, Spotify, and other URLs
-- [x] Right column stacks Map above Recent Read quick links
+- [x] Four-region manuscript workspace (rail · list · reader · aside)
+- [x] Folders, tags, inbox/trash, highlights, cross-device workspace sync
+- [x] All view + per-view folder/tag filters + Gmail-style bulk select
+- [x] VIC ideas feed, item rename, arrival dates (`item_added`)
+- [x] In-app Add link, Sources launchpad, tag map, Recent Read
+- [x] Spotify episodes, X bookmarks, manual links
 
 ## Setup still needed (user action)
 
@@ -89,10 +149,11 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 
 | Variable | Status | Purpose |
 |----------|--------|---------|
-| `CRON_SECRET` | ⬜ user must add | Secures `/api/cron` morning job |
-| `SPOTIFY_CLIENT_ID` | ⬜ user must add | Spotify app credentials |
-| `SPOTIFY_CLIENT_SECRET` | ⬜ user must add | Spotify app credentials |
-| `SPOTIFY_REFRESH_TOKEN` | ⬜ user must add | From `npm run spotify:auth` |
+| `SAVE_SECRET` | ✅ local + Vercel | Workspace/manual-link auth; device pairing |
+| `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
+| `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
+| `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |
+| `VIC_SESSION` | ✅ local; ⬜ confirm Vercel | VIC authenticated session |
 
 **Spotify app settings:**
 - Website: `https://markets-dashboard.vercel.app` (or GitHub repo URL)
@@ -165,11 +226,9 @@ d65c184 Add daily cron refresh and morning auto-fetch on first visit
 
 ## Backlog / ideas (not built)
 
-- [ ] Filter tabs: All · Articles · Podcasts · Bookmarks
-- [ ] X account feeds (RSS.app) — user said defer
-- [ ] Morgan Stanley scraper or RSS bridge for Consilient Observer
+- [ ] `lib/bookmarks.js` read GitHub at runtime (avoid redeploy for bookmark sync)
+- [ ] Morgan Stanley scraper or RSS for Consilient Observer
 - [ ] Email digest of unread items
-- [ ] `saved.json` for manual article saves (non-RSS links)
 
 ## File map
 
@@ -201,4 +260,4 @@ markets-dashboard/
 
 ---
 
-*Last updated: July 4, 2026*
+*Last updated: July 6, 2026*
