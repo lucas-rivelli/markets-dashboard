@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Skip Vercel deploys for workspace-only sync commits.
+# Skip Vercel deploys for data-only sync commits (bash 3.2 compatible — no mapfile).
+# Exit 0 = skip build, exit 1 = proceed with build (Vercel ignoreCommand contract).
 set -euo pipefail
 
 PREV="${VERCEL_GIT_PREVIOUS_SHA:-}"
@@ -13,17 +14,19 @@ else
   exit 1
 fi
 
-mapfile -t CHANGED < <(git diff --name-only "$RANGE")
-
-if [ "${#CHANGED[@]}" -eq 0 ]; then
+CHANGED="$(git diff --name-only "$RANGE" || true)"
+if [ -z "$CHANGED" ]; then
   exit 0
 fi
 
-for path in "${CHANGED[@]}"; do
+while IFS= read -r path; do
+  [ -z "$path" ] && continue
   case "$path" in
     data/workspace.json|data/spotify-cache.json|data/vic-cache.json) ;;
     *) exit 1 ;;
   esac
-done
+done <<EOF
+$CHANGED
+EOF
 
 exit 0

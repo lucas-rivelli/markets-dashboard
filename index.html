@@ -206,6 +206,8 @@
 
     /* ── Message list ───────────────────────────────────────────────────── */
     .list-tools { padding: 0 1rem 0.6rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    .list-tools-row { display: flex; align-items: center; gap: 0.65rem; }
+    .list-tools-row #search { flex: 1; min-width: 0; }
     #search {
       width: 100%;
       font-family: var(--serif);
@@ -222,6 +224,48 @@
     #search::placeholder { color: var(--ink-faint); font-style: italic; }
     #search:focus { border-bottom-color: var(--rubric); }
     #search::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+    .list-bulk-bar {
+      display: none;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      padding: 0.35rem 1rem 0.55rem;
+      border-bottom: 1px solid var(--rule-soft);
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+    }
+    .list-bulk-bar.is-visible { display: flex; }
+    .list-bulk-count { font-style: italic; margin-right: 0.25rem; }
+    .list-bulk-bar button {
+      color: var(--rubric);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .list-bulk-bar button:hover { text-decoration: underline; }
+    .list-shortcuts-btn {
+      margin-left: auto;
+      color: var(--ink-faint);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .list-shortcuts-btn:hover { color: var(--rubric); }
+    .shortcuts-popover { width: min(360px, calc(100vw - 1rem)); max-height: min(70vh, 520px); overflow: auto; }
+    .shortcuts-popover table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .shortcuts-popover th,
+    .shortcuts-popover td { padding: 0.28rem 0.45rem; text-align: left; vertical-align: top; border-top: 1px solid var(--rule-soft); }
+    .shortcuts-popover th { font-weight: 500; color: var(--ink-soft); font-style: italic; }
+    .shortcuts-popover kbd {
+      font-family: inherit;
+      font-size: 0.78rem;
+      border: 1px solid var(--rule);
+      padding: 0.05rem 0.35rem;
+      border-radius: 2px;
+      background: var(--paper-rail);
+      white-space: nowrap;
+    }
 
     .msg-list { list-style: none; }
     .msg {
@@ -241,6 +285,29 @@
     .msg[aria-selected="true"] {
       background: var(--paper-sel);
       box-shadow: inset 3px 0 0 var(--rubric);
+    }
+    .msg.is-checked {
+      background: color-mix(in srgb, var(--paper-sel) 72%, var(--paper));
+      box-shadow: inset 3px 0 0 var(--rubric-soft);
+    }
+    .msg.is-checked[aria-selected="true"] {
+      box-shadow: inset 3px 0 0 var(--rubric);
+    }
+    .msg.is-focused { outline: 1px dotted var(--rubric-soft); outline-offset: -2px; }
+    .msg-check {
+      display: inline-block;
+      width: 0.72rem;
+      height: 0.72rem;
+      margin-right: 0.35rem;
+      border: 1px solid var(--ink-faint);
+      vertical-align: middle;
+      position: relative;
+      top: -0.05rem;
+    }
+    .msg.is-checked .msg-check {
+      border-color: var(--rubric);
+      background: var(--rubric);
+      box-shadow: inset 0 0 0 1px var(--paper);
     }
     .msg.is-read .msg-title { color: var(--ink-soft); font-weight: 500; }
     .msg.is-read { opacity: 0.72; }
@@ -791,7 +858,18 @@
         <span class="label" id="list-count" style="color:var(--ink-faint)"></span>
       </div>
       <div class="list-tools">
-        <input type="search" id="search" placeholder="Search this view…" aria-label="Search items" autocomplete="off" />
+        <div class="list-tools-row">
+          <input type="search" id="search" placeholder="Search this view…" aria-label="Search items" autocomplete="off" />
+          <button type="button" class="list-shortcuts-btn label" id="btn-shortcuts" aria-label="Keyboard shortcuts">?</button>
+        </div>
+      </div>
+      <div class="list-bulk-bar" id="list-bulk-bar" hidden>
+        <span class="list-bulk-count" id="list-bulk-count">0 selected</span>
+        <button type="button" data-bulk="inbox">Inbox</button>
+        <button type="button" data-bulk="trash">Trash</button>
+        <button type="button" data-bulk="folder">Folder…</button>
+        <button type="button" data-bulk="tag">Tag…</button>
+        <button type="button" data-bulk="clear">Clear</button>
       </div>
       <div id="list-container"><p class="loading">Loading…</p></div>
     </section>
@@ -837,8 +915,12 @@
   let allItems   = [];
   let allSources = [];
   let selectedId = null;
+  let checkedIds = new Set();
+  let listFocusIndex = -1;
+  let lastListClickIndex = -1;
   let activeView = "inbox"; // inbox | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
+  let workspaceDirty = false;
   let highlightToolbar = null;
   let highlightToolbarCleanup = null;
 
@@ -859,7 +941,6 @@
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
   const REFRESH_MS      = 5 * 60 * 1000;
 
-  let workspaceSyncTimer = null;
   let workspaceSyncing = false;
 
   const TAG_COLORS = [
@@ -955,9 +1036,17 @@
       || readJSON(READ_KEY, []).length > 0;
   }
 
+  function markWorkspaceDirty() {
+    workspaceDirty = true;
+  }
+
   function scheduleWorkspaceSync() {
-    clearTimeout(workspaceSyncTimer);
-    workspaceSyncTimer = setTimeout(pushWorkspaceState, 450);
+    markWorkspaceDirty();
+  }
+
+  async function flushWorkspaceIfDirty(force = false) {
+    if (!workspaceDirty && !force) return;
+    await pushWorkspaceState(force);
   }
 
   async function pushWorkspaceState(force = false, retryAuth = true) {
@@ -980,6 +1069,7 @@
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       applyWorkspacePayload(data);
+      workspaceDirty = false;
     } catch (err) {
       console.warn("Workspace sync failed:", err.message);
     } finally {
@@ -1907,6 +1997,9 @@
 
   function selectView(id) {
     activeView = id;
+    clearCheckedIds();
+    listFocusIndex = -1;
+    lastListClickIndex = -1;
     closeDrawers();
     renderRail();
     renderList();
@@ -2294,6 +2387,151 @@
     return statusItems().filter((it) => itemStatus(it) === "inbox");
   }
 
+  function getFilteredListItems() {
+    const q = byId("search").value.toLowerCase().trim();
+    return itemsForView().filter((it) => {
+      const k = keyOf(it);
+      const tagNames = getItemTags(k).map((t) => t.name).join(" ");
+      const folderNames = getItemFolders(k).join(" ");
+      return !q
+        || itemTitle(it).toLowerCase().includes(q)
+        || feedTitle(it).toLowerCase().includes(q)
+        || (it.source || "").toLowerCase().includes(q)
+        || (it.snippet || "").toLowerCase().includes(q)
+        || tagNames.toLowerCase().includes(q)
+        || folderNames.toLowerCase().includes(q);
+    }).sort(compareByAddedDesc);
+  }
+
+  function clearCheckedIds() {
+    checkedIds.clear();
+    updateBulkBar();
+  }
+
+  function toggleCheckedId(id) {
+    if (checkedIds.has(id)) checkedIds.delete(id);
+    else checkedIds.add(id);
+    updateBulkBar();
+  }
+
+  function checkedItems() {
+    return allItems.filter((it) => checkedIds.has(keyOf(it)));
+  }
+
+  function updateBulkBar() {
+    const bar = byId("list-bulk-bar");
+    const count = checkedIds.size;
+    bar.hidden = count === 0;
+    bar.classList.toggle("is-visible", count > 0);
+    byId("list-bulk-count").textContent = count === 1 ? "1 selected" : `${count} selected`;
+  }
+
+  function selectAllInView() {
+    getFilteredListItems().forEach((it) => checkedIds.add(keyOf(it)));
+    updateBulkBar();
+    renderList();
+  }
+
+  function setCheckedRange(items, from, to) {
+    const start = Math.max(0, Math.min(from, to));
+    const end = Math.min(items.length - 1, Math.max(from, to));
+    for (let i = start; i <= end; i++) checkedIds.add(keyOf(items[i]));
+    updateBulkBar();
+  }
+
+  function moveItemsStatus(items, status) {
+    if (!items.length) return;
+    items.forEach((item) => setItemStatus(item, status));
+    if (selectedId && items.some((it) => keyOf(it) === selectedId)) {
+      const open = allItems.find((it) => keyOf(it) === selectedId);
+      if (open) renderReader(open);
+    }
+    clearCheckedIds();
+    renderList();
+    updateCounts();
+    renderGraph();
+    renderRecentRead();
+  }
+
+  function moveItemsToInbox(items) {
+    items.forEach((item) => moveItemToInbox(keyOf(item)));
+    afterBulkChange(items);
+  }
+
+  function moveItemsToFolder(items, name) {
+    items.forEach((item) => moveItemToFolder(keyOf(item), name));
+    afterBulkChange(items);
+  }
+
+  function toggleItemsTag(items, tagId) {
+    if (items.length === 1) {
+      toggleItemTag(keyOf(items[0]), tagId);
+      afterMetaChange(items[0]);
+      return;
+    }
+    const map = readJSON(ITEM_TAGS_KEY, {});
+    items.forEach((item) => {
+      const k = keyOf(item);
+      const cur = new Set(map[k] || []);
+      cur.add(tagId);
+      map[k] = [...cur];
+    });
+    writeJSON(ITEM_TAGS_KEY, map);
+    scheduleWorkspaceSync();
+    afterBulkChange(items);
+  }
+
+  function afterBulkChange(items) {
+    if (selectedId && items.some((it) => keyOf(it) === selectedId)) {
+      const open = allItems.find((it) => keyOf(it) === selectedId);
+      if (open) renderReader(open);
+    }
+    renderRail();
+    renderGraph();
+    renderList();
+    renderRecentRead();
+    items.forEach((item) => evaluateKnowledgeSave(item));
+  }
+
+  function targetItemsForAction(item) {
+    const k = keyOf(item);
+    if (checkedIds.size > 1 && checkedIds.has(k)) return checkedItems();
+    return [item];
+  }
+
+  function isTypingTarget(el) {
+    const tag = el?.tagName;
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el?.isContentEditable;
+  }
+
+  function openShortcutsPopover(anchor) {
+    document.querySelector(".popover")?.remove();
+    const pop = document.createElement("div");
+    pop.className = "popover shortcuts-popover";
+    pop.innerHTML = `<span class="label">Keyboard shortcuts</span>
+      <table>
+        <tr><th>List</th><td></td></tr>
+        <tr><td><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+click</td><td>Select item (keep selection)</td></tr>
+        <tr><td><kbd>Shift</kbd>+click</td><td>Select range</td></tr>
+        <tr><td><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Select all in view</td></tr>
+        <tr><td><kbd>J</kbd> / <kbd>K</kbd></td><td>Next / previous item</td></tr>
+        <tr><td><kbd>X</kbd></td><td>Toggle selection on focused item</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Open focused item</td></tr>
+        <tr><td><kbd>E</kbd></td><td>Move selection to Inbox</td></tr>
+        <tr><td><kbd>#</kbd> or <kbd>Delete</kbd></td><td>Move selection to Trash</td></tr>
+        <tr><td><kbd>/</kbd></td><td>Focus search</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Clear selection, close drawers</td></tr>
+        <tr><th>Workspace</th><td></td></tr>
+        <tr><td><kbd>⌘</kbd>/<kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Toggle folder rail</td></tr>
+        <tr><td><kbd>?</kbd></td><td>This panel</td></tr>
+      </table>
+      <p style="margin:0.55rem 0.45rem 0.2rem;color:var(--ink-faint);font-size:0.82rem;font-style:italic">
+        Right-click or long-press a row for folder, tag, and rename. Workspace syncs every 5 minutes; ↻ Sync pushes now.</p>`;
+    document.body.appendChild(pop);
+    positionPopover(pop, anchor || byId("btn-shortcuts"));
+    attachPopoverDismiss(pop, anchor || byId("btn-shortcuts"));
+  }
+
   function renderTagChips(tags) {
     return tags.map((tag) =>
       `<span class="msg-tag" style="color:${esc(tag.color)}">${esc(tag.name)}</span>`
@@ -2314,19 +2552,7 @@
     }
 
     const container = byId("list-container");
-    const q = byId("search").value.toLowerCase().trim();
-    let items = itemsForView().filter((it) => {
-      const k = keyOf(it);
-      const tagNames = getItemTags(k).map((t) => t.name).join(" ");
-      const folderNames = getItemFolders(k).join(" ");
-      const matchQ = !q || itemTitle(it).toLowerCase().includes(q)
-        || feedTitle(it).toLowerCase().includes(q)
-        || (it.source || "").toLowerCase().includes(q)
-        || (it.snippet || "").toLowerCase().includes(q)
-        || tagNames.toLowerCase().includes(q)
-        || folderNames.toLowerCase().includes(q);
-      return matchQ;
-    }).sort(compareByAddedDesc);
+    const items = getFilteredListItems();
 
     byId("list-count").textContent = items.length ? `${items.length}` : "";
 
@@ -2337,13 +2563,16 @@
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
         : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
+      updateBulkBar();
       return;
     }
+
+    if (listFocusIndex >= items.length) listFocusIndex = items.length - 1;
 
     const ul = document.createElement("ul");
     ul.className = "msg-list";
     ul.setAttribute("role", "list");
-    items.forEach((item) => {
+    items.forEach((item, index) => {
       const status = itemStatus(item);
       const processed = status !== "inbox" || isRead(item);
       const k = keyOf(item);
@@ -2351,7 +2580,10 @@
       const folders = getItemFolders(k);
       const li = document.createElement("li");
       const btn = document.createElement("button");
-      btn.className = "msg" + (processed ? " is-read" : "");
+      btn.className = "msg"
+        + (processed ? " is-read" : "")
+        + (checkedIds.has(k) ? " is-checked" : "")
+        + (listFocusIndex === index ? " is-focused" : "");
       btn.dataset.id = k;
       btn.setAttribute("aria-selected", selectedId === k);
       btn.innerHTML = `
@@ -2359,17 +2591,31 @@
           <span class="msg-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
           <span class="msg-date">${formatDate(itemAddedAt(item))}</span>
         </div>
-        <div class="msg-title"><span class="msg-dot" aria-hidden="true"></span>${esc(itemTitle(item))}</div>
+        <div class="msg-title"><span class="msg-check" aria-hidden="true"></span><span class="msg-dot" aria-hidden="true"></span>${esc(itemTitle(item))}</div>
         ${item.snippet ? `<div class="msg-snippet">${esc(item.snippet)}</div>` : ""}
         ${folders.length ? `<div class="msg-folder">${folders.map((f) => esc(f)).join(" · ")}</div>` : ""}
         ${tags.length ? `<div class="msg-tags">${renderTagChips(tags)}</div>` : ""}
       `;
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
         if (btn.dataset.ctxSuppressClick === "1") {
           btn.dataset.ctxSuppressClick = "0";
           return;
         }
+        listFocusIndex = index;
+        if (e.shiftKey && lastListClickIndex >= 0) {
+          setCheckedRange(items, lastListClickIndex, index);
+          renderList();
+          return;
+        }
+        if (e.metaKey || e.ctrlKey) {
+          toggleCheckedId(k);
+          lastListClickIndex = index;
+          renderList();
+          return;
+        }
+        clearCheckedIds();
         openItem(k);
+        lastListClickIndex = index;
       });
       wireMsgContextGestures(btn, item);
       li.appendChild(btn);
@@ -2377,6 +2623,7 @@
     });
     container.innerHTML = "";
     container.appendChild(ul);
+    updateBulkBar();
   }
 
   /* ── Reading pane ─────────────────────────────────────────────────────── */
@@ -2498,40 +2745,43 @@
   }
 
   /* folder popover */
-  function openFolderPicker(anchor, item) {
+  function openFolderPicker(anchor, itemOrItems) {
     document.querySelector(".popover")?.remove();
     closeDrawers();
-    const k = keyOf(item);
+    const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
+    const primary = items[0];
+    const k = keyOf(primary);
     const pop = document.createElement("div");
     pop.className = "popover";
+    const bulk = items.length > 1;
     const render = () => {
-      const assigned = getItemFolders(k);
+      const assigned = bulk ? [] : getItemFolders(k);
       const folders = getFolders();
-      pop.innerHTML = `<span class="label">Move to folder</span>
-        ${assigned.length ? `<button class="pop-item" data-move-inbox><span class="check">✦</span>Move to Inbox</button>` : ""}
+      pop.innerHTML = `<span class="label">${bulk ? `Move ${items.length} items to folder` : "Move to folder"}</span>
+        ${!bulk && assigned.length ? `<button class="pop-item" data-move-inbox><span class="check">✦</span>Move to Inbox</button>` : ""}
         ${folders.length ? folders.map((f) =>
-          `<button class="pop-item" data-folder="${esc(f)}" title="${esc(f)}" style="padding-left:${0.45 + folderDepth(f) * 0.85}rem"><span class="check">${assigned.some((n) => isSameFolder(n, f)) ? "✓" : ""}</span>${esc(folderLeaf(f))}</button>`).join("")
+          `<button class="pop-item" data-folder="${esc(f)}" title="${esc(f)}" style="padding-left:${0.45 + folderDepth(f) * 0.85}rem"><span class="check">${!bulk && assigned.some((n) => isSameFolder(n, f)) ? "✓" : ""}</span>${esc(folderLeaf(f))}</button>`).join("")
           : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No folders yet — create one below.</div>`}
         <div class="pop-new"><input placeholder="New folder or Parent/Subfolder…" aria-label="New folder name" /></div>
         <div class="tag-create-actions"><button type="button">Create &amp; move</button></div>`;
       pop.querySelector("[data-move-inbox]")?.addEventListener("click", () => {
-        moveItemToInbox(k);
+        moveItemsToInbox(items);
         pop.remove();
-        afterMetaChange(item);
+        clearCheckedIds();
       });
       pop.querySelectorAll("[data-folder]").forEach((b) =>
         b.addEventListener("click", () => {
-          moveItemToFolder(k, b.dataset.folder);
+          moveItemsToFolder(items, b.dataset.folder);
           pop.remove();
-          afterMetaChange(item);
+          clearCheckedIds();
         }));
       const input = pop.querySelector(".pop-new input");
       const create = () => {
         const n = addFolder(input.value);
         if (n) {
-          moveItemToFolder(k, n);
+          moveItemsToFolder(items, n);
           pop.remove();
-          afterMetaChange(item);
+          clearCheckedIds();
           return;
         }
         input.value = "";
@@ -2547,20 +2797,23 @@
   }
 
   /* tag popover */
-  function openTagPicker(anchor, item) {
+  function openTagPicker(anchor, itemOrItems) {
     document.querySelector(".popover")?.remove();
     closeDrawers();
-    const k = keyOf(item);
+    const items = Array.isArray(itemOrItems) ? itemOrItems : [itemOrItems];
+    const primary = items[0];
+    const k = keyOf(primary);
     const pop = document.createElement("div");
     pop.className = "popover";
+    const bulk = items.length > 1;
     let picked = TAG_COLORS[0];
     const render = () => {
-      const assigned = getItemTagIds(k);
+      const assigned = bulk ? [] : getItemTagIds(k);
       const tags = getTags();
-      pop.innerHTML = `<span class="label">Tag this item</span>
+      pop.innerHTML = `<span class="label">${bulk ? `Tag ${items.length} items` : "Tag this item"}</span>
         ${tags.length ? tags.map((tag) =>
           `<button class="pop-item" data-tag="${esc(tag.id)}">
-            <span class="check">${assigned.includes(tag.id) ? "✓" : ""}</span>
+            <span class="check">${!bulk && assigned.includes(tag.id) ? "✓" : ""}</span>
             <span class="tag-dot" style="background:${esc(tag.color)}"></span>${esc(tag.name)}</button>`).join("")
           : `<div style="padding:0.3rem 0.45rem;color:var(--ink-faint);font-style:italic;font-size:0.9rem">No tags yet — create one below.</div>`}
         <div class="pop-new"><input placeholder="New tag…" aria-label="New tag name" /></div>
@@ -2570,7 +2823,17 @@
         </div>
         <div class="tag-create-actions"><button type="button">Create &amp; apply</button></div>`;
       pop.querySelectorAll(".pop-item").forEach((b) =>
-        b.addEventListener("click", () => { toggleItemTag(k, b.dataset.tag); render(); afterMetaChange(item); }));
+        b.addEventListener("click", () => {
+          if (bulk) {
+            toggleItemsTag(items, b.dataset.tag);
+            pop.remove();
+            clearCheckedIds();
+          } else {
+            toggleItemTag(k, b.dataset.tag);
+            render();
+            afterMetaChange(primary);
+          }
+        }));
       pop.querySelectorAll(".color-swatch").forEach((btn) => {
         btn.addEventListener("click", () => {
           picked = btn.dataset.color;
@@ -2581,7 +2844,11 @@
       const input = pop.querySelector(".pop-new input");
       const create = () => {
         const tag = addTag(input.value, picked);
-        if (tag) { toggleItemTag(k, tag.id); render(); afterMetaChange(item); }
+        if (tag) {
+          if (bulk) toggleItemsTag(items, tag.id);
+          else { toggleItemTag(k, tag.id); render(); afterMetaChange(primary); }
+          if (bulk) { pop.remove(); clearCheckedIds(); }
+        }
         input.value = "";
         input.focus();
       };
@@ -2595,12 +2862,15 @@
   }
 
   function moveItemStatus(item, status) {
-    setItemStatus(item, status);
-    if (selectedId === keyOf(item)) renderReader(item);
-    renderList();
-    updateCounts();
-    renderGraph();
-    renderRecentRead();
+    moveItemsStatus([item], status);
+  }
+
+  function openBulkFolderPicker(anchor, items) {
+    openFolderPicker(anchor, items);
+  }
+
+  function openBulkTagPicker(anchor, items) {
+    openTagPicker(anchor, items);
   }
 
   /* ── Email-style context menu on list items ───────────────────────────── */
@@ -2656,41 +2926,44 @@
 
   function openMsgContextMenu(anchor, item, point) {
     document.querySelector(".popover")?.remove();
-    const k = keyOf(item);
+    const targets = targetItemsForAction(item);
+    const bulk = targets.length > 1;
+    const primary = targets[0];
+    const status = itemStatus(primary);
     const pop = document.createElement("div");
     pop.className = "popover";
-    const status = itemStatus(item);
     const statusActions = [
       ["inbox", "✦", "Move to Inbox"],
       ["trash", "×", "Move to Trash"],
-    ].filter(([id]) => id !== status).map(([id, glyph, label]) =>
-      `<button class="pop-item" data-status="${id}"><span class="check">${glyph}</span>${label}</button>`
+    ].filter(([id]) => bulk || id !== status).map(([id, glyph, label]) =>
+      `<button class="pop-item" data-status="${id}"><span class="check">${glyph}</span>${bulk ? `${label} (${targets.length})` : label}</button>`
     ).join("");
     pop.innerHTML = `
       ${statusActions}
-      <button class="pop-item" data-act="rename">
-        <span class="check">✎</span>Rename…</button>
+      ${bulk ? "" : `<button class="pop-item" data-act="rename">
+        <span class="check">✎</span>Rename…</button>`}
       <button class="pop-item" data-act="folder">
-        <span class="check">❧</span>Folder…</button>
+        <span class="check">❧</span>${bulk ? `Folder… (${targets.length})` : "Folder…"}</button>
       <button class="pop-item" data-act="tag">
-        <span class="check">◦</span>Tag…</button>`;
+        <span class="check">◦</span>${bulk ? `Tag… (${targets.length})` : "Tag…"}</button>`;
 
     pop.querySelectorAll("[data-status]").forEach((btn) =>
       btn.addEventListener("click", () => {
         pop.remove();
-        moveItemStatus(item, btn.dataset.status);
+        moveItemsStatus(targets, btn.dataset.status);
+        clearCheckedIds();
       }));
-    pop.querySelector('[data-act="rename"]').addEventListener("click", () => {
+    pop.querySelector('[data-act="rename"]')?.addEventListener("click", () => {
       pop.remove();
-      openRenamePopover(anchor, item, point);
+      openRenamePopover(anchor, primary, point);
     });
     pop.querySelector('[data-act="folder"]').addEventListener("click", () => {
       pop.remove();
-      openFolderPicker(anchor, item);
+      openFolderPicker(anchor, targets);
     });
     pop.querySelector('[data-act="tag"]').addEventListener("click", () => {
       pop.remove();
-      openTagPicker(anchor, item);
+      openTagPicker(anchor, targets);
     });
 
     document.body.appendChild(pop);
@@ -3198,8 +3471,42 @@
     });
   }
 
+  function actionTargets() {
+    if (checkedIds.size) return checkedItems();
+    const items = getFilteredListItems();
+    if (listFocusIndex >= 0 && items[listFocusIndex]) return [items[listFocusIndex]];
+    return [];
+  }
+
+  function focusListItemByDelta(delta) {
+    const items = getFilteredListItems();
+    if (!items.length || activeView === "sources") return;
+    if (listFocusIndex < 0) listFocusIndex = 0;
+    else listFocusIndex = Math.max(0, Math.min(items.length - 1, listFocusIndex + delta));
+    renderList();
+    requestAnimationFrame(() => {
+      document.querySelector(".msg.is-focused")?.scrollIntoView({ block: "nearest" });
+    });
+  }
+
   /* ── Search / controls wiring ─────────────────────────────────────────── */
-  byId("search").addEventListener("input", renderList);
+  byId("search").addEventListener("input", () => {
+    listFocusIndex = -1;
+    renderList();
+  });
+  byId("btn-shortcuts").addEventListener("click", () => openShortcutsPopover(byId("btn-shortcuts")));
+  byId("list-bulk-bar").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-bulk]");
+    if (!btn) return;
+    const items = checkedItems();
+    if (!items.length) return;
+    const act = btn.dataset.bulk;
+    if (act === "clear") { clearCheckedIds(); renderList(); return; }
+    if (act === "inbox") { moveItemsStatus(items, "inbox"); return; }
+    if (act === "trash") { moveItemsStatus(items, "trash"); return; }
+    if (act === "folder") { openBulkFolderPicker(btn, items); return; }
+    if (act === "tag") { openBulkTagPicker(btn, items); }
+  });
   byId("aside-toggle").addEventListener("click", toggleMapFull);
   byId("aside-close").addEventListener("click", () => {
     document.body.dataset.aside = "closed";
@@ -3226,13 +3533,83 @@
 
   window.addEventListener("keydown", (e) => {
     if ((e.metaKey || e.ctrlKey) && !e.altKey && String(e.key).toLowerCase() === "s") {
-      const tag = e.target?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.target?.isContentEditable) return;
+      if (isTypingTarget(e.target)) return;
       e.preventDefault();
       toggleReadingMenu();
       return;
     }
+    if ((e.metaKey || e.ctrlKey) && !e.altKey && String(e.key).toLowerCase() === "a") {
+      if (isTypingTarget(e.target)) return;
+      if (activeView === "sources") return;
+      e.preventDefault();
+      selectAllInView();
+      return;
+    }
+    if (e.key === "?" && !isTypingTarget(e.target)) {
+      e.preventDefault();
+      openShortcutsPopover(byId("btn-shortcuts"));
+      return;
+    }
+    if (e.key === "/" && !isTypingTarget(e.target)) {
+      e.preventDefault();
+      byId("search").focus();
+      byId("search").select();
+      return;
+    }
+    if (!isTypingTarget(e.target) && activeView !== "sources") {
+      const key = String(e.key);
+      if (key === "j" || key === "J") {
+        e.preventDefault();
+        focusListItemByDelta(1);
+        return;
+      }
+      if (key === "k" || key === "K") {
+        e.preventDefault();
+        focusListItemByDelta(-1);
+        return;
+      }
+      if (key === "x" || key === "X") {
+        const items = getFilteredListItems();
+        if (listFocusIndex < 0 && items.length) listFocusIndex = 0;
+        if (listFocusIndex >= 0 && items[listFocusIndex]) {
+          e.preventDefault();
+          toggleCheckedId(keyOf(items[listFocusIndex]));
+          renderList();
+        }
+        return;
+      }
+      if (key === "Enter") {
+        const items = getFilteredListItems();
+        if (listFocusIndex >= 0 && items[listFocusIndex]) {
+          e.preventDefault();
+          clearCheckedIds();
+          openItem(keyOf(items[listFocusIndex]));
+        }
+        return;
+      }
+      if (key === "e" || key === "E") {
+        const targets = actionTargets();
+        if (targets.length) {
+          e.preventDefault();
+          moveItemsStatus(targets, "inbox");
+        }
+        return;
+      }
+      if (key === "#" || key === "Delete") {
+        const targets = actionTargets();
+        if (targets.length) {
+          e.preventDefault();
+          moveItemsStatus(targets, "trash");
+        }
+        return;
+      }
+    }
     if (e.key !== "Escape") return;
+    if (checkedIds.size) {
+      clearCheckedIds();
+      renderList();
+      return;
+    }
     if (document.body.dataset.map === "full") {
       exitMapFull();
       return;
@@ -3243,6 +3620,11 @@
     }
     if (isMobileLayout() && mobilePane() === "reader") setMobilePane("list");
   });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") flushWorkspaceIfDirty();
+  });
+  window.addEventListener("pagehide", () => { flushWorkspaceIfDirty(); });
 
   MOBILE_MQ.addEventListener("change", () => {
     if (!isMobileLayout()) {
@@ -3345,6 +3727,7 @@
     feedPollTimer = setInterval(() => {
       loadFeed({ background: true });
       loadWorkspaceFromServer();
+      flushWorkspaceIfDirty();
     }, REFRESH_MS);
   }
 

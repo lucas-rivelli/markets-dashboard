@@ -34,12 +34,14 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-**Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
+**Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side via `PUT /api/workspace`. Local edits mark workspace dirty; the client **pulls every 5 minutes** and **pushes dirty state on the same interval** (↻ **Sync** or tab close pushes immediately). Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device. Commits that touch only `data/workspace.json` / cache JSON should skip Vercel deploys via `scripts/vercel-ignore.sh`.
 On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
 **Add piece:** `#btn-add-link`, rail **Add piece**, and Sources **Add piece** open the same popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
 
 **Reading menu:** `#rail-toggle` (☰ Menu) and **⌘/Ctrl+S** toggle `data-folders=hidden|visible`, hiding `.rail-folders-block` (folder list + New folder). On mobile (≤820px), opening the menu also opens the rail drawer (`data-rail=open`).
+
+**List shortcuts (Gmail-style):** **⌘/Ctrl+click** toggles row selection; **Shift+click** selects a range; bulk bar appears for Inbox/Trash/Folder/Tag on the selection. **J/K** move focus, **X** toggle select, **E** → Inbox, **#** or **Delete** → Trash, **/** focus search, **⌘/Ctrl+A** select all in view, **?** opens the shortcuts panel (`#btn-shortcuts`). Right-click / long-press still opens the per-item menu (applies to full selection when the row is checked).
 
 **Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. **To-read** is a normal tag: new inbox items receive it automatically (including Spotify). Removing To-read from a filed item triggers a knowledge-base save to `kb/inbox/<id>.json` with enriched X/YouTube body text when available. Spotify is tagged but not written to `kb/` yet.
 
@@ -79,7 +81,7 @@ Do not rename without updating CSS selectors and JS together:
 
 **Regions:** `.app`, `.topbar`, `.workspace`, `.rail`, `.list-col`, `.reader-col`, `.aside`, `.drawer-scrim`
 
-**List:** `.msg-list`, `.msg`, `#search`, `#list-container`, `#list-title`, `#list-count`
+**List:** `.msg-list`, `.msg`, `.msg.is-checked`, `.msg.is-focused`, `#list-bulk-bar`, `#btn-shortcuts`, `#search`, `#list-container`, `#list-title`, `#list-count`
 
 **Reader:** `.reader-inner`, `.reader-title`, `.action-btn`, `#btn-folder`, `#btn-tag`, `#reader-back`, `.reader-selection-toolbar`, `.reader-highlight-mark`
 
