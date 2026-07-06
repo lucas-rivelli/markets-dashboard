@@ -208,6 +208,32 @@
     .list-tools { padding: 0 1rem 0.6rem; display: flex; flex-direction: column; gap: 0.55rem; }
     .list-tools-row { display: flex; align-items: center; gap: 0.65rem; }
     .list-tools-row #search { flex: 1; min-width: 0; }
+    .list-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.85rem;
+      align-items: center;
+    }
+    .list-filters label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+    .list-filters select {
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule-soft);
+      padding: 0.15rem 0.1rem;
+      max-width: 9.5rem;
+    }
+    .list-filters select:focus { border-bottom-color: var(--rubric); outline: none; }
+    .list-filters select:disabled { opacity: 0.55; cursor: default; }
     #search {
       width: 100%;
       font-family: var(--serif);
@@ -862,6 +888,18 @@
           <input type="search" id="search" placeholder="Search this view…" aria-label="Search items" autocomplete="off" />
           <button type="button" class="list-shortcuts-btn label" id="btn-shortcuts" aria-label="Keyboard shortcuts">?</button>
         </div>
+        <div class="list-filters" id="list-filters" hidden>
+          <label>Folder
+            <select id="filter-folder" aria-label="Filter by folder">
+              <option value="">Any folder</option>
+            </select>
+          </label>
+          <label>Tag
+            <select id="filter-tag" aria-label="Filter by tag">
+              <option value="">Any tag</option>
+            </select>
+          </label>
+        </div>
       </div>
       <div class="list-bulk-bar" id="list-bulk-bar" hidden>
         <span class="list-bulk-count" id="list-bulk-count">0 selected</span>
@@ -918,7 +956,7 @@
   let checkedIds = new Set();
   let listFocusIndex = -1;
   let lastListClickIndex = -1;
-  let activeView = "inbox"; // inbox | trash | sources | folder:<name> | tag:<id>
+  let activeView = "inbox"; // inbox | all | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
   let workspaceDirty = false;
   let highlightToolbar = null;
@@ -938,8 +976,14 @@
   const TO_READ_TAG_COLOR = "#7f2a1a";
   const SAVE_SECRET_KEY = "markets_save_secret";
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
+  const LIST_FILTER_FOLDER_KEY = "markets_list_filter_folder";
+  const LIST_FILTER_TAG_KEY = "markets_list_filter_tag";
+  const ADDED_DATE_MIGRATION_KEY = "markets_item_added_migrated_v2";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
   const REFRESH_MS      = 5 * 60 * 1000;
+
+  let listFilterFolder = String(readJSON(LIST_FILTER_FOLDER_KEY, "") || "");
+  let listFilterTag = String(readJSON(LIST_FILTER_TAG_KEY, "") || "");
 
   let workspaceSyncing = false;
 
@@ -1229,27 +1273,41 @@
     }
     return null;
   };
+  const displayAddedAt = (item) => itemAddedAt(item);
   const compareByAddedDesc = (a, b) => {
-    const da = Date.parse(itemAddedAt(a) || a.date || "") || 0;
-    const db = Date.parse(itemAddedAt(b) || b.date || "") || 0;
+    const da = Date.parse(itemAddedAt(a) || "") || 0;
+    const db = Date.parse(itemAddedAt(b) || "") || 0;
     return db - da;
   };
-  const stampNewFeedItems = (items) => {
+  function migratePublicationAddedDates(items) {
+    if (readJSON(ADDED_DATE_MIGRATION_KEY, false)) return;
     const map = getAddedMap();
-    const prevKeys = new Set(
-      (readJSON(FEED_SNAPSHOT_KEY, {}).items || []).map((it) => it.id || it.link).filter(Boolean)
-    );
+    let changed = false;
+    for (const item of items) {
+      const pub = item.date ? String(item.date) : "";
+      if (!pub) continue;
+      for (const k of readKeysFor(item)) {
+        if (map[k] && map[k] === pub) {
+          delete map[k];
+          changed = true;
+        }
+      }
+    }
+    if (changed) writeJSON(ITEM_ADDED_KEY, map);
+    writeJSON(ADDED_DATE_MIGRATION_KEY, true);
+  }
+  const stampNewFeedItems = (items) => {
+    migratePublicationAddedDates(items);
+    const map = getAddedMap();
     const now = new Date().toISOString();
     let changed = false;
 
     for (const item of items) {
       const keys = readKeysFor(item);
       if (keys.some((k) => map[k])) continue;
-      const wasInPrevFeed = keys.some((k) => prevKeys.has(k));
-      const stamp = wasInPrevFeed && item.date ? String(item.date) : now;
       for (const k of keys) {
         if (!map[k]) {
-          map[k] = stamp;
+          map[k] = now;
           changed = true;
         }
       }
@@ -1891,9 +1949,11 @@
   function renderRail() {
     const bucketItems = statusItems();
     const inboxCount = bucketItems.filter((it) => itemStatus(it) === "inbox").length;
+    const allCount = visibleItems().length;
     const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
     const fixed = [
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
+      { id: "all",     glyph: "☰", name: "All",     count: allCount },
       { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
       { id: "__add_piece__", glyph: "＋", name: "Add piece", count: "", action: "add-piece" },
@@ -2000,6 +2060,13 @@
     clearCheckedIds();
     listFocusIndex = -1;
     lastListClickIndex = -1;
+    if (id.startsWith("folder:")) {
+      listFilterFolder = id.slice(7);
+      writeJSON(LIST_FILTER_FOLDER_KEY, listFilterFolder);
+    } else if (id.startsWith("tag:")) {
+      listFilterTag = id.slice(4);
+      writeJSON(LIST_FILTER_TAG_KEY, listFilterTag);
+    }
     closeDrawers();
     renderRail();
     renderList();
@@ -2366,6 +2433,7 @@
   /* ── Message list ─────────────────────────────────────────────────────── */
   function viewLabel() {
     if (activeView === "inbox") return "Inbox";
+    if (activeView === "all") return "All";
     if (activeView === "trash") return "Trash";
     if (activeView === "sources") return "Sources";
     if (activeView.startsWith("folder:")) return activeView.slice(7);
@@ -2373,8 +2441,24 @@
     return tag ? tag.name : "Tag";
   }
 
+  function viewFilterLocks() {
+    return {
+      folder: activeView.startsWith("folder:") ? activeView.slice(7) : "",
+      tag: activeView.startsWith("tag:") ? activeView.slice(4) : "",
+    };
+  }
+
+  function effectiveListFilters() {
+    const locks = viewFilterLocks();
+    return {
+      folder: locks.folder || listFilterFolder,
+      tag: locks.tag || listFilterTag,
+    };
+  }
+
   function itemsForView() {
     if (activeView === "inbox") return statusItems().filter((it) => itemStatus(it) === "inbox");
+    if (activeView === "all") return visibleItems();
     if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
     if (activeView.startsWith("folder:")) {
       const name = activeView.slice(7);
@@ -2387,9 +2471,50 @@
     return statusItems().filter((it) => itemStatus(it) === "inbox");
   }
 
+  function applyCrossFilters(items) {
+    const { folder, tag } = effectiveListFilters();
+    let out = items;
+    if (folder) {
+      out = out.filter((it) => getItemFolders(keyOf(it)).some((f) => isSameFolder(f, folder)));
+    }
+    if (tag) {
+      out = out.filter((it) => getItemTagIds(keyOf(it)).includes(tag));
+    }
+    return out;
+  }
+
+  function renderListFilterControls() {
+    const wrap = byId("list-filters");
+    const folderSel = byId("filter-folder");
+    const tagSel = byId("filter-tag");
+    if (!wrap || !folderSel || !tagSel) return;
+
+    const show = activeView !== "sources";
+    wrap.hidden = !show;
+    if (!show) return;
+
+    const locks = viewFilterLocks();
+    const folders = getFolders();
+    const tags = getTags();
+    const folderValue = locks.folder || listFilterFolder;
+    const tagValue = locks.tag || listFilterTag;
+
+    folderSel.innerHTML = `<option value="">Any folder</option>${
+      folders.map((f) => `<option value="${esc(f)}">${esc(f)}</option>`).join("")
+    }`;
+    tagSel.innerHTML = `<option value="">Any tag</option>${
+      tags.map((t) => `<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("")
+    }`;
+
+    folderSel.value = folders.some((f) => isSameFolder(f, folderValue)) ? folderValue : "";
+    tagSel.value = tags.some((t) => t.id === tagValue) ? tagValue : "";
+    folderSel.disabled = !!locks.folder;
+    tagSel.disabled = !!locks.tag;
+  }
+
   function getFilteredListItems() {
     const q = byId("search").value.toLowerCase().trim();
-    return itemsForView().filter((it) => {
+    return applyCrossFilters(itemsForView()).filter((it) => {
       const k = keyOf(it);
       const tagNames = getItemTags(k).map((t) => t.name).join(" ");
       const folderNames = getItemFolders(k).join(" ");
@@ -2540,6 +2665,7 @@
 
   function renderList() {
     byId("list-title").textContent = viewLabel();
+    renderListFilterControls();
 
     if (activeView === "sources") {
       byId("list-count").textContent = "";
@@ -2559,6 +2685,7 @@
     if (!items.length) {
       container.innerHTML = `<p class="empty-state">${
         activeView === "inbox" && allItems.length ? "Inbox is clear. Folders and Trash hold processed items."
+        : activeView === "all" && allItems.length ? "No items match these filters."
         : activeView === "trash" ? "Trash is empty."
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
@@ -2589,7 +2716,7 @@
       btn.innerHTML = `
         <div class="msg-meta">
           <span class="msg-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
-          <span class="msg-date">${formatDate(itemAddedAt(item))}</span>
+          <span class="msg-date">${formatDate(displayAddedAt(item))}</span>
         </div>
         <div class="msg-title"><span class="msg-check" aria-hidden="true"></span><span class="msg-dot" aria-hidden="true"></span>${esc(itemTitle(item))}</div>
         ${item.snippet ? `<div class="msg-snippet">${esc(item.snippet)}</div>` : ""}
@@ -2686,11 +2813,11 @@
         <button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>
         <div class="reader-kicker">
           <span class="reader-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
-          <span class="reader-date">${esc(fullDate(itemAddedAt(item)) || formatDate(itemAddedAt(item)))}</span>
+          <span class="reader-date">${esc(fullDate(displayAddedAt(item)) || formatDate(displayAddedAt(item)))}</span>
         </div>
         <h1 class="reader-title">${esc(title)}</h1>
         ${hasCustomTitle(item) ? `<p class="reader-original-title">Originally: ${esc(originalTitle)}</p>` : ""}
-        ${item.date && itemAddedAt(item) && String(item.date) !== String(itemAddedAt(item))
+        ${item.date && displayAddedAt(item) && String(item.date) !== String(displayAddedAt(item))
           ? `<span class="reader-published">Published ${esc(fullDate(item.date) || formatDate(item.date))}</span>` : ""}
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
@@ -3460,7 +3587,7 @@
           <span class="recent-read-title">${esc(itemTitle(item))}</span>
           <span class="recent-read-meta">
             <span>${esc(item.source || "Source")}</span>
-            ${formatDate(itemAddedAt(item)) ? `<span>${esc(formatDate(itemAddedAt(item)))}</span>` : ""}
+            ${formatDate(displayAddedAt(item)) ? `<span>${esc(formatDate(displayAddedAt(item)))}</span>` : ""}
           </span>
         </button>
       </li>
@@ -3491,6 +3618,18 @@
 
   /* ── Search / controls wiring ─────────────────────────────────────────── */
   byId("search").addEventListener("input", () => {
+    listFocusIndex = -1;
+    renderList();
+  });
+  byId("filter-folder").addEventListener("change", (e) => {
+    listFilterFolder = e.target.value || "";
+    writeJSON(LIST_FILTER_FOLDER_KEY, listFilterFolder);
+    listFocusIndex = -1;
+    renderList();
+  });
+  byId("filter-tag").addEventListener("change", (e) => {
+    listFilterTag = e.target.value || "";
+    writeJSON(LIST_FILTER_TAG_KEY, listFilterTag);
     listFocusIndex = -1;
     renderList();
   });
