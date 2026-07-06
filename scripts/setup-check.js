@@ -118,6 +118,12 @@ function checkVercel() {
   if (hasEnv("CRON_SECRET")) ok("CRON_SECRET set locally");
   else warn("CRON_SECRET not in .env.local — add in Vercel dashboard (openssl rand -hex 32)");
 
+  if (hasEnv("GITHUB_DISPATCH_TOKEN") || hasEnv("GITHUB_TOKEN") || hasEnv("GH_TOKEN")) {
+    ok("GitHub dispatch token set (for /api/trigger-bookmarks)");
+  } else {
+    warn("GITHUB_DISPATCH_TOKEN not set — external bookmark cron needs Actions: Read and write PAT");
+  }
+
   warn("Vercel env vars must be set in the Vercel project UI (Settings → Environment Variables)");
   warn("After adding vars: redeploy from Vercel dashboard or push a commit");
 }
@@ -135,5 +141,6 @@ checkVercel();
 console.log("\nNext steps:");
 console.log("  1. Spotify: create app → npm run spotify:auth → add vars to Vercel");
 console.log("  2. X: log into x.com in browser → npm run sync:bookmarks");
-console.log("  3. Vercel: add CRON_SECRET + SPOTIFY_* → redeploy");
+console.log("  3. Vercel: add CRON_SECRET + GITHUB_DISPATCH_TOKEN + SPOTIFY_* → redeploy");
+console.log("  4. External cron: npm run setup:external-cron → cron-job.org every 5 min");
 console.log("");

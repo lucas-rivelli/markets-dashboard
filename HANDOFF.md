@@ -64,8 +64,10 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | Consilient Observer | Macro/Official | launchpad only (no RSS) |
 | Spotify Podcasts | Spotify | dynamic — Spotify Web API |
 | X Bookmarks | Bookmarks | dynamic — data/bookmarks.json |
+| Saved Links | Bookmarks/auto | dynamic — in-app Add link → data/manual-links.json |
 
 **To add a source:** edit `SOURCES` in `api/feed.js`, commit, push to GitHub.
+**To add one article/video/podcast:** use the top-bar `Add` button in the app; it writes `data/manual-links.json` through `/api/manual-link`.
 
 ## Features built
 
@@ -78,6 +80,8 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 - [x] Refresh button bypasses cache (`?fresh=1`)
 - [x] Spotify new podcast episodes (needs env vars — see below)
 - [x] X bookmarks via birdclaw → GitHub sync (needs Mac setup — see below)
+- [x] In-app Add link for one-off articles, YouTube, Spotify, and other URLs
+- [x] Right column stacks Map above Recent Read quick links
 
 ## Setup still needed (user action)
 
@@ -146,6 +150,7 @@ git add . && git commit && git push origin main
 - **Same day revisits:** cached API (30 min edge cache)
 - **Refresh button:** always live fetch
 - **Read state:** stored in browser `localStorage` key `markets_read`
+- **Recent Read:** right-column quick links are derived from `markets_read`, newest opens first
 - **Categories / pill colors:** Substack (orange), YouTube (red), Blog (purple), Spotify (green), Bookmarks (blue), Macro (amber)
 
 ## Git history (recent)
@@ -175,13 +180,15 @@ markets-dashboard/
 ├── index.html           ← frontend
 ├── api/
 │   ├── feed.js          ← SOURCES array + /api/feed handler
+│   ├── manual-link.js   ← /api/manual-link in-app saved links
 │   └── cron.js          ← morning cron handler
 ├── lib/
 │   ├── aggregate.js     ← merge all feeds
 │   ├── spotify.js       ← Spotify API
 │   └── bookmarks.js     ← load bookmarks JSON
 ├── data/
-│   └── bookmarks.json   ← synced from birdclaw
+│   ├── bookmarks.json   ← synced from birdclaw
+│   └── manual-links.json ← links added from the app
 ├── scripts/
 │   ├── dev.js           ← local dev server (loads .env.local)
 │   ├── setup-check.js   ← diagnose Spotify + X setup

@@ -1,12 +1,11 @@
 # Sync X bookmarks without a Mac. Requires GitHub secrets AUTH_TOKEN and CT0
 # (from x.com cookies — refresh with: npm run setup:github-x-secrets).
-# Runs every 5 minutes; skips gracefully if secrets are missing.
+# Triggered by external cron (cron-job.org → /api/trigger-bookmarks every 5 min).
+# GitHub's built-in schedule is unreliable for */5; do not re-add it here.
 
 name: Sync X bookmarks
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 concurrency:

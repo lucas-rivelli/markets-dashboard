@@ -9,6 +9,9 @@
     "setup:github-x-secrets": "node scripts/setup-github-x-secrets.js",
     "birdclaw:init": "birdclaw init",
     "sync:bookmarks": "bash scripts/sync-bookmarks.sh",
+    "setup:external-cron": "node scripts/setup-external-cron.js",
+    "setup:github-dispatch-token": "node scripts/setup-github-dispatch-token.js",
+    "ping:bookmarks-cron": "bash scripts/ping-bookmarks-cron.sh",
     "spotify:auth": "node scripts/spotify-auth.js"
   },
   "dependencies": {

@@ -24,10 +24,10 @@
 Four-region manuscript workspace (not a feed column):
 
 ```
-top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
+top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · ❦ Map
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
-│ Inbox    │ search + rows  │ item / Sources    │ Tag Map SVG  │
-│ Trash    │                │                   │              │
+│ Inbox    │ search + rows  │ item / Sources    │ Map + Recent │
+│ Trash    │                │                   │ Read         │
 │ Sources  │                │                   │              │
 │ + folders│                │                   │              │
 │ + tags   │                │                   │              │
@@ -37,6 +37,8 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ↻ Sync · ❦ Map
 **Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
+**Add link:** `#btn-add-link` opens a top-bar popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
+
 **Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. To-read is a normal tag, not a mailbox state; old `saw`, `to-read`, and `read` statuses should normalize back to `inbox`.
 
 **Folders:** Folders are hierarchical paths stored as strings in `markets_folders` / workspace `folders`, e.g. `Macro/Rates`. Item assignments in `markets_item_folders` use the same full path. Creating `Parent/Child` auto-creates ancestors. Rename, move, and exclude actions must update descendant folder paths and all item assignments, so editing a mistaken parent folder behaves like email folders/subfolders. The folder manager can move a folder to top level or under another non-descendant folder. The item folder picker is also a move action: choosing a folder replaces the item's current folder location; `Move to Inbox` clears folder assignment.
@@ -44,6 +46,8 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 **Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items may include sanitized `contentHtml` from `lib/aggregate.js`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
 **Highlights:** Highlighting is contextual, not a fixed reader action button. Select text inside `.reader-body` and show a small `.reader-selection-toolbar` above the selection with `Highlight`; clicking an existing `.reader-highlight-mark` shows `Remove highlight`. Save quotes into `markets_item_highlights` / workspace `item_highlights`. Saved highlights render under the article and matching text is marked when possible. Highlight entries are `{ id, text, created_at }` by item key.
+
+**Aside:** the right column stacks `#graph-wrap` on top and `#recent-read-list` below. Recent Read is derived from `markets_read`; opening an item moves its keys to the end of that array so the panel can render most-recent-first quick links. Fullscreen map hides the recent section.
 
 ## Mobile interaction (shipped July 2026)
 
@@ -79,9 +83,9 @@ Do not rename without updating CSS selectors and JS together:
 
 **Rail / tags:** `.rail-item`, `#rail-fixed`, `#rail-tags`, `#rail-add`, `#rail-toggle`
 
-**Aside:** `#graph-wrap`, `#aside-toggle`, `#aside-close`
+**Aside:** `#graph-wrap`, `#recent-read-list`, `#aside-toggle`, `#aside-close`
 
-**Top bar:** `#updated-line`, `#failed-line`, `#btn-refresh`
+**Top bar:** `#updated-line`, `#failed-line`, `#btn-add-link`, `#btn-refresh`
 
 **Body datasets:** `data-mobile`, `data-rail`, `data-aside`
 
@@ -107,6 +111,7 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
   - Substack items can include sanitized `contentHtml` for inline reading.
+- `POST /api/manual-link` — add one-off links to `data/manual-links.json`, then merged into `/api/feed`
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
 - `POST /api/save` — backend KB plumbing only; no Save button in the current UI

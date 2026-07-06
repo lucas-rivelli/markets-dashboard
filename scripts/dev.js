@@ -3,8 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const feedHandler = require("../api/feed");
 const cronHandler = require("../api/cron");
+const triggerBookmarksHandler = require("../api/trigger-bookmarks");
 const libraryHandler = require("../api/library");
 const saveHandler = require("../api/save");
+const manualLinkHandler = require("../api/manual-link");
 const workspaceHandler = require("../api/workspace");
 const readStateHandler = require("../api/read-state");
 const { refreshFeedCache, REFRESH_MS } = require("../lib/feed-cache");
@@ -112,6 +114,16 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
     return;
   }
 
+  if (pathname === "/api/trigger-bookmarks") {
+    try {
+      await triggerBookmarksHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
   if (pathname === "/api/library") {
     try {
       await libraryHandler(nodeReq, vercelRes(nodeRes));
@@ -125,6 +137,16 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
   if (pathname === "/api/save") {
     try {
       await saveHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/manual-link") {
+    try {
+      await manualLinkHandler(nodeReq, vercelRes(nodeRes));
     } catch (err) {
       nodeRes.statusCode = 500;
       nodeRes.end(JSON.stringify({ error: err.message }));

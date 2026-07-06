@@ -465,9 +465,34 @@
       outline: none;
     }
     .pop-select:focus { border-bottom-color: var(--rubric); color: var(--ink); }
+    .link-popover { width: min(340px, calc(100vw - 1rem)); }
+    .link-form { display: grid; gap: 0.55rem; padding: 0.2rem 0.4rem 0.35rem; }
+    .link-form label { display: grid; gap: 0.15rem; color: var(--ink-soft); font-size: 0.82rem; font-style: italic; }
+    .link-form input,
+    .link-form select,
+    .link-form textarea {
+      width: 100%;
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      border-radius: 0;
+      padding: 0.25rem 0.05rem;
+      outline: none;
+    }
+    .link-form textarea { min-height: 4.6rem; resize: vertical; border: 1px solid var(--rule-soft); padding: 0.35rem; }
+    .link-form input:focus,
+    .link-form select:focus,
+    .link-form textarea:focus { border-color: var(--rubric); }
+    .link-form-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding-top: 0.2rem; }
+    .link-form-actions button { color: var(--rubric); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .link-form-actions button[disabled] { opacity: 0.55; cursor: default; }
+    .link-error { color: var(--rubric); font-size: 0.82rem; font-style: italic; min-height: 1.2em; }
 
-    /* ── Aside (tag map) ────────────────────────────────────────────────── */
-    .aside { display: grid; grid-template-rows: 1fr; overflow: hidden; }
+    /* ── Aside (tag map + recent read) ──────────────────────────────────── */
+    .aside { display: grid; grid-template-rows: minmax(0, 1.15fr) minmax(220px, 0.85fr); overflow: hidden; }
     .aside-section.chat { display: none; }
     .aside-section { min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
     .aside-section + .aside-section { border-top: 1px solid var(--rule); }
@@ -511,6 +536,38 @@
     svg.has-hover .g-node:not(.is-hot) { opacity: 0.2; }
     .pop-danger { color: var(--rubric); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.45rem; width: 100%; text-align: left; }
     .pop-danger:hover { background: var(--paper-sel); }
+
+    .recent-read-list { flex: 1; min-height: 0; overflow-y: auto; list-style: none; padding: 0 0.75rem 0.85rem; }
+    .recent-read-item {
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 0.25rem;
+      border-top: 1px solid var(--rule-soft);
+      color: var(--ink-soft);
+      touch-action: manipulation;
+    }
+    .recent-read-item:hover { color: var(--rubric); }
+    .recent-read-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .recent-read-item:hover .recent-read-title { color: var(--rubric); }
+    .recent-read-meta {
+      display: flex;
+      gap: 0.45rem;
+      margin-top: 0.18rem;
+      color: var(--ink-faint);
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .recent-empty { color: var(--ink-faint); font-style: italic; font-size: 0.9rem; padding: 1.2rem 1rem; }
 
     /* chat */
     .chat { display: flex; flex-direction: column; min-height: 0; }
@@ -591,6 +648,8 @@
       background: var(--paper);
       box-shadow: none;
     }
+    body[data-map="full"] .aside { grid-template-rows: 1fr; }
+    body[data-map="full"] .recent-section { display: none; }
 
     @media (max-width: 1200px) {
       .workspace { grid-template-columns: 190px 320px 1fr; }
@@ -648,6 +707,7 @@
       .brand-name { font-size: 0.82rem; letter-spacing: 0.14em; }
       .topbar .updated-line { display: none; }
       .topbar .updated-line.is-syncing { display: inline; max-width: 5.5rem; }
+      #btn-add-link .add-label { display: none; }
       #btn-refresh .sync-label { display: none; }
       .reader-inner { padding-left: 1rem; padding-right: 1rem; }
       .reader-title { font-size: 1.45rem; }
@@ -670,6 +730,7 @@
     <span class="topbar-spacer"></span>
     <span class="updated-line label" id="updated-line">Loading…</span>
     <span id="failed-line" class="failed-line" hidden></span>
+    <button class="link-btn label" id="btn-add-link" aria-label="Add link">＋ <span class="add-label">Add</span></button>
     <button class="link-btn label" id="btn-refresh" aria-label="Force refresh feed">↻ <span class="sync-label">Sync</span></button>
     <button class="link-btn pane-toggle label" id="aside-toggle" aria-label="Toggle tag map">❦ Map</button>
   </header>
@@ -707,7 +768,7 @@
       </div>
     </section>
 
-    <!-- Aside: graph + chat -->
+    <!-- Aside: graph + recent read -->
     <aside class="aside">
       <div class="aside-section">
         <div class="col-head">
@@ -723,15 +784,11 @@
           </div>
         </div>
       </div>
-      <div class="aside-section chat">
-        <div class="col-head"><span class="label">Ask the Knowledge Base</span></div>
-        <div class="chat-log" id="chat-log">
-          <p class="chat-intro">Ask about what you’ve read — “What have I parked on AI capex?” I’ll search your reading state and feed. <span style="font-style:normal">✦</span></p>
-        </div>
-        <form class="chat-form" id="chat-form">
-          <input id="chat-input" placeholder="Ask your library…" autocomplete="off" aria-label="Ask the knowledge base" />
-          <button type="submit" aria-label="Ask">→</button>
-        </form>
+      <div class="aside-section recent-section" aria-label="Recently read articles">
+        <div class="col-head"><span class="label">Recent Read</span></div>
+        <ul class="recent-read-list" id="recent-read-list">
+          <li class="recent-empty">Open an article and it will rest here for quick return.</li>
+        </ul>
       </div>
     </aside>
   </div>
@@ -906,6 +963,7 @@
       renderRail();
       renderList();
       renderGraph();
+      renderRecentRead();
       if (selectedId) {
         const item = allItems.find((it) => keyOf(it) === selectedId);
         if (item) renderReader(item);
@@ -967,9 +1025,9 @@
     return "inbox";
   };
   const setItemSeen = (item) => {
-    const readSet = getReadSet();
-    for (const k of readKeysFor(item)) readSet.add(k);
-    writeJSON(READ_KEY, [...readSet]);
+    const keys = readKeysFor(item);
+    const existing = readJSON(READ_KEY, []).filter((k) => !keys.includes(k));
+    writeJSON(READ_KEY, [...existing, ...keys]);
     scheduleWorkspaceSync();
   };
   const setItemStatus = (item, status) => {
@@ -1746,6 +1804,120 @@
     }
   }
 
+  function normalizeInputUrl(value) {
+    const raw = String(value || "").trim();
+    if (!raw) return "";
+    try {
+      const url = new URL(raw);
+      if (!["http:", "https:"].includes(url.protocol)) return "";
+      return url.toString();
+    } catch {
+      return "";
+    }
+  }
+
+  async function saveManualLink(payload, retryAuth = true) {
+    const res = await fetch("/api/manual-link", {
+      method: "POST",
+      headers: syncHeaders(),
+      body: JSON.stringify(payload),
+    });
+
+    if (res.status === 401) {
+      if (retryAuth && promptForSyncSecret()) return saveManualLink(payload, false);
+      throw new Error("Unauthorized");
+    }
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    return data;
+  }
+
+  function openLinkCreator(anchor) {
+    document.querySelector(".popover")?.remove();
+    closeDrawers();
+    const pop = document.createElement("div");
+    pop.className = "popover link-popover";
+    pop.innerHTML = `<span class="label">Add link</span>
+      <form class="link-form">
+        <label>URL
+          <input name="link" type="url" placeholder="https://…" autocomplete="url" required />
+        </label>
+        <label>Title
+          <input name="title" placeholder="Optional — I will try to read it" autocomplete="off" />
+        </label>
+        <label>Source
+          <input name="source" placeholder="Optional" autocomplete="off" />
+        </label>
+        <label>Kind
+          <select name="category">
+            <option value="">Auto</option>
+            <option value="Bookmarks">Article / link</option>
+            <option value="YouTube">YouTube</option>
+            <option value="Spotify">Spotify</option>
+            <option value="Blog">Blog</option>
+            <option value="Substack">Substack</option>
+            <option value="Macro/Official">Macro / official</option>
+          </select>
+        </label>
+        <label>Note
+          <textarea name="snippet" placeholder="Optional note or why this matters"></textarea>
+        </label>
+        <div class="link-form-actions">
+          <span class="link-error" role="status"></span>
+          <button type="submit">Add to Inbox</button>
+        </div>
+      </form>`;
+
+    const form = pop.querySelector("form");
+    const urlInput = form.elements.link;
+    const error = pop.querySelector(".link-error");
+    const submit = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const link = normalizeInputUrl(urlInput.value);
+      if (!link) {
+        error.textContent = "Enter a valid http(s) link.";
+        urlInput.focus();
+        return;
+      }
+
+      error.textContent = "";
+      submit.disabled = true;
+      submit.textContent = "Adding…";
+
+      try {
+        const payload = {
+          link,
+          title: form.elements.title.value,
+          source: form.elements.source.value,
+          category: form.elements.category.value,
+          snippet: form.elements.snippet.value,
+        };
+        const saved = await saveManualLink(payload);
+        pop.remove();
+        await loadFeed({ force: true, background: true });
+        selectView("inbox");
+        const item = allItems.find((it) => it.link === saved.item.link);
+        if (item) openItem(keyOf(item));
+      } catch (err) {
+        error.textContent = err.message || "Could not save link.";
+        submit.disabled = false;
+        submit.textContent = "Add to Inbox";
+      }
+    });
+
+    form.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") pop.remove();
+    });
+
+    document.body.appendChild(pop);
+    positionPopover(pop, anchor);
+    urlInput.focus();
+    attachPopoverDismiss(pop, anchor);
+  }
+
   function openFolderCreator(anchor, parent = "") {
     document.querySelector(".popover")?.remove();
     closeDrawers();
@@ -1812,6 +1984,7 @@
   byId("rail-add-tag").addEventListener("click", (e) => openTagCreator(e.currentTarget));
   byId("rail-toggle").addEventListener("click", () => toggleDrawer("rail"));
   byId("drawer-scrim").addEventListener("click", closeDrawers);
+  byId("btn-add-link").addEventListener("click", (e) => openLinkCreator(e.currentTarget));
 
   /* ── Message list ─────────────────────────────────────────────────────── */
   function viewLabel() {
@@ -1932,6 +2105,7 @@
     renderList();
     updateCounts();
     renderGraph();
+    renderRecentRead();
   }
 
   function renderReader(item) {
@@ -2026,6 +2200,7 @@
     renderRail();
     renderGraph();
     renderList();
+    renderRecentRead();
     document.querySelectorAll(".msg").forEach((m) => m.setAttribute("aria-selected", m.dataset.id === selectedId));
   }
 
@@ -2132,6 +2307,7 @@
     renderList();
     updateCounts();
     renderGraph();
+    renderRecentRead();
   }
 
   /* ── Email-style context menu on list items ───────────────────────────── */
@@ -2621,6 +2797,54 @@
     ensureRunning();
   }
 
+  function recentReadItems(limit = 8) {
+    const byKey = new Map();
+    allItems.forEach((item) => {
+      readKeysFor(item).forEach((k) => byKey.set(k, item));
+    });
+
+    const seen = new Set();
+    return readJSON(READ_KEY, [])
+      .slice()
+      .reverse()
+      .map((k) => byKey.get(k))
+      .filter((item) => {
+        if (!item) return false;
+        const key = keyOf(item);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return itemStatus(item) !== "trash";
+      })
+      .slice(0, limit);
+  }
+
+  function renderRecentRead() {
+    const list = byId("recent-read-list");
+    if (!list) return;
+
+    const items = recentReadItems();
+    if (!items.length) {
+      list.innerHTML = `<li class="recent-empty">Open an article and it will rest here for quick return.</li>`;
+      return;
+    }
+
+    list.innerHTML = items.map((item) => `
+      <li>
+        <button type="button" class="recent-read-item" data-id="${esc(keyOf(item))}">
+          <span class="recent-read-title">${esc(item.title || "Untitled")}</span>
+          <span class="recent-read-meta">
+            <span>${esc(item.source || "Source")}</span>
+            ${formatDate(item.date) ? `<span>${esc(formatDate(item.date))}</span>` : ""}
+          </span>
+        </button>
+      </li>
+    `).join("");
+
+    list.querySelectorAll(".recent-read-item").forEach((btn) => {
+      btn.addEventListener("click", () => openItem(btn.dataset.id));
+    });
+  }
+
   /* ── Search / controls wiring ─────────────────────────────────────────── */
   byId("search").addEventListener("input", renderList);
   byId("aside-toggle").addEventListener("click", toggleMapFull);
@@ -2726,6 +2950,7 @@
     renderRail();
     renderList();
     renderGraph();
+    renderRecentRead();
     if (!fromSnapshot) saveFeedSnapshot(data);
   }
 
@@ -2768,6 +2993,7 @@
     renderRail();
     renderList();
     renderGraph();
+    renderRecentRead();
   });
 
   if (!loadFeedSnapshot()) {
