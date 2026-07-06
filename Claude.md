@@ -118,39 +118,40 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
 - `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read); enriches X/YouTube via `lib/kb-enrich.js`
-- `GET /api/library` — live KB index from `kb/inbox/` + `kb/notes/` (`lib/kb-index.js`)
+- `GET /api/library` — live KB index from `kb/inbox/` + `kb/wiki/sources/` (`lib/kb-index.js`)
+- `GET /api/wiki?q=` — search wiki markdown · `POST /api/wiki` — ingest/lint (`SAVE_SECRET`)
 
 ## Knowledge base (git-backed DB)
 
-Git is the database. No external DB. Query with Cursor/Claude Code over `kb/`.
+Karpathy [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) — three layers:
 
 ```
-kb/
-  inbox/<id>.json     raw saved item (append-only)
-  notes/<id>.md       enriched wiki (Phase 3 — empty for now)
-  index.json          generated read model
-  schema/             JSON schemas + note template
+kb/inbox/<id>.json       raw saved items (immutable)
+kb/wiki/                 LLM-maintained markdown wiki
+kb/wiki/WIKI.md         wiki agent schema (ingest/query/lint)
+kb/index.json            generated app read model
 ```
 
-**Item id:** SHA-256 of canonical item URL (`lib/item-id.js`).
+**Funnel:** Inbox → auto **To-read** → file to folder → remove To-read → `POST /api/save` → inbox JSON + **wiki ingest** (sources/concepts/entities/index/log).
 
-**Funnel (shipped July 2026):**
-1. New inbox items → auto **To-read** tag (Spotify included).
-2. User files to a folder → item leaves Inbox.
-3. User removes **To-read** → `POST /api/save` → `kb/inbox/<id>.json`.
-4. Spotify never writes to `kb/` (`lib/kb-save.js` blocks it).
+**Wiki maintenance (`kb/wiki/WIKI.md`):**
+- `sources/<id>.md` — summary per inbox item
+- `concepts/<slug>.md` — folder/topic synthesis pages
+- `entities/<slug>.md` — tickers and named entities
+- `index.md` — catalog; `log.md` — append-only timeline
+- `overview.md`, `tensions.md` — synthesis + contradictions ledger
 
-**Enrichment on save (`lib/kb-enrich.js`):**
-- **X/Twitter:** FxTwitter API → `content_kind` = `tweet` | `thread` | `note` | `article`; full text in `content_text`.
-- **YouTube:** `youtube-transcript` → `content_kind` = `video_transcript`.
-- **Substack/RSS:** `content_html` from feed when available.
-- Optional bird `thread` fallback when `AUTH_TOKEN` + `CT0` are set.
+**Scripts:** `npm run wiki:ingest` · `wiki:lint` · `wiki:search` · `kb:index` · `kb:backfill`
 
-**Scripts:** `npm run kb:index` (rebuild `kb/index.json`) · `npm run kb:backfill` (one-time batch from `data/workspace.json`).
+**API:** `GET /api/wiki?q=` search · `POST /api/wiki` ingest/lint (needs `SAVE_SECRET`)
 
-**Production saves:** `GITHUB_TOKEN` + `SAVE_SECRET` (`X-Save-Secret` header). `/api/save` maxDuration 60s in `vercel.json` for enrichment.
+**Enrichment on save (`lib/kb-enrich.js`):** X thread/article text, YouTube transcripts, Substack HTML.
 
-**localStorage:** `markets_kb_saved` tracks ids already saved in this browser (avoids duplicate POSTs).
+**Optional LLM:** set `ANTHROPIC_API_KEY` (+ `WIKI_LLM_MODEL`) for richer wiki summaries on ingest.
+
+Spotify: To-read yes, inbox/KB/wiki no.
+
+**localStorage:** `markets_kb_saved` — ids already saved this browser.
 
 ## What not to do
 

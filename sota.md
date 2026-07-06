@@ -156,8 +156,8 @@ Frontend mailbox state is now built: **Inbox** and **Trash** replace the old Sav
 **Phase 2 — triage tagging.**
 Folders + colored tags ship in the UI and sync via `/api/workspace`. LLM auto-tagging of the firehose remains deferred (`data/tags.json`).
 
-**Phase 3 — enrichment → knowledge base (Karpathy LLM wiki).**
-Deferred. Save/inbox backend plumbing exists but the visible Save UI is removed; enrichment, notes, and “ask the KB” are future work.
+**Phase 3 — enrichment → knowledge base (Karpathy LLM wiki, July 2026).**
+Shipped: `kb/wiki/` layer with ingest/query/lint (`kb/wiki/WIKI.md`), auto-compile on save, optional `ANTHROPIC_API_KEY` summaries. Deferred: in-app “ask the KB” UI, automated overview synthesis cron.
 
 **Deferred:** in-page "ask the KB" endpoint (Claude Code over the repo does this better) ·
 Notion mirror for mobile browsing · email digest.
@@ -169,7 +169,9 @@ Plain files are the database:
 ```text
 kb/
   inbox/<id>.json          raw saved item, append-only
-  notes/<id>.md            enriched wiki note with YAML frontmatter
+  wiki/                    Karpathy LLM wiki (sources, concepts, entities, index, log)
+  wiki/WIKI.md             agent schema for wiki maintenance
+  notes/<id>.md            legacy per-item notes (prefer wiki/sources/)
   index.json               generated Library read model
   schema/                  JSON schemas + note template
 data/
