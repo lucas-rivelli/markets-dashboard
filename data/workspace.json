@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-06T20:21:10.842Z",
+  "updated_at": "2026-07-06T20:23:08.694Z",
   "folders": [
-    "13k",
-    "AI (markets)",
     "LS",
     "Macro",
     "Macro/Geopolitics",
     "Markets",
     "Non-market",
     "Research",
-    "Robotics",
+    "Tech",
+    "Tech/AI",
+    "Tech/Robotics",
     "Thesis",
-    "Thesis/Macro",
+    "Thesis/Others",
     "Thesis/Stocks",
     "Usage",
     "Usage/Ai for Investing",
@@ -28,7 +28,7 @@
       "Usage/Tools"
     ],
     "c344b80ad07ba70e09bc71ca01268cc7550deae8e61c846aa15b30403c338286": [
-      "13k"
+      "Thesis/Others"
     ],
     "36e0cdf800bceed1774ec762cd12437d18876071528cb5764b2edbe264feab56": [
       "Research"
@@ -103,7 +103,7 @@
       "Macro"
     ],
     "74b413ad167ffac2134af968fa4b88490768aed4a70fe32bd38e51246f2ad5d2": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "e90f00b9642b089e281313fc905e8a00c12de7ae2b56ab7680ee066ea940e312": [
       "Non-market"
@@ -121,13 +121,13 @@
       "Thesis/Stocks"
     ],
     "29bb960f2302a6a50f763ea42341a274ca4bd780e9451b5a3c5492da47025ece": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "e785e4a91485d5e40614d355be7ef9d22ec6d64715ec8063e56a54d11b686bfe": [
       "Usage/Tools"
     ],
     "9d0970b4c261f01bd517e486ea64852c16ac02a523fe950199b0fb400e9e1f07": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "29cd0cf2f803ec441915d5563716a67d20a740851b810a84fec0c34836b243f7": [
       "Non-market"
@@ -139,7 +139,7 @@
       "Thesis/Stocks"
     ],
     "b5813b3998c3ca2b0ada7ebcd955b0974c54839f2ebc933ba842ea213ff28a7d": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "88926b169d0d0a02f0348fd43f203e8225664c27a76359e755573cdcfa0e366c": [
       "Non-market"
@@ -172,7 +172,7 @@
       "Usage/Ai for Investing"
     ],
     "3ac2083b4e24d4493d51420a864e02ada0cd6c07655626ee76dcc8e30018fbe5": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "d95a121addf808be605fcf84b970a0aa61eeaf91b88926ec0eae862956c4d125": [
       "LS"
@@ -190,7 +190,7 @@
       "Usage/Ai for Investing"
     ],
     "cef09a5fbece5cc10b27e80432abd6c184aaa23e12a728d1b7027a151b44c068": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "18ce2863510b6e0dfd0a0e802c0b6375855376b95891b779ce4b9b35086e6b5b": [
       "Usage/Coding"
@@ -208,7 +208,7 @@
       "LS"
     ],
     "f5839556d129a826c3dcd50aab3eb3f920ee170b556a481d569cbc218b401d5b": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "45194d51a089ffe5acaaa048920246c8a66fd551925e91fee2ef8514486a7338": [
       "LS"
@@ -268,19 +268,19 @@
       "Research"
     ],
     "b4d29db266a315ebd3901fda83334d3d6abf8d4618561bdd99dce7bf730056a9": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "8c9d673d20c3d2d26748317080ed0e734f5ee01b946dcda5f325fdb1678b34bb": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "13356c327a2e11b2c2a1b6dd28cfb3e4762b2f668e404606d94469ef7b81828a": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "cff21714f649940e4a829d0398e3e0b6c05c783e6064b9bff101daa2e3a0e44b": [
-      "Robotics"
+      "Tech/Robotics"
     ],
     "57e43a42293bfe818858e294df8dad60669ea35772364e682a37a49683b04eed": [
-      "Robotics"
+      "Tech/Robotics"
     ],
     "df2f4b768e4bd040036a8d8ea9016b88f67ac349f1bcde612062a163f084508d": [
       "LS"
@@ -328,10 +328,10 @@
       "LS"
     ],
     "1b0cca8db49598ad9ca9128178fcd5a5d2d8acdc8f769f1262971ac906588832": [
-      "AI (markets)"
+      "Tech/AI"
     ],
     "450d3b74ed597946903e0e07ef78d32247e686fa59ce76057ddf5e90ee2f22be": [
-      "Thesis/Macro"
+      "Thesis/Others"
     ],
     "d14d7feb172d516d12a13fff499259c2cdcddcc7679c11dffe7ba1509b7b64d7": [
       "Non-market"
@@ -352,7 +352,7 @@
       "Macro"
     ],
     "102833d735f875cac8d87099e091f5add86cdff46c099f49f2a75c2548e6a6f0": [
-      "Thesis/Macro"
+      "Thesis/Others"
     ],
     "35863a1d03c453c86e6245797368510c471f93c5684a662d6635bd73b048b1ea": [
       "Macro"
@@ -2538,8 +2538,6 @@
     "https://x.com/aakashgupta/status/2072765754102174114",
     "56ade1c52bff6758541981d29648b53912dab69a473b81f31b00027dd265fca2",
     "https://x.com/jerryliu/status/2073116662602342734",
-    "c344b80ad07ba70e09bc71ca01268cc7550deae8e61c846aa15b30403c338286",
-    "https://reboundcapital.substack.com/p/july-2026-portfolio-update",
     "36e0cdf800bceed1774ec762cd12437d18876071528cb5764b2edbe264feab56",
     "https://x.com/rickyho_1989/status/2071934737053372833",
     "0c5183e213cab6f3b2506178296c4fbd051668bedfc34bfef249185f4d4fccdb",
@@ -2793,7 +2791,9 @@
     "a01c9bc4a6401c3850ae24ea0889eff2c021713fdbe95269fb8ac222bb85f096",
     "https://open.spotify.com/episode/77vj2r8BQRknKqGy5usB7Z",
     "223b5b22fd89614b95ce32e04017a8564df9af4bff72e6aeb24dcbbb467605d6",
-    "https://open.spotify.com/episode/0rLGnFyK6DQu0rJv7PSbdN"
+    "https://open.spotify.com/episode/0rLGnFyK6DQu0rJv7PSbdN",
+    "c344b80ad07ba70e09bc71ca01268cc7550deae8e61c846aa15b30403c338286",
+    "https://reboundcapital.substack.com/p/july-2026-portfolio-update"
   ],
   "saved": []
 }
