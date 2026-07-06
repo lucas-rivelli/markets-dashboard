@@ -121,6 +121,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 **Mobile UX details (July 2026):**
 
 - **Sources** auto-opens the reader pane on narrow screens (fixes empty launchpad).
+- **Rail navigation while reading** — picking Inbox/All/Trash/folder/tag from the rail drawer returns to the list pane, even with an article open.
 - **Drawer scrim** — tap outside rail/map to dismiss; Escape closes drawers then reader.
 - **History API** — OS back button matches in-app Back (`pushState` / `popstate`).
 - **Safe area** — `100dvh` shell, `env(safe-area-inset-*)` on topbar and drawers.

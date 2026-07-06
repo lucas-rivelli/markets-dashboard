@@ -993,10 +993,35 @@
   ];
 
   /* ── Small storage helpers ────────────────────────────────────────────── */
+  /* Parsed-value cache: mutating a returned object is only safe when the same
+     reference is written back via writeJSON in the same tick. */
+  const jsonCache = new Map();
   const readJSON = (k, fallback) => {
-    try { return JSON.parse(localStorage.getItem(k)) ?? fallback; } catch { return fallback; }
+    if (jsonCache.has(k)) {
+      const cached = jsonCache.get(k);
+      return cached === undefined ? fallback : cached;
+    }
+    let v;
+    try { v = JSON.parse(localStorage.getItem(k)) ?? undefined; } catch { v = undefined; }
+    jsonCache.set(k, v);
+    return v === undefined ? fallback : v;
   };
-  const writeJSON = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+  const writeJSON = (k, v) => {
+    jsonCache.set(k, v);
+    localStorage.setItem(k, JSON.stringify(v));
+  };
+  window.addEventListener("storage", (e) => {
+    if (e.key === null) jsonCache.clear();
+    else jsonCache.delete(e.key);
+  });
+  const memoizeByObject = (fn) => {
+    const cache = new WeakMap();
+    return (raw) => {
+      if (!raw || typeof raw !== "object") return fn(raw);
+      if (!cache.has(raw)) cache.set(raw, fn(raw));
+      return cache.get(raw);
+    };
+  };
 
   listFilterFolder = String(readJSON(LIST_FILTER_FOLDER_KEY, "") || "");
   listFilterTag = String(readJSON(LIST_FILTER_TAG_KEY, "") || "");
@@ -1100,10 +1125,13 @@
     if (workspaceSyncing && !force) return;
     workspaceSyncing = true;
     try {
+      const body = JSON.stringify(collectWorkspacePayload());
       const res = await fetch("/api/workspace", {
         method: "PUT",
         headers: syncHeaders(),
-        body: JSON.stringify(collectWorkspacePayload()),
+        body,
+        // Survive tab close/backgrounding; keepalive caps bodies around 64KB
+        keepalive: document.visibilityState === "hidden" && body.length < 60000,
       });
       if (res.status === 401) {
         if (retryAuth && promptForSyncSecret()) {
@@ -1125,6 +1153,12 @@
   }
 
   async function loadWorkspaceFromServer() {
+    /* Local unsynced edits win: push them (server merges and echoes the result)
+       instead of pulling remote state over them. */
+    if (workspaceDirty) {
+      await pushWorkspaceState(true);
+      return;
+    }
     try {
       const res = await fetch("/api/workspace", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1187,7 +1221,8 @@
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tag";
 
   /* item status (synced via /api/workspace) */
-  const getReadSet = () => new Set(readJSON(READ_KEY, []));
+  const memoReadSet = memoizeByObject((arr) => new Set(arr));
+  const getReadSet = () => memoReadSet(readJSON(READ_KEY, []));
   const normalizeStatus = (status) => {
     const next = String(status || "").trim().toLowerCase();
     if (next === "saw" || next === "to-read" || next === "read") return "inbox";
@@ -1199,7 +1234,8 @@
     for (const [key, value] of Object.entries(raw)) out[key] = normalizeStatus(value);
     return out;
   };
-  const getStatusMap = () => normalizeStatusMap(readJSON(ITEM_STATUS_KEY, {}));
+  const memoStatusMap = memoizeByObject(normalizeStatusMap);
+  const getStatusMap = () => memoStatusMap(readJSON(ITEM_STATUS_KEY, {}));
   const readKeysFor = (item) => {
     const keys = [];
     const id = keyOf(item);
@@ -1238,7 +1274,8 @@
     }
     return out;
   };
-  const getTitleMap = () => normalizeTitleMap(readJSON(ITEM_TITLES_KEY, {}));
+  const memoTitleMap = memoizeByObject(normalizeTitleMap);
+  const getTitleMap = () => memoTitleMap(readJSON(ITEM_TITLES_KEY, {}));
   const feedTitle = (item) => String(item?.title || "").trim() || "Untitled";
   const itemTitle = (item) => {
     const map = getTitleMap();
@@ -1268,7 +1305,8 @@
     }
     return out;
   };
-  const getAddedMap = () => normalizeAddedMap(readJSON(ITEM_ADDED_KEY, {}));
+  const memoAddedMap = memoizeByObject(normalizeAddedMap);
+  const getAddedMap = () => memoAddedMap(readJSON(ITEM_ADDED_KEY, {}));
   const itemAddedAt = (item) => {
     const map = getAddedMap();
     for (const k of readKeysFor(item)) {
@@ -1277,11 +1315,6 @@
     return null;
   };
   const displayAddedAt = (item) => itemAddedAt(item);
-  const compareByAddedDesc = (a, b) => {
-    const da = Date.parse(itemAddedAt(a) || "") || 0;
-    const db = Date.parse(itemAddedAt(b) || "") || 0;
-    return db - da;
-  };
   function migratePublicationAddedDates(items) {
     if (readJSON(ADDED_DATE_MIGRATION_KEY, false)) return;
     const map = getAddedMap();
@@ -1504,9 +1537,10 @@
     const parts = folderParts(name);
     return parts.slice(0, -1).map((_, i) => parts.slice(0, i + 1).join("/"));
   }
+  const folderCollator = new Intl.Collator(undefined, { sensitivity: "base" });
   function sortFolders(folders) {
     return [...folders].sort((a, b) =>
-      normalizeFolderPath(a).localeCompare(normalizeFolderPath(b), undefined, { sensitivity: "base" })
+      folderCollator.compare(normalizeFolderPath(a), normalizeFolderPath(b))
     );
   }
   const getFolders = () => sortFolders(readJSON(FOLDERS_KEY, []).map(normalizeFolderPath).filter(Boolean));
@@ -1563,8 +1597,31 @@
     writeJSON(ITEM_STATUS_KEY, statuses);
     scheduleWorkspaceSync();
   };
-  const folderCount = (name) =>
-    visibleItems().filter((it) => getItemFolders(keyOf(it)).some((f) => isSameFolder(f, name))).length;
+  /* One pass over allItems for every rail/graph count */
+  function computeMetaCounts() {
+    const folderCounts = new Map();
+    const tagCounts = new Map();
+    let inbox = 0, all = 0, trash = 0;
+    for (const it of allItems) {
+      const k = keyOf(it);
+      if (itemStatus(it) === "trash") { trash++; continue; }
+      all++;
+      const folders = getItemFolders(k);
+      if (!folders.length) inbox++;
+      for (const f of folders) {
+        const key = f.toLowerCase();
+        folderCounts.set(key, (folderCounts.get(key) || 0) + 1);
+      }
+      for (const tid of getItemTagIds(k)) {
+        tagCounts.set(tid, (tagCounts.get(tid) || 0) + 1);
+      }
+    }
+    return {
+      inbox, all, trash,
+      folder: (name) => folderCounts.get(normalizeFolderPath(name).toLowerCase()) || 0,
+      tag: (id) => tagCounts.get(id) || 0,
+    };
+  }
   const movedFolderPath = (name, parent) => {
     const leaf = folderLeaf(name);
     const dest = normalizeFolderPath(parent);
@@ -1661,8 +1718,6 @@
     const item = allItems.find((it) => keyOf(it) === k);
     if (item) evaluateKnowledgeSave(item);
   };
-  const tagCount = (tagId) =>
-    visibleItems().filter((it) => getItemTagIds(keyOf(it)).includes(tagId)).length;
   const renameTag = (id, newName, newColor) => {
     newName = String(newName || "").trim();
     if (!newName) return false;
@@ -1673,6 +1728,7 @@
     tag.name = newName;
     if (newColor) tag.color = newColor;
     writeJSON(TAGS_KEY, tags);
+    scheduleWorkspaceSync();
     return true;
   };
   const removeTag = (id) => {
@@ -1683,6 +1739,7 @@
       if (!map[k].length) delete map[k];
     }
     writeJSON(ITEM_TAGS_KEY, map);
+    scheduleWorkspaceSync();
     if (activeView === "tag:" + id) selectView("inbox");
   };
 
@@ -1903,7 +1960,7 @@
   function setMobilePane(pane, { fromPopstate = false } = {}) {
     const prev = mobilePane();
     document.body.dataset.mobile = pane;
-    if (pane === "list") closeDrawers();
+    closeDrawers();
 
     if (!isMobileLayout()) return;
 
@@ -1969,14 +2026,11 @@
 
   /* ── Rail ─────────────────────────────────────────────────────────────── */
   function renderRail() {
-    const bucketItems = statusItems();
-    const inboxCount = bucketItems.filter((it) => itemStatus(it) === "inbox").length;
-    const allCount = visibleItems().length;
-    const trashCount = allItems.filter((it) => itemStatus(it) === "trash").length;
+    const counts = computeMetaCounts();
     const fixed = [
-      { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
-      { id: "all",     glyph: "☰", name: "All",     count: allCount },
-      { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
+      { id: "inbox",   glyph: "✦", name: "Inbox",   count: counts.inbox },
+      { id: "all",     glyph: "☰", name: "All",     count: counts.all },
+      { id: "trash",   glyph: "×", name: "Trash",   count: counts.trash },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
       { id: "__add_piece__", glyph: "＋", name: "Add piece", count: "", action: "add-piece" },
     ];
@@ -1984,12 +2038,12 @@
 
     const folders = getFolders();
     byId("rail-folders").innerHTML = folders.length
-      ? folders.map((name) => railFolderHTML(name)).join("")
+      ? folders.map((name) => railFolderHTML(name, counts)).join("")
       : `<li style="padding:0.3rem 1rem;color:var(--ink-faint);font-style:italic;font-size:0.85rem">No folders yet</li>`;
 
     const tags = getTags();
     byId("rail-tags").innerHTML = tags.length
-      ? tags.map((tag) => railTagHTML(tag)).join("")
+      ? tags.map((tag) => railTagHTML(tag, counts)).join("")
       : `<li style="padding:0.3rem 1rem;color:var(--ink-faint);font-style:italic;font-size:0.85rem">No tags yet</li>`;
 
     document.querySelectorAll(".rail-item").forEach((btn) => {
@@ -2016,22 +2070,22 @@
       <span class="name">${esc(f.name)}</span>
       ${count}</button></li>`;
   }
-  function railFolderHTML(name) {
+  function railFolderHTML(name, counts) {
     const id = "folder:" + name;
     const cur = activeView === id;
     const depth = Math.min(folderDepth(name), 4);
     return `<li class="rail-row"><button class="rail-item folder-depth-${depth}" data-view="${esc(id)}" data-meta-kind="folder" data-meta-name="${esc(name)}" aria-current="${cur}" title="${esc(name)}">
       <span class="glyph" aria-hidden="true">${depth ? "⌞" : "❧"}</span>
       <span class="name">${esc(folderLeaf(name))}</span>
-      <span class="count">${folderCount(name)}</span></button></li>`;
+      <span class="count">${counts.folder(name)}</span></button></li>`;
   }
-  function railTagHTML(tag) {
+  function railTagHTML(tag, counts) {
     const id = "tag:" + tag.id;
     const cur = activeView === id;
     return `<li class="rail-row"><button class="rail-item" data-view="${esc(id)}" data-meta-kind="tag" data-meta-id="${esc(tag.id)}" aria-current="${cur}">
       <span class="tag-dot" style="background:${esc(tag.color)}" aria-hidden="true"></span>
       <span class="name">${esc(tag.name)}</span>
-      <span class="count">${tagCount(tag.id)}</span></button></li>`;
+      <span class="count">${counts.tag(tag.id)}</span></button></li>`;
   }
 
   function metaFromRailButton(btn) {
@@ -2082,20 +2136,13 @@
     clearCheckedIds();
     listFocusIndex = -1;
     lastListClickIndex = -1;
-    if (id.startsWith("folder:")) {
-      listFilterFolder = id.slice(7);
-      writeJSON(LIST_FILTER_FOLDER_KEY, listFilterFolder);
-    } else if (id.startsWith("tag:")) {
-      listFilterTag = id.slice(4);
-      writeJSON(LIST_FILTER_TAG_KEY, listFilterTag);
-    }
     closeDrawers();
     renderRail();
     renderList();
-    renderGraph();
+    updateGraphActive();
     if (activeView === "sources") {
       showReaderPane();
-    } else if (isMobileLayout() && mobilePane() === "reader" && !selectedId) {
+    } else if (isMobileLayout() && mobilePane() === "reader") {
       setMobilePane("list");
     }
   }
@@ -2472,9 +2519,11 @@
 
   function effectiveListFilters() {
     const locks = viewFilterLocks();
+    const folder = locks.folder || listFilterFolder;
+    const tag = locks.tag || listFilterTag;
     return {
-      folder: locks.folder || listFilterFolder,
-      tag: locks.tag || listFilterTag,
+      folder: folder && getFolders().some((f) => isSameFolder(f, folder)) ? folder : "",
+      tag: tag && getTags().some((t) => t.id === tag) ? tag : "",
     };
   }
 
@@ -2536,18 +2585,20 @@
 
   function getFilteredListItems() {
     const q = byId("search").value.toLowerCase().trim();
-    return applyCrossFilters(itemsForView()).filter((it) => {
-      const k = keyOf(it);
-      const tagNames = getItemTags(k).map((t) => t.name).join(" ");
-      const folderNames = getItemFolders(k).join(" ");
-      return !q
-        || itemTitle(it).toLowerCase().includes(q)
-        || feedTitle(it).toLowerCase().includes(q)
-        || (it.source || "").toLowerCase().includes(q)
-        || (it.snippet || "").toLowerCase().includes(q)
-        || tagNames.toLowerCase().includes(q)
-        || folderNames.toLowerCase().includes(q);
-    }).sort(compareByAddedDesc);
+    let items = applyCrossFilters(itemsForView());
+    if (q) {
+      items = items.filter((it) => {
+        const k = keyOf(it);
+        if (itemTitle(it).toLowerCase().includes(q)
+          || feedTitle(it).toLowerCase().includes(q)
+          || (it.source || "").toLowerCase().includes(q)
+          || (it.snippet || "").toLowerCase().includes(q)) return true;
+        return getItemTags(k).some((t) => t.name.toLowerCase().includes(q))
+          || getItemFolders(k).join(" ").toLowerCase().includes(q);
+      });
+    }
+    const stamp = new Map(items.map((it) => [it, Date.parse(itemAddedAt(it) || "") || 0]));
+    return items.sort((a, b) => stamp.get(b) - stamp.get(a));
   }
 
   function clearCheckedIds() {
@@ -2786,7 +2837,7 @@
     renderReader(item);
     renderList();
     updateCounts();
-    renderGraph();
+    updateGraphActive();
     renderRecentRead();
   }
 
@@ -3205,6 +3256,7 @@
   function buildGraphData() {
     const folders = getFolders();
     const tags = getTags();
+    const counts = computeMetaCounts();
     const nodes = [];
     const links = [];
     const nodeIndex = new Map();
@@ -3221,7 +3273,7 @@
         id: "folder:" + name,
         kind: "folder",
         label: name,
-        r: 9 + Math.min(folderCount(name), 8),
+        r: 9 + Math.min(counts.folder(name), 8),
       });
     });
 
@@ -3231,7 +3283,7 @@
         kind: "tag",
         label: tag.name,
         color: tag.color,
-        r: 8 + Math.min(tagCount(tag.id), 8),
+        r: 8 + Math.min(counts.tag(tag.id), 8),
       });
     });
 
@@ -3264,6 +3316,18 @@
   const graphPos = new Map();                       // node id → { x, y }
   const graphView = { tx: 0, ty: 0, scale: 1, fitted: false };
   let graphRaf = null;
+  let graphNodes = null;                            // nodes of the currently mounted SVG
+
+  /* Selection/view changes only need the active highlight, not a rebuild */
+  function updateGraphActive() {
+    if (!graphNodes) return;
+    graphNodes.forEach((node) => {
+      const active =
+        ((node.kind === "folder" || node.kind === "tag") && activeView === node.id) ||
+        (node.kind === "article" && selectedId === node.itemKey);
+      node.el?.classList.toggle("active", active);
+    });
+  }
 
   function renderGraph() {
     if (isMobileLayout()) return;   // map disabled on mobile
@@ -3488,7 +3552,6 @@
           if (document.body.dataset.map === "full") exitMapFull();
           openItem(node.itemKey);
           if (isMobileLayout()) document.body.dataset.aside = "closed";
-          renderGraph();
         } else {
           selectView(node.id);
           if (isMobileLayout()) document.body.dataset.aside = "closed";
@@ -3566,6 +3629,7 @@
     svg.addEventListener("dblclick", (e) => { e.preventDefault(); fitView(); });
 
     wrap.appendChild(svg);
+    graphNodes = nodes;
 
     if (!graphView.fitted) { fitView(); graphView.fitted = true; }
     else applyView();
@@ -3888,13 +3952,16 @@
     if (feedPollTimer) clearInterval(feedPollTimer);
     feedPollTimer = setInterval(() => {
       loadFeed({ background: true });
-      loadWorkspaceFromServer();
-      flushWorkspaceIfDirty();
+      loadWorkspaceFromServer();   // pushes when dirty, pulls otherwise
     }, REFRESH_MS);
   }
 
   byId("btn-refresh").addEventListener("click", syncAll);
-  window.addEventListener("resize", () => { if (buildGraphData().nodes.length) renderGraph(); });
+  let graphResizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(graphResizeTimer);
+    graphResizeTimer = setTimeout(() => { if (buildGraphData().nodes.length) renderGraph(); }, 150);
+  });
 
   captureSyncSecretFromUrl();
 
