@@ -20,9 +20,10 @@ if [ "${#CHANGED[@]}" -eq 0 ]; then
 fi
 
 for path in "${CHANGED[@]}"; do
-  if [ "$path" != "data/workspace.json" ]; then
-    exit 1
-  fi
+  case "$path" in
+    data/workspace.json|data/spotify-cache.json) ;;
+    *) exit 1 ;;
+  esac
 done
 
 exit 0
