@@ -1714,6 +1714,25 @@
     return Boolean(toRead && getItemTagIds(k).includes(toRead.id));
   }
 
+  function removeToReadTagFromItems(items) {
+    const toRead = getTags().find((t) => t.name.toLowerCase() === TO_READ_TAG_NAME.toLowerCase());
+    if (!toRead) return;
+    const map = readJSON(ITEM_TAGS_KEY, {});
+    let changed = false;
+    for (const item of items) {
+      for (const k of readKeysFor(item)) {
+        if (!map[k]?.includes(toRead.id)) continue;
+        map[k] = map[k].filter((tid) => tid !== toRead.id);
+        if (!map[k].length) delete map[k];
+        changed = true;
+      }
+    }
+    if (changed) {
+      writeJSON(ITEM_TAGS_KEY, map);
+      scheduleWorkspaceSync();
+    }
+  }
+
   function shouldSaveToKnowledgeBase(item) {
     if (!item || item.category === "Spotify") return false;
     const k = keyOf(item);
@@ -2570,6 +2589,7 @@
   function moveItemsStatus(items, status) {
     if (!items.length) return;
     items.forEach((item) => setItemStatus(item, status));
+    if (status === "trash") removeToReadTagFromItems(items);
     if (selectedId && items.some((it) => keyOf(it) === selectedId)) {
       const open = allItems.find((it) => keyOf(it) === selectedId);
       if (open) renderReader(open);
