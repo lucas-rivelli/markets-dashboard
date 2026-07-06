@@ -6,7 +6,6 @@ const cronHandler = require("../api/cron");
 const triggerBookmarksHandler = require("../api/trigger-bookmarks");
 const libraryHandler = require("../api/library");
 const saveHandler = require("../api/save");
-const wikiHandler = require("../api/wiki");
 const manualLinkHandler = require("../api/manual-link");
 const workspaceHandler = require("../api/workspace");
 const readStateHandler = require("../api/read-state");
@@ -138,16 +137,6 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
   if (pathname === "/api/save") {
     try {
       await saveHandler(nodeReq, vercelRes(nodeRes));
-    } catch (err) {
-      nodeRes.statusCode = 500;
-      nodeRes.end(JSON.stringify({ error: err.message }));
-    }
-    return;
-  }
-
-  if (pathname === "/api/wiki") {
-    try {
-      await wikiHandler(nodeReq, vercelRes(nodeRes));
     } catch (err) {
       nodeRes.statusCode = 500;
       nodeRes.end(JSON.stringify({ error: err.message }));

@@ -8,14 +8,7 @@ This folder is the database. Keep it plain, boring, and friendly to git diffs.
 
 **When items land here (July 2026):** the UI auto-saves when an item is filed to a folder and no longer has the **To-read** tag. Spotify is tagged in the UI but excluded from KB writes. Saved records include folders, tags, highlights, Substack `content_html` when available, plus enriched `content_text` for X (tweet/thread/note/article) and YouTube transcripts.
 
-`notes/` is the compiled wiki layer (legacy flat notes). Prefer `wiki/` for the Karpathy pattern:
-
-- `wiki/sources/<id>.md` — one summary page per inbox item
-- `wiki/concepts/`, `wiki/entities/` — cross-linked synthesis
-- `wiki/index.md`, `wiki/log.md` — catalog + timeline
-- `wiki/WIKI.md` — agent schema (ingest / query / lint)
-
-`npm run wiki:ingest -- --all` compiles all inbox items into the wiki. Runs automatically on each new save.
+`notes/` is the compiled layer (future per-item markdown notes). Not populated yet.
 
 `index.json` is a generated read model for the app. It is built from `inbox/` and `notes/`, so it can always be regenerated.
 

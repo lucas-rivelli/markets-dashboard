@@ -118,31 +118,22 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
 - `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read); enriches X/YouTube via `lib/kb-enrich.js`
-- `GET /api/library` — live KB index from `kb/inbox/` + `kb/wiki/sources/` (`lib/kb-index.js`)
-- `GET /api/wiki?q=` — search wiki markdown · `POST /api/wiki` — ingest/lint (`SAVE_SECRET`)
+- `GET /api/library` — live KB index from `kb/inbox/` (`lib/kb-index.js`)
 
 ## Knowledge base (git-backed DB)
 
-Karpathy [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) — three layers:
-
 ```
 kb/inbox/<id>.json       raw saved items (immutable)
-kb/wiki/                 LLM-maintained markdown wiki
-kb/wiki/WIKI.md         wiki agent schema (ingest/query/lint)
 kb/index.json            generated app read model
 ```
 
-**Funnel:** Inbox → auto **To-read** → file to folder → remove To-read → `POST /api/save` → inbox JSON + **wiki queue** (not auto-authored).
+**Funnel:** Inbox → auto **To-read** → file to folder → remove To-read → `POST /api/save` → inbox JSON.
 
-**Wiki (Cursor agent, daily):** read `kb/wiki/AGENT.md` + `RUN.md`. GitHub prepares queue at 08:00 BRT; Cursor automation enriches at 08:30. **No Anthropic API key** — agent writes markdown in Cursor.
-
-**Scripts:** `wiki:daily` · `wiki:ingest` (scaffold) · `wiki:lint` · `wiki:search` · `kb:index` · `kb:backfill`
-
-**API:** `GET /api/wiki?q=` or `GET /api/wiki` (queue) · `POST /api/wiki` sync/lint/scaffold
+**Scripts:** `kb:index` · `kb:backfill`
 
 **Enrichment on save (`lib/kb-enrich.js`):** X/YouTube body text into inbox JSON only.
 
-Spotify: To-read yes, inbox/KB/wiki no.
+Spotify: To-read yes, inbox/KB no.
 
 **localStorage:** `markets_kb_saved` — ids already saved this browser.
 

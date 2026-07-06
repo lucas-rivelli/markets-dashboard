@@ -21,7 +21,7 @@ FIREHOSE  →  TRIAGE  →  LIBRARY
 
 - **Firehose** — merged timeline of everything published by followed sources. Job: coverage.
 - **Triage** — LLM auto-tags items by *theme* (not just source), so browsing is by idea: `semis`, `macro-rates`, `AI-capex`, `crypto`…
-- **Library** — a Karpathy-style knowledge base: saving an item triggers enrichment (full text → structured markdown note with summary, key claims, tickers, themes) stored as **one file per item in `kb/` in this repo**. Git is the database; Claude Code / Cursor over the repo is the query engine ("what have I saved on the AI capex cycle, and where do authors disagree?").
+- **Library** — saved items enriched into `kb/inbox/<id>.json` (full text, folders, tags, highlights). `kb/index.json` + `GET /api/library` for search. Git is the database; Claude Code / Cursor over the repo is the query engine.
 
 Design principle: knowledge lives in **plain text files in git** — versioned, portable, and directly operable by LLM tools. No external database.
 
@@ -156,8 +156,8 @@ Frontend mailbox state is now built: **Inbox** and **Trash** replace the old Sav
 **Phase 2 — triage tagging.**
 Folders + colored tags ship in the UI and sync via `/api/workspace`. LLM auto-tagging of the firehose remains deferred (`data/tags.json`).
 
-**Phase 3 — Karpathy LLM wiki (July 2026).**
-`kb/wiki/` maintained by **Cursor agent** daily (`AGENT.md`, `RUN.md`, GitHub `wiki-daily.yml`). Inbox enrichment (X/YouTube) stays in `kb/inbox/`; wiki prose is agent-authored — no Anthropic API. Deferred: in-app “ask the KB” UI.
+**Phase 3 — knowledge base (July 2026).**
+`kb/inbox/<id>.json` on save when filed without To-read; enrichment for X/YouTube via `lib/kb-enrich.js`. `kb/index.json` + `GET /api/library` for search. Deferred: compiled notes layer, in-app “ask the KB” UI.
 
 **Deferred:** in-page "ask the KB" endpoint (Claude Code over the repo does this better) ·
 Notion mirror for mobile browsing · email digest.
@@ -169,9 +169,7 @@ Plain files are the database:
 ```text
 kb/
   inbox/<id>.json          raw saved item, append-only
-  wiki/                    Karpathy LLM wiki (sources, concepts, entities, index, log)
-  wiki/WIKI.md             agent schema for wiki maintenance
-  notes/<id>.md            legacy per-item notes (prefer wiki/sources/)
+  notes/<id>.md            future compiled notes (not populated yet)
   index.json               generated Library read model
   schema/                  JSON schemas + note template
 data/
