@@ -25,7 +25,7 @@ kb/notes/<id>.md
 
 ## Saved Item
 
-Saved records use this shape:
+Saved records use this shape (see `schema/saved-item.schema.json`):
 
 ```json
 {
@@ -41,9 +41,26 @@ Saved records use this shape:
   "themes": [],
   "tickers": [],
   "type": "article",
-  "snippet": "Short excerpt"
+  "snippet": "Short excerpt",
+  "folders": ["Macro"],
+  "tags": ["on-going"],
+  "highlights": [{ "id": "h1", "text": "Quote", "created_at": null }],
+  "content_html": "",
+  "content_kind": "thread",
+  "content_text": "Full tweet thread or YouTube transcript…",
+  "content_meta": { "platform": "x", "thread_length": 5 }
 }
 ```
+
+`content_kind` values: `tweet`, `thread`, `note`, `article`, `video_transcript`, `html` (optional).
+
+## Index item
+
+`index.json` items add search fields and paths (see `schema/index.schema.json`):
+
+- `folders`, `tags`, `content_kind`, `content_text`, `highlight_count`
+- `inbox_path`, `note_path`, `search_text` (concatenated for grep/LLM queries)
+- Facets: `themes`, `tickers`, `folders`, `tags`, `sources`, `categories`, `types`, `content_kinds`, `statuses`
 
 ## Note Frontmatter
 
@@ -71,6 +88,12 @@ Build the index with:
 
 ```bash
 npm run kb:index
+```
+
+Backfill existing filed workspace items (no To-read, not Spotify):
+
+```bash
+npm run kb:backfill
 ```
 
 The app can also read the live index from `GET /api/library`, which builds the same structure from files.

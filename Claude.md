@@ -3,7 +3,7 @@
 > Companion to [sota.md](sota.md). Read **sota.md** for vision/roadmap; read **HANDOFF.md** for setup/env.
 > Update **both this file and sota.md** when UI behavior or direction changes.
 
-*Last updated: July 4, 2026*
+*Last updated: July 6, 2026*
 
 ---
 
@@ -117,8 +117,40 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - `POST /api/manual-link` — add one-off links to `data/manual-links.json`, then merged into `/api/feed`
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
-- `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read)
-- `GET /api/library` — KB index (Phase 3 hook)
+- `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read); enriches X/YouTube via `lib/kb-enrich.js`
+- `GET /api/library` — live KB index from `kb/inbox/` + `kb/notes/` (`lib/kb-index.js`)
+
+## Knowledge base (git-backed DB)
+
+Git is the database. No external DB. Query with Cursor/Claude Code over `kb/`.
+
+```
+kb/
+  inbox/<id>.json     raw saved item (append-only)
+  notes/<id>.md       enriched wiki (Phase 3 — empty for now)
+  index.json          generated read model
+  schema/             JSON schemas + note template
+```
+
+**Item id:** SHA-256 of canonical item URL (`lib/item-id.js`).
+
+**Funnel (shipped July 2026):**
+1. New inbox items → auto **To-read** tag (Spotify included).
+2. User files to a folder → item leaves Inbox.
+3. User removes **To-read** → `POST /api/save` → `kb/inbox/<id>.json`.
+4. Spotify never writes to `kb/` (`lib/kb-save.js` blocks it).
+
+**Enrichment on save (`lib/kb-enrich.js`):**
+- **X/Twitter:** FxTwitter API → `content_kind` = `tweet` | `thread` | `note` | `article`; full text in `content_text`.
+- **YouTube:** `youtube-transcript` → `content_kind` = `video_transcript`.
+- **Substack/RSS:** `content_html` from feed when available.
+- Optional bird `thread` fallback when `AUTH_TOKEN` + `CT0` are set.
+
+**Scripts:** `npm run kb:index` (rebuild `kb/index.json`) · `npm run kb:backfill` (one-time batch from `data/workspace.json`).
+
+**Production saves:** `GITHUB_TOKEN` + `SAVE_SECRET` (`X-Save-Secret` header). `/api/save` maxDuration 60s in `vercel.json` for enrichment.
+
+**localStorage:** `markets_kb_saved` tracks ids already saved in this browser (avoids duplicate POSTs).
 
 ## What not to do
 

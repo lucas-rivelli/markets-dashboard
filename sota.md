@@ -4,7 +4,7 @@
 > Read this to plan. For operational detail (setup, env vars, commands), see [HANDOFF.md](HANDOFF.md).
 > Update this file whenever the direction changes.
 
-*Last updated: July 4, 2026*
+*Last updated: July 6, 2026*
 
 ---
 
@@ -178,8 +178,10 @@ data/
 
 `kb/index.json` and `GET /api/library` expose:
 `schema_version`, `generated_at`, `counts`, `facets`, and `items[]`.
+Facets: `themes`, `tickers`, `folders`, `tags`, `sources`, `categories`, `types`, `content_kinds`, `statuses`.
 Each index item includes `id`, `title`, `url`, `source`, `category`, `type`, `date`, `saved_at`,
-`status`, `themes`, `tickers`, `summary`, `snippet`, paths to the inbox/note files, and `search_text`.
+`status`, `themes`, `tickers`, `folders`, `tags`, `content_kind`, `content_text`, `highlight_count`,
+`summary`, `snippet`, paths to the inbox/note files, and `search_text`.
 
 ## 7. Open decisions
 

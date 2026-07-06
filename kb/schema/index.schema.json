@@ -21,12 +21,26 @@
     "facets": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["themes", "tickers", "sources", "types", "statuses"],
+      "required": [
+        "themes",
+        "tickers",
+        "folders",
+        "tags",
+        "sources",
+        "categories",
+        "types",
+        "content_kinds",
+        "statuses"
+      ],
       "properties": {
         "themes": { "$ref": "#/$defs/facet_list" },
         "tickers": { "$ref": "#/$defs/facet_list" },
+        "folders": { "$ref": "#/$defs/facet_list" },
+        "tags": { "$ref": "#/$defs/facet_list" },
         "sources": { "$ref": "#/$defs/facet_list" },
+        "categories": { "$ref": "#/$defs/facet_list" },
         "types": { "$ref": "#/$defs/facet_list" },
+        "content_kinds": { "$ref": "#/$defs/facet_list" },
         "statuses": { "$ref": "#/$defs/facet_list" }
       }
     },
@@ -63,14 +77,19 @@
         "status",
         "themes",
         "tickers",
+        "folders",
+        "tags",
         "summary",
         "snippet",
+        "content_kind",
+        "highlight_count",
+        "content_text",
         "inbox_path",
         "note_path",
         "search_text"
       ],
       "properties": {
-        "id": { "type": "string" },
+        "id": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
         "title": { "type": "string" },
         "url": { "type": "string" },
         "source": { "type": "string" },
@@ -87,8 +106,20 @@
           "type": "array",
           "items": { "type": "string" }
         },
+        "folders": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
         "summary": { "type": "string" },
         "snippet": { "type": "string" },
+        "content_kind": { "type": "string" },
+        "highlight_count": { "type": "integer", "minimum": 0 },
+        "content_text": { "type": "string" },
+        "content_meta": { "type": ["object", "null"] },
         "inbox_path": { "type": ["string", "null"] },
         "note_path": { "type": ["string", "null"] },
         "search_text": { "type": "string" }
