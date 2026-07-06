@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const { buildFeedResponse } = require("../lib/aggregate");
+const { SOURCES } = require("../api/feed");
 const { stableItemId } = require("../lib/item-id");
 const { enrichKnowledgeInput } = require("../lib/kb-enrich");
 const { normalizeSavedItem, saveToLocalFs } = require("../lib/kb-save");
@@ -77,7 +78,7 @@ async function main() {
     "to-read";
 
   console.log("Fetching feed…");
-  const feed = await buildFeedResponse({ fresh: false });
+  const feed = await buildFeedResponse(SOURCES);
   const byKey = new Map();
   for (const item of feed.items || []) {
     byKey.set(item.id || stableItemId(item), item);
