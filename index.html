@@ -189,6 +189,10 @@
     }
     .rail-divider::after { content: ""; flex: 1; border-top: 1px solid var(--rule-soft); }
 
+    body[data-folders="hidden"] .rail-folders-block { display: none; }
+
+    .rail-item[data-action="add-piece"] .glyph { font-size: 1.05rem; }
+
     .rail-add {
       display: flex; align-items: center; gap: 0.4rem;
       margin: 0.35rem 0.9rem;
@@ -592,6 +596,22 @@
     .chat-form button { color: var(--rubric); font-size: 1.2rem; }
 
     /* ── Sources launchpad (in reader) ──────────────────────────────────── */
+    .sources-add-piece {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--rubric);
+      margin-bottom: 0.35rem;
+      min-height: 2.75rem;
+      touch-action: manipulation;
+    }
+    .sources-add-piece:hover { color: var(--ink); }
+    .sources-add-hint {
+      color: var(--ink-faint);
+      font-style: italic;
+      font-size: 0.88rem;
+      margin-bottom: 1.4rem;
+    }
     .sources-group { margin-bottom: 2rem; }
     .sources-group-label { display: flex; align-items: center; gap: 0.9rem;
       color: var(--rubric); margin-bottom: 0.3rem; }
@@ -712,17 +732,16 @@
       .reader-inner { padding-left: 1rem; padding-right: 1rem; }
       .reader-title { font-size: 1.45rem; }
     }
-    .rail-toggle { display: none; }
-    @media (max-width: 820px) { .rail-toggle { display: inline-flex; } }
+    .rail-toggle { display: inline-flex; }
   </style>
 </head>
-<body data-mobile="list" data-rail="closed" data-aside="closed">
+<body data-mobile="list" data-rail="closed" data-aside="closed" data-folders="visible">
 
 <div class="drawer-scrim" id="drawer-scrim" aria-hidden="true" tabindex="-1"></div>
 
 <div class="app">
   <header class="topbar">
-    <button class="link-btn rail-toggle label" id="rail-toggle" aria-label="Open sidebar">☰ Menu</button>
+    <button class="link-btn rail-toggle label" id="rail-toggle" aria-label="Hide folders" aria-pressed="false">☰ Menu</button>
     <div class="brand">
       <span class="brand-mark" aria-hidden="true">❦</span>
       <span class="brand-name">Markets Reading</span>
@@ -730,7 +749,7 @@
     <span class="topbar-spacer"></span>
     <span class="updated-line label" id="updated-line">Loading…</span>
     <span id="failed-line" class="failed-line" hidden></span>
-    <button class="link-btn label" id="btn-add-link" aria-label="Add link">＋ <span class="add-label">Add</span></button>
+    <button class="link-btn label" id="btn-add-link" aria-label="Add piece">＋ <span class="add-label">Add piece</span></button>
     <button class="link-btn label" id="btn-refresh" aria-label="Force refresh feed">↻ <span class="sync-label">Sync</span></button>
     <button class="link-btn pane-toggle label" id="aside-toggle" aria-label="Toggle tag map">❦ Map</button>
   </header>
@@ -740,9 +759,11 @@
     <nav class="col rail" aria-label="Reading room">
       <div class="col-head"><span class="label">Reading Room</span></div>
       <ul class="rail-list" id="rail-fixed"></ul>
-      <div class="rail-divider label">Folders</div>
-      <ul class="rail-list" id="rail-folders"></ul>
-      <button class="rail-add" id="rail-add-folder">＋ New folder</button>
+      <div class="rail-folders-block">
+        <div class="rail-divider label">Folders</div>
+        <ul class="rail-list" id="rail-folders"></ul>
+        <button class="rail-add" id="rail-add-folder">＋ New folder</button>
+      </div>
       <div class="rail-divider label">Tags</div>
       <ul class="rail-list" id="rail-tags"></ul>
       <button class="rail-add" id="rail-add-tag">＋ New tag</button>
@@ -1432,6 +1453,31 @@
   const MOBILE_MQ = window.matchMedia("(max-width: 820px)");
   const isMobileLayout = () => MOBILE_MQ.matches;
 
+  function foldersHidden() {
+    return document.body.dataset.folders === "hidden";
+  }
+
+  function syncMenuToggleUi() {
+    const btn = byId("rail-toggle");
+    const hidden = foldersHidden();
+    btn.setAttribute("aria-pressed", hidden ? "true" : "false");
+    btn.setAttribute("aria-label", hidden ? "Show folders" : "Hide folders");
+  }
+
+  function setFoldersHidden(hidden) {
+    document.body.dataset.folders = hidden ? "hidden" : "visible";
+    syncMenuToggleUi();
+  }
+
+  function toggleReadingMenu() {
+    const nextHidden = !foldersHidden();
+    setFoldersHidden(nextHidden);
+    if (isMobileLayout()) {
+      document.body.dataset.rail = nextHidden ? "open" : "closed";
+      if (nextHidden) document.body.dataset.aside = "closed";
+    }
+  }
+
   function closeDrawers() {
     document.body.dataset.rail = "closed";
     document.body.dataset.aside = "closed";
@@ -1529,6 +1575,7 @@
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: inboxCount },
       { id: "trash",   glyph: "×", name: "Trash",   count: trashCount },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
+      { id: "__add_piece__", glyph: "＋", name: "Add piece", count: "", action: "add-piece" },
     ];
     byId("rail-fixed").innerHTML = fixed.map(railItemHTML).join("");
 
@@ -1548,6 +1595,10 @@
           btn.dataset.metaSuppressClick = "0";
           return;
         }
+        if (btn.dataset.action === "add-piece") {
+          openLinkCreator(btn);
+          return;
+        }
         selectView(btn.dataset.view);
       });
     });
@@ -1555,10 +1606,12 @@
   }
   function railItemHTML(f) {
     const cur = activeView === f.id;
-    return `<li><button class="rail-item" data-view="${esc(f.id)}" aria-current="${cur}">
+    const action = f.action ? ` data-action="${esc(f.action)}"` : ` data-view="${esc(f.id)}"`;
+    const count = f.count === "" ? "" : `<span class="count">${f.count}</span>`;
+    return `<li><button class="rail-item"${action} aria-current="${cur}">
       <span class="glyph" aria-hidden="true">${f.glyph}</span>
       <span class="name">${esc(f.name)}</span>
-      <span class="count">${f.count}</span></button></li>`;
+      ${count}</button></li>`;
   }
   function railFolderHTML(name) {
     const id = "folder:" + name;
@@ -1838,7 +1891,7 @@
     closeDrawers();
     const pop = document.createElement("div");
     pop.className = "popover link-popover";
-    pop.innerHTML = `<span class="label">Add link</span>
+    pop.innerHTML = `<span class="label">Add piece</span>
       <form class="link-form">
         <label>URL
           <input name="link" type="url" placeholder="https://…" autocomplete="url" required />
@@ -1982,7 +2035,7 @@
 
   byId("rail-add-folder").addEventListener("click", (e) => openFolderCreator(e.currentTarget));
   byId("rail-add-tag").addEventListener("click", (e) => openTagCreator(e.currentTarget));
-  byId("rail-toggle").addEventListener("click", () => toggleDrawer("rail"));
+  byId("rail-toggle").addEventListener("click", toggleReadingMenu);
   byId("drawer-scrim").addEventListener("click", closeDrawers);
   byId("btn-add-link").addEventListener("click", (e) => openLinkCreator(e.currentTarget));
 
@@ -2406,7 +2459,9 @@
     reader.innerHTML = `<div class="reader-inner">
       ${isMobileLayout() ? `<button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>` : ""}
       <h1 class="reader-title" style="margin-top:1.4rem">Sources</h1>
-      <p style="color:var(--ink-soft);font-style:italic;margin-bottom:1.4rem">Publications you follow.</p>
+      <p style="color:var(--ink-soft);font-style:italic;margin-bottom:0.6rem">Publications you follow.</p>
+      <button type="button" class="sources-add-piece label" id="sources-add-piece">＋ Add piece</button>
+      <p class="sources-add-hint">Save an article, video, or podcast that is not already in your feeds.</p>
       ${keys.map((cat) => `<div class="sources-group">
         <div class="sources-group-label label">${esc(cat)}</div>
         ${groups[cat].map((s) => `<a class="chip" href="${esc(s.site)}" target="_blank" rel="noopener noreferrer">
@@ -2417,6 +2472,8 @@
       </div>`).join("")}
     </div>`;
     wireReaderBack();
+    const addBtn = byId("sources-add-piece");
+    if (addBtn) addBtn.addEventListener("click", () => openLinkCreator(addBtn));
     byId("reader-empty") && byId("reader-empty").remove();
   }
 
@@ -2872,6 +2929,13 @@
   });
 
   window.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && !e.altKey && String(e.key).toLowerCase() === "s") {
+      const tag = e.target?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || e.target?.isContentEditable) return;
+      e.preventDefault();
+      toggleReadingMenu();
+      return;
+    }
     if (e.key !== "Escape") return;
     if (document.body.dataset.map === "full") {
       exitMapFull();

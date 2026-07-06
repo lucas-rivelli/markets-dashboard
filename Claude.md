@@ -37,7 +37,9 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 **Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side on every `PUT /api/workspace`. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device.
 On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
-**Add link:** `#btn-add-link` opens a top-bar popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
+**Add piece:** `#btn-add-link`, rail **Add piece**, and Sources **Add piece** open the same popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
+
+**Reading menu:** `#rail-toggle` (☰ Menu) and **⌘/Ctrl+S** toggle `data-folders=hidden|visible`, hiding `.rail-folders-block` (folder list + New folder). On mobile (≤820px), opening the menu also opens the rail drawer (`data-rail=open`).
 
 **Mailbox states:** `item_status` syncs through `/api/workspace` and localStorage key `markets_item_status`. Valid values are `inbox` and `trash`. New items default to `inbox`; opening an item only marks it seen/faded via `markets_read` and does not move categories. Reader/context-menu actions can move an item to Trash or back to Inbox. Assigning any folder removes the item from Inbox so it rests only in that folder; filing an item from Trash restores it into the folder. Trash is hidden from folders, tags, and graph data except in the Trash view. To-read is a normal tag, not a mailbox state; old `saw`, `to-read`, and `read` statuses should normalize back to `inbox`.
 
@@ -87,7 +89,7 @@ Do not rename without updating CSS selectors and JS together:
 
 **Top bar:** `#updated-line`, `#failed-line`, `#btn-add-link`, `#btn-refresh`
 
-**Body datasets:** `data-mobile`, `data-rail`, `data-aside`
+**Body datasets:** `data-mobile`, `data-rail`, `data-aside`, `data-folders`
 
 ## Design language (summary)
 
