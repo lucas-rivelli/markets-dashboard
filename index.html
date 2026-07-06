@@ -312,6 +312,12 @@
       color: var(--ink-faint);
       font-style: italic;
     }
+    .reader-published {
+      display: block;
+      margin: -0.55rem 0 0.85rem;
+      font-size: 0.88rem;
+      color: var(--ink-faint);
+    }
     @media (max-width: 1100px) { .reader-title { font-size: 1.6rem; } }
 
     .reader-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
@@ -841,6 +847,7 @@
   const ITEM_FOLDERS_KEY  = "markets_item_folders";
   const ITEM_STATUS_KEY   = "markets_item_status";
   const ITEM_TITLES_KEY   = "markets_item_titles";
+  const ITEM_ADDED_KEY    = "markets_item_added";
   const ITEM_HIGHLIGHTS_KEY = "markets_item_highlights";
   const TAGS_KEY          = "markets_tags";
   const ITEM_TAGS_KEY     = "markets_item_tags";
@@ -908,6 +915,7 @@
       item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
       item_status: getStatusMap(),
       item_titles: getTitleMap(),
+      item_added: getAddedMap(),
       item_highlights: readJSON(ITEM_HIGHLIGHTS_KEY, {}),
       tags: getTags(),
       item_tags: readJSON(ITEM_TAGS_KEY, {}),
@@ -925,6 +933,9 @@
     if (data.item_titles && typeof data.item_titles === "object") {
       writeJSON(ITEM_TITLES_KEY, normalizeTitleMap(data.item_titles));
     }
+    if (data.item_added && typeof data.item_added === "object") {
+      writeJSON(ITEM_ADDED_KEY, normalizeAddedMap(data.item_added));
+    }
     writeJSON(ITEM_HIGHLIGHTS_KEY, data.item_highlights && typeof data.item_highlights === "object" ? data.item_highlights : {});
     writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
     writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
@@ -938,6 +949,7 @@
       || Object.keys(readJSON(ITEM_FOLDERS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_STATUS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_TITLES_KEY, {})).length > 0
+      || Object.keys(readJSON(ITEM_ADDED_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_HIGHLIGHTS_KEY, {})).length > 0
       || Object.keys(readJSON(ITEM_TAGS_KEY, {})).length > 0
       || readJSON(READ_KEY, []).length > 0;
@@ -987,6 +999,7 @@
         || Object.keys(remote.item_tags || {}).length > 0
         || Object.keys(remote.item_status || {}).length > 0
         || Object.keys(remote.item_titles || {}).length > 0
+        || Object.keys(remote.item_added || {}).length > 0
         || Object.keys(remote.item_highlights || {}).length > 0
         || (remote.read?.length || 0) > 0;
 
@@ -1108,6 +1121,54 @@
     }
     writeJSON(ITEM_TITLES_KEY, map);
     scheduleWorkspaceSync();
+  };
+  const normalizeAddedMap = (raw) => {
+    const out = {};
+    if (!raw || typeof raw !== "object") return out;
+    for (const [key, value] of Object.entries(raw)) {
+      const stamp = String(value || "").trim();
+      if (stamp && !Number.isNaN(Date.parse(stamp))) out[key] = stamp;
+    }
+    return out;
+  };
+  const getAddedMap = () => normalizeAddedMap(readJSON(ITEM_ADDED_KEY, {}));
+  const itemAddedAt = (item) => {
+    const map = getAddedMap();
+    for (const k of readKeysFor(item)) {
+      if (map[k]) return map[k];
+    }
+    return null;
+  };
+  const compareByAddedDesc = (a, b) => {
+    const da = Date.parse(itemAddedAt(a) || a.date || "") || 0;
+    const db = Date.parse(itemAddedAt(b) || b.date || "") || 0;
+    return db - da;
+  };
+  const stampNewFeedItems = (items) => {
+    const map = getAddedMap();
+    const prevKeys = new Set(
+      (readJSON(FEED_SNAPSHOT_KEY, {}).items || []).map((it) => it.id || it.link).filter(Boolean)
+    );
+    const now = new Date().toISOString();
+    let changed = false;
+
+    for (const item of items) {
+      const keys = readKeysFor(item);
+      if (keys.some((k) => map[k])) continue;
+      const wasInPrevFeed = keys.some((k) => prevKeys.has(k));
+      const stamp = wasInPrevFeed && item.date ? String(item.date) : now;
+      for (const k of keys) {
+        if (!map[k]) {
+          map[k] = stamp;
+          changed = true;
+        }
+      }
+    }
+
+    if (changed) {
+      writeJSON(ITEM_ADDED_KEY, map);
+      scheduleWorkspaceSync();
+    }
   };
   const isRead = (item) => {
     const s = getReadSet();
@@ -2265,7 +2326,7 @@
         || tagNames.toLowerCase().includes(q)
         || folderNames.toLowerCase().includes(q);
       return matchQ;
-    });
+    }).sort(compareByAddedDesc);
 
     byId("list-count").textContent = items.length ? `${items.length}` : "";
 
@@ -2296,7 +2357,7 @@
       btn.innerHTML = `
         <div class="msg-meta">
           <span class="msg-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
-          <span class="msg-date">${formatDate(item.date)}</span>
+          <span class="msg-date">${formatDate(itemAddedAt(item))}</span>
         </div>
         <div class="msg-title"><span class="msg-dot" aria-hidden="true"></span>${esc(itemTitle(item))}</div>
         ${item.snippet ? `<div class="msg-snippet">${esc(item.snippet)}</div>` : ""}
@@ -2378,10 +2439,12 @@
         <button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>
         <div class="reader-kicker">
           <span class="reader-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
-          <span class="reader-date">${esc(fullDate(item.date) || formatDate(item.date))}</span>
+          <span class="reader-date">${esc(fullDate(itemAddedAt(item)) || formatDate(itemAddedAt(item)))}</span>
         </div>
         <h1 class="reader-title">${esc(title)}</h1>
         ${hasCustomTitle(item) ? `<p class="reader-original-title">Originally: ${esc(originalTitle)}</p>` : ""}
+        ${item.date && itemAddedAt(item) && String(item.date) !== String(itemAddedAt(item))
+          ? `<span class="reader-published">Published ${esc(fullDate(item.date) || formatDate(item.date))}</span>` : ""}
         <div class="reader-actions">
           <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
           ${statusButtons}
@@ -3124,7 +3187,7 @@
           <span class="recent-read-title">${esc(itemTitle(item))}</span>
           <span class="recent-read-meta">
             <span>${esc(item.source || "Source")}</span>
-            ${formatDate(item.date) ? `<span>${esc(formatDate(item.date))}</span>` : ""}
+            ${formatDate(itemAddedAt(item)) ? `<span>${esc(formatDate(itemAddedAt(item)))}</span>` : ""}
           </span>
         </button>
       </li>
@@ -3241,6 +3304,7 @@
 
   function applyFeedData(data, { fromSnapshot = false } = {}) {
     allItems = data.items || [];
+    stampNewFeedItems(allItems);
     allSources = data.sources || [];
     setUpdatedLine(data, { syncing: false });
     setFailedLine(data.failed);
