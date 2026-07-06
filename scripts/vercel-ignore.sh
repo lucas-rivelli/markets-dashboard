@@ -21,7 +21,7 @@ fi
 
 for path in "${CHANGED[@]}"; do
   case "$path" in
-    data/workspace.json|data/spotify-cache.json) ;;
+    data/workspace.json|data/spotify-cache.json|data/vic-cache.json) ;;
     *) exit 1 ;;
   esac
 done

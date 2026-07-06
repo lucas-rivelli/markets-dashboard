@@ -29,6 +29,7 @@
       --c-spotify:  #3e6b4e;
       --c-bookmarks:#3a5684;
       --c-macro:    #7c5a26;
+      --c-investing: #2f5d4a;
       --serif: "EB Garamond", Georgia, "Times New Roman", serif;
     }
 
@@ -254,6 +255,7 @@
     .msg-source[data-category="Macro/Official"] { color: var(--c-macro); }
     .msg-source[data-category="Blog"]           { color: var(--c-blog); }
     .msg-source[data-category="Spotify"]        { color: var(--c-spotify); }
+    .msg-source[data-category="Investing"]      { color: var(--c-investing); }
     .msg-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .msg-date { font-size: 0.76rem; font-style: italic; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
     .msg-title {
@@ -299,6 +301,7 @@
     .reader-source[data-category="Macro/Official"] { color: var(--c-macro); }
     .reader-source[data-category="Blog"]           { color: var(--c-blog); }
     .reader-source[data-category="Spotify"]        { color: var(--c-spotify); }
+    .reader-source[data-category="Investing"]      { color: var(--c-investing); }
     .reader-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .reader-date { font-size: 0.85rem; font-style: italic; color: var(--ink-faint); }
 
@@ -2579,7 +2582,7 @@
     }
     const groups = {};
     allSources.forEach((s) => { (groups[s.category] ||= []).push(s); });
-    const ORDER = ["Substack", "YouTube", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
+    const ORDER = ["Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
     const keys = [...ORDER.filter((k) => groups[k]), ...Object.keys(groups).filter((k) => !ORDER.includes(k))];
     reader.innerHTML = `<div class="reader-inner">
       ${isMobileLayout() ? `<button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>` : ""}

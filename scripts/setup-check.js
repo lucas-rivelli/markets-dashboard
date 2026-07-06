@@ -124,6 +124,9 @@ function checkVercel() {
     warn("GITHUB_DISPATCH_TOKEN not set — external bookmark cron needs Actions: Read and write PAT");
   }
 
+  if (hasEnv("VIC_SESSION") || hasEnv("VIC_COOKIE")) ok("VIC session configured (live ideas refresh)");
+  else warn("VIC_SESSION not set — feed uses data/vic-cache.json until you add it in Vercel");
+
   warn("Vercel env vars must be set in the Vercel project UI (Settings → Environment Variables)");
   warn("After adding vars: redeploy from Vercel dashboard or push a commit");
 }

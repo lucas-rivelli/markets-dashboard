@@ -63,6 +63,13 @@ const SOURCES = [
     rss: "https://raydalio.substack.com/feed",
   },
   {
+    name: "Value Investors Club",
+    category: "Investing",
+    site: "https://valueinvestorsclub.com/ideas",
+    rss: null,
+    dynamic: true,
+  },
+  {
     name: "Spotify Podcasts",
     category: "Spotify",
     site: "https://open.spotify.com/collection/shows",
