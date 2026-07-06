@@ -958,7 +958,7 @@
   let lastListClickIndex = -1;
   let activeView = "inbox"; // inbox | all | trash | sources | folder:<name> | tag:<id>
   let feedPollTimer = null;
-  let workspaceDirty = false;
+  let workspaceLoaded = false; // first server pull attempted — gates feed-driven mutations
   let highlightToolbar = null;
   let highlightToolbarCleanup = null;
 
@@ -978,8 +978,8 @@
   const FEED_SNAPSHOT_KEY = "markets_feed_snapshot";
   const LIST_FILTER_FOLDER_KEY = "markets_list_filter_folder";
   const LIST_FILTER_TAG_KEY = "markets_list_filter_tag";
-  const ADDED_DATE_MIGRATION_KEY = "markets_item_added_migrated_v2";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
+  const PENDING_SYNC_KEY  = "markets_pending_sync";
   const REFRESH_MS      = 5 * 60 * 1000;
 
   let listFilterFolder = "";
@@ -1062,38 +1062,97 @@
     return true;
   }
 
-  function collectWorkspacePayload() {
+  /* ── Pending-sync journal ─────────────────────────────────────────────────
+     Tracks exactly which local entries changed since the last successful push,
+     persisted so edits survive tab death. Sync = pull remote, overlay pending
+     local edits per item, push only the domains that changed. Never push a
+     wholesale stale map over the server — that is how processed items used to
+     get "re-added" across devices. */
+  const PENDING_MAP_DOMAINS = ["item_status", "item_folders", "item_tags", "item_titles", "item_added", "item_highlights"];
+  const pendingSync = { folders: false, tags: false, read: false };
+  PENDING_MAP_DOMAINS.forEach((d) => { pendingSync[d] = new Set(); });
+  {
+    const saved = readJSON(PENDING_SYNC_KEY, null);
+    if (saved && typeof saved === "object") {
+      pendingSync.folders = !!saved.folders;
+      pendingSync.tags = !!saved.tags;
+      pendingSync.read = !!saved.read;
+      PENDING_MAP_DOMAINS.forEach((d) => {
+        (Array.isArray(saved[d]) ? saved[d] : []).forEach((k) => pendingSync[d].add(k));
+      });
+    }
+  }
+  function persistPendingSync() {
+    writeJSON(PENDING_SYNC_KEY, {
+      folders: pendingSync.folders, tags: pendingSync.tags, read: pendingSync.read,
+      ...Object.fromEntries(PENDING_MAP_DOMAINS.map((d) => [d, [...pendingSync[d]]])),
+    });
+  }
+  function markPendingSync(domain, keys) {
+    if (keys) for (const k of keys) pendingSync[domain].add(k);
+    else pendingSync[domain] = true;
+    persistPendingSync();
+  }
+  const pendingHasChanges = () =>
+    pendingSync.folders || pendingSync.tags || pendingSync.read
+    || PENDING_MAP_DOMAINS.some((d) => pendingSync[d].size > 0);
+  function snapshotPendingSync() {
     return {
-      folders: getFolders(),
-      item_folders: readJSON(ITEM_FOLDERS_KEY, {}),
-      item_status: getStatusMap(),
-      item_titles: getTitleMap(),
-      item_added: getAddedMap(),
-      item_highlights: readJSON(ITEM_HIGHLIGHTS_KEY, {}),
-      tags: getTags(),
-      item_tags: readJSON(ITEM_TAGS_KEY, {}),
-      read: readJSON(READ_KEY, []),
+      folders: pendingSync.folders, tags: pendingSync.tags, read: pendingSync.read,
+      ...Object.fromEntries(PENDING_MAP_DOMAINS.map((d) => [d, new Set(pendingSync[d])])),
     };
   }
+  function clearPendingSync(snap) {
+    if (snap.folders) pendingSync.folders = false;
+    if (snap.tags) pendingSync.tags = false;
+    if (snap.read) pendingSync.read = false;
+    PENDING_MAP_DOMAINS.forEach((d) => snap[d].forEach((k) => pendingSync[d].delete(k)));
+    persistPendingSync();
+  }
 
-  function applyWorkspacePayload(data) {
-    if (!data || typeof data !== "object") return;
-    writeJSON(FOLDERS_KEY, Array.isArray(data.folders) ? data.folders : []);
-    writeJSON(ITEM_FOLDERS_KEY, data.item_folders && typeof data.item_folders === "object" ? data.item_folders : {});
-    if (data.item_status && typeof data.item_status === "object") {
-      writeJSON(ITEM_STATUS_KEY, normalizeStatusMap(data.item_status));
-    }
-    if (data.item_titles && typeof data.item_titles === "object") {
-      writeJSON(ITEM_TITLES_KEY, normalizeTitleMap(data.item_titles));
-    }
-    if (data.item_added && typeof data.item_added === "object") {
-      writeJSON(ITEM_ADDED_KEY, normalizeAddedMap(data.item_added));
-    }
-    writeJSON(ITEM_HIGHLIGHTS_KEY, data.item_highlights && typeof data.item_highlights === "object" ? data.item_highlights : {});
-    writeJSON(TAGS_KEY, Array.isArray(data.tags) ? data.tags : []);
-    writeJSON(ITEM_TAGS_KEY, data.item_tags && typeof data.item_tags === "object" ? data.item_tags : {});
-    writeJSON(READ_KEY, Array.isArray(data.read) ? data.read : []);
-    if (data.updated_at) writeJSON(WORKSPACE_TS_KEY, data.updated_at);
+  /* Omitted domains are left untouched by the server merge, so a partial
+     payload can never clobber state this device didn't change. */
+  function collectWorkspacePayload(snap) {
+    const all = !snap;
+    const payload = {};
+    if (all || snap.folders) payload.folders = getFolders();
+    if (all || snap.tags) payload.tags = getTags();
+    if (all || snap.read) payload.read = readJSON(READ_KEY, []);
+    if (all || snap.item_folders.size) payload.item_folders = readJSON(ITEM_FOLDERS_KEY, {});
+    if (all || snap.item_status.size) payload.item_status = getStatusMap();
+    if (all || snap.item_titles.size) payload.item_titles = getTitleMap();
+    if (all || snap.item_added.size) payload.item_added = getAddedMap();
+    if (all || snap.item_highlights.size) payload.item_highlights = readJSON(ITEM_HIGHLIGHTS_KEY, {});
+    if (all || snap.item_tags.size) payload.item_tags = readJSON(ITEM_TAGS_KEY, {});
+    return payload;
+  }
+
+  function mergeRemoteWorkspace(remote) {
+    const mergeMap = (storageKey, remoteMap, pendSet, remoteWinsExisting = false) => {
+      const local = readJSON(storageKey, {});
+      const merged = { ...(remoteMap && typeof remoteMap === "object" ? remoteMap : {}) };
+      for (const k of pendSet) {
+        if (local[k] === undefined) { delete merged[k]; continue; }
+        if (remoteWinsExisting && merged[k] !== undefined) continue;
+        merged[k] = local[k];
+      }
+      writeJSON(storageKey, merged);
+    };
+    if (!pendingSync.folders) writeJSON(FOLDERS_KEY, Array.isArray(remote.folders) ? remote.folders : []);
+    if (!pendingSync.tags) writeJSON(TAGS_KEY, Array.isArray(remote.tags) ? remote.tags : []);
+    mergeMap(ITEM_FOLDERS_KEY, remote.item_folders, pendingSync.item_folders);
+    mergeMap(ITEM_TAGS_KEY, remote.item_tags, pendingSync.item_tags);
+    mergeMap(ITEM_STATUS_KEY, normalizeStatusMap(remote.item_status || {}), pendingSync.item_status);
+    mergeMap(ITEM_TITLES_KEY, normalizeTitleMap(remote.item_titles || {}), pendingSync.item_titles);
+    mergeMap(ITEM_HIGHLIGHTS_KEY, remote.item_highlights, pendingSync.item_highlights);
+    // Arrival stamps: the server's (earliest) date wins so items never re-date
+    // and jump to the top as "newly added" on another device.
+    mergeMap(ITEM_ADDED_KEY, normalizeAddedMap(remote.item_added || {}), pendingSync.item_added, true);
+    const remoteRead = Array.isArray(remote.read) ? remote.read : [];
+    const localRead = readJSON(READ_KEY, []);
+    const localReadSet = new Set(localRead);
+    writeJSON(READ_KEY, [...remoteRead.filter((k) => !localReadSet.has(k)), ...localRead]);
+    if (remote.updated_at) writeJSON(WORKSPACE_TS_KEY, remote.updated_at);
   }
 
   function localWorkspaceHasData() {
@@ -1108,43 +1167,39 @@
       || readJSON(READ_KEY, []).length > 0;
   }
 
-  function markWorkspaceDirty() {
-    workspaceDirty = true;
+  async function flushWorkspaceIfDirty() {
+    if (!pendingHasChanges()) return;
+    await pushWorkspaceState({ keepalive: true });
   }
 
-  function scheduleWorkspaceSync() {
-    markWorkspaceDirty();
-  }
-
-  async function flushWorkspaceIfDirty(force = false) {
-    if (!workspaceDirty && !force) return;
-    await pushWorkspaceState(force);
-  }
-
-  async function pushWorkspaceState(force = false, retryAuth = true) {
-    if (workspaceSyncing && !force) return;
+  async function pushWorkspaceState({ force = false, retryAuth = true, keepalive = false } = {}) {
+    if (workspaceSyncing) return;
     workspaceSyncing = true;
     try {
-      const body = JSON.stringify(collectWorkspacePayload());
+      const snap = snapshotPendingSync();
+      const payload = collectWorkspacePayload(force ? null : snap);
+      if (!Object.keys(payload).length) return;
+      const body = JSON.stringify(payload);
       const res = await fetch("/api/workspace", {
         method: "PUT",
         headers: syncHeaders(),
         body,
         // Survive tab close/backgrounding; keepalive caps bodies around 64KB
-        keepalive: document.visibilityState === "hidden" && body.length < 60000,
+        keepalive: keepalive && body.length < 60000,
       });
       if (res.status === 401) {
         if (retryAuth && promptForSyncSecret()) {
           workspaceSyncing = false;
-          return pushWorkspaceState(true, false);
+          return pushWorkspaceState({ force, retryAuth: false, keepalive });
         }
         console.warn("Workspace sync: set localStorage.markets_save_secret to your SAVE_SECRET");
         return;
       }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      applyWorkspacePayload(data);
-      workspaceDirty = false;
+      // Only forget what this push actually sent; edits made in flight stay pending.
+      clearPendingSync(snap);
+      if (data.updated_at) writeJSON(WORKSPACE_TS_KEY, data.updated_at);
     } catch (err) {
       console.warn("Workspace sync failed:", err.message);
     } finally {
@@ -1152,18 +1207,13 @@
     }
   }
 
-  async function loadWorkspaceFromServer() {
-    /* Local unsynced edits win: push them (server merges and echoes the result)
-       instead of pulling remote state over them. */
-    if (workspaceDirty) {
-      await pushWorkspaceState(true);
-      return;
-    }
+  /* Pull → merge (remote + pending local edits) → push changed domains. */
+  async function syncWorkspace() {
+    if (workspaceSyncing) return;
     try {
       const res = await fetch("/api/workspace", { cache: "no-store" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const remote = await res.json();
-      const localTs = readJSON(WORKSPACE_TS_KEY, null);
       const remoteHasData = (remote.folders?.length || 0) > 0
         || (remote.tags?.length || 0) > 0
         || Object.keys(remote.item_folders || {}).length > 0
@@ -1175,15 +1225,11 @@
         || (remote.read?.length || 0) > 0;
 
       if (!remoteHasData && localWorkspaceHasData()) {
-        await pushWorkspaceState(true);
+        await pushWorkspaceState({ force: true });
         return;
       }
 
-      if (!remote.updated_at || !localTs || remote.updated_at >= localTs) {
-        applyWorkspacePayload(remote);
-      } else if (localWorkspaceHasData()) {
-        await pushWorkspaceState(true);
-      }
+      mergeRemoteWorkspace(remote);
       renderRail();
       renderList();
       renderGraph();
@@ -1195,6 +1241,7 @@
     } catch (err) {
       console.warn("Workspace load failed:", err.message);
     }
+    if (pendingHasChanges()) await pushWorkspaceState();
   }
 
   function attachPopoverDismiss(pop, anchor) {
@@ -1254,16 +1301,17 @@
     const keys = readKeysFor(item);
     const existing = readJSON(READ_KEY, []).filter((k) => !keys.includes(k));
     writeJSON(READ_KEY, [...existing, ...keys]);
-    scheduleWorkspaceSync();
+    markPendingSync("read");
   };
   const setItemStatus = (item, status) => {
     const next = normalizeStatus(status);
     const map = getStatusMap();
-    for (const k of readKeysFor(item)) {
+    const keys = readKeysFor(item);
+    for (const k of keys) {
       map[k] = next;
     }
     writeJSON(ITEM_STATUS_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_status", keys);
   };
   const normalizeTitleMap = (raw) => {
     const out = {};
@@ -1289,12 +1337,13 @@
     const map = getTitleMap();
     const trimmed = String(title || "").replace(/\s+/g, " ").trim();
     const original = feedTitle(item);
-    for (const k of readKeysFor(item)) {
+    const keys = readKeysFor(item);
+    for (const k of keys) {
       if (trimmed && trimmed !== original) map[k] = trimmed.slice(0, 300);
       else delete map[k];
     }
     writeJSON(ITEM_TITLES_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_titles", keys);
   };
   const normalizeAddedMap = (raw) => {
     const out = {};
@@ -1315,28 +1364,13 @@
     return null;
   };
   const displayAddedAt = (item) => itemAddedAt(item);
-  function migratePublicationAddedDates(items) {
-    if (readJSON(ADDED_DATE_MIGRATION_KEY, false)) return;
-    const map = getAddedMap();
-    let changed = false;
-    for (const item of items) {
-      const pub = item.date ? String(item.date) : "";
-      if (!pub) continue;
-      for (const k of readKeysFor(item)) {
-        if (map[k] && map[k] === pub) {
-          delete map[k];
-          changed = true;
-        }
-      }
-    }
-    if (changed) writeJSON(ITEM_ADDED_KEY, map);
-    writeJSON(ADDED_DATE_MIGRATION_KEY, true);
-  }
+  /* NOTE: never "migrate"/rewrite existing arrival stamps here. A per-browser
+     migration re-runs on every new device, deletes server stamps, and the
+     re-stamp makes every old item reappear as newly added across devices. */
   const stampNewFeedItems = (items) => {
-    migratePublicationAddedDates(items);
     const map = getAddedMap();
     const now = new Date().toISOString();
-    let changed = false;
+    const changed = [];
 
     for (const item of items) {
       const keys = readKeysFor(item);
@@ -1344,14 +1378,14 @@
       for (const k of keys) {
         if (!map[k]) {
           map[k] = now;
-          changed = true;
+          changed.push(k);
         }
       }
     }
 
-    if (changed) {
+    if (changed.length) {
       writeJSON(ITEM_ADDED_KEY, map);
-      scheduleWorkspaceSync();
+      markPendingSync("item_added", changed);
     }
   };
   const isRead = (item) => {
@@ -1385,7 +1419,7 @@
     if (current.some((h) => h.text === clean)) return false;
     map[k] = [...current, { id: highlightId(clean), text: clean, created_at: new Date().toISOString() }];
     writeJSON(ITEM_HIGHLIGHTS_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_highlights", [k]);
     return true;
   }
   function removeItemHighlight(item, id) {
@@ -1394,7 +1428,7 @@
     map[k] = (map[k] || []).filter((h) => h.id !== id);
     if (!map[k].length) delete map[k];
     writeJSON(ITEM_HIGHLIGHTS_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_highlights", [k]);
   }
   function renderHighlightsHTML(highlights) {
     if (!highlights.length) return "";
@@ -1554,7 +1588,7 @@
     }
     const next = sortFolders([...folders, ...folderAncestors(name), name]);
     writeJSON(FOLDERS_KEY, [...new Set(next)]);
-    scheduleWorkspaceSync();
+    markPendingSync("folders");
     return name;
   };
   const getItemFolders = (k) => sortFolders((readJSON(ITEM_FOLDERS_KEY, {})[k] || []).map(normalizeFolderPath).filter(Boolean));
@@ -1563,6 +1597,7 @@
     if (statuses[k] === "trash") {
       statuses[k] = "inbox";
       writeJSON(ITEM_STATUS_KEY, statuses);
+      markPendingSync("item_status", [k]);
     }
   };
   const toggleItemFolder = (k, name) => {
@@ -1575,8 +1610,8 @@
     adding ? cur.add(name) : cur.delete(existing);
     map[k] = [...cur];
     writeJSON(ITEM_FOLDERS_KEY, map);
+    markPendingSync("item_folders", [k]);
     if (adding) restoreItemFromTrash(k);
-    scheduleWorkspaceSync();
   };
   const moveItemToFolder = (k, name) => {
     name = addFolder(name);
@@ -1584,8 +1619,8 @@
     const map = readJSON(ITEM_FOLDERS_KEY, {});
     map[k] = [name];
     writeJSON(ITEM_FOLDERS_KEY, map);
+    markPendingSync("item_folders", [k]);
     restoreItemFromTrash(k);
-    scheduleWorkspaceSync();
     return true;
   };
   const moveItemToInbox = (k) => {
@@ -1595,7 +1630,8 @@
     const statuses = getStatusMap();
     statuses[k] = "inbox";
     writeJSON(ITEM_STATUS_KEY, statuses);
-    scheduleWorkspaceSync();
+    markPendingSync("item_folders", [k]);
+    markPendingSync("item_status", [k]);
   };
   /* One pass over allItems for every rail/graph count */
   function computeMetaCounts() {
@@ -1645,15 +1681,19 @@
       return [...folderAncestors(next), next];
     }))]);
     writeJSON(FOLDERS_KEY, nextFolders);
+    markPendingSync("folders");
     const map = readJSON(ITEM_FOLDERS_KEY, {});
+    const changedKeys = [];
     for (const [k, names] of Object.entries(map)) {
-      map[k] = sortFolders([...new Set(names.map(normalizeFolderPath).filter(Boolean).map(rewrite))]);
+      const next = sortFolders([...new Set(names.map(normalizeFolderPath).filter(Boolean).map(rewrite))]);
+      if (next.join("\n") !== names.join("\n")) changedKeys.push(k);
+      map[k] = next;
     }
     writeJSON(ITEM_FOLDERS_KEY, map);
+    if (changedKeys.length) markPendingSync("item_folders", changedKeys);
     if (activeView === "folder:" + oldName || activeView.startsWith("folder:" + oldName + "/")) {
       selectView("folder:" + rewrite(activeView.slice(7)));
     }
-    scheduleWorkspaceSync();
     return true;
   };
   const moveFolder = (name, parent) => {
@@ -1676,14 +1716,18 @@
   const removeFolder = (name) => {
     name = normalizeFolderPath(name);
     writeJSON(FOLDERS_KEY, getFolders().filter((f) => !isSameFolder(f, name) && !isFolderDescendant(f, name)));
+    markPendingSync("folders");
     const map = readJSON(ITEM_FOLDERS_KEY, {});
+    const changedKeys = [];
     for (const k of Object.keys(map)) {
-      map[k] = map[k].map(normalizeFolderPath).filter((n) => !isSameFolder(n, name) && !isFolderDescendant(n, name));
-      if (!map[k].length) delete map[k];
+      const next = map[k].map(normalizeFolderPath).filter((n) => !isSameFolder(n, name) && !isFolderDescendant(n, name));
+      if (next.length !== map[k].length) changedKeys.push(k);
+      if (next.length) map[k] = next;
+      else delete map[k];
     }
     writeJSON(ITEM_FOLDERS_KEY, map);
+    if (changedKeys.length) markPendingSync("item_folders", changedKeys);
     if (activeView === "folder:" + name || activeView.startsWith("folder:" + name + "/")) selectView("inbox");
-    scheduleWorkspaceSync();
   };
 
   /* tags */
@@ -1702,7 +1746,7 @@
     };
     tags.push(tag);
     writeJSON(TAGS_KEY, tags);
-    scheduleWorkspaceSync();
+    markPendingSync("tags");
     return tag;
   };
   const getItemTagIds = (k) => readJSON(ITEM_TAGS_KEY, {})[k] || [];
@@ -1714,7 +1758,7 @@
     cur.has(tagId) ? cur.delete(tagId) : cur.add(tagId);
     map[k] = [...cur];
     writeJSON(ITEM_TAGS_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_tags", [k]);
     const item = allItems.find((it) => keyOf(it) === k);
     if (item) evaluateKnowledgeSave(item);
   };
@@ -1728,18 +1772,22 @@
     tag.name = newName;
     if (newColor) tag.color = newColor;
     writeJSON(TAGS_KEY, tags);
-    scheduleWorkspaceSync();
+    markPendingSync("tags");
     return true;
   };
   const removeTag = (id) => {
     writeJSON(TAGS_KEY, getTags().filter((t) => t.id !== id));
+    markPendingSync("tags");
     const map = readJSON(ITEM_TAGS_KEY, {});
+    const changedKeys = [];
     for (const k of Object.keys(map)) {
-      map[k] = map[k].filter((tid) => tid !== id);
-      if (!map[k].length) delete map[k];
+      const next = map[k].filter((tid) => tid !== id);
+      if (next.length !== map[k].length) changedKeys.push(k);
+      if (next.length) map[k] = next;
+      else delete map[k];
     }
     writeJSON(ITEM_TAGS_KEY, map);
-    scheduleWorkspaceSync();
+    if (changedKeys.length) markPendingSync("item_tags", changedKeys);
     if (activeView === "tag:" + id) selectView("inbox");
   };
 
@@ -1762,7 +1810,7 @@
     };
     tags.push(tag);
     writeJSON(TAGS_KEY, tags);
-    scheduleWorkspaceSync();
+    markPendingSync("tags");
     return tag;
   }
 
@@ -1775,18 +1823,18 @@
     const toRead = getTags().find((t) => t.name.toLowerCase() === TO_READ_TAG_NAME.toLowerCase());
     if (!toRead) return;
     const map = readJSON(ITEM_TAGS_KEY, {});
-    let changed = false;
+    const changed = [];
     for (const item of items) {
       for (const k of readKeysFor(item)) {
         if (!map[k]?.includes(toRead.id)) continue;
         map[k] = map[k].filter((tid) => tid !== toRead.id);
         if (!map[k].length) delete map[k];
-        changed = true;
+        changed.push(k);
       }
     }
-    if (changed) {
+    if (changed.length) {
       writeJSON(ITEM_TAGS_KEY, map);
-      scheduleWorkspaceSync();
+      markPendingSync("item_tags", changed);
     }
   }
 
@@ -1845,7 +1893,7 @@
   function applyInboxToReadTags() {
     const toRead = ensureToReadTag();
     const map = readJSON(ITEM_TAGS_KEY, {});
-    let changed = false;
+    const changed = [];
 
     for (const item of allItems) {
       if (itemStatus(item) !== "inbox") continue;
@@ -1855,12 +1903,12 @@
       if (cur.has(toRead.id)) continue;
       cur.add(toRead.id);
       map[k] = [...cur];
-      changed = true;
+      changed.push(k);
     }
 
-    if (changed) {
+    if (changed.length) {
       writeJSON(ITEM_TAGS_KEY, map);
-      scheduleWorkspaceSync();
+      markPendingSync("item_tags", changed);
     }
   }
 
@@ -2306,11 +2354,10 @@
     btn.setAttribute("aria-busy", "true");
     setUpdatedLine({ updated: readJSON(FEED_SNAPSHOT_KEY, {})?.updated }, { syncing: true });
     try {
-      await Promise.all([
-        loadFeed({ force: true, background: true }),
-        loadWorkspaceFromServer(),
-      ]);
-      await pushWorkspaceState(true);
+      // Workspace first so feed-driven tagging/stamping sees current state.
+      await syncWorkspace();
+      await loadFeed({ force: true, background: true });
+      if (pendingHasChanges()) await pushWorkspaceState();
     } finally {
       btn.classList.remove("is-syncing");
       btn.removeAttribute("aria-busy");
@@ -2669,14 +2716,14 @@
       return;
     }
     const map = readJSON(ITEM_TAGS_KEY, {});
-    items.forEach((item) => {
-      const k = keyOf(item);
+    const keys = items.map((item) => keyOf(item));
+    keys.forEach((k) => {
       const cur = new Set(map[k] || []);
       cur.add(tagId);
       map[k] = [...cur];
     });
     writeJSON(ITEM_TAGS_KEY, map);
-    scheduleWorkspaceSync();
+    markPendingSync("item_tags", keys);
     afterBulkChange(items);
   }
 
@@ -3912,18 +3959,23 @@
 
   function applyFeedData(data, { fromSnapshot = false } = {}) {
     allItems = data.items || [];
-    stampNewFeedItems(allItems);
     allSources = data.sources || [];
     setUpdatedLine(data, { syncing: false });
     setFailedLine(data.failed);
-    ensureToReadTag();
-    applyInboxToReadTags();
+    // Stamping/tagging against a stale local workspace would generate bogus
+    // "local edits" that then sync over other devices' work — wait for the
+    // first server pull before deriving anything from the feed.
+    if (workspaceLoaded) {
+      stampNewFeedItems(allItems);
+      ensureToReadTag();
+      applyInboxToReadTags();
+    }
     renderRail();
     renderList();
     renderGraph();
     renderRecentRead();
     if (!fromSnapshot) saveFeedSnapshot(data);
-    syncKnowledgeSaves();
+    if (workspaceLoaded) syncKnowledgeSaves();
   }
 
   async function loadFeed({ force = false, background = false } = {}) {
@@ -3952,7 +4004,7 @@
     if (feedPollTimer) clearInterval(feedPollTimer);
     feedPollTimer = setInterval(() => {
       loadFeed({ background: true });
-      loadWorkspaceFromServer();   // pushes when dirty, pulls otherwise
+      syncWorkspace();   // pull → merge pending local edits → push changed domains
     }, REFRESH_MS);
   }
 
@@ -3965,7 +4017,9 @@
 
   captureSyncSecretFromUrl();
 
-  loadWorkspaceFromServer().then(() => {
+  syncWorkspace().then(() => {
+    workspaceLoaded = true;
+    stampNewFeedItems(allItems);
     ensureToReadTag();
     applyInboxToReadTags();
     renderRail();
