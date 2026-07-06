@@ -54,24 +54,25 @@ All wiki pages need: `type`, `title`, `summary`, `updated_at`.
 
 ## Operations
 
-### Ingest (automatic + manual)
+### Queue on save
 
-Triggered when an item lands in `kb/inbox/` (UI save or backfill).
+When an item lands in `kb/inbox/`, it is added to `kb/wiki/queue.json` for the **Cursor agent** (no API call).
+
+### Daily agent (primary)
+
+| Step | What |
+|------|------|
+| 08:00 BRT | GitHub `wiki-daily.yml` → `npm run wiki:daily` → commits `queue.json` + `RUN.md` |
+| 08:30 BRT | **Cursor Automation** — follow `AGENT.md` + `RUN.md` (see `CURSOR-AUTOMATION.md`) |
+
+Agent authors all wiki prose in Cursor. Set `agent_status: done` when finished.
+
+### Scaffold (emergency only)
 
 ```bash
-npm run wiki:ingest -- --id <sha256>   # one item
-npm run wiki:ingest -- --all           # all inbox items
+npm run wiki:ingest -- --id <sha256>   # stub pages, agent_status: pending
+npm run wiki:ingest -- --all
 ```
-
-Pipeline per source:
-1. Read `kb/inbox/<id>.json` (never mutate)
-2. Write/update `sources/<id>.md`
-3. Upsert `concepts/*` from folders
-4. Upsert `entities/*` from tickers
-5. Regenerate `index.md`
-6. Append `log.md`
-
-Optional LLM pass when `ANTHROPIC_API_KEY` is set (`lib/wiki-llm.js`).
 
 ### Query
 
@@ -114,7 +115,8 @@ The linter reports only — it does not delete pages. Append lint results to `lo
 | Command | Purpose |
 |---------|---------|
 | `npm run kb:index` | Regenerate `kb/index.json` (app library API) |
-| `npm run wiki:ingest` | Compile inbox → wiki pages |
+| `npm run wiki:daily` | Refresh queue + `RUN.md` for Cursor agent |
+| `npm run wiki:ingest` | Scaffold stub pages only |
 | `npm run wiki:lint` | Health check |
 | `npm run wiki:search` | Keyword search over wiki markdown |
 

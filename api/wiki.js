@@ -1,6 +1,7 @@
 const { searchWiki } = require("../lib/wiki-search");
 const { lintWiki, formatLintReport } = require("../lib/wiki-lint");
-const { ingestWikiItem, ingestAllWiki } = require("../lib/wiki-ingest");
+const { ingestWikiItem, ingestAllWiki, rebuildIndex } = require("../lib/wiki-ingest");
+const { syncWikiQueue, readQueueLocal } = require("../lib/wiki-queue");
 const { SaveError, hasGithubToken } = require("../lib/kb-save");
 const crypto = require("crypto");
 
@@ -30,12 +31,13 @@ module.exports = async function handler(req, res) {
   try {
     if (req.method === "GET") {
       const q = String(req.query?.q || "").trim();
-      if (!q) {
-        return res.status(400).json({ ok: false, error: "Missing q query param" });
+      if (q) {
+        const results = searchWiki(q, { limit: Number(req.query?.limit || 12) });
+        res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
+        return res.status(200).json({ ok: true, query: q, results });
       }
-      const results = searchWiki(q, { limit: Number(req.query?.limit || 12) });
-      res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
-      return res.status(200).json({ ok: true, query: q, results });
+      const queue = await syncWikiQueue();
+      return res.status(200).json({ ok: true, queue });
     }
 
     if (req.method === "POST") {
@@ -44,25 +46,33 @@ module.exports = async function handler(req, res) {
         req.body && typeof req.body === "object"
           ? req.body
           : JSON.parse(String(req.body || "{}") || "{}");
-      const action = String(body.action || "ingest");
+      const action = String(body.action || "sync-queue");
 
       if (action === "lint") {
         const report = lintWiki();
         return res.status(200).json({ ok: true, report, markdown: formatLintReport(report) });
       }
 
-      if (action === "ingest-all") {
-        const results = await ingestAllWiki({ useLlm: Boolean(process.env.ANTHROPIC_API_KEY) });
+      if (action === "sync-queue") {
+        const queue = await syncWikiQueue();
+        return res.status(200).json({ ok: true, queue });
+      }
+
+      if (action === "rebuild-index") {
+        const index = rebuildIndex();
+        return res.status(200).json({ ok: true, index });
+      }
+
+      if (action === "scaffold-all") {
+        const results = await ingestAllWiki();
         return res.status(200).json({ ok: true, count: results.length, results });
       }
 
       const id = String(body.id || "").trim();
       if (!id) {
-        return res.status(400).json({ ok: false, error: "id required for ingest" });
+        return res.status(400).json({ ok: false, error: "id required for scaffold" });
       }
-      const result = await ingestWikiItem(id, {
-        useLlm: Boolean(process.env.ANTHROPIC_API_KEY),
-      });
+      const result = await ingestWikiItem(id);
       return res.status(200).json({ ok: true, result });
     }
 

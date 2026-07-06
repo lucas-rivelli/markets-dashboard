@@ -7,6 +7,8 @@
     "kb:index": "node scripts/build-kb-index.js",
     "kb:backfill": "node scripts/backfill-kb.js",
     "wiki:ingest": "node scripts/wiki-ingest.js",
+    "wiki:daily": "node scripts/wiki-daily.js",
+    "wiki:index": "node -e \"require('./lib/wiki-ingest').rebuildIndex()\"",
     "wiki:lint": "node scripts/wiki-lint.js",
     "wiki:search": "node scripts/wiki-search.js",
     "setup:check": "node scripts/setup-check.js",

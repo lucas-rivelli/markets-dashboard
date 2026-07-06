@@ -28,18 +28,17 @@ function argValue(flag) {
 async function main() {
   loadEnvLocal();
   const dryRun = process.argv.includes("--dry-run");
-  const useLlm = !process.argv.includes("--no-llm");
   const all = process.argv.includes("--all");
   const id = argValue("--id");
 
   if (!all && !id) {
-    console.error("Usage: npm run wiki:ingest -- --all | --id <inbox-id> [--dry-run] [--no-llm]");
+    console.error("Usage: npm run wiki:ingest -- --all | --id <inbox-id> [--dry-run]");
     process.exit(1);
   }
 
   const results = all
-    ? await ingestAllWiki({ dryRun, useLlm })
-    : [await ingestWikiItem(id, { dryRun, useLlm })];
+    ? await ingestAllWiki({ dryRun })
+    : [await ingestWikiItem(id, { dryRun })];
 
   if (!dryRun) {
     const index = writeKbIndex();
@@ -48,7 +47,7 @@ async function main() {
 
   console.log(`Wiki ingest complete: ${results.length} source(s).`);
   for (const result of results.slice(0, 5)) {
-    console.log(`  · ${result.title} → ${result.pages.length} page(s)${result.llm ? " [llm]" : ""}`);
+    console.log(`  · ${result.title} → ${result.pages.length} page(s) [scaffold]`);
   }
   if (results.length > 5) console.log(`  … and ${results.length - 5} more`);
 }

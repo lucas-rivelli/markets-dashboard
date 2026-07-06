@@ -156,8 +156,8 @@ Frontend mailbox state is now built: **Inbox** and **Trash** replace the old Sav
 **Phase 2 — triage tagging.**
 Folders + colored tags ship in the UI and sync via `/api/workspace`. LLM auto-tagging of the firehose remains deferred (`data/tags.json`).
 
-**Phase 3 — enrichment → knowledge base (Karpathy LLM wiki, July 2026).**
-Shipped: `kb/wiki/` layer with ingest/query/lint (`kb/wiki/WIKI.md`), auto-compile on save, optional `ANTHROPIC_API_KEY` summaries. Deferred: in-app “ask the KB” UI, automated overview synthesis cron.
+**Phase 3 — Karpathy LLM wiki (July 2026).**
+`kb/wiki/` maintained by **Cursor agent** daily (`AGENT.md`, `RUN.md`, GitHub `wiki-daily.yml`). Inbox enrichment (X/YouTube) stays in `kb/inbox/`; wiki prose is agent-authored — no Anthropic API. Deferred: in-app “ask the KB” UI.
 
 **Deferred:** in-page "ask the KB" endpoint (Claude Code over the repo does this better) ·
 Notion mirror for mobile browsing · email digest.

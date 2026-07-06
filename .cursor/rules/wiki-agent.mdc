@@ -1,0 +1,19 @@
+---
+description: Wiki maintenance via Cursor agent (Karpathy LLM wiki). Apply when editing kb/wiki/ or running daily wiki enrichment.
+globs:
+  - kb/wiki/**
+  - kb/inbox/**
+alwaysApply: false
+---
+
+# Wiki agent mode
+
+When working on `kb/wiki/`:
+
+1. Read `kb/wiki/AGENT.md` and `kb/wiki/RUN.md` first.
+2. **Never edit** `kb/inbox/*.json` (raw sources are immutable).
+3. **Do not** use `ANTHROPIC_API_KEY` or external LLM APIs for wiki authoring — write markdown in this Cursor session.
+4. Set `agent_status: done` and `agent_enriched_at` on sources you finish.
+5. After a batch: `npm run wiki:lint` and `npm run kb:index`.
+
+Schema reference: `kb/wiki/WIKI.md`.

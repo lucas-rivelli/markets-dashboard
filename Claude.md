@@ -132,22 +132,15 @@ kb/wiki/WIKI.md         wiki agent schema (ingest/query/lint)
 kb/index.json            generated app read model
 ```
 
-**Funnel:** Inbox → auto **To-read** → file to folder → remove To-read → `POST /api/save` → inbox JSON + **wiki ingest** (sources/concepts/entities/index/log).
+**Funnel:** Inbox → auto **To-read** → file to folder → remove To-read → `POST /api/save` → inbox JSON + **wiki queue** (not auto-authored).
 
-**Wiki maintenance (`kb/wiki/WIKI.md`):**
-- `sources/<id>.md` — summary per inbox item
-- `concepts/<slug>.md` — folder/topic synthesis pages
-- `entities/<slug>.md` — tickers and named entities
-- `index.md` — catalog; `log.md` — append-only timeline
-- `overview.md`, `tensions.md` — synthesis + contradictions ledger
+**Wiki (Cursor agent, daily):** read `kb/wiki/AGENT.md` + `RUN.md`. GitHub prepares queue at 08:00 BRT; Cursor automation enriches at 08:30. **No Anthropic API key** — agent writes markdown in Cursor.
 
-**Scripts:** `npm run wiki:ingest` · `wiki:lint` · `wiki:search` · `kb:index` · `kb:backfill`
+**Scripts:** `wiki:daily` · `wiki:ingest` (scaffold) · `wiki:lint` · `wiki:search` · `kb:index` · `kb:backfill`
 
-**API:** `GET /api/wiki?q=` search · `POST /api/wiki` ingest/lint (needs `SAVE_SECRET`)
+**API:** `GET /api/wiki?q=` or `GET /api/wiki` (queue) · `POST /api/wiki` sync/lint/scaffold
 
-**Enrichment on save (`lib/kb-enrich.js`):** X thread/article text, YouTube transcripts, Substack HTML.
-
-**Optional LLM:** set `ANTHROPIC_API_KEY` (+ `WIKI_LLM_MODEL`) for richer wiki summaries on ingest.
+**Enrichment on save (`lib/kb-enrich.js`):** X/YouTube body text into inbox JSON only.
 
 Spotify: To-read yes, inbox/KB/wiki no.
 
