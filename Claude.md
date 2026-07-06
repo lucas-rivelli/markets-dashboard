@@ -118,6 +118,8 @@ Parchment manuscript — EB Garamond, flat paper (`#f3ecdd`), hairline rules, ve
 - Rename body `dataset` keys or break the mobile history stack.
 - Add X/Twitter RSS bridges (bookmarks via birdclaw → `data/bookmarks.json`).
 - Drift from manuscript aesthetic (panels, pills, shadows, dark mode).
+- Call the Spotify API outside `lib/spotify.js`, or bypass its persisted cache/cooldown (`data/spotify-cache.json`) — dev-mode 429 penalties last hours and escalate.
+- Break `scripts/vercel-ignore.sh`: commits touching only `data/workspace.json` / `data/spotify-cache.json` must NOT trigger Vercel deploys (free tier caps ~100/day).
 
 ## When you ship UI work
 

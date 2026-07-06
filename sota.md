@@ -66,7 +66,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks`.
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
 - Frontend shows the last feed snapshot instantly, then syncs in the background.
-- Spotify rate-limits on repeated testing (HTTP 429) — code backs off, but don't hammer it.
+- Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API; episodes refresh at most every 6 hours. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
 - Keep the stack vanilla: no build step, no framework. `index.html` is self-contained.
 
 ## 4. Design language (July 2026 redesign)
