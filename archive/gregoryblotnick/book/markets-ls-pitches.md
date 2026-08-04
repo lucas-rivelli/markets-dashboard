@@ -3,345 +3,3293 @@
 An ordered reading of **original** posts from [@gregoryblotnick](https://x.com/gregoryblotnick), filtered to markets / long-short / stock-pitch craft. Non-market life and philosophy posts are omitted.
 
 > Source: live X archive via `bird` + the same `AUTH_TOKEN`/`CT0` cookies used for bookmark sync.
-> Archive fetched: 2026-08-04T04:01:04.042Z · authored in archive: 809 · included here: 362 posts in 328 threads.
+> Archive fetched: 2026-08-04T04:16:24.433Z · authored in archive: 842 · included here: 381 posts in 340 threads.
 > Editor role: connect and order only — wording below is his.
 
 ---
 
 ## Contents
 
-1. [2026-03-03 — Six Equity Analyst Models + Two Stock Pitches + DOWNLOAD LINKS](#t-2028803595831767167)
-2. [2026-03-03 — remember that the tape shapes the news and not vice versa](#t-2028839921272635452)
-3. [2026-03-04 — such a good quote...was a "lightbulb" moment in understanding equity valuation, and probably speaks to some hardwired co](#t-2029019664257282270)
-4. [2026-03-04 — few quotes from the big dog on dealing with hardship & adversity --](#t-2029021620900139054)
-5. [2026-03-04 — "Lazy Thinking" in Equity Valuation (Part 3): DCFs + Climbing Mount Stupid](#t-2029167521945751849)
-6. [2026-03-04 — things that are supposed to "work" in investing/trading but actually have a 0% success rate](#t-2029174566157734369)
-7. [2026-03-04 — someone asked, "what DOES work?"](#t-2029229068965523713)
-8. [2026-03-04 — the three rules of short-selling:](#t-2029240167278522490)
-9. [2026-03-09 — another one of those "lightbulb" quotes in understanding how liquidity drives market prices (from Druckenmiller) --](#t-2030950042559729976)
-10. [2026-03-09 — very important step for one's development as an investor or trader, that I wish I'd begun much sooner:](#t-2030993861518963184)
-11. [2026-03-09 — "The March of Nines" in Public Equity Markets: An Analytical Framework](#t-2031012029545189610)
-12. [2026-03-11 — O.G. Stock Pitch Thread VERSION 2.0 -- "Destroy & Rebuild"](#t-2031715799551909965)
-13. [2026-03-16 — gave LLMs another go with AMZN over the weekend (grok/claude/gemini/chatgpt)](#t-2033497805864444186)
-14. [2026-03-16 — Reading The Tape (Part 4): Druckenmiller and Macro Versus Fundamentals](#t-2033540954385199117)
-15. [2026-03-17 — Common Errors in Shorting Stocks -- "Why Be Short Anything?"](#t-2033886385854198179)
-16. [2026-03-18 — rule that took me too long to internalize](#t-2034220662743507414)
-17. [2026-03-18 — credit to Bill Miller for this great quote from six years ago](#t-2034223993788502157)
-18. [2026-03-25 — prob #1 instinct to develop for surviving markets is a “ding” sound, like when an airplane pilot says “you are now free ](#t-2036764892384968925)
-19. [2026-03-25 — reminder that these historical valuation charts tell u nothing on their own (i.e NTM P/E)](#t-2036804342032806331)
-20. [2026-03-25 — really important advice I got at a younger age](#t-2036817824677511649)
-21. [2026-03-29 — "Familiarity Breeds Contempt."](#t-2038249383309828523)
-22. [2026-03-29 — I think about this Flaubert quote a lot as far as discipline + ppl looking for "kicks" and variety in the wrong places](#t-2038289474229092810)
-23. [2026-03-29 — most important lesson I learned in my 30’s is that you cannot manage other people’s perceptions of u.](#t-2038355262441136153)
-24. [2026-03-30 — Risk Mgmt (Part 4): Q&A, Sell Discipline, FOMO, Stops & "Cool-Off Periods"](#t-2038584481884385311)
-25. [2026-03-30 — advice I wasn't given until my 30's, that someone REALLY should have given to me in my 20's:](#t-2038653451643519451)
-26. [2026-03-31 — reminder for young job searchers ](#t-2039078305647714610)
-27. [2026-04-06 — “I have made it my rule that the rising sun should never find me in bed so long as I am well."](#t-2041132108668633550)
-28. [2026-04-07 — infinite ROI habits / immunizing urself against the vicissitudes of fortune / self-discipline and "HABITS FOR LIFE"](#t-2041471614479483243)
-29. [2026-04-09 — "The 22 Rules of Trading" - Dennis Gartman https://t.co/4mFFdlJXbK](#t-2042198182512197999)
-30. [2026-04-16 — twitter needs more accounts like blueprint...really good attitude, humble, helpful, and incredibly self-effacing.](#t-2044701569619202158)
-31. [2026-04-16 — "I want to start posting and writing under my real name but I'm afraid what friends/family will think"](#t-2044706054454313271)
-32. [2026-04-16 — on using Twitter less / the eternal war against social media addiction](#t-2044710593609847009)
-33. [2026-04-17 — best argument for shorting = most stocks are 🚮](#t-2045174433975816505)
-34. [2026-04-17 — forgot, on "its priced in" + the meme below](#t-2045199923679809567)
-35. [2026-04-17 — thoughts on using this thread/article as a format -- esp for anyone older who is trying to transcribe or pass along what](#t-2045235071326835156)
-36. [2026-04-17 — one trait of really good investors that I havent seen discussed much on here](#t-2045265997901545953)
-37. [2026-04-17 — back in 2014, Alice Schroeder (wrote "Snowball" about Buffett) did a Reddit AMA](#t-2045280633690222604)
-38. [2026-04-18 — you know what's funny about this tweet... it's not entirely wrong. and I say that as a pretty "bookish" tweeter.](#t-2045421349699567910)
-39. [2026-04-18 — 14 miscellaneous investing rules, quotes &amp; excerpts https://t.co/tTBahimj52](#t-2045451838724452368)
-40. [2026-04-19 — some checklist highlights from Munger](#t-2045930873682289143)
-41. [2026-04-20 — "The Come Up" (Part Two) - L/S Q&A/FAQ/career stuff](#t-2046312053925646623)
-42. [2026-04-21 — on "cheap virtue"](#t-2046530360238854257)
-43. [2026-04-21 — on risk mgmt, trading, stop-losses, and products/instruments](#t-2046575204290248995)
-44. [2026-04-21 — 1. on a 10-year hold, would u rather own:](#t-2046689712811762144)
-45. [2026-04-23 — I don’t think I’ve ever seen a tweet from this account was anything but an absolute laser](#t-2047416958677815522)
-46. [2026-04-24 — thinking abt this Druck quote on mentors -💯 nails balance of nature vs. nurture:](#t-2047713933251723298)
-47. [2026-04-24 — the best path to getting tailored feedback and criticism:](#t-2047760417678577939)
-48. [2026-04-25 — 10 little things that have helped me in writing:](#t-2048006599306887615)
-49. [2026-04-28 — on adverse outcomes, managing expectations, negative visualization... ](#t-2049104122650022058)
-50. [2026-05-04 — shout out to everyone who woke up](#t-2051237334981452231)
-51. [2026-05-04 — never seen this valuation methodology work](#t-2051241173633704227)
-52. [2026-05-04 — munger's "iron prescription" and the work required to have an opinion:](#t-2051247888043270269)
-53. [2026-05-04 — the problem with multiples vs DCF:](#t-2051264971439263953)
-54. [2026-05-04 — this quote on trading markets from Mark Douglas is prob #1 on the "tape to your desk" list https://t.co/Vv0d61tqBV](#t-2051335188882260470)
-55. [2026-05-11 — Dan Benton's "20 Rules for Technology Investing" - 1991 & 2026 Editions](#t-2053774558340026738)
-56. [2026-05-11 — two important charts & tables from Mauboussin in April 2024 ("Valuation Multiples") on capital intensity and understandi](#t-2053805642637296102)
-57. [2026-05-13 — recommended reading](#t-2054524763154919846)
-58. [2026-05-13 — re: ROIC/WACC, reinvestment, cost of equity](#t-2054538234282000563)
-59. [2026-05-15 — from this transcript, the thing that stayed w/ me most is how often Todd Combs frames everything in confidence intervals](#t-2055342178084278525)
-60. [2026-05-16 — on historical chart patterns, market mechanics, and "the pool"... loose scribblings](#t-2055647698590511542)
-61. [2026-05-16 — re: primary research](#t-2055715658256576541)
-62. [2026-05-18 — something super impactful I read (lost the source). courtesy thing](#t-2056333497673843125)
-63. [2026-05-18 — the 10 best books/resources to learn fundamental equity valuation and markets](#t-2056386212831572183)
-64. [2026-05-19 — ROIC/ROIIC (Part 2): Reinvestment Rate, FCF Deployment & Capital Allocation](#t-2056801129636262151)
-65. [2026-05-19 — on unit growth stories - example frameworks/templates to add to this, ways to think abt modeling](#t-2056831115907027001)
-66. [2026-05-19 — twitter/phone minimalism (WIP)](#t-2056835948676063564)
-67. [2026-05-19 — most questions on markets, should probably be answered by this initial question:](#t-2056871137875783768)
-68. [2026-05-21 — there is a gap between intention and perception](#t-2057403365143834692)
-69. [2026-05-26 — Common Errors in Stock Pitches (Part 3): ROIC Inflections & Burden of Proof](#t-2059260408972644793)
-70. [2026-05-26 — "why do european stocks trade cheap"](#t-2059337411298054494)
-71. [2026-05-26 — Paris, 1776: absurd amount of insider trading during the Revolutionary War](#t-2059398558529286319)
-72. [2026-05-27 — from experience,](#t-2059597133624324108)
-73. [2026-05-27 — 2nd most important lesson I learned in my 30's](#t-2059622564809343476)
-74. [2026-05-28 — reason 100 of 100,000 why its good practice to keep other ppl's names out of ur mouth](#t-2059793754551119960)
-75. [2026-05-28 — basic markets rule](#t-2059799295931396422)
-76. [2026-05-28 — This is what peak looks like](#t-2059807080161153397)
-77. [2026-05-28 — if I had to explain to a 20-30 year old MM L/S equity analyst, what their goal should be by age 50-60:](#t-2059936607084368083)
-78. [2026-05-28 — re: MBA and L/S equity](#t-2059943349956579455)
-79. [2026-05-28 — Q: "hi, I'm James J. Jameson Junior, Cornell 2029. I'm interested in long/short equity as a career, what's the day-to-da](#t-2059968718176768437)
-80. [2026-05-28 — apologies for being a broken record](#t-2059977157791674480)
-81. [2026-05-28 — think his exact words were "I basically wake up and jump out of bed as if yesterday never happened"](#t-2059981544635183379)
-82. [2026-05-28 — re: L/S "case study"](#t-2059993423101210730)
-83. [2026-06-05 — lost track how many times I've gotten this pitch](#t-2062887140082520299)
-84. [2026-06-05 — insanely impressed by two things](#t-2062897936736919607)
-85. [2026-06-05 — last thing I'd emphasize to someone younger is that there is no “start giving back when ur older"](#t-2063010730962817058)
-86. [2026-06-10 — passion part deux / "il buono, il brutto, il cattivo"](#t-2064681487891321207)
-87. [2026-06-10 — one of the trickiest balances in markets](#t-2064688073250636179)
-88. [2026-06-10 — the older I get, the more I understand why Buffett rolled this way https://t.co/oJNcStHisw](#t-2064717250989367369)
-89. [2026-06-12 — 8 Thoughts on Equity Issuance + Market-Implied "Reaction Function"](#t-2065478116617957593)
-90. [2026-06-12 — relevant charts from GS/MS](#t-2065482184966734259)
-91. [2026-06-12 — one follow up on this (feedback was generally 👍 on the list)](#t-2065505241718567007)
-92. [2026-06-12 — lots of good commentary on this intvw, I have very little to add except highlighting this one clip re: lollapalooza effe](#t-2065525762216648889)
-93. [2026-06-16 — another basic markets rule](#t-2066890455187382548)
-94. [2026-06-18 — Learning Markets, Modeling & How LLM's Reduce "Time-To-Mastery" by 50-90%](#t-2067593785194733972)
-95. [2026-06-18 — you can read about and study markets all ur life, only to realize a handful of maxims carry 99% of the load (applies for](#t-2067637962402123928)
-96. [2026-06-18 — lmao](#t-2067698601145311465)
-97. [2026-06-18 — was talking this over with a buddy](#t-2067722609509187725)
-98. [2026-06-19 — reminder](#t-2067760658708611440)
-99. [2026-06-19 — this was a good question](#t-2067795912663998779)
-100. [2026-06-19 — two actions to be perfected](#t-2067895365202768273)
-101. [2026-06-19 — re: cutting losses... ](#t-2067952929856798749)
-102. [2026-06-19 — Risk Management/Trading: Reading Material](#t-2067976033001693544)
-103. [2026-06-19 — PTJ intvw in Market Wizards -- the density of wisdom in these old interviews is astonishing](#t-2067980337615917421)
-104. [2026-06-19 — Seykota intvw is another classic, from Market Wizards](#t-2068007844297748630)
-105. [2026-06-19 — perfect example on cutting losses + "freezing up"](#t-2068014836173152592)
-106. [2026-06-19 — evaluating trader talent - Steve Cohen in Schwager](#t-2068018202375000138)
-107. [2026-06-19 — Ari Kiev on slugging % -- "Great traders like Steve are able to notice when the sweet spot is visible and pile in... 5% ](#t-2068025661294268729)
-108. [2026-06-19 — Eckhardt in Schwager...true OG.  ](#t-2068029273785397404)
-109. [2026-06-19 — Re: "24-hour memory" as secret to success](#t-2068033891030487220)
-110. [2026-06-19 — PTJ in Market Wizards, when asked why he trains a group of apprentice traders](#t-2068037593451929803)
-111. [2026-06-19 — credit to Eckhardt -- this is one of the more unique descriptions of the market I have ever seen](#t-2068049424698188114)
-112. [2026-06-19 — Druckenmiller's "100 million Frenchmen can't be wrong," as the voice of the market](#t-2068055389321740464)
-113. [2026-06-19 — this is by far the best answer I've seen to "why is intelligence is an impediment to successful trading?"](#t-2068060803719139582)
-114. [2026-06-19 — this is fantastic](#t-2068072848535568402)
-115. [2026-06-23 — the best feedback I got on this, from ppl I look up to and respect:](#t-2069380452062756991)
-116. [2026-06-23 — there's an inverse version of this post - "common investing and market maxims that fail to hold."](#t-2069399710742216806)
-117. [2026-06-23 — another good q that fits this framework](#t-2069400635410178550)
-118. [2026-06-23 — perfect analogy for emotional self-discipline](#t-2069403891347652656)
-119. [2026-06-23 — massive amounts of game in these two paragraphs alone](#t-2069420132565180572)
-120. [2026-06-23 — "re-read every 5 years" pile...these four books do an enormous amount of heavy lifting:](#t-2069435832453255393)
-121. [2026-06-23 — top investing CAGRs of all time](#t-2069446179604009430)
-122. [2026-06-23 — Druck in New Market Wizards](#t-2069562187606098041)
-123. [2026-06-23 — Intvw with Lee Ainslie of Maverick, Graham & Doddsville, 2014 -- five excerpts on L/S equity, talent, and "No Holds" por](#t-2069563111099490442)
-124. [2026-06-23 — Druck on Valuation (Schwager) - imo THE #1 framework](#t-2069564940420055351)
-125. [2026-06-23 — Druck in New Market Wizards on mentorship](#t-2069568152124473734)
-126. [2026-06-23 — Druck in New Market Wizards -- this is all 100% canonical, hall-of-fame material, that will live on forever.](#t-2069569210305724724)
-127. [2026-06-23 — Soros in "New Money Masters" -- 100% uncut game right here, on markets as complex adaptive systems, narrative shifts, re](#t-2069570583126286693)
-128. [2026-06-24 — Peter Lynch, "New Money Masters" -- really think this is 'best practice' that very few ppl do](#t-2069574780202660262)
-129. [2026-06-24 — Lynch in New Money Masters on why econ and top-down analysis is bullshit, why trading derivatives are to be avoided bc t](#t-2069577448266809403)
-130. [2026-06-24 — omg another Jim Rogers quote ("New Money Masters") re: telling people to "go short some wheat"](#t-2069578460423397404)
-131. [2026-06-24 — four more secondary/tertiary "intvw book format" recs:](#t-2069591431514083577)
-132. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" -- one of the greatest excerpts ever, on why he prefers market makers to an](#t-2069593918270754983)
-133. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" with a hall-of-fame risk management excerpt:](#t-2069594783157305379)
-134. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" on stop-losses, time stops, gut-instinct stops, and more](#t-2069595755275227168)
-135. [2026-06-24 — One of the best paragraphs ever written on trading -- and on human nature -- is this page from Seykota in Market Wizards](#t-2069600618872713607)
-136. [2026-06-24 — found it @Yulai_Jump ](#t-2069609155871035876)
-137. [2026-06-24 — Druck - 8 incredible excerpts/masterclass on literally everything - risk, concentration, traits of great traders - from ](#t-2069617005724917862)
-138. [2026-06-24 — Druck masterclass part two -- 8 parts -- risk, concentration, tape feel -- from 2022 intvw with John Collison (ht @kevg1](#t-2069620914325443016)
-139. [2026-06-24 — druck masterclass part 3 - five quotes - invtw w/ Nicolai Tangen (2024) - ht @kevg1412 ](#t-2069623966315032906)
-140. [2026-06-24 — SAC Masterclass - Jawad Mian vs Steve Cohen (2021) - eight parts -- primarily knowledge of self, emotional self-discipli](#t-2069626938969161875)
-141. [2026-06-24 — mental capital...McKay in Schwager](#t-2069730788447273216)
-142. [2026-06-24 — "Portfolio Construction and Risk Management: Long–Short Portfolios" by Lee Ainslie (Maverick), 2002 https://t.co/KNLre9f](#t-2069733862444269970)
-143. [2026-06-24 — add to "re-read every 5 years" pile](#t-2069737694008152177)
-144. [2026-06-24 — Intvw on short-selling with Jim Chanos in Graham & Doddsville (2012) -- some excerpts on temperament, valuation, leverag](#t-2069756294555131962)
-145. [2026-06-24 — man I remember reading this back in Fall 2015 like "who?" major come-up...man has executed flawlessly.](#t-2069761194747957707)
-146. [2026-06-24 — from intvw: "Phil Fisher outlines 15 elements of a great growth stock. When I read the book, I was amazed at how similar](#t-2069762276316397819)
-147. [2026-06-24 — 9 excerpts from Combs + Munger intvws (2022-2024, h/t @kevg1412) -- notes on concentration, mental models, biases, the "](#t-2069765350812438773)
-148. [2026-06-24 — OG FinTwit Wizards (2010-2015):](#t-2069768367095902653)
-149. [2026-06-24 — there's a term "mañana stocks," with credit due to a short-seller named Robert Wilson, as situations to avoid:](#t-2069791386203775101)
-150. [2026-06-24 — PTJ...everything is positive visualization (from Mallaby)](#t-2069800712767197506)
-151. [2026-06-24 — one of the best quotes re: "how does RenTech continue putting up decades of crazy #'s?" ](#t-2069804391385735594)
-152. [2026-06-24 — to give some context around this](#t-2069830156621840581)
-153. [2026-06-24 — this is actually a legit short-selling checklist by some true OG bears (the Feshbach brothers)](#t-2069838256183636377)
-154. [2026-06-24 — checklist detail:](#t-2069841817818869943)
-155. [2026-06-24 — "The three short-seller sins: Sloth, Pride, Timing" (Staley)](#t-2069846421470117960)
-156. [2026-06-24 — sounds simple but applies for 1,000 things -- from Steve Clark in Schwager's HF Market Wizards](#t-2069886253898592410)
-157. [2026-06-24 — "the ten cardinal rules" -- this is from Ari Kiev's book](#t-2069894215946174735)
-158. [2026-06-24 — on "the book of base rates" (Mauboussin), u want to keep these tables somewhere within arm's reach](#t-2069901913240326581)
-159. [2026-06-25 — one of those quotes where u realize Buffett is insane, a shark, or both](#t-2069950235711856822)
-160. [2026-06-25 — from the alice schroeder reddit AMA...basically, "u think u know, but u have no idea"](#t-2069954052767592523)
-161. [2026-06-25 — Question: "What is your favorite Buffett quote/memory?"](#t-2069957391035117967)
-162. [2026-06-25 — another "here's why he is Buffett and we are us"](#t-2069961066218471525)
-163. [2026-06-25 — stock pitch from Buffett in 1960, the Partnership days:](#t-2069973189896138937)
-164. [2026-06-25 — Buffett in the "come-up" era...letting u know he's about three things:](#t-2069980451389821066)
-165. [2026-06-25 — another great Alice Schroeder intvw, knew Buffett at a unique level and is a very wise human in her own right](#t-2070101400432841009)
-166. [2026-06-25 — direct rebuttal to "be greedy when others are fearful" from Schroeder](#t-2070102341726974372)
-167. [2026-06-25 — 1. Think in Probabilities](#t-2070103651016679752)
-168. [2026-06-25 — on Buffett's strengths as a communicator, teacher, and writer](#t-2070107984793833653)
-169. [2026-06-25 — more pit wisdom/risk mgmt - "The Ten Commandments of Trading" - good list](#t-2070114447096447399)
-170. [2026-06-25 — "Advice from a short seller" - 10/10 on tone ](#t-2070119116237656502)
-171. [2026-06-25 — on trading enterprise software https://t.co/Jr8Dyk7xXn](#t-2070122132495884544)
-172. [2026-06-25 — same idea as the PTJ quote: "Don’t be a hero. Don’t have an ego. Always question yourself and your ability. Don’t ever f](#t-2070125270791590099)
-173. [2026-06-25 — on tech investing](#t-2070134444657184791)
-174. [2026-06-25 — on getting wiped out + lessons learned](#t-2070138915340570710)
-175. [2026-06-25 — "intelligence as an impediment" part 3](#t-2070140674201080099)
-176. [2026-06-25 — lasers from the big dog](#t-2070149282284326927)
-177. [2026-06-25 — On how to avoid problems](#t-2070151472054960521)
-178. [2026-06-25 — one of the many definitions of risk, in five parts (from BRK 1993)](#t-2070153965333877210)
-179. [2026-06-25 — "The best role models have been dead for a long time"](#t-2070155190565548312)
-180. [2026-06-25 — pages 4-6 below (Q&amp;A with Ainslie and Lasry)](#t-2070204432227111005)
-181. [2026-06-25 — bunch of frameworks + model portfolio template ideas in here -- different ways to think about L/S, both top-down and bot](#t-2070207236299776191)
-182. [2026-06-25 — Joel Greenblatt - "Special Situation Investing" Class at Columbia Business School - 312 pages of notes](#t-2070207328750575783)
-183. [2026-06-25 — "Thirty Years -- Reflections on the Ten Attributes of Great Investors" (2016, Mauboussin)](#t-2070212462448939089)
-184. [2026-07-05 — C.S. Lewis on “…the long terrible story of man trying to find something other than God which will make him happy.” https](#t-2073828622876426256)
-185. [2026-07-06 — this is one of the frameworks/ideas being referred to in the 2nd tweet (https://t.co/yARE1maHut)](#t-2074078820093534222)
-186. [2026-07-06 — thinking abt this article on trading psychology (WSJ, 2025)](#t-2074085568703500586)
-187. [2026-07-06 — this is one of those charts I'd rebuild in excel if u cover the space, u don't need tons of data/software...just daily s](#t-2074087203810975814)
-188. [2026-07-06 — a lot of ideas/pitches that appear fundamentally driven, or at least ones I've seen recently, are all fighting against s](#t-2074090328789762417)
-189. [2026-07-06 — nice compilation -- "The Best of Charlie Munger: 1994-2011 - A collection of speeches, essays, and Wesco annual meeting ](#t-2074113190779047936)
-190. [2026-07-08 — one of the all-time great diet/discipline razors](#t-2074807959842897967)
-191. [2026-07-08 — "Go where there's dumb competition" is one of the better Mungerisms, but harder to put in practice than it sounds...few ](#t-2074824990831018116)
-192. [2026-07-08 — one other quote in here from Buffett that I think a lot about](#t-2074837321409520033)
-193. [2026-07-08 — two from "Open" by Agassi:](#t-2074840410225004701)
-194. [2026-07-08 — this was a great quote from Gavin Baker on Seides' podcast in March:](#t-2074844785093841200)
-195. [2026-07-08 — "Niederhoffering the curriculum" at Harvard... from Munger https://t.co/R16T3FGJmI](#t-2074846622303780980)
-196. [2026-07-08 — sizing/concentration part 1000...Munger at Wesco (1999)](#t-2074848073763766635)
-197. [2026-07-08 — Munger: Neither Warren nor I has ever thought for two seconds about beta. But every business school teaches this concept](#t-2074850818344301012)
-198. [2026-07-09 — key w/ reading older material like this (in QT), is a deep understanding of business models](#t-2075155259362595032)
-199. [2026-07-10 — C.S. Lewis on pride… so good](#t-2075514595620347943)
-200. [2026-07-10 — on the Munger Partnership's back-to-back 30% drawdowns in 1973-1974 with OPM, and the "math of losses"](#t-2075603519181119684)
-201. [2026-07-10 — bond market notes -- likely more timeless than dated https://t.co/o9FZgZoGDa](#t-2075622119463858288)
-202. [2026-07-10 — table of contents for "Trading in the Zone" by Mark Douglas](#t-2075624851843305734)
-203. [2026-07-10 — old mentor I had was a fan of this extremely non-academic risk management term:](#t-2075629748399591568)
-204. [2026-07-10 — on terminal value risk -- obvious q would be, "how do Buffett/Munger think about situations like this?"](#t-2075633281010155661)
-205. [2026-07-10 — this quote from Bessent in 2006, on embedded macro bets + hidden risks, has to be emphasized (from Drobny)](#t-2075638976300331338)
-206. [2026-07-10 — one thing that is extremely tricky with this top-down thought process...is not just all the puzzle pieces on mkt share, ](#t-2075643410686374105)
-207. [2026-07-10 — shout out to all the glue guys...personality hires...mfs who seem to find themselves collecting W's despite lacking skil](#t-2075673686640582786)
-208. [2026-07-10 — two more from Agassi, on how success is hollow, impostor syndrome, and how wins never feel as good as losses do bad](#t-2075689306585198596)
-209. [2026-07-11 — on reading habits... the way I'd break it down to my 23-year old self](#t-2075883149683298747)
-210. [2026-07-11 — for L/S, there is something to be gained in thinking about process the same way you'd think about a blackjack system](#t-2075906082027733474)
-211. [2026-07-11 — on "the eminent dead," Lyndon Johnson, power dynamics, respect, cunning, and manipulative behavior](#t-2075956366124986591)
-212. [2026-07-11 — from Napoleon's 1812 retreat from Russia...crazy detail on the human condition](#t-2075971293116092700)
-213. [2026-07-11 — Munger on Lyndon Johnson:](#t-2075985592475615338)
-214. [2026-07-11 — on risk, urgency, fear, failure, embracing pain and uncertainty, work/life/comp $, taking the long view, and getting the](#t-2076053183575781653)
-215. [2026-07-12 — on "broken compounders" -- is there really some high-level issue? Or are each of these names driven by fundamental secto](#t-2076097662047187400)
-216. [2026-07-12 — known unknowns, fear, risk, countervailing forces, avoidance of pain, what ppl will think](#t-2076284392863904012)
-217. [2026-07-12 — on "complexity" as a core tenet in pitches](#t-2076308917802394003)
-218. [2026-07-12 — Time To Redefine The Word "Compounder?"](#t-2076364169528406314)
-219. [2026-07-12 — this is an excellent question, and one where I can give a serviceable answer for now](#t-2076399432577523842)
-220. [2026-07-12 — (process vs. outcome) + (means vs. ends)](#t-2076438713077228002)
-221. [2026-07-12 — My first boss always said:](#t-2076452454783242510)
-222. [2026-07-12 — this stock pitch is pretty close to 10/10 imo, from VIC](#t-2076456442282844198)
-223. [2026-07-13 — The Final Frontier: Breaking Down Tape, P&L Mirrors, Emotional Trench Warfare](#t-2076585078143029588)
-224. [2026-07-13 — 25 Rare + Obscure Interviews (Fundamental L/S Equity)](#t-2076602869185175789)
-225. [2026-07-13 — paragon (cont)](#t-2076661949048209624)
-226. [2026-07-13 — fwiw this exercise = 10% stonks, 90% 2-pg memo.](#t-2076675822019023183)
-227. [2026-07-13 — On breaking down tape/P&L](#t-2076785601672609976)
-228. [2026-07-14 — WSJ in May 2000 on Druck/Soros getting headfaked by tech stocks…shows u how literally some of the greatest to ever do it](#t-2076982920221212925)
-229. [2026-07-16 — shout out to everyone who just sends a DM like](#t-2077694278009049316)
-230. [2026-07-16 — v common twtr error/misconception to be cleared up](#t-2077697419064525209)
-231. [2026-07-16 — on breaking down tape...another really valuable exercise](#t-2077701713599856947)
-232. [2026-07-16 — on reading & tweeting](#t-2077709550916952094)
-233. [2026-07-16 — on making asks of other people's time...this is actually sort of a life skill, its not just "I'm 21 and need help"](#t-2077745429710606477)
-234. [2026-07-16 — the "come-up" isn't a 1x thing so much as it is a process that repeats itself, a series, just with higher and higher sta](#t-2077753438960529525)
-235. [2026-07-17 — Druck on why the best risk mgmt system is a combo of gut feel and "P&amp;L watching"](#t-2077916069084225921)
-236. [2026-07-17 — Part 2 Fundamental L/S: Resources + Reading/Checklists + Long-Form Threads](#t-2077933915910623627)
-237. [2026-07-17 — FAQ on "breaking down tape" for fundamental L/S -- why do it, what does grinding thru charts teach u, whats the framewor](#t-2078034745296908510)
-238. [2026-07-17 — on organizing info/ideas -- both reading & writing](#t-2078065605047894473)
-239. [2026-07-17 — most important part of this quote is that it immediately slices through like 6 different paradoxes of markets](#t-2078084661675282816)
-240. [2026-07-17 — the hardest part about adjusting ur way of operating to Buffett's credo -- “If I do it for you, I have to do it for ever](#t-2078091540564410681)
-241. [2026-07-17 — Writing = "a vivid and continuous fictional dream."](#t-2078102823502327842)
-242. [2026-07-17 — comedic and somewhat unique aspect of markets to never lose sight of](#t-2078110947030221193)
-243. [2026-07-17 — all change is driven by contempt and disgust for some part of urself. the term I've settled on is "a healthy self-loathi](#t-2078125409573511633)
-244. [2026-07-17 — prob the single most important rule for trading and for life https://t.co/CYVruQ5jCe](#t-2078168628826980504)
-245. [2026-07-17 — to: value investors club](#t-2078207793211879562)
-246. [2026-07-17 — "How did Buffett and Malone get so rich"](#t-2078234909764632738)
-247. [2026-07-18 — this message is important, but also nuanced around age (20-40):](#t-2078297761867341913)
-248. [2026-07-18 — fact checked by clankers, 99.9% correct](#t-2078309350049738975)
-249. [2026-07-18 — asked grok how Buffett managed his factor exposures in 1960 when he was long so many textile manufacturers + his view on](#t-2078323802467889405)
-250. [2026-07-18 — CFA: "fundamental equity valuation is the path to generating excess returns"](#t-2078415644932837512)
-251. [2026-07-18 — "its very important that you avoid debt, and be prudent in choosing high-quality businesses, investing in equities only ](#t-2078420508815610342)
-252. [2026-07-18 — CFA: "calculate the duration of this bond"](#t-2078423740275151315)
-253. [2026-07-18 — 5 Druck highlights](#t-2078436289221689474)
-254. [2026-07-18 — 1960: Buffett catalyzes equity value in Sanborn Map Company, nukes board, reshuffles cap structure, disembowels counterp](#t-2078443055942606922)
-255. [2026-07-18 — "Buy great businesses with predictable cash flows and then let them compound"](#t-2078446698930512350)
-256. [2026-07-18 — 2008: Buffett rides into midtown Manhattan, provides $8B of rescue financing to Goldman Sachs and GE, and rides out with](#t-2078450049420271767)
-257. [2026-07-18 — “I'm calling about Bear Stearns,'" the private investor began, according to Mr. Buffett. "Should I go on?'"](#t-2078454955275354485)
-258. [2026-07-18 — “Buy fear, buy when there is blood in the streets, take risk”](#t-2078457013927813538)
-259. [2026-07-18 — such a cocky bar from Soros:](#t-2078466807803838920)
-260. [2026-07-18 — "I really want to add to nvda here but it feels risky, could go down another 10%, and I'm already maxed out at 3.5% posi](#t-2078494271833788738)
-261. [2026-07-18 — Philosopher-king Randy Moss on position sizing](#t-2078495293704712408)
-262. [2026-07-18 — Blood in the streets (visualized)](#t-2078519546525503703)
-263. [2026-07-18 — I just have to highlight a quote from that same excerpt, it's equally insane, and fucking hilarious](#t-2078522603728429257)
-264. [2026-07-18 — List of banks/financial institutions who wanted Buffett as a backstop in 2008](#t-2078526657086787913)
-265. [2026-07-18 — "I'm thinking of buying some AMZN here, I'm at 1.5% size, I could go as high as 2%...maybe even 2.5%"](#t-2078530879601700865)
-266. [2026-07-18 — Partnership-era Buffett (1956-1969)](#t-2078537427652932055)
-267. [2026-07-18 — random but if ur in a drawdown rn, say 25-50%, which I sense many are because everyone is in the same trades](#t-2078565110214443091)
-268. [2026-07-18 — Platt on risk mgmt, he gives u a lot of game that u can install as risk mgmt process…fast loss taker, trusts his gut, he](#t-2078567672745226342)
-269. [2026-07-18 — on trading psychology (esp in drawdowns) u want to refocus on non-fundamental side...emotional self-discipline, clear, c](#t-2078574516784054293)
-270. [2026-07-18 — PTJ - on time stops;](#t-2078576792554860973)
-271. [2026-07-18 — Intvws in here specifically on risk/drawdowns](#t-2078578398650102014)
-272. [2026-07-18 — love the dm’s recently](#t-2078618396221165966)
-273. [2026-07-21 — "TRADE QUIETLY" - on groupthink, copy-trading, pre-mortems, social proof, and borrowed conviction](#t-2079531756068184451)
-274. [2026-07-21 — to: value investors club](#t-2079533968186122258)
-275. [2026-07-21 — old quote but "people overestimate what they can do in 1 year, and underestimate what they can do in 10" is sage advice](#t-2079537622909661447)
-276. [2026-07-27 — The Long Term Is A Series of Short-Terms: Time Arbitrage + Revision Cycles](#t-2081681270417887357)
-277. [2026-07-27 — have to apply this to investors also, stuff like the pre-reg FD era](#t-2081688696227557792)
-278. [2026-07-27 — on daily routine/schedule...Munger](#t-2081693778172137552)
-279. [2026-07-27 — Munger: "I don’t go to meetings. Warren doesn’t go to meetings. Put that in your article: There’s practically no meeting](#t-2081695561355333686)
-280. [2026-07-27 — another amazing Munger story -- the P.J. O'Rourke bit on communism https://t.co/QXEN2ScFTo](#t-2081740466081378416)
-281. [2026-07-27 — Buffett's "Come-Up" Era (1956-1969) - Partnership Quotes & Excerpts](#t-2081751315458175369)
-282. [2026-07-27 — on the myth of market "short-termism" (Mauboussin, CSFB, 1997)](#t-2081785648197877863)
-283. [2026-07-27 — this is awesome. great perspective](#t-2081843751308378483)
-284. [2026-07-27 — one of the best quotes on experience in investing, from Market Wizards:](#t-2081848208842760371)
-285. [2026-07-28 — Basic 2-page stock memo template for ppl to use -- this is version 3.0 or 4.0 since the first one in Summer 2025](#t-2081902306195378516)
-286. [2026-07-28 — 2 more excellent stock pitches - SIMPLICITY.](#t-2081912295626551539)
-287. [2026-07-28 — Btw here is the AMZN stock chart in 2015 when they broke out AWS](#t-2081931403625656572)
-288. [2026-07-28 — Here's another great Value Investors Club pitch](#t-2081939163851423983)
-289. [2026-07-28 — very solid: "How to Pitch a Stock to a PM, by Bill Miller (Legg Mason)"](#t-2081948623873446359)
-290. [2026-07-28 — Alt Data Is Bullshit -- "Kabuki Theatre" in Fundamental L/S](#t-2082015674101051468)
-291. [2026-07-28 — if there's one habit that will help you get more out of twtr + improve your "return on time," it's sizepoasting](#t-2082040762263613443)
-292. [2026-07-28 — Munger on sizing in 2011 (UMich) - just tape this shit to ur desk already](#t-2082046071207870815)
-293. [2026-07-28 — "can a stock pitch be only text"](#t-2082050170036854836)
-294. [2026-07-28 — Munger on rationality](#t-2082051180780216442)
-295. [2026-07-28 — just one man’s useless opinion, but if you’re just now starting ur career (say 18-25 yrs old)](#t-2082056531257029056)
-296. [2026-07-28 — I might have been lucky rather than good, but this single slide from Tarasoff's AMZN deck in 2012, was the core of an en](#t-2082063764740870191)
-297. [2026-07-28 — on BRK's Washington Post investment; Munger has called it both a 50-bagger and a 100-bagger ("basis $10M, became worth $](#t-2082076336550498452)
-298. [2026-07-28 — the only thing I'd add to this, is that when u observe people extremely high up (like a Buffett)](#t-2082105290183651446)
-299. [2026-07-28 — “tops are a process, bottoms are an event”](#t-2082116490170384590)
-300. [2026-07-28 — very loose and useless macro observations (from my lifetime)](#t-2082186465501737373)
-301. [2026-07-28 — if I had to describe the easiest and most straightforward way to make money in markets, its:](#t-2082201511799529767)
-302. [2026-07-28 — The amount of quotes from Munger on distrusting oneself and distrusting one's mind are overwhelming](#t-2082216941641449841)
-303. [2026-07-28 — Tepper detail from GFC era: before getting balls long banks at the bottom in 2009, he was shorting those same banks in N](#t-2082219691292971331)
-304. [2026-07-28 — tepper is the man but to me, he just shines a light on other guys (Druck, PTJ) as "the man" for their contributions to t](#t-2082227015978041622)
-305. [2026-07-28 — one addition to this](#t-2082229308798431353)
-306. [2026-07-28 — BREAKING DOWN TAPE (PART THREE)](#t-2082244505365880851)
-307. [2026-07-28 — Q: "When did you turn from a loser to a winner?"](#t-2082250654609703360)
-308. [2026-07-28 — this quote from trader Marty Schwartz sums up a giant cross-section of both trading markets and human nature](#t-2082252459951419768)
-309. [2026-07-29 — every bear pitch I've seen on NVDA looks something like this](#t-2082287915162390972)
-310. [2026-07-29 — Trading Consumer/Retail, The Stupidest Fucking Sector In The Market](#t-2082376189889450179)
-311. [2026-07-29 — not sure if Tom Russo's style goes out of favor but the simple checklist of "capacity to suffer" + capacity to reinvest ](#t-2082425888260366392)
-312. [2026-07-29 — events where u could give me the numbers in advance and I'd still get the move wrong:](#t-2082435856330092744)
-313. [2026-07-29 — soon as u see a pitch open with this image, u know its no good](#t-2082446024413532178)
-314. [2026-07-29 — "BEARISH AND LONG" -- gotten tons of mileage out of this janky little homemade meme](#t-2082538298619371693)
-315. [2026-07-29 — the 9th biggest company on the planet being spacex just doesn't look right...doesn't sit right, amidst all those names t](#t-2082562964331073936)
-316. [2026-07-30 — perhaps I’m missing something, but for ROIC, why are they relying on an est from Nowak @ MS, instead of an internal ROIC](#t-2082736966827679764)
-317. [2026-07-30 — re: fundamental/bonds/macro rabbit hole avoidance](#t-2082793086401364082)
-318. [2026-07-30 — another maxim I forgot](#t-2082810110519165380)
-319. [2026-08-03 — on idea gen / versatility / “counter” vs “consensus”](#t-2084208551132529078)
-320. [2026-08-03 — was scrolling thru "Reminiscences of a Stock Operator" yday...should it be on the must-read list, idk, probably. but the](#t-2084213272736153719)
-321. [2026-08-03 — soros on cutting losses: "I rely a great deal on animal instincts. When I was actively running the Fund, I suffered from](#t-2084236400254197951)
-322. [2026-08-03 — re: counter vs consensus, this article on retail shitcos is the one I mentioned:](#t-2084352557455958147)
-323. [2026-08-03 — spacex "for Q2, the street is looking for sales of $6.9B, EBITDA of $2B, and capex of $19B" 💀](#t-2084356398842843206)
-324. [2026-08-03 — this Druck excerpt on “P&L watching” as the best risk mgmt system, is something u don’t see discussed much, but is prob ](#t-2084360245422219578)
-325. [2026-08-03 — Livermore: “If a stock doesn't act right don't touch it; because, being unable to tell precisely what is wrong, you cann](#t-2084362202358906966)
-326. [2026-08-03 — this single page from Livermore > entire books that have been written ](#t-2084364091943170432)
-327. [2026-08-03 — "the way u take losses in life = the way u take losses in markets" (PART 1)](#t-2084392669099278374)
-328. [2026-08-04 — this the long one (30 min) for those really fucked up](#t-2084431701304865225)
+1. [2025-12-01 — How Idea Velocity Drives Drawdowns: The "Hidden Costs" of a Stagnant Flywheel](#t-1995504134372380789)
+2. [2025-12-10 — Portfolio Construction: Probability-Weighted Outcomes & Measuring Risk/Reward](#t-1998759439831113953)
+3. [2025-12-18 — MASTER THREAD: Markets (L/S Equity) + Not-Markets (Human Nature, Philosophy)](#t-2001641818216137089)
+4. [2025-12-22 — Modeling for Fundamental L/S Equity - Philosophy + Framework (Part 1)](#t-2003117795668623807)
+5. [2025-12-24 — Modeling (Part 2) - Q&A, Attitude, Drivers, DCF's & Cyclicals](#t-2003862208539656230)
+6. [2026-01-14 — Modeling (Part 3): Time Horizon, Q&A, Theory vs. Market Pragmatism](#t-2011450020294283609)
+7. [2026-01-26 — Fundamental L/S "Tips & Tricks" - Modeling (Part 4) - Unit Economics](#t-2015792949435437430)
+8. [2026-01-29 — Common Errors in Stock Pitches (Part One)](#t-2016915686866510307)
+9. [2026-02-17 — Terminal Value Overhangs (Part 1), Secular "Reapers" and Return on Brain Damage](#t-2023759332534280363)
+10. [2026-03-03 — Six Equity Analyst Models + Two Stock Pitches + DOWNLOAD LINKS](#t-2028803595831767167)
+11. [2026-03-03 — remember that the tape shapes the news and not vice versa](#t-2028839921272635452)
+12. [2026-03-04 — such a good quote...was a "lightbulb" moment in understanding equity valuation, and probably speaks to some hardwired co](#t-2029019664257282270)
+13. [2026-03-04 — few quotes from the big dog on dealing with hardship & adversity --](#t-2029021620900139054)
+14. [2026-03-04 — "Lazy Thinking" in Equity Valuation (Part 3): DCFs + Climbing Mount Stupid](#t-2029167521945751849)
+15. [2026-03-04 — things that are supposed to "work" in investing/trading but actually have a 0% success rate](#t-2029174566157734369)
+16. [2026-03-04 — someone asked, "what DOES work?"](#t-2029229068965523713)
+17. [2026-03-04 — the three rules of short-selling:](#t-2029240167278522490)
+18. [2026-03-09 — another one of those "lightbulb" quotes in understanding how liquidity drives market prices (from Druckenmiller) --](#t-2030950042559729976)
+19. [2026-03-09 — very important step for one's development as an investor or trader, that I wish I'd begun much sooner:](#t-2030993861518963184)
+20. [2026-03-09 — "The March of Nines" in Public Equity Markets: An Analytical Framework](#t-2031012029545189610)
+21. [2026-03-11 — O.G. Stock Pitch Thread VERSION 2.0 -- "Destroy & Rebuild"](#t-2031715799551909965)
+22. [2026-03-16 — gave LLMs another go with AMZN over the weekend (grok/claude/gemini/chatgpt)](#t-2033497805864444186)
+23. [2026-03-16 — Reading The Tape (Part 4): Druckenmiller and Macro Versus Fundamentals](#t-2033540954385199117)
+24. [2026-03-17 — Common Errors in Shorting Stocks -- "Why Be Short Anything?"](#t-2033886385854198179)
+25. [2026-03-18 — rule that took me too long to internalize](#t-2034220662743507414)
+26. [2026-03-18 — credit to Bill Miller for this great quote from six years ago](#t-2034223993788502157)
+27. [2026-03-25 — prob #1 instinct to develop for surviving markets is a “ding” sound, like when an airplane pilot says “you are now free ](#t-2036764892384968925)
+28. [2026-03-25 — reminder that these historical valuation charts tell u nothing on their own (i.e NTM P/E)](#t-2036804342032806331)
+29. [2026-03-25 — really important advice I got at a younger age](#t-2036817824677511649)
+30. [2026-03-29 — "Familiarity Breeds Contempt."](#t-2038249383309828523)
+31. [2026-03-29 — I think about this Flaubert quote a lot as far as discipline + ppl looking for "kicks" and variety in the wrong places](#t-2038289474229092810)
+32. [2026-03-29 — most important lesson I learned in my 30’s is that you cannot manage other people’s perceptions of u.](#t-2038355262441136153)
+33. [2026-03-30 — Risk Mgmt (Part 4): Q&A, Sell Discipline, FOMO, Stops & "Cool-Off Periods"](#t-2038584481884385311)
+34. [2026-03-30 — advice I wasn't given until my 30's, that someone REALLY should have given to me in my 20's:](#t-2038653451643519451)
+35. [2026-03-31 — reminder for young job searchers ](#t-2039078305647714610)
+36. [2026-04-06 — “I have made it my rule that the rising sun should never find me in bed so long as I am well."](#t-2041132108668633550)
+37. [2026-04-07 — infinite ROI habits / immunizing urself against the vicissitudes of fortune / self-discipline and "HABITS FOR LIFE"](#t-2041471614479483243)
+38. [2026-04-09 — "The 22 Rules of Trading" - Dennis Gartman https://t.co/4mFFdlJXbK](#t-2042198182512197999)
+39. [2026-04-16 — twitter needs more accounts like blueprint...really good attitude, humble, helpful, and incredibly self-effacing.](#t-2044701569619202158)
+40. [2026-04-16 — "I want to start posting and writing under my real name but I'm afraid what friends/family will think"](#t-2044706054454313271)
+41. [2026-04-16 — on using Twitter less / the eternal war against social media addiction](#t-2044710593609847009)
+42. [2026-04-17 — best argument for shorting = most stocks are 🚮](#t-2045174433975816505)
+43. [2026-04-17 — forgot, on "its priced in" + the meme below](#t-2045199923679809567)
+44. [2026-04-17 — thoughts on using this thread/article as a format -- esp for anyone older who is trying to transcribe or pass along what](#t-2045235071326835156)
+45. [2026-04-17 — one trait of really good investors that I havent seen discussed much on here](#t-2045265997901545953)
+46. [2026-04-17 — back in 2014, Alice Schroeder (wrote "Snowball" about Buffett) did a Reddit AMA](#t-2045280633690222604)
+47. [2026-04-18 — you know what's funny about this tweet... it's not entirely wrong. and I say that as a pretty "bookish" tweeter.](#t-2045421349699567910)
+48. [2026-04-18 — 14 miscellaneous investing rules, quotes &amp; excerpts https://t.co/tTBahimj52](#t-2045451838724452368)
+49. [2026-04-19 — some checklist highlights from Munger](#t-2045930873682289143)
+50. [2026-04-20 — "The Come Up" (Part Two) - L/S Q&A/FAQ/career stuff](#t-2046312053925646623)
+51. [2026-04-21 — on "cheap virtue"](#t-2046530360238854257)
+52. [2026-04-21 — on risk mgmt, trading, stop-losses, and products/instruments](#t-2046575204290248995)
+53. [2026-04-21 — 1. on a 10-year hold, would u rather own:](#t-2046689712811762144)
+54. [2026-04-23 — I don’t think I’ve ever seen a tweet from this account was anything but an absolute laser](#t-2047416958677815522)
+55. [2026-04-24 — thinking abt this Druck quote on mentors -💯 nails balance of nature vs. nurture:](#t-2047713933251723298)
+56. [2026-04-24 — the best path to getting tailored feedback and criticism:](#t-2047760417678577939)
+57. [2026-04-25 — 10 little things that have helped me in writing:](#t-2048006599306887615)
+58. [2026-04-28 — on adverse outcomes, managing expectations, negative visualization... ](#t-2049104122650022058)
+59. [2026-05-04 — shout out to everyone who woke up](#t-2051237334981452231)
+60. [2026-05-04 — never seen this valuation methodology work](#t-2051241173633704227)
+61. [2026-05-04 — munger's "iron prescription" and the work required to have an opinion:](#t-2051247888043270269)
+62. [2026-05-04 — the problem with multiples vs DCF:](#t-2051264971439263953)
+63. [2026-05-04 — this quote on trading markets from Mark Douglas is prob #1 on the "tape to your desk" list https://t.co/Vv0d61tqBV](#t-2051335188882260470)
+64. [2026-05-11 — Dan Benton's "20 Rules for Technology Investing" - 1991 & 2026 Editions](#t-2053774558340026738)
+65. [2026-05-11 — two important charts & tables from Mauboussin in April 2024 ("Valuation Multiples") on capital intensity and understandi](#t-2053805642637296102)
+66. [2026-05-13 — recommended reading](#t-2054524763154919846)
+67. [2026-05-13 — re: ROIC/WACC, reinvestment, cost of equity](#t-2054538234282000563)
+68. [2026-05-15 — from this transcript, the thing that stayed w/ me most is how often Todd Combs frames everything in confidence intervals](#t-2055342178084278525)
+69. [2026-05-16 — on historical chart patterns, market mechanics, and "the pool"... loose scribblings](#t-2055647698590511542)
+70. [2026-05-16 — re: primary research](#t-2055715658256576541)
+71. [2026-05-18 — something super impactful I read (lost the source). courtesy thing](#t-2056333497673843125)
+72. [2026-05-18 — the 10 best books/resources to learn fundamental equity valuation and markets](#t-2056386212831572183)
+73. [2026-05-19 — ROIC/ROIIC (Part 2): Reinvestment Rate, FCF Deployment & Capital Allocation](#t-2056801129636262151)
+74. [2026-05-19 — on unit growth stories - example frameworks/templates to add to this, ways to think abt modeling](#t-2056831115907027001)
+75. [2026-05-19 — twitter/phone minimalism (WIP)](#t-2056835948676063564)
+76. [2026-05-19 — most questions on markets, should probably be answered by this initial question:](#t-2056871137875783768)
+77. [2026-05-21 — there is a gap between intention and perception](#t-2057403365143834692)
+78. [2026-05-26 — Common Errors in Stock Pitches (Part 3): ROIC Inflections & Burden of Proof](#t-2059260408972644793)
+79. [2026-05-26 — "why do european stocks trade cheap"](#t-2059337411298054494)
+80. [2026-05-26 — Paris, 1776: absurd amount of insider trading during the Revolutionary War](#t-2059398558529286319)
+81. [2026-05-27 — from experience,](#t-2059597133624324108)
+82. [2026-05-27 — 2nd most important lesson I learned in my 30's](#t-2059622564809343476)
+83. [2026-05-28 — reason 100 of 100,000 why its good practice to keep other ppl's names out of ur mouth](#t-2059793754551119960)
+84. [2026-05-28 — basic markets rule](#t-2059799295931396422)
+85. [2026-05-28 — This is what peak looks like](#t-2059807080161153397)
+86. [2026-05-28 — if I had to explain to a 20-30 year old MM L/S equity analyst, what their goal should be by age 50-60:](#t-2059936607084368083)
+87. [2026-05-28 — re: MBA and L/S equity](#t-2059943349956579455)
+88. [2026-05-28 — Q: "hi, I'm James J. Jameson Junior, Cornell 2029. I'm interested in long/short equity as a career, what's the day-to-da](#t-2059968718176768437)
+89. [2026-05-28 — apologies for being a broken record](#t-2059977157791674480)
+90. [2026-05-28 — think his exact words were "I basically wake up and jump out of bed as if yesterday never happened"](#t-2059981544635183379)
+91. [2026-05-28 — re: L/S "case study"](#t-2059993423101210730)
+92. [2026-06-05 — lost track how many times I've gotten this pitch](#t-2062887140082520299)
+93. [2026-06-05 — insanely impressed by two things](#t-2062897936736919607)
+94. [2026-06-05 — last thing I'd emphasize to someone younger is that there is no “start giving back when ur older"](#t-2063010730962817058)
+95. [2026-06-10 — passion part deux / "il buono, il brutto, il cattivo"](#t-2064681487891321207)
+96. [2026-06-10 — one of the trickiest balances in markets](#t-2064688073250636179)
+97. [2026-06-10 — the older I get, the more I understand why Buffett rolled this way https://t.co/oJNcStHisw](#t-2064717250989367369)
+98. [2026-06-12 — 8 Thoughts on Equity Issuance + Market-Implied "Reaction Function"](#t-2065478116617957593)
+99. [2026-06-12 — relevant charts from GS/MS](#t-2065482184966734259)
+100. [2026-06-12 — one follow up on this (feedback was generally 👍 on the list)](#t-2065505241718567007)
+101. [2026-06-12 — lots of good commentary on this intvw, I have very little to add except highlighting this one clip re: lollapalooza effe](#t-2065525762216648889)
+102. [2026-06-16 — another basic markets rule](#t-2066890455187382548)
+103. [2026-06-18 — Learning Markets, Modeling & How LLM's Reduce "Time-To-Mastery" by 50-90%](#t-2067593785194733972)
+104. [2026-06-18 — you can read about and study markets all ur life, only to realize a handful of maxims carry 99% of the load (applies for](#t-2067637962402123928)
+105. [2026-06-18 — lmao](#t-2067698601145311465)
+106. [2026-06-18 — was talking this over with a buddy](#t-2067722609509187725)
+107. [2026-06-19 — reminder](#t-2067760658708611440)
+108. [2026-06-19 — this was a good question](#t-2067795912663998779)
+109. [2026-06-19 — two actions to be perfected](#t-2067895365202768273)
+110. [2026-06-19 — re: cutting losses... ](#t-2067952929856798749)
+111. [2026-06-19 — Risk Management/Trading: Reading Material](#t-2067976033001693544)
+112. [2026-06-19 — PTJ intvw in Market Wizards -- the density of wisdom in these old interviews is astonishing](#t-2067980337615917421)
+113. [2026-06-19 — Seykota intvw is another classic, from Market Wizards](#t-2068007844297748630)
+114. [2026-06-19 — perfect example on cutting losses + "freezing up"](#t-2068014836173152592)
+115. [2026-06-19 — evaluating trader talent - Steve Cohen in Schwager](#t-2068018202375000138)
+116. [2026-06-19 — Ari Kiev on slugging % -- "Great traders like Steve are able to notice when the sweet spot is visible and pile in... 5% ](#t-2068025661294268729)
+117. [2026-06-19 — Eckhardt in Schwager...true OG.  ](#t-2068029273785397404)
+118. [2026-06-19 — Re: "24-hour memory" as secret to success](#t-2068033891030487220)
+119. [2026-06-19 — PTJ in Market Wizards, when asked why he trains a group of apprentice traders](#t-2068037593451929803)
+120. [2026-06-19 — this entire exchange is still so absurd lol](#t-2068046698304213281)
+121. [2026-06-19 — credit to Eckhardt -- this is one of the more unique descriptions of the market I have ever seen](#t-2068049424698188114)
+122. [2026-06-19 — Druckenmiller's "100 million Frenchmen can't be wrong," as the voice of the market](#t-2068055389321740464)
+123. [2026-06-19 — this is by far the best answer I've seen to "why is intelligence is an impediment to successful trading?"](#t-2068060803719139582)
+124. [2026-06-19 — this is fantastic](#t-2068072848535568402)
+125. [2026-06-23 — the best feedback I got on this, from ppl I look up to and respect:](#t-2069380452062756991)
+126. [2026-06-23 — there's an inverse version of this post - "common investing and market maxims that fail to hold."](#t-2069399710742216806)
+127. [2026-06-23 — another good q that fits this framework](#t-2069400635410178550)
+128. [2026-06-23 — perfect analogy for emotional self-discipline](#t-2069403891347652656)
+129. [2026-06-23 — massive amounts of game in these two paragraphs alone](#t-2069420132565180572)
+130. [2026-06-23 — "re-read every 5 years" pile...these four books do an enormous amount of heavy lifting:](#t-2069435832453255393)
+131. [2026-06-23 — top investing CAGRs of all time](#t-2069446179604009430)
+132. [2026-06-23 — Druck in New Market Wizards](#t-2069562187606098041)
+133. [2026-06-23 — Intvw with Lee Ainslie of Maverick, Graham & Doddsville, 2014 -- five excerpts on L/S equity, talent, and "No Holds" por](#t-2069563111099490442)
+134. [2026-06-23 — Druck on Valuation (Schwager) - imo THE #1 framework](#t-2069564940420055351)
+135. [2026-06-23 — Druck in New Market Wizards on mentorship](#t-2069568152124473734)
+136. [2026-06-23 — Druck in New Market Wizards -- this is all 100% canonical, hall-of-fame material, that will live on forever.](#t-2069569210305724724)
+137. [2026-06-23 — Soros in "New Money Masters" -- 100% uncut game right here, on markets as complex adaptive systems, narrative shifts, re](#t-2069570583126286693)
+138. [2026-06-24 — Peter Lynch, "New Money Masters" -- really think this is 'best practice' that very few ppl do](#t-2069574780202660262)
+139. [2026-06-24 — Lynch in New Money Masters on why econ and top-down analysis is bullshit, why trading derivatives are to be avoided bc t](#t-2069577448266809403)
+140. [2026-06-24 — omg another Jim Rogers quote ("New Money Masters") re: telling people to "go short some wheat"](#t-2069578460423397404)
+141. [2026-06-24 — four more secondary/tertiary "intvw book format" recs:](#t-2069591431514083577)
+142. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" -- one of the greatest excerpts ever, on why he prefers market makers to an](#t-2069593918270754983)
+143. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" with a hall-of-fame risk management excerpt:](#t-2069594783157305379)
+144. [2026-06-24 — Michael Platt in "Hedge Fund Market Wizards" on stop-losses, time stops, gut-instinct stops, and more](#t-2069595755275227168)
+145. [2026-06-24 — One of the best paragraphs ever written on trading -- and on human nature -- is this page from Seykota in Market Wizards](#t-2069600618872713607)
+146. [2026-06-24 — found it @Yulai_Jump ](#t-2069609155871035876)
+147. [2026-06-24 — Druck - 8 incredible excerpts/masterclass on literally everything - risk, concentration, traits of great traders - from ](#t-2069617005724917862)
+148. [2026-06-24 — Druck masterclass part two -- 8 parts -- risk, concentration, tape feel -- from 2022 intvw with John Collison (ht @kevg1](#t-2069620914325443016)
+149. [2026-06-24 — druck masterclass part 3 - five quotes - invtw w/ Nicolai Tangen (2024) - ht @kevg1412 ](#t-2069623966315032906)
+150. [2026-06-24 — SAC Masterclass - Jawad Mian vs Steve Cohen (2021) - eight parts -- primarily knowledge of self, emotional self-discipli](#t-2069626938969161875)
+151. [2026-06-24 — mental capital...McKay in Schwager](#t-2069730788447273216)
+152. [2026-06-24 — "Portfolio Construction and Risk Management: Long–Short Portfolios" by Lee Ainslie (Maverick), 2002 https://t.co/KNLre9f](#t-2069733862444269970)
+153. [2026-06-24 — add to "re-read every 5 years" pile](#t-2069737694008152177)
+154. [2026-06-24 — Intvw on short-selling with Jim Chanos in Graham & Doddsville (2012) -- some excerpts on temperament, valuation, leverag](#t-2069756294555131962)
+155. [2026-06-24 — man I remember reading this back in Fall 2015 like "who?" major come-up...man has executed flawlessly.](#t-2069761194747957707)
+156. [2026-06-24 — from intvw: "Phil Fisher outlines 15 elements of a great growth stock. When I read the book, I was amazed at how similar](#t-2069762276316397819)
+157. [2026-06-24 — 9 excerpts from Combs + Munger intvws (2022-2024, h/t @kevg1412) -- notes on concentration, mental models, biases, the "](#t-2069765350812438773)
+158. [2026-06-24 — OG FinTwit Wizards (2010-2015):](#t-2069768367095902653)
+159. [2026-06-24 — Jim Rogers lol](#t-2069772827260039281)
+160. [2026-06-24 — there's a term "mañana stocks," with credit due to a short-seller named Robert Wilson, as situations to avoid:](#t-2069791386203775101)
+161. [2026-06-24 — PTJ...everything is positive visualization (from Mallaby)](#t-2069800712767197506)
+162. [2026-06-24 — one of the best quotes re: "how does RenTech continue putting up decades of crazy #'s?" ](#t-2069804391385735594)
+163. [2026-06-24 — to give some context around this](#t-2069830156621840581)
+164. [2026-06-24 — this is actually a legit short-selling checklist by some true OG bears (the Feshbach brothers)](#t-2069838256183636377)
+165. [2026-06-24 — checklist detail:](#t-2069841817818869943)
+166. [2026-06-24 — "The three short-seller sins: Sloth, Pride, Timing" (Staley)](#t-2069846421470117960)
+167. [2026-06-24 — sounds simple but applies for 1,000 things -- from Steve Clark in Schwager's HF Market Wizards](#t-2069886253898592410)
+168. [2026-06-24 — "the ten cardinal rules" -- this is from Ari Kiev's book](#t-2069894215946174735)
+169. [2026-06-24 — on "the book of base rates" (Mauboussin), u want to keep these tables somewhere within arm's reach](#t-2069901913240326581)
+170. [2026-06-25 — one of those quotes where u realize Buffett is insane, a shark, or both](#t-2069950235711856822)
+171. [2026-06-25 — from the alice schroeder reddit AMA...basically, "u think u know, but u have no idea"](#t-2069954052767592523)
+172. [2026-06-25 — Question: "What is your favorite Buffett quote/memory?"](#t-2069957391035117967)
+173. [2026-06-25 — another "here's why he is Buffett and we are us"](#t-2069961066218471525)
+174. [2026-06-25 — stock pitch from Buffett in 1960, the Partnership days:](#t-2069973189896138937)
+175. [2026-06-25 — Buffett in the "come-up" era...letting u know he's about three things:](#t-2069980451389821066)
+176. [2026-06-25 — another great Alice Schroeder intvw, knew Buffett at a unique level and is a very wise human in her own right](#t-2070101400432841009)
+177. [2026-06-25 — direct rebuttal to "be greedy when others are fearful" from Schroeder](#t-2070102341726974372)
+178. [2026-06-25 — 1. Think in Probabilities](#t-2070103651016679752)
+179. [2026-06-25 — on Buffett's strengths as a communicator, teacher, and writer](#t-2070107984793833653)
+180. [2026-06-25 — more pit wisdom/risk mgmt - "The Ten Commandments of Trading" - good list](#t-2070114447096447399)
+181. [2026-06-25 — "Advice from a short seller" - 10/10 on tone ](#t-2070119116237656502)
+182. [2026-06-25 — on trading enterprise software https://t.co/Jr8Dyk7xXn](#t-2070122132495884544)
+183. [2026-06-25 — same idea as the PTJ quote: "Don’t be a hero. Don’t have an ego. Always question yourself and your ability. Don’t ever f](#t-2070125270791590099)
+184. [2026-06-25 — on tech investing](#t-2070134444657184791)
+185. [2026-06-25 — on getting wiped out + lessons learned](#t-2070138915340570710)
+186. [2026-06-25 — "intelligence as an impediment" part 3](#t-2070140674201080099)
+187. [2026-06-25 — lasers from the big dog](#t-2070149282284326927)
+188. [2026-06-25 — On how to avoid problems](#t-2070151472054960521)
+189. [2026-06-25 — one of the many definitions of risk, in five parts (from BRK 1993)](#t-2070153965333877210)
+190. [2026-06-25 — "The best role models have been dead for a long time"](#t-2070155190565548312)
+191. [2026-06-25 — pages 4-6 below (Q&amp;A with Ainslie and Lasry)](#t-2070204432227111005)
+192. [2026-06-25 — bunch of frameworks + model portfolio template ideas in here -- different ways to think about L/S, both top-down and bot](#t-2070207236299776191)
+193. [2026-06-25 — Joel Greenblatt - "Special Situation Investing" Class at Columbia Business School - 312 pages of notes](#t-2070207328750575783)
+194. [2026-06-25 — "Thirty Years -- Reflections on the Ten Attributes of Great Investors" (2016, Mauboussin)](#t-2070212462448939089)
+195. [2026-07-05 — C.S. Lewis on “…the long terrible story of man trying to find something other than God which will make him happy.” https](#t-2073828622876426256)
+196. [2026-07-06 — this is one of the frameworks/ideas being referred to in the 2nd tweet (https://t.co/yARE1maHut)](#t-2074078820093534222)
+197. [2026-07-06 — thinking abt this article on trading psychology (WSJ, 2025)](#t-2074085568703500586)
+198. [2026-07-06 — this is one of those charts I'd rebuild in excel if u cover the space, u don't need tons of data/software...just daily s](#t-2074087203810975814)
+199. [2026-07-06 — a lot of ideas/pitches that appear fundamentally driven, or at least ones I've seen recently, are all fighting against s](#t-2074090328789762417)
+200. [2026-07-06 — nice compilation -- "The Best of Charlie Munger: 1994-2011 - A collection of speeches, essays, and Wesco annual meeting ](#t-2074113190779047936)
+201. [2026-07-08 — one of the all-time great diet/discipline razors](#t-2074807959842897967)
+202. [2026-07-08 — "Go where there's dumb competition" is one of the better Mungerisms, but harder to put in practice than it sounds...few ](#t-2074824990831018116)
+203. [2026-07-08 — one other quote in here from Buffett that I think a lot about](#t-2074837321409520033)
+204. [2026-07-08 — two from "Open" by Agassi:](#t-2074840410225004701)
+205. [2026-07-08 — this was a great quote from Gavin Baker on Seides' podcast in March:](#t-2074844785093841200)
+206. [2026-07-08 — "Niederhoffering the curriculum" at Harvard... from Munger https://t.co/R16T3FGJmI](#t-2074846622303780980)
+207. [2026-07-08 — sizing/concentration part 1000...Munger at Wesco (1999)](#t-2074848073763766635)
+208. [2026-07-08 — Munger: Neither Warren nor I has ever thought for two seconds about beta. But every business school teaches this concept](#t-2074850818344301012)
+209. [2026-07-09 — key w/ reading older material like this (in QT), is a deep understanding of business models](#t-2075155259362595032)
+210. [2026-07-10 — C.S. Lewis on pride… so good](#t-2075514595620347943)
+211. [2026-07-10 — on the Munger Partnership's back-to-back 30% drawdowns in 1973-1974 with OPM, and the "math of losses"](#t-2075603519181119684)
+212. [2026-07-10 — bond market notes -- likely more timeless than dated https://t.co/o9FZgZoGDa](#t-2075622119463858288)
+213. [2026-07-10 — table of contents for "Trading in the Zone" by Mark Douglas](#t-2075624851843305734)
+214. [2026-07-10 — old mentor I had was a fan of this extremely non-academic risk management term:](#t-2075629748399591568)
+215. [2026-07-10 — on terminal value risk -- obvious q would be, "how do Buffett/Munger think about situations like this?"](#t-2075633281010155661)
+216. [2026-07-10 — this quote from Bessent in 2006, on embedded macro bets + hidden risks, has to be emphasized (from Drobny)](#t-2075638976300331338)
+217. [2026-07-10 — one thing that is extremely tricky with this top-down thought process...is not just all the puzzle pieces on mkt share, ](#t-2075643410686374105)
+218. [2026-07-10 — shout out to all the glue guys...personality hires...mfs who seem to find themselves collecting W's despite lacking skil](#t-2075673686640582786)
+219. [2026-07-10 — two more from Agassi, on how success is hollow, impostor syndrome, and how wins never feel as good as losses do bad](#t-2075689306585198596)
+220. [2026-07-11 — on reading habits... the way I'd break it down to my 23-year old self](#t-2075883149683298747)
+221. [2026-07-11 — for L/S, there is something to be gained in thinking about process the same way you'd think about a blackjack system](#t-2075906082027733474)
+222. [2026-07-11 — on "the eminent dead," Lyndon Johnson, power dynamics, respect, cunning, and manipulative behavior](#t-2075956366124986591)
+223. [2026-07-11 — from Napoleon's 1812 retreat from Russia...crazy detail on the human condition](#t-2075971293116092700)
+224. [2026-07-11 — Munger on Lyndon Johnson:](#t-2075985592475615338)
+225. [2026-07-11 — on risk, urgency, fear, failure, embracing pain and uncertainty, work/life/comp $, taking the long view, and getting the](#t-2076053183575781653)
+226. [2026-07-12 — on "broken compounders" -- is there really some high-level issue? Or are each of these names driven by fundamental secto](#t-2076097662047187400)
+227. [2026-07-12 — known unknowns, fear, risk, countervailing forces, avoidance of pain, what ppl will think](#t-2076284392863904012)
+228. [2026-07-12 — on "complexity" as a core tenet in pitches](#t-2076308917802394003)
+229. [2026-07-12 — Time To Redefine The Word "Compounder?"](#t-2076364169528406314)
+230. [2026-07-12 — this is an excellent question, and one where I can give a serviceable answer for now](#t-2076399432577523842)
+231. [2026-07-12 — (process vs. outcome) + (means vs. ends)](#t-2076438713077228002)
+232. [2026-07-12 — My first boss always said:](#t-2076452454783242510)
+233. [2026-07-12 — this stock pitch is pretty close to 10/10 imo, from VIC](#t-2076456442282844198)
+234. [2026-07-13 — The Final Frontier: Breaking Down Tape, P&L Mirrors, Emotional Trench Warfare](#t-2076585078143029588)
+235. [2026-07-13 — 25 Rare + Obscure Interviews (Fundamental L/S Equity)](#t-2076602869185175789)
+236. [2026-07-13 — paragon (cont)](#t-2076661949048209624)
+237. [2026-07-13 — fwiw this exercise = 10% stonks, 90% 2-pg memo.](#t-2076675822019023183)
+238. [2026-07-13 — On breaking down tape/P&L](#t-2076785601672609976)
+239. [2026-07-14 — WSJ in May 2000 on Druck/Soros getting headfaked by tech stocks…shows u how literally some of the greatest to ever do it](#t-2076982920221212925)
+240. [2026-07-16 — shout out to everyone who just sends a DM like](#t-2077694278009049316)
+241. [2026-07-16 — v common twtr error/misconception to be cleared up](#t-2077697419064525209)
+242. [2026-07-16 — on breaking down tape...another really valuable exercise](#t-2077701713599856947)
+243. [2026-07-16 — on reading & tweeting](#t-2077709550916952094)
+244. [2026-07-16 — the only thing abt thinking in "book of base rates" or blackjack terms, for markets, is that u cant overlook the magnitu](#t-2077712671630135628)
+245. [2026-07-16 — on making asks of other people's time...this is actually sort of a life skill, its not just "I'm 21 and need help"](#t-2077745429710606477)
+246. [2026-07-16 — the "come-up" isn't a 1x thing so much as it is a process that repeats itself, a series, just with higher and higher sta](#t-2077753438960529525)
+247. [2026-07-17 — Druck on why the best risk mgmt system is a combo of gut feel and "P&amp;L watching"](#t-2077916069084225921)
+248. [2026-07-17 — Part 2 Fundamental L/S: Resources + Reading/Checklists + Long-Form Threads](#t-2077933915910623627)
+249. [2026-07-17 — FAQ on "breaking down tape" for fundamental L/S -- why do it, what does grinding thru charts teach u, whats the framewor](#t-2078034745296908510)
+250. [2026-07-17 — on organizing info/ideas -- both reading & writing](#t-2078065605047894473)
+251. [2026-07-17 — most important part of this quote is that it immediately slices through like 6 different paradoxes of markets](#t-2078084661675282816)
+252. [2026-07-17 — the hardest part about adjusting ur way of operating to Buffett's credo -- “If I do it for you, I have to do it for ever](#t-2078091540564410681)
+253. [2026-07-17 — Writing = "a vivid and continuous fictional dream."](#t-2078102823502327842)
+254. [2026-07-17 — comedic and somewhat unique aspect of markets to never lose sight of](#t-2078110947030221193)
+255. [2026-07-17 — all change is driven by contempt and disgust for some part of urself. the term I've settled on is "a healthy self-loathi](#t-2078125409573511633)
+256. [2026-07-17 — prob the single most important rule for trading and for life https://t.co/CYVruQ5jCe](#t-2078168628826980504)
+257. [2026-07-17 — to: value investors club](#t-2078207793211879562)
+258. [2026-07-17 — "How did Buffett and Malone get so rich"](#t-2078234909764632738)
+259. [2026-07-18 — this message is important, but also nuanced around age (20-40):](#t-2078297761867341913)
+260. [2026-07-18 — fact checked by clankers, 99.9% correct](#t-2078309350049738975)
+261. [2026-07-18 — asked grok how Buffett managed his factor exposures in 1960 when he was long so many textile manufacturers + his view on](#t-2078323802467889405)
+262. [2026-07-18 — CFA: "fundamental equity valuation is the path to generating excess returns"](#t-2078415644932837512)
+263. [2026-07-18 — "its very important that you avoid debt, and be prudent in choosing high-quality businesses, investing in equities only ](#t-2078420508815610342)
+264. [2026-07-18 — CFA: "calculate the duration of this bond"](#t-2078423740275151315)
+265. [2026-07-18 — 5 Druck highlights](#t-2078436289221689474)
+266. [2026-07-18 — 1960: Buffett catalyzes equity value in Sanborn Map Company, nukes board, reshuffles cap structure, disembowels counterp](#t-2078443055942606922)
+267. [2026-07-18 — "Buy great businesses with predictable cash flows and then let them compound"](#t-2078446698930512350)
+268. [2026-07-18 — 2008: Buffett rides into midtown Manhattan, provides $8B of rescue financing to Goldman Sachs and GE, and rides out with](#t-2078450049420271767)
+269. [2026-07-18 — “I'm calling about Bear Stearns,'" the private investor began, according to Mr. Buffett. "Should I go on?'"](#t-2078454955275354485)
+270. [2026-07-18 — “Buy fear, buy when there is blood in the streets, take risk”](#t-2078457013927813538)
+271. [2026-07-18 — such a cocky bar from Soros:](#t-2078466807803838920)
+272. [2026-07-18 — "I really want to add to nvda here but it feels risky, could go down another 10%, and I'm already maxed out at 3.5% posi](#t-2078494271833788738)
+273. [2026-07-18 — Philosopher-king Randy Moss on position sizing](#t-2078495293704712408)
+274. [2026-07-18 — Blood in the streets (visualized)](#t-2078519546525503703)
+275. [2026-07-18 — I just have to highlight a quote from that same excerpt, it's equally insane, and fucking hilarious](#t-2078522603728429257)
+276. [2026-07-18 — List of banks/financial institutions who wanted Buffett as a backstop in 2008](#t-2078526657086787913)
+277. [2026-07-18 — "I'm thinking of buying some AMZN here, I'm at 1.5% size, I could go as high as 2%...maybe even 2.5%"](#t-2078530879601700865)
+278. [2026-07-18 — Partnership-era Buffett (1956-1969)](#t-2078537427652932055)
+279. [2026-07-18 — random but if ur in a drawdown rn, say 25-50%, which I sense many are because everyone is in the same trades](#t-2078565110214443091)
+280. [2026-07-18 — Platt on risk mgmt, he gives u a lot of game that u can install as risk mgmt process…fast loss taker, trusts his gut, he](#t-2078567672745226342)
+281. [2026-07-18 — on trading psychology (esp in drawdowns) u want to refocus on non-fundamental side...emotional self-discipline, clear, c](#t-2078574516784054293)
+282. [2026-07-18 — PTJ - on time stops;](#t-2078576792554860973)
+283. [2026-07-18 — Intvws in here specifically on risk/drawdowns](#t-2078578398650102014)
+284. [2026-07-18 — love the dm’s recently](#t-2078618396221165966)
+285. [2026-07-21 — "TRADE QUIETLY" - on groupthink, copy-trading, pre-mortems, social proof, and borrowed conviction](#t-2079531756068184451)
+286. [2026-07-21 — to: value investors club](#t-2079533968186122258)
+287. [2026-07-21 — old quote but "people overestimate what they can do in 1 year, and underestimate what they can do in 10" is sage advice](#t-2079537622909661447)
+288. [2026-07-27 — The Long Term Is A Series of Short-Terms: Time Arbitrage + Revision Cycles](#t-2081681270417887357)
+289. [2026-07-27 — have to apply this to investors also, stuff like the pre-reg FD era](#t-2081688696227557792)
+290. [2026-07-27 — on daily routine/schedule...Munger](#t-2081693778172137552)
+291. [2026-07-27 — Munger: "I don’t go to meetings. Warren doesn’t go to meetings. Put that in your article: There’s practically no meeting](#t-2081695561355333686)
+292. [2026-07-27 — another amazing Munger story -- the P.J. O'Rourke bit on communism https://t.co/QXEN2ScFTo](#t-2081740466081378416)
+293. [2026-07-27 — Buffett's "Come-Up" Era (1956-1969) - Partnership Quotes & Excerpts](#t-2081751315458175369)
+294. [2026-07-27 — on the myth of market "short-termism" (Mauboussin, CSFB, 1997)](#t-2081785648197877863)
+295. [2026-07-27 — this is awesome. great perspective](#t-2081843751308378483)
+296. [2026-07-27 — one of the best quotes on experience in investing, from Market Wizards:](#t-2081848208842760371)
+297. [2026-07-28 — Basic 2-page stock memo template for ppl to use -- this is version 3.0 or 4.0 since the first one in Summer 2025](#t-2081902306195378516)
+298. [2026-07-28 — 2 more excellent stock pitches - SIMPLICITY.](#t-2081912295626551539)
+299. [2026-07-28 — Btw here is the AMZN stock chart in 2015 when they broke out AWS](#t-2081931403625656572)
+300. [2026-07-28 — Here's another great Value Investors Club pitch](#t-2081939163851423983)
+301. [2026-07-28 — very solid: "How to Pitch a Stock to a PM, by Bill Miller (Legg Mason)"](#t-2081948623873446359)
+302. [2026-07-28 — Alt Data Is Bullshit -- "Kabuki Theatre" in Fundamental L/S](#t-2082015674101051468)
+303. [2026-07-28 — if there's one habit that will help you get more out of twtr + improve your "return on time," it's sizepoasting](#t-2082040762263613443)
+304. [2026-07-28 — Munger on sizing in 2011 (UMich) - just tape this shit to ur desk already](#t-2082046071207870815)
+305. [2026-07-28 — "can a stock pitch be only text"](#t-2082050170036854836)
+306. [2026-07-28 — Munger on rationality](#t-2082051180780216442)
+307. [2026-07-28 — just one man’s useless opinion, but if you’re just now starting ur career (say 18-25 yrs old)](#t-2082056531257029056)
+308. [2026-07-28 — I might have been lucky rather than good, but this single slide from Tarasoff's AMZN deck in 2012, was the core of an en](#t-2082063764740870191)
+309. [2026-07-28 — on BRK's Washington Post investment; Munger has called it both a 50-bagger and a 100-bagger ("basis $10M, became worth $](#t-2082076336550498452)
+310. [2026-07-28 — the only thing I'd add to this, is that when u observe people extremely high up (like a Buffett)](#t-2082105290183651446)
+311. [2026-07-28 — “tops are a process, bottoms are an event”](#t-2082116490170384590)
+312. [2026-07-28 — very loose and useless macro observations (from my lifetime)](#t-2082186465501737373)
+313. [2026-07-28 — if I had to describe the easiest and most straightforward way to make money in markets, its:](#t-2082201511799529767)
+314. [2026-07-28 — The amount of quotes from Munger on distrusting oneself and distrusting one's mind are overwhelming](#t-2082216941641449841)
+315. [2026-07-28 — Tepper detail from GFC era: before getting balls long banks at the bottom in 2009, he was shorting those same banks in N](#t-2082219691292971331)
+316. [2026-07-28 — tepper is the man but to me, he just shines a light on other guys (Druck, PTJ) as "the man" for their contributions to t](#t-2082227015978041622)
+317. [2026-07-28 — one addition to this](#t-2082229308798431353)
+318. [2026-07-28 — BREAKING DOWN TAPE (PART THREE)](#t-2082244505365880851)
+319. [2026-07-28 — Q: "When did you turn from a loser to a winner?"](#t-2082250654609703360)
+320. [2026-07-28 — this quote from trader Marty Schwartz sums up a giant cross-section of both trading markets and human nature](#t-2082252459951419768)
+321. [2026-07-29 — every bear pitch I've seen on NVDA looks something like this](#t-2082287915162390972)
+322. [2026-07-29 — Trading Consumer/Retail, The Stupidest Fucking Sector In The Market](#t-2082376189889450179)
+323. [2026-07-29 — not sure if Tom Russo's style goes out of favor but the simple checklist of "capacity to suffer" + capacity to reinvest ](#t-2082425888260366392)
+324. [2026-07-29 — events where u could give me the numbers in advance and I'd still get the move wrong:](#t-2082435856330092744)
+325. [2026-07-29 — soon as u see a pitch open with this image, u know its no good](#t-2082446024413532178)
+326. [2026-07-29 — "BEARISH AND LONG" -- gotten tons of mileage out of this janky little homemade meme](#t-2082538298619371693)
+327. [2026-07-29 — the 9th biggest company on the planet being spacex just doesn't look right...doesn't sit right, amidst all those names t](#t-2082562964331073936)
+328. [2026-07-30 — perhaps I’m missing something, but for ROIC, why are they relying on an est from Nowak @ MS, instead of an internal ROIC](#t-2082736966827679764)
+329. [2026-07-30 — re: fundamental/bonds/macro rabbit hole avoidance](#t-2082793086401364082)
+330. [2026-07-30 — another maxim I forgot](#t-2082810110519165380)
+331. [2026-08-03 — on idea gen / versatility / “counter” vs “consensus”](#t-2084208551132529078)
+332. [2026-08-03 — was scrolling thru "Reminiscences of a Stock Operator" yday...should it be on the must-read list, idk, probably. but the](#t-2084213272736153719)
+333. [2026-08-03 — soros on cutting losses: "I rely a great deal on animal instincts. When I was actively running the Fund, I suffered from](#t-2084236400254197951)
+334. [2026-08-03 — re: counter vs consensus, this article on retail shitcos is the one I mentioned:](#t-2084352557455958147)
+335. [2026-08-03 — spacex "for Q2, the street is looking for sales of $6.9B, EBITDA of $2B, and capex of $19B" 💀](#t-2084356398842843206)
+336. [2026-08-03 — this Druck excerpt on “P&L watching” as the best risk mgmt system, is something u don’t see discussed much, but is prob ](#t-2084360245422219578)
+337. [2026-08-03 — Livermore: “If a stock doesn't act right don't touch it; because, being unable to tell precisely what is wrong, you cann](#t-2084362202358906966)
+338. [2026-08-03 — this single page from Livermore > entire books that have been written ](#t-2084364091943170432)
+339. [2026-08-03 — "the way u take losses in life = the way u take losses in markets" (PART 1)](#t-2084392669099278374)
+340. [2026-08-04 — this the long one (30 min) for those really fucked up](#t-2084431701304865225)
 
 ---
 
-## 1. 2026-03-03
+## 1. 2025-12-01
+<a id="t-1995504134372380789"></a>
+
+*Single post · [1995504134372380789](https://x.com/gregoryblotnick/status/1995504134372380789)*
+
+How Idea Velocity Drives Drawdowns: The "Hidden Costs" of a Stagnant Flywheel
+
+All things L/S are underpinned by idea velocity, the agility and tempo with which a team sources, executes and monetizes a variant view from start to finish. This is no unique insight on my part.
+
+But several aspects don't get enough attention: first, the degree to which weak idea velocity is the "hidden" driver of drawdowns, and second, the degree to which people severely underestimate the sheer volume of fresh ideas required to drive throughput and keep the flywheel spinning.
+
+There are many angles to explore on this second point, the flaws and errors not just in the Excel calculations of idea velocity, but overlooked stressors and non-fundamental factors that contribute to what is a widespread - arguably systemic - tendency of long/short teams to underestimate how deep their idea bullpen should be, and the consequences which unfold when the well runs dry.
+
+These "hidden costs" amongst others, are examined in both a single-manager and multi-manager context. Finally, at the end we'll run through some sample screens and frameworks that individual investors can use as they think about improving their own idea generation process.
+
+--
+
+Stale ideas cause drawdowns. These are positions where the thesis has played out, but because the team doesn't have any fresh ideas on deck, you hang around in the trade longer than you originally planned and begin bleeding P&L.
+
+This has a corrosive effect on process and creates a negative feedback loop that extends and deepens a drawdown. When a team sees a book full of stale ideas, what they really see is a process breakdown happening in real time. Shortcuts get taken, "filler" enters the book, and it somehow never seems to be bad trades that take a long/short team out of the game - it is when that team has silently lost confidence in their process.
+
+I am by no means an expert, I'm a fairly mediocre investor, and compared to all the people I've met in L/S, I'm bottom 10-20% percentile in terms of intelligence. Pretty much the only thing I'm good for is what NOT to do, but even more than that, I have just seen so many incredibly talented people get body-bagged over the years that I think I can put words to the common threads of failure. Many of them are obvious and well-discussed; I don't want to waste time, and I will focus on what I see as overlooked or underappreciated variables.
+
+Investor Types
+
+There are three broad investor groups that this could be aimed at, each with different puts and takes.
+
+1. L/S (Multi-Manager)
+
+2. L/S (Single-Manager)
+
+3. Individuals
+
+Multi-Manager
+
+If you are in this first group, I'm not sure I have much to offer that you don't already know. I would actually bet that you could write a better version of this post than me. I'm wrong a lot, and if you have better words or can improve on  any of the ones I wrote, please do so.
+
+Separately... if you AREN'T in this first group, there is no reason you should ever be running your own money under the same mandate and constraints that a multi-manager is forced to operate under.
+
+So for me, or anyone on Twitter, to write extensively about L/S at a multi...that just kind of feels like a fruitless endeavor. Who are you really helping, who is your target audience? If you work at a multi, Twitter isn't going to tell you shit you don't already know, and if you don't work at a multi, you have nothing to gain from reading about it. What am I missing? I'm wrong a lot, tell me if I'm reading the room incorrectly.
+
+Don't forget that the "pod" model of portfolio construction is driven by leverage more than anything else. If you're allocated $800M of GMV on $100M of firm equity, it's coming with strings attached. Those strings are there to protect the firm, not to help you generate P&L, and in general serve as a hindrance or outright negative for P&L.
+
+If you don't like it, great, go raise your own $800M and you can run it however the hell you want...until then, he who controls the capital controls the rules.
+
+I just wanted to clear that up in case there are any individuals eagerly studying these types of L/S models and trying to replicate them. Do not do this, you have nothing to gain and you are sacrificing what is BY FAR the biggest advantage that an individual has: PATIENCE, or time arbitrage, or pain tolerance, or capacity to suffer, whatever you want to call it.
+
+You can learn a few things from single-manager L/S, but pod L/S is a totally different universe and only resembles "investing" in the loosest sense of the word. So I will make references in passing for educational purposes, to satiate the reader's curiosity I guess, but beyond that I don't think it's a productive use of time for anyone involved.
+
+Single-Manager
+
+Similarly, single-manager has some sub-definitions.
+
+A decade ago, the dominant L/S strategy was net long, say 140% gross / 40% net. This could mean say 10-15 longs and 15-20 shorts, with the shorts serving primarily to fund your long exposure. On paper, the shorts were advertised as generating alpha, but in reality this almost never happened, it still never happens, genuine short alpha is hard as hell to generate and it remains rarely seen in the wild.
+
+Since then, the "right" thing has occurred. LP's got wise, realized they were paying silly fees for levered beta and they pulled their $. Capital goes to where it is treated best, and the pod model is a superior product for LP's in pretty much every single aspect. Superior for the GP, too. The only people that life got worse for are L/S PMs... a group which may be the #1 answer in the universe for "people that absolutely no one has sympathy for."
+
+But as a result of these outflows, the lazy-long single-manager model has shifted and continues to shift towards lower nets and smaller position sizes, say 15-20 longs vs 30-40 shorts. I mostly see an identity crisis where managers aren't sure if they should be more like the pods or less, they're moving in that direction, but at the same time this sort of just illustrates the fact that the value prop has become murky and uncertain. I don't know how this resolves, if you do then please write an article, I'd love to read it.
+
+Individuals
+
+This has to be said: the best thing an individual investor can do is take all their dough, buy the S&P 500, and change their brokerage password. After that, you log in once per year to add more money. That's it. That's the way to maximize your CAGR, maximize your portfolio size, and beat 99.99% of "professionals" in the process.
+
+Now, having been around for a while, I know that nobody listens to this advice. People are going to speculate no matter what, and if you have worked in asset management, the best you can hope for is to help them speculate responsibly and with some semblance of risk management.
+
+They won't listen to that either, but you tried, I guess. I barely even bother anymore with "don't trade options," it's like telling someone with explosive diarrhea not to take a shit. Don't trade options, and don't bother shorting stocks either. Most professionals are horrible at it. You will be too.
+
+Last, individuals shouldn't feel compelled to mimic the way any L/S portfolio is constructed. Covering 15 longs and 30 shorts is not a one-man job, that's a PM with decades of experience, a team of analysts and then a raft of providers (street, alt data, etc) that get paid to help the team stay current.
+
+And even with all that, 99% of managers fail to "do their job."
+
+So the notion that you as a standalone investor can accomplish what they can't, is just some combo of arrogance, ignorance, and delusion.
+
+I don't want to burst anyone's bubble, but like, a lot of people come on here and write shit solely to make themselves sound smart...I would rather sound like a dumbass and genuinely be of use.
+
+With that said...
+
+IDEA VELOCITY: WHAT IS AN IDEA?
+
+None of this article will make sense unless we are on the same page about what constitutes an idea.
+
+Ideas are REAL IDEAS - not armchair twitter bullshit, not hand-wavy macro thematic big picture nonsense, no sentiment, no baskets, no long-ass write-ups that are 100% words with zero numbers.
+
+A real idea lays out two income statements line-by-line for the next eight quarters, one income statement is consensus, the other is yours, and every bp of variance you have vs consensus better be supported by logic, reason, and research.
+
+Without that, you have no "idea"...you have nothing, really.
+
+This sample table below would be the bare minimum qualification to even have a discussion about a stock: Revs/EBITDA/EPS for FQ1/FY1/FY2, where you differ from street, and WHY.
+
+This table is an idea. Your % variance to street is the idea. The discussion starts with numbers, takes place in numbers, ends with numbers, and when there are words, they exist solely to support your math.
+
+What drives your variance to street on revenues? What work have you done that supports your variant view? What drives your variance on gross margin, what work have you done in support of that view? Why are you modeling opex below street, what work have you done to support your view?
+
+Repeat that Q&A over and over for every single number until the idea either proves durable or dies under questioning.
+
+Idea velocity doesn't get discussed on Twitter because there are no ideas here. I say that not to be an asshole, but because this is exactly why idea velocity is broadly misunderstood.
+
+None of this article will "click" for you without understanding what an idea is. It's that table, or some variation of it, and to talk ideas without using numbers is basically just jerking off. So later in this article as we start getting into the math behind idea velocity, as in how many ideas an analyst is expected to generate, you will now have a firmer grasp on why idea velocity is not just important in L/S, but extremely difficult to maintain at a rapid pace.
+
+Position Sizing Inputs ---> Idea Velocity
+
+Some ground rules on position sizing, especially shorts, which turn over faster than longs (and thus demand more rapid idea velocity).
+
+There are three general rules:
+
+1) Shorts must be sized smaller than longs.
+
+This is a logical premise based on risk asymmetry; shorts offer unlimited risk and capped reward, longs offer unlimited reward and capped risk. Are there funds that go against this sizing guideline, probably. Will they be in business a decade from now, probably not.
+
+2) Shorts must be managed with tighter risk constraints.
+
+The logical premise, once again, is based on risk asymmetry. When a long position isn't working, it organically de-weights, and becomes less and less of a problem for you as it loses value. When a short position isn't working, it organically becomes a bigger and bigger problem for you as the short appreciates in value. Trade with stops or you will get carried out.
+
+3) Shorts must have higher turnover than longs.
+
+Shorts should be trades, rather than investments. The logical premise here is that the market goes up over time, with the S&P averaging an annual 7-8% return. For clarity, the components of this return are 2-3% GDP growth, 2-3% inflation and then a 2-3% dividend yield. The past 10-15 years are a giant aberration versus history and multiple expansion has driven an unusually-high amount of the market return.
+
+Will this revert, probably. Does anybody know when, no.
+
+Have super-smart-sounding bears been banging on this drum since 2009, yes. Are they right, generally yes. Are any of them still in business...no.
+
+If you compound at 9% over ten years, is that an amazing feat of portfolio management? Absolutely!! That performance grants you entry into some sort of investing hall of fame. You outperformed the index, a feat that 99.99% of professionals, since FOREVER, have been unable to do.
+
+I say this because individual investors have completely lost sight of what a "normal" return is. If an investment offers greater than 7-8% return potential, you are assuming a higher level of risk commensurate with that higher return being offered. However, none of this has mattered for almost a decade, and the way markets are "supposed to work," as in the connection between the economy and stock market, how the market return can't exceed corporate America's return, all the stuff like "logic" and "reason" that Buffett used in his letters...non-existent, for now.
+
+Anyway, on the individual position level, this 7-8% "upward drift" can and should be what you underwrite in thinking about shorts. What this means is that at the start of each year, your short positions are all "in the hole" by 7-8%. That's the amount they have to go down for them just to break even and not drag on P&L.
+
+So not only are short positions a pain in the ass for the prior two reasons, they also have to offer a wider mispricing/superior return potential compared to a given long position. A short has to go down 7-8% just to break even, and then another 7-8% to offer the same return as a long.
+
+The market is pretty fucking efficient, mispricings are rare, and this is why generating consistent short alpha is nearly impossible. You are just up against too many headwinds between the risk asymmetry, market drift, and how hard it is to generate excess return in ANY position, long or short.
+
+This is why short positions are shorter duration and have to be turned over quicker than longs. Trades, not investments. A short should have a defined catalyst, you want to get in, get paid, and get out. Everyone knows this, so now any and all catalysts just mean your shorts trade higher. But each day that a short position is in the book, in theory, the "drift" of the market is working against you and steadily sapping your P&L.
+
+Are there long-term secular shorts that work over multiple years, yes. Will "short-and-hold" work for you as a sound investment process, absolutely not. We are just talking basic operating procedure here, not all-encompassing... view those secular ideas as exceptions rather than rules, and view shorts as trades rather than investments.
+
+Finally, much of what was just written is not broadly applicable to all of L/S, and I'll keep this as brief as possible.
+
+First, a short that goes up 5% when the market goes up 10% can be considered a winner on a relative basis even if it was a loser on an absolute basis. But what the right benchmark is, or if a L/S fund should even have a benchmark ("absolute return") affects the validity of this argument, there's smart people on both sides of these debates, and I have nothing to add to the discourse.
+
+Second, in any low-net L/S strategy (i.e. all pods + some single-managers), the philosophy on shorts is different once again. The grossly oversimplified answer, in the interest of time, is that everything is a game of spread, pair trades, and relative value.
+
+Whether the long and short position both move 10%, 20% or 50% is irrelevant; all that matters is how they move relative to one another and whether you are capturing positive spread. A short that's up 40% can be a great short if the paired long is up 50% (positive spread), whereas a short down 30% can be a horrible short if the long is down 40% (negative spread). The spreads are much tighter in reality because remember, everything is levered, so capturing a 3% spread magically becomes a mid-20%'s return.
+
+Again, there is zero reason for an individual investor to trade this way, the method, the leverage, all of it, nor do I think there is any reason for an individual to waste hours of their life learning about something that will never be of use to them. So we'll keep it moving.
+
+The Math of Idea Velocity & Position Turnover
+
+Let's say you run a L/S book with 15 longs and 30 shorts, where your longs, on average, turn over every 6 months, and your shorts, on average, turn over every 3 months.
+
+This means that in a given year, you need to generate 30 long ideas (15 x 2) and 120 short ideas (30 x 4), for a total of 150 ideas.
+
+Put another way, you and your team need to come up with three new ideas every single week. Not jerkoff ideas, but REAL IDEAS. If there's three analysts, that becomes one idea per week per analyst.
+
+Generating one real idea every single week is an absurdly difficult task, which underscores not only the importance of idea velocity, but just how hard it is to run a L/S book full of fresh ideas.
+
+At a pod, the numbers get exponentially wackier. Not only are there far more positions (say 50-75 longs + 100-150 shorts) but the holding periods are even shorter, days, weeks, everything is a knife fight. You are forced to generate trade ideas and identify a mind-boggling number of mispriced ideas, the quantity and pace both being completely out of whack with the laws of physics. As a result, it almost never happens and you see very, very talented investors get blown out all the damn time.
+
+Even if you want to flex down my prior example to something more conservative, say 10 longs @ 12-month hold + 20 shorts @ 6-month hold, that's still 50 fresh ideas per year (10 longs + 40 shorts), or one per week. You can hire analysts to divide that up, but to be frank, no one running that strategy is hiring analysts, because no one running that strategy has any AUM left.
+
+If you think one idea a week sounds low, it's only because you haven't actually done it. Go generate one high-quality investment idea per week. Post your ideas, tag me, I'll read all of them.
+
+Generate one idea every single week, for the next 52 weeks, and then post your P&L.  If you're real, you will have every hedge fund on earth beating your door down to hire you.
+
+That's the basic math behind idea velocity.
+
+But wait, there's more!
+
+In reality, those numbers are STILL far too conservative versus what is actually required.
+
+Speeding Up the Idea Generation Flywheel
+
+All those holding periods above were averages. There might not be a single long in there with a 6-month hold; that number is just the weighted average of longs ranging from one week, to 1 month, 3 months, 12 months, etc.
+
+One of the smartest pod PM's I knew always used this "cake" metaphor that stayed with me.
+
+Basically, your portfolio is a bunch of cakes going in and out of the oven with different bake times.
+
+The bake time itself obviously represents the holding period, but all positions vary as far as where they are in the lifecycle of the trade.
+
+On any given day, you will have a bunch of ideas that are all over the place, some prepped and pre-oven (waiting and timing entry), some entering the oven (trade entry), some baking (trade is working), and some being taken out of the oven (trade exit). If you are employed at a high level in L/S, there is no "trader" vs "investor," you have to be adept at both because great ideas come in all shapes and sizes.
+
+What this "cake" metaphor really indicates is that the turnover math from earlier is insufficient. Here's why.
+
+First, as you probably have learned, sometimes ideas don't work. This means exiting the position early, compressing your average holding period and often requiring a replacement to maintain exposure. All of this increases the speed at which your idea velocity flywheel has to turn.
+
+Second, you don't just need to meet that minimum threshold of fresh ideas, but you also need a bullpen of fresh ideas ready to go.
+
+If a PM wants to exit a position that has played out, but there's nothing on deck to replace it, that will color his thinking and he'll [often subconsciously] stay in a position longer than he originally intended.
+
+HOW WEAK IDEA VELOCITY DRIVES DRAWDOWNS
+
+There has to be a list of fresh ideas ready at all times or the investment process, and the sell discipline which underpins it, starts falling apart.
+
+This is an even bigger problem in the pod model. The market-neutral constraint means that you can't just move a long in isolation; everything must stay balanced, and if a long comes out, a short has to come out with it. On top of that, you are forced to maintain a certain level of gross exposure, i.e. "I'm just going to go to cash and wait" is not an available option.
+
+Both of these factors are "hidden stressors" which boost the required flywheel speed way above what the math would indicate. In reality, the flywheel doesn't increase in speed though, the stress just expresses itself through a book full of stale positions that everyone knows are stale.
+
+It is hard, if not impossible, for a team to operate as if they are disciplined on process when they are reminded each day - by virtue of staring at stale positions - that they are not being disciplined on process.
+
+Where does the blame fall for this, I would argue it's well-distributed. The pod model is so demanding that a team can come in with sound, proven process, backed by years of P&L, and then slowly buckle under the sheer weight of having to cover and actively trade an absurd amount of positions with a timeframe measured in days.
+
+It's the PM's fault, technically, because everything is, and analysts could always generate more ideas, but my opinion here is biased because I see names and faces...brilliant investors with decades of fundamental L/S experience who just couldn't adapt their process to this new "machine." I know, I know, I wrote that winners go home and fuck the prom queen, but at the same time, there are many fundamental PM's, way smarter than I am, who have no problem saying "that model is fucking stupid and impossible to make money in." It's not my place to say who is wrong or right, and the truth, as always, is somewhere in the middle.
+
+Last, for aspiring L/S analysts, this is why "Return On Time" is such an important skill to understand and master. If it takes you two days to build a model, there is absolutely no way in hell you are generating multiple fresh ideas each week. Keep in mind you have 40-60 names to cover on a daily basis, and so ramping on a new idea is just incremental to that workload.
+
+Your efficiency is just one of the many factors that will determine your success or failure. If your P&L hits the skids but you're able to generate fresh, high-quality ideas in a matter of hours, you'll be given a longer leash. If your P&L sucks and you take forever to get anything done, you're gone. I wrote a thread on "Return on Time" a while back but I probably should do an even longer one, it's that important.
+
+Idea Gen: Running Screens
+
+If you are a sector analyst who has actively covered the same 50 stocks for 7-10 years, your idea gen will be sourced from this universe and you [hopefully] have a finely-tuned process for identifying long and short opportunities across all time horizons.
+
+I anticipate that very few of you fit this description, so I'll offer some alternative methods.
+
+If you're a professional investor, I'm not sure any of this will be of use to you; you can probably head for the exit without missing anything, I appreciate your support and I hope you found something in here that was useful.
+
+We'll start with running screens, which is done at all levels of the game. In the next section I'll go through some free sites you can use and example screens to run.
+
+I touched on this in a prior thread, but my recommendation is that each day after market close, or in the morning before the next day’s market open, part of your process should be to spend 30-60 minutes running through stock charts.
+
+By doing so consistently, you can keep track of capital flows and see the names or sectors that money is moving in and out of.
+
+At the minimum, I would recommend doing this exercise for all positions in your portfolio.
+
+The next level of diligence would be to build out a watchlist, and run this exercise daily for those names as well.
+
+After that, the next would be to run this exercise for the sector(s) you specialize in.
+
+Finally, for those who are dedicated, it is recommended to run this exercise for all stocks in the S&P 500.
+
+One of the best free tools for investors can be found at FinViz's Free Stock Screener. Here's the link to the screener: [https://finviz.com/screener.ashx](https://finviz.com/screener.ashx).
+
+In this screenshot below, I have three criteria checked:
+
+- Sector: Consumer Cyclical
+
+- Market Cap: Over $2B (Mid-Cap)
+
+- New 52-week Highs Only
+
+This spits out multiple outputs you can play around with; I'll include two for brevity, the Overview tab and the Charts tab.
+
+Screen Preferences
+
+As a matter of personal preference, I only care about the chart screens, but everyone has their own approach.
+
+There are investors who run valuation screens (i.e. stocks trading under 8x EPS). I have never had any success with those in consistently producing great ideas.
+
+The market is efficient as hell, and more often than not, a stock trading cheap is trading cheap for a reason. This game is far too competitive to assume that you can just walk in, buy a low P/E multiple and outperform. Stocks are priced on a DCF, not a forward multiple, and so 8x NTM might actually be 16x FY2 and 32x FY3. We don't know. The screen doesn't provide enough information.
+
+Last, these static valuation screens fail to incorporate trajectory and momentum.
+
+Where did the 8x come from? If it was just at 9x, and they missed earnings and it went to 8x, that 8x is a meaningless number. If they miss earnings again, it's going to 7x, then 6x, and so forth. Direction of numbers and trajectory of fundamentals is what moves stock prices, not arbitrary valuation floors.
+
+Plus, momentum matters, and even if you want to argue that it's non-fundamental and should be ignored, getting in the way of momentum repeatedly will eventually lead to you getting carried out.
+
+Why Run Screens?
+
+First, you can quickly see which names are showing relative strength or relative weakness to the sector or to the overall market. Below is a basket of benchmarks. The first three are broad indices (SPY, QQQ, IWM), two sector-specific indices for consumer (XLY, XRT) and then TLT (long bonds).
+
+As we go through individual stock charts, what we are looking for is meaningful divergences from the indices, from the sector, or both.
+
+Those divergences are our starting point for idea generation. Beauty is in the eye of the beholder, of course, and a chart can mean two completely different things depending on your point of view and trading style.
+
+--
+
+More will be covered at a later date - that's all for now.
+
+I hope this was useful to individuals looking for ways to improve their idea velocity, and I would strongly encourage making screens a part of your daily research process.
+
+Stay humble, and good luck trading.
+
+GB
+
+---
+
+## 2. 2025-12-10
+<a id="t-1998759439831113953"></a>
+
+*Single post · [1998759439831113953](https://x.com/gregoryblotnick/status/1998759439831113953)*
+
+Portfolio Construction: Probability-Weighted Outcomes & Measuring Risk/Reward
+
+"The market prices outcomes probabilistically. A sound valuation framework should do the same, because the future is never certain or discrete; it is simply a range of outcomes."
+
+Today, we'll run through some probability-weighted frameworks to be used at the position level and at the aggregate portfolio level.
+
+- First, we'll use these frameworks for bottoms-up fundamental equity analysis (valuing individual positions + triangulating probability-weighted price targets).
+
+- Second, we'll walk through how all these individual forecasts and models and can "rolled up" into an aggregate portfolio construction table:
+
+## Sample Output
+
+These tables can help simplify the entire portfolio construction process.
+
+- All your price targets, probability-weighted, are laid out in one column, and the next column displays how much upside is remaining to your price. This allows you to determine which positions should be trimmed, with that capital being reallocated to opportunities with more upside left.
+
+- In this example, ticker A appears to be a suboptimal use of capital. It is sized at $50M, but with only 5.1% upside to our target price. Meanwhile, D, G, and I all offer returns north of 20%.
+
+A well-organized portfolio table helps benchmark positions not just on an absolute basis (upside % remaining) but on a relative basis as well, ensuring we have maximum capital deployed into our best ideas.
+
+Later, we will explore a second alternative: sorting our positions by risk/reward ratio.
+
+These frameworks are designed to add integrity and structure to your investment process. They are highly labor-intensive, they're helpful in thinking about L/S, and its all based on bottoms-up fundamental equity analysis.
+
+Generally, it is best practice to use probability-weighted price targets rather than static estimates. I'll explain why.
+
+***
+
+# Introduction: Why Think Probabilistically?
+
+The reason we want to think probabilistically is that it’s how markets operate.
+
+The future is never certain, nor is it discrete; everything is a range of outcomes.
+
+As an example, below, we value a stock using both P/E and FCF Yield % valuation methodologies, spread across three scenarios (base/upside/downside), with probability weightings attached to each scenario.
+
+Look across asset classes and you'll see that markets value assets in this exact manner.
+
+For empirical evidence that markets are adept at pricing probabilities, look at either merger arbitrage or the options markets.
+
+In merger arb, a company may receive a buyout offer at $50/share, but the stock will only trade to $48. This gap represents the probability that the buyout may not occur, due to something like antitrust law or market conditions.
+
+In options markets, an out-of-the-money call or put has many inputs, but at the most basic level the price of an option gives you information as to how likely the stock is to close above or below the listed strike price. A penny option is akin to a lottery ticket (~0% chance), whereas a $1,000 option will probably be deep "in-the-money" (~100% chance).
+
+More recently with a macro driver like tariffs, we saw examples where if the tariffs were taken at face value and enacted, a stock would be down 50%.
+
+Instead, by only being down 10%, we see not just the potential offsets that a company could put in place (price increases, sharing the pain with suppliers), but an applied discount as to whether the tariffs will take place at all.
+
+The market prices outcomes probabilistically. A sound valuation framework should do the same.
+
+# Scenario Modeling Framework
+
+Understanding that the future exists only as a range of outcomes, and that a market price can reflect not one, but many outcomes simultaneously, is a tricky mindset upgrade -- yet it is one that is necessary to reach the next level of trading markets, and to see "the true nature of things."
+
+Let's use this framework on a single-stock basis.
+
+Below is a sample dashboard for a fictional stock. I highlighted five specific rows, labeled A through E, to give further clarity.
+
+Row A: Revenue, as well as EBITDA and EPS, all have consensus estimates listed under them to illustrate how our model differs from street forecasts.
+
+Row B: Our EPS forecast for 2026 includes not just a base case estimate, but also upside case and downside case. These upside and downside cases would be linked directly from the full model, which would have varied growth assumptions that we flex in order to get these outputs.
+
+Row C: This is where we layer in scenario probabilities. Here, we ascribe a 50% probability to our base case, a 10% probability to our upside case, and a 40% probability of our downside case. As we receive new information, we can quickly update these probabilities to reflect our outlook.
+
+Row D: Our weighted average price takes into account all three scenarios, summing the implied price multiplied by the probability of each case.
+
+Row E: We do a secondary valuation methodology of EV/EBITDA as a sanity check. Additional methodologies could include FCF Yield %, Price/Book, or a Price/Sales multiple depending on the enterprise being valued.
+
+By thinking probabilistically, rather than just laying out a single price target, we now have a probability-weighted risk/reward dashboard that allows us to view the future as a range of outcomes and make adjustments as new information arrives.
+
+Once again, it is assumed that you have a model output similar to the one above for each of your best ideas. Those EPS estimates need to be fundamentally sound, because the rest of the portfolio construction framework uses them as foundation.
+
+If you need help with formatting/templates: go to my pinned tweet, ctrl F models, pitches, it's all there.
+
+***
+
+# Scenario Driver Selection
+
+For the scenario drivers, we could lay out our chosen KPI’s (Key Performance Indicators) as follows:
+
+These drivers would flow through to the model and then to the summary page.
+
+The examples laid out above - segment revenue growth, a gross margin driver and an opex driver - are the bare minimum required, and anything less risks being overly crude.
+
+Note that you don't need to "flex" scenarios for every single line item, and that many operating expenses are best done on a base case/"best guess" basis - as in, the same forecast is used in all your scenarios.
+
+But being thoughtful on those opex line item forecasts is often what makes or breaks an EPS forecast, even moreso than correctly forecasting revenue. So take your time, make sure you have some logic underpinning your assumptions, and if you're lost then just buy the index until you figure out what's going on.
+
+# Sanity Checks Using Empirical Base Rates
+
+Additionally, we check our final output against Mauboussin's "Base Rate Book" ([link here](https://mjbaldbard.wordpress.com/wp-content/uploads/2020/09/michael-mauboussin-e28093-base-rate-books-2015-2016.pdf)), which is a compilation of all sales growth observations dating back to 1950:
+
+So, if we were to be forecasting a five-year sales CAGR of 20-25%, we could see that only 3.1% of firms have been able to achieve this. There is a good chance that we are overly optimistic in our forecast.
+
+If you are forecasting high-growth enterprises, these tables should be kept within arms reach, as they represent the "known universe" of what growth CAGRs can be sustained.
+
+They also are extremely handy in selling stocks short, where you're dealing with a management team that puts out long-term targets implying something silly like a five-year 40% revenue CAGR. This forecast has a 0.4% chance of being achieved.
+
+We run the same sanity check on our estimates of earnings growth:
+
+If our estimates appear to be too optimistic, we could adjust for this either by changing our upside scenario drivers, changing our probabilities of each scenario, or both.
+
+Either way, familiarizing yourself with these base rate probabilities will help put guardrails around your forecasts and assumptions.
+
+# Case Study: Applying this Framework to Macro "Shocks"
+
+How can you apply this in a given market backdrop?
+
+We'll use tariffs as an example again, since these type of macro "shocks" are perfect for probability-weighted scenario analysis.
+
+In our estimates from before, we’ve calculated a downside case of $2.00 in earnings and a 20x multiple for a $40 stock:
+
+We already have a good idea of what the tariff rate would be; let’s say 20%.
+
+This would be reflected in our downside EPS estimate and we don’t need to tweak that number any further.
+
+However, we might want to make changes to the probability of that downside case.
+
+Our probability-weightings, as laid out above, are skewed to the downside. This could because we expect the administration to come out hawkish, thus increasing the probability of a downside surprise.
+
+So, we ascribe 50% to our base case forecast, 40% to our downside case, and only 10% to the upside case.
+
+If the administration adjusted their messaging and walked back some of their more draconian rhetoric, this means that our 40% probability of the downside case occurring is probably too high.
+
+Remember, we aren't changing our EPS forecasts; we're assuming a tariff rate of 20% throughout, so all else equal, our earnings will remain constant. It's the probabilities we're tweaking.
+
+By adjusting this downside probability from 40% to 20%, and increasing our base case from 10% to 30%, we arrive at a new probability-weighted price target: $60, up from $52.50, with no change in our earnings forecasts - just our probability weightings.
+
+Probability weighting is a fluid analysis and one that requires constant upkeep and maintenance, but it is the most intellectually-honest way of valuing a group of stocks that comprise a portfolio.
+
+Why do all this work? Because this process allows all new information to be quantitatively filtered as an adjustment to one of three buckets:
+
+1. Earnings
+
+2. Multiple
+
+3. Probability
+
+This is very, very important to understand as a fundamental analyst, or even as a PM.
+
+The ability to rapidly process incoming information, "bucket" said information correctly, and then translate qualitative inputs into quantitative outputs, is probably 90% of what makes a really sharp analyst, trader, or PM.
+
+Translating quantitative inputs into quantitative outputs ("we're guiding to 15% EPS growth") is not hard.
+
+Translating qualitative inputs to quantitative outputs is hard.
+
+# Translating Qualitative Inputs To Quantitative Outputs
+
+I think I came up with that phrase on my own, i.e. that the job of an analyst is qualitative input > quantitative output, but at the same time, I know there's no way in hell I'm the first guy on earth to think of that...no way. Nothing is new in markets, you don't find a turn of phrase like that just sitting around.
+
+Anyway, you can steal it, run with it, take credit for it, I don't care...I just think it's a solid "install" in a junior analyst's brain.
+
+You speak to 20 customers across three end-markets. Those three end-markets are the segment revenue drivers in your model. How do you take the qualitative insights gleaned from speaking with 20 customers and translate them into a numerical model output? And do these insights affect your probability weightings, has an upside case become more realistic, is it possible that the right "bucket" is to adjust your probabilities rather than earnings?
+
+I would think through some scenarios and practice "bucketing" new information into these three categories. Correctly filtering information is important, incorrectly filtering information leads to GIGO, the Garbage In, Garbage Out.
+
+In a tariff scenario, a change in the tariff rate (from say 20% to 30%) would affect your Earnings forecasts.
+
+What about a change in the administration's tone? That would most likely affect your Probability weightings.
+
+Sometimes its both, sometimes its neither, but what you are really trying to do is capture economic reality in your model. If there's a 90% chance of base case, and then two extreme tail risk outcomes, your probability weightings can and should capture this, because your price target will correctly reflect economic reality.
+
+As far as our ascribed multiples, we really shouldn't have wild variations on where we think a business should trade, or the range it should trade in.
+
+Above, we've used 20x, 23x and 26x as our range.
+
+We would have sourced these numbers, most likely, from a chart similar to the one below. This allows us to see for a given stock or index (below is the S&P 500) what a reasonable "band" of P/E multiples might be.
+
+Just eyeballing the above chart, we could say 18x is a fair base, and then spread our bear and bull case to 16x and 20x, or even 15x and 21x.
+
+But ultimately, we aren't going to deviate too far from those numbers. That 18x base case might be 19x, or 17x, or 20x... but it's not going to be 10x.
+
+This is why I say that there shouldn't be too much tweaking of the multiples being used. A multiple is best thought of as a proxy for business quality, and the quality of a business, while the market perception will fluctuate, should remain relatively stable over time.
+
+Thus, a stock will usually trade in a reasonable "band," multiples should be mostly left alone, and if there's one thing I find myself telling people a lot these days, it's this:
+
+"A stock pitch predicated mostly on the multiple changing is a dogshit stock pitch."
+
+You can add a few turns if you're modeling beat, raise, beat, raise...but again, that's already sounding like a numbers pitch >> multiple pitch.
+
+Beyond that, if the shit doesn't work on a flat multiple, it probably ain't there.
+
+# Expand Your Range of Outcomes
+
+The only adjustment worth pointing out is that in a volatile market, or if you anticipate a volatile market, you should widen the band of your chosen multiples:
+
+Low-volatility market: 16x, 18x, 20x.
+
+Volatile market: 13x, 18x, 23x.
+
+This is a common error in valuation - modeling the range of outcomes too "tight" on all fronts, and not thinking wide enough about where Earnings, Multiples, and Probabilities could realistically end up.
+
+Be realistic about what the "tail" scenarios actually could look like from an Earnings + Multiple perspective, and then you can account for the chance of these tail scenarios occuring by flexing down your probabilities.
+
+---
+
+Hopefully this helps you think about correctly "bucketing" new information as it arrives.
+
+Everything should ALWAYS fit into one of those three categories: Earnings, Multiple, or Probability.
+
+What the company will earn, what multiple will be placed on those earnings, and what probability you ascribe to this scenario occurring.
+
+In a DCF, this same framework equates to cash flows (earnings) and discount rate (multiple), with probabilities applied to a DCF scenario analysis. Same buckets, different names.
+
+That's it. There are no other buckets.
+
+# Case Study: Bucketing Exercise
+
+When you speak to a management team, or a supplier, or you visit HQ, or you visit 50 stores, everything you learn must be reflected in your model as one of those three buckets: earnings, multiple, probability.
+
+This can get very tricky when you've assembled a mosaic of information; i.e. pricing sounds like it's tracking +5%, volumes sound flattish, raw material costs down 10%, labor up 5%, ad spend as a % of sales roughly in-line with this quarter last year but only after backing out four non-recurring expenses, and sales/marketing has an extra $50m dollars sequentially versus last quarter but they also laid off 12,000 employees one month into the quarter.
+
+You have a lot of information that has to be modeled in different ways, and will throw wrenches into the way you had things built. First, any information that was uncertain or belongs in a bull/bear case can be flexed in your scenario drivers and then adjusted in your probability weightings.
+
+Next, you have the earnings inputs. Pricing +5% and flat volumes, as opposed to flat pricing and volumes +5%...they appear identical, and they're anything but. Price falls right to the bottom line. Volumes have costs attached. Are there any COGS/OpEx adjustments that need to be made to account for the revenue mix, what do your resulting incremental margins look like, why do they suddenly look bonkers compared to every other quarter?
+
+Fuck...maybe it's in opex. You also have an opex item modeled as a percent of sales, which now may fail to reflect this economic reality, the price/volume mix, plus you have incremental dollars to add in which further strain your model's tie to reality, plus you have some murky ad spend number with "four non-recurring expenses" that they didn't disclose...
+
+...plus they laid off 12,000 people one month into the quarter, which means you need make assumptions on the expenses attached to those layoffs, and you need to incorporate how revenues flow through the P&L on a reduced fixed cost base for 2/3rds of the quarter, while also factoring in that odd $50m in incremental q/q $ growth, while also thinking about if there's any associated revenue impact, not just for this quarter, but also for next quarter where you might get smoked on a weak guide if half their sales team just got chopped.
+
+"Where do I get all these numbers? What are the non-recurring expenses, what's their severance, who were the people affected, I don't have any of this information!"
+
+Homeboy, that's your fucking job. If it's in the filings they certainly don't need to be paying your ass $200k. You try and dig things up, and if you can't find them, you make an educated guess, and you support it with logic and reason.
+
+There's numbers for all of this, they exist, they aren't $0, and so you gotta put something in there. do your best, forecast it as a range of outcomes and weigh it probabilistically if you must. If there's a 90% chance it's $100, and a 10% chance it's $1000, you have your answer: $90 + $100 = $190.
+
+You can come at a lot of analysis from this angle, hence the title of the post - probability-weighted analysis - especially once you understand that markets  price events and ranges of outcomes the same way.
+
+The tricky part is filtering new information through all these permutations of the three buckets and making sure that everything is accounted for in some form or fashion.
+
+Again, no other buckets exist. If you're lost, you can DM me, I see people spin out here a lot on qualitative statements from management and all the P&L offsets for a given line item.
+
+# Portfolio Construction
+
+Now, we can see how to apply this in an aggregated portfolio context.
+
+First, we want to lay out the positions we own, the current position size, the share price, our earnings estimates and where the stock trades on those estimates:
+
+In a more complex model, we’d also add consensus EPS estimates to see how ours compare to the street, as well as estimates (both ours and consensus) for revenue and EBITDA.
+
+If you are not willing to forecast your own EPS estimates relative to consensus, for each of the stocks that you own, just buy the index until you figure all of this shit out.
+
+Make no mistake, everything about this entire process is hugely difficult, time-consuming, labor-intensive, fluid, and it requires daily input as new information emerges.
+
+Each stock should have a model with a summary dashboard like the one at the start of this article. If you are not willing to go all the way with your analysis, don't bother, because going "halfway" with your modeling efforts will only get you the worst possible results.
+
+Next, we lay out our elevator pitch for each position in a few bullets, which should [hopefully] keep us intellectually honest, remind us why we are in the position to begin with, and prevent us from drifting off into some new thesis that we didn't originally underwrite.
+
+Next, we have to layer in our price target and risk/reward for each position. This is where we have a few different options on how we want to proceed.
+
+# Price Target Method One: Probability-Weighted
+
+Recall from earlier that for each individual position, we lay out a base case, upside case and downside case — all linked from our earnings model — with probabilities applied to each scenario. These probability-weighted price targets all roll up into a weighted average price:
+
+All of this data from our individual position models should flow directly into our total portfolio spreadsheet. One option to determine portfolio construction is to use the probability-weighted price target for each position, which would look like this:
+
+This method allows us to keep track, as prices fluctuate day-to-day, of how much upside is left in each position.
+
+The table format above yields information you can work with, including:
+
+- You may be too big in A and probably B, and too small in D, G, and I.
+
+Why? Ticker A is our largest position at $50m, yet it offers the lowest remaining upside of +5.1% in the entire portfolio.
+
+This is a signal that either the thesis has played out and we should begin exiting the position, or that we should consider reallocating some of the capital from A to a position with more upside left in it (such as D at +21.4%, G at +23.7% or I at 27.9%).
+
+- Re-underwrite anything <10% from target (A, F, do B also) and ask: "where in the lifecycle is this trade?"
+
+- Re-evaluate your sell discipline. You should be fully out of A when it hits 0.0% - do you start exiting now, at 5%, 10%, when? Automate it and then never break discipline, sell discipline is slippery and people play it too loose.
+
+As a secondary portfolio construction table, we'll later sort our positions based on risk/reward ratio, scanning for 3:1 and 2:1 for adds and 1:1 for exits.
+
+This table does not have to be used hard-and-fast in portfolio construction. It can just serve as another visual aid, a guide for helping you think about each of your positions, their relative sizing, where they each are in the lifecycle of the trade, and an honest reflection of how much upside is left (so that you don't "drift" past your target + end up roundtripping the position).
+
+# Price Target Method Two: Upside and Downside Cases
+
+A second option for portfolio construction is to eschew the probability weightings and calculate a separate upside case (reward) and a downside case (risk) for each position, with the output being position-level risk/reward ratio:
+
+Note that this is a totally separate scenario analysis: two outcomes (Up/Down) versus three (Bull/Base/Bear).  The three scenarios tie directly to our model. The two scenarios do not.
+
+This, again, is merely to provide another angle, a visual aid, in thinking about risk/reward both on a position level and on an aggregate portfolio level.
+
+The benefit of this method is that it gives a clearer picture of position-level risk. Risk/reward ratio is a clean, simple sorting mechanism, removing the complexity and inputs involved in a three-scenario layout.
+
+The drawback is that it’s not as precise as our probability-weighted price targets.
+
+By reducing our total number of scenarios from three to two, we risk the possibility of model slippage; the price targets will be similar to the first method but they won’t be fully identical. Our two-scenario layout (upside/downside) would best be derived through trial and error, just tinkering with various EPS and Multiple assumptions and using your three-scenario layout as a starting point.
+
+If we had 20x, 25x and 30x, with earnings of $2.00, $4.00, and $6.00, we could cut this down to a two-scenario output, something like 23x/27x and $3.00/$5.00.
+
+Now, we can calculate a clean risk/reward ratio, and just have that as an additional input or visual aid as we think about portfolio construction.
+
+By using BOTH methods, we are given two ways to think about position sizing; either based on distance from weighted price target, or based on risk/reward.
+
+The table above is fairly straightforward: the risk/reward ratio column has all the information you need.
+
+Two positions (D and H) offer risk/reward of greater than 3:1.
+
+We should be allocating capital into those names and away from names that are closer to 1:1 ("even money" or balanced risk/reward)
+
+As a general rule of thumb, I guess I'd say 3:1 is ideal, 2:1 is acceptable, and 1:1 is a position you have no business being in (odds no better than a coin flip). However, you have guys like PTJ who are adamant about 5:1, which is why I say I have no fucking idea what's "right."
+
+All I know is that if you're constantly connecting on 2:1 or 3:1 ideas, and your W's are bigger than your L's, you're gonna be just fine my friend.
+
+Finally, note that the table above is just for longs; in a long/short portfolio, we’d have a second section that laid out our short positions in identical fashion.
+
+But if you're managing a long/short portfolio with 10-20 names on each side, each driven from a single-stock model with EPS estimates, well, you're either a professional, a full-time individual investor, or you're about to blow up, because your portfolio is way too complex relative to the integrity of your inputs.
+
+# Why Use This Bottoms-Up Approach?
+
+So, why should we spend the time putting all of this together?
+
+For a fundamental long/short equity portfolio manager, this process helps keep you grounded in volatile markets.
+
+You don’t need to make an explicit macro call on whether the broad market is headed higher or lower, nor should you, since that’s not your strength as a fundamental manager.
+
+As a bottoms-up stock picker, portfolio construction and net exposure, from a purely theoretical perspective, should really be outputs of the investment process.
+
+This was all taught to me on the job, and I've seen it deployed at smaller single-managers in the past (~$250M) with varying degrees of success.
+
+When it didn't work, it wasn't the framework's fault, it was either bad ideas, bad risk mgmt, or drawing down ---> PM getting crunched by time horizon pressures ---> deviating from process --->  "The Long And Winding Road" (game over)
+
+I'll try and put words to the whole framework, going longer rather than shorter - I'm sure someone else has written something similar up, but there's a shortage of L/S Portfolio Construction-type material online, so I'd rather try and chuck something real out into the void.
+
+It is very, very important to know what game you are playing, or you're going to end up "halfway" again here and get the worst results.
+
+This happens at all levels...it explains the "crunch" I just described, where a PM feels the pressure, punts his 12-24 month ideas and starts chasing 3-6 month trades...probably the worst place you can be.
+
+"Multi-Food," or Food Capital LLC.  An alarm should go off in your head when you enter the sub-3mo duration arena, and the alarm should say "you are about to get beaten like a cheap Persian rug in a house full of cats."
+
+---
+
+# Top-Down Versus Bottom-Up
+
+The question for you, the reader, that you need to decide on -- are you a stock picker, or are you someone who makes top-down macro calls and adjusts net exposure first, and THEN focuses on position-level considerations second?
+
+Try both, see what works for you. I still go back and forth on a lot of this shit, and whether a great PM actually just views them as two separate blades to be wielded. Compare a Druck to a Buffett to a PTJ, they all have unique angles.
+
+Market backdrops change, sometimes it's a macro tape with no dispersion and no reward for L/S security selection, and you'd be better off just making some explicit factor bet but in names that you know at a deep fundamental level.
+
+Think of 2020 where the market goes from 500 individual stocks to 3 or 4 broad thematic trades, all with identical charts, you measure your probabilities and you take a stand. Your fundamental darlings temporarily get hijacked by the market regime but you can still weaponize them, accept them for who they are, trade them like a mercenary and scrape some P&L off them.
+
+The advice of "switch your style based on the tape" sounds fundamentally wrong, but I think most great fund managers do exactly that. You can't just be offsides in L/S for years on end. You get paid a lot because you are direction-agnostic, there's no benchmark, your job is to figure out what the fuck the market is doing, and then figure out a way to extract dollars from it.
+
+Whatever you choose, though, commit to it - never split the difference, never go halfway.
+
+If you're top-down first, be top-down first.
+
+If you're bottoms-up, be bottoms-up.
+
+Lot of rich guys from both, but there are infinitely more semi-rich guys who went bottoms-up. This is because the market moves higher over time, you can be pretty stupid, and you can still make good bread in stocks just by hanging around the hoop long enough to get lucky.
+
+If you're bottoms up, that means you underwrite each individual position, one by one, and let your price targets and risk/reward ratio dictate sizing. The aggregate risk/reward of this portfolio, assembled piece by piece, is what determines your overall portfolio exposure.
+
+# Exposure As An Output, Not Input
+
+Net exposure becomes an output in this approach, rather than an input, and this should dovetail perfectly with your equity analysis.
+
+How?
+
+Because if all your individual ideas are overvalued, you're going to size them small relative to their return potential (which should appear poor). The end result will be a portfolio with low exposure/overweight cash, because the opportunities simply aren't there.
+
+If all your ideas are all undervalued, you're going to size them up, because the risk/reward and price targets are telling you to do so. Brick by brick, you will end up with a portfolio that has high exposure/fully deployed, because the individual bottoms-up analysis naturally guided you in that direction.
+
+Again, these are totally different approaches, they're all valid, and the most important thing is to play to your strengths and be consistent in your process. If you're picking stocks, pick stocks. If you prefer to think top-down, think top-down. But don't be a bottoms-up stock picker who also randomly whips his exposure around on a whim, because now you're stuck "halfway" and have no true repeatable process.
+
+# Case Study: Dynamic Adjustments In Practice
+
+Here is the same principle, stated differently, on bottoms-up L/S portfolio construction, and how sizing shifts dynamically as the broad market moves around. To some this may be intuitive...to a guy in his early 20's, it may not be.
+
+This approach is consistent with what you'd see at a single-manager fund with 10-20 longs and 20-30 shorts, where they believe their true "edge" is in fundamental, bottoms-up security selection, and as such, they avoid letting macro and other top-down considerations influence their process.
+
+As the market rises, long positions [should] be approaching your probability-weighted price targets. You would begin trimming the positions given that the goal is to have exited them completely once they've arrived at their target (0.0% gain remaining).
+
+If you have other positions that are still offering substantial upside, you would reallocate this cash into those positions. However, if all of your longs have reached their price target and been converted to cash, this is a clear signal, based on your process, that the broad market is overvalued.
+
+You don’t make an explicit market call; the output of your individual position analysis does that for you.
+
+None of my best ideas have any upside left? Cool, I'm out.
+
+In a long-only portfolio, you would now be heavily overweight cash.
+
+This is a disciplined and patient approach to markets and it's arguably how Buffett tends to go about things; he doesn't care about the current price, he only knows the price where he's interested. If the two are far apart, he'll wait a few years. When it gets to his price, he moves fast and he moves in size.
+
+The reason why this approach works is that no fund manager has the ability to "just wait a few years," they're forced into names at unattractive prices and they end up fully invested at exactly the wrong time.
+
+In a long/short portfolio, rather than being heavy on cash, you would now be net short or running low net.
+
+This is because if the broad market is overvalued, it means that your short positions are the ones offering the best gains and most favorable risk/reward, and you would have been steadily allocating capital out of your longs and into your shorts as the market rose.
+
+For a further example of dynamic adjustments, let’s say the broad market drops 20% from these overvalued levels.
+
+All your longs would become incrementally more attractive and all your shorts would become incrementally less attractive as the risk/reward of each position shifts.
+
+Capital would flow in the opposite direction as the portfolio gradually flips from net short to net long.
+
+In a long-only portfolio, your cash balance would continue to decline as the risk/reward offered by each long position improved.
+
+Once again, what this all means is that you never explicitly decide, I’m going to adjust the portfolio so that we’re net short, or, I’m going to get us from 10% cash to 25% cash.
+
+Those are top-down adjustments.
+
+In fundamental long/short at a traditional single-manager, assuming any are still in business, these exposure adjustments would happen organically, and the adjustments are based on the risk/reward each individual position offers.
+
+# Fundamental Purity & Integrity
+
+To me, this bottoms-up method is the purest and most fundamentally-sound method of portfolio construction for a manager who believes his edge lies in security selection.
+
+I actually don't know how you could purify it further.
+
+And again, I don't think the framework is busted, but I do think in single-manager L/S this became a commoditized offering without P&L to back it up.
+
+"Pay me 2/20 for this Best Ideas Long Book, 10-20 names, and a few alpha shorts," I think that mostly died, I have no idea how you differentiate yourself without 5 years of track record.
+
+But is the model itself broken, like, I don't think so...it's just worth 150 bps and not 2/20. Hard for a pure fundamental stock-picker strategy to ever go out of style, and the philosophy, the framework, it's durable (to me at least).
+
+I'm very open to being wrong here, although this is abstract territory for the most part.
+
+Even if it's flawed, though, there is something about straying from fundamental L/S, touring the world, coming back home and realizing that anything but "here's my 10-20 best fundamental ideas," like...you're standing on terra not-so-firma.
+
+It's hard not to think about Munger in his 90+ years of wisdom, who has been thru more mental models than any of us could sample in 1000 years, and who, I guarantee, has "tried on" every investor/trader hat ever made... I'm fairly certain his advice right now would be "think very carefully about your three best ideas. then, size them at 33% each."
+
+Because even at 90, he would laugh, like, "in 90 years we've had maybe, like, twelve good fucking ideas at Berkshire, those twelve drove 95% of our P&L, and the rest weren't worth buffalo shit on a nickel."
+
+If I'm off there, it's not by much.
+
+# Investor Considerations: Individual versus Fund Manager
+
+This approach comes with pros and cons depending on investor type.
+
+Individual investor:
+
+The pros are that portfolio construction becomes straightforward. All you need to worry about is picking stocks. The macro will work itself out in the long run, and as an investor with permanent capital, you can tune out short-term volatility. The cons of bottoms-up portfolio construction are that it’s highly labor-intensive and requires daily upkeep and maintenance. All new information needs to be incorporated into your estimates and scenario analysis, and once your individual models are updated, you must be prepared to reallocate capital at the portfolio level to ensure that your best ideas are the ones that are fully-sized. If you aren’t willing to do this level of work as an individual investor, you should just buy the S&P 500.
+
+Single-manager:
+
+Assume traditional, flexible exposures but default net long and something like 140/40.
+
+This portfolio construction process becomes more complex due to the fact that your capital is not permanent and likely has duration ranging from one month to twelve months. Shorter capital duration reduces your ability to withstand volatility and means that the attractiveness of individual equities will frequently take a backseat to short-term positioning considerations. Capital ends up being diverted away from your best ideas and deployed strictly to mitigate macro risks or factor exposures in a way that dampens overall portfolio volatility, but does so at the expense of long-term performance.
+
+[This is the trap that pretty much every "I'm going to absorb vol and take pain" emerging manager falls into - duration mismatch between your ideas and your providers of capital (ideas are 24-month, LP capital is 12-month, tops, but realistically 3-6 months pending performance, drawdowns, "proof of concept," track record, etc) - suddenly you're trading on a 3-6 month basis based on factor unwinds, positioning, and macro crosswinds, with no regard for the 24-month thesis...you're "halfway" aka you're dead.]
+
+For a multi-manager:
+
+This bottoms-up method of portfolio construction becomes impracticable.
+
+Individual security selection is still based on fundamentals, but given that the portfolio is forced to remain market-neutral and factor-neutral, you cannot use bottoms-up risk/reward to determine whether the aggregate portfolio should be net long or net short.
+
+Whether the market is overvalued or not is irrelevant; you can make adjustments to your gross exposure, but you must remain neutral on a net exposure basis (equally balanced long and short).
+
+The duration of this capital is measured in days, moving you even further away from fundamental security selection as your primary focus is on mitigating volatility, hedging out factor exposures, chasing datapoints and avoiding short-term blow-ups and unwinds.
+
+Basically, the multi-mgr approach is "fundamental long/short" in name only, and going purely bottoms-up no longer applies. If all your longs are highly attractive, that's wonderful, and it usually means the market is piss cheap, but it's irrelevant here...you're going to have $500m spread across them no matter what, no more, no less, and even if the market is piss cheap, you'll have $500m of shorts paired against them.
+
+[This should really illustrate the hugest advantages that an individual investor has...permanent capital, patience, flexible on exposure. In a crash, the multi-mgr book is probably in a factor unwind, the single-mgr fund is probably net long and grossing down instead of adding, but for an individual, "bottoms-up" should have kept you with a decent cash position -- now you're able to add risk at a time when others are cutting, patient, Buffett/Munger style investing. This is how it's supposed to go in theory, at least...]
+
+# FINAL THOUGHTS
+
+On the "bottoms-up" approach...here is how I think about playing to one's strengths and weaknesses.
+
+My modeling may be uncertain. That probability-weighted number, the one that's "fully loaded," my model could be off and suddenly I'm flying blind.
+
+However, I have been doing this for a while, I've accumulated some 15 years of mistakes and I let those guide me.
+
+My broad market calls are worse than my modeling, my macro is worse than my modeling, and my trading/sizing/exposure P&L, in aggregate, is a deep red.
+
+My hit rate on my high-conviction ideas is where I'm strongest, and I consistently piss away green P&L thru overtrading.
+
+It would appear that my best path is Munger's "SOYA" (Sit On Your Ass) with the operating assumption of, "assume that every trade you make is EV-negative."
+
+I'm pretty sure it's true, the EV-negative part, but I'm just going to run with it and let P&L/trade blotter be the final arbiter of truth.
+
+Basic bullets and operating manual for everything:
+
+- Pick 2-3 inputs, simple models, simple ideas, and then dial in.
+
+- Mitigate/reduce/hedge out anything else.
+
+- Pick winners, let them run, keep stops overly tight at first rather than overly loose, and that's it.
+
+- Execute on those few inputs consistently. After proven execution, you can add more inputs. No execution, no input -- less is more.
+
+- Let idea funnel/fundamentals drive the bus
+
+- Treat exposure as an output of idea gen
+
+- Ignore as much ST "multi-noise" as possible, unlearn what you learned in multi-world, it only helps you if you're trading like a multi. Otherwise it's neutral or counterproductive.
+
+- Focus less on positioning, sentiment, factors, and "multi-world problems."
+
+- Most questions re: risk mgmt can be answered in one sentence: "TIGHT STOPS CURE MANY ILLS."
+
+- Portfolio Analytics Overload happens at a fairly low number, lower than you'd think - I can't call it, but watching too many indicators and metrics gets counterproductive fast.
+
+- Less is more, btw.
+
+- The best risk mgmt software I've found is to write this on a piece of paper and stick it to your main trading monitor:  "USE STOPS ALWAYS."
+
+---
+
+# Conclusion
+
+You now have a handful of tools to pick and choose from - experiment, and figure out which fits your style.
+
+I threw a lot at you, and may be overestimating the average level of fundamental analyst skill. However, here's what I'll say:
+
+If you are able to put together 10-20 models as an individual, with EPS estimates modeled relative to consensus, and then have it all feed into some sort of aggregated portfolio table...you are absolutely operating with a "professional-grade" framework.
+
+This is a high bar - don't feel inferior if you're not there yet, I think it takes 5-7 years although with LLM's I don't know.
+
+If you can layer in this investment process on top of all that, it not only has some integrity to it but should really, when done right, keep you out of trouble and make position sizing/exposure considerations much easier for you.
+
+You just have to make sure that for those 10-20 names, you are doing real work that you can trust. Those estimates and price targets drive your entire portfolio construction process.
+
+A PM I used to work for always yelled that "bad color is worse than no color." Meaning, if you're not confident in your answer, just STFU. That applies for these models - start by modeling to consensus, and then only deviate when you have a supported variant view.  This will prevent you from trading off "bad color."
+
+If your models are tight, the macro, the market, all those variables are not relevant anymore.
+
+A real bottoms-up fundamental book with 10-20 names does ignore macro, because the approach is "I trust the management teams of my companies to navigate macro." Watch how great mgmt teams operate and you'll recognize the wisdom in this approach, they always seem come out of downturns with an extra 500 bps of market share + structurally higher operating margins.
+
+Just gotta ask yourself, are you a bottoms-up fundamental analyst? Are you a business analyst in the truest sense of the term? Or do you love trading shitcoins and punting options around? Again, do what you want, just make sure you know who you are - don't "half-ass" anything.
+
+If you choose the fundamental route, you need some certainty that in those 10-20 names, you're competitive, that you feel as good about your analysis as anyone else's out there.
+
+Otherwise, you're just food, my man, multi-food, running a "dummy at the poker table" investment vehicle known as Food Capital LLC.
+
+---
+
+Good luck trading.
+
+GB
+
+---
+
+## 3. 2025-12-18
+<a id="t-2001641818216137089"></a>
+
+*Single post · [2001641818216137089](https://x.com/gregoryblotnick/status/2001641818216137089)*
+
+MASTER THREAD: Markets (L/S Equity) + Not-Markets (Human Nature, Philosophy)
+
+"The greatest gift you can give a man is to help him think differently." This is a collection of about 75 articles -- half are markets, half are not-markets. Below is the Table of Contents with more detail.
+
+# Table of Contents
+
+## I. Markets
+
+ARTICLE TOPICS:
+
+- Valuation: ROIC/ROIIC, Multiples/DCF, Terminal Value Overhangs
+
+- Modeling/Pitches, Stock Pitches & Common Mistakes, CV Templates
+
+- Trading/Risk: Reading the Tape, Position Sizing, Trading Psychology
+
+- Portfolio Construction: Idea Velocity, L/S Portfolio Construction
+
+RECOMMENDED READING LIST:
+I provide a list of books and links -- spanning from Buffett to Mauboussin and more -- which form a  "core curriculum" for any investor or trader.
+
+PHILOSOPHY & HIGH-LEVEL THOUGHTS:
+I share some thoughts on how to best navigate these articles and who they are aimed at: particularly young, hungry, "outsider" types full of passion for the game...the 23-year old version of myself, in many ways, who was in here in 2012 receiving and now must pay it forward in exchange.
+
+# II. Non-Markets
+
+LITERATURE/PHILOSOPHY: Deep dives on authors including Durant, Munger, Pascal, Jung, Schopenhauer, Samuel Johnson, Erasmus, and more.
+
+HUMAN NATURE/PSYCHOLOGY/LIFE: Some sample article titles include:
+
+- Knowledge of Self/Discipline/Emotion: How To Know Yourself, No Days Off/Hard Hat Aura, Control what You Can Control, Loneliness, Envy, To A Young Man With A Dying Father, Breaking X Addiction
+
+- Mindset: Stride Confidently In The Direction Of Your Dreams, The World Only Cares About What It Can Get From You, Sweat the Small Details Until You End Up with a Puddle of Perfection, On Blind Faith and "Putting Yourself Out There"
+
+- Reading/Writing: Wisdom Is Not Compressible, On Excessively Quoting Other Authors, Write Long-Form Or Die Trying, Genius Versus Madness,  The Rising Tide of Slop & The Exponential Demand for Humanity
+
+OTHER/MISC: Thoughts on knowledge vs. wisdom, correct reading "order," videos, books, essays, and more.
+
+---
+
+# Articles
+
+## ROIC/ROIIC + How Faster Growth Can Destroy Equity Value
+
+[Embedded Tweet: https://x.com/i/status/1998385451829285009]
+
+## ROIIC + Reinvestment Rate
+
+[Embedded Tweet: https://x.com/i/status/2056801129636262151]
+
+## Lazy Thinking in Equity Valuation (Parts One + Two + Three)
+
+[Embedded Tweet: https://x.com/i/status/2000945911619256507]
+
+[Embedded Tweet: https://x.com/i/status/2020872564529045833]
+
+[Embedded Tweet: https://x.com/i/status/2029167521945751849]
+
+## Fundamentals + Technicals
+
+[Embedded Tweet: https://x.com/i/status/1999494474175504711]
+
+## Modeling Series: Parts 1-5
+
+[Embedded Tweet: https://x.com/i/status/2003117795668623807]
+
+- [Modeling for Fundamental L/S Equity (Part 2)](https://x.com/gregoryblotnick/status/2003862208539656230)
+
+- [Modeling for Fundamental L/S Equity (Part 3)](https://x.com/gregoryblotnick/status/2011450020294283609)
+
+- [Modeling for Fundamental L/S Equity (Part 4)](https://x.com/gregoryblotnick/status/2015792949435437430?s=20)
+
+- [Modeling for Fundamental L/S Equity (Part 5)](https://x.com/gregoryblotnick/status/2065854882070822935?s=20)
+
+# LLMs/Modeling: Learning Markets, Modeling & How LLM's Reduce "Time-To-Mastery" by 50-90%
+
+[Embedded Tweet: https://x.com/i/status/2067593785194733972]
+
+## Reading The Tape: Parts 1-4
+
+[Embedded Tweet: https://x.com/i/status/2004613206887858333]
+
+- [Reading The Tape (Part 2): "BEARISH AND LONG," Event Path & Cognitive Bias](https://x.com/gregoryblotnick/status/2013628573773377582?s=20)
+
+- [Reading The Tape (Part 2.5) - Brief Memo 2/4/26 (Narratives + Price Action)](https://x.com/gregoryblotnick/status/2019028318394241289)
+
+- [Reading The Tape (Part 3) - "FCF Mañana," Snowjobs and Capex Cycles](https://x.com/gregoryblotnick/status/2019752413528252645)
+
+- [Reading The Tape (Part 4) - Druckenmiller and Macro Versus Fundamentals](https://x.com/gregoryblotnick/status/2033540954385199117)
+
+- [Thinking About Equity Issuance + Market-Implied "Reaction Function"](https://x.com/gregoryblotnick/status/2065478116617957593)
+
+## Risk Management: Parts 1-4
+
+[Embedded Tweet: https://x.com/i/status/2004984420567318554]
+
+[Embedded Tweet: https://x.com/i/status/2005307815645044980]
+
+[Embedded Tweet: https://x.com/i/status/2006000818793713748]
+
+[Embedded Tweet: https://x.com/i/status/2038584481884385311]
+
+## Alt Data Is Bullshit
+
+[Embedded Tweet: https://x.com/i/status/2082015674101051468]
+
+## The Consumer/Retail Sector Is Stupid As Fuck
+
+[Embedded Tweet: https://x.com/i/status/2082376189889450179]
+
+## The Long Term Is A Series of Short-Terms: Time Arbitrage + Trajectory of #'s
+
+[Embedded Tweet: https://x.com/i/status/2081681270417887357]
+
+## Resources for Juniors + "The Come Up" 
+(Parts 1-4)
+
+[Embedded Tweet: https://x.com/i/status/2005631303488598472]
+
+[Embedded Tweet: https://x.com/i/status/2046312053925646623]
+
+[Embedded Tweet: https://x.com/i/status/2056729869090771076]
+
+[Embedded Tweet: https://x.com/i/status/2057173991266083094]
+
+## Resume/CV Templates
+
+[Embedded Tweet: https://x.com/i/status/2014758009537216798]
+
+## Buffett's Come-Up Era
+
+[Embedded Tweet: https://x.com/i/status/2081751315458175369]
+
+## Common Errors in Stock Pitches (Parts 1-3)
+
+[Embedded Tweet: https://x.com/i/status/2016915686866510307]
+
+[Embedded Tweet: https://x.com/i/status/2026305875892125865]
+
+[Embedded Tweet: https://x.com/i/status/2059260408972644793]
+
+## Common Errors in Shorting Stocks
+
+[Embedded Tweet: https://x.com/i/status/2033886385854198179]
+
+## Terminal Value Overhang: Parts 1-3
+
+[Embedded Tweet: https://x.com/i/status/2023759332534280363]
+
+[Embedded Tweet: https://x.com/i/status/2025333891330900087]
+
+[Embedded Tweet: https://x.com/i/status/2025669490197798986]
+
+## Final Frontier
+
+[Embedded Tweet: https://x.com/i/status/2076585078143029588]
+
+## Portfolio Construction
+
+[Embedded Tweet: https://x.com/i/status/1998759439831113953]
+
+## Idea Velocity
+
+[Embedded Tweet: https://x.com/i/status/1995504134372380789]
+
+## Trading Psychology
+
+[Embedded Tweet: https://x.com/i/status/1998210449205018974]
+
+## Position Sizing
+
+[Embedded Tweet: https://x.com/i/status/2008281602133238004]
+
+## Signal/Noise Ratio
+
+[Embedded Tweet: https://x.com/i/status/2008915433869480356]
+
+## "If You Don't Write Clearly, You Don't Think Clearly."
+
+[Embedded Tweet: https://x.com/i/status/2018336121155969288]
+
+## The March of Nines in Public Equity Markets (Parts 1 + 2)
+
+[Embedded Tweet: https://x.com/i/status/2031012029545189610]
+
+[Embedded Tweet: https://x.com/i/status/2035477648940450103]
+
+## 2022 Graham & Dodd Annual: Todd Combs + Buffett/Munger
+
+[Embedded Tweet: https://x.com/i/status/2024925844909814042]
+
+## Part 1: 25 Rare/Obscure Interviews
+
+[Embedded Tweet: https://x.com/i/status/2076602869185175789]
+
+## Part 2: Threads + Reading Lists
+
+[Embedded Tweet: https://x.com/i/status/2077933915910623627]
+
+## Stock Pitch Posts
+
+I put up some old pitches from 2015-2016 for formatting/template purposes; DM with any questions, I'm happy to be of use however I can.
+
+[Embedded Tweet: https://x.com/i/status/2031715799551909965]
+
+[Embedded Tweet: https://x.com/i/status/2028803595831767167]
+
+[Embedded Tweet: https://x.com/i/status/2081902306195378516]
+
+Advice to 28-year old on WSO who blew up and wants to commit suicide.
+
+[Embedded Tweet: https://x.com/i/status/1916515884862001202]
+
+Risk mgmt/advice to a friend who blew his account trading options.
+
+[Embedded Tweet: https://x.com/i/status/1955232394451038664]
+
+# RECOMMENDED READING LIST
+
+Throughout 2025 I had a lot of tweets about markets with various "further reading" at the end, but these recs were scattered all over the place and I'm wrong for that - this post has compiled them all in the next section for easy access.
+
+## a) Books
+
+Trading Psychology
+
+- Mark Douglas: Trading in the Zone - [https://a.co/d/5lo3nqi](https://a.co/d/5lo3nqi)
+
+- Books by Ari Kiev - [https://amazon.com/stores/Ari-Kiev/author/B000APFNZW](https://amazon.com/stores/Ari-Kiev/author/B000APFNZW)
+
+Valuation
+
+- McKinsey on Valuation: [https://www.amazon.com/Valuation-Measuring-Managing-Companies-Finance/dp/1119610885](https://www.amazon.com/Valuation-Measuring-Managing-Companies-Finance/dp/1119610885)
+
+- Expectations Investing: [https://a.co/d/2jFB2eI](https://a.co/d/2jFB2eI)
+
+Interviews With Legendary Traders/Investors
+
+- [Schwager - Market Wizards Series](https://www.amazon.com/stores/Jack-D.-Schwager/author/B000AR7ZM4?ref=ap_rdr&shoppingPortalEnabled=true&ccs_id=f4973537-3b86-4061-a467-40186c00e3be) - read all of them.
+
+- [John Train - Money Masters books (ditto).](https://t.co/pdXB3wfHoC)
+
+- [Inside the House of Money](https://t.co/04znck8Nlp)
+
+Macro & Industry Dynamics
+
+- [Volatility Machine](https://t.co/OrMR3HJl4J) (excellent on macro)
+
+- Two books by [Ed Chancellor](https://www.amazon.com/stores/Edward-Chancellor/author/B001ITX52C): Capital Returns, and Capital Account
+
+## b) Theory
+
+Berkshire Hathaway
+
+- [Buffett FAQ - a truly incredible resource.](https://buffettfaq.com/) Read it all, read it again
+
+- [Berkshire Letters](https://t.co/fhRQmic7xP) - read them all.
+
+- [Poor Charlie's Almanack](https://t.co/pUY7IsFgUu)
+
+- [From Darwin to Munger](https://t.co/i3iI6ytwRw)
+
+- [Munger - Psychology of Human Misjudgment](https://t.co/aTpAylITN4)
+
+- [Snowball](https://t.co/qW4bjMTz5v) (on Buffett)
+
+Mauboussin
+
+- [Mauboussin - full compilation](https://www.michaelmauboussin.com/writing) - read it all.
+
+- [Mauboussin in 1997 - "Thoughts on Valuation"](https://www.capatcolumbia.com/Articles/Reports/Thought.pdf) - breaking down the myth that the market is short-term oriented.
+
+Compilations
+
+- [Value Investor Insight - Words of Wisdom (insanely high signal/noise ratio)](https://tilsonfunds.com/VIIWordsofWisdom.pdf)
+
+- [Graham & Doddsville Compilation](https://business.columbia.edu/heilbrunn/resources/graham-and-doddsville-newsletter) - worth poking around the ones from 10-15 years ago for intvws with legends.
+
+Misc/Interviews
+
+- [Amazon 2004 shareholder letter](https://x.com/gregoryblotnick/status/1988340271294128131) - very simple illustration of how growth can destroy value.
+
+- [Druck in Barrons, 1988](https://t.co/fL87o8ImSH)
+
+- PTJ posts I enjoyed: ["Diary of a Trader"](https://stray-reflections.com/articles/trading/diary-of-a-trader) and ["PTJ's Trading Strategy Explained"](https://macro-ops.com/lessons-from-a-trading-great-paul-tudor-jones-ptj/)
+
+- [Risk mgmt in L/S by Craig Effron of Scoggin - 2016 Graham & Doddsville](https://business.columbia.edu/sites/default/files-efs/imce-uploads/Graham%20%20Doddsville_Issue_26.pdf)
+
+- [Fundamental Investing - Glenn Greenberg of Brave Warrior - 2010 Graham & Doddsville](https://grahamanddoddsville.net/wordpress/Files/GrahamAndDoddsvilleNewsletter/Graham%20and%20Doddsville%20-%20Issue%209%20-%20Spring%202010.pdf)
+
+- [Portfolio Construction in L/S by Lee Ainslie of Maverick - 2014 Graham & Doddsville](https://business.columbia.edu/sites/default/files-efs/imce-uploads/Graham%20%26%20Doddsville%20-%20Issue%2020%20-%20Winter%202014.pdf)
+
+- [Value Investors Club](https://www.valueinvestorsclub.com/) - read all the old pitches that were highly-ranked. Will take a long time. Worth every minute.
+
+# PHILOSOPHY & HIGH-LEVEL THOUGHTS
+
+Target Audience: Everyone has their own "target audience" - mine is the 23-year old version of myself.
+
+If you are a professional I doubt I have much, if anything, to teach you. I am stupid as fuck and in my experience was bottom 10% of the L/S world in terms of intelligence, generally a mediocre analyst and investor...still feel like a student of the game and am in no position to dispense advice. Do not view me as any sort of guru or preacher, and I think Seneca's analogy is best - I'm in the hospital bed next to you, sick, and looking for a cure.
+
+For The "Outsiders": For younger individuals, my heart really lays with the "outsider" types. Either born on the wrong path, bad grades, bad pedigree, guys who fucked up somewhere along the way and didn't make it onto the banking/PE track...but they have raw PASSION FOR MARKETS and a WINNING ATTITUDE.
+
+My Background: I definitely did not deserve an L/S seat, I had a 2.9 GPA from Lehigh and no redeeming qualities otherwise. I should have been clearing trades or doing audit at Ernst & Young. But for whatever reason, people took chances on me, they opened a door, and then from there a lot was self-taught.
+
+Motivation: Twitter can be a rocketship for a young analyst's career. I owe 2012-2016 Twitter a shitload of thank you's, this app legitimately changed my entire life trajectory... and so a lot of what I write just comes from a place of gratitude, paying it forward, the grand chain of apprenticeship/mentorship.
+
+Investing Can Be Self-Taught: Bottom line is that I 100% believe equity investing can be self-taught, no matter who you are, and then attitude and talent will get you a seat. So, I will share the limited amount that I know, to try and help you any way that I can.
+
+# II. NON-MARKETS
+
+You always hear great investors tell you to read widely.
+
+I never understood why and never did it as much as I should.
+
+I get it now. I can't explain it, but I get it now.
+
+It helps you understand the world and human nature, and in that process, you understand yourself - which is really the key to all trading. ("The market is a mirror.")
+
+A series of non-market-related recs are below.
+
+---
+
+Side Quest Recommendation: "The Story of Civilization" Series [Durant]
+
+[Embedded Tweet: https://x.com/i/status/2004666738789810374]
+
+Munger Refresh: Independent Thinking, Disdain & The Power of Incentives
+
+[Embedded Tweet: https://x.com/i/status/2008532350502596862]
+
+10 Books That Changed My Worldview
+
+[Embedded Tweet: https://x.com/i/status/1973877313415884987]
+
+- [Part Two / 10 More Classic Books](https://x.com/gregoryblotnick/status/2011807207239668202?s=20)
+
+How To Know Yourself
+
+[Embedded Tweet: https://x.com/i/status/2015017021860175963]
+
+Hard Hat Aura
+
+[Embedded Tweet: https://x.com/i/status/2015203667603828921]
+
+Loneliness
+
+[Embedded Tweet: https://x.com/i/status/2020973329029484792]
+
+Envy
+
+[Embedded Tweet: https://x.com/i/status/2016501858815132010]
+
+Breaking X Addiction
+
+[Embedded Tweet: https://x.com/i/status/2019411734348357909]
+
+Control What You Can Control
+
+[Embedded Tweet: https://x.com/i/status/2018701395088588991]
+
+Wisdom Is Not Compressible: Pushing Back Against a Widely-Held "Navalism"
+
+[Embedded Tweet: https://x.com/i/status/2007102803362165188]
+
+Stride Confidently In The Direction Of Your Dreams
+
+[Embedded Tweet: https://x.com/i/status/2021291962473562564]
+
+"The World Only Cares About What It Can Get From You"
+
+[Embedded Tweet: https://x.com/i/status/2024118711595004168]
+
+Sweat the Small Details Until You End Up with a Puddle of Perfection
+
+[Embedded Tweet: https://x.com/i/status/2025527703621751156]
+
+Write Long-Form Or Die Trying
+
+[Embedded Tweet: https://x.com/i/status/2025591550198083598]
+
+To A Young Man With A Dying Father
+
+[Embedded Tweet: https://x.com/i/status/2026489864854622308]
+
+Genius Versus Madness
+
+[Embedded Tweet: https://x.com/i/status/2028467861946007989]
+
+GO FIRST. On Blind Faith and "Putting Yourself Out There"
+
+[Embedded Tweet: https://x.com/i/status/2028964552503620055]
+
+"Every Little Action of the Day Makes or Unmakes Character."
+
+[Embedded Tweet: https://x.com/i/status/2045628812268810644]
+
+Navigating This "Article of Articles"
+
+[Embedded Tweet: https://x.com/i/status/2045235071326835156]
+
+Fixing mental health, Climbing out of a deep hole & Rebuilding even stronger
+
+[Embedded Tweet: https://x.com/i/status/2047854756870127649]
+
+Your Real Friends Only Show Up in Two Places: A Hospital Bed and A Jail Cell
+
+[Embedded Tweet: https://x.com/i/status/2055963979176984804]
+
+Philosophy & Literature
+
+- [Pascal Speedrun](https://x.com/gregoryblotnick/status/2004903454456553583?s=20)
+
+- [Jung's Map for the Second Half of Life](https://x.com/gregoryblotnick/status/2008607720769732827?s=20)
+
+- [Jung's Worldview: Part Two](https://x.com/gregoryblotnick/status/2015049511060840700?s=20)
+
+- [Schopenhauer Semi-Speedrun: "World as Will & Representation" (Vol. 1)](https://x.com/gregoryblotnick/status/2010745724024082809)
+
+- [Samuel Johnson - "The Major Works" - Highlights & Excerpts](https://x.com/gregoryblotnick/status/2017948318765101200)
+
+- [The "Adagia" of Erasmus - Aphorisms, Maxims & Proverbs](https://x.com/gregoryblotnick/status/2022378424661110948)
+
+- [The Rising Tide of Slop & The Exponential Demand for HUMANITY.](https://x.com/gregoryblotnick/status/2005271464254038242)
+
+- [On Excessively Quoting Other Authors](https://x.com/gregoryblotnick/status/2021966894664761422)
+
+- [Highlights From Rick Rubin's "The Creative Act: A Way of Being"](https://x.com/gregoryblotnick/status/2055660593667866644?s=20)
+
+- [12 More Highlights from Rick Rubin's "The Creative Act: A Way of Being"](https://x.com/gregoryblotnick/status/2059705763598385174?s=20)
+
+---
+
+# OTHER/MISC
+
+Knowledge Versus Wisdom
+
+Speaking to my 23-year old self, I would recommend to put "THE KNOWLEDGE" in your head first - all that Buffett and Mauboussin stuff above - and that takes a while.
+
+I'd estimate 5-7 years. Leave the non-investing books alone until you are bulletproof on modeling and stock pitches.
+
+After you have the "The Knowledge" uploaded and mastered, you can move on, because the incremental return on knowledge (ie reading more investing books) asymptotically approaches zero.
+
+That's when you can get started on "The Wisdom" - self-mastery, i.e. figuring out which of the 100 approaches in "The Knowledge" is the right one for YOU.
+
+Those recommendations above are from legendary investors or famous authors. Below are random selections written by me, a shitty investor and an even worse author.
+
+i. Books
+
+1. [Essays: De Rerum Natura](https://t.co/FPPq22eAMz) [Amazon] - a collection of thirty essays I wrote in 2025, some philosophical, some memoir. I wrote them for people actively trying to reach their own potential ,anyone intensely focused on self-mastery, "shadow work," perfection of character, and destroying one's flaws and weaknesses.
+
+[Here is a link to five of the more popular essays](https://x.com/gregoryblotnick/status/1989054742828667259?s=20): Duality, Passion, Energy, Pain, and God. There is no "investing" essay, but many are tied to the three traits of any great investor - Discipline, Patience, and Humility - along with emotional self-control.
+
+2. [Blind Spots: A Riches to Rags Story](https://t.co/i9CfTIHZSq) [Amazon] - a memoir I wrote in 2021 about a fairly stunning collapse, from running a short-biased fund at age 32, directly into the dark underworld of drugs, crime, addiction and jail, all in less than twelve months. I did not enjoy writing this book but many seem to have gotten a lot out of it, at least based on the DMs I get each week. And while I enjoy writing about markets, I get a lot more fulfillment from writing about life and human nature, and in trying to help people through tough times.
+
+100% of the proceeds from both books are donated to AFSP (American Foundation for Suicide Prevention).  Three "Blind Spots" Reviews: [Kirkus Reviews](https://t.co/W3lrxMYBkZ) | [Manhattan Book Review](https://t.co/LX4fo4ppTR) | [US Review of Books](https://t.co/U35BWC7XEe).
+
+ii. Miscellaneous
+
+- [Video on moving the ball forward](https://x.com/gregoryblotnick/status/2055364445530992728?s=20)
+
+- [Video on how to escape rock bottom](https://x.com/gregoryblotnick/status/1979921115368820975?s=20) - for anyone struggling with anxiety, depression, loss of momentum in life, or just feeling "stuck."
+
+- [Video I made on writing, archetypes, adderall, and addiction](https://x.com/gregoryblotnick/status/1994423241503391755?s=20).
+
+- [Music Master Thread - "OLD HEAD ENERGY" - Videos, Hip-Hop & House](https://x.com/gregoryblotnick/status/2005043462576767277)
+
+- [2025 Recap: a collection of tweets and threads I wrote](https://x.com/gregoryblotnick/status/2004879495233188298?s=20)
+
+---
+
+# CONCLUSION
+
+Never stop learning. Spend less time reading Twitter and more time reading books, or as I try to remind myself: "read books and not tweets, write books and not tweets."
+
+Buffett and Munger get asked the same question every year:
+
+"What's the secret to your success?"
+
+The answer never changes:
+
+"We read a lot of books."
+
+They can only tell you so many times, brother...at some point, the time comes where we have to stop scrolling and PUT IN THE WORK.
+
+DM w/ questions.
+
+---
+
+God bless,
+
+GB
+
+---
+
+## 4. 2025-12-22
+<a id="t-2003117795668623807"></a>
+
+*Single post · [2003117795668623807](https://x.com/gregoryblotnick/status/2003117795668623807)*
+
+Modeling for Fundamental L/S Equity - Philosophy + Framework (Part 1)
+
+Modeling is the quintessential "shit test." It absolutely sucks to learn. If you aren't comfortable sitting alone in a dark room in Excel for thousands of hours, find a different career.
+
+---
+
+# Introduction
+
+As with the [Master Thread](https://x.com/gregoryblotnick/status/2001641818216137089), this is written for the 23-year old version of myself, and boy do I have some choice words for that arrogant little FUCK.
+
+"Sit down before I slap the shit out of you, and listen to me."
+
+He had some wise-ass excuses about why he didn't need to learn all this, and I hear people making those same ones.
+
+This area (modeling) is probably where I get the most DMs, and it's consistently the weakest part of most stock pitches. Right away, it tells me that you don't know how to model, and this is going to hurt you in the long run.
+
+I have to tell some stories here; stay with me, there is a method to the madness. [For more on modeling, [part 2 of this series is here](https://x.com/gregoryblotnick/status/2003862208539656230), [part 3 is here](https://x.com/gregoryblotnick/status/2011450020294283609), and [part 4 is here](https://x.com/gregoryblotnick/status/2015792949435437430?s=20)].
+
+In all things modeling, I was self-taught. I never had formal training. It was fine at 23, but before I'd hit 30, it turned out to be a major problem that I had to solve for, and I'll explain why in this post. It basically slowed my career down by a few years -- it wasn't the end of the world but it caused unnecessary agita and pain.
+
+So if it seems like I'm yelling at you, I'm not. I'm trying to avoid you getting Thwomped:
+
+# Mental Modeling Framework
+
+This post will be heavy on text, but you have to understand WHY this shit is important. This is exactly how I wish someone had explained it to me at 23, and it would have registered: "you are delaying the inevitable and you are impeding your own career progress."
+
+A model = your brain. It's like a projector screen where your brain is the projector. It illustrates not only that you've mastered basic financial statement analysis, but shows HOW you think about a business, what drivers you select, and a million other things.
+
+If you do banking/PE/equity rsch, you'll get this training, but it will be long hours.
+
+If you aren't on "the path," it will be long hours to learn.
+
+The long hours are simply unavoidable.
+
+I would add that if you're an "outsider," you have to be twice as good as everyone else. That's the offset. If the other guy went to Harvard, and you went to UMass-Kandahar Valley, or "The Four C's By The Sea" (Cape Cod Community College), you will always lose on paper.
+
+Talent and attitude have to push you above the rest. Knowing modeling cold is non-negotiable.
+
+Modeling is the quintessential "shit test." It absolutely sucks to learn. If you are not comfortable sitting alone in a dark room in Excel for hundreds of hours, go find a different career; equity analysis is not the right one for you.
+
+# Attitude is Everything
+
+If you are an ambitious young motherfucker, people will move mountains to help you.
+
+In life there are winners and losers -- but I'd really define them as, a winner is someone with a winning attitude, and a loser is someone with a losing attitude. Because life is long and at some point, all winners will be losers and all losers will be winners, its just inevitable. It's not your circumstances, its how you handle them.
+
+A winning attitude will always find a way to win, a losing attitude will always find a way to lose, deflect blame, play the victim and make excuses. And nobody has time for losers. My high school football coach would always use the term "losing effort" - it's okay to lose, but a "losing effort" cannot be accepted, ever.
+
+And, well, the way you approach all of this...it will speak volumes about your attitude.
+
+# Politics, Religion & Modeling
+
+Those are three areas I avoid discussing with people.
+
+Modeling preferences are 100% opinion. Anyone who has ever opened Excel in their life has something to say about it.
+
+If that's you, please write your own post, and lay your framework/philosophy out from top to bottom. If it's good, I promise, people will read it and it will get boosted into the fintwit universe.
+
+I say this because there will inevitably be some reply like "oh you're wrong, I do it this way."
+
+That doesn't help anyone - above all, it doesn't help the reader.
+
+The cleanest way to exchange ideas is for you to write your own post, mirroring mine, and let the reader compare/contrast. They can pick and choose from both, they'll read 100 other posts, and eventually they'll decide on as to what works for them.
+
+Otherwise there's too many critics who don't have anything to add. I'm not trying to be a dick, and I say all the time "the greatest gift you can give a man is to help him think differently." I mean that. If you write your own philosophy up, I will read it, and even if I disagree I will be grateful to you should it help me think differently.
+
+But otherwise, too many people will weigh in, and when asked "where's your framework," they'll reply that they don't have one, or try to write theirs up and realize its full of holes.
+
+So, once again - if this is something you feel strongly about, please put in the effort and share your own process.
+
+# Modeling Philosophy
+
+First off, I completely understand how daunting this can be if you're starting from scratch. It is hard to find good information on the internet, not because it's not out there, but because it all differs and you don't know what's right or at least what's applicable.
+
+There's a billion "learn modeling" sites, there's all the Wall Street forums, I've heard “I learned my model from YouTube.” And without even looking, I know these are all different, because I remember going through this.
+
+Most models are too complex for L/S. There is a very, very fine line between functionality and simplicity, which actually takes 10+ years to learn.
+
+Most investments come down to 2-3 variables, and most models should be driven on 2-3 variables. As soon as a model has too many variables, it becomes useless, and that line is MUCH earlier than you’d expect.
+
+Everyone learns this the hard way - they start out too simple, they get too complex, and then they gradually reduce until they reach an equilibrium that helps them forecast earnings.
+
+In building any model, model it to consensus first. Revenue growth, margins, just forecast them all to consensus estimates. Then, as you make any tweaks, those should all be supported by research, rationale or logic.
+
+Why are you at 5% growth with the street at 3%, what research have you done to support that view? I went over this line of thought in the [Idea Velocity post](https://x.com/gregoryblotnick/status/1995504134372380789) and won't bother hammering you with it again.
+
+Until you can build a perfect model with consensus estimates forecasted, you shouldn't be taking variant views, you're just not there yet. From scratch, it'll take you 2-4 years to learn the financial statement analysis just to build any model.
+
+# "Won't AI Do This?"
+
+No, sorry. Not anytime soon. You're looking for an "out" and you're not going to get one here.
+
+Why do I say this?
+
+Fundamental L/S is "mission-critical" for lack of a better phrase - there are very large quantities of capital moving around based on these Excel spreadsheets and the accuracy of analyst work.
+
+The error rate cannot be 99.99%. It has to be 100%. No one is going to take that chance.
+
+If you go to any PM and say, “hey, robotLLM built this model,” here is what they'll say.
+
+“Great, go double check every single one of those numbers. If there is even a single decimal point out of place, you will be fired immediately. Thanks.”
+
+That’s how it goes. May as well build it yourself in that circumstance. Maybe in 20 years shit will be different, but right now the accuracy is just way too far off.
+
+Wall Street in general moves slower than you'd expect on this type of shit; they'll use it to cut costs, but on the revenue generating side the human element is just too important.
+
+Some will disagree, and that's fine. Feel free to copy/paste this part to whoever you view as "real" and I'm telling you, they will co-sign as far as the reply.
+
+As a junior analyst you will be expected to build models from the 10-K's and 10-Q's, everyone learns that way. It's a pain but it's also how you get familiar with what's in the source docs/filings and learn what to include and what to leave out. I don't expect this part of the learning process to change anytime soon, if ever.
+
+# "Can I Haz Models?" / Modeling Test
+
+This part is important.
+
+Personally, I don't have any to send, but you should get in the habit of accumulating as many models as you can, especially sell-side ones. By viewing 100's of models you can discern what is common and what can be left out. Ask around.
+
+But none of them will save you from the fact that you will someday face a blank slate.
+
+First, as you switch jobs, you leave those models with your employer. Those aren't your property. You will get used to rebuilding your 30-60 company coverage universe from scratch, I had to do it multiple times. You start with a blank Excel sheet and make it happen.
+
+Second, there is the modeling test.
+
+Any legitimate L/S fund will administer some variation of the following.
+
+You will get placed in a room by yourself. There will be a laptop with no internet connection, and a big pile of 10K's and 10Q's.
+
+You will be told "you have 4 hours to build a model and value this business."
+
+That's all you have. A blank Excel page, a blank slate, once again.
+
+So, yes, look at other people's models, but just know that this is the endgame - if you cannot start from a blank slate, you will get Thwomped.
+
+The modeling test will usually be a sector you don't know well. So if you cover banks, you'll get Exxon-Mobil. If you cover energy, you'll get Kohl's Stores, et cetera.
+
+It's the perfect test, really, for many reasons.
+
+1. First, it cannot be gamed. If you're on your phone asking ChatGPT "how do I model quarterly accounts payable," you're fucked. There is a 0% chance of you finishing in time. It should really take you three hours or less to get the whole thing done, with the final hour being for formatting, adding scenarios/flex drivers, and making sure the damn thing is perfect.
+
+2. Second, it replicates real-world conditions. You will be forced to build shit from scratch all the time (a new name under coverage) and anything beyond 3-4 hours means you're taking too long.
+
+3. Third, as I said before, there are no right or wrong answers. The model is your brain. What you build will be the topic for discussion and you can support your answers however you see fit.
+
+4. Fourth, it shows how you deal with uncertainty and incomplete information. Chances are you won't know what the right drivers are. That's fine. But you'll be expected to explain why you chose what you did, why you valued the stock how you did, and so forth. This is why it's a perfect test for analyst skill.
+
+It's all kind of like the common intvw question, "how many ping-pong balls fit in a 747." Who the fuck knows? Probably no one. But the way you map it all out, the way you think, that's what's being evaluated.
+
+# Sample Model Layout
+
+At the very simplest, there should be three tabs.
+
+1. Summary
+
+2. Model
+
+3. Drivers
+
+We'll layer in the others another time.
+
+## 1. Summary
+
+This table, or something like it, should be at the very beginning of any stock pitch.
+
+Why?
+
+Because this table IS the pitch.
+
+Right off the bat, whoever is looking at it is presented with everything they need to know.
+
+- Stock price, shares, mkt cap, net debt, EV.
+
+- Then, to the right, they get revenue/EBITDA/EPS, both your estimates and then consensus.
+
+- This allows them to quickly triangulate where your variant view is: "he's ~2-3% above on revenues, 4-5% on EBITDA and 10% on EPS."
+
+- They can also look at the current stock price and quickly triangulate: "this is trading at 20x on consensus ests and 18x on his numbers."
+
+- Next, they can go down the table on the right and see both historical revenue growth + margins, as well as what you're forecasting. This will show if your assumptions are reasonable or if you're assuming some crazy hockey stick ("gross margins have been 40% forever and he says they go to 49%?")
+
+- Next, they can see valuation multiples to illustrate across P/E, EV/EBITDA and FCF Yield % whether this is attractive.
+
+- Last, basic leverage metrics and ROE or ROIC just to get a sense for historical patterns and your forecasts.
+
+Finally, they can look back to the left side and see your price target across various scenarios. That's everything.
+
+So before you've even written a single word, the pitch has spoken for itself.
+
+If anything in this table is fucked up or just looks silly, you're dead before the pitch even begins. This is where I speak from experience.
+
+During business school I had a ton of interviews that ended exactly this way. There was an amazing role at BlueCrest where I got assigned two stocks and was told to write up a pitch and build a model, and send it all over.
+
+The PM was the man and someone I wanted to go to war for. In the final round, we went over my pitch and models and he couldn't have been more straightforward:
+
+"The pitches are great, but I can't hire you because your models aren't good enough."
+
+He was right, they just weren't good enough. I had another one end at a great single-mgr where the front dashboard, the PM within 3 seconds said "why is your FCF Yield so high for next year," then flipped to the income statement, spotted a model bust and the interview ended.
+
+So if I ever reply to a direct message and just blow your brains out (happens a lot), like, I'm wearing the same "dickhead PM" hat that I had to deal with.
+
+Your shit has to be perfect or you will get Thwomped.
+
+## 2. Model
+
+Here's a sample format based on personal preference:
+
+Thoughts:
+
+- I like having everything on one tab (instead of IS, BS, CF) just because it makes it easier to scroll and keep the headers constant.
+
+- For the order listed above, I like having the income statement (in $) followed by all the other growth/margin metrics (in %). Not everyone does this, I've just found it to be simpler especially since you'll spot outliers or anomalies in the % rates much faster.
+
+- Then add the most important metrics, FCF, leverage metrics, working capital drivers and return metrics. Again, everyone does it differently, this just gives me the information I need right up top.
+
+Below is sample balance sheet/cash flow statement for formatting purposes - you can probably rely on LLMs for "how do I forecast xyz line item."
+
+Generally in L/S you don't need it built in a way which requires iterative calculations turned on (i.e. complex debt waterfall) nor do you need a complex depreciation schedule. Just be thoughtful about what you assume for the uses of FCF and how your D&A and capex forecast look (relative both to sales and to one another).
+
+## 3. Drivers
+
+Last is the Drivers tab from a different model:
+
+Name the case field "case," and then each of those quarterly drivers which the Model links to, is a =CHOOSE function (CASE,x,y,z) where it selects from the three drivers below (bear, base, bull) based on the case toggle.
+
+Last, for the front page scenarios below these are just =IF(CASE=1), then the 2019 EPS (all on summary tab), otherwise current cell:
+
+This way you don't need iterative calcs on and you just refresh the entire scenario analysis by flicking thru the 3 cases (1, then 2, then 3) to populate the model.
+
+That's a functional model. All the other stuff I'll cover another time, a DCF tab for confidence/sanity check purposes, a shitload of tabs for alt data, industry data, peer data, it can get lengthy. Those exist just to inform your drivers, it just becomes too unwieldy if you have the model linking to 1000 different tabs.
+
+Some will disagree with what is written above, that's wonderful, please do your own write-up and share it with everyone.
+
+For everyone else, don't ask me for models. You'll hate me for saying that, but I am helping you in the long run - you need to get comfortable with the "blank slate." If you aren't comfortable putting in thousands of hours in Excel, all alone in a dark room, find a different career.
+
+# Only 2-3 Variables Matter
+
+Figuring out what those variables are is the hard part. Super quick/random case study.
+
+Let's say NVDA. Every 3 months, they report earnings and you get a full set of financial statements.
+
+But just being real, only two things matter: revenues and gross margin. I would argue that gross margin might be the only one that matters, in that it's harder to manipulate than revenue.
+
+Right now NVDA has I think 75% gross margins - I'm not a TMT analyst, just casual observer.
+
+If they were to come out and guide to 65%, the NASDAQ would literally hit a circuit breaker the next morning, down 7%. Because gross margins indicate the health of the entire pricing superstructure, the supply/demand dynamics of this AI ecosystem.
+
+Demand exceeds supply, GM%s are flat-to-up.
+
+When supply finally exceeds demand, which it will, GM%'s will compress and the party will end.
+
+So for NVDA, yes, your entire model matters, but the areas you'd want to spend the most time diligencing would be the two variables listed above. Those would be where the model should have the most granularity.
+
+Modeling opex just wouldn't be as important - let's say they cut $2B of SG&A and EPS comes in higher than expected. None of that matters relative to revenues/GM%s, and the light opex could arguably even be viewed as bearish ("why is a growth company cutting spending?"). This takes time to learn, again, but not all pennies of EPS are equal.
+
+This is also why you have to build a DCF, because for something like NVDA or any cyclical, you can't just look 12-24 months out -- you need to run gross margins out 3-5 years and see what effect this has on the stock price.
+
+I'll get into all that next time. For now, this should help you think about what the purpose of the model is, and avoid having you spin your wheels.
+
+# Conclusion
+
+Hopefully this was helpful. For more on modeling, [part 2 is here](https://x.com/gregoryblotnick/status/2003862208539656230), [and part 3 is here](https://x.com/gregoryblotnick/status/2011450020294283609).
+
+Until then, between all of this and the reading list from the [master thread](https://x.com/gregoryblotnick/status/2001641818216137089), you have your marching orders...
+
+---
+
+Good luck trading,
+
+GB
+
+---
+
+## 5. 2025-12-24
+<a id="t-2003862208539656230"></a>
+
+*Single post · [2003862208539656230](https://x.com/gregoryblotnick/status/2003862208539656230)*
+
+Modeling (Part 2) - Q&A, Attitude, Drivers, DCF's & Cyclicals
+
+"In the long run, everything is a toaster." - Bruce Greenwald, Columbia Business School
+
+---
+
+Welcome to part two of modeling.
+
+Part one can be found here:
+
+[Embedded Tweet: https://x.com/i/status/2003117795668623807]
+
+[Part Three can also be found here](https://x.com/gregoryblotnick/status/2011450020294283609), and [Part Four is here](https://x.com/gregoryblotnick/status/2015792949435437430?s=20).
+
+# Intro
+
+With modeling you get into "low altitude" pretty quickly. What I mean is that a second-year banking analyst can answer a lot of the questions people are asking. But in markets there is no substitute for experience, the best lessons tend to come from mistakes, fuck-ups, trades, and investments where you got destroyed.
+
+Above all, investing is an apprenticeship business - the little tips and tricks are learned on the job, and 99% of the "good stuff" written in any of these posts came directly from mentorship or from brilliant people met along the way.
+
+---
+
+# Recap: Politics, Religion, Modeling
+
+In my pinned tweet, there's 2-4 years of reading material and it'll take you 2-4 years to learn modeling/financial statement analysis.
+
+That's where the "shit-test" begins. You're either willing to put in the work or you're sitting around on social media...and as far as I know, no one has ever thumb-scrolled their way to success.
+
+The last post was intentionally vague in many areas; anyone who has ever had an amazing mentor looks back and knows that "throw them into the fire" is the way people learn best.
+
+You now have an idea of what passes a basic sniff test: summary tab, model tab, drivers tab, plus hints at formulae to learn (IF, OFFSET etc).
+
+Note that the format there was not intended as some sort of be-all end-all. Below are two other outputs from over the years:
+
+These are from the stock pitch article where I gave a bunch of other examples, specifying that they're for formatting/template purposes. The pitches and models themselves are not perfect, I rate them 5/10 to 7/10, there are busts and errors, and some of the assumptions and language is wonky.
+
+I get told to do more videos, a good video might be me sitting down and just ripping them all to shreds - it would only take an hour or so.
+
+You can point out the errors in the pitches if you want, but I don't get in my feelings over tweets I wrote yesterday, much less stock pitches from 10 years ago. I'm wrong all the damn time, and got comfortable long ago with looking like an idiot for the reader's benefit.
+
+Last, on formatting, I would again emphasize that you create your own versions of anything in these posts - for two reasons.
+
+First, being that these posts have a lot of visibility and FinTwit/investment management is a smaller world than you'd think. People will get lazy and submit pitches that resemble the format above, and even if the viewer isn't on Twitter, at some point they'll be like "why do all of these pitches look the same?" In other words, thwomped.
+
+Second, and far more importantly, the correct model is the one that works for you. From an earlier post:
+
+Don't spin your wheels too much over stuff like formatting...it's far more important to become fluent in Excel, fluent in financial statement analysis, and fluent in getting these damn things built quickly + efficiently + with zero errors.
+
+You'll figure it out. It's all part of the neverending shit-test.
+
+# Modeling Test = Attitude Test
+
+One thing I think I failed to explain well, or failed to explain in depth, is that the modeling test referenced (4 hours in a room + laptop + source docs) is actually not a modeling test.
+
+Yes, basic technical proficiency is tested, and to answer some replies all at once: you should be fluent in financial statement analysis. It will come back to haunt you if you aren't - every so often you're in a group meeting or something, and a guy asks a question where the whole room sort of stops, like...really? This applies even more if you have bad grades/bad resume, you need to be razor sharp here 2x as much as everyone else.
+
+But I promise you, there are a ton of individuals who go into a modeling test with perfect resumes - Ivy undergrad/MBA, flawless grades/boards, prestigious banking + PE experience, and all of that - and they don't get the job.
+
+This is because their attitude is wrong. Being overconfident or arrogant is the fastest way to fail an interview, and the way you discuss the assumptions you chose will illustrate your attitude.
+
+So to come out with a model on a business you don't know well, and to confidently say "I'm modeling this, this, that and that, and it's worth x per share" - there's an element missing, the humility, the acknowledgement that you could be wrong.
+
+I won't paint broad brushstrokes re: attitude of a "perfect resume" candidate vs. someone who is a little scrappier, but there is probably some truth to the fact that scoring perfect boards is a test of coloring within the lines, whereas a skilled equity analyst, one could reasonably argue, is someone who thinks critically, independently, and actually has a creative bent.
+
+Point being, the best model doesn't always get the job.
+
+Random example of how this creativity could show up: the harder you make the test, the more variance you'll see in analyst skill.
+
+Give a pile of 10K's and 10Q's for some random international company:
+
+"Hey, this is the 3rd-largest dildo manufacturer in Japan, they're the low cost producer, they also sell tractors and earthmovers, and they have a royalty on all Square-Enix mobile RPGs. Also, one of the 10Qs is missing, and some are in Japanese. You have four hours. Good luck."
+
+The "color in the lines" candidate will struggle, whereas a crafty analyst will find ways to make this work.
+
+"Okay, it's in Japanese but this looks like an income statement, and as for the missing 10-Q, I can use the one from the following year which has y/y % growth to back into last year's figures. I have limited time, the dildo segment and tractor segment are the largest contributors and I'll model the rest as "other" as a plug subtracted from total revenue...margins, I can't really tell, I'll flex bear/base/bull and explain my choices..."
+
+And so on and so on. The way you support all your assumptions matters far more than anything else, and how you approach operating with incomplete information - because that really is a huge part of the job.
+
+The [probability post](https://x.com/gregoryblotnick/status/1998759439831113953) explains a lot of this mindset.
+
+Attitude is everything. It matters so damn much. These major L/S multis understand how important personality is, the secret sauce is TALENT, and while I don't want to speak for any hiring manager, I would argue that "bad personality" gets people dinged far more than a lack of technical prowess or fundamental skill.
+
+It's a team game and you see on the inside a lot of humility, almost a gentleness, mental flexibility...to be frank, you don't see it much on finance Twitter. There are a handful of guys on here but it's fingers, maybe fingers and toes at best. On the other side, there's a lot of bad attitudes that I just can't pinpoint - "sharp edges" for lack of a better term - nastiness, negativity, toxic behavior, mental rigidity...these are just problematic traits across the board, and I'd note that it's not always bad ideas that lead to failure.
+
+[Embedded Tweet: https://x.com/i/status/1995618886717505621]
+
+Civilizations die internally before they're conquered externally, and the same goes for any team.
+
+# Winning Attitude
+
+I just have to show an example of a winning attitude real quick. This was a DM from a 23-year old:
+
+If you're my age, you're probably thinking the same thing: "holy fuck, how do you know so much ball for a 23-year old?" Like, I think I enjoyed markets at that age, but my top priorities were still doing drugs and chasing women. Unsurprisingly this individual is employed and I don't believe he's looking, nor do I expect he'll ever have a problem finding a seat - you can just tell right away that the kid is a beast. I don't know where he went to school, I don't know what his grades were...the attitude renders all those things irrelevant.
+
+So for those of you who are younger, or even older, that's your competition. There are a lot of hungry motherfuckers like him on here.
+
+For younger people, this post here lays out what I would've wanted to tell myself at age 23 as far as using Twitter to your benefit:
+
+[Embedded Tweet: https://x.com/i/status/1963329037734126010]
+
+# "Everything Goes In My Model."
+
+On modeling mindset, attitude and philosophy, this is from an earlier post where I'm not sure I can put it any better:
+
+“Everything goes in my model.”
+
+That's a mindset adjustment more than anything else, and again, it's something I wish I had been told at age 23.
+
+"Translating qualitative input into quantitative output."
+
+That's the turn of phrase I use now, I never heard anyone else put it that way but you can run with that.
+
+There was a DM asking about how to manage all the information you receive each day, like, I think that this filtering mechanism is the cleanest way to sort it all.
+
+Where does it belong in your model? Is it revenue, margins, multiple, probability? Is it terminal value?
+
+If it doesn't belong in your model, or you can't figure out where to "bucket" it...is the information relevant? Most information you get is not relevant.
+
+But this ability to take qualitative input and translate it into quantitative output, that to me is a huge indicator of analyst skill - because it's really hard.
+
+# Why Model To Consensus?
+
+There was a question on this - again, I'll pull from an earlier tweet where I'm not sure I can put it any clearer:
+
+> For all the other drivers/assumptions you put in there - anything that deviates from consensus, be prepared to defend your rationale under intense scrutiny.
+
+Consensus is consensus for a reason - it's usually right. It comes from the mgmt team of an S&P 500 company - aka the 500 most talented mgmt teams on earth, who have insight into their business that you don't - with any additional texture added by street analysts, who, despite what you may hear on twtr, are EXTREMELY sharp, know their sector better than 95% of the buyside, and have covered these industries since before you were born.
+
+Is consensus wrong sometimes? Absolutely. That's not the point...it's about how consensus forecasts, ex-ante, compare to YOUR forecasts.  Every time YOU deviate from consensus, you are saying that your opinion - that of some random west village shitdick analyst in his 20's or early 30's, overconfident, egotistical, soft adderall addiction, hard coke addiction - is more accurate than the expertise of ALL those people who shape consensus. 
+
+That is why I say for learning modeling, don't worry about the assumptions/drivers...you are YEARS away from having done enough work to support any variant view to consensus.
+
+# DCF & Other Model Tabs
+
+Now, that basic model from the last post with the three tabs (Summary/Model/Drivers) is bare-bones.
+
+Every model you see will have many more tabs beyond those. In my opinion, and this is just one man's opinion, the best way to think about all of those is either as a sanity-check or for gaining further confidence in your estimates.
+
+What I mean is that they don't tie directly to the model. As time goes on and data becomes more prevalent, you'll have tons of sources which all have some meaning for your estimates.
+
+Super basic example, revenue growth:
+
+- Consensus is at 5%
+
+- This set of alt data says 6%
+
+- I did x amount of primary research (phone calls, meetings, visits etc) which indicate 5.5%
+
+- Peers/comps reported 7%
+
+- Overall: the most reliable datasets here are x and y, which have had the highest efficacy in forecasting revenue based on [logic/math].
+
+- This is why I'm modeling 6% with street at 5%.
+
+That's the high-level way to think about it. You plug 6% into the model, based on what all the other tabs say, but to have all those other tabs feeding into the model makes it unwieldy.
+
+They're just there as either sanity checks or to boost confidence in what you're forecasting.
+
+On DCF, a lot was written here and I won't waste your time repeating it:
+
+[Embedded Tweet: https://x.com/i/status/2000945911619256507]
+
+Mauboussin talks about how you have to "earn the right to use multiples."
+
+That applies for all things modeling.
+
+You will probably have to build a ton of complex models in order to earn the right to build a simple model, it's just a process everyone goes through. You have to know ALL financial statement analysis in order to know what you can exclude or what BS/CF items matter more than others.
+
+Everything is like an accordion, in my mind at least; you have to expand it as far as it goes, then you can start pulling back and simplify. There's no shortcuts, the younger version of me wanted shortcuts and I see people here who want shortcuts...there just aren't any.
+
+# Expectations Investing
+
+As far as the DCF - this goes back to Mauboussin's "Expectations Investing" which is my base framework for understanding markets. Others may vary - if you use a different framework, please write a post explaining it, I'll read it.
+
+TL;DR, all stocks have an internal DCF with assumptions on growth, discount rate, terminal value, and so on.
+
+Theoretically, the stock price shouldn't change unless there's some variance in those estimates. If a stock is priced for 25% growth based on the internal DCF, and growth comes in at 25%, the price already reflects that and the price shouldn't change. All changes in stock price come from a variance to that internal DCF.
+
+I'm talking pretty high-level here and I think some theorists might disagree ("no, the stock should appreciate at the cost of equity"), but this is just what I've seen that is consonant with how assets are priced. I may be wrong, I'm wrong a lot.
+
+So, everything that happens to a stock as far as price action day-to-day, it can be slotted somewhere on that DCF.
+
+Confining yourself to 12-months and 24-months forward is too tight of a time horizon. Remember, for most stocks, the majority of their value (Mauboussin ests 70-80% in that post above) is tied up in terminal value.
+
+Price action won't make sense unless you can mentally visualize WHERE on that DCF new information should be slotted.
+
+The market isn't dumb. You will see over and over an M&A deal that is "accretive to EPS" but where the stock crashes. The market is absurdly efficient at pricing whether value was created or destroyed, ROIC/ROIIC versus cost of capital, stuff explained in detail in this post:
+
+[Embedded Tweet: https://x.com/i/status/1998385451829285009]
+
+Same goes for new information that is intangible. You will see a new CEO get hired and the stock price goes from $100 to $106.67 and then sits there all day. This still blows me away and always will - how did the market determine that this human is worth $6.67 in equity value? And it always ends up being right far more than wrong...the stock gains an aura and you can no longer expect to get paid on the short side anytime soon.
+
+Changes like that are reflected on a DCF far beyond the 24-month horizon in most models. A sharp CEO might create tons of value on a 10-20 year time horizon through talented capital allocation; the market is reflecting this either through terminal value, through year 5-10 FCFs, through a change in discount rate, or some mix of "all of the above."
+
+So, even if you don't use a DCF as the core of the model, you still want it built out so you can play around with the inputs and see what sensitivity they have on the stock price.
+
+I don't want to spend too much more time here on multiples and DCF just because this enters "Religion/Politics" territory, people have strong views, we can agree to disagree, and I strongly, strongly encourage you to write your own post on the topic.
+
+# Cyclicals & DCF Valuation
+
+Finally, answering a great question from the last post:
+
+First, I just have to say that that's just such a nice tweet all around. Winning attitude, inquisitive mind...no doubt that whoever this is, they will enjoy success as an analyst.
+
+I started tapping out a reply and realized it wasn't going to get all the way there. Then the damn question plagued me for days, I'm in the weight room by 4-4:30 AM each morning but had a horrible lift earlier thinking about calculating terminal value for cyclical stocks. I would add that when you see people who write a lot, like, it's not a good trait, it's a double-edged sword...mostly what you see is people who have a vibrant inner monologue and they've just gotten used to putting it on paper. As soon as you try writing a book you will realize it's a mind virus, and you will understand the wisdom of this Orwell quote:
+
+[Embedded Tweet: https://x.com/i/status/1876398827659526261]
+
+Here is what I'll say in response.
+
+- I've always covered consumer discretionary/consumer cyclicals. This is the only sector (sub-sector really) where I have the foggiest clue what I'm doing.
+
+- In every other sector, I'm useless, putrid, have a poor hit rate, and would be talking out of my ass if I claimed to know anything.
+
+- Consumer cyclicals tend to trade peak-on-peak or trough-on-trough. The multiples tend to track SSS% growth (same-store sales/"comps," a proxy for revenue growth which excludes any contribution from new units).
+
+- The sector has a high failure rate and many enterprises come with substantial terminal value risk embedded in their valuation.
+
+This is very different from other cyclicals like semis or industrials.
+
+What you will see is that these stocks appear cheap on peak earnings and appear expensive on trough earnings. For shorthand, the street tends to value them on a mid-cycle basis.
+
+I am clueless on NVDA and have never traded the stock or the sub-sector. However, I have some experience in consumer'ish industrials like DE/CAT which trade on that same dynamic.
+
+What follows are just one man's thoughts and experience, and an experienced industrials or semis PM could 100% do a much better job of this than me.
+
+In my experience, these cyclicals are much harder to value than the Consumer sector ones - I'm not sure if there's a differentiating term ("deep cyclicals?") but there's a difference in how they trade and how they're valued.
+
+Because of this, cyclicals are a deathtrap for generalists, and there is a graveyard of "smart fundamental guys" who got buried by industrial/commodity/energy enterprises.
+
+These are not really buy-and-hold stocks. If you study the best-performing stocks of all time, you don't see a ton of "commodity" type enterprises on it; there is an art to trading these cycles and it's one I can't speak to, but there are many commodity-type businesses in these cyclical sectors that on a mid-cycle or steady-state basis fail to return their cost of capital (ROIC = WACC at best, ROIC < WACC usually). Thus the LT stock underperformance.
+
+This brings to mind a quote from Bruce Greenwald, a Columbia professor, who said that "in the long run, everything is a toaster." Sometimes you get a Google or a Visa that isn't a toaster, rarely...but most stocks end as toasters. This is because capitalism. New entrants arrive, ROIIC declines, competitive advantage periods shrink, margins compress and excess returns evaporate.
+
+# Trading Cyclicals
+
+I'll speak to DE and CAT where my hit rate is I think 0.00% on n=8.
+
+A senior analyst I used to work with would talk about being in trades you had no business being in. He would use the phrase "driving with your dick hanging out the window." You might be fine for a little while, but eventually, it's going to get chopped off.
+
+That's my experience in cyclicals. Also, I never stopped to visualize how exactly that would work -- the whole hanging-out-the-window mechanics -- but tomato tomahto.
+
+There are always seductive short pitches floating around on these industrial names. They remind me of the AI data center depreciation pitches going around now; very sexy, lot of potential downside if accurate, and there is absolutely some truth to the pitch from an accounting standpoint.
+
+The problem is that these pitches never seem to work. The time horizon, the "path to getting paid," what closes the gap to this variant view, it's just murky. When revenues and gross margins collapse, the stock will go with it, and THEN accounting, maybe, starts to matter.
+
+I don't know. Like I said, it's just unclear to me if/when/how the market starts to "care" about depreciation schedules, I've just never seen this reflected immediately in price action.
+
+Here is an example which sums up my entire experience in cyclicals, probably based on faulty logic and a dumb-ass thesis.
+
+- I'm short DE because the stock is trading at 40x trough earnings.
+
+- Earnings estimates are too high. I feel very strongly about this, I've done real work suggesting they miss the quarter and guide lower, and the stock price isn't reflecting this in recent trade - ie the negative earnings revisions don't appear "priced."
+
+- The stock has never traded at higher than 40x based on this 20-year valuation chart. I understand how cyclicals are priced but there's a limit somewhere.
+
+- Even on no change in multiple, we can get paid on the miss-and-lower.
+
+What happens next?
+
+DE reports. They miss numbers and cut guidance. Both are deeper than I had anticipated.
+
+The stock trades up 3% and the multiple goes from 40x to 50x.
+
+That's my experience, CONSISTENTLY, and I’m just sitting there like "how the fuck do you get paid on these pieces of shit?" I would always go back and forth with a buddy who is an industrials PM, one who had a mirror-image experience whenever he entered consumer-land:
+
+"Why do your stocks only trade on SSS%?"
+
+"That's consumer. Why do your stocks only trade on fucking sorcery?"
+
+"That's industrials."
+
+# Fundamentally-Sound Valuation
+
+As far as answering the gentleman's question on DCF, or at least do my best, I will explain how this price action makes sense.
+
+What happens a lot is that the top players in an industry get STRONGER in downturns. You see this in retail (think WMT/COST), they gain market share as weaker players go out of business while also shedding excess fixed costs.
+
+In industrials, what happens is they cut out tons of SG&A in downturns. The market extrapolates these higher incremental margins on a mid-cycle basis (each dollar of revenue flows in at higher margin than prior cycles) and so mid-cycle eps is higher than last cycle. Thus stonk goes up, even without any need for playing around with the multiple.
+
+Putting random made-up numbers to it:
+
+- DE trough EPS of $2.50 @ 40x multiple = $100 stock
+
+- DE mid-cycle EPS of $5.00 @ 20x multiple = $100 stock
+
+- DE peak EPS of $10.00 @ 10x multiple = $100 stock
+
+This is how it was priced on a "prior peak" basis.
+
+Now, because the business got leaner and incremental margins improved, trough EPS moved from $2.50 to $4.00. This means mid-cycle EPS moved to say $6.00, and peak EPS to $12.00.
+
+Using that same mid-cycle multiple of 20x, the stock is worth $120 now (20x $6.00) instead of $100 (20x $5.00).
+
+This is the simplest explanation, in my mind, as to why you see these stocks remain resilient or even trade higher in downcycles. The negative EPS revision on a specific quarter is outweighed by the long-term positive "revisions" to the internal DCF, reflected through a change in terminal value.
+
+This could be higher steady-state margins, higher-steady state ROIIC/spread to WACC, or it could be a change to the discount rate reflecting the improved competitive position of the business. Usually, it's some mix of all of these.
+
+As far as the "correct" way to DCF one of these companies, you wouldn't bother trying to forecast peaks and troughs, you'd just assume a mean-reversion to "mid-cycle" performance and then estimate terminal value.
+
+This is what is tricky to me and why I couldn't answer the question immediately - because "mid-cycle" is actually a myth. Cyclicals never actually produce that mid-cycle EPS and never trade on that multiple, they're always somewhere in the peak/trough cycle.
+
+So the whole idea of mid-cycle is sort of just an average - it exists, but solely as the probability-weighted result triangulated by a range of outcomes, which is consonant with how assets are priced.
+
+The trickiness gets obscured by "slap a mid-cycle multiple on it," because when expanded into a DCF, you realize how many more inputs there are. What are the mid-cycle reinvestment needs of the business, what are the mid-cycle input prices (raw mats), mid-cycle cost of capital, mid-cycle industry landscape...these are all difficult to estimate, but make no mistake, you are estimating them regardless of whether you use a multiple or DCF.
+
+Alternatively, you could do a 3-scenario DCF with weighted probabilities, but here you start getting into "too many inputs"-land very fast. Or you could value on a replacement cost basis, but again, that's difficult and runs into the same issues re: correct "mid-cycle" inputs.
+
+What's the mid-cycle price of oil?
+
+No one fucking knows.
+
+So to me, these are the only fundamentally-sound answers to this gentleman's question.
+
+Whether they're correct, I do not know - they're just the worthless opinions of a man who drives around regularly with his piece hanging out the window.
+
+---
+
+Thus concludes Part Deux of modelmania. [Part three is here](https://x.com/gregoryblotnick/status/2011450020294283609).
+
+I hope this was helpful, and I wish all you ladies and gentlemen a prosperous new year.
+
+GB
+
+---
+
+## 6. 2026-01-14
+<a id="t-2011450020294283609"></a>
+
+*Single post · [2011450020294283609](https://x.com/gregoryblotnick/status/2011450020294283609)*
+
+Modeling (Part 3): Time Horizon, Q&A, Theory vs. Market Pragmatism
+
+"First, never, ever invest in the present. It doesn’t matter what a company’s earning, what they have earned. He taught me that you have to visualize the situation 18 months from now, and whatever that is, that’s where the price will be, not where it is today." Druckenmiller
+
+---
+
+This is a continuation of the prior two posts on modeling.
+
+Part one: Some philosophy/framework then a bare-bones example of what should be in a model...summary tab, IS/BS/CF, drivers tab.
+
+[Embedded Tweet: https://x.com/i/status/2003117795668623807]
+
+Part two: Q&A/follow up/clarification from prior post, attitude, examples of other tabs one could add to part 1, and thoughts on DCF valuation.
+
+[Embedded Tweet: https://x.com/i/status/2003862208539656230]
+
+Part three here is mostly Q&A, and [part four is here](https://x.com/gregoryblotnick/status/2015792949435437430?s=20).
+
+I have no real set plan for these articles, I don't get paid for them and I generally abide by Biggie's Crack Commandment #7: "This rule is so underrated / Keep your Twitter and your business completely separated."
+
+Most articles are prompted by questions, replies, or DM's. Usually when a handful of people ask the same question, that's when I know I need to provide clarification, and I reply with "I'm going to publish something on this and make it public-facing."
+
+That way, all the smart investors and L/S people on here can blow it to bits if there's anything wrong...it allows the reader to independently verify the validity of anything written, plus I don't want to get smoked like Socrates did on charges of corrupting the youth.
+
+This specific DM is the one that people keep following up on..."I have the same questions as he does"...so the majority of this article will be dedicated to that.
+
+# Winning Attitude of the Day
+
+I have to give a shout out to another DM, from someone even younger, who just has a really good attitude:
+
+Embracing the "fuck me up" approach is so important and speaks to someone that generally wants to improve. Especially at such a young age...I don't know if I was this open-minded at 30, much less 20.
+
+# Philosophy/Framework
+
+With modeling, it all actually runs a lot deeper than the word implies. At a younger age you just think "tinkering in Excel," formatting, like real boilerplate technical shit.
+
+The truth is that modeling is a projector screen of your brain. I used this same comparison in Part One and think it's the best metaphor I can come up with...it's a visual representation of how you think about a business.
+
+This is a lifelong exercise.
+
+Even outside of L/S or public markets, if you ever find yourself in an investor/operator position in a private business, the ability to map out different ideas, frameworks or scenarios in a model will come in handy time and time again...anything from breaking down COGS/raw mats sensitivity, to working thru various labor models, flexing base, commission, and turnover, or valuing a private enterprise exactly as you would a public one (thru DCF).
+
+The feedback on the first two parts of these modeling articles that I've gotten, tends to be age/experience-dependent. Younger guys have said something like "those models aren't nearly as complex as a typical buy-side model," older folks have agreed with simpler=better, that most investments come down to 2-3 variables, and that a model should reflect this economic reality.
+
+Both have some truth to them. But ultimately, it's like how Mauboussin wrote that you have to "earn the right to use multiples" (versus a DCF)...you have to earn the right to build a simple model, but only after spending 5-10 years building overly complex ones...that's how you learn what can be safely discarded, and the false confidence/GIGO that comes with having too many inputs + drivers.
+
+# Breaking Down DM Q&A
+
+These are the five questions or concepts that I pulled out from that first DM:
+
+1. Cognitive dissonance re: modeling quarterly prints versus Munger/Buffett approach.
+
+2. Long-term view vs. quarterly prints: how does obsessing over every single basis point in a model square with long-term investing?
+
+3. Primary research vs. spreadsheets - are you doing real "work" if you're in a model all day? Plus how to think about "translating qualitative input to quantitative output."
+
+4. Long-term view vs. trading momo/setups/prints.
+
+5. If all the alpha is in calling quarterly revenue/top-line accel vs. decel, what's the point of all the Mauboussin ROIC stuff + Buffett?
+
+All really good questions and apparent contradictions. The other thread that got a lot of questions is the fundamental L/S tips and tricks one, where I basically threw out walls of text with very little in the way of explanation/clarification...I'll get around to that one next time, I threw a lot at you, but people were patient with me, and so I'll be patient with you.
+
+# Follow-up on AI/LLMs
+
+First, in response to comments on how Claude can build a 3-statement model:
+
+Standardized financial models are not new. Bloomberg and CapIQ have had them forever. You can instantly download a full quarterly 3-statement model.
+
+They're not 100% reliable, nor is anything LLM-generated... it comes down to  a misunderstanding of what exactly an equity analyst's job is.
+
+When you go through any sell-side model, and most buy-side models, you'll see that the income statement cells are riddled with comments.
+
+You'll also notice that the models are similar, but some have different numbers plugged in for various line items.
+
+This is because many times it isn't clear whether an item is recurring or not, or whether it represents economic reality, or whether it should be adjusted out of the P&L to get clearer picture of how much cash flow a company actually generates.
+
+The role of an equity analyst is to use their discretion and figure it out.
+
+Not all equity analysts agree. This is why it's nonsensical to assume that LLMs are going to render modeling obsolete.
+
+Read [Buffett's 1986 Shareholder Letter](https://www.berkshirehathaway.com/letters/1986.html) where he talks about owners earnings:
+
+> What does all this mean for owners? Did the shareholders of Berkshire buy a business that earned $40.2 million in 1986 or did they buy one earning $28.6 million? Were those $11.6 million of new charges a real economic cost to us? Should investors pay more for the stock of Company O than of Company N? And, if a business is worth some given multiple of earnings, was Scott Fetzer worth considerably more the day before we bought it than it was worth the following day?
+
+If we think through these questions, we can gain some insights about what may be called "owner earnings." 
+
+These represent (a) reported earnings plus (b) depreciation, depletion, amortization, and certain other non-cash charges such as Company N's items (1) and (4) less (c) the average annual amount of capitalized expenditures for plant and equipment, etc. that the business requires to fully maintain its long-term competitive position and its unit volume. 
+
+(If the business requires additional working capital to maintain its competitive position and unit volume, the increment also should be included in (c) . However, businesses following the LIFO inventory method usually do not require additional working capital if unit volume does not change.)
+
+Our owner-earnings equation does not yield the deceptively precise figures provided by GAAP, since (c) must be a guess - and one sometimes very difficult to make. 
+
+Despite this problem, we consider the owner earnings figure, not the GAAP figure, to be the relevant item for valuation purposes - both for investors in buying stocks and for managers in buying entire businesses. 
+
+We agree with Keynes's observation: "I would rather be vaguely right than precisely wrong."
+
+That right there is about as good an explanation as I can come up with as to why relying on standardized/automated models is problematic.
+
+Don't lose sight of what you are actually trying to figure out as an equity analyst - how much free cash flow is available to common shareholders, what's a conservative forecast for what this cash flow stream looks like in the future, what's terminal value, and what's the right discount rate/multiple?
+
+All of this will probably require adjustments to the reported financials.
+
+I'm not anti-LLM by any means, I think that asset management on a headcount basis is probably oversupplied by 90%, and that "fair value" for equity analyst comp is a fraction of what it is today. I just want to push back on the idea that you don't have to learn modeling because machines will do it for you, when that idea is inherently flawed.
+
+Onto the DM Q&A:
+
+# Quarters vs. Buffett
+
+The best answer I can give is to view Buffett as a "north star." You should always default to him and his style, fundamental analysis should be your core, and what Berkshire advocates is generally sound process backed by decades of outcomes.
+
+However, if you're employed in asset management, you have to be a market pragmatist.
+
+Just because something is your north star, that doesn’t mean you abide hard-and-fast to every word they say…you can, should, and will deviate.
+
+There’s theory and then there’s the cold hard reality of life.
+
+This is the danger of Hero Worship, closed-minded thinking, when the truth is that many things can all be true at the same time. Buffett is known as the greatest, but there's also someone like Druckenmiller or Jim Simons. The three all have amazing returns yet have styles that outright contradict one another.
+
+What works for YOU will be different than what works for them.
+
+On the quarters, your job, as in what you do for work to pay the bills, is not going to be “LO Equity PM at Berkshire Hathaway.” You are probably going to work at a place that calls quarters (L/S), or a place that says they don’t but actually do (everyone else). The industry is 99.9% short-term, everything is 12 months or less, and if you want to have a long and successful career, being able to consistently make short-term calls that are accurate - or at least indicative of sound process - is the surest path to remaining employed.
+
+The pod skillset is not different from any other fundamental job. The short-term stuff is INCREMENTAL to the regular equity analysis. Every pod analyst can do a deep fundamental pitch, Buffett-style, waxing poetic about favorable LT industry tailwinds, all the MBA stuff...it's not hard to talk about how you see a business compounding at 15% in perpetuity, or how the “variant view” is the width of the moat, or the duration of their CAP (Mauboussin), or how the pitch is really a long-term bet on management’s capital allocation skills.
+
+These are MUCH easier pitches to write, because as you’ve noticed, there’s very few numbers. When there’s no numbers, there’s nothing to push back against.
+
+In an L/S seat, it is understood that you know all this stuff, that it’s stored somewhere as a “north star,” but you are also expected to identify short-term mispricings and monetize them... navigating each catalyst on the way to your long-term view playing out. Event path matters.
+
+The pod analyst knows his industry at a deep fundamental level, far deeper than any other equity research analyst, because he’s given billions of dollars in research to play with. You are the “first call,” you pretty much have direct access to literally anyone.
+
+When you have a bigger research/data budget than everyone else, you are the smartest guy in the room on fundamentals. This is not that hard to grasp, and while sometimes this view appears “non-consensus” on twtr, it's obvious to all the people sitting in those seats and it should be logical to understand for everyone else.
+
+# Mauboussin & ROIC vs. L/S
+
+"Why does that stuff matter if you’re calling revenue growth on quarters?"
+
+Everything is tied together. The market is efficient, even on quarters.
+
+Stocks move on ROIC and FCF, and not on what they appear to be moving on.
+
+A company will do a deal where EPS goes up, but the stock goes down, because the market sees that value was destroyed (ROIC < WACC).
+
+The market calculates this using inputs that only appear on the balance sheet and cash flow statement, and the notion that the market is “short-term” oriented is a myth that Mauboussin has destroyed over and over. The market is wrong sometimes, but it's efficient beyond belief.
+
+Here is why calling quarters ties logically.
+
+When a company beats on revenue growth, revenue is the most important driver for the entire P&L.
+
+That higher revenue expresses itself in higher ROIC and higher FCF.
+
+This is what's being reflected in the stock price, not the revenue itself, and not pod monkeys or retail traders or anything else…it’s fundamentals. Same shit you were reading about in all those books.
+
+Everything done at pods is consistent from a data perspective, a fundamental equity perspective and research perspective.
+
+If a variable appears to be isolated and targeted, it’s because this variable has been empirically proven to generate x% of shareholder return.
+
+The focus is on ROIC and on FCF, always…we want those to go up as much as they can, so we get paid. But the best approach in doing so is to figure out what is THE most important variable, just one variable or input, that drives those outputs. Then, let’s spend all our time trying to develop a variant view on that one variable which pushes the odds and risk/reward in our favor.
+
+If all our work gets us to 55-45% odds, where we make 20% if we’re right and lose 10% if we’re wrong, that’s a damn good setup. You go long into the event, if it works out, great, if not, great...good process isn't guaranteed to yield good outcomes. But if we take 10,000 bets exactly like this one, same odds, same payoff profile, we will make a ton of money. So if that one fails, oh well, let’s go find the next one.
+
+That is the mindset, pretty much…I don’t want 30 variables, I want the most important one (usually revenue) and then I want to try and be the smartest guy in the room on it. If I can get odds in my favor, take the shot, repeat, let "law of large numbers" (for lack of simpler phrase) converge these outcomes to reality. The 55%-45% won't hold true for n=1, but for n=10,000 it should.
+
+# Quarters vs. Long-Term (continued)
+
+Everyone talks about how the market is so silly and inefficient on quarters. This is a canard…the market is efficient on quarters and I will tell you why.
+
+Quarters are the only time where NUMBERS come into play. The stock price reconnects with cold, hard fundamentals.
+
+The true inefficiency is between quarters, when shit is just wiggling around based on flows, rumors, factors, politics, random newsflow...intra-quarter is actually miserable a fundamentally-driven investor.
+
+This is why pods love quarters, because as an analyst, you are paid well and expected to do the deepest fundamental work in the entire industry. This should help you forecast earnings.
+
+Quarterly results are where you monetize all this research. Earnings are the reality check. Again, this is all so incredibly obvious, logical and straightforward that I feel stupid typing any more... it either clicks or it doesn't.
+
+If you do deep, differentiated modeling work, every three months is when you have a chance to get paid. Those four days, the four quarterly earnings reports each year, those are the ONLY four days of pure fundamentals. Every other day, you risk just randomly losing money for no reason...the stock SHOULD “do what it should do,” sometimes it does, sometimes it doesn’t.
+
+Sometimes you put a position on a month before earnings, it trades down 20% in a straight line into earnings, they report, you nail the call perfectly, it goes up 10%. Now you’re still down ~10% on a great call because it traded down 20% before earnings.
+
+Why did it go down 20%? You’ll never know.
+
+Now you sit here for three months and hope the "wiggles" go in your favor before the next print, which you have a strong view on, but where is it going to be at that time…who knows.
+
+If you are a fundamental L/S analyst, with ANY time horizon, this same logic applies.
+
+If you have a three-year view, you have 12 days that will generate the bulk of your P&L if you’re correct, and if a thesis "breaks," it'll be one of these 12 days.
+
+The majority of shareholder return comes on quarters, and the long-term is just a series of short-terms. So even the people who say "I don't call quarters," yes, you do...any high-level qualitative fluffy thesis can be quantified in this manner.
+
+Even debates on LT biz quality/moat/ROIC duration are arguments over 2030-2035 cash flows or discount rate.
+
+Every pitch, every thesis, is a call on one of two things: earnings or multiple (cash flows or discount rate).
+
+Either the business will earn more than you expect, or the biz quality is higher than current mkt perception.
+
+Every pitch is constrained within those two dimensions, and every "stock is worth more than today" is a call on one, or both of those variables.
+
+Does the industry try to "over-quantify" things today, yes, but it is much better to err in this direction than the other.
+
+# Models as Language
+
+If disappearing into Excel all day to build models and learn new companies is not for you… neither is this business.
+
+I would also add that models are the language of this industry. This wasn’t clear to me at first, but the more you speak in numbers and the less you speak in words, the more direct everything is…estimates vs street, bps of growth, % variance from consensus…anything and everything should be quantified when possible.
+
+This is the #1 thing you notice in bad stock pitches – it’s all words and vague descriptors, “the company will expand quickly, good business, strong earnings growth.”
+
+A good pitch makes that point using numbers in 1/4th the space and 4x the clarity.
+
+This becomes more and more true every day as data proficiency becomes table stakes for even a pure fundamental L/S seat. Everything is numbers, everything is computer, and if you believe yourself to be talented, all of this works in your favor….as a book I read recently put it, “the only 100% pure source of truth, in this entire universe, are the multiplication tables.”
+
+# Narrative/Contextual Edge
+
+The last point I'll make on short-term versus long-term is one that wasn't obvious to me at a younger age.
+
+A pitch and model aren't always short-term. You can have both; a short-term view on numbers paired with a longer-term understanding of the “story” and how the story could shift.
+
+This is Druckenmiller's "Never invest in the present" - an excerpt on what he learned from his first mentor:
+
+> "First, never, ever invest in the present. It doesn’t matter what a company’s earning, what they have earned. He taught me that you have to visualize the situation 18 months from now, and whatever that is, that’s where the price will be, not where it is today. And too many people tend to look at the present, oh this is a great company, they’ve done this or this central bank is doing all the right things. But you have to look to the future. If you invest in the present, you’re going to get run over."
+
+Druckenmiller
+
+This means as part of a pitch, putting yourself in the shoes of a new investor 12-18 months from now, and looking forward 12-18 months from there.
+
+What could the narrative be versus today, what has to happen for the "shift" to occur?
+
+The pod model makes this more difficult for time horizon reasons, but LT narrative shifts are infinitely more profitable than being the 1000th guy to a crowded long with a 1.5% variance on revs and 3.5% variance to EPS based on alt data....because that variance isn’t going to change the narrative.
+
+The same goes for most primary research, really…you visited 50 stores, but they have 1,450 you didn’t visit, so all your “insight” could easily just be overwhelmed by margin of error. Primary research is a topic worth touching on next time just because the industry has changed so much (due to compliance/risk), where everyone is sort of doing the same "company-approved" research and the information edge has compressed to zero.
+
+Last, one thing which only experience teaches is that returns get “pulled forward” as soon as there is a broad narrative shift.
+
+The market operates with an internal DCF - again, “Expectations Investing” by Mauboussin is the best book for understanding markets, and I think the [probability-weighted article](https://x.com/gregoryblotnick/status/1998759439831113953) has some similar information on this.
+
+If there is no change in the FY1-FY4 outlook, but there’s a change in FY5, the market will immediately pull forward those returns NOW, discounted for TVM, and price them in.
+
+When people REALIZE what a company can earn… you get paid.
+
+This is just one of many ways that the long-term and short-term converge.
+
+I mention this because in L/S today, it’s easy to lose the forest for the trees, “stories” matter, people are lazy, and thinking 12-18 then 12-18 (12-18 months out, 12-18 months forward from there) is how to frame potential narrative shifts in the same way that the market will.
+
+---
+
+Hope this was helpful, and good luck trading.
+
+GB
+
+---
+
+## 7. 2026-01-26
+<a id="t-2015792949435437430"></a>
+
+*Single post · [2015792949435437430](https://x.com/gregoryblotnick/status/2015792949435437430)*
+
+Fundamental L/S "Tips & Tricks" - Modeling (Part 4) - Unit Economics
+
+This article is slightly more advanced than the first three articles on modeling. It goes into unit economics, segment builds, and a handful of different ways to think about forecasting an income statement, along with brief thoughts on what parts of equity analysis won't get "eaten" by AI.
+
+The link to the first modeling article is below, which includes links to part two and three (or [part 2 is here](https://x.com/gregoryblotnick/status/2003862208539656230) + [part 3 is here](https://x.com/gregoryblotnick/status/2011450020294283609)).
+
+[Embedded Tweet: https://x.com/i/status/2003117795668623807]
+
+This one isn't "advanced" modeling as much as it is, things I didn't fully understand until some ~5 years of experience.
+
+As with everything modeling-related, this is 100% pure opinion & personal preference. There is no right or wrong - plenty of pretty swings don't win majors - and the only "right" model is the one that is right for YOU.
+
+# "Stop doing what isn't working."
+
+This sounds stupid but one of the best traders I know says that all the time, and has become religious about it as the "key" to markets. I made fun of him for a while but he's right.
+
+Don't lose sight of what matters. Analyst skill is measured by forecast precision, and the hard truth is that P&L is the ultimate arbiter of whether a model is "good."
+
+A model that can't forecast earnings is worthless. If it's not working, stop doing it, and do more of what's working instead.
+
+The model that consistently calls quarters to the penny is "right." If building the fuckin model in Japanese is what works, then keep doing it.
+
+I say this so you don't sit in a closet for ten years building models without getting feedback. The market is the feedback mechanism, and your model forecasts versus reported results are the feedback mechanism. Without those, how do you know if what you do "works?" You don't.
+
+So start collecting feedback ASAP. If it's not working, change it or stop doing it, and do more of what's working instead.
+
+# Simplicity & Complexity
+
+I guarantee that the older you are, the less stupid this all sounds, because you know how it feels to have stuck with a process - "your process" - while the market was screaming at you the entire time that your process is no longer valid. The regime changed 3 months ago, you've been trading off stale process & obsolete narratives, you completely failed to adapt, and despite getting daily feedback from the market that YOU ARE WRONG...you refused to listen.
+
+"I'm just going to keep doing what isn't working."
+
+You're being too smart...keep it simple, keep it stupid.
+
+It gets lost on people that a lot of simplicity didn't originate as simplicity, but was found on the far side of complexity, frameworks that are crude solely from being battle-tested to the point where all extraneous bullshit is now stripped off it.
+
+Verify for yourself, study the greats...I promise that "show me the incentive and I'll show you the outcome" was ten pages before it became ten words.
+
+Applies for everything - especially modeling.
+
+# Modeling: "Throw Shit At The Wall"
+
+Street models and consensus models are fairly boilerplate, but I always found some insight in having hundreds or even thousands of rows below the income statement and KPI's, laying out every single line item in:
+
+- y/y growth in both % and $
+
+- q/q growth in both % and $
+
+- change in basis points, both y/y and q/q, for all margins/cost drivers/growth rates
+
+- 2-year stacks for all the above y/y comparisons
+
+- Other: 1H vs 2H, rolling LTMs, every line item on a per-store or per-employee basis (revs and expenses), things that were present for a month or for half a quarter.
+
+- In Consumer/Retail (the only sector I know), modeling shit on a per-day basis matters for qtrs with extra weeks, or for companies where holiday weekends - i.e. Xmas season for apparel or July 4th for a theme park - can make or break quarters.
+
+- After this is all laid out, regress all of it and look for lags and leads...think about when things happened versus when the benefits/expenses will flow thru.
+
+Screenshots for template/formatting purposes below - these are old models or drafts and there are almost certainly busts/errors throughout. The point is simply to give you visual aid, ways you could lay out all this data on your own.
+
+EXAMPLE 1/8: Margins, % of Sales, and KPI Growth y/y %:
+
+EXAMPLE 2/8: Growth y/y ($) and Change y/y in bps:
+
+These are just the consolidated income statement - later we'll go into segment builds/unit economics.
+
+# Why do all this work?
+
+A lot of times, thinking of things in terms of “dollars added” gets you closer to the truth and illustrates anomalies in a way that % growth doesn’t.
+
+But it has to be laid out visually, in as many ways as possible, to let your subconscious start doing the work.
+
+This is not complex. It's pure brute force, where if you do this over 5-10 years as a sector specialist, covering many companies that have similar or identical biz models -- just staring at thousands of rows of y/y, q/q, % and $ -- you will develop the eye for when something jumps out.
+
+As a junior you might look at some of the items listed above and say “but they don’t disclose that” -- ie monthly data, daily revenue.
+
+That’s the job, dude...that’s why you get paid the big bucks.
+
+I speak from experience here; the feedback I got earlier in my career was always “too reliant on what’s disclosed, needs to roll up his sleeves more on primary research."
+
+They were right. If you never leave your desk, it’s hard to develop true variant view.
+
+# What won't get "eaten" by AI
+
+Anyone can regurgitate historical financials + sell side takes, and AI will absolutely “eat” this part of the biz.
+
+You get paid for your insight, primary research, for talking to people...figuring it all out and make an educated guess.
+
+You don’t have to be “certain,” there is no certainty in markets, there is only a range of outcomes and weighing of probabilities.
+
+So you put all your logic, data and rationale together, the “mosaic,” you make an educated guess, and you present it.
+
+All you can control is having a process that is sound and holds up under fire. Over hundreds or even thousands of "reps," the market will let you know if your process is dogshit.
+
+If I had to sum the job up in one sentence, it’s “translating qualitative insights into quantitative outputs.”
+
+Not just for shorter-term sentiment or positioning, but a new CEO gets hired – what is he worth to either the multiple or to EPS... you go visit 50 stores, what’s the output in your model...how did mgmt sound, is that in your model...etc etc.
+
+These are some of the areas that appear AI-proof, "softer," requiring human insight.
+
+# Return on Time
+
+All those line items above, the changes in bps, $ growth, 2-year stacks, and so on...once you've built them all out in one model, find a way to use that first model as a template for all your future models.
+
+This is how you boost your "Return on Time."
+
+For a new company, you'll have to input all the income statement values, but after that, all the margins, % of sales, and y/y comparisons (% and $) should auto-populate.
+
+This will save you an enormous amount of time when done correctly, which is why I'm not just uploading models for you to use.
+
+Put a shitload of time and effort into the "master model," the template, where you know it inside-out...and then use that as the skeleton for the next 50-100 models you build.
+
+# Understanding Unusual/Non-Recurring Line Items
+
+I'm not sure if any specific cells stood out in the screenshots above (I didn't look) but as soon as you see a cell that looks unusual, highlight it in yellow and make sure you understand what happened in that specific quarter.
+
+This is why you have to build models by hand, and this is the part of the business that AI will never "eat."
+
+Why? Because discretion is required in figuring out what the correct historicals are, and historicals will always play a huge role in your future forecasts.
+
+The street is “quick-and-dirty” a lot of times, and while they're far more right than wrong, occasionally they miss shit or just don't model something that was only in the 10Q/10K.
+
+On modeling bp changes using multi-year stacks: While people focus on “easy compares” for revenue, many times on a 2, 3 or even 4-year basis you can find holes in COGS/OpEx “compares,” where the street or even mgmt's FP&A department is using a crude percent-of-sales forecast methodology that ends up projecting something off the wrong base.
+
+That's why you have to understand the historical quarterly cells.
+
+If SG&A was unusually elevated for a one-time event, and the street -- or Claude -- fails to adjust this out, you might draw the conclusion of "oh, typically SG&A runs at 21% of sales," when the reality is that it's only 20% of sales.
+
+This sounds like a small difference but even 100 bps translates into a massive variance in EPS, especially because COGS/OpEx dollars are worth more than revenue dollars.
+
+Remember, cutting a dollar of COGS/OpEx = a dollar of profit, because it falls right to the bottom line, whereas a dollar of revenue volume will flow thru at the incremental margins of the biz.
+
+Revenue is also out of mgmts control much of the time and subject to the economy, or weather, or random events. However, COGS/OpEx is in their control, which is why it's so crucial to understand how all of this played out in historical quarters.
+
+# Unit Economics: Price vs. Volume
+
+Always try and model revenue as price vs. volume.
+
+This is not unique advice here AT ALL, but what people mismodel all the time (street/consensus) is the flow-thru.
+
+A dollar of price has no costs attached. It's pure profit. Compare that to a dollar of volume, which has costs attached to it, and you see that not all revenue dollars are created equal.
+
+Additionally, where possible, always break out FX, M&A, and any other variables that could affect revenue to get the "underlying" biz performance. Yes, this is mostly done by mgmt/street, but it still leaves HUGE gaps for variant view especially in M&A.
+
+When you study all the failed roll-ups throughout history, you learn that acquisition accounting has a lot of random number generators in it, that accounting in general can be far more art than science, that value is destroyed through acquisitions far more than it is created, and that even in smaller events like ERP implementations, adding these layers of complexity always seems to find a way to make companies blow the fuck up.
+
+EXAMPLE 3: Different model with a volume/price breakout (in $ and %), illustrating one way to forecast revenues.
+
+Note that this is for just one of the segments; each segment has its own revenue breakdown, which all roll up into consolidated revenue.
+
+Also note that the same is often done for segment EBIT or EBITDA (depending on what is provided by the company).
+
+If the company gives you that level of detail, don't just build a consolidated income statement - build a segment model on a separate tab, as detailed as possible, and have the outputs flow into the consolidated model.
+
+In that model above, and in the second example below, the income statement would be constructed as follows:
+
+- Consolidated Revenue and EBIT/EBITDA feed in from the segment build.
+
+- From EBIT/EBITDA, you bridge UP the income statement to revenue, making assumptions on corporate overhead and SG&A (as inputs/variables) to arrive at gross profit (as an output).
+
+- In practice, those numbers wouldn't really matter; the stock will move on revenues/EBITDA/EPS/FCF/ROIC. So as long as your segment revenue and EBITDA forecasts are correct, everything else should fall into place naturally -- with the ROIC variance driven primarily by revenue/EBIT dollar variance -- and get you paid.
+
+- This is just another example of where theory and practice can seem at odds, but aren't at all - it's learned pragmatism and focusing on "what matters." There are 20 variables, and I'm spending 99% of my time on revenue & EBITDA not as a shortcut, but because they are what "drive the bus."
+
+- There might be a different stock where gross margins are the key driver, and that model would look entirely different than this one. None of this is in textbooks, but it's the reality of trading markets...narratives matter, narratives change, and they absolutely play a role in how your model should be laid out.
+
+EXAMPLE 4: breaking out a segment EBITDA build, from an uglier/older model
+
+Some margin estimates above are hardcoded, others are flexed three ways from a separate scenario tab.
+
+This is a discretionary decision by the analyst based on "what matters" -- segments that have minimal EBITDA contribution or that don't really move the needle can be hardcoded, but the more important drivers/KPI's should be flexed.
+
+The above outputs (segment EBITDA) flowed into the income statement as consolidated adj. EBITDA, which was then used to arrive at consolidated EPS.
+
+There is some discretion in D&A/corporate overhead/"below the line" items, but for the most part, if you forecasted segment EBITDA correctly, that's what will drive the stock and you'll get paid.
+
+EXAMPLE 5: Same model, basic SOTP layout. I don't think a SOTP thesis have ever worked in the history of markets, but I'm putting this here as a template in case you feel like losing money.
+
+EXAMPLE 6: Different model template/sample layout for sector-specific KPI's: Store data, # of stores opened, sq. footage, SSS% growth broken into transactions vs ticket, 2-yr and 3-yr stacks, store productivity, per-store metrics.
+
+EXAMPLE 7: Tempur-Sealy & Mattress Industry Unit Economics; some of these ests are from primary research, others from sell-side/mgmt/IR
+
+# Why do all of THIS work?
+
+- One of the best questions, I think which originated from John Griffin, is “walk me through how one dollar of revenue flows through this entire business, start to finish.”
+
+- What the answer illustrates: How many cents disappear to raw mats, shrink, distro (~COGS)…how many get eaten away by rent, labor, mkting, depreciation (~OPEX)…then by interest, then by tax, to see what "sticks to the ribs" in cents of net profit. Then, you just have to understand how that runs thru the cash flow statement to get to FCF, how wide the NI/FCF gap is, why it exists, how sustainable the gap is, and then BS levers that can be pulled to boost FCF.
+
+- None of this detailed work necessarily has to flow into the “main” model; it can be thought of as separate work that helps you gain conviction in your primary forecast. Everything is just a range of outcomes; if you can say “I got to $550M in EBIT this way, $540M this other way, and $545M this third way,” that relative certainty has implications for your probabilities, for sizing, et cetera.
+
+- Doing these exercises over and over and over helps build a mental per-unit income statement, and it's how you come to understand the unit economics of a sector with 10+ years of experience.
+
+Again, this shit takes time, I really don’t think I had this level of understanding until I’d covered the same sector for close to a decade...there's always $ to be found in unit economics because it's fucking hard, especially modeling how px/volume dollars flow thru to the various fixed & variable expense items. There's lots of room for error -- even from management's end -- and thus lots of room for opportunity.
+
+# Example/Case Study
+
+This was originally written in a [prior article](https://x.com/gregoryblotnick/status/1998759439831113953?s=20) but belongs here, on unit economics and modeling, and what all of this shit actually looks like in practice:
+
+"...When you speak to a management team, or a supplier, or you visit HQ, or you visit 50 stores, everything you learn must be reflected in your model as one of those three buckets: earnings, multiple, probability.
+
+This can get very tricky when you've assembled a mosaic of information; i.e. pricing sounds like it's tracking +5%, volumes ~flattish, raw material costs down 10%, labor up 5%, ad spend as a % of sales roughly in-line with this quarter last year but only after backing out four non-recurring expenses, and sales/marketing has an extra $50m dollars sequentially versus last quarter but they also laid off 12,000 employees one month into the quarter.
+
+You have a lot of information that has to be modeled in different ways, and will throw wrenches into the way you had things built.
+
+First, any information that was uncertain or belongs in a bull/bear case can be flexed in your scenario drivers and then adjusted in your probability weightings. Keep in mind that all those numbers above are from primary research, and you have different degrees of confidence in each of them; this needs to be reflected somewhere in your model.
+
+Next, you have the earnings inputs. Pricing +5% and flat volumes, as opposed to flat pricing and volumes +5%...they appear identical, and they're anything but (again: price falls right to the bottom line, volumes have costs attached). Are there any COGS/OpEx adjustments that need to be made to account for the revenue mix, what do your resulting incremental margins look like, why do they suddenly look bonkers compared to every other quarter?
+
+Some line item is fucked up somewhere, representing a mismatch of the model versus economic reality. Now you go through all your opex and see an item is modeled as a percent of sales, which fails to reflect your primary search/economic reality, i.e. updated assumptions on price/volume mix...plus you have the labor increase and sales/marketing to factor in, further straining your model's tie to reality, plus you have some murky ad spend number with "four non-recurring expenses" that they didn't disclose...
+
+...plus they laid off 12,000 people one month into the quarter, which means you need make assumptions on the expenses attached to those layoffs, and you need to incorporate how revenues flow through the P&L on this reduced fixed cost base for the 2/3rds of the quarter, while also factoring in that odd $50m in incremental q/q $ growth, while also thinking about if there's any associated revenue impact, not just for this quarter, but also for next quarter...the 12,000 people they laid off, if that was their sales team, I could get all this other shit right and then lose money on a weak revenue guide.
+
+"Where do I get all these numbers? What are the non-recurring expenses, what's their severance, who were the people affected, I don't have any of this information!"
+
+Dog...THATS THE JOB. That's what you get paid to figure out.
+
+This whole example should illustrate why modeling is important. It's the projector screen of your brain and it has to reflect the economic reality of the business in the face of incomplete information that changes on a daily basis.
+
+As you can see, there is no right way and there is no wrong way. There's literally infinite possibilities.
+
+If you give ten experienced L/S analysts all that primary research/data above, I promise that you will get ten models that are totally unique. Each person will assemble the given puzzle pieces in a different way. In real life this is understood, on Twitter it isn't.
+
+Who is right, who is wrong? There is only one answer to that question: the "right" model is the one that leads to you correctly forecasting quarterly earnings.
+
+That's it. Whether the model is pretty or ugly, simple or complex, is completely fucking irrelevant information. You either get the calls right or you get fired.
+
+Now go short some wheat and see how it feels.
+
+[Embedded Tweet: https://x.com/i/status/2015614738370093165]
+
+# Retail Lollapalooza Effect
+
+In Consumer/Retail, and some other cyclicals, you have the same "lollapalooza" effect as Munger would put it.
+
+Retail is highly cyclical.
+
+It also has high fixed costs and high operating leverage (small changes in revenues have big changes in EBIT).
+
+Finally, it has high capital intensity, and these fixed assets tend to be financed by debt -- so you have high financial leverage.
+
+High cyclicality + high operating leverage + high financial leverage = powder keg.
+
+This multiplicative/lollapalooza effect is why retail (and other cyclicals) are absurdly volatile on quarterly earnings reports.
+
+A small miss on sales becomes a large miss on earnings due to operating leverage, and an even larger reduction to equity value when factoring in high financial leverage.
+
+Consensus mismodels this all the time, always has, always will, the same px/vol/fixed/variable complexity as before.
+
+This multiplicative slash Lollapalooza effect, it's the same problem the brain has with compound interest...some things just are tougher for us to grasp by nature. That, of course, equals opportunity.
+
+# Body Language
+
+Last, I was never good at this but I have to put it in here as an "AI-resistant" tip or trick that some analysts/managers use effectively.
+
+I’ve seen many who had success with this as a source of edge, mostly PMs who have known mgmt/street/IR for decades and can get a “feel” for how things are progressing thru conversations, tone, mannerisms, or body language.
+
+There are also many analysts who have developed a sort of deceptive or manipulative way of asking mgmt a question, in a way where their response provides insight beyond just the spoken words.
+
+Dark arts, but all part of “the game.”
+
+Random (shitty) examples:
+
+- “If revenues did X%, what happens to [line item]?”
+
+- “Would I be correct if I said that in a scenario where revenues did X%, then Y? Or is it then Z?”
+
+- “In 2016 Q1, X happened then Y…for 2026 Q1, could this recur, and would it make sense to model Z?”
+
+Those examples are shitty because I was never good at this, but there’s ways to ask a question where the “uncomfortable” part is the final few words so they don’t have time to think of a canned response.
+
+Again, I add this section here because this will NOT be "eaten" by AI -- human nature, softer, qualitative input that can be translated to quantitative output -- but I’m the wrong guy to ask for advice on this (or on anything) as far as doing it correctly.
+
+If you have any other questions on investing, every single one of them can be answered by shorting this chart:
+
+The ticker is ZWH6 on Globex, and each contract is 5000 bushels. That's wheat, son, Chicago Wheat for March delivery, and it's got some lessons it wants to teach you.
+
+---
+
+Good luck trading,
+
+GB
+
+---
+
+## 8. 2026-01-29
+<a id="t-2016915686866510307"></a>
+
+*Single post · [2016915686866510307](https://x.com/gregoryblotnick/status/2016915686866510307)*
+
+Common Errors in Stock Pitches (Part One)
+
+These are all mistakes I have made personally, where I suffered the consequences for it, usually by getting screamed at, or had an interview immediately end, or got fired for, and where I now see other people making the same mistake in their pitches.
+
+Parts Two and Three are below:
+
+[Embedded Tweet: https://x.com/i/status/2026305875892125865]
+
+[Embedded Tweet: https://x.com/i/status/2059260408972644793]
+
+# "The Voice"
+
+Most of these responses are the same voice, which is the dickhead-PM voice...it is a voice that I have heard over and over when my pitches were trash or where I got tossed out of an interview.
+
+It's not so much that people are actually dickheads, as much as that this is just a really, really hard game with no room for error. Outside of the office someone can be a perfectly good guy, but in getting pitched a stock, they will just turn the flamethrower on you to test how rigorous you actually were in your work, your level of conviction, where your assumptions come from, et cetera.
+
+Philosophically speaking, it's not something to take personal; in advancing an idea, you want the world to wage a full-fledged assault on it. Only if it withstands this assault is it valid. If it doesn't withstand assault, that's a good thing, it means you didn't put $ at risk for an idea that wasn't fundamentally sound. So don't let your ego get involved, it's just how ideas get validated.
+
+# Bear/Base/Bull
+
+I sort of addressed this one in the tweet below, but have a little more to add:
+
+[Embedded Tweet: https://x.com/i/status/2016124663147974930]
+
+Generally it's okay to start with something like 25% - 50% - 25% as probabilities (bear/base/bull), with a 20-30% variance in up or down. This is fine as what the template model or master model spits out for a new stock that you haven't done any work on.
+
+After that -- meaning you do work that affects the way you're thinking about the future -- the base case should be reasonable (probably within a band of 20%). The other two are where you can, and should, go nuts. That's what the prior tweet was about: how people don't think wide enough on these.
+
+If your bear case is anything less than down 20%, it's probably wrong. This is one of the fastest ways to get a pitch thrown in the trash immediately, having a range of outcomes that is just unrealistic vs. the reality of markets.
+
+Every single stock, every single day, is being bought or sold by the smartest individuals on earth...each of them almost certainly believes there is a "down 50%" or "up 50" case, or else they wouldn't be transacting, and each of them has valid logic as to why this is true.
+
+They're both "right," if that makes sense; the future is unknowable, all we have is forecasts and probability-weighted outcomes.
+
+That's why to put "bear case down 5%" is just silly. Nothing is that obvious in markets, ever.
+
+# Thought Exercise
+
+A really interesting thought exercise, especially for those with experience, is to look back at last year's missed opportunities - the winners and losers, stuff that had gigantic moves where you weren't there or sized it wrong - and ask, "what would I have had to believe at the time?"
+
+Meaning, what would your model have had to look like?
+
+You'll see that you're consistently too "tight" on your range of outcomes.
+
+The first step is to disaggregate it all into components, the most straightforward being EPS variance.
+
+From there it gets trickier. The only other component is multiple, but a lot goes into changes in multiple.
+
+Whether it's more accurate to take a data-driven approach to this (i.e. factors) or "more art than science" is personal preference.
+
+But you basically want to isolate, like, what could I have forecasted, what was in my control?
+
+Changes in market multiple, no...changes in interest rates, no...there's a lot of stuff that happens, but where as a fundamental analyst, you have no business making those kinds of calls.
+
+Even something like being bullish on an entire sector or sub-sector, is that part of your process? Probably not, right? When you put "xyz will go from 20x to 23x" in a model, you're not doing that based on "I think the entire sector goes up."
+
+I don't have the answers for you here, but I think this type of stuff is what separates good from great...like, who is willing to just go to the office on a Sunday and sit there all day sorting through their past mistakes, for no other reason than "love of the game" and desire to be the best.
+
+# Psychopaths & Nice Guys
+
+I would also note that this dovetails with another thing.
+
+In my experience there are nice guys who are enjoyable to work for, and there are complete fucking psychopaths who suck to work for.
+
+The nice guys don't make it. The psychopaths are the ones who make money, and it always comes at some expense - family, health, relationships, a sacrifice that others weren't willing to make.
+
+To me this is just one of those harsh truths of the game. We all want to live a nice well-rounded life and spend time with the people we love. But the market is just too competitive, there is someone out there who is willing to eschew all that shit because they want to make a billion dollars.
+
+Is this right, is this wrong, that's not really the point, it's just who you are up against in trading markets.
+
+Like the Tebow quote: "Somewhere he is out there, training while I am not. And when we meet, he will win."
+
+[Embedded Tweet: https://x.com/i/status/1741876658326438223]
+
+# Valuation Metrics
+
+There is usually some version of, "how do I know what valuation metric to use for my price target."
+
+Again, deceptively good question with a deceptively nuanced answer.
+
+This came up most recently because someone was using EV/FCF in a pitch, i.e. "the stock is at 15x EV/FCF and I see it going to 18x" or something.
+
+First, it just has to be reiterated that the only "true" method of valuation is a DCF and that all multiples - whether one wants to admit it or not - are compressed shorthand, and still make DCF assumptions but just obscure them... almost like being willfully blind.
+
+All the "main" metrics like P/E and EV/EBITDA have flaws. This is something you can go to LLMs for and keep asking Q's until you understand, they'll get it right, but that information absolutely has to be uploaded to your brain.
+
+On this specific question, it's not that EV/FCF is "wrong," anything with FCF is closer to the truth than what people usually use. The issue is that the person reading it has no basis for comparison.
+
+Where do all the peers trade, where has this stock traded on a historical basis? This applies for FCF yield too, which is probably the "best" shorthand for a DCF, but still needs context around it.
+
+This is made more complex by the fact that there is never any true consensus estimate for FCF, which makes it hard to triangulate where YOU stand versus the street/market-implied expectation.
+
+The consensus is "there," but it's not really there, sort of hard to explain...you can't guarantee that a stock will go up or down based on an FCF beat/miss the same way you can for revenue.
+
+The reason is that FCF can be driven by so many different things (which a DCF captures and multiples don't).
+
+Let's say a company "misses" the quarter on FCF, because they took $500m of that cash flow and invested it into capex that will return 10x over a 2-year basis.
+
+Is that good or bad?
+
+It's clearly good, they "missed" the quarter on FCF but as a shareholder you don't care, you're fine with $500m gone today if it becomes $5B in two years.
+
+Same goes for working capital movements, or tax factors...sometimes GAAP tax expense has a huge differential vs. cash taxes paid, which is real cash.
+
+Over the long-term, the stock will get this right - cash taxes being part of a DCF - but over the short-term, in thinking about FCF...it's sort of "who the hell knows."
+
+All of that applies to D&A/capex as well, maintenance vs. growth capex -- things that quarter-to-quarter you just don't know, but the market will get "right" over time.
+
+That's why its a deceptively nuanced answer - you run into a conflict between "here's what the books say" vs. "here's what actually happens in practice."
+
+So the best answer I can give, is to always include revenue and EBITDA and EPS forecasts versus consensus, as well as P/E and EV/EBITDA. Then, include all the FCF metrics i.e. FCF Yield %, but all with an eye towards "how is everyone else looking at it?"
+
+This can be found in street reports (the "consensus" valuation metric), or by asking someone who has access to street reports. There's usually a main metric or two that everyone is keying off and it tends to vary by sector. This also tells you what line items are in focus at the moment (i.e. GM%).
+
+Is all of this correct from a pure theory basis, not really, but it is what it is...in the short term, narratives matter more than free cash flow.
+
+## Substack vs. PDF
+
+Quick thing, this is just personal opinion, but if you're posting pitches on Substack -- which as far as building a "body of work," is great -- these should also be available in PDF form for download.
+
+The reason is that if you're applying for a job or sending a pitch to someone, you want it as an attached PDF. I may just be showing my age but I think anyone over 40 is used to that format and will find it easier on the eyes than a Substack, where the information is there but it's never really displayed the way people are used to (1-2 page pitches).
+
+# Primary Research / Theory / Process / / Drivers of Assumptions
+
+A lot of questions on forecasting/assumptions can be answered as follows, as sort of a north star or high-level philosophy. This is 100% pure opinion slash how I was mentored - others may very well differ.
+
+The model should start by being forecasted to consensus.
+
+As you do primary research, this is what will determine any and all deviations from consensus.
+
+No input or estimate should be tweaked without some logic or reason behind it.
+
+"Why are you modeling 5% with consensus at 4%?" There is no, I just felt like it.
+
+What work have you done to justify your opinion?
+
+Your primary research drives everything. All assumptions should be grounded in reality. You have to be rigorous and strict with each and every deviation.
+
+It's okay to not be 100% certain. There is no certainty, there is only a range of outcomes, and that can all be explained as you lay out your assumptions - some you'll just have a higher degree of confidence in than others.
+
+But for each number you change, there has to be SOME logic, some foundation as to why you made that choice.
+
+So that's the high-level philosophy.
+
+In practice, on the job, is this actually what happens?
+
+No, a lot of times people take shortcuts and get sloppy on process, not because they want to, but because the pressure to generate new ideas is immense. Maybe 0.1% of investors are able to consistently find winning ideas, and the other 99.9%, they're the 99.9% you always read about as "the guys who underperform." It's just a really hard job and there's no way around it.
+
+I can see how this level of rigor would be discouraging to someone who is new and trying to write their first pitch. Like, "I can't even find a single deviation from consensus" or "I don't know where to start with all of this."
+
+That's fine and perfectly understandable, and at a younger age you'll get a lot more rope on how loose your assumptions are. I am just giving you a framework to tuck away for how things "should" be done in a perfect world. When someone turns the flamethrower on you, and they see that everything you wrote is been backed by real work, that's how an idea withstands assault.
+
+# Pitches Based on Multiples
+
+A pitch can be boiled down to two things, earnings and multiple.
+
+You're either making a call on what a company will earn, or what multiple the company should trade at (the perceived "quality" of the business).
+
+A pitch that is entirely based on multiple is a bad pitch: "The stock used to trade at 20x, now it's at 10x, the market is wrong, the multiple should be 18x. I have no variant view on earnings, it's just going to happen."
+
+The issue is event path/catalyst path. What is going to make the market agree with you? Something has to happen. Otherwise, you will eventually be forced into giving the answer of "I just feel like it" and that's where your idea dies.
+
+In a good pitch the two components are linked, because earnings revisions are a huge driver of changes in multiple (i.e. accelerations and decelerations in growth).
+
+So being able to lay out, based on math, numbers, data, primary research, what the market is missing as far as earnings...and THEN using that as what drives the change in multiple...is a lot more fundamentally-sound than just making a call on multiple alone.
+
+Again, this is hard. The market is very sharp, shit is rarely mispriced, and when it is, it doesn't stay mispriced for long.
+
+# On Revenue Builds
+
+From a DM:
+
+> Another question I had for you, if you don’t mind:
+
+I reviewed the model examples and tried modelling a company with a retail footprint across different countries and managed to do it.
+
+However, going through the modelling I felt like you could model it in very different ways. For instance, forecasting by projecting growth by geography, growth of revenue per sqm of selling space, new and existing store revenue growth.
+
+Given all these possibilities and the different range of outcomes they could entail how do you know which one to follow? It seems this range of possibilities makes the model less relevant (helps you understand the drivers of the business though)
+
+I would boil the question down as, what's the right way to do a revenue build?
+
+The answer, unfortunately, is "it depends" or "there is no right answer."
+
+There are a million ways you can get to revenue. The best way is the one that you have the most confidence in, and one that reflects economic reality.
+
+If you've done a ton of primary research on new store economics, and feel that the market is underappreciating this as a driver of growth, then I'd have that be the "core" of what drives revenue.
+
+If there is an international component, where again, you've done a ton of work and feel that the market perception is wrong...then that should be what drives everything.
+
+If there's some change in the legacy business, maybe remodels or a new product introduction, where sales per sq. ft are about to increase, and the market isn't valuing this dynamic correctly...then focus there.
+
+Everything has to come back to primary research and confidence, at least in theory. So out of all the valid approaches, the only "right" one is the one that's "right" for you. This is the answer people hate hearing -- we'd rather just be told what to do -- but unfortunately, I think it's the only correct one.
+
+# Undercovered Stocks
+
+"How do you think about deviating from consensus / ignoring altogether on undercovered stocks with 0-2 analysts?"
+
+What this question touches on, is that "consensus" -- as represented by street estimates/mgmt guidance -- is not always "consensus" as implied by what the stock price is embedding.
+
+Once again, Mauboussin's "Expectations Investing" addresses this, and recommends building out a reverse DCF to parse out the "market-implied expectations" in the stock.
+
+This is hard, but it's the only fundamentally-sound answer...and once again, in using multiples, you're still making DCF assumptions whether you're conscious of it or not.
+
+When there is a variance between street consensus and "true" consensus, for lack of a better word, you can see it thru the forward P/E multiple, which will appear drastically off in one direction, making the stock optically cheap or optically rich.
+
+This is the market calling BS on forward earnings, and the "true" multiple will present itself after the quarter is reported.
+
+A company with declining earnings (usually a "value trap") will always look cheap on forward P/E multiples, but by modeling out several years or using a DCF, you see that the near-term multiple is optically cheap, flawed and deceptive:
+
+So to answer the specific question, figuring out "consensus" in small/microcap/undercovered stocks is tricky. You have very little market-implied data or guideposts to help you figure out what exactly is being discounted at the current stock price.
+
+But this, as with anything "tricky," is where mispricings are found.
+
+---
+
+Hopefully this was helpful, good luck trading, and of course...STOP DOING WHAT ISN'T WORKING.
+
+GB
+
+---
+
+## 9. 2026-02-17
+<a id="t-2023759332534280363"></a>
+
+*Single post · [2023759332534280363](https://x.com/gregoryblotnick/status/2023759332534280363)*
+
+Terminal Value Overhangs (Part 1), Secular "Reapers" and Return on Brain Damage
+
+In this article we’ll discuss a tricky market phenomenon/dynamic: the way that disruption and "overhangs" impact terminal value. We'll touch on AI and software as a case study, and start thinking about these types of battles through the lens of Return on Brain Damage.
+
+Part two of this article [can be found here](https://x.com/gregoryblotnick/status/2025333891330900087?s=20), and [part three is here](https://x.com/gregoryblotnick/status/2025669490197798986?s=20).
+
+# Definitions: Reapers & Return on Brain Damage
+
+I'm not sure there's a technical name for all this, I want to say "disruptive innovation" but that phrase makes me want to vomit in my mouth...so we gotta retire that.
+
+It's when you have something like AI now, or Amazon in Consumer, or streaming in media, or Tesla in autos, where you have the advent of new technology that shakes up an entire industry and puts a dent in terminal values.
+
+For prior context on all of this, this article is the best place to start:
+
+[Embedded Tweet: https://x.com/i/status/2020872564529045833]
+
+For now, we're just going to go with "the reaper." Because when you own something that is caught in this dynamic/market phenomenon, you know how it feels.
+
+The stock simply can't rally. Every time it does, the reaper pops out with a scythe and whacks it back down.
+
+A stock caught in this dynamic is sick, infected with the plague...you can watch as it beats and raises on quarterly earnings, and the EPS upside is fully offset by multiple compression (or what appears optically as multiple compression).
+
+The two big questions:
+
+1. “How do I escape from this?”
+
+2. Is this worth the Return on Brain Damage in the first place?
+
+# Calculating ROBD
+
+I went to try and find the inventor of this term but it doesn't seem to be credited to anyone in particular, I thought I remembered Ackman saying it about 10-15 years ago but I appear to be wrong.
+
+"Return on Brain Damage" is somewhat similar to Buffett's "too hard" pile, but with some caveats.
+
+I'd also add that it's a function, or a sub-group, within "Return on Time."
+
+A stock that offers low return on brain damage is one where you are going to suffer severe brain damage somewhere in the process, either thru research/diligence, trading, or the "path to getting paid."
+
+High return on brain damage is probably the norm: You can trace out what 1-3 KPI's matter to the stock, you can trace out a research process where you see yourself finding some edge or angle on those KPI's, and you see a clear "path to getting paid" - event or catalyst to close the gap between your variant view and the market-implied/consensus view.
+
+That begs the question - how do you calculate ROBD?
+
+I'm not sure you can. I'd view it as binary, or a red flag that nixes an otherwise interesting opportunity.
+
+Return on Time is huge for an analyst. In L/S today, which is predominantly multi-mgr, you have 40-60 stocks in a coverage universe. Your job is to generate long and short ideas within this universe with a focus on idea velocity:
+
+[Embedded Tweet: https://x.com/i/status/1995504134372380789]
+
+Thus lays the problem with ROBD.
+
+Getting too stuck on one idea slows the entire flywheel and fucks up your idea velocity.
+
+If you're an individual investor you can probably disregard much of this article, you don't have the same constraints that a typical L/S analyst does. Much of it can be summed up by the Bessent quote: "To go up 100 percent, you’ve got to be willing to go down 20, and you can’t go down 20 with other people’s money." [[link to tweet](https://x.com/gregoryblotnick/status/2015528455832551581?s=20)].
+
+If you can "go down 20%" you can ignore a lot of this -- it's mostly aimed at the 99.9% of professional investors who cannot go down 20%.
+
+But poor ROBD was hugely problematic for me at a younger age, especially on the short side, where as a PM put it, I'd go off on a "jihad" against some turd of a stock that was only sized at 3% of capital yet took up 50% of my waking hours and led to me spinning my wheels.
+
+Alternatively, this represents a mismatch between financial and mental capital:
+
+[Embedded Tweet: https://x.com/i/status/2004984420567318554]
+
+That article (or series of articles) on Mental Capital, it's the same idea here. Drawdowns fuck with your mental capital more than your financial capital, and your brainpower is tied up in some position down 30% which represents 5% of your financial capital yet 50% of your focus.
+
+That's why ROBD needs to be understood by any analyst, or PM managing the bandwidth of their analysts, or any aspiring analyst.
+
+The notion of "Return on Time" doesn't really exist for individuals nor does it exist at many firms that are sleepy, long-term, concentrated, et cetera, because Idea Velocity doesn't exist at those firms. So I'd view all this thru that lens, ROBD gumming up an idea velocity flywheel.
+
+# "We've Seen This Movie Before"
+
+There was a really sharp analyst I used to compare notes with back in the day who would always talk about "Movies."
+
+He came from the John Griffin lineage of investors so I'm not sure if it was an in-house term, but it was top of mind in how he thought about any opportunity, it was a key checkpoint in all his stock pitches, et cetera.
+
+Basically, it's another way to think about Pattern Recognition, which you see in any competitive endeavor:
+
+[Embedded Tweet: https://x.com/i/status/2020918270971298050]
+
+As for Movies, it's a good term. I should probably use it more, and in this context -- "overhangs" -- it's a movie you'll see over and over across sectors, sub-sectors, and even in individual stocks where you see a management team in the penalty box from poor execution.
+
+Just be aware that pattern recognition is not always good. The human brain has a tendency to connect dots that shouldn't be connected and to look for patterns where none exist.
+
+If I had to take a stab at it, people do TOO MUCH pattern recognition in macro ("this is like October 2008!") and NOT ENOUGH in micro or industry dynamics. We'll get into that.
+
+# A Caveat on Software
+
+Just to be clear, I do not understand software at all nor do I claim to. I'm simply using it as a live case study, a "movie", to illustrate a larger point.
+
+If it appears that I'm drawing any conclusions on software itself, it's incidental and means I wrote it poorly...me talking about software, is like Rick Ross talking about how he's farming his own chickens which go quack quack quack.
+
+[Embedded Tweet: https://x.com/i/status/1808654922994352249]
+
+# Consumer "Movie" - Amazon
+
+The movie that comes to mind for me, through direct experience trading markets, was Amazon throughout most of the 2010-2020 decade.
+
+At the highest level, this put the "reaper" into brick-and-mortar retail. But you would also see constant announcements or tape bombs where Amazon would announce it was entering a new vertical and a sub-sector would trade down 10% in response.
+
+The monster trade in L/S Consumer (and probably some TMT) was to be long Amazon and short the affected stocks or sub-sectors.
+
+There were years where I would describe myself as an Amazon analyst more than a Consumer/Retail one because this narrative drove a lot of price action. The highest Return on Time was to do primary research on what sub-sectors were vulnerable and trying to get in front of what the next headline would be.
+
+During that time period, there were plenty of verticals that Amazon entered and then either exited or where their presence proved to be immaterial.
+
+Off the top of my head, auto aftermarket comes to mind, food delivery, healthcare (I think), online grocery...there were a lot.
+
+The questions to be answered, again, both looking at old Movies and the current tape...
+
+1. How does a long escape from "the reaper?"
+
+2. Were these battles worth the poor Return on Brain Damage?
+
+The most value a reader could add here, is in laying out whatever Movies they have seen...who was the disruptor, who was the disrupted, and how did it play out.
+
+In Consumer, there were exceptions here and there, but broadly speaking, the market had it right: the "impacted" enterprises were impaired both on earnings power and on valuation.
+
+# The Murky "Path to Getting Paid"
+
+This was a term an old boss used that I stayed with and which is in all those stock pitches I posted.
+
+Basically, what is the event path, catalyst path, lay out step-by-step the "path to getting paid" where your variant view becomes the consensus view.
+
+In a situation where terminal value is impacted, the path to getting paid becomes much muddier. Because you can correctly forecast a series of quarterly EPS beats, only to watch the stock trade flat or even trade lower.
+
+In theory, what is happening is that the positive impact on near-term EPS (positive revisions) is offset by the negative impact on terminal value. Being able to parse this out is very tricky and you can only discern it thru price action / reading the tape.
+
+Additionally, the skew on earnings prints becomes awful.
+
+What happens is that the market is assuming no near-term impact from the "disruptive threat," but that LT cash flows/terminal value are affected.
+
+Beats are treated with skepticism and rewarded with small positive reactions, up 0-5%.
+
+On a poor print, if revenues or EPS come in light, the market is going to assume the reaper arrived early and punish the stock down 20%.
+
+Hence the Return on Brain Damage aspect.
+
+It becomes very difficult to dispel these secular bear "reapers" and for an L/S analyst, it's unclear if fighting this type of jihad is the best use of your time.
+
+# Putting Numbers To It
+
+This is yet another reason why you have to build out a DCF for any situation where terminal value is front-and-center.
+
+The line items being debated by the market are some mix of:
+
+1. Perpetuity growth assumption (LT rev growth)
+
+2. Steady-state margins (gross, EBIT, net, etc)
+
+3. What discount rate to use.
+
+So to sit there focusing on NTM multiples, or next quarter's EPS...you're not aligned with what the market is focused on.
+
+In software right now, here's a random example, where CRM's operating margins are 20%:
+
+Are those the correct steady-state margins? Or are they 15%, or 10%? That's what's being disputed.
+
+Again, I don't know this sector at all, but both operating margins and FCF margins across the space are awfully high, and the bulls for every individual stock will tell you "it's mission-critical so the margins are defensible/sustainable" or something. Same for perp growth/pricing power.
+
+The change in discount rate is the one that I'm not sure you can even push back on. This chart below is old (I can't find the most recent one I saw) but every AI/LLM-related chart seems to be this same shape:
+
+Those are the "unknown unknowns" which have to be adjusted for via discount rate, where the stream of cash flows is simply no longer as predictable as it was 5-10 years ago.
+
+# "What's The Next Headline?"
+
+Here is the tricky part, another entry in the series of unknown unknowns.
+
+These new entrants each just got valued at nearly $1T. They have to justify that valuation.
+
+What that means is that the steady drumbeat of announcements will continue from marketing departments... not just from new players, but from say Google, as everyone tries to gain share (both dollars and mindshare) in a product/service that has a largely commoditized aspect to it.
+
+Claude seems to be the one causing the most havoc to the market (and I give them major credit for fitting MF Doom - "All Caps" into a commercial).
+
+But as an analyst who is long the affected sub-sector...you have to assume that this drumbeat will continue unabated.
+
+This makes it tricky to dispel the secular bear "reaper" and lay out a path to getting paid where the overhang disappears.
+
+# In Practice: Bull/Bear, Burden of Proof, Team Dynamics
+
+This article, like every article in my pinned tweet, is directed at the 23-year old version of myself...stuff he would've wanted to know at a younger age.
+
+The harsh realities of the L/S industry were mostly not known to him then, and they are as follows.
+
+I'm not sure what the average software drawdown is, say 40-60% from the highs set 12-18 months ago.
+
+In any professional setting, you'll have one of two org structures or team dynamics:
+
+1. Generalist/single-manager, where each analyst has a sector (Consumer, Industrials, TMT) under coverage.
+
+2. Sector-focused/multi-mgr, where each analyst has a sub-sector or group of sub-sectors under coverage.
+
+In Consumer, you'd have sub-sectors divided up: staples/discretionary, hardlines, softlines, restaurants, durables, consumer-facing tech, consumer-facing industrials, and others.
+
+In TMT, there's media, telecom, internet, software, hardware, and others.
+
+So no matter where you work, you are probably going to have a group of stocks that have your name on it.
+
+If those names are consistently blowing the fuck up and causing problems for the rest of the team, you are going to hear about it.
+
+That's the issue here with drawdowns this large.
+
+You're never going to even reach the point where your sector is down 50%. You'll hear about it down 10%, down 20%, down 25%...you might get ONE shot at averaging down over that time period, if you've earned it, but if the next step is down 30% or down 40%, you're either getting liquidated or fired.
+
+That's just the way it goes. Remember, everyone else is generating ideas, you might have the Media analyst shooting the lights out, he's "seeing the ball well" and he wants more capital to his ideas instead of to the awful ones you're pitching.
+
+Everyone wants to buy their kid the GI Joe with the Kung Fu Grip, and your plea to buy more of some name down 50% is getting in their way.
+
+That's your cue to...
+
+# "Get The F*** Out Of The Way."
+
+This is why humility is so highly-valued as a trait and why arrogance is probably the fastest way to either fail an interview or get fired.
+
+When you aren't "seeing the ball," when you're out of sync with the market, the absolute best thing you can do is voluntarily get the fuck out of the way.
+
+It happens, no one is going to fault you for it, this game is hard and sometimes you just don't have a grip on the current regime or set of market narratives. But when it happens, like, recognize it, and then MOVE.
+
+Again, this isn't unique to L/S - think about an NFL team.
+
+You might have a young runningback who gets in there and fumbles the first snap. He'll get benched, it doesn't mean he sucks, it just means he needs more practice.
+
+If an experienced runningback goes in and fumbles, they'll keep him in there, he's earned the right to fumble once in a while and it's a vote of confidence to keep him in there rather than bench him and risk damaging his morale.
+
+But if that runningback fumbles a second time, forget it...you're yanked. Today just isn't your day. Nothing personal.
+
+This is how you have to think about drawdowns, either position-level or when your entire sector/sub-sector is getting smacked by "the reaper." Yes, you might be right in the long-term, but long-term doesn't really exist in L/S today...event path matters.
+
+To expect that you'll be given rope for a 20% drawdown, much less 50%, is out of line with the harsh realities of The Game.
+
+Mind your risk, and good luck trading.
+
+GB
+
+---
+
+For Part Two and Three of this series, see below:
+
+[Embedded Tweet: https://x.com/i/status/2025333891330900087]
+
+[Embedded Tweet: https://x.com/i/status/2025669490197798986]
+
+---
+
+## 10. 2026-03-03
 <a id="t-2028803595831767167"></a>
 
 *Single post · [2028803595831767167](https://x.com/gregoryblotnick/status/2028803595831767167)*
@@ -350,7 +3298,7 @@ Six Equity Analyst Models + Two Stock Pitches [+ DOWNLOAD LINKS]
 
 ---
 
-## 2. 2026-03-03
+## 11. 2026-03-03
 <a id="t-2028839921272635452"></a>
 
 *Single post · [2028839921272635452](https://x.com/gregoryblotnick/status/2028839921272635452)*
@@ -411,7 +3359,7 @@ mind ur risk + good luck trading.
 
 ---
 
-## 3. 2026-03-04
+## 12. 2026-03-04
 <a id="t-2029019664257282270"></a>
 
 *Single post · [2029019664257282270](https://x.com/gregoryblotnick/status/2029019664257282270)*
@@ -420,7 +3368,7 @@ such a good quote...was a "lightbulb" moment in understanding equity valuation, 
 
 ---
 
-## 4. 2026-03-04
+## 13. 2026-03-04
 <a id="t-2029021620900139054"></a>
 
 *Single post · [2029021620900139054](https://x.com/gregoryblotnick/status/2029021620900139054)*
@@ -437,7 +3385,7 @@ Munger: “Life will have terrible blows in it, horrible blows, unfair blows. An
 
 ---
 
-## 5. 2026-03-04
+## 14. 2026-03-04
 <a id="t-2029167521945751849"></a>
 
 *Single post · [2029167521945751849](https://x.com/gregoryblotnick/status/2029167521945751849)*
@@ -446,7 +3394,7 @@ Munger: “Life will have terrible blows in it, horrible blows, unfair blows. An
 
 ---
 
-## 6. 2026-03-04
+## 15. 2026-03-04
 <a id="t-2029174566157734369"></a>
 
 *Single post · [2029174566157734369](https://x.com/gregoryblotnick/status/2029174566157734369)*
@@ -499,7 +3447,7 @@ things that are supposed to "work" in investing/trading but actually have a 0% s
 
 ---
 
-## 7. 2026-03-04
+## 16. 2026-03-04
 <a id="t-2029229068965523713"></a>
 
 *Thread · 2 posts · conversation `2029229068965523713`*
@@ -605,7 +3553,7 @@ TL;DR - treat that rev growth as an ironclad rule and never assume u will get pa
 
 ---
 
-## 8. 2026-03-04
+## 17. 2026-03-04
 <a id="t-2029240167278522490"></a>
 
 *Single post · [2029240167278522490](https://x.com/gregoryblotnick/status/2029240167278522490)*
@@ -650,7 +3598,7 @@ TL;DR - treat that rev growth as an ironclad rule and never assume u will get pa
 
 ---
 
-## 9. 2026-03-09
+## 18. 2026-03-09
 <a id="t-2030950042559729976"></a>
 
 *Single post · [2030950042559729976](https://x.com/gregoryblotnick/status/2030950042559729976)*
@@ -661,7 +3609,7 @@ another one of those "lightbulb" quotes in understanding how liquidity drives ma
 
 ---
 
-## 10. 2026-03-09
+## 19. 2026-03-09
 <a id="t-2030993861518963184"></a>
 
 *Single post · [2030993861518963184](https://x.com/gregoryblotnick/status/2030993861518963184)*
@@ -744,7 +3692,7 @@ the path to determining what you do well, your "circle of competence," is mostly
 
 ---
 
-## 11. 2026-03-09
+## 20. 2026-03-09
 <a id="t-2031012029545189610"></a>
 
 *Single post · [2031012029545189610](https://x.com/gregoryblotnick/status/2031012029545189610)*
@@ -753,7 +3701,7 @@ the path to determining what you do well, your "circle of competence," is mostly
 
 ---
 
-## 12. 2026-03-11
+## 21. 2026-03-11
 <a id="t-2031715799551909965"></a>
 
 *Single post · [2031715799551909965](https://x.com/gregoryblotnick/status/2031715799551909965)*
@@ -762,7 +3710,7 @@ O.G. Stock Pitch Thread [VERSION 2.0] -- "Destroy & Rebuild"
 
 ---
 
-## 13. 2026-03-16
+## 22. 2026-03-16
 <a id="t-2033497805864444186"></a>
 
 *Single post · [2033497805864444186](https://x.com/gregoryblotnick/status/2033497805864444186)*
@@ -791,7 +3739,7 @@ proceed w caution + always check vs company source docs
 
 ---
 
-## 14. 2026-03-16
+## 23. 2026-03-16
 <a id="t-2033540954385199117"></a>
 
 *Single post · [2033540954385199117](https://x.com/gregoryblotnick/status/2033540954385199117)*
@@ -800,7 +3748,7 @@ Reading The Tape (Part 4): Druckenmiller and Macro Versus Fundamentals
 
 ---
 
-## 15. 2026-03-17
+## 24. 2026-03-17
 <a id="t-2033886385854198179"></a>
 
 *Single post · [2033886385854198179](https://x.com/gregoryblotnick/status/2033886385854198179)*
@@ -809,7 +3757,7 @@ Common Errors in Shorting Stocks -- "Why Be Short Anything?"
 
 ---
 
-## 16. 2026-03-18
+## 25. 2026-03-18
 <a id="t-2034220662743507414"></a>
 
 *Single post · [2034220662743507414](https://x.com/gregoryblotnick/status/2034220662743507414)*
@@ -822,7 +3770,7 @@ when ur lost, stay long or get long - “markets dont need a reason to rally” 
 
 ---
 
-## 17. 2026-03-18
+## 26. 2026-03-18
 <a id="t-2034223993788502157"></a>
 
 *Single post · [2034223993788502157](https://x.com/gregoryblotnick/status/2034223993788502157)*
@@ -839,7 +3787,7 @@ lays out in simple terms how markets operate:
 
 ---
 
-## 18. 2026-03-25
+## 27. 2026-03-25
 <a id="t-2036764892384968925"></a>
 
 *Single post · [2036764892384968925](https://x.com/gregoryblotnick/status/2036764892384968925)*
@@ -864,7 +3812,7 @@ no different than in war, great commanders know...a good retreat can be just as 
 
 ---
 
-## 19. 2026-03-25
+## 28. 2026-03-25
 <a id="t-2036804342032806331"></a>
 
 *Single post · [2036804342032806331](https://x.com/gregoryblotnick/status/2036804342032806331)*
@@ -882,7 +3830,7 @@ you'll see the multiple tracking fundamentals. mkt isnt dumb, its never easy... 
 
 ---
 
-## 20. 2026-03-25
+## 29. 2026-03-25
 <a id="t-2036817824677511649"></a>
 
 *Single post · [2036817824677511649](https://x.com/gregoryblotnick/status/2036817824677511649)*
@@ -917,7 +3865,7 @@ Fortune is a fickle mistress, men rise and fall, sometimes many times throughout
 
 ---
 
-## 21. 2026-03-29
+## 30. 2026-03-29
 <a id="t-2038249383309828523"></a>
 
 *Single post · [2038249383309828523](https://x.com/gregoryblotnick/status/2038249383309828523)*
@@ -996,7 +3944,7 @@ this post could be a lot longer but I think the point is clear...its an unpleasa
 
 ---
 
-## 22. 2026-03-29
+## 31. 2026-03-29
 <a id="t-2038289474229092810"></a>
 
 *Single post · [2038289474229092810](https://x.com/gregoryblotnick/status/2038289474229092810)*
@@ -1077,7 +4025,7 @@ choose violence responsibly™️
 
 ---
 
-## 23. 2026-03-29
+## 32. 2026-03-29
 <a id="t-2038355262441136153"></a>
 
 *Single post · [2038355262441136153](https://x.com/gregoryblotnick/status/2038355262441136153)*
@@ -1174,7 +4122,7 @@ hth
 
 ---
 
-## 24. 2026-03-30
+## 33. 2026-03-30
 <a id="t-2038584481884385311"></a>
 
 *Single post · [2038584481884385311](https://x.com/gregoryblotnick/status/2038584481884385311)*
@@ -1183,7 +4131,7 @@ Risk Mgmt (Part 4): Q&A, Sell Discipline, FOMO, Stops & "Cool-Off Periods"
 
 ---
 
-## 25. 2026-03-30
+## 34. 2026-03-30
 <a id="t-2038653451643519451"></a>
 
 *Single post · [2038653451643519451](https://x.com/gregoryblotnick/status/2038653451643519451)*
@@ -1226,7 +4174,7 @@ That's the advice I wish I was given in my early 20's. Good luck
 
 ---
 
-## 26. 2026-03-31
+## 35. 2026-03-31
 <a id="t-2039078305647714610"></a>
 
 *Single post · [2039078305647714610](https://x.com/gregoryblotnick/status/2039078305647714610)*
@@ -1249,7 +4197,7 @@ Come back when you have two offers to weigh. I’ll do my best to help you think
 
 ---
 
-## 27. 2026-04-06
+## 36. 2026-04-06
 <a id="t-2041132108668633550"></a>
 
 *Single post · [2041132108668633550](https://x.com/gregoryblotnick/status/2041132108668633550)*
@@ -1260,7 +4208,7 @@ as good a rule as any... Lichtenberg https://t.co/2hWfG6MbbH
 
 ---
 
-## 28. 2026-04-07
+## 37. 2026-04-07
 <a id="t-2041471614479483243"></a>
 
 *Single post · [2041471614479483243](https://x.com/gregoryblotnick/status/2041471614479483243)*
@@ -1345,7 +4293,7 @@ hth
 
 ---
 
-## 29. 2026-04-09
+## 38. 2026-04-09
 <a id="t-2042198182512197999"></a>
 
 *Single post · [2042198182512197999](https://x.com/gregoryblotnick/status/2042198182512197999)*
@@ -1354,7 +4302,7 @@ hth
 
 ---
 
-## 30. 2026-04-16
+## 39. 2026-04-16
 <a id="t-2044701569619202158"></a>
 
 *Single post · [2044701569619202158](https://x.com/gregoryblotnick/status/2044701569619202158)*
@@ -1377,7 +4325,7 @@ behind every curtain of "greatness" is just flawless execution, blocking, tackli
 
 ---
 
-## 31. 2026-04-16
+## 40. 2026-04-16
 <a id="t-2044706054454313271"></a>
 
 *Single post · [2044706054454313271](https://x.com/gregoryblotnick/status/2044706054454313271)*
@@ -1422,7 +4370,7 @@ put yourself out there. good luck 🫡
 
 ---
 
-## 32. 2026-04-16
+## 41. 2026-04-16
 <a id="t-2044710593609847009"></a>
 
 *Single post · [2044710593609847009](https://x.com/gregoryblotnick/status/2044710593609847009)*
@@ -1457,7 +4405,7 @@ read less tweets and more books
 
 ---
 
-## 33. 2026-04-17
+## 42. 2026-04-17
 <a id="t-2045174433975816505"></a>
 
 *Single post · [2045174433975816505](https://x.com/gregoryblotnick/status/2045174433975816505)*
@@ -1476,7 +4424,7 @@ JPM:
 
 ---
 
-## 34. 2026-04-17
+## 43. 2026-04-17
 <a id="t-2045199923679809567"></a>
 
 *Single post · [2045215891021779334](https://x.com/gregoryblotnick/status/2045215891021779334)*
@@ -1508,7 +4456,7 @@ no right answer and YMMV... just food for thought 🍔
 
 ---
 
-## 35. 2026-04-17
+## 44. 2026-04-17
 <a id="t-2045235071326835156"></a>
 
 *Single post · [2045235071326835156](https://x.com/gregoryblotnick/status/2045235071326835156)*
@@ -1601,7 +4549,7 @@ may as well get started
 
 ---
 
-## 36. 2026-04-17
+## 45. 2026-04-17
 <a id="t-2045265997901545953"></a>
 
 *Single post · [2045265997901545953](https://x.com/gregoryblotnick/status/2045265997901545953)*
@@ -1616,7 +4564,7 @@ guessing this is universal (i.e. same in VC/PE)
 
 ---
 
-## 37. 2026-04-17
+## 46. 2026-04-17
 <a id="t-2045280633690222604"></a>
 
 *Single post · [2045280633690222604](https://x.com/gregoryblotnick/status/2045280633690222604)*
@@ -1695,7 +4643,7 @@ last...a non-investing anecdote
 
 ---
 
-## 38. 2026-04-18
+## 47. 2026-04-18
 <a id="t-2045421349699567910"></a>
 
 *Single post · [2045421349699567910](https://x.com/gregoryblotnick/status/2045421349699567910)*
@@ -1784,7 +4732,7 @@ audentes fortuna iuvat ⚔️
 
 ---
 
-## 39. 2026-04-18
+## 48. 2026-04-18
 <a id="t-2045451838724452368"></a>
 
 *Single post · [2045451838724452368](https://x.com/gregoryblotnick/status/2045451838724452368)*
@@ -1793,7 +4741,7 @@ audentes fortuna iuvat ⚔️
 
 ---
 
-## 40. 2026-04-19
+## 49. 2026-04-19
 <a id="t-2045930873682289143"></a>
 
 *Single post · [2045930873682289143](https://x.com/gregoryblotnick/status/2045930873682289143)*
@@ -1806,7 +4754,7 @@ but items like these?? you could spend the next 50 years trying to achieve maste
 
 ---
 
-## 41. 2026-04-20
+## 50. 2026-04-20
 <a id="t-2046312053925646623"></a>
 
 *Single post · [2046312053925646623](https://x.com/gregoryblotnick/status/2046312053925646623)*
@@ -1815,7 +4763,7 @@ but items like these?? you could spend the next 50 years trying to achieve maste
 
 ---
 
-## 42. 2026-04-21
+## 51. 2026-04-21
 <a id="t-2046530360238854257"></a>
 
 *Single post · [2046530360238854257](https://x.com/gregoryblotnick/status/2046530360238854257)*
@@ -1896,7 +4844,7 @@ that's the article. enjoy
 
 ---
 
-## 43. 2026-04-21
+## 52. 2026-04-21
 <a id="t-2046575204290248995"></a>
 
 *Single post · [2046575204290248995](https://x.com/gregoryblotnick/status/2046575204290248995)*
@@ -2027,7 +4975,7 @@ good luck trading
 
 ---
 
-## 44. 2026-04-21
+## 53. 2026-04-21
 <a id="t-2046689712811762144"></a>
 
 *Single post · [2046689712811762144](https://x.com/gregoryblotnick/status/2046689712811762144)*
@@ -2051,7 +4999,7 @@ D. It already has [plz explain: https://t.co/Ss8wnuuqYD
 
 ---
 
-## 45. 2026-04-23
+## 54. 2026-04-23
 <a id="t-2047416958677815522"></a>
 
 *Single post · [2047416958677815522](https://x.com/gregoryblotnick/status/2047416958677815522)*
@@ -2090,7 +5038,7 @@ until then - "ceterum censeo carthaginem esse delendam."
 
 ---
 
-## 46. 2026-04-24
+## 55. 2026-04-24
 <a id="t-2047713933251723298"></a>
 
 *Single post · [2047713933251723298](https://x.com/gregoryblotnick/status/2047713933251723298)*
@@ -2105,7 +5053,7 @@ spot on. a great mentor converts talent into OBSESSION.
 
 ---
 
-## 47. 2026-04-24
+## 56. 2026-04-24
 <a id="t-2047760417678577939"></a>
 
 *Single post · [2047760417678577939](https://x.com/gregoryblotnick/status/2047760417678577939)*
@@ -2228,7 +5176,7 @@ But the most important thing, is that figuring out the strengths and weaknesses 
 
 ---
 
-## 48. 2026-04-25
+## 57. 2026-04-25
 <a id="t-2048006599306887615"></a>
 
 *Single post · [2048006599306887615](https://x.com/gregoryblotnick/status/2048006599306887615)*
@@ -2317,7 +5265,7 @@ now go be great my friend✍️
 
 ---
 
-## 49. 2026-04-28
+## 58. 2026-04-28
 <a id="t-2049104122650022058"></a>
 
 *Single post · [2049104122650022058](https://x.com/gregoryblotnick/status/2049104122650022058)*
@@ -2398,7 +5346,7 @@ hth / inevitably more to follow on this "Q with no A."
 
 ---
 
-## 50. 2026-05-04
+## 59. 2026-05-04
 <a id="t-2051237334981452231"></a>
 
 *Single post · [2051237334981452231](https://x.com/gregoryblotnick/status/2051237334981452231)*
@@ -2415,7 +5363,7 @@ a "bonus round" mindset goes a long way...or, as a buddy is fond of putting it:
 
 ---
 
-## 51. 2026-05-04
+## 60. 2026-05-04
 <a id="t-2051241173633704227"></a>
 
 *Single post · [2051241173633704227](https://x.com/gregoryblotnick/status/2051241173633704227)*
@@ -2474,7 +5422,7 @@ what does that even mean. its like a puzzle where 7 out out of the 10 pieces are
 
 ---
 
-## 52. 2026-05-04
+## 61. 2026-05-04
 <a id="t-2051247888043270269"></a>
 
 *Single post · [2051247888043270269](https://x.com/gregoryblotnick/status/2051247888043270269)*
@@ -2485,7 +5433,7 @@ munger's "iron prescription" and the work required to have an opinion:
 
 ---
 
-## 53. 2026-05-04
+## 62. 2026-05-04
 <a id="t-2051264971439263953"></a>
 
 *Single post · [2051264971439263953](https://x.com/gregoryblotnick/status/2051264971439263953)*
@@ -2500,7 +5448,7 @@ terminal value = ~75% of S&amp;P 500 equity value
 
 ---
 
-## 54. 2026-05-04
+## 63. 2026-05-04
 <a id="t-2051335188882260470"></a>
 
 *Single post · [2051335188882260470](https://x.com/gregoryblotnick/status/2051335188882260470)*
@@ -2511,7 +5459,7 @@ this quote on trading markets from Mark Douglas is prob #1 on the "tape to your 
 
 ---
 
-## 55. 2026-05-11
+## 64. 2026-05-11
 <a id="t-2053774558340026738"></a>
 
 *Single post · [2053774558340026738](https://x.com/gregoryblotnick/status/2053774558340026738)*
@@ -2630,7 +5578,7 @@ Summary
 
 ---
 
-## 56. 2026-05-11
+## 65. 2026-05-11
 <a id="t-2053805642637296102"></a>
 
 *Single post · [2053805642637296102](https://x.com/gregoryblotnick/status/2053805642637296102)*
@@ -2681,7 +5629,7 @@ if this is unclear reply/DM with questions...this definitely wasn't clear to me 
 
 ---
 
-## 57. 2026-05-13
+## 66. 2026-05-13
 <a id="t-2054524763154919846"></a>
 
 *Single post · [2054524763154919846](https://x.com/gregoryblotnick/status/2054524763154919846)*
@@ -2706,7 +5654,7 @@ you can prob skip my meandering nonsense at the beginning of this article and sc
 
 ---
 
-## 58. 2026-05-13
+## 67. 2026-05-13
 <a id="t-2054538234282000563"></a>
 
 *Single post · [2054538234282000563](https://x.com/gregoryblotnick/status/2054538234282000563)*
@@ -2777,7 +5725,7 @@ good luck trading
 
 ---
 
-## 59. 2026-05-15
+## 68. 2026-05-15
 <a id="t-2055342178084278525"></a>
 
 *Single post · [2055342178084278525](https://x.com/gregoryblotnick/status/2055342178084278525)*
@@ -2804,7 +5752,7 @@ i'll go try and dig the tweet up now but I just wanted to highlight the confiden
 
 ---
 
-## 60. 2026-05-16
+## 69. 2026-05-16
 <a id="t-2055647698590511542"></a>
 
 *Thread · 2 posts · conversation `2055647698590511542`*
@@ -2971,7 +5919,7 @@ https://t.co/q9tVMbKaEB https://t.co/wnl8XBN3dD
 
 ---
 
-## 61. 2026-05-16
+## 70. 2026-05-16
 <a id="t-2055715658256576541"></a>
 
 *Single post · [2055715658256576541](https://x.com/gregoryblotnick/status/2055715658256576541)*
@@ -3076,7 +6024,7 @@ the once noble arts of scuttlebutt and shoe leather... replaced by a web of misa
 
 ---
 
-## 62. 2026-05-18
+## 71. 2026-05-18
 <a id="t-2056333497673843125"></a>
 
 *Single post · [2056333497673843125](https://x.com/gregoryblotnick/status/2056333497673843125)*
@@ -3095,7 +6043,7 @@ like I said this is courtesy, not linkedin slop. they may never notice or thank 
 
 ---
 
-## 63. 2026-05-18
+## 72. 2026-05-18
 <a id="t-2056386212831572183"></a>
 
 *Single post · [2056386212831572183](https://x.com/gregoryblotnick/status/2056386212831572183)*
@@ -3259,7 +6207,7 @@ GB
 
 ---
 
-## 64. 2026-05-19
+## 73. 2026-05-19
 <a id="t-2056801129636262151"></a>
 
 *Single post · [2056801129636262151](https://x.com/gregoryblotnick/status/2056801129636262151)*
@@ -3268,7 +6216,7 @@ ROIC/ROIIC (Part 2): Reinvestment Rate, FCF Deployment & Capital Allocation
 
 ---
 
-## 65. 2026-05-19
+## 74. 2026-05-19
 <a id="t-2056831115907027001"></a>
 
 *Single post · [2056831115907027001](https://x.com/gregoryblotnick/status/2056831115907027001)*
@@ -3462,7 +6410,7 @@ Well, that's a work in progress. But as a build consideration, here is what i wo
 
 ---
 
-## 66. 2026-05-19
+## 75. 2026-05-19
 <a id="t-2056835948676063564"></a>
 
 *Single post · [2056835948676063564](https://x.com/gregoryblotnick/status/2056835948676063564)*
@@ -3516,7 +6464,7 @@ What is it I’m missing and not understanding?
 
 ---
 
-## 67. 2026-05-19
+## 76. 2026-05-19
 <a id="t-2056871137875783768"></a>
 
 *Single post · [2056871137875783768](https://x.com/gregoryblotnick/status/2056871137875783768)*
@@ -3620,7 +6568,7 @@ good luck trading
 
 ---
 
-## 68. 2026-05-21
+## 77. 2026-05-21
 <a id="t-2057403365143834692"></a>
 
 *Single post · [2057403365143834692](https://x.com/gregoryblotnick/status/2057403365143834692)*
@@ -3641,7 +6589,7 @@ this dynamic will only become more prevalent as robots create all this shit, and
 
 ---
 
-## 69. 2026-05-26
+## 78. 2026-05-26
 <a id="t-2059260408972644793"></a>
 
 *Single post · [2059260408972644793](https://x.com/gregoryblotnick/status/2059260408972644793)*
@@ -3650,7 +6598,7 @@ Common Errors in Stock Pitches (Part 3): ROIC Inflections & Burden of Proof
 
 ---
 
-## 70. 2026-05-26
+## 79. 2026-05-26
 <a id="t-2059337411298054494"></a>
 
 *Single post · [2059337411298054494](https://x.com/gregoryblotnick/status/2059337411298054494)*
@@ -3661,7 +6609,7 @@ Bollore: hold my org chart https://t.co/ieBpjdDE19
 
 ---
 
-## 71. 2026-05-26
+## 80. 2026-05-26
 <a id="t-2059398558529286319"></a>
 
 *Single post · [2059398558529286319](https://x.com/gregoryblotnick/status/2059398558529286319)*
@@ -3674,7 +6622,7 @@ British spy Bancroft learns that France is backing America, and sends money home
 
 ---
 
-## 72. 2026-05-27
+## 81. 2026-05-27
 <a id="t-2059597133624324108"></a>
 
 *Single post · [2059597133624324108](https://x.com/gregoryblotnick/status/2059597133624324108)*
@@ -3715,7 +6663,7 @@ Like Talleyrand said after he and Napoleon murdered the Duke of Enghien: "C'est 
 
 ---
 
-## 73. 2026-05-27
+## 82. 2026-05-27
 <a id="t-2059622564809343476"></a>
 
 *Single post · [2059622564809343476](https://x.com/gregoryblotnick/status/2059622564809343476)*
@@ -3950,7 +6898,7 @@ hth
 
 ---
 
-## 74. 2026-05-28
+## 83. 2026-05-28
 <a id="t-2059793754551119960"></a>
 
 *Single post · [2059793754551119960](https://x.com/gregoryblotnick/status/2059793754551119960)*
@@ -4031,7 +6979,7 @@ otherwise...the philosophy can be summed up as follows:
 
 ---
 
-## 75. 2026-05-28
+## 84. 2026-05-28
 <a id="t-2059799295931396422"></a>
 
 *Single post · [2059799295931396422](https://x.com/gregoryblotnick/status/2059799295931396422)*
@@ -4052,7 +7000,7 @@ always answer "go buy SPY," and then keep it moving.
 
 ---
 
-## 76. 2026-05-28
+## 85. 2026-05-28
 <a id="t-2059807080161153397"></a>
 
 *Single post · [2059807080161153397](https://x.com/gregoryblotnick/status/2059807080161153397)*
@@ -4076,7 +7024,7 @@ I could not draw up a better way to spend my working hours. Pure bliss https://t
 
 ---
 
-## 77. 2026-05-28
+## 86. 2026-05-28
 <a id="t-2059936607084368083"></a>
 
 *Thread · 2 posts · conversation `2059936607084368083`*
@@ -4115,7 +7063,7 @@ ur long-term goal, above all else, is for people to say this exact same thing ab
 
 ---
 
-## 78. 2026-05-28
+## 87. 2026-05-28
 <a id="t-2059943349956579455"></a>
 
 *Single post · [2059943349956579455](https://x.com/gregoryblotnick/status/2059943349956579455)*
@@ -4200,7 +7148,7 @@ open to input/feedback if anything written here is wrong.
 
 ---
 
-## 79. 2026-05-28
+## 88. 2026-05-28
 <a id="t-2059968718176768437"></a>
 
 *Single post · [2059968718176768437](https://x.com/gregoryblotnick/status/2059968718176768437)*
@@ -4213,7 +7161,7 @@ Q: "ummm I'm just gonna work at CoreWeave" https://t.co/V56ZQJSfHr
 
 ---
 
-## 80. 2026-05-28
+## 89. 2026-05-28
 <a id="t-2059977157791674480"></a>
 
 *Single post · [2059977157791674480](https://x.com/gregoryblotnick/status/2059977157791674480)*
@@ -4228,7 +7176,7 @@ I have yet to see a multi-mgr L/S "case study" assignment that doesn't include l
 
 ---
 
-## 81. 2026-05-28
+## 90. 2026-05-28
 <a id="t-2059981544635183379"></a>
 
 *Single post · [2059982118084550958](https://x.com/gregoryblotnick/status/2059982118084550958)*
@@ -4241,7 +7189,7 @@ having a 72-hour memory is great if ur goal is to get into the deepest and swamp
 
 ---
 
-## 82. 2026-05-28
+## 91. 2026-05-28
 <a id="t-2059993423101210730"></a>
 
 *Thread · 3 posts · conversation `2059993423101210730`*
@@ -4318,7 +7266,7 @@ https://t.co/cpXLLplcKv
 
 ---
 
-## 83. 2026-06-05
+## 92. 2026-06-05
 <a id="t-2062887140082520299"></a>
 
 *Single post · [2062887140082520299](https://x.com/gregoryblotnick/status/2062887140082520299)*
@@ -4353,7 +7301,7 @@ TL;DR shrug slash probably good time to be a SMB seller
 
 ---
 
-## 84. 2026-06-05
+## 93. 2026-06-05
 <a id="t-2062897936736919607"></a>
 
 *Single post · [2062897936736919607](https://x.com/gregoryblotnick/status/2062897936736919607)*
@@ -4428,7 +7376,7 @@ Don't Fuck It Up 😎
 
 ---
 
-## 85. 2026-06-05
+## 94. 2026-06-05
 <a id="t-2063010730962817058"></a>
 
 *Single post · [2063010730962817058](https://x.com/gregoryblotnick/status/2063010730962817058)*
@@ -4461,7 +7409,7 @@ so I'd sum this all up in this one principle:
 
 ---
 
-## 86. 2026-06-10
+## 95. 2026-06-10
 <a id="t-2064681487891321207"></a>
 
 *Single post · [2064681487891321207](https://x.com/gregoryblotnick/status/2064681487891321207)*
@@ -4536,7 +7484,7 @@ but as for whether its born or bred, I don't know - this QT is the best I've fou
 
 ---
 
-## 87. 2026-06-10
+## 96. 2026-06-10
 <a id="t-2064688073250636179"></a>
 
 *Single post · [2064688073250636179](https://x.com/gregoryblotnick/status/2064688073250636179)*
@@ -4553,7 +7501,7 @@ no easy answer
 
 ---
 
-## 88. 2026-06-10
+## 97. 2026-06-10
 <a id="t-2064717250989367369"></a>
 
 *Single post · [2064717250989367369](https://x.com/gregoryblotnick/status/2064717250989367369)*
@@ -4562,7 +7510,7 @@ the older I get, the more I understand why Buffett rolled this way https://t.co/
 
 ---
 
-## 89. 2026-06-12
+## 98. 2026-06-12
 <a id="t-2065478116617957593"></a>
 
 *Single post · [2065478116617957593](https://x.com/gregoryblotnick/status/2065478116617957593)*
@@ -4571,7 +7519,7 @@ the older I get, the more I understand why Buffett rolled this way https://t.co/
 
 ---
 
-## 90. 2026-06-12
+## 99. 2026-06-12
 <a id="t-2065482184966734259"></a>
 
 *Single post · [2065482184966734259](https://x.com/gregoryblotnick/status/2065482184966734259)*
@@ -4590,7 +7538,7 @@ relevant charts from GS/MS
 
 ---
 
-## 91. 2026-06-12
+## 100. 2026-06-12
 <a id="t-2065505241718567007"></a>
 
 *Single post · [2065505241718567007](https://x.com/gregoryblotnick/status/2065505241718567007)*
@@ -4778,7 +7726,7 @@ GB
 
 ---
 
-## 92. 2026-06-12
+## 101. 2026-06-12
 <a id="t-2065525762216648889"></a>
 
 *Thread · 2 posts · conversation `2065525762216648889`*
@@ -4879,7 +7827,7 @@ https://t.co/U7inIIYOjy
 
 ---
 
-## 93. 2026-06-16
+## 102. 2026-06-16
 <a id="t-2066890455187382548"></a>
 
 *Single post · [2066890455187382548](https://x.com/gregoryblotnick/status/2066890455187382548)*
@@ -4910,7 +7858,7 @@ always answer "go buy SPY," and then keep it moving.
 
 ---
 
-## 94. 2026-06-18
+## 103. 2026-06-18
 <a id="t-2067593785194733972"></a>
 
 *Single post · [2067593785194733972](https://x.com/gregoryblotnick/status/2067593785194733972)*
@@ -4919,7 +7867,7 @@ Learning Markets, Modeling & How LLM's Reduce "Time-To-Mastery" by 50-90%
 
 ---
 
-## 95. 2026-06-18
+## 104. 2026-06-18
 <a id="t-2067637962402123928"></a>
 
 *Single post · [2067637962402123928](https://x.com/gregoryblotnick/status/2067637962402123928)*
@@ -4970,7 +7918,7 @@ the first 20 I could think of:
 
 ---
 
-## 96. 2026-06-18
+## 105. 2026-06-18
 <a id="t-2067698601145311465"></a>
 
 *Single post · [2067698601145311465](https://x.com/gregoryblotnick/status/2067698601145311465)*
@@ -5007,7 +7955,7 @@ bonne chance 🙏
 
 ---
 
-## 97. 2026-06-18
+## 106. 2026-06-18
 <a id="t-2067722609509187725"></a>
 
 *Single post · [2067722609509187725](https://x.com/gregoryblotnick/status/2067722609509187725)*
@@ -5160,7 +8108,7 @@ c'est la guerre ⚔️
 
 ---
 
-## 98. 2026-06-19
+## 107. 2026-06-19
 <a id="t-2067760658708611440"></a>
 
 *Single post · [2067760658708611440](https://x.com/gregoryblotnick/status/2067760658708611440)*
@@ -5333,7 +8281,7 @@ been real, been fun
 
 ---
 
-## 99. 2026-06-19
+## 108. 2026-06-19
 <a id="t-2067795912663998779"></a>
 
 *Single post · [2067795912663998779](https://x.com/gregoryblotnick/status/2067795912663998779)*
@@ -5392,7 +8340,7 @@ https://t.co/60mnaeVujI
 
 ---
 
-## 100. 2026-06-19
+## 109. 2026-06-19
 <a id="t-2067895365202768273"></a>
 
 *Single post · [2067895365202768273](https://x.com/gregoryblotnick/status/2067895365202768273)*
@@ -5408,7 +8356,7 @@ because you'll be doing them damn near every day until you die
 
 ---
 
-## 101. 2026-06-19
+## 110. 2026-06-19
 <a id="t-2067952929856798749"></a>
 
 *Thread · 2 posts · conversation `2067952929856798749`*
@@ -5530,7 +8478,7 @@ https://t.co/XPCAbIg9pb
 
 ---
 
-## 102. 2026-06-19
+## 111. 2026-06-19
 <a id="t-2067976033001693544"></a>
 
 *Thread · 2 posts · conversation `2067976033001693544`*
@@ -5612,7 +8560,7 @@ Studying all the different approaches to risk, entry/exit, sizing, vol, and so o
 
 ---
 
-## 103. 2026-06-19
+## 112. 2026-06-19
 <a id="t-2067980337615917421"></a>
 
 *Single post · [2067980337615917421](https://x.com/gregoryblotnick/status/2067980337615917421)*
@@ -5623,7 +8571,7 @@ Like, every single sentence is a banger https://t.co/NpbivWyuOC
 
 ---
 
-## 104. 2026-06-19
+## 113. 2026-06-19
 <a id="t-2068007844297748630"></a>
 
 *Single post · [2068007844297748630](https://x.com/gregoryblotnick/status/2068007844297748630)*
@@ -5638,7 +8586,7 @@ Studying all the different approaches to risk, entry/exit, sizing, vol, and so o
 
 ---
 
-## 105. 2026-06-19
+## 114. 2026-06-19
 <a id="t-2068014836173152592"></a>
 
 *Single post · [2068014836173152592](https://x.com/gregoryblotnick/status/2068014836173152592)*
@@ -5750,7 +8698,7 @@ USA (Use Stops Always)
 
 ---
 
-## 106. 2026-06-19
+## 115. 2026-06-19
 <a id="t-2068018202375000138"></a>
 
 *Single post · [2068018202375000138](https://x.com/gregoryblotnick/status/2068018202375000138)*
@@ -5761,7 +8709,7 @@ I'm looking for people who are not afraid to take risks. One of the questions I 
 
 ---
 
-## 107. 2026-06-19
+## 116. 2026-06-19
 <a id="t-2068025661294268729"></a>
 
 *Single post · [2068025661294268729](https://x.com/gregoryblotnick/status/2068025661294268729)*
@@ -5774,7 +8722,7 @@ This is what they do, and we don't..."SIZE WINNERS." https://t.co/ncG5FSTWC7
 
 ---
 
-## 108. 2026-06-19
+## 117. 2026-06-19
 <a id="t-2068029273785397404"></a>
 
 *Single post · [2068029273785397404](https://x.com/gregoryblotnick/status/2068029273785397404)*
@@ -5787,7 +8735,7 @@ Eckhardt in Schwager...true OG.
 
 ---
 
-## 109. 2026-06-19
+## 118. 2026-06-19
 <a id="t-2068033891030487220"></a>
 
 *Single post · [2068033891030487220](https://x.com/gregoryblotnick/status/2068033891030487220)*
@@ -5810,7 +8758,7 @@ but no matter how hard I try, I simply cannot cultivate that fuckin trait.
 
 ---
 
-## 110. 2026-06-19
+## 119. 2026-06-19
 <a id="t-2068037593451929803"></a>
 
 *Single post · [2068037593451929803](https://x.com/gregoryblotnick/status/2068037593451929803)*
@@ -5853,7 +8801,20 @@ bonne chance 🙏
 
 ---
 
-## 111. 2026-06-19
+## 120. 2026-06-19
+<a id="t-2068046698304213281"></a>
+
+*Single post · [2068046698304213281](https://x.com/gregoryblotnick/status/2068046698304213281)*
+
+this entire exchange is still so absurd lol
+
+Jim Rogers just mogs the fuck out of Scott Bessent and then tells him to go short some wheat https://t.co/H7Fwv7egZe
+
+> QT @gregoryblotnick: Jim Rogers to Bessent: “You’re probably going to lose it all, which is the best thing you could do. If you want to learn about investing, go short some wheat and see how it feels.” https://t.co/VFlSSwLyVs
+
+---
+
+## 121. 2026-06-19
 <a id="t-2068049424698188114"></a>
 
 *Single post · [2068049424698188114](https://x.com/gregoryblotnick/status/2068049424698188114)*
@@ -5872,7 +8833,7 @@ fwiw man CAGR'd at 62% for 13 years, then 17% for 20
 
 ---
 
-## 112. 2026-06-19
+## 122. 2026-06-19
 <a id="t-2068055389321740464"></a>
 
 *Single post · [2068055389321740464](https://x.com/gregoryblotnick/status/2068055389321740464)*
@@ -5883,7 +8844,7 @@ Druckenmiller's "100 million Frenchmen can't be wrong," as the voice of the mark
 
 ---
 
-## 113. 2026-06-19
+## 123. 2026-06-19
 <a id="t-2068060803719139582"></a>
 
 *Single post · [2068060803719139582](https://x.com/gregoryblotnick/status/2068060803719139582)*
@@ -5922,7 +8883,7 @@ In trading, you can't hide your failures. Your equity provides a daily reflectio
 
 ---
 
-## 114. 2026-06-19
+## 124. 2026-06-19
 <a id="t-2068072848535568402"></a>
 
 *Single post · [2068072848535568402](https://x.com/gregoryblotnick/status/2068072848535568402)*
@@ -5963,7 +8924,7 @@ Salomon Brothers was a culture like no other. People often spoke of Salomon’s 
 
 ---
 
-## 115. 2026-06-23
+## 125. 2026-06-23
 <a id="t-2069380452062756991"></a>
 
 *Thread · 2 posts · conversation `2069380452062756991`*
@@ -6026,7 +8987,7 @@ https://t.co/35dYd0sblG
 
 ---
 
-## 116. 2026-06-23
+## 126. 2026-06-23
 <a id="t-2069399710742216806"></a>
 
 *Single post · [2069399710742216806](https://x.com/gregoryblotnick/status/2069399710742216806)*
@@ -6170,7 +9131,7 @@ the first 20 I could think of:
 
 ---
 
-## 117. 2026-06-23
+## 127. 2026-06-23
 <a id="t-2069400635410178550"></a>
 
 *Single post · [2069400635410178550](https://x.com/gregoryblotnick/status/2069400635410178550)*
@@ -6249,7 +9210,7 @@ sometimes px action holds the best answer...and even within that...sometimes "10
 
 ---
 
-## 118. 2026-06-23
+## 128. 2026-06-23
 <a id="t-2069403891347652656"></a>
 
 *Single post · [2069403891347652656](https://x.com/gregoryblotnick/status/2069403891347652656)*
@@ -6380,7 +9341,7 @@ USA (Use Stops Always)
 
 ---
 
-## 119. 2026-06-23
+## 129. 2026-06-23
 <a id="t-2069420132565180572"></a>
 
 *Single post · [2069422089237319877](https://x.com/gregoryblotnick/status/2069422089237319877)*
@@ -6393,7 +9354,7 @@ not just basic econ theory, but "this is exactly how mkts misprice cyclical asse
 
 ---
 
-## 120. 2026-06-23
+## 130. 2026-06-23
 <a id="t-2069435832453255393"></a>
 
 *Thread · 2 posts · conversation `2069435832453255393`*
@@ -6431,7 +9392,7 @@ and so without these books, a lot would have been lost to history...major credit
 
 ---
 
-## 121. 2026-06-23
+## 131. 2026-06-23
 <a id="t-2069446179604009430"></a>
 
 *Thread · 2 posts · conversation `2069446179604009430`*
@@ -6465,7 +9426,7 @@ add in "Money Masters," ur close to covering the entire GOAT list 🐐
 
 ---
 
-## 122. 2026-06-23
+## 132. 2026-06-23
 <a id="t-2069562187606098041"></a>
 
 *Single post · [2069562187606098041](https://x.com/gregoryblotnick/status/2069562187606098041)*
@@ -6478,7 +9439,7 @@ The irony is that less than a week after we went bust, interest rates hit their 
 
 ---
 
-## 123. 2026-06-23
+## 133. 2026-06-23
 <a id="t-2069563111099490442"></a>
 
 *Single post · [2069563111099490442](https://x.com/gregoryblotnick/status/2069563111099490442)*
@@ -6541,7 +9502,7 @@ Secondly, the path to an investment career is not necessarily to work at a hedge
 
 ---
 
-## 124. 2026-06-23
+## 134. 2026-06-23
 <a id="t-2069564940420055351"></a>
 
 *Single post · [2069564940420055351](https://x.com/gregoryblotnick/status/2069564940420055351)*
@@ -6552,7 +9513,7 @@ Druck on Valuation (Schwager) - imo THE #1 framework
 
 ---
 
-## 125. 2026-06-23
+## 135. 2026-06-23
 <a id="t-2069568152124473734"></a>
 
 *Single post · [2069568152124473734](https://x.com/gregoryblotnick/status/2069568152124473734)*
@@ -6565,7 +9526,7 @@ Druck in New Market Wizards on mentorship
 
 ---
 
-## 126. 2026-06-23
+## 136. 2026-06-23
 <a id="t-2069569210305724724"></a>
 
 *Single post · [2069569210305724724](https://x.com/gregoryblotnick/status/2069569210305724724)*
@@ -6586,7 +9547,7 @@ Druck in New Market Wizards -- this is all 100% canonical, hall-of-fame material
 
 ---
 
-## 127. 2026-06-23
+## 137. 2026-06-23
 <a id="t-2069570583126286693"></a>
 
 *Single post · [2069570583126286693](https://x.com/gregoryblotnick/status/2069570583126286693)*
@@ -6613,7 +9574,7 @@ The fatal weakness of almost all "systems" of speculation is that they are simpl
 
 ---
 
-## 128. 2026-06-24
+## 138. 2026-06-24
 <a id="t-2069574780202660262"></a>
 
 *Single post · [2069574780202660262](https://x.com/gregoryblotnick/status/2069574780202660262)*
@@ -6626,7 +9587,7 @@ When you see an industry inflection points, don't buy just the cheap stock, or t
 
 ---
 
-## 129. 2026-06-24
+## 139. 2026-06-24
 <a id="t-2069577448266809403"></a>
 
 *Single post · [2069577448266809403](https://x.com/gregoryblotnick/status/2069577448266809403)*
@@ -6645,7 +9606,7 @@ Lynch notices that people always ask him about the outlook for the economy and t
 
 ---
 
-## 130. 2026-06-24
+## 140. 2026-06-24
 <a id="t-2069578460423397404"></a>
 
 *Single post · [2069578460423397404](https://x.com/gregoryblotnick/status/2069578460423397404)*
@@ -6662,7 +9623,7 @@ Jim Rogers just mogs the fuck out of Scott Bessent and then tells him to go shor
 
 ---
 
-## 131. 2026-06-24
+## 141. 2026-06-24
 <a id="t-2069591431514083577"></a>
 
 *Single post · [2069591431514083577](https://x.com/gregoryblotnick/status/2069591431514083577)*
@@ -6715,7 +9676,7 @@ the intvw list = everybody ever, and intvw format brings out all the obscure wis
 
 ---
 
-## 132. 2026-06-24
+## 142. 2026-06-24
 <a id="t-2069593918270754983"></a>
 
 *Single post · [2069593918270754983](https://x.com/gregoryblotnick/status/2069593918270754983)*
@@ -6726,7 +9687,7 @@ Michael Platt in "Hedge Fund Market Wizards" -- one of the greatest excerpts eve
 
 ---
 
-## 133. 2026-06-24
+## 143. 2026-06-24
 <a id="t-2069594783157305379"></a>
 
 *Single post · [2069594783157305379](https://x.com/gregoryblotnick/status/2069594783157305379)*
@@ -6741,7 +9702,7 @@ MENTAL CAPITAL > FINANCIAL CAPITAL
 
 ---
 
-## 134. 2026-06-24
+## 144. 2026-06-24
 <a id="t-2069595755275227168"></a>
 
 *Thread · 3 posts · conversation `2069595755275227168`*
@@ -6772,7 +9733,7 @@ Platt -- 10/10 on both risk mgmt and "reading the tape" https://t.co/RU1OB1xGUb
 
 ---
 
-## 135. 2026-06-24
+## 145. 2026-06-24
 <a id="t-2069600618872713607"></a>
 
 *Thread · 4 posts · conversation `2069600618872713607`*
@@ -6844,7 +9805,7 @@ A: My personal life is integrated with my trading life.
 
 ---
 
-## 136. 2026-06-24
+## 146. 2026-06-24
 <a id="t-2069609155871035876"></a>
 
 *Single post · [2069609155871035876](https://x.com/gregoryblotnick/status/2069609155871035876)*
@@ -6881,7 +9842,7 @@ prob CAGRs at 20-30% the next few years
 
 ---
 
-## 137. 2026-06-24
+## 147. 2026-06-24
 <a id="t-2069617005724917862"></a>
 
 *Single post · [2069617005724917862](https://x.com/gregoryblotnick/status/2069617005724917862)*
@@ -6952,7 +9913,7 @@ intvw link: https://t.co/8rRREpwWn2
 
 ---
 
-## 138. 2026-06-24
+## 148. 2026-06-24
 <a id="t-2069620914325443016"></a>
 
 *Single post · [2069620914325443016](https://x.com/gregoryblotnick/status/2069620914325443016)*
@@ -7089,7 +10050,7 @@ intvw link: https://t.co/8rRREpwWn2
 
 ---
 
-## 139. 2026-06-24
+## 149. 2026-06-24
 <a id="t-2069623966315032906"></a>
 
 *Single post · [2069623966315032906](https://x.com/gregoryblotnick/status/2069623966315032906)*
@@ -7206,7 +10167,7 @@ link: https://t.co/DpmkwGphZW
 
 ---
 
-## 140. 2026-06-24
+## 150. 2026-06-24
 <a id="t-2069626938969161875"></a>
 
 *Thread · 2 posts · conversation `2069626938969161875`*
@@ -7321,7 +10282,7 @@ I'm looking for people who are not afraid to take risks. One of the questions I 
 
 ---
 
-## 141. 2026-06-24
+## 151. 2026-06-24
 <a id="t-2069730788447273216"></a>
 
 *Single post · [2069730788447273216](https://x.com/gregoryblotnick/status/2069730788447273216)*
@@ -7334,7 +10295,7 @@ mental capital...McKay in Schwager
 
 ---
 
-## 142. 2026-06-24
+## 152. 2026-06-24
 <a id="t-2069733862444269970"></a>
 
 *Single post · [2069733862444269970](https://x.com/gregoryblotnick/status/2069733862444269970)*
@@ -7343,7 +10304,7 @@ mental capital...McKay in Schwager
 
 ---
 
-## 143. 2026-06-24
+## 153. 2026-06-24
 <a id="t-2069737694008152177"></a>
 
 *Single post · [2069737694008152177](https://x.com/gregoryblotnick/status/2069737694008152177)*
@@ -7358,7 +10319,7 @@ all u need...two great books &gt; 100 good books. https://t.co/r0j9PBOOra
 
 ---
 
-## 144. 2026-06-24
+## 154. 2026-06-24
 <a id="t-2069756294555131962"></a>
 
 *Single post · [2069756294555131962](https://x.com/gregoryblotnick/status/2069756294555131962)*
@@ -7409,7 +10370,7 @@ if u didn't understand #6 there (equity as tiny % of mkt cap), read it over and 
 
 ---
 
-## 145. 2026-06-24
+## 155. 2026-06-24
 <a id="t-2069761194747957707"></a>
 
 *Single post · [2069761194747957707](https://x.com/gregoryblotnick/status/2069761194747957707)*
@@ -7468,7 +10429,7 @@ combine it all and u get the "lollapalooza effect" in action.
 
 ---
 
-## 146. 2026-06-24
+## 156. 2026-06-24
 <a id="t-2069762276316397819"></a>
 
 *Single post · [2069762276316397819](https://x.com/gregoryblotnick/status/2069762276316397819)*
@@ -7509,7 +10470,7 @@ has me wondering I'm wrong not to be recommending Phil Fisher...
 
 ---
 
-## 147. 2026-06-24
+## 157. 2026-06-24
 <a id="t-2069765350812438773"></a>
 
 *Single post · [2069765350812438773](https://x.com/gregoryblotnick/status/2069765350812438773)*
@@ -7634,7 +10595,7 @@ Because you see patterns elsewhere, that more or less repeat themselves in diffe
 
 ---
 
-## 148. 2026-06-24
+## 158. 2026-06-24
 <a id="t-2069768367095902653"></a>
 
 *Single post · [2069768367095902653](https://x.com/gregoryblotnick/status/2069768367095902653)*
@@ -7651,7 +10612,30 @@ All that being said, I cannot imagine doing something else for fun or for money.
 
 ---
 
-## 149. 2026-06-24
+## 159. 2026-06-24
+<a id="t-2069772827260039281"></a>
+
+*Single post · [2069772827260039281](https://x.com/gregoryblotnick/status/2069772827260039281)*
+
+Jim Rogers lol
+
+#1 tells Bessent "if u want to learn investing, go short some wheat"
+
+#2 tells people "instead of getting an MBA, go short some beans"
+
+and #3, when asked about mistakes he's made in trading?
+
+"The first one that pops into mind is when I shorted oil in 1980." 😂
+
+> QT @gregoryblotnick: omg another Jim Rogers quote ("New Money Masters") re: telling people to "go short some wheat"
+
+"Rogers once considered getting an MBA himself. However, a senior partner at Dominick & Dominick told him: "Go short some beans and you'll learn more in one trade than you would in two years at b-school."
+
+LOL
+
+---
+
+## 160. 2026-06-24
 <a id="t-2069791386203775101"></a>
 
 *Single post · [2069791386203775101](https://x.com/gregoryblotnick/status/2069791386203775101)*
@@ -7716,7 +10700,7 @@ if u didn't understand #6 there (equity as tiny % of mkt cap), read it over and 
 
 ---
 
-## 150. 2026-06-24
+## 161. 2026-06-24
 <a id="t-2069800712767197506"></a>
 
 *Single post · [2069800712767197506](https://x.com/gregoryblotnick/status/2069800712767197506)*
@@ -7731,7 +10715,7 @@ PTJ...everything is positive visualization (from Mallaby)
 
 ---
 
-## 151. 2026-06-24
+## 162. 2026-06-24
 <a id="t-2069804391385735594"></a>
 
 *Single post · [2069804391385735594](https://x.com/gregoryblotnick/status/2069804391385735594)*
@@ -7744,7 +10728,7 @@ from Robert Mercer, in Mallaby:
 
 ---
 
-## 152. 2026-06-24
+## 163. 2026-06-24
 <a id="t-2069830156621840581"></a>
 
 *Single post · [2069830156621840581](https://x.com/gregoryblotnick/status/2069830156621840581)*
@@ -7794,7 +10778,7 @@ bon courage 😎
 
 ---
 
-## 153. 2026-06-24
+## 164. 2026-06-24
 <a id="t-2069838256183636377"></a>
 
 *Thread · 3 posts · conversation `2069838256183636377`*
@@ -7864,7 +10848,7 @@ He cautions that the first position is not necessarily the biggest because stock
 
 ---
 
-## 154. 2026-06-24
+## 165. 2026-06-24
 <a id="t-2069841817818869943"></a>
 
 *Single post · [2069841817818869943](https://x.com/gregoryblotnick/status/2069841817818869943)*
@@ -7913,7 +10897,7 @@ high bar, no skippable items, you better have ALL those before you attach your S
 
 ---
 
-## 155. 2026-06-24
+## 166. 2026-06-24
 <a id="t-2069846421470117960"></a>
 
 *Single post · [2069846421470117960](https://x.com/gregoryblotnick/status/2069846421470117960)*
@@ -7940,7 +10924,7 @@ more >>
 
 ---
 
-## 156. 2026-06-24
+## 167. 2026-06-24
 <a id="t-2069886253898592410"></a>
 
 *Single post · [2069886253898592410](https://x.com/gregoryblotnick/status/2069886253898592410)*
@@ -8033,7 +11017,7 @@ Everything written here is 100% textbook stop-loss discipline -- use every word 
 
 ---
 
-## 157. 2026-06-24
+## 168. 2026-06-24
 <a id="t-2069894215946174735"></a>
 
 *Single post · [2069894215946174735](https://x.com/gregoryblotnick/status/2069894215946174735)*
@@ -8064,7 +11048,7 @@ all u need...two great books &gt; 100 good books. https://t.co/r0j9PBOOra
 
 ---
 
-## 158. 2026-06-24
+## 169. 2026-06-24
 <a id="t-2069901913240326581"></a>
 
 *Single post · [2069901913240326581](https://x.com/gregoryblotnick/status/2069901913240326581)*
@@ -8095,7 +11079,7 @@ https://t.co/Y98BamPO4I
 
 ---
 
-## 159. 2026-06-25
+## 170. 2026-06-25
 <a id="t-2069950235711856822"></a>
 
 *Single post · [2069950235711856822](https://x.com/gregoryblotnick/status/2069950235711856822)*
@@ -8118,7 +11102,7 @@ the GOAT is chilling somewhere up the cap stack and laughing at the second hand 
 
 ---
 
-## 160. 2026-06-25
+## 171. 2026-06-25
 <a id="t-2069954052767592523"></a>
 
 *Single post · [2069954052767592523](https://x.com/gregoryblotnick/status/2069954052767592523)*
@@ -8149,7 +11133,7 @@ the GOAT is chilling somewhere up the cap stack and laughing at the second hand 
 
 ---
 
-## 161. 2026-06-25
+## 172. 2026-06-25
 <a id="t-2069957391035117967"></a>
 
 *Single post · [2069957391035117967](https://x.com/gregoryblotnick/status/2069957391035117967)*
@@ -8160,7 +11144,7 @@ Alice Schroeder: On who influences him... "When I get up in the morning I look i
 
 ---
 
-## 162. 2026-06-25
+## 173. 2026-06-25
 <a id="t-2069961066218471525"></a>
 
 *Single post · [2069961066218471525](https://x.com/gregoryblotnick/status/2069961066218471525)*
@@ -8173,7 +11157,7 @@ ppl forget that when u see him in something like Apple, he's not exactly new...o
 
 ---
 
-## 163. 2026-06-25
+## 174. 2026-06-25
 <a id="t-2069973189896138937"></a>
 
 *Single post · [2069973189896138937](https://x.com/gregoryblotnick/status/2069973189896138937)*
@@ -8190,7 +11174,7 @@ but this was "come-up" era Buffett, just knifing mfs to death in special sits ht
 
 ---
 
-## 164. 2026-06-25
+## 175. 2026-06-25
 <a id="t-2069980451389821066"></a>
 
 *Single post · [2069980451389821066](https://x.com/gregoryblotnick/status/2069980451389821066)*
@@ -8209,7 +11193,7 @@ shit u can't make up
 
 ---
 
-## 165. 2026-06-25
+## 176. 2026-06-25
 <a id="t-2070101400432841009"></a>
 
 *Single post · [2070101400432841009](https://x.com/gregoryblotnick/status/2070101400432841009)*
@@ -8236,7 +11220,7 @@ https://t.co/W2D2QpvBxx
 
 ---
 
-## 166. 2026-06-25
+## 177. 2026-06-25
 <a id="t-2070102341726974372"></a>
 
 *Single post · [2070102341726974372](https://x.com/gregoryblotnick/status/2070102341726974372)*
@@ -8346,7 +11330,7 @@ good luck trading
 
 ---
 
-## 167. 2026-06-25
+## 178. 2026-06-25
 <a id="t-2070103651016679752"></a>
 
 *Single post · [2070103651016679752](https://x.com/gregoryblotnick/status/2070103651016679752)*
@@ -8374,7 +11358,7 @@ and u may as well stop asking the world -- or asking LLMs -- questions which can
 
 ---
 
-## 168. 2026-06-25
+## 179. 2026-06-25
 <a id="t-2070107984793833653"></a>
 
 *Single post · [2070107984793833653](https://x.com/gregoryblotnick/status/2070107984793833653)*
@@ -8393,7 +11377,7 @@ https://t.co/W2D2QpvBxx
 
 ---
 
-## 169. 2026-06-25
+## 180. 2026-06-25
 <a id="t-2070114447096447399"></a>
 
 *Single post · [2070114447096447399](https://x.com/gregoryblotnick/status/2070114447096447399)*
@@ -8452,7 +11436,7 @@ You can break a rule and get away with it once in a while. But one day, the rule
 
 ---
 
-## 170. 2026-06-25
+## 181. 2026-06-25
 <a id="t-2070119116237656502"></a>
 
 *Single post · [2070119116237656502](https://x.com/gregoryblotnick/status/2070119116237656502)*
@@ -8463,7 +11447,7 @@ You can break a rule and get away with it once in a while. But one day, the rule
 
 ---
 
-## 171. 2026-06-25
+## 182. 2026-06-25
 <a id="t-2070122132495884544"></a>
 
 *Single post · [2070122132495884544](https://x.com/gregoryblotnick/status/2070122132495884544)*
@@ -8472,7 +11456,7 @@ on trading enterprise software https://t.co/Jr8Dyk7xXn
 
 ---
 
-## 172. 2026-06-25
+## 183. 2026-06-25
 <a id="t-2070125270791590099"></a>
 
 *Single post · [2070125270791590099](https://x.com/gregoryblotnick/status/2070125270791590099)*
@@ -8483,7 +11467,7 @@ same idea as the PTJ quote: "Don’t be a hero. Don’t have an ego. Always ques
 
 ---
 
-## 173. 2026-06-25
+## 184. 2026-06-25
 <a id="t-2070134444657184791"></a>
 
 *Single post · [2070134444657184791](https://x.com/gregoryblotnick/status/2070134444657184791)*
@@ -8496,7 +11480,7 @@ feels more timeless than it does dated, a specialist will see things that I don'
 
 ---
 
-## 174. 2026-06-25
+## 185. 2026-06-25
 <a id="t-2070138915340570710"></a>
 
 *Single post · [2070138915340570710](https://x.com/gregoryblotnick/status/2070138915340570710)*
@@ -8512,7 +11496,7 @@ can put you out of business"
 
 ---
 
-## 175. 2026-06-25
+## 186. 2026-06-25
 <a id="t-2070140674201080099"></a>
 
 *Single post · [2070140674201080099](https://x.com/gregoryblotnick/status/2070140674201080099)*
@@ -8541,7 +11525,7 @@ Platt: "I hired an economist once, which was the biggest mistake ever. He lasted
 
 ---
 
-## 176. 2026-06-25
+## 187. 2026-06-25
 <a id="t-2070149282284326927"></a>
 
 *Single post · [2070149282284326927](https://x.com/gregoryblotnick/status/2070149282284326927)*
@@ -8552,7 +11536,7 @@ lasers from the big dog
 
 ---
 
-## 177. 2026-06-25
+## 188. 2026-06-25
 <a id="t-2070151472054960521"></a>
 
 *Single post · [2070151472054960521](https://x.com/gregoryblotnick/status/2070151472054960521)*
@@ -8565,7 +11549,7 @@ Buffett: "When we bought See's Candy, I spent an hour there. Every business we'v
 
 ---
 
-## 178. 2026-06-25
+## 189. 2026-06-25
 <a id="t-2070153965333877210"></a>
 
 *Single post · [2070153965333877210](https://x.com/gregoryblotnick/status/2070153965333877210)*
@@ -8584,7 +11568,7 @@ one of the many definitions of risk, in five parts (from BRK 1993)
 
 ---
 
-## 179. 2026-06-25
+## 190. 2026-06-25
 <a id="t-2070155190565548312"></a>
 
 *Single post · [2070155190565548312](https://x.com/gregoryblotnick/status/2070155190565548312)*
@@ -8605,7 +11589,7 @@ this series = strong blend of history mixed w/ biographies
 
 ---
 
-## 180. 2026-06-25
+## 191. 2026-06-25
 <a id="t-2070204432227111005"></a>
 
 *Single post · [2070204432227111005](https://x.com/gregoryblotnick/status/2070204432227111005)*
@@ -8618,7 +11602,7 @@ pages 4-6 below (Q&amp;A with Ainslie and Lasry)
 
 ---
 
-## 181. 2026-06-25
+## 192. 2026-06-25
 <a id="t-2070207236299776191"></a>
 
 *Single post · [2070207236299776191](https://x.com/gregoryblotnick/status/2070207236299776191)*
@@ -8643,7 +11627,7 @@ there's a lot in here, but it will 100% help u think differently... that is all 
 
 ---
 
-## 182. 2026-06-25
+## 193. 2026-06-25
 <a id="t-2070207328750575783"></a>
 
 *Single post · [2070207328750575783](https://x.com/gregoryblotnick/status/2070207328750575783)*
@@ -8654,7 +11638,7 @@ https://t.co/oF2Yq9MvxP https://t.co/Yss1e656sx
 
 ---
 
-## 183. 2026-06-25
+## 194. 2026-06-25
 <a id="t-2070212462448939089"></a>
 
 *Single post · [2070212462448939089](https://x.com/gregoryblotnick/status/2070212462448939089)*
@@ -8667,7 +11651,7 @@ https://t.co/YPlh2i4gDb
 
 ---
 
-## 184. 2026-07-05
+## 195. 2026-07-05
 <a id="t-2073828622876426256"></a>
 
 *Single post · [2073828622876426256](https://x.com/gregoryblotnick/status/2073828622876426256)*
@@ -8676,7 +11660,7 @@ C.S. Lewis on “…the long terrible story of man trying to find something othe
 
 ---
 
-## 185. 2026-07-06
+## 196. 2026-07-06
 <a id="t-2074078820093534222"></a>
 
 *Single post · [2074080305577681282](https://x.com/gregoryblotnick/status/2074080305577681282)*
@@ -8703,7 +11687,7 @@ I haven’t seen a dd% yield in like 5-10 years that didn’t go from LDD% to MD
 
 ---
 
-## 186. 2026-07-06
+## 197. 2026-07-06
 <a id="t-2074085568703500586"></a>
 
 *Thread · 2 posts · conversation `2074085568703500586`*
@@ -8730,7 +11714,7 @@ https://t.co/9otb9nagKY https://t.co/CXXb7yXnGv
 
 ---
 
-## 187. 2026-07-06
+## 198. 2026-07-06
 <a id="t-2074087203810975814"></a>
 
 *Single post · [2074087203810975814](https://x.com/gregoryblotnick/status/2074087203810975814)*
@@ -8741,7 +11725,7 @@ helps parse out "do I actually have a fundamental, idiosyncratic idea here, or i
 
 ---
 
-## 188. 2026-07-06
+## 199. 2026-07-06
 <a id="t-2074090328789762417"></a>
 
 *Thread · 2 posts · conversation `2074090328789762417`*
@@ -8796,7 +11780,7 @@ helps parse out "do I actually have a fundamental, idiosyncratic idea here, or i
 
 ---
 
-## 189. 2026-07-06
+## 200. 2026-07-06
 <a id="t-2074113190779047936"></a>
 
 *Single post · [2074113190779047936](https://x.com/gregoryblotnick/status/2074113190779047936)*
@@ -8807,7 +11791,7 @@ https://t.co/NUQUKNKk7y https://t.co/8nhWYB4Waj
 
 ---
 
-## 190. 2026-07-08
+## 201. 2026-07-08
 <a id="t-2074807959842897967"></a>
 
 *Single post · [2074807959842897967](https://x.com/gregoryblotnick/status/2074807959842897967)*
@@ -8820,7 +11804,7 @@ if yes, ur gonna eat the apple…otherwise, ur not actually hungry, ur just eati
 
 ---
 
-## 191. 2026-07-08
+## 202. 2026-07-08
 <a id="t-2074824990831018116"></a>
 
 *Single post · [2074824990831018116](https://x.com/gregoryblotnick/status/2074824990831018116)*
@@ -8863,7 +11847,7 @@ thats abt as much as u can hope for in "go where there's dumb competition"... "d
 
 ---
 
-## 192. 2026-07-08
+## 203. 2026-07-08
 <a id="t-2074837321409520033"></a>
 
 *Single post · [2074837321409520033](https://x.com/gregoryblotnick/status/2074837321409520033)*
@@ -8900,7 +11884,7 @@ https://t.co/W2D2QpvBxx
 
 ---
 
-## 193. 2026-07-08
+## 204. 2026-07-08
 <a id="t-2074840410225004701"></a>
 
 *Single post · [2074840410225004701](https://x.com/gregoryblotnick/status/2074840410225004701)*
@@ -8913,7 +11897,7 @@ two from "Open" by Agassi:
 
 ---
 
-## 194. 2026-07-08
+## 205. 2026-07-08
 <a id="t-2074844785093841200"></a>
 
 *Single post · [2074844785093841200](https://x.com/gregoryblotnick/status/2074844785093841200)*
@@ -8930,7 +11914,7 @@ this was a great quote from Gavin Baker on Seides' podcast in March:
 
 ---
 
-## 195. 2026-07-08
+## 206. 2026-07-08
 <a id="t-2074846622303780980"></a>
 
 *Single post · [2074846622303780980](https://x.com/gregoryblotnick/status/2074846622303780980)*
@@ -8939,7 +11923,7 @@ this was a great quote from Gavin Baker on Seides' podcast in March:
 
 ---
 
-## 196. 2026-07-08
+## 207. 2026-07-08
 <a id="t-2074848073763766635"></a>
 
 *Single post · [2074848073763766635](https://x.com/gregoryblotnick/status/2074848073763766635)*
@@ -8956,7 +11940,7 @@ This is what they do, and we don't..."SIZE WINNERS." https://t.co/ncG5FSTWC7
 
 ---
 
-## 197. 2026-07-08
+## 208. 2026-07-08
 <a id="t-2074850818344301012"></a>
 
 *Single post · [2074850818344301012](https://x.com/gregoryblotnick/status/2074850818344301012)*
@@ -8967,7 +11951,7 @@ amazing
 
 ---
 
-## 198. 2026-07-09
+## 209. 2026-07-09
 <a id="t-2075155259362595032"></a>
 
 *Single post · [2075155259362595032](https://x.com/gregoryblotnick/status/2075155259362595032)*
@@ -9000,7 +11984,7 @@ feels more timeless than it does dated, a specialist will see things that I don'
 
 ---
 
-## 199. 2026-07-10
+## 210. 2026-07-10
 <a id="t-2075514595620347943"></a>
 
 *Single post · [2075514595620347943](https://x.com/gregoryblotnick/status/2075514595620347943)*
@@ -9011,7 +11995,7 @@ C.S. Lewis on pride… so good
 
 ---
 
-## 200. 2026-07-10
+## 211. 2026-07-10
 <a id="t-2075603519181119684"></a>
 
 *Single post · [2075603519181119684](https://x.com/gregoryblotnick/status/2075603519181119684)*
@@ -9024,7 +12008,7 @@ on the Munger Partnership's back-to-back 30% drawdowns in 1973-1974 with OPM, an
 
 ---
 
-## 201. 2026-07-10
+## 212. 2026-07-10
 <a id="t-2075622119463858288"></a>
 
 *Single post · [2075622119463858288](https://x.com/gregoryblotnick/status/2075622119463858288)*
@@ -9063,7 +12047,7 @@ https://t.co/35dYd0sblG
 
 ---
 
-## 202. 2026-07-10
+## 213. 2026-07-10
 <a id="t-2075624851843305734"></a>
 
 *Single post · [2075624851843305734](https://x.com/gregoryblotnick/status/2075624851843305734)*
@@ -9128,7 +12112,7 @@ and u may as well stop asking the world -- or asking LLMs -- questions which can
 
 ---
 
-## 203. 2026-07-10
+## 214. 2026-07-10
 <a id="t-2075629748399591568"></a>
 
 *Single post · [2075629748399591568](https://x.com/gregoryblotnick/status/2075629748399591568)*
@@ -9147,7 +12131,7 @@ but from a process perspective, u are driving with your dick hanging out the win
 
 ---
 
-## 204. 2026-07-10
+## 215. 2026-07-10
 <a id="t-2075633281010155661"></a>
 
 *Single post · [2075633281010155661](https://x.com/gregoryblotnick/status/2075633281010155661)*
@@ -9170,7 +12154,7 @@ worth thinking about next time u wander into some big-brain debate on 2036 softw
 
 ---
 
-## 205. 2026-07-10
+## 216. 2026-07-10
 <a id="t-2075638976300331338"></a>
 
 *Single post · [2075638976300331338](https://x.com/gregoryblotnick/status/2075638976300331338)*
@@ -9225,7 +12209,7 @@ helps parse out "do I actually have a fundamental, idiosyncratic idea here, or i
 
 ---
 
-## 206. 2026-07-10
+## 217. 2026-07-10
 <a id="t-2075643410686374105"></a>
 
 *Single post · [2075643410686374105](https://x.com/gregoryblotnick/status/2075643410686374105)*
@@ -9256,7 +12240,7 @@ simple to understand, difficult to master, and couldn't possibly be more relevan
 
 ---
 
-## 207. 2026-07-10
+## 218. 2026-07-10
 <a id="t-2075673686640582786"></a>
 
 *Single post · [2075673686640582786](https://x.com/gregoryblotnick/status/2075673686640582786)*
@@ -9269,7 +12253,7 @@ being likeable can take u quite a long way...as does living by this quote:
 
 ---
 
-## 208. 2026-07-10
+## 219. 2026-07-10
 <a id="t-2075689306585198596"></a>
 
 *Single post · [2075689306585198596](https://x.com/gregoryblotnick/status/2075689306585198596)*
@@ -9290,7 +12274,7 @@ just like Kipling's "Triumph and Disaster"
 
 ---
 
-## 209. 2026-07-11
+## 220. 2026-07-11
 <a id="t-2075883149683298747"></a>
 
 *Single post · [2075883149683298747](https://x.com/gregoryblotnick/status/2075883149683298747)*
@@ -9412,7 +12396,7 @@ Amsterdam, May 14th, 1781
 
 ---
 
-## 210. 2026-07-11
+## 221. 2026-07-11
 <a id="t-2075906082027733474"></a>
 
 *Single post · [2075906082027733474](https://x.com/gregoryblotnick/status/2075906082027733474)*
@@ -9549,7 +12533,7 @@ good luck trading
 
 ---
 
-## 211. 2026-07-11
+## 222. 2026-07-11
 <a id="t-2075956366124986591"></a>
 
 *Single post · [2075956366124986591](https://x.com/gregoryblotnick/status/2075956366124986591)*
@@ -9726,7 +12710,7 @@ in any room there’s the man with the title, and there’s the man who has ever
 
 ---
 
-## 212. 2026-07-11
+## 223. 2026-07-11
 <a id="t-2075971293116092700"></a>
 
 *Single post · [2075971293116092700](https://x.com/gregoryblotnick/status/2075971293116092700)*
@@ -9783,7 +12767,7 @@ tells u something fascinating about the human spirit, and the ability to summon 
 
 ---
 
-## 213. 2026-07-11
+## 224. 2026-07-11
 <a id="t-2075985592475615338"></a>
 
 *Single post · [2075985592475615338](https://x.com/gregoryblotnick/status/2075985592475615338)*
@@ -9794,7 +12778,7 @@ Munger on Lyndon Johnson:
 
 ---
 
-## 214. 2026-07-11
+## 225. 2026-07-11
 <a id="t-2076053183575781653"></a>
 
 *Single post · [2076053183575781653](https://x.com/gregoryblotnick/status/2076053183575781653)*
@@ -10176,7 +13160,7 @@ c'est la guerre ⚔️
 
 ---
 
-## 215. 2026-07-12
+## 226. 2026-07-12
 <a id="t-2076097662047187400"></a>
 
 *Single post · [2076097662047187400](https://x.com/gregoryblotnick/status/2076097662047187400)*
@@ -10187,7 +13171,7 @@ on "broken compounders" -- is there really some high-level issue? Or are each of
 
 ---
 
-## 216. 2026-07-12
+## 227. 2026-07-12
 <a id="t-2076284392863904012"></a>
 
 *Single post · [2076284392863904012](https://x.com/gregoryblotnick/status/2076284392863904012)*
@@ -10705,7 +13689,7 @@ Godspeed 😎
 
 ---
 
-## 217. 2026-07-12
+## 228. 2026-07-12
 <a id="t-2076308917802394003"></a>
 
 *Single post · [2076308917802394003](https://x.com/gregoryblotnick/status/2076308917802394003)*
@@ -10963,7 +13947,7 @@ Bollore: hold my org chart https://t.co/ieBpjdDE19
 
 ---
 
-## 218. 2026-07-12
+## 229. 2026-07-12
 <a id="t-2076364169528406314"></a>
 
 *Single post · [2076364169528406314](https://x.com/gregoryblotnick/status/2076364169528406314)*
@@ -11061,7 +14045,7 @@ Until then, remember, absolute compounding is always what matters, not short-ter
 
 ---
 
-## 219. 2026-07-12
+## 230. 2026-07-12
 <a id="t-2076399432577523842"></a>
 
 *Single post · [2076399432577523842](https://x.com/gregoryblotnick/status/2076399432577523842)*
@@ -11265,7 +14249,7 @@ good luck trading
 
 ---
 
-## 220. 2026-07-12
+## 231. 2026-07-12
 <a id="t-2076438713077228002"></a>
 
 *Single post · [2076438713077228002](https://x.com/gregoryblotnick/status/2076438713077228002)*
@@ -11493,7 +14477,7 @@ do good work, get good bread 🍞
 
 ---
 
-## 221. 2026-07-12
+## 232. 2026-07-12
 <a id="t-2076452454783242510"></a>
 
 *Single post · [2076452454783242510](https://x.com/gregoryblotnick/status/2076452454783242510)*
@@ -11688,7 +14672,7 @@ paz hermano 😎
 
 ---
 
-## 222. 2026-07-12
+## 233. 2026-07-12
 <a id="t-2076456442282844198"></a>
 
 *Thread · 2 posts · conversation `2076456442282844198`*
@@ -11719,7 +14703,7 @@ take notes player
 
 ---
 
-## 223. 2026-07-13
+## 234. 2026-07-13
 <a id="t-2076585078143029588"></a>
 
 *Single post · [2076585078143029588](https://x.com/gregoryblotnick/status/2076585078143029588)*
@@ -11728,7 +14712,7 @@ The Final Frontier: Breaking Down Tape, P&L Mirrors, Emotional Trench Warfare
 
 ---
 
-## 224. 2026-07-13
+## 235. 2026-07-13
 <a id="t-2076602869185175789"></a>
 
 *Single post · [2076602869185175789](https://x.com/gregoryblotnick/status/2076602869185175789)*
@@ -11737,7 +14721,7 @@ The Final Frontier: Breaking Down Tape, P&L Mirrors, Emotional Trench Warfare
 
 ---
 
-## 225. 2026-07-13
+## 236. 2026-07-13
 <a id="t-2076661949048209624"></a>
 
 *Single post · [2076661949048209624](https://x.com/gregoryblotnick/status/2076661949048209624)*
@@ -11954,7 +14938,7 @@ smoked it https://t.co/QIKLLkVFQM
 
 ---
 
-## 226. 2026-07-13
+## 237. 2026-07-13
 <a id="t-2076675822019023183"></a>
 
 *Single post · [2076675822019023183](https://x.com/gregoryblotnick/status/2076675822019023183)*
@@ -12169,7 +15153,7 @@ think thats it...if I missed anything DM.
 
 ---
 
-## 227. 2026-07-13
+## 238. 2026-07-13
 <a id="t-2076785601672609976"></a>
 
 *Single post · [2076785601672609976](https://x.com/gregoryblotnick/status/2076785601672609976)*
@@ -12257,7 +15241,7 @@ soul of the hard hat aura  🪖
 
 ---
 
-## 228. 2026-07-14
+## 239. 2026-07-14
 <a id="t-2076982920221212925"></a>
 
 *Single post · [2076982920221212925](https://x.com/gregoryblotnick/status/2076982920221212925)*
@@ -12304,7 +15288,7 @@ and that trait is how he earned his goat stamp 🐐
 
 ---
 
-## 229. 2026-07-16
+## 240. 2026-07-16
 <a id="t-2077694278009049316"></a>
 
 *Single post · [2077694278009049316](https://x.com/gregoryblotnick/status/2077694278009049316)*
@@ -12327,7 +15311,7 @@ but either way...like, keep doing that, its a wonderful attitude. the world need
 
 ---
 
-## 230. 2026-07-16
+## 241. 2026-07-16
 <a id="t-2077697419064525209"></a>
 
 *Single post · [2077697419064525209](https://x.com/gregoryblotnick/status/2077697419064525209)*
@@ -12356,7 +15340,7 @@ remember..."BAD COLOR IS WORSE THAN NO COLOR."
 
 ---
 
-## 231. 2026-07-16
+## 242. 2026-07-16
 <a id="t-2077701713599856947"></a>
 
 *Single post · [2077701713599856947](https://x.com/gregoryblotnick/status/2077701713599856947)*
@@ -12395,7 +15379,7 @@ so that when the elephant finally shows up...and others are freaking over the ch
 
 ---
 
-## 232. 2026-07-16
+## 243. 2026-07-16
 <a id="t-2077709550916952094"></a>
 
 *Single post · [2077709550916952094](https://x.com/gregoryblotnick/status/2077709550916952094)*
@@ -12436,7 +15420,164 @@ so if ur struggling to read and/or retain what u read -- ie you turn the page an
 
 ---
 
-## 233. 2026-07-16
+## 244. 2026-07-16
+<a id="t-2077712671630135628"></a>
+
+*Single post · [2077712671630135628](https://x.com/gregoryblotnick/status/2077712671630135628)*
+
+the only thing abt thinking in "book of base rates" or blackjack terms, for markets, is that u cant overlook the magnitude of the tail outcome
+
+this is the same error that has blown up everyone at least once, taken major firms down, etc
+
+Bessent talks about how Russia defaulting in the late 1990's was literally a 0% probability
+
+but, prob should've been modeled as .0001%
+
+and then u have the magnitude of the .0001% outcome, paired with the leverage of an LTCM, and game over
+
+ditto gamestop
+
+this is where the blackjack analogy or even pari-mutuel one fail to capture "think in expected value terms," markets have a far wider range of outcomes
+
+like a capital structure with $50M of equity and $2B of debt, you could play 99 of 100 hands betting that the equity goes to zero and win
+
+its that final step that ppl miss, the outcome of the 1/100 hand...its not a 2x or 3x, the magnitude of the tail outcome is like a 10x or 100x
+
+feels like a "u can only learn this the hard way" lesson but in the future, u will at least reflect back on this post, like...oh, I see what he meant now.
+
+> QT @gregoryblotnick: for L/S, there is something to be gained in thinking about process the same way you'd think about a blackjack system
+
+because u are taking lots of shots and relying on the law of large numbers -- over say 10,000 hands -- to where process and outcome should converge
+
+(1/6) - this is especially true in multi-mgr where u might have 50 names, each of which present say 10 events/catalysts per year
+
+so as an analyst, that's 500 shots
+
+in blackjack, basic strategy reduces the house edge from 2-5% to less than 1%...basic strategy being the systematic model which dictates ur best move based on ur cards + the dealer upcard
+
+and so in a L/S seat where ur taking tons of shots, u want to gradually strip out discretion where possible, in the quest to make ur process consistent and repeatable
+
+even Buffett, despite being "qualitative" as a fundamental biz analyst, is pretty systematic in how he goes about shit. his decision making process is more akin to a gigabrained probability-calculation machine than a human being.
+
+experience teaches u that there's a sliding scale of discretionary vs systematic, and esp in risk mgmt or sell discipline, u want to automate + remove emotion
+
+but the exact calibration of the scale, the right % of discretion, that's a lifelong adjustment process and specific to u.
+
+this is why blackjack is useful as a mental model. I think Munger prefers pari-mutuel betting/horseracing as the analogue, bc the payoffs are more reflective of how markets price assets, but both work (as does poker).
+
+2.
+
+as for the "basic strategy" of markets, it would be whatever mix of variables comprise winning process for u...no clear definition/many possible inputs.
+
+i.e. understanding ur "circle of competence," ur style, and identifying the setups where u consistently are able to extract dollars from the market
+
+lots of tiny details which u can only learn thru trial and error
+
+but this is how ur odds improve from the standard 50-50 coin flip proposition
+
+meaning...if u or me or a monkey throwing darts showed up, picked a random ticker, and blindly clicked "buy" or "sell," we theoretically should all begin with the same 50-50
+
+3. 
+
+the main difference is that in markets, u have a much wider variance in batting/slugging
+
+some of the greatest managers ever, like Soros or PTJ, are only right 30-40% of the time
+
+but their low win rate/batting average, is offset by their winners being much larger in size than their losers.
+
+in simple numbers: if u can get a win rate of 51%, just north of even, and have your wins be 2x the size of your losses...u are going to be one of the greatest money managers of all time.
+
+over 10,000 trades, ur annualized return/CAGR will be about 50%.
+
+if u assume 1,000 trades per year, over 10 years your equity will 50x... $100,000 turns to $5 million.
+
+4. 
+
+will u have a 51% win rate, probably not
+
+this is simply to illustrate that u only need a tiny edge + bigger wins than losses + large sample size, for a system to generate crazy LT returns.
+
+if u assume a 40% win rate with the same ratio (reward = 2x risk), ur annualized return is 19% -- about the same as Buffett.
+
+but if u reduce the ratio to 1.5x, meaning ur wins are 1.5x the size of ur losses, ur returns on a 40% hit rate collapse to breakeven (~0% annualized return).
+
+u can fuck around with the math all u want, but the only way any of this becomes reality is by taking thousands and thousands of shots, year after year
+
+this is the first step, figuring out where u have the highest hit rate, with the second step being risk mgmt, sell discipline, cutting losses fast and letting winners run
+
+5.
+
+the most important takeaway from all this, is that everything starts and ends with "breaking down tape"
+
+u cannot know what ur good at without staring at ur historical P&L/trade blotter
+
+and there have to be a lot of reps in there for signal to emerge from noise
+
+so go pay ur "tuition," the only way u learn markets is thru thousands of reps and years of generating red P&L
+
+until u have losses to study, u don't have shit
+
+this all applies for building models as well. u gauge the efficacy of a model by whether it correctly forecasts earnings
+
+if u arent measuring ur forecasts vs actual, measuring ur process vs the outcome, u are just wasting ur time
+
+that's what the 2x2 matrix below is for -- process vs outcome -- those four possible squares encompass every trade or investment result, and they tell u where u need to devote ur time.
+
+otherwise, u aren't iterating. nothing is getting done. u don't know what's luck and what's skill, and u really have no clue if what u are doing in general is right or dead wrong.
+
+6.
+
+above all, u gain absolutely nothing from scrolling twtr
+
+scrolling only leads to ppl having 1,000 new ideas each day, software, oil, gold, and asking 1,000 dumb ass questions where I give the exact same answer:
+
+"what does ur P&L say?"
+
+all the answers u seek are in your red P&L
+
+if u understand the self-improvement process via trial & error -- as in, take shots, analyze ur mistakes, iterate off them, and repeat -- there is a 0% chance u are DMing me or anyone else
+
+none of us have a clue if u should buy software
+
+u will only learn if u should, by doing it 100 times and studying ur P&L. everything is trial by fire
+
+asking ppl about 1000 new trade ideas only says "I'm not serious about markets" or "I'm afraid of putting $ at risk" or something else that just feels wrong
+
+either the hunger and the passion are missing, or the mind is just dialed to a different frequency.
+
+END
+
+before experience, there is def an attitude/mindset that is conducive for all this, and its visible at a young age
+
+there is a lot of informational content in this quote from Steve Cohen on evaluating trader talent: "I'm looking for people who are not afraid to take risks. One of the questions I ask is: "Tell me some of the riskiest things you've ever done in your life." I want guys who have the confidence to be out there; to be risk takers."
+
+that's exactly it...not specific to him at all, look at a Druck or Soros or Tepper, look at Buffett/Munger, all their track records are built off slugging + riding winners in monstrous stomach-churning size.
+
+if u embrace risk, u will be dying to test ur ideas in the market with $ attached, or at least, ur competition will be
+
+versus just going thru the motions of doing stock pitches and models, listening to business podcasts all day, reading too much business news, other pointless business bullshit with no tie to P&L
+
+if u just want to "talk stocks" without any cost basis or P&L attached, then go tweet all day, that's what 99.9% of ppl are here for
+
+but stop wasting ppl's time pretending like ur serious 
+
+why would anyone want to critique pitches where u never have a single dollar behind any of them...if u have no conviction in ur ideas, if u clearly don't care, no one else is going to care either.
+
+esp when ur competition consists of psychopath mf's who are foaming at the mouth
+
+ultimately the best feedback u will get on a pitch will always come directly from the market -- particularly in the form of red P&L
+
+so if u actually want to improve, take some risk for fucks sake
+
+a man named jim simons has some advice for u...u may have heard it before, it's his #1 recommended way for someone to learn investing.
+
+"Go short some wheat and see how it feels."
+
+good luck trading
+
+---
+
+## 245. 2026-07-16
 <a id="t-2077745429710606477"></a>
 
 *Single post · [2077745429710606477](https://x.com/gregoryblotnick/status/2077745429710606477)*
@@ -12490,7 +15631,7 @@ the world tends to reward the person who knows what they want and isn't afraid t
 
 ---
 
-## 234. 2026-07-16
+## 246. 2026-07-16
 <a id="t-2077753438960529525"></a>
 
 *Single post · [2077753438960529525](https://x.com/gregoryblotnick/status/2077753438960529525)*
@@ -12521,7 +15662,7 @@ those two things...are what close one chapter and begin the next, as ur series o
 
 ---
 
-## 235. 2026-07-17
+## 247. 2026-07-17
 <a id="t-2077916069084225921"></a>
 
 *Thread · 2 posts · conversation `2077916069084225921`*
@@ -12577,7 +15718,7 @@ https://t.co/08wutYFRKL
 
 ---
 
-## 236. 2026-07-17
+## 248. 2026-07-17
 <a id="t-2077933915910623627"></a>
 
 *Single post · [2077933915910623627](https://x.com/gregoryblotnick/status/2077933915910623627)*
@@ -12586,7 +15727,7 @@ https://t.co/08wutYFRKL
 
 ---
 
-## 237. 2026-07-17
+## 249. 2026-07-17
 <a id="t-2078034745296908510"></a>
 
 *Single post · [2078034745296908510](https://x.com/gregoryblotnick/status/2078034745296908510)*
@@ -12712,7 +15853,7 @@ good luck trading, be humble, listen to the tape, and USA (Use Stops Always).
 
 ---
 
-## 238. 2026-07-17
+## 250. 2026-07-17
 <a id="t-2078065605047894473"></a>
 
 *Single post · [2078065605047894473](https://x.com/gregoryblotnick/status/2078065605047894473)*
@@ -12769,7 +15910,7 @@ so even if u don’t poast…u can still get a “Paperback Highlight Reel” ou
 
 ---
 
-## 239. 2026-07-17
+## 251. 2026-07-17
 <a id="t-2078084661675282816"></a>
 
 *Single post · [2078084661675282816](https://x.com/gregoryblotnick/status/2078084661675282816)*
@@ -12786,7 +15927,7 @@ most important part of this quote is that it immediately slices through like 6 d
 
 ---
 
-## 240. 2026-07-17
+## 252. 2026-07-17
 <a id="t-2078091540564410681"></a>
 
 *Single post · [2078091540564410681](https://x.com/gregoryblotnick/status/2078091540564410681)*
@@ -12829,7 +15970,7 @@ bc the minute u bend for one person, its over...everyone sees that ur principles
 
 ---
 
-## 241. 2026-07-17
+## 253. 2026-07-17
 <a id="t-2078102823502327842"></a>
 
 *Single post · [2078102823502327842](https://x.com/gregoryblotnick/status/2078102823502327842)*
@@ -12940,7 +16081,7 @@ so I would say if you are someone who either appreciates great writing, or wants
 
 ---
 
-## 242. 2026-07-17
+## 254. 2026-07-17
 <a id="t-2078110947030221193"></a>
 
 *Single post · [2078110947030221193](https://x.com/gregoryblotnick/status/2078110947030221193)*
@@ -12965,7 +16106,7 @@ anyway, this = 52w lows over $2B mkt cap...strange tape where the "worst possibl
 
 ---
 
-## 243. 2026-07-17
+## 255. 2026-07-17
 <a id="t-2078125409573511633"></a>
 
 *Single post · [2078125409573511633](https://x.com/gregoryblotnick/status/2078125409573511633)*
@@ -13014,7 +16155,7 @@ and now u understand the meaning of the quote:
 
 ---
 
-## 244. 2026-07-17
+## 256. 2026-07-17
 <a id="t-2078168628826980504"></a>
 
 *Single post · [2078168628826980504](https://x.com/gregoryblotnick/status/2078168628826980504)*
@@ -13023,7 +16164,7 @@ prob the single most important rule for trading and for life https://t.co/CYVruQ
 
 ---
 
-## 245. 2026-07-17
+## 257. 2026-07-17
 <a id="t-2078207793211879562"></a>
 
 *Single post · [2078207793211879562](https://x.com/gregoryblotnick/status/2078207793211879562)*
@@ -13051,7 +16192,7 @@ catalyst path:
 
 ---
 
-## 246. 2026-07-17
+## 258. 2026-07-17
 <a id="t-2078234909764632738"></a>
 
 *Thread · 2 posts · conversation `2078234909764632738`*
@@ -13096,7 +16237,7 @@ but this was "come-up" era Buffett, just knifing mfs to death in special sits ht
 
 ---
 
-## 247. 2026-07-18
+## 259. 2026-07-18
 <a id="t-2078297761867341913"></a>
 
 *Single post · [2078297761867341913](https://x.com/gregoryblotnick/status/2078297761867341913)*
@@ -13233,7 +16374,7 @@ So treat it like one...
 
 ---
 
-## 248. 2026-07-18
+## 260. 2026-07-18
 <a id="t-2078309350049738975"></a>
 
 *Single post · [2078309350049738975](https://x.com/gregoryblotnick/status/2078309350049738975)*
@@ -13292,7 +16433,7 @@ anyway just keep ur eyes open next time u have a tax obligation... u can buy a d
 
 ---
 
-## 249. 2026-07-18
+## 261. 2026-07-18
 <a id="t-2078323802467889405"></a>
 
 *Single post · [2078323802467889405](https://x.com/gregoryblotnick/status/2078323802467889405)*
@@ -13317,7 +16458,7 @@ overall grade 3/10 (just like the question)
 
 ---
 
-## 250. 2026-07-18
+## 262. 2026-07-18
 <a id="t-2078415644932837512"></a>
 
 *Thread · 5 posts · conversation `2078415644932837512`*
@@ -13387,7 +16528,7 @@ Buffett: when the world is ending I like to just walk in, put $25B to work and r
 
 ---
 
-## 251. 2026-07-18
+## 263. 2026-07-18
 <a id="t-2078420508815610342"></a>
 
 *Single post · [2078420508815610342](https://x.com/gregoryblotnick/status/2078420508815610342)*
@@ -13402,7 +16543,7 @@ Reality: Buffett/Malone-style capex splurge + accelerated depreciation + insuran
 
 ---
 
-## 252. 2026-07-18
+## 264. 2026-07-18
 <a id="t-2078423740275151315"></a>
 
 *Thread · 2 posts · conversation `2078423740275151315`*
@@ -13450,7 +16591,7 @@ mf plays the game at an entirely separate level. the chessboard, it stays 12-13 
 
 ---
 
-## 253. 2026-07-18
+## 265. 2026-07-18
 <a id="t-2078436289221689474"></a>
 
 *Single post · [2078436289221689474](https://x.com/gregoryblotnick/status/2078436289221689474)*
@@ -13479,7 +16620,7 @@ https://t.co/fdIeT3ZBSw
 
 ---
 
-## 254. 2026-07-18
+## 266. 2026-07-18
 <a id="t-2078443055942606922"></a>
 
 *Single post · [2078443055942606922](https://x.com/gregoryblotnick/status/2078443055942606922)*
@@ -13501,7 +16642,7 @@ but this was "come-up" era Buffett, just knifing mfs to death in special sits ht
 
 ---
 
-## 255. 2026-07-18
+## 267. 2026-07-18
 <a id="t-2078446698930512350"></a>
 
 *Single post · [2078446698930512350](https://x.com/gregoryblotnick/status/2078446698930512350)*
@@ -13512,7 +16653,7 @@ Reality (Buffett): For my next trick, here, watch as I take $1.4B of Phillips 66
 
 ---
 
-## 256. 2026-07-18
+## 268. 2026-07-18
 <a id="t-2078450049420271767"></a>
 
 *Single post · [2078450049420271767](https://x.com/gregoryblotnick/status/2078450049420271767)*
@@ -13527,7 +16668,7 @@ Buffett: when the world is ending I like to just walk in, put $25B to work and r
 
 ---
 
-## 257. 2026-07-18
+## 269. 2026-07-18
 <a id="t-2078454955275354485"></a>
 
 *Single post · [2078454955275354485](https://x.com/gregoryblotnick/status/2078454955275354485)*
@@ -13538,7 +16679,7 @@ Mr. Buffett recalls thinking: "It's like a woman taking off half her clothes and
 
 ---
 
-## 258. 2026-07-18
+## 270. 2026-07-18
 <a id="t-2078457013927813538"></a>
 
 *Single post · [2078457013927813538](https://x.com/gregoryblotnick/status/2078457013927813538)*
@@ -13551,7 +16692,7 @@ Reality: “Buffett spent the evening nibbling on Cheetos and licorice pastel ca
 
 ---
 
-## 259. 2026-07-18
+## 271. 2026-07-18
 <a id="t-2078466807803838920"></a>
 
 *Single post · [2078466807803838920](https://x.com/gregoryblotnick/status/2078466807803838920)*
@@ -13566,7 +16707,7 @@ sheeeeeeeeeesh https://t.co/m9GAGnE4Po
 
 ---
 
-## 260. 2026-07-18
+## 272. 2026-07-18
 <a id="t-2078494271833788738"></a>
 
 *Single post · [2078494271833788738](https://x.com/gregoryblotnick/status/2078494271833788738)*
@@ -13579,7 +16720,7 @@ Buffett: I'm 92 years old and look at how I size my positions. A 3% position...t
 
 ---
 
-## 261. 2026-07-18
+## 273. 2026-07-18
 <a id="t-2078495293704712408"></a>
 
 *Single post · [2078495293704712408](https://x.com/gregoryblotnick/status/2078495293704712408)*
@@ -13594,7 +16735,7 @@ https://t.co/p7RWIdFQd7
 
 ---
 
-## 262. 2026-07-18
+## 274. 2026-07-18
 <a id="t-2078519546525503703"></a>
 
 *Single post · [2078519546525503703](https://x.com/gregoryblotnick/status/2078519546525503703)*
@@ -13630,7 +16771,7 @@ rating: 🎤🎤🎤🎤🎤
 
 ---
 
-## 263. 2026-07-18
+## 275. 2026-07-18
 <a id="t-2078522603728429257"></a>
 
 *Single post · [2078522603728429257](https://x.com/gregoryblotnick/status/2078522603728429257)*
@@ -13676,7 +16817,7 @@ the GOAT is chilling somewhere up the cap stack and laughing at the second hand 
 
 ---
 
-## 264. 2026-07-18
+## 276. 2026-07-18
 <a id="t-2078526657086787913"></a>
 
 *Single post · [2078526657086787913](https://x.com/gregoryblotnick/status/2078526657086787913)*
@@ -13712,7 +16853,7 @@ Calculator for a brain, shark, ice cold bond trader, that's who he is, prob the 
 
 ---
 
-## 265. 2026-07-18
+## 277. 2026-07-18
 <a id="t-2078530879601700865"></a>
 
 *Single post · [2078530879601700865](https://x.com/gregoryblotnick/status/2078530879601700865)*
@@ -13741,7 +16882,7 @@ shit u can't make up
 
 ---
 
-## 266. 2026-07-18
+## 278. 2026-07-18
 <a id="t-2078537427652932055"></a>
 
 *Single post · [2078537427652932055](https://x.com/gregoryblotnick/status/2078537427652932055)*
@@ -13804,7 +16945,7 @@ That's about all I've got, you can prob dump all this into an LLM and ask "whats
 
 ---
 
-## 267. 2026-07-18
+## 279. 2026-07-18
 <a id="t-2078565110214443091"></a>
 
 *Single post · [2078565110214443091](https://x.com/gregoryblotnick/status/2078565110214443091)*
@@ -13881,7 +17022,7 @@ Protect ur mental kiddo. Good luck trading
 
 ---
 
-## 268. 2026-07-18
+## 280. 2026-07-18
 <a id="t-2078567672745226342"></a>
 
 *Single post · [2078567672745226342](https://x.com/gregoryblotnick/status/2078567672745226342)*
@@ -13898,7 +17039,7 @@ Everything written here is 100% textbook stop-loss discipline -- use every word 
 
 ---
 
-## 269. 2026-07-18
+## 281. 2026-07-18
 <a id="t-2078574516784054293"></a>
 
 *Single post · [2078574516784054293](https://x.com/gregoryblotnick/status/2078574516784054293)*
@@ -13911,7 +17052,7 @@ on trading psychology (esp in drawdowns) u want to refocus on non-fundamental si
 
 ---
 
-## 270. 2026-07-18
+## 282. 2026-07-18
 <a id="t-2078576792554860973"></a>
 
 *Single post · [2078576792554860973](https://x.com/gregoryblotnick/status/2078576792554860973)*
@@ -13954,7 +17095,7 @@ Experiment w all this shit but the “fast trigger finger —> revert to neutral
 
 ---
 
-## 271. 2026-07-18
+## 283. 2026-07-18
 <a id="t-2078578398650102014"></a>
 
 *Single post · [2078578398650102014](https://x.com/gregoryblotnick/status/2078578398650102014)*
@@ -13971,7 +17112,7 @@ most in there is from Market Wizards
 
 ---
 
-## 272. 2026-07-18
+## 284. 2026-07-18
 <a id="t-2078618396221165966"></a>
 
 *Single post · [2078618396221165966](https://x.com/gregoryblotnick/status/2078618396221165966)*
@@ -14016,7 +17157,7 @@ Let iron sharpen iron, my boy, and remember that a man with love for his fellow 
 
 ---
 
-## 273. 2026-07-21
+## 285. 2026-07-21
 <a id="t-2079531756068184451"></a>
 
 *Single post · [2079531756068184451](https://x.com/gregoryblotnick/status/2079531756068184451)*
@@ -14137,7 +17278,7 @@ two words:
 
 ---
 
-## 274. 2026-07-21
+## 286. 2026-07-21
 <a id="t-2079533968186122258"></a>
 
 *Single post · [2079533968186122258](https://x.com/gregoryblotnick/status/2079533968186122258)*
@@ -14153,7 +17294,7 @@ subject: under-the-radar, complex, overlooked, special situation with tangible a
 
 ---
 
-## 275. 2026-07-21
+## 287. 2026-07-21
 <a id="t-2079537622909661447"></a>
 
 *Single post · [2079537622909661447](https://x.com/gregoryblotnick/status/2079537622909661447)*
@@ -14178,7 +17319,7 @@ hard hat aura 🪖
 
 ---
 
-## 276. 2026-07-27
+## 288. 2026-07-27
 <a id="t-2081681270417887357"></a>
 
 *Single post · [2081681270417887357](https://x.com/gregoryblotnick/status/2081681270417887357)*
@@ -14187,7 +17328,7 @@ The Long Term Is A Series of Short-Terms: Time Arbitrage + Revision Cycles
 
 ---
 
-## 277. 2026-07-27
+## 289. 2026-07-27
 <a id="t-2081688696227557792"></a>
 
 *Single post · [2081688696227557792](https://x.com/gregoryblotnick/status/2081688696227557792)*
@@ -14202,7 +17343,7 @@ i.e. Tepper choosing the name Appaloosa: "Information used to be sent out from t
 
 ---
 
-## 278. 2026-07-27
+## 290. 2026-07-27
 <a id="t-2081693778172137552"></a>
 
 *Thread · 2 posts · conversation `2081693778172137552`*
@@ -14231,7 +17372,7 @@ You look at [Andrew] Carnegie and [Benjamin] Franklin, they had a few years of p
 
 ---
 
-## 279. 2026-07-27
+## 291. 2026-07-27
 <a id="t-2081695561355333686"></a>
 
 *Single post · [2081695561355333686](https://x.com/gregoryblotnick/status/2081695561355333686)*
@@ -14242,7 +17383,7 @@ Munger: "I don’t go to meetings. Warren doesn’t go to meetings. Put that in 
 
 ---
 
-## 280. 2026-07-27
+## 292. 2026-07-27
 <a id="t-2081740466081378416"></a>
 
 *Single post · [2081740466081378416](https://x.com/gregoryblotnick/status/2081740466081378416)*
@@ -14251,7 +17392,7 @@ another amazing Munger story -- the P.J. O'Rourke bit on communism https://t.co/
 
 ---
 
-## 281. 2026-07-27
+## 293. 2026-07-27
 <a id="t-2081751315458175369"></a>
 
 *Single post · [2081751315458175369](https://x.com/gregoryblotnick/status/2081751315458175369)*
@@ -14260,7 +17401,7 @@ Buffett's "Come-Up" Era (1956-1969) - Partnership Quotes & Excerpts
 
 ---
 
-## 282. 2026-07-27
+## 294. 2026-07-27
 <a id="t-2081785648197877863"></a>
 
 *Single post · [2081785648197877863](https://x.com/gregoryblotnick/status/2081785648197877863)*
@@ -14275,7 +17416,7 @@ https://t.co/NJGD1BMVcX
 
 ---
 
-## 283. 2026-07-27
+## 295. 2026-07-27
 <a id="t-2081843751308378483"></a>
 
 *Single post · [2081843751308378483](https://x.com/gregoryblotnick/status/2081843751308378483)*
@@ -14298,7 +17439,7 @@ Munger at age 99: “My dream... is to be 90 again."
 
 ---
 
-## 284. 2026-07-27
+## 296. 2026-07-27
 <a id="t-2081848208842760371"></a>
 
 *Single post · [2081848208842760371](https://x.com/gregoryblotnick/status/2081848208842760371)*
@@ -14309,7 +17450,7 @@ one of the best quotes on experience in investing, from Market Wizards:
 
 ---
 
-## 285. 2026-07-28
+## 297. 2026-07-28
 <a id="t-2081902306195378516"></a>
 
 *Thread · 4 posts · conversation `2081902306195378516`*
@@ -14457,10 +17598,14 @@ So kill all that fancy pants Claude bullshit lol https://t.co/lQOV1eU4xh
 
 ---
 
-## 286. 2026-07-28
+## 298. 2026-07-28
 <a id="t-2081912295626551539"></a>
 
-*Single post · [2081912295626551539](https://x.com/gregoryblotnick/status/2081912295626551539)*
+*Thread · 2 posts · conversation `2081912295626551539`*
+
+### 1/2
+
+*2026-07-28 · [2081912295626551539](https://x.com/gregoryblotnick/status/2081912295626551539)*
 
 2 more excellent stock pitches - SIMPLICITY.
 
@@ -14514,9 +17659,17 @@ These are really, really good pitches and if you had conviction, set you up for 
 
 Pitches don't have to be complex. Study those two.
 
+### 2/2
+
+*2026-07-28 · [2081920987201716514](https://x.com/gregoryblotnick/status/2081920987201716514)*
+
+btw if the 3P/1P tenet isn't unclear - it was AMZN shifting from a 1P model (AMZN warehouses all the goods) to where a 3rd party ships it to the consumer and AMZN clips a fee (ignore FBA for now) - so all of a sudden you have this massive high-margin revenue stream.
+
+How high? Think like EBAY at 30% for the margin that incremental revs would flow through. Remember, ex FBA, amzn is just a toll road - china ToyCo sells to American ToyBuyer, AMZN is the website connecting the two, bang, collects a 20-30% vig for doing NOTHING. No brainer that GM/EBIT margins were about to explode. Street wasn't there.... thats all it took for a monster thesis.
+
 ---
 
-## 287. 2026-07-28
+## 299. 2026-07-28
 <a id="t-2081931403625656572"></a>
 
 *Single post · [2081931403625656572](https://x.com/gregoryblotnick/status/2081931403625656572)*
@@ -14617,7 +17770,7 @@ Pitches don't have to be complex. Study those two.
 
 ---
 
-## 288. 2026-07-28
+## 300. 2026-07-28
 <a id="t-2081939163851423983"></a>
 
 *Single post · [2081939163851423983](https://x.com/gregoryblotnick/status/2081939163851423983)*
@@ -14657,7 +17810,7 @@ This is why VIC can be very useful for learning new ideas/case studies -- takes 
 
 ---
 
-## 289. 2026-07-28
+## 301. 2026-07-28
 <a id="t-2081948623873446359"></a>
 
 *Single post · [2081948623873446359](https://x.com/gregoryblotnick/status/2081948623873446359)*
@@ -14694,7 +17847,7 @@ In the presentations: no more than five positive points and three negative point
 
 ---
 
-## 290. 2026-07-28
+## 302. 2026-07-28
 <a id="t-2082015674101051468"></a>
 
 *Single post · [2082015674101051468](https://x.com/gregoryblotnick/status/2082015674101051468)*
@@ -14703,7 +17856,7 @@ Alt Data Is Bullshit -- "Kabuki Theatre" in Fundamental L/S
 
 ---
 
-## 291. 2026-07-28
+## 303. 2026-07-28
 <a id="t-2082040762263613443"></a>
 
 *Single post · [2082040762263613443](https://x.com/gregoryblotnick/status/2082040762263613443)*
@@ -14770,7 +17923,7 @@ le monde est a vous 😎
 
 ---
 
-## 292. 2026-07-28
+## 304. 2026-07-28
 <a id="t-2082046071207870815"></a>
 
 *Single post · [2082046071207870815](https://x.com/gregoryblotnick/status/2082046071207870815)*
@@ -14841,7 +17994,7 @@ le monde est a vous 😎
 
 ---
 
-## 293. 2026-07-28
+## 305. 2026-07-28
 <a id="t-2082050170036854836"></a>
 
 *Single post · [2082050170036854836](https://x.com/gregoryblotnick/status/2082050170036854836)*
@@ -15079,7 +18232,7 @@ think thats it...if I missed anything DM.
 
 ---
 
-## 294. 2026-07-28
+## 306. 2026-07-28
 <a id="t-2082051180780216442"></a>
 
 *Single post · [2082051180780216442](https://x.com/gregoryblotnick/status/2082051180780216442)*
@@ -15092,7 +18245,7 @@ https://t.co/CjGII7dTtC
 
 ---
 
-## 295. 2026-07-28
+## 307. 2026-07-28
 <a id="t-2082056531257029056"></a>
 
 *Single post · [2082056531257029056](https://x.com/gregoryblotnick/status/2082056531257029056)*
@@ -15162,10 +18315,14 @@ end rant / if u disagree don't @ me
 
 ---
 
-## 296. 2026-07-28
+## 308. 2026-07-28
 <a id="t-2082063764740870191"></a>
 
-*Single post · [2082063764740870191](https://x.com/gregoryblotnick/status/2082063764740870191)*
+*Thread · 2 posts · conversation `2082063764740870191`*
+
+### 1/2
+
+*2026-07-28 · [2082063764740870191](https://x.com/gregoryblotnick/status/2082063764740870191)*
 
 I might have been lucky rather than good, but this single slide from Tarasoff's AMZN deck in 2012, was the core of an entire long pitch
 
@@ -15257,9 +18414,23 @@ These are really, really good pitches and if you had conviction, set you up for 
 
 Pitches don't have to be complex. Study those two.
 
+### 2/2
+
+*2026-07-28 · [2082093514066669888](https://x.com/gregoryblotnick/status/2082093514066669888)*
+
+depends...keep in mind 3P is a much lower revenue $
+
+so rather than, buy for $10, sell for $20, keep $10
+
+its clipping a few bucks
+
+idk which stores you're referring to, typically marketplace models get a healthy multiple though...high margin, asset light, high ROIC
+
+just a question of moat and network effects.  very few have a real 3P marketplace like EBAY, or AMZN.  so it depends who you mean. without network effects its not accretive to the multiple, or, you could also be giving up too many revenue dollars to where the higher margin dollar is a bad trade (lose $10 at 50% margin to make $1 at 90% margin)
+
 ---
 
-## 297. 2026-07-28
+## 309. 2026-07-28
 <a id="t-2082076336550498452"></a>
 
 *Single post · [2082076336550498452](https://x.com/gregoryblotnick/status/2082076336550498452)*
@@ -15288,7 +18459,7 @@ either way, WPC doesn't get mentioned enough for a 50-100 bagger
 
 ---
 
-## 298. 2026-07-28
+## 310. 2026-07-28
 <a id="t-2082105290183651446"></a>
 
 *Single post · [2082105290183651446](https://x.com/gregoryblotnick/status/2082105290183651446)*
@@ -15493,7 +18664,7 @@ So treat it like one...
 
 ---
 
-## 299. 2026-07-28
+## 311. 2026-07-28
 <a id="t-2082116490170384590"></a>
 
 *Single post · [2082116490170384590](https://x.com/gregoryblotnick/status/2082116490170384590)*
@@ -15598,10 +18769,14 @@ good luck trading
 
 ---
 
-## 300. 2026-07-28
+## 312. 2026-07-28
 <a id="t-2082186465501737373"></a>
 
-*Single post · [2082186465501737373](https://x.com/gregoryblotnick/status/2082186465501737373)*
+*Thread · 2 posts · conversation `2082186465501737373`*
+
+### 1/2
+
+*2026-07-28 · [2082186465501737373](https://x.com/gregoryblotnick/status/2082186465501737373)*
 
 very loose and useless macro observations (from my lifetime)
 
@@ -15629,12 +18804,24 @@ very loose and useless macro observations (from my lifetime)
 
 >the existence of werewolves in london = zevon's paradox
 
+### 2/2
+
+*2026-07-28 · [2082194685788106873](https://x.com/gregoryblotnick/status/2082194685788106873)*
+
+AI + China, I have no idea, I'm just watching tea leaves and they seem to resemble the same tea leaves as the last 30 years...China + Tech = deflation, and I can't see why this is different other than Levon's Paradox (named after Levon Helm from The Band)
+
+on the FCF ramp, I was being facetious - I have no fucking clue how the stocks trade in that scenario. But if you're a bull, whats not to like about some FCF going parabolic? META has said "fuck capex" before and they turned out okay. Maybe thats how this ends for everyone.
+
 ---
 
-## 301. 2026-07-28
+## 313. 2026-07-28
 <a id="t-2082201511799529767"></a>
 
-*Single post · [2082201511799529767](https://x.com/gregoryblotnick/status/2082201511799529767)*
+*Thread · 2 posts · conversation `2082201511799529767`*
+
+### 1/2
+
+*2026-07-28 · [2082201511799529767](https://x.com/gregoryblotnick/status/2082201511799529767)*
 
 if I had to describe the easiest and most straightforward way to make money in markets, its:
 
@@ -15658,9 +18845,19 @@ If you're truly a flexible and objective investor u dont care if the AI trade is
 
 Do with this what you will
 
+### 2/2
+
+*2026-07-29 · [2082276474107597014](https://x.com/gregoryblotnick/status/2082276474107597014)*
+
+hmm I seem to have forgotten "forensic balance sheet-based short ideas"
+
+look at their accounts receivable days of 76, versus an average of 67 - management clearly hiding something. also, inventories up 5% with sales only up 3%, indicative of channel-stuffing and a future writedown which could knock anywhere from 6 to 7 cents of EPS off estimates. finally, they are going to get smoked next quarter by this FX translation headwind, which will increase their net leverage from 1.2x to 1.3x and put them dangerously close to busting a covenant (at 8.0x).
+
+price target = 0
+
 ---
 
-## 302. 2026-07-28
+## 314. 2026-07-28
 <a id="t-2082216941641449841"></a>
 
 *Single post · [2082216941641449841](https://x.com/gregoryblotnick/status/2082216941641449841)*
@@ -15673,7 +18870,7 @@ To me, runs linear with one's understanding of emotional self-discipline / cogni
 
 ---
 
-## 303. 2026-07-28
+## 315. 2026-07-28
 <a id="t-2082219691292971331"></a>
 
 *Single post · [2082219691292971331](https://x.com/gregoryblotnick/status/2082219691292971331)*
@@ -15686,7 +18883,7 @@ Tepper in 2009: watch me take 30% of the fund and start chaingunning these banks
 
 ---
 
-## 304. 2026-07-28
+## 316. 2026-07-28
 <a id="t-2082227015978041622"></a>
 
 *Single post · [2082227015978041622](https://x.com/gregoryblotnick/status/2082227015978041622)*
@@ -15705,7 +18902,7 @@ but w/e. he's still the man, it just has to make you more grateful for someone l
 
 ---
 
-## 305. 2026-07-28
+## 317. 2026-07-28
 <a id="t-2082229308798431353"></a>
 
 *Single post · [2082229308798431353](https://x.com/gregoryblotnick/status/2082229308798431353)*
@@ -15732,7 +18929,7 @@ TL;DR the market will agree with you if you're right but you never have a goddam
 
 ---
 
-## 306. 2026-07-28
+## 318. 2026-07-28
 <a id="t-2082244505365880851"></a>
 
 *Single post · [2082244505365880851](https://x.com/gregoryblotnick/status/2082244505365880851)*
@@ -15915,7 +19112,7 @@ Do with this what you will
 
 ---
 
-## 307. 2026-07-28
+## 319. 2026-07-28
 <a id="t-2082250654609703360"></a>
 
 *Thread · 2 posts · conversation `2082250654609703360`*
@@ -15940,7 +19137,7 @@ getting out of a drawdown - marty schwartz https://t.co/Kzl6t1uejf
 
 ---
 
-## 308. 2026-07-28
+## 320. 2026-07-28
 <a id="t-2082252459951419768"></a>
 
 *Single post · [2082252459951419768](https://x.com/gregoryblotnick/status/2082252459951419768)*
@@ -15965,7 +19162,7 @@ A: "When I was able to separate my ego needs from making money. When I was able 
 
 ---
 
-## 309. 2026-07-29
+## 321. 2026-07-29
 <a id="t-2082287915162390972"></a>
 
 *Single post · [2082287915162390972](https://x.com/gregoryblotnick/status/2082287915162390972)*
@@ -15982,7 +19179,7 @@ always "on page 46 of the 2023 10-Q you can see that Restricted Cash is overstat
 
 ---
 
-## 310. 2026-07-29
+## 322. 2026-07-29
 <a id="t-2082376189889450179"></a>
 
 *Single post · [2082376189889450179](https://x.com/gregoryblotnick/status/2082376189889450179)*
@@ -15991,7 +19188,7 @@ Trading Consumer/Retail, The Stupidest Fucking Sector In The Market
 
 ---
 
-## 311. 2026-07-29
+## 323. 2026-07-29
 <a id="t-2082425888260366392"></a>
 
 *Single post · [2082425888260366392](https://x.com/gregoryblotnick/status/2082425888260366392)*
@@ -16004,7 +19201,7 @@ not sure if Tom Russo's style goes out of favor but the simple checklist of "cap
 
 ---
 
-## 312. 2026-07-29
+## 324. 2026-07-29
 <a id="t-2082435856330092744"></a>
 
 *Single post · [2082435856330092744](https://x.com/gregoryblotnick/status/2082435856330092744)*
@@ -16038,7 +19235,7 @@ TL;DR the market will agree with you if you're right but you never have a goddam
 
 ---
 
-## 313. 2026-07-29
+## 325. 2026-07-29
 <a id="t-2082446024413532178"></a>
 
 *Single post · [2082446024413532178](https://x.com/gregoryblotnick/status/2082446024413532178)*
@@ -16094,7 +19291,7 @@ thank u for ur consideration, value investors club
 
 ---
 
-## 314. 2026-07-29
+## 326. 2026-07-29
 <a id="t-2082538298619371693"></a>
 
 *Single post · [2082538298619371693](https://x.com/gregoryblotnick/status/2082538298619371693)*
@@ -16129,7 +19326,7 @@ F. Scott Fitzgerald: "The test of a first-rate intelligence is the ability to ho
 
 ---
 
-## 315. 2026-07-29
+## 327. 2026-07-29
 <a id="t-2082562964331073936"></a>
 
 *Single post · [2082562964331073936](https://x.com/gregoryblotnick/status/2082562964331073936)*
@@ -16140,7 +19337,7 @@ market gods are hostile towards just plopping in there at $1T+...they'll knock u
 
 ---
 
-## 316. 2026-07-30
+## 328. 2026-07-30
 <a id="t-2082736966827679764"></a>
 
 *Single post · [2082736966827679764](https://x.com/gregoryblotnick/status/2082736966827679764)*
@@ -16163,7 +19360,7 @@ Here is the app and architecture...
 
 ---
 
-## 317. 2026-07-30
+## 329. 2026-07-30
 <a id="t-2082793086401364082"></a>
 
 *Single post · [2082793086401364082](https://x.com/gregoryblotnick/status/2082793086401364082)*
@@ -16222,7 +19419,7 @@ https://t.co/35dYd0sblG
 
 ---
 
-## 318. 2026-07-30
+## 330. 2026-07-30
 <a id="t-2082810110519165380"></a>
 
 *Single post · [2082810110519165380](https://x.com/gregoryblotnick/status/2082810110519165380)*
@@ -16297,10 +19494,14 @@ the first 20 I could think of:
 
 ---
 
-## 319. 2026-08-03
+## 331. 2026-08-03
 <a id="t-2084208551132529078"></a>
 
-*Single post · [2084208551132529078](https://x.com/gregoryblotnick/status/2084208551132529078)*
+*Thread · 4 posts · conversation `2084208551132529078`*
+
+### 1/4
+
+*2026-08-03 · [2084208551132529078](https://x.com/gregoryblotnick/status/2084208551132529078)*
 
 on idea gen / versatility / “counter” vs “consensus”
 
@@ -16349,9 +19550,47 @@ versatility is the operative word, and I think the one which has become more hig
 
 https://t.co/YPlh2i4gDb
 
+### 2/4
+
+*2026-08-03 · [2084406350704951439](https://x.com/gregoryblotnick/status/2084406350704951439)*
+
+@TintagelCapital yeah its the some cognitive bias across sectors
+
+"long quality / short junk"
+
+no sector is immune
+
+unless I missed your point.  but yes its overarching, a bias which affects all analysts/PMs
+
+### 3/4
+
+*2026-08-03 · [2084407487831183729](https://x.com/gregoryblotnick/status/2084407487831183729)*
+
+the diff is tiger was "long 12-36 mo LT quality disruptor w/ pos EPS reivsions cycle," 140/40, w the shorts as an afterthought
+
+tiger cube port construction cannot handle paired book...they arent built around mercenary "long shitco" "short disruptor"tactically
+
+so imo, most tiger stlye mandates dont make it in multi, just bc the mandate destroys what theyve been amazin at for 10-15 yrs
+
+a lot of fundamental L/S SM's get chopped not bc of talent but bc of mandate/constraints
+
+### 4/4
+
+*2026-08-03 · [2084409223279206600](https://x.com/gregoryblotnick/status/2084409223279206600)*
+
+I dont think the pod returns broadly correlate...thats their #1 red flag, bc thats how corr's spike and the firm gets smacked. I'm talking intra-sector.  if every consumer L/S book has the same trades, changes r gonna be made
+
+but beyond that, I dont think pod returns correlate broadly (assuming u mean intrasector, not P72 vs BAM). also, the monthly returns = proof of concept.  the reutnrs are good. so, all the other shit is noise. when the returns roll over, now we can have a convo
+
+but the mousetrap works
+
+1-2/mo
+
+until then, no one cares abt "correlation risk" blah blah...central risk is doing their thing.
+
 ---
 
-## 320. 2026-08-03
+## 332. 2026-08-03
 <a id="t-2084213272736153719"></a>
 
 *Single post · [2084213272736153719](https://x.com/gregoryblotnick/status/2084213272736153719)*
@@ -16364,7 +19603,7 @@ was scrolling thru "Reminiscences of a Stock Operator" yday...should it be on th
 
 ---
 
-## 321. 2026-08-03
+## 333. 2026-08-03
 <a id="t-2084236400254197951"></a>
 
 *Single post · [2084236400254197951](https://x.com/gregoryblotnick/status/2084236400254197951)*
@@ -16377,7 +19616,7 @@ soros on cutting losses: "I rely a great deal on animal instincts. When I was ac
 
 ---
 
-## 322. 2026-08-03
+## 334. 2026-08-03
 <a id="t-2084352557455958147"></a>
 
 *Single post · [2084352557455958147](https://x.com/gregoryblotnick/status/2084352557455958147)*
@@ -16441,7 +19680,7 @@ versatility is the operative word, and I think the one which has become more hig
 
 ---
 
-## 323. 2026-08-03
+## 335. 2026-08-03
 <a id="t-2084356398842843206"></a>
 
 *Single post · [2084356398842843206](https://x.com/gregoryblotnick/status/2084356398842843206)*
@@ -16461,7 +19700,7 @@ add to “u could give me the 10Q in advance, and I’d still get the move wrong
 
 ---
 
-## 324. 2026-08-03
+## 336. 2026-08-03
 <a id="t-2084360245422219578"></a>
 
 *Single post · [2084360245422219578](https://x.com/gregoryblotnick/status/2084360245422219578)*
@@ -16542,7 +19781,7 @@ intvw link: https://t.co/8rRREpwWn2
 
 ---
 
-## 325. 2026-08-03
+## 337. 2026-08-03
 <a id="t-2084362202358906966"></a>
 
 *Single post · [2084362202358906966](https://x.com/gregoryblotnick/status/2084362202358906966)*
@@ -16559,7 +19798,7 @@ Livermore: “If a stock doesn't act right don't touch it; because, being unable
 
 ---
 
-## 326. 2026-08-03
+## 338. 2026-08-03
 <a id="t-2084364091943170432"></a>
 
 *Single post · [2084364091943170432](https://x.com/gregoryblotnick/status/2084364091943170432)*
@@ -16580,7 +19819,7 @@ Like, every single sentence is a banger https://t.co/NpbivWyuOC
 
 ---
 
-## 327. 2026-08-03
+## 339. 2026-08-03
 <a id="t-2084392669099278374"></a>
 
 *Single post · [2084392669099278374](https://x.com/gregoryblotnick/status/2084392669099278374)*
@@ -16601,7 +19840,7 @@ Thoughts:
 
 ---
 
-## 328. 2026-08-04
+## 340. 2026-08-04
 <a id="t-2084431701304865225"></a>
 
 *Single post · [2084431701304865225](https://x.com/gregoryblotnick/status/2084431701304865225)*
