@@ -20,7 +20,7 @@ archive/gregoryblotnick/
     all.json
     by-id/*.json
   book/
-    markets-ls-pitches.md        ← master doc (L/S, markets, pitches)
+    markets-ls-pitches.md         ← master doc (L/S, markets, pitches)
     markets-ls-pitches.index.json
 ```
 
@@ -33,4 +33,4 @@ npm run book:blotnick      # rebuild markets book from tweets/all.json
 
 ## Coverage note
 
-X only returns what the live API still serves. The first successful pull got the full current profile-timeline window (809 posts, ~Mar–Aug 2026). Older posts may still be fillable later via search / bookmark-id reads when rate limits cool.
+X only returns what the live API still serves. First successful pull: **809** posts from the current profile-timeline window (~Mar–Aug 2026). Older posts may still be fillable later via search / bookmark-id reads when rate limits cool. The markets book is built only from those real posts.
