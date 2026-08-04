@@ -3,10 +3,14 @@
  * Archive a public X user's tweets via the same bird + AUTH_TOKEN/CT0 path
  * used for bookmark sync. Writes only live API results — nothing fabricated.
  *
+ * Sources (all live):
+ *   1. bird user-tweets (profile timeline, cursor-paginated)
+ *   2. bird search "from:handle" (search index, --all)
+ *   3. bird read for any bookmarked status IDs for that handle not yet seen
+ *   4. bird thread --all for conversations that look truncated
+ *
  * Usage:
  *   AUTH_TOKEN=… CT0=… node scripts/archive-user-tweets.js [handle]
- *
- * Default handle: gregoryblotnick
  */
 "use strict";
 
@@ -15,17 +19,16 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const HANDLE = (process.argv[2] || "gregoryblotnick").replace(/^@/, "");
-const OUT_DIR = path.join(ROOT, "archive", HANDLE.toLowerCase(), "tweets");
-const PAGE_COUNT = 200; // bird hard cap: 20 tweets × 10 pages
+const HANDLE = (process.argv[2] || "gregoryblotnick").replace(/^@/, "").toLowerCase();
+const OUT_DIR = path.join(ROOT, "archive", HANDLE, "tweets");
+const PAGE_COUNT = 200; // bird user-tweets hard cap: 20 × 10
 const PAGE_DELAY_MS = 1200;
-const MAX_ROUNDS = 500; // safety: 500 × 200 = 100k tweets ceiling
-const BETWEEN_ROUNDS_MS = 1500;
+const MAX_ROUNDS = 500;
+const BETWEEN_MS = 1500;
+const SEARCH_MAX_PAGES = 250;
 
 function requireAuth() {
-  const auth = process.env.AUTH_TOKEN || "";
-  const ct0 = process.env.CT0 || "";
-  if (!auth || !ct0) {
+  if (!process.env.AUTH_TOKEN || !process.env.CT0) {
     console.error(
       "Missing AUTH_TOKEN or CT0. Same cookies as bookmark sync are required."
     );
@@ -33,50 +36,34 @@ function requireAuth() {
   }
 }
 
-function runBird(cursor) {
-  const args = [
-    "bird",
-    "user-tweets",
-    HANDLE,
-    "-n",
-    String(PAGE_COUNT),
-    "--max-pages",
-    "10",
-    "--delay",
-    String(PAGE_DELAY_MS),
-    "--json",
-  ];
-  if (cursor) {
-    args.push("--cursor", cursor);
-  }
+function sleep(ms) {
+  const secs = Math.max(1, Math.ceil(ms / 1000));
+  spawnSync("sleep", [String(secs)], { stdio: "ignore" });
+}
 
+function runNpx(args) {
   const result = spawnSync("npx", args, {
     cwd: ROOT,
     encoding: "utf8",
     env: process.env,
     maxBuffer: 64 * 1024 * 1024,
   });
+  return result;
+}
 
-  if (result.status !== 0) {
-    const err = (result.stderr || result.stdout || "").trim();
-    throw new Error(`bird user-tweets failed (exit ${result.status}): ${err}`);
-  }
-
-  const stdout = (result.stdout || "").trim();
-  if (!stdout) {
-    throw new Error("bird user-tweets returned empty stdout");
-  }
-
+function parseTweetsJson(stdout, label) {
+  const text = (stdout || "").trim();
+  if (!text) return { tweets: [], nextCursor: null };
   let parsed;
   try {
-    parsed = JSON.parse(stdout);
+    parsed = JSON.parse(text);
   } catch (e) {
-    throw new Error(`bird JSON parse failed: ${e.message}\n${stdout.slice(0, 500)}`);
+    throw new Error(`${label}: JSON parse failed: ${e.message}\n${text.slice(0, 400)}`);
   }
-
-  // Shape: either { tweets, nextCursor } or a bare tweet array
-  if (Array.isArray(parsed)) {
-    return { tweets: parsed, nextCursor: null };
+  if (Array.isArray(parsed)) return { tweets: parsed, nextCursor: null };
+  // single tweet object from `bird read`
+  if (parsed && parsed.id && (parsed.text !== undefined || parsed.author)) {
+    return { tweets: [parsed], nextCursor: null };
   }
   return {
     tweets: Array.isArray(parsed.tweets) ? parsed.tweets : [],
@@ -88,9 +75,205 @@ function tweetId(t) {
   return t && (t.id || t.id_str || t.rest_id || null);
 }
 
-function sleep(ms) {
-  const secs = Math.max(1, Math.ceil(ms / 1000));
-  spawnSync("sleep", [String(secs)], { stdio: "ignore" });
+function authorHandle(t) {
+  const a = t && t.author;
+  if (!a) return "";
+  return String(a.username || a.screen_name || a.handle || "").replace(/^@/, "").toLowerCase();
+}
+
+function addTweets(byId, tweets, source) {
+  let added = 0;
+  for (const t of tweets) {
+    const id = tweetId(t);
+    if (!id) continue;
+    // Keep non-author tweets that appear in threads, but tag source
+    const existing = byId.get(id);
+    if (!existing) {
+      byId.set(id, { ...t, _archiveSource: source });
+      added += 1;
+    } else if (!existing._archiveSource) {
+      existing._archiveSource = source;
+    }
+  }
+  return added;
+}
+
+function fetchUserTweets(byId) {
+  console.error(`[1/4] Profile timeline via bird user-tweets @${HANDLE}…`);
+  let cursor = null;
+  let rounds = 0;
+  let stalled = 0;
+  while (rounds < MAX_ROUNDS) {
+    rounds += 1;
+    const args = [
+      "bird",
+      "user-tweets",
+      HANDLE,
+      "-n",
+      String(PAGE_COUNT),
+      "--max-pages",
+      "10",
+      "--delay",
+      String(PAGE_DELAY_MS),
+      "--json",
+    ];
+    if (cursor) args.push("--cursor", cursor);
+    console.error(`  round ${rounds}${cursor ? " (resume)" : ""}…`);
+    const result = runNpx(args);
+    if (result.status !== 0) {
+      throw new Error(
+        `user-tweets failed: ${(result.stderr || result.stdout || "").trim()}`
+      );
+    }
+    const { tweets, nextCursor } = parseTweetsJson(result.stdout, "user-tweets");
+    const added = addTweets(byId, tweets, "user-tweets");
+    console.error(
+      `    +${added} new (page ${tweets.length}, total ${byId.size}), next=${nextCursor ? "yes" : "no"}`
+    );
+    if (!nextCursor || tweets.length === 0) break;
+    if (added === 0) {
+      stalled += 1;
+      if (stalled >= 2) break;
+    } else stalled = 0;
+    if (nextCursor === cursor) break;
+    cursor = nextCursor;
+    sleep(BETWEEN_MS);
+  }
+}
+
+function fetchSearch(byId) {
+  console.error(`[2/4] Search index via bird search from:${HANDLE}…`);
+  const result = runNpx([
+    "bird",
+    "search",
+    `from:${HANDLE}`,
+    "--all",
+    "--max-pages",
+    String(SEARCH_MAX_PAGES),
+    "--json",
+  ]);
+  if (result.status !== 0) {
+    console.error(
+      `  search failed (continuing): ${(result.stderr || result.stdout || "").trim()}`
+    );
+    return;
+  }
+  const { tweets } = parseTweetsJson(result.stdout, "search");
+  const added = addTweets(byId, tweets, "search");
+  console.error(`  +${added} new from search (page ${tweets.length}, total ${byId.size})`);
+}
+
+function bookmarkIdsForHandle() {
+  const bookmarksPath = path.join(ROOT, "data", "bookmarks.json");
+  if (!fs.existsSync(bookmarksPath)) return [];
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(bookmarksPath, "utf8"));
+  } catch {
+    return [];
+  }
+  const items = Array.isArray(data) ? data : data.items || [];
+  const ids = [];
+  const re = new RegExp(
+    `(?:x\\.com|twitter\\.com)/${HANDLE}/status/(\\d+)`,
+    "i"
+  );
+  for (const item of items) {
+    const link = item.link || item.url || "";
+    const m = link.match(re);
+    if (m) ids.push(m[1]);
+  }
+  return [...new Set(ids)];
+}
+
+function fetchBookmarkGaps(byId) {
+  const ids = bookmarkIdsForHandle().filter((id) => !byId.has(id));
+  console.error(
+    `[3/4] bird read for ${ids.length} bookmarked @${HANDLE} ids missing from timeline…`
+  );
+  let added = 0;
+  for (const id of ids) {
+    const result = runNpx(["bird", "read", id, "--json"]);
+    if (result.status !== 0) {
+      console.error(`  read ${id} failed — skip`);
+      sleep(BETWEEN_MS);
+      continue;
+    }
+    const { tweets } = parseTweetsJson(result.stdout, `read ${id}`);
+    added += addTweets(byId, tweets, "bookmark-read");
+    sleep(800);
+  }
+  console.error(`  +${added} from bookmark reads (total ${byId.size})`);
+}
+
+function fetchThreadExpansions(byId) {
+  // Expand conversations authored by HANDLE that look short relative to replyCount
+  // or that we only have a fragment of.
+  const own = [...byId.values()].filter(
+    (t) => authorHandle(t) === HANDLE || !authorHandle(t)
+  );
+  const byConv = new Map();
+  for (const t of own) {
+    const cid = t.conversationId || tweetId(t);
+    if (!cid) continue;
+    if (!byConv.has(cid)) byConv.set(cid, []);
+    byConv.get(cid).push(t);
+  }
+
+  const seeds = [];
+  for (const [cid, list] of byConv) {
+    const maxReplies = Math.max(
+      0,
+      ...list.map((t) => Number(t.replyCount || 0))
+    );
+    if (list.length >= 3 || maxReplies >= 3) {
+      // Prefer root / earliest id as seed
+      const seed = list
+        .slice()
+        .sort((a, b) => String(tweetId(a)).localeCompare(String(tweetId(b))))[0];
+      seeds.push(tweetId(seed) || cid);
+    }
+  }
+
+  // Cap expansions to keep the job bounded
+  const uniqueSeeds = [...new Set(seeds)].slice(0, 80);
+  console.error(
+    `[4/4] Expanding ${uniqueSeeds.length} threads via bird thread --all…`
+  );
+  let added = 0;
+  for (const seed of uniqueSeeds) {
+    const result = runNpx([
+      "bird",
+      "thread",
+      String(seed),
+      "--all",
+      "--max-pages",
+      "20",
+      "--delay",
+      "1000",
+      "--json",
+    ]);
+    if (result.status !== 0) {
+      console.error(`  thread ${seed} failed — skip`);
+      sleep(BETWEEN_MS);
+      continue;
+    }
+    const { tweets } = parseTweetsJson(result.stdout, `thread ${seed}`);
+    // Keep only tweets by HANDLE in the archive corpus for the book;
+    // still store others briefly? User asked for his tweets — filter to author.
+    const mine = tweets.filter(
+      (t) => authorHandle(t) === HANDLE || authorHandle(t) === ""
+    );
+    added += addTweets(byId, mine.length ? mine : tweets, "thread");
+    sleep(BETWEEN_MS);
+  }
+  console.error(`  +${added} from thread expansion (total ${byId.size})`);
+}
+
+function parseDate(t) {
+  const s = t.createdAt || t.created_at || "";
+  const ms = Date.parse(s);
+  return Number.isFinite(ms) ? ms : 0;
 }
 
 function main() {
@@ -98,86 +281,53 @@ function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const byId = new Map();
-  let cursor = null;
-  let rounds = 0;
-  let stalled = 0;
+  fetchUserTweets(byId);
+  fetchSearch(byId);
+  fetchBookmarkGaps(byId);
+  fetchThreadExpansions(byId);
 
-  console.error(`Archiving @${HANDLE} via bird user-tweets (live X)…`);
-
-  while (rounds < MAX_ROUNDS) {
-    rounds += 1;
-    console.error(
-      `Round ${rounds}${cursor ? ` (cursor ${cursor.slice(0, 24)}…)` : ""}…`
-    );
-
-    const { tweets, nextCursor } = runBird(cursor);
-    let added = 0;
-    for (const t of tweets) {
-      const id = tweetId(t);
-      if (!id) continue;
-      if (!byId.has(id)) {
-        byId.set(id, t);
-        added += 1;
-      }
-    }
-
-    console.error(
-      `  got ${tweets.length} tweets, +${added} new (total ${byId.size}), nextCursor=${nextCursor ? "yes" : "no"}`
-    );
-
-    if (!nextCursor || tweets.length === 0) break;
-    if (added === 0) {
-      stalled += 1;
-      if (stalled >= 2) {
-        console.error("No new tweets for 2 rounds — stopping.");
-        break;
-      }
-    } else {
-      stalled = 0;
-    }
-
-    if (nextCursor === cursor) {
-      console.error("Cursor did not advance — stopping.");
-      break;
-    }
-    cursor = nextCursor;
-    sleep(BETWEEN_ROUNDS_MS);
-  }
-
-  const tweets = Array.from(byId.values()).sort((a, b) => {
-    const da = Date.parse(a.createdAt || a.created_at || 0) || 0;
-    const db = Date.parse(b.createdAt || b.created_at || 0) || 0;
-    return db - da;
-  });
-
+  const tweets = [...byId.values()].sort((a, b) => parseDate(b) - parseDate(a));
   if (tweets.length === 0) {
     console.error("Fetched zero tweets — refusing to write an empty archive.");
     process.exit(1);
   }
 
+  const byAuthor = tweets.filter((t) => authorHandle(t) === HANDLE);
   const manifest = {
     handle: HANDLE,
-    source: "bird user-tweets",
+    source: [
+      "bird user-tweets",
+      "bird search from:handle",
+      "bird read (bookmark gaps)",
+      "bird thread --all (expansions)",
+    ],
     auth: "AUTH_TOKEN+CT0 (same as bookmark sync)",
     fetchedAt: new Date().toISOString(),
     count: tweets.length,
-    rounds,
+    authoredCount: byAuthor.length,
+    note: "Live X API only. Coverage equals what bird can still retrieve; deleted/out-of-window posts will be missing.",
   };
 
-  const allPath = path.join(OUT_DIR, "all.json");
-  const manifestPath = path.join(OUT_DIR, "manifest.json");
-  fs.writeFileSync(allPath, JSON.stringify({ ...manifest, tweets }, null, 2));
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  fs.writeFileSync(
+    path.join(OUT_DIR, "all.json"),
+    JSON.stringify({ ...manifest, tweets }, null, 2)
+  );
+  fs.writeFileSync(
+    path.join(OUT_DIR, "manifest.json"),
+    JSON.stringify(manifest, null, 2)
+  );
 
-  // One file per tweet for easy browsing
   const byIdDir = path.join(OUT_DIR, "by-id");
   fs.mkdirSync(byIdDir, { recursive: true });
+  // Clear stale ids from prior runs that are no longer present? Keep union — don't delete.
   for (const t of tweets) {
     const id = tweetId(t);
     fs.writeFileSync(path.join(byIdDir, `${id}.json`), JSON.stringify(t, null, 2));
   }
 
-  console.error(`Wrote ${tweets.length} real tweets → ${allPath}`);
+  console.error(
+    `Wrote ${tweets.length} real tweets (${byAuthor.length} authored) → ${OUT_DIR}`
+  );
   console.log(JSON.stringify(manifest));
 }
 

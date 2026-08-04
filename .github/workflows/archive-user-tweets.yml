@@ -16,6 +16,7 @@ on:
     paths:
       - "scripts/archive-user-tweets.js"
       - ".github/workflows/archive-user-tweets.yml"
+      - "data/bookmarks.json"
 
 concurrency:
   group: archive-user-tweets
