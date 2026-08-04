@@ -23,7 +23,15 @@ while IFS= read -r path; do
   [ -z "$path" ] && continue
   case "$path" in
     data/workspace.json|data/spotify-cache.json|data/vic-cache.json) ;;
-    *) exit 1 ;;
+    *)
+      # archive/** is offline personal dumps — never deploy for those alone.
+      # [[ ]] globs match across '/', unlike case patterns.
+      if [[ "$path" == archive/* ]]; then
+        :
+      else
+        exit 1
+      fi
+      ;;
   esac
 done <<EOF
 $CHANGED
