@@ -26,7 +26,7 @@
 
 ### Shipped July 6 (in git `main`, may not be on Vercel yet)
 
-- **Value Investors Club** — `lib/vic.js`, `VIC_SESSION` in env, `data/vic-cache.json`, Investing category pinned in feed.
+- **Value Investors Club** — `lib/vic.js`, `VIC_SESSION` + `VIC_REMEMBER` in env, `data/vic-cache.json`, Investing category pinned in feed. Daily refresh: GitHub Action **Sync VIC ideas** (`npm run sync:vic`) + `/api/feed` / cron.
 - **Item rename** — `item_titles` in workspace.
 - **Arrival dates** — `item_added` in workspace; list sorts/displays platform arrival, not RSS publish date (reader shows "Published …" when different).
 - **All** rail view — every non-trash item.
@@ -50,7 +50,7 @@
 | `SAVE_SECRET` | Workspace + manual-link writes; device pairing |
 | `GITHUB_TOKEN` / `GH_TOKEN` | Production writes to repo |
 | `SPOTIFY_*` | Podcast episodes |
-| `VIC_SESSION` (+ optional `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest) |
+| `VIC_SESSION` (+ `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest). `vic_session` alone expires ~2h — copy remember cookie too. Set on **Vercel and GitHub Actions secrets**. |
 | `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
 | `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
 
@@ -153,7 +153,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
 | `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
 | `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |
-| `VIC_SESSION` | ✅ local; ⬜ confirm Vercel | VIC authenticated session |
+| `VIC_SESSION` + `VIC_REMEMBER` | ✅ local session (refresh if rejected); ⬜ Vercel + GitHub Actions secrets | Daily VIC cache via sync-vic.yml |
 
 **Spotify app settings:**
 - Website: `https://markets-dashboard.vercel.app` (or GitHub repo URL)

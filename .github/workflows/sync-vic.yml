@@ -1,0 +1,58 @@
+# Refresh Value Investors Club ideas daily into data/vic-cache.json.
+# Requires GitHub secrets: VIC_SESSION (and VIC_REMEMBER for lasting member access).
+# Cache-only commits skip Vercel builds via scripts/vercel-ignore.sh.
+
+name: Sync VIC ideas
+
+on:
+  schedule:
+    # 07:00 America/Sao_Paulo (10:00 UTC) — before wiki daily prep
+    - cron: "0 10 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-vic
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh VIC cache
+        env:
+          VIC_SESSION: ${{ secrets.VIC_SESSION }}
+          VIC_REMEMBER: ${{ secrets.VIC_REMEMBER }}
+          VIC_COOKIE: ${{ secrets.VIC_COOKIE }}
+        run: |
+          if [ -z "$VIC_SESSION" ] && [ -z "$VIC_COOKIE" ]; then
+            echo "VIC_SESSION (or VIC_COOKIE) not set — skipping."
+            echo "Add GitHub Actions secrets so member ideas refresh daily (~45d delay)."
+            echo "Without secrets, guest delay (~90d) still works when the site is reachable."
+            # Still try guest refresh so the cache does not freeze forever.
+          fi
+          node scripts/sync-vic.js
+
+      - name: Commit VIC cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/vic-cache.json
+          if git diff --staged --quiet; then
+            echo "No VIC cache changes."
+            exit 0
+          fi
+          git commit -m "Update VIC ideas cache"
+          git pull --rebase origin main
+          git push

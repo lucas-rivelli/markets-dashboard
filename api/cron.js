@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const data = await refreshFeedCache(SOURCES);
+  const data = await refreshFeedCache(SOURCES, { force: true });
 
   res.setHeader(
     "Cache-Control",

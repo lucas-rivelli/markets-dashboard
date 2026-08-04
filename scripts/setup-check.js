@@ -124,8 +124,16 @@ function checkVercel() {
     warn("GITHUB_DISPATCH_TOKEN not set — external bookmark cron needs Actions: Read and write PAT");
   }
 
-  if (hasEnv("VIC_SESSION") || hasEnv("VIC_COOKIE")) ok("VIC session configured (live ideas refresh)");
-  else warn("VIC_SESSION not set — feed uses data/vic-cache.json until you add it in Vercel");
+  if (hasEnv("VIC_SESSION") || hasEnv("VIC_COOKIE")) {
+    ok("VIC session configured (live ideas refresh)");
+    if (hasEnv("VIC_REMEMBER") || hasEnv("VIC_COOKIE")) {
+      ok("VIC remember cookie set (keeps member access beyond ~2h)");
+    } else {
+      warn("VIC_REMEMBER missing — login with Remember me and copy remember_web_* cookie (vic_session alone expires ~2h)");
+    }
+  } else {
+    warn("VIC_SESSION not set — feed uses data/vic-cache.json; add VIC_SESSION + VIC_REMEMBER to Vercel and GitHub Actions secrets");
+  }
 
   warn("Vercel env vars must be set in the Vercel project UI (Settings → Environment Variables)");
   warn("After adding vars: redeploy from Vercel dashboard or push a commit");
@@ -144,6 +152,7 @@ checkVercel();
 console.log("\nNext steps:");
 console.log("  1. Spotify: create app → npm run spotify:auth → add vars to Vercel");
 console.log("  2. X: log into x.com in browser → npm run sync:bookmarks");
-console.log("  3. Vercel: add CRON_SECRET + GITHUB_DISPATCH_TOKEN + SPOTIFY_* → redeploy");
-console.log("  4. External cron: npm run setup:external-cron → cron-job.org every 5 min");
+console.log("  3. Vercel: add CRON_SECRET + GITHUB_DISPATCH_TOKEN + SPOTIFY_* + VIC_SESSION + VIC_REMEMBER → redeploy");
+console.log("  4. VIC daily: add VIC_SESSION (+ VIC_REMEMBER) as GitHub Actions secrets → Actions → Sync VIC ideas");
+console.log("  5. External cron: npm run setup:external-cron → cron-job.org every 5 min");
 console.log("");
