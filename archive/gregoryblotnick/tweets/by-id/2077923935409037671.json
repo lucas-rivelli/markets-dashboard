@@ -1,0 +1,58 @@
+{
+  "id": "2077923935409037671",
+  "text": "methods of modeling unit economics in a business where growth is primarily driven by new store openings (draft / article is WIP)",
+  "createdAt": "Fri Jul 17 01:10:46 +0000 2026",
+  "replyCount": 1,
+  "retweetCount": 7,
+  "likeCount": 159,
+  "conversationId": "2077923935409037671",
+  "author": {
+    "username": "gregoryblotnick",
+    "name": "Gregory Blotnick"
+  },
+  "authorId": "1858259108945612800",
+  "quotedTweet": {
+    "id": "2056831115907027001",
+    "text": "on unit growth stories - example frameworks/templates to add to this, ways to think abt modeling\n\n7-8 part tweet\n\nI spend an ungodly amount of time on store builds and the 1000 diff ways to think abt/model productivity, white space, value of store base at maturity discounted back...and so on\n\nI think ppl will see that thread below and say \"I need some inputs to get to his output.\" \n\nI'll give u some\n\nconfidence isn't found in one method. its when u have 50 diff methods that all converge, that all say \"the answer is around x.\" \n\nthis is how each new method increases the aggregate confidence interval.\n\nbecause, from an analytical rigor standpoint, they SHOULD all align. \n\na store does X revenue at Y margin and produces Z profit. \n\nif those #'s aren't somewhat constant, u have something misplaced or misaligned in ur view of economic reality.\n\n1. INTRO\n\nthe incremental store, the value driver -- will LLMs be able to help get that right? \n\nhell if I know. probably. but typically all of the key drivers in there, the 1-3 that u decide matter, they come from:\n\nI. primary research (#1 by far)\n\nII. stress-testing mgmt's estimates of unit economics from their deck/transcripts...they can be lazy, sloppy, obsolete.\n\nso you're constantly breaking down new qtrly info and collapsing into unit-level EBIT, ROIC, ROIIC and so on.\n\nu will find that mgmt's old deck says \"we get 25% cash-on-cash\" and new boxes are doing 20%. or labor or store-level cogs/opex has changed in the last few months.\n\nthe trajectory of new store economics drives the stock\n\nIII. historical results (sometimes u break down and rebuild ur model in a new way that reveals some insight or reflects economic reality better)\n\n2. LLM's and \"the incremental store\"\n\nthere's definitely ways to leverage LLM's to forecast how \"the incremental store\" in Knoxville will do, the amt of data u have relative to a Google search is unlimited\n\nget the address of the new store and then learn everything about the 5 sq mi around it, traffic, comps, privates, there's so much that could flow into a model.\n\nso I don't know, no one does, but the \"100th store slowdown\" short framework is reasonable, and its one of many. \n\nsometimes the puzzle is: can they do 1000, 1500 or 2000 stores in the US? stock could double or get cut in half on that\n\neverything is on \"the incremental store,\" and the economics of that store.\n\n--\n\n3. good habits\n\nbrett is the man for 5 things that I have to point out, random analyst musings\n\na. thinking out loud constantly even if only 50% baked. \n\nstuff good analysts do which stick out like a sore thumb on twtr, where everyone wants to appear certain and confident. paradoxically, the ppl just throwing shit at the wall w/ no conclusion, are the ones who know their shit\n\nb. willingness to go way out of his element and just figure something out re: guardrails, dimensions, frameworks in modeling\n\nsign of a highly experienced analyst and just comes from looking at 10,000 different companies\n\nprob takes 10+ years. younger analysts get stuck \"how do I do this, its not disclosed, etc.\"\n\nbut your job is to figure it out. in that case, the \"100-store wall,\" all the moving parts to get to store 100, and then breaking it all down into model-able variables\n\nplus ones u could potentially diligence (demographics/income etc)\n\nif u said \"go model this Mongolian iron ore smelter\" or \"a chain of japanese jerkoff parlors\" or something random, a really good analyst just starts flying around. \n\nalso if that japan chain exists its worth 50x, every single japanese tweet is either about American BBQ or wanking. some MBA grads with search fund $$ need to get over there and run the SBUX/CMG or even WING playbook\n\nc. mountains of variables\n\nthe answer to \"how do I do this\" is to just start hurling paint on the canvas and see what emerges as u do, and iterate\n\nliterally everything is work in progress, u dont sit and think, u think via action\n\nso even though brett isnt a resto analyst you see him just slapping all these different variables together, which could be paired and flexed in a million diff permutations\n\nthis actually gets much easier once you go out-of-sector and realize all businesses are the same; volumes and price, fixed and variable. you may lose some nuance but can get a functional unit-level model pretty fast \n\nd. in LLM'ifying all of this\n\nI have no aptitude for this stuff yet but again, brett is just taking #2 and using it for #3.\n\nthe work is #2, what drivers/variables to use. translating that to LLM is the less-taxing part mentally.\n\nI don't think ppl understand the % breakdown between modeling and LLM\n\nyounger guys might just go direct to LLM \"build me a model\" then tweak that\n\nbut this is wrong, you're not being thoughtful on the inputs, this will fuck you up. everyone says it but I just know ppl won't listen.\n\nbrett's stuff looks like its all LLM but its probably 90% model inputs, maybe 95%, with the LLM added on the end.\n\ne. model to LLM ratio\n\na model is your brain's projector screen for how u think about a business and the drivers/line items to flex\n\ndon't outsource that part to an LLM. I guarantee Claude can build 100 \"new store\" outputs and all will be trash\n\nthese LLMs can be so deceptive in confidently presenting you something that looks good and is just completely fucking useless\n\n--\n\n4. nas - \"all I need is one mic\"  (one store)\n\nin both public or private Consumer & Retail it is crazy how much time, and how many different ways, you can try and answer a very simple question:\n\n\"What are the economics of one store?\"\n\nfirst, getting a fucking labor build is outrageously hard \n\n(this is less for pubco's and more owner-operator, equity stake or anything where u can contribute to how the biz model adapts)\n\nbut salary vs commission vs tip, flexing hours and humans and motivation, discounts, bonuses, loyalty programs, what line items (or unit economics) to key the worker on\n\none store. that's it.\n\n5. modeling simplicity\n\npeople probably think a L/S pod model is NASA level complexity\n\nwhen in reality, at least in Consumer, there's just like five tabs all named \"store\" \"store2\" \"newstore\" \"regional\"\n\nits all just tons of data and primary research building on itself, trying to get some confidence in very complex questions like\n\n\"are EBIT margins at maturity 6%, 7%, or 8%\"\n\nthat drives everything\n\n100 bps of mature store-level EBIT margin, on a 500 store base with runway to 1500 stores?\n\nu can get down 60% or up 350%\n\none store\n\n6. subprime human capital\n\nif u cant master one store then the entire business cant scale and isnt worth a shit.\n\nur investor deck has some ambitious growth plans to justify an exit valuation that makes any Consumer concept attractive\n\nand unless u are proven, ur risk as an operator doesnt justify a HSD% return. u are a high-yield credit aka junk\n\nthe S&P yields HSD%, you're not appealing until mid-to-high teens.\n\ntends to be a fxn of scale/unit growth.\n\n7. END/moar variables\n\nanyway... we didnt even finish one store. then u have to worry about new vs old stores, store density, cannibalization, competition, ecom/omni\n\na unit growth story's economic value tends to boil down to \"are the economics of a NEW store higher than the current store base?\"  (ROIIC > ROIC)\n\nso however u get there, get there. \n\nrandom screenshots below from decks/models/mgmt - I'll do a \"unit growth\" article at some point bc trying to fit shit into 4 screenshots isnt working.\n\ngood luck 🫡",
+    "createdAt": "Tue May 19 20:15:26 +0000 2026",
+    "replyCount": 2,
+    "retweetCount": 8,
+    "likeCount": 188,
+    "conversationId": "2056831115907027001",
+    "author": {
+      "username": "gregoryblotnick",
+      "name": "Gregory Blotnick"
+    },
+    "authorId": "1858259108945612800",
+    "media": [
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HItQgyXXYAAMa0d.jpg",
+        "width": 1445,
+        "height": 711,
+        "previewUrl": "https://pbs.twimg.com/media/HItQgyXXYAAMa0d.jpg:small"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HItQlr0W0AA63vC.png",
+        "width": 1567,
+        "height": 758,
+        "previewUrl": "https://pbs.twimg.com/media/HItQlr0W0AA63vC.png:small"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HItR-LSWcAEW5uJ.jpg",
+        "width": 1512,
+        "height": 699,
+        "previewUrl": "https://pbs.twimg.com/media/HItR-LSWcAEW5uJ.jpg:small"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HItTx40XMAAi6th.jpg",
+        "width": 1023,
+        "height": 692,
+        "previewUrl": "https://pbs.twimg.com/media/HItTx40XMAAi6th.jpg:small"
+      }
+    ]
+  }
+}

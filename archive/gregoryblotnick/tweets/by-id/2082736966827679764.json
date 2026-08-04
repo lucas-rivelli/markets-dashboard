@@ -1,0 +1,44 @@
+{
+  "id": "2082736966827679764",
+  "text": "perhaps I’m missing something, but for ROIC, why are they relying on an est from Nowak @ MS, instead of an internal ROIC framework (with far more detailed data) that dictates MSFT capital allocation? \n\nonly adds fuel to the bear case (that the return on all this AI capex is #REF)",
+  "createdAt": "Thu Jul 30 07:56:02 +0000 2026",
+  "replyCount": 12,
+  "retweetCount": 4,
+  "likeCount": 77,
+  "conversationId": "2082736966827679764",
+  "author": {
+    "username": "gregoryblotnick",
+    "name": "Gregory Blotnick"
+  },
+  "authorId": "1858259108945612800",
+  "quotedTweet": {
+    "id": "2082640036949008570",
+    "text": "Some more detail on the ROIC Intelligence App I built yesterday and mentioned on today's earnings call.\n\nI took the PDF that Brian Nowak at Morgan Stanley put together for Hyperscale ROIC this week and used Copilot code (coming in our new superapp) with a single prompt + skill (/drill-me) to create the plan, then used autopilot in auto to create the full app (with history, lookups, scenarios, what-ifs, etc). And /rubber-duck to test.\n\nAnd the best part is that all the artifacts are in my enterprise environment. My app is in Copilot, my code is in GitHub Enterprise; all my data pipelines/lake/semantic models are in Fabric. And everything is under Agent 365 IT/Sec/FinOps control!\n\nSo this is not about Tokenmaxxing or vibe coding. Every step of the way the rails are engineered to create value, making everything a long-term reusable asset, with governance/security, and cost controls.\n\nThis is the full system to drive business value. Disclosures: This is all pulled from public sources, and for illustrative purposes only...not financial advice! :)\n\nHere is the app and architecture...",
+    "createdAt": "Thu Jul 30 01:30:53 +0000 2026",
+    "replyCount": 326,
+    "retweetCount": 427,
+    "likeCount": 4052,
+    "conversationId": "2082640036949008570",
+    "author": {
+      "username": "satyanadella",
+      "name": "Satya Nadella"
+    },
+    "authorId": "20571756",
+    "media": [
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HOcFPSWbwAAc6Cb.jpg",
+        "width": 1329,
+        "height": 864,
+        "previewUrl": "https://pbs.twimg.com/media/HOcFPSWbwAAc6Cb.jpg:small"
+      },
+      {
+        "type": "photo",
+        "url": "https://pbs.twimg.com/media/HOcFUoObEAAgEUM.jpg",
+        "width": 1920,
+        "height": 1152,
+        "previewUrl": "https://pbs.twimg.com/media/HOcFUoObEAAgEUM.jpg:small"
+      }
+    ]
+  }
+}
