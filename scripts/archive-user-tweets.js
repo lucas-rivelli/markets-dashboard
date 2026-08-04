@@ -98,7 +98,50 @@ function addTweets(byId, tweets, source) {
   return added;
 }
 
+function loadExisting(byId) {
+  const allPath = path.join(OUT_DIR, "all.json");
+  if (!fs.existsSync(allPath)) return 0;
+  try {
+    const prev = JSON.parse(fs.readFileSync(allPath, "utf8"));
+    const added = addTweets(byId, prev.tweets || [], "prior-archive");
+    console.error(`[0/4] Seeded ${added} tweets from existing all.json`);
+    return added;
+  } catch (e) {
+    console.error(`  could not seed prior archive: ${e.message}`);
+    return 0;
+  }
+}
+
+function isRateLimit(stderr) {
+  return /429|rate limit/i.test(stderr || "");
+}
+
+function runBirdWithRetries(args, label, attempts = 6) {
+  let lastErr = "";
+  for (let i = 1; i <= attempts; i++) {
+    const result = runNpx(args);
+    if (result.status === 0) return result;
+    lastErr = (result.stderr || result.stdout || "").trim();
+    if (isRateLimit(lastErr) && i < attempts) {
+      const wait = Math.min(900, 60 * i); // 60s, 120s, … up to 15m
+      console.error(`  ${label}: 429 — sleeping ${wait}s then retry ${i}/${attempts}…`);
+      sleep(wait * 1000);
+      continue;
+    }
+    const err = new Error(`${label} failed: ${lastErr}`);
+    err.rateLimited = isRateLimit(lastErr);
+    throw err;
+  }
+  const err = new Error(`${label} failed: ${lastErr}`);
+  err.rateLimited = true;
+  throw err;
+}
+
 function fetchUserTweets(byId) {
+  if (process.env.SKIP_TIMELINE === "1") {
+    console.error(`[1/4] Skipping profile timeline (SKIP_TIMELINE=1)`);
+    return;
+  }
   console.error(`[1/4] Profile timeline via bird user-tweets @${HANDLE}…`);
   let cursor = null;
   let rounds = 0;
@@ -119,11 +162,17 @@ function fetchUserTweets(byId) {
     ];
     if (cursor) args.push("--cursor", cursor);
     console.error(`  round ${rounds}${cursor ? " (resume)" : ""}…`);
-    const result = runNpx(args);
-    if (result.status !== 0) {
-      throw new Error(
-        `user-tweets failed: ${(result.stderr || result.stdout || "").trim()}`
-      );
+    let result;
+    try {
+      result = runBirdWithRetries(args, "user-tweets");
+    } catch (e) {
+      if (e.rateLimited && byId.size > 0) {
+        console.error(
+          `  timeline rate-limited with ${byId.size} tweets already — continuing other sources`
+        );
+        return;
+      }
+      throw e;
     }
     const { tweets, nextCursor } = parseTweetsJson(result.stdout, "user-tweets");
     const added = addTweets(byId, tweets, "user-tweets");
@@ -143,19 +192,23 @@ function fetchUserTweets(byId) {
 
 function fetchSearch(byId) {
   console.error(`[2/4] Search index via bird search from:${HANDLE}…`);
-  const result = runNpx([
-    "bird",
-    "search",
-    `from:${HANDLE}`,
-    "--all",
-    "--max-pages",
-    String(SEARCH_MAX_PAGES),
-    "--json",
-  ]);
-  if (result.status !== 0) {
-    console.error(
-      `  search failed (continuing): ${(result.stderr || result.stdout || "").trim()}`
+  let result;
+  try {
+    result = runBirdWithRetries(
+      [
+        "bird",
+        "search",
+        `from:${HANDLE}`,
+        "--all",
+        "--max-pages",
+        String(SEARCH_MAX_PAGES),
+        "--json",
+      ],
+      "search",
+      4
     );
+  } catch (e) {
+    console.error(`  search failed (continuing): ${e.message}`);
     return;
   }
   const { tweets } = parseTweetsJson(result.stdout, "search");
@@ -193,15 +246,17 @@ function fetchBookmarkGaps(byId) {
   );
   let added = 0;
   for (const id of ids) {
-    const result = runNpx(["bird", "read", id, "--json"]);
-    if (result.status !== 0) {
+    let result;
+    try {
+      result = runBirdWithRetries(["bird", "read", id, "--json"], `read ${id}`, 3);
+    } catch (e) {
       console.error(`  read ${id} failed — skip`);
       sleep(BETWEEN_MS);
       continue;
     }
     const { tweets } = parseTweetsJson(result.stdout, `read ${id}`);
     added += addTweets(byId, tweets, "bookmark-read");
-    sleep(800);
+    sleep(1200);
   }
   console.error(`  +${added} from bookmark reads (total ${byId.size})`);
 }
@@ -226,7 +281,7 @@ function fetchThreadExpansions(byId) {
       0,
       ...list.map((t) => Number(t.replyCount || 0))
     );
-    if (list.length >= 3 || maxReplies >= 3) {
+    if (list.length >= 2 || maxReplies >= 2) {
       // Prefer root / earliest id as seed
       const seed = list
         .slice()
@@ -235,32 +290,40 @@ function fetchThreadExpansions(byId) {
     }
   }
 
-  // Cap expansions to keep the job bounded
-  const uniqueSeeds = [...new Set(seeds)].slice(0, 80);
+  // Cap expansions to keep the Actions job bounded
+  const uniqueSeeds = [...new Set(seeds)].slice(0, 40);
   console.error(
     `[4/4] Expanding ${uniqueSeeds.length} threads via bird thread --all…`
   );
   let added = 0;
   for (const seed of uniqueSeeds) {
-    const result = runNpx([
-      "bird",
-      "thread",
-      String(seed),
-      "--all",
-      "--max-pages",
-      "20",
-      "--delay",
-      "1000",
-      "--json",
-    ]);
-    if (result.status !== 0) {
+    let result;
+    try {
+      result = runBirdWithRetries(
+        [
+          "bird",
+          "thread",
+          String(seed),
+          "--all",
+          "--max-pages",
+          "10",
+          "--delay",
+          "1200",
+          "--json",
+        ],
+        `thread ${seed}`,
+        3
+      );
+    } catch (e) {
       console.error(`  thread ${seed} failed — skip`);
+      if (e.rateLimited) {
+        console.error("  rate-limited on threads — stopping expansions");
+        break;
+      }
       sleep(BETWEEN_MS);
       continue;
     }
     const { tweets } = parseTweetsJson(result.stdout, `thread ${seed}`);
-    // Keep only tweets by HANDLE in the archive corpus for the book;
-    // still store others briefly? User asked for his tweets — filter to author.
     const mine = tweets.filter(
       (t) => authorHandle(t) === HANDLE || authorHandle(t) === ""
     );
@@ -281,6 +344,12 @@ function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const byId = new Map();
+  loadExisting(byId);
+  const cooldown = Number(process.env.ARCHIVE_COOLDOWN_SEC || 0);
+  if (cooldown > 0) {
+    console.error(`Cooling down ${cooldown}s before live calls…`);
+    sleep(cooldown * 1000);
+  }
   fetchUserTweets(byId);
   fetchSearch(byId);
   fetchBookmarkGaps(byId);

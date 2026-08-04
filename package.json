@@ -14,7 +14,8 @@
     "setup:github-dispatch-token": "node scripts/setup-github-dispatch-token.js",
     "ping:bookmarks-cron": "bash scripts/ping-bookmarks-cron.sh",
     "spotify:auth": "node scripts/spotify-auth.js",
-    "archive:blotnick": "node scripts/archive-user-tweets.js gregoryblotnick"
+    "archive:blotnick": "node scripts/archive-user-tweets.js gregoryblotnick",
+    "book:blotnick": "node scripts/build-blotnick-markets-book.js gregoryblotnick"
   },
   "dependencies": {
     "rss-parser": "^3.13.0",

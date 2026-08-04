@@ -44,12 +44,19 @@ jobs:
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           CT0: ${{ secrets.CT0 }}
+          # Re-runs skip burning timeline quota when all.json already exists;
+          # search + bookmark reads + threads still deepen coverage.
+          SKIP_TIMELINE: "1"
+          ARCHIVE_COOLDOWN_SEC: "120"
         run: |
           if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
             echo "AUTH_TOKEN or CT0 not set — cannot archive for real. Aborting."
             exit 1
           fi
           HANDLE="${{ github.event.inputs.handle || 'gregoryblotnick' }}"
+          if [ ! -f "archive/${HANDLE}/tweets/all.json" ]; then
+            unset SKIP_TIMELINE
+          fi
           node scripts/archive-user-tweets.js "$HANDLE"
 
       - name: Commit archive
