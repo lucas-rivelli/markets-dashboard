@@ -980,7 +980,21 @@
   const LIST_FILTER_TAG_KEY = "markets_list_filter_tag";
   const WORKSPACE_TS_KEY  = "markets_workspace_updated";
   const PENDING_SYNC_KEY  = "markets_pending_sync";
+  const SOURCE_WATERMARK_KEY = "markets_source_watermarks";
+  const PITCH_SEED_FLAG_KEY = "markets_pitch_sources_seeded_v1";
   const REFRESH_MS      = 5 * 60 * 1000;
+
+  // New pitch Substacks: on first seed, only the latest post stays in Inbox.
+  const LATEST_ONLY_SEED_SOURCES = new Set([
+    "Wizard's Winners",
+    "Bristlemoon Capital",
+    "Philipp Haas",
+    "Indra's Thoughts",
+    "Casteleyn Partnership",
+    "TacticzHazel",
+    "HF Best Ideas",
+    "Hated Moats",
+  ]);
 
   let listFilterFolder = "";
   let listFilterTag = "";
@@ -1909,6 +1923,95 @@
     if (changed.length) {
       writeJSON(ITEM_TAGS_KEY, map);
       markPendingSync("item_tags", changed);
+    }
+  }
+
+  /* New sources: keep only the newest post in Inbox; older backlog → Trash.
+     After that watermark exists, newer posts arrive as normal Inbox items. */
+  function seedLatestOnlySourceBacklog(items) {
+    const watermarks = readJSON(SOURCE_WATERMARK_KEY, {});
+    const statuses = getStatusMap();
+    const folders = readJSON(ITEM_FOLDERS_KEY, {});
+    const tags = readJSON(ITEM_TAGS_KEY, {});
+    const toRead = getTags().find((t) => t.name.toLowerCase() === TO_READ_TAG_NAME.toLowerCase());
+    const forcePitchSeed = !readJSON(PITCH_SEED_FLAG_KEY, false);
+    const statusChangedKeys = [];
+    const tagChangedKeys = [];
+    let statusChanged = false;
+    let tagsChanged = false;
+    let wmChanged = false;
+
+    const bySource = new Map();
+    for (const item of items || []) {
+      if (!item?.source) continue;
+      if (!bySource.has(item.source)) bySource.set(item.source, []);
+      bySource.get(item.source).push(item);
+    }
+
+    for (const [source, group] of bySource) {
+      const sorted = [...group].sort((a, b) => {
+        const da = a.date ? new Date(a.date).getTime() : 0;
+        const db = b.date ? new Date(b.date).getTime() : 0;
+        return db - da;
+      });
+      if (!sorted.length) continue;
+
+      const newest = sorted[0];
+      const newestStamp = newest.date || newest.link || new Date().toISOString();
+      const forceThis = forcePitchSeed && LATEST_ONLY_SEED_SOURCES.has(source);
+      const alreadyWatermarked = Boolean(watermarks[source]);
+
+      if (alreadyWatermarked && !forceThis) {
+        if (newest.date && new Date(newest.date) > new Date(watermarks[source])) {
+          watermarks[source] = newest.date;
+          wmChanged = true;
+        }
+        continue;
+      }
+
+      const hasPriorUserFiling = sorted.some((item) =>
+        readKeysFor(item).some((k) => Array.isArray(folders[k]) && folders[k].length > 0)
+      );
+      const hasPriorStatus = sorted.some((item) =>
+        readKeysFor(item).some((k) => statuses[k] != null)
+      );
+
+      watermarks[source] = newestStamp;
+      wmChanged = true;
+
+      // Existing sources with history: record watermark only (don't trash unread backlog).
+      if (!forceThis && hasPriorStatus) continue;
+      if (!forceThis && hasPriorUserFiling) continue;
+
+      for (const item of sorted.slice(1)) {
+        for (const k of readKeysFor(item)) {
+          if (Array.isArray(folders[k]) && folders[k].length) continue;
+          if (statuses[k] !== "trash") {
+            statuses[k] = "trash";
+            statusChanged = true;
+            statusChangedKeys.push(k);
+          }
+          if (toRead && Array.isArray(tags[k]) && tags[k].includes(toRead.id)) {
+            tags[k] = tags[k].filter((id) => id !== toRead.id);
+            if (!tags[k].length) delete tags[k];
+            tagsChanged = true;
+            tagChangedKeys.push(k);
+          }
+        }
+      }
+    }
+
+    if (forcePitchSeed) writeJSON(PITCH_SEED_FLAG_KEY, true);
+    if (wmChanged) writeJSON(SOURCE_WATERMARK_KEY, watermarks);
+    if (statusChanged) {
+      writeJSON(ITEM_STATUS_KEY, normalizeStatusMap(statuses));
+      markPendingSync("item_status", statusChangedKeys);
+      scheduleWorkspaceSync();
+    }
+    if (tagsChanged) {
+      writeJSON(ITEM_TAGS_KEY, tags);
+      markPendingSync("item_tags", tagChangedKeys);
+      scheduleWorkspaceSync();
     }
   }
 
@@ -3968,6 +4071,7 @@
     if (workspaceLoaded) {
       stampNewFeedItems(allItems);
       ensureToReadTag();
+      seedLatestOnlySourceBacklog(allItems);
       applyInboxToReadTags();
     }
     renderRail();
