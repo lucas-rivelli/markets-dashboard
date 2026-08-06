@@ -23,7 +23,14 @@ module.exports = async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   try {
-    const result = await dispatchWorkflow("sync-bookmarks.yml");
+    // External cron may still fire every 5 min; skip when a sync is already
+    // queued/running so GitHub Actions does not pile up failures (and emails).
+    const result = await dispatchWorkflow("sync-bookmarks.yml", {
+      skipIfActive: true,
+    });
+    if (result.skipped) {
+      return res.status(200).json({ ok: true, ...result });
+    }
     return res.status(202).json({ ok: true, ...result });
   } catch (err) {
     if (err instanceof SaveError) {

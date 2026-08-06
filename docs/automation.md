@@ -21,12 +21,13 @@ GitHub secret `VERCEL_BYPASS_SECRET`.
 Syncs X bookmarks when `AUTH_TOKEN` and `CT0` GitHub secrets are set, then exports
 the rolling last-year window to `data/bookmarks.json`.
 Run `npm run setup:github-x-secrets` once to copy cookies from Safari into GitHub secrets.
-Commits `data/bookmarks.json` back to the repo so Vercel redeploys with fresh bookmarks.
+Commits `data/bookmarks.json` back to the repo. Production reads that file via the GitHub
+Contents API, and bookmark-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
 
 **Do not rely on GitHub's built-in `schedule` cron** — it often runs hourly (or worse),
-not every 5 minutes. Use the external cron below instead.
+not on a reliable cadence. Use the external cron below instead.
 
-### External cron (recommended — every 5 min, no Mac)
+### External cron (recommended — hourly, no Mac)
 
 1. Run `npm run setup:external-cron` — validates env vars and prints exact URLs.
 2. **Vercel env vars** (Settings → Environment Variables):
@@ -36,19 +37,22 @@ not every 5 minutes. Use the external cron below instead.
 3. Redeploy Vercel after adding vars.
 4. Create a free job at [cron-job.org](https://cron-job.org):
    - URL: `https://YOUR-SITE-URL/api/trigger-bookmarks`
-   - Schedule: every 5 minutes
+   - Schedule: **every 60 minutes** (every 5 minutes floods overlapping Actions runs → failure emails)
    - Method: GET
    - Header: `Authorization: Bearer YOUR_CRON_SECRET`
    - Optional header: `x-vercel-protection-bypass: YOUR_BYPASS_SECRET`
 5. Test: `npm run ping:bookmarks-cron`
 
 The endpoint queues `workflow_dispatch` on `sync-bookmarks.yml` via the GitHub API.
-cron-job.org fires on time; GitHub Actions runs the actual bird sync.
+If a sync is already queued or running, `/api/trigger-bookmarks` returns `200` with
+`skipped: true` instead of stacking another run.
 
 Optional second cron-job.org job for feed cache:
 
 - URL: `https://YOUR-SITE-URL/api/feed`
 - Schedule: every 5 minutes (no auth header)
+- Note: ordinary `/api/feed` warmers serve the Spotify episode cache; live Spotify
+  refresh only runs on daily `/api/cron` or `?fresh=1` after the 6h TTL.
 
 ## Alternative: local ping scripts
 

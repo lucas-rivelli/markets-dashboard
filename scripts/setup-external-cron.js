@@ -71,7 +71,7 @@ console.log("\ncron-job.org (free, no Mac required)\n");
 console.log("1. Create account at https://cron-job.org");
 console.log("2. Create job → URL:");
 console.log(`     ${siteUrl}/api/trigger-bookmarks`);
-console.log("3. Schedule: every 5 minutes");
+console.log("3. Schedule: every 60 minutes (not every 5 — that floods GitHub Actions emails)");
 console.log("4. Request method: GET");
 console.log("5. Request headers:");
 console.log(`     Authorization: Bearer <your CRON_SECRET>`);

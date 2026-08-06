@@ -3,43 +3,20 @@
 > Read this file first when opening a new chat to continue work on this project.
 > Also read `sota.md` (vision/roadmap) and `Claude.md` (UI/API contracts).
 
-## Current resume point — July 6, 2026, ~3:15 PM BRT
+## Current resume point — August 6, 2026
 
-### Spotify cooldown
+### Diagnosed (Aug 6)
 
-- `data/spotify-cache.json` → `cooldown_until`: **2026-07-06T18:45:45Z** (~**15:45 BRT**).
-- Cache `items` is currently **empty** — when cooldown expires the next `/api/feed` fetch will call Spotify again. Episodes appear only if that fetch succeeds (no 429).
-- **Do not** hammer `?fresh=1` while cooling down — Spotify escalates penalties (up to 24h). Cache TTL is **6 hours** when healthy.
-- Check: `node -e "const c=require('./data/spotify-cache.json'); console.log(c.cooldown_until, c.items?.length)"`
-
-### Vercel deploy (blocked)
-
-- Hobby plan hit **100 deploys / 24h** on July 6. Latest code commits (`b38c0a7`, `36a2678`) show **"Deployment rate limited — retry in 24 hours"** on GitHub → Vercel check.
-- **Production lags local** until a deploy succeeds. After limit clears: Vercel → Deployments → **Redeploy** latest commit (or push again).
-- `scripts/vercel-ignore.sh` was fixed (bash 3.2, no `mapfile`) — workspace/cache-only commits should **skip** deploy once that code is live on Vercel.
-
-### Cross-device sync
-
-- Workspace writes batched: **pull + push every 5 min**; ↻ Sync or tab close pushes immediately.
-- Pair new devices: open once with `?sync=<SAVE_SECRET>` (same value as Vercel env `SAVE_SECRET` and `.env.local`).
-- Prompt "Enter sync secret" = paste `SAVE_SECRET` from `.env.local` / Vercel env vars.
-
-### Shipped July 6 (in git `main`, may not be on Vercel yet)
-
-- **Value Investors Club** — `lib/vic.js`, `VIC_SESSION` + `VIC_REMEMBER` in env, `data/vic-cache.json`, Investing category pinned in feed. Daily refresh: GitHub Action **Sync VIC ideas** (`npm run sync:vic`) + `/api/feed` / cron.
-- **Item rename** — `item_titles` in workspace.
-- **Arrival dates** — `item_added` in workspace; list sorts/displays platform arrival, not RSS publish date (reader shows "Published …" when different).
-- **All** rail view — every non-trash item.
-- **Folder + tag filters** — `#filter-folder` / `#filter-tag` narrow any view (Inbox, All, Trash, folder, tag).
-- **Gmail-style multi-select** — ⌘/Ctrl+click, Shift+click, bulk bar, J/K/X/E/# shortcuts (`?` for panel).
-- **vercel-ignore** + batched workspace sync (above).
+- **Bookmark emails:** cron-job.org hits `/api/trigger-bookmarks` every **5 minutes**. GitHub Actions then piles up (queued/cancelled/failed runs → failure emails). Fix: throttle to **hourly** on cron-job.org; API now skips dispatch when a sync is already running; bookmark-only commits skip Vercel deploys and are read from GitHub at runtime.
+- **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
+- **VIC:** production feed currently reports `failed: ["Value Investors Club"]` (stale ideas may still render from cache). Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel.
 
 ### Local vs production data
 
 | Data | Local | Production |
 |------|-------|------------|
 | RSS, VIC API, manual-links | disk / env | runtime + GitHub |
-| `bookmarks.json` | disk immediately | **bundled in deploy** — needs successful Vercel deploy after sync |
+| `bookmarks.json` | disk immediately | GitHub at runtime (bookmark-only commits skip deploy) |
 | `workspace.json` | disk + GitHub via API | GitHub via API |
 | Spotify cache | `data/spotify-cache.json` | GitHub at runtime |
 
@@ -48,11 +25,12 @@
 | Variable | Purpose |
 |----------|---------|
 | `SAVE_SECRET` | Workspace + manual-link + writing writes; device pairing |
-| `GITHUB_TOKEN` / `GH_TOKEN` | Production writes to repo |
+| `GITHUB_TOKEN` / `GH_TOKEN` | Production repo writes |
 | `SPOTIFY_*` | Podcast episodes |
 | `VIC_SESSION` (+ `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest). `vic_session` alone expires ~2h — copy remember cookie too. Set on **Vercel and GitHub Actions secrets**. |
 | `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
 | `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
+| `GITHUB_DISPATCH_TOKEN` | `/api/trigger-bookmarks` → Actions dispatch |
 
 ### Key commands
 
@@ -60,23 +38,14 @@
 npm run dev              # localhost:3000
 npm run sync:bookmarks   # Mac → data/bookmarks.json
 npm run setup:check      # diagnose env
-```
-
-### Recent commits (July 6)
-
-```
-36a2678 Add All view, cross-filters, and platform arrival dates in the list.
-b38c0a7 Fix deploy skip script and add batched workspace sync with bulk list shortcuts.
-3511284 Track inbox arrival dates and harden VIC cache loading.
-42052ba Fix VIC inbox visibility and add item rename across the workspace.
+npm run setup:external-cron  # print hourly cron-job.org instructions
 ```
 
 ### Open / next
 
-- [ ] Redeploy Vercel when rate limit clears
-- [ ] Confirm `SAVE_SECRET` + `VIC_SESSION` on Vercel production env
-- [ ] Optional: `lib/bookmarks.js` read GitHub at runtime (bookmarks wouldn't need redeploy)
-- [ ] Spotify: wait for cooldown; verify episodes return
+- [ ] Change cron-job.org bookmark job from every 5 min → every 60 min
+- [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
+- [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
 
 ---
 
@@ -98,7 +67,7 @@ api/cron.js         → GET /api/cron — morning cron (Vercel, 7 AM ET)
 lib/aggregate.js    → RSS + Spotify + VIC + bookmarks + manual links
 lib/vic.js          → Value Investors Club API (session cookie)
 lib/spotify.js      → Spotify Web API (saved shows → new episodes, 7 days; excludes Posse de Bola)
-lib/bookmarks.js    → reads data/bookmarks.json (deploy bundle in production)
+lib/bookmarks.js    → reads data/bookmarks.json (GitHub at runtime in prod)
 lib/manual-links.js → reads/writes data/manual-links.json (GitHub at runtime in prod)
 lib/writings.js → reads/writes data/writings.json (GitHub at runtime in prod)
 lib/workspace-state.js → workspace merge logic
@@ -230,7 +199,6 @@ d65c184 Add daily cron refresh and morning auto-fetch on first visit
 
 ## Backlog / ideas (not built)
 
-- [ ] `lib/bookmarks.js` read GitHub at runtime (avoid redeploy for bookmark sync)
 - [ ] Morgan Stanley scraper or RSS for Consilient Observer
 - [ ] Email digest of unread items
 
@@ -267,4 +235,4 @@ markets-dashboard/
 
 ---
 
-*Last updated: July 6, 2026*
+*Last updated: August 6, 2026*

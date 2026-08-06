@@ -4,7 +4,7 @@
 > Read this to plan. For operational detail (setup, env vars, commands), see [HANDOFF.md](HANDOFF.md).
 > Update this file whenever the direction changes.
 
-*Last updated: August 5, 2026*
+*Last updated: August 6, 2026*
 
 ---
 
@@ -37,7 +37,7 @@ api/writing.js      → GET/POST/DELETE /api/writing — create and edit persona
 api/cron.js         → GET /api/cron — Vercel cron, 7 AM ET daily
 lib/aggregate.js    → fetches RSS feeds, merges Spotify + bookmarks + saved links + writings
 lib/spotify.js      → Spotify Web API (saved shows → episodes, last 7 days)
-lib/bookmarks.js    → reads data/bookmarks.json
+lib/bookmarks.js    → reads data/bookmarks.json (GitHub at runtime in prod)
 lib/kb-index.js     → builds the Library read model from kb files
 lib/writings.js     → reads/writes data/writings.json (GitHub at runtime in prod)
 data/bookmarks.json → X bookmarks, synced from Mac via birdclaw
@@ -71,7 +71,8 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | 
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
 - Frontend shows the last feed snapshot instantly, then syncs in the background.
-- Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API; episodes refresh at most every 6 hours. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
+- Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API. Ordinary `/api/feed` builds always serve the persisted cache; live Spotify refresh only runs on daily cron / `?fresh=1` once the 6h TTL has elapsed. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
+- X bookmarks sync via external cron → `/api/trigger-bookmarks` → GitHub Actions. Production reads `data/bookmarks.json` from GitHub at runtime; bookmark-only commits skip Vercel deploys. Prefer an **hourly** cron — a 5-minute cadence stacks overlapping Actions runs (failures/cancels → email flood). The trigger endpoint skips dispatch when a sync is already running.
 - Keep the stack vanilla: no build step, no framework. `index.html` is self-contained.
 
 ## 4. Design language (July 2026 redesign)
