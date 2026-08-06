@@ -4,7 +4,7 @@
 > Read this to plan. For operational detail (setup, env vars, commands), see [HANDOFF.md](HANDOFF.md).
 > Update this file whenever the direction changes.
 
-*Last updated: July 6, 2026*
+*Last updated: August 5, 2026*
 
 ---
 
@@ -33,31 +33,34 @@ Vanilla JS + Vercel serverless. No build step, no framework.
 index.html          → entire frontend (HTML + CSS + JS in one file)
 api/feed.js         → GET /api/feed — SOURCES array lives here
 api/manual-link.js  → POST /api/manual-link — add one-off links from the UI
+api/writing.js      → GET/POST/DELETE /api/writing — create and edit personal writings
 api/cron.js         → GET /api/cron — Vercel cron, 7 AM ET daily
-lib/aggregate.js    → fetches RSS feeds, merges Spotify + bookmarks + saved links
+lib/aggregate.js    → fetches RSS feeds, merges Spotify + bookmarks + saved links + writings
 lib/spotify.js      → Spotify Web API (saved shows → episodes, last 7 days)
 lib/bookmarks.js    → reads data/bookmarks.json
 lib/kb-index.js     → builds the Library read model from kb files
+lib/writings.js     → reads/writes data/writings.json (GitHub at runtime in prod)
 data/bookmarks.json → X bookmarks, synced from Mac via birdclaw
 data/manual-links.json  → user-added article/video/podcast links
+data/writings.json      → personal articles written in-app
 data/workspace.json     → synced folders, tags, mailbox state (cross-device)
 kb/                 → repo-backed knowledge base database
 scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 ```
 
-**Sources:** ~9 RSS feeds (Substacks, blogs, YouTube), Spotify podcast episodes (dynamic), X bookmarks (birdclaw → git), and manual saved links from `data/manual-links.json`. Full list in `api/feed.js`.
+**Sources:** ~9 RSS feeds (Substacks, blogs, YouTube), Spotify podcast episodes (dynamic), X bookmarks (birdclaw → git), manual saved links from `data/manual-links.json`, and personal writings from `data/writings.json`. Full list in `api/feed.js`.
 
-**Features:** merged Latest timeline · in-app Add link for one-off articles/videos/podcasts · Sources launchpad grouped by category · email-style item states (`Inbox`, `Trash`) plus folders/tags · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
+**Features:** merged Latest timeline · in-app Add link for one-off articles/videos/podcasts · **Writing** rail for authoring pieces that join the same Inbox/folder/tag flow · Sources launchpad grouped by category · email-style item states (`Inbox`, `Trash`) plus folders/tags · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
 
 **Item shape** (from `lib/aggregate.js`):
 
 ```js
-{ id, source, category, title, link, date, snippet, contentHtml }
+{ id, source, category, title, link, date, snippet, contentHtml, writingId? }
 ```
 
-`id` is a stable SHA-256 hash of `link`. `contentHtml` is sanitized RSS body HTML for Substack posts when the feed provides it.
+`id` is a stable SHA-256 hash of `link`. `contentHtml` is sanitized body HTML for Substack posts (from the feed) and for personal writings. Writings also carry `writingId` (the record key in `data/writings.json`).
 
-Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks`.
+Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | Investing | Writing`.
 
 ## 3. Hard constraints
 
@@ -80,7 +83,7 @@ rubricated manuscript / private reading room — not a SaaS dashboard.
 - **One typeface.** EB Garamond everywhere (Google Fonts). UI labels in letterspaced small caps; body in warm ink (`#292018`).
 - **Rubrication.** A single accent — deep vermilion `#7f2a1a` — marks what matters: active folder, inbox dot, links, graph nodes. Like red ink in a manuscript. Gold `#96762f` is reserved for flourishes (folder tags).
 - **Category inks** (muted manuscript pigments, text-only — no pill backgrounds):
-  Substack `#a04f1e` · YouTube `#9a2b21` · Blog `#5e4370` · Spotify `#3e6b4e` · Bookmarks `#3a5684` · Macro `#7c5a26`.
+  Substack `#a04f1e` · YouTube `#9a2b21` · Blog `#5e4370` · Spotify `#3e6b4e` · Bookmarks `#3a5684` · Macro `#7c5a26` · Writing `#6b3f2a`.
 - **Ornament with restraint.** A fleuron (❦) as brand mark / empty-state; ❧ marks folders; ✦ marks the inbox. A drop-cap opens the reading pane. Double rule under the top bar. Nothing else.
 - Seen or processed items fade (opacity), like ink that has been absorbed.
 
@@ -93,16 +96,19 @@ Anti-goals: emoji in UI, rounded pill-everything, drop shadows, bright saturated
 ```
 top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · ❦ Map (drawer on narrow)
 ┌ RAIL ────┬ MESSAGE LIST ──┬ READING PANE ─────┬ ASIDE ───────┐
-│ Inbox    │ source·title·  │ opened item or    │ Tag map      │
-│ All      │ snippet rows,  │ Sources launchpad;│ above recent │
-│ Trash    │ email-style,   │ embeds + articles │ read links   │
-│ + tags   │ filtered by    │ Open · states ·   │              │
-│          │ tag+search+    │ Tag ❧             │              │
-│          │ folder state   │                   │              │
+│ Learning │ source·title·  │ opened item or    │ Tag map      │
+│ Room     │ snippet rows,  │ Sources / Writing │ above recent │
+│ Inbox    │ email-style,   │ editor; embeds +  │ read links   │
+│ All      │ filtered by    │ articles          │              │
+│ Trash    │ tag+search+    │ Open · states ·   │              │
+│ Sources  │ folder state   │ Tag ❧             │              │
+│ Writing  │                │                   │              │
+│ + tags   │                │                   │              │
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
 - **Add link** in the top bar posts to `/api/manual-link` using the same `SAVE_SECRET` header as workspace sync. Links are stored in `data/manual-links.json` (GitHub in production), merged by `/api/feed`, and appear in Inbox like normal feed items. The server auto-detects YouTube, Spotify, and X/Twitter links and tries to read page title/description when the user leaves them blank.
+- **Writing** (`activeView=writing`) lists personal pieces from `data/writings.json`. **＋ New writing** creates via `POST /api/writing` (same `SAVE_SECRET` / GitHub persistence as manual links), lands in Inbox with category `Writing`, and opens an in-reader editor (title + contenteditable body styled like Substack `article-body`). Saved bodies render inline like Substack posts; Edit/Save/Done stay in the reader. Writings use the same folders, tags, Inbox/Trash, highlights, and KB save funnel as any other item. Synthetic links are `https://writing.local/<writingId>`; stable feed `id` remains the SHA-256 of that link. Commits that only touch `data/writings.json` skip Vercel deploys via `scripts/vercel-ignore.sh`.
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache; the remote workspace is the cross-device source of truth. **Multi-select** in the list: ⌘/Ctrl+click, Shift+click, bulk bar, and Gmail-style keys (J/K, X, E, #, /, ?). **Folder ❧** and **Tag** assign items (bulk-aware). Folders are email-style hierarchical paths (`Parent/Child`); creating a subfolder auto-creates ancestors, and renaming/moving/excluding a parent updates descendant paths plus item assignments. Moving an item to a folder replaces its current folder location; moving it to Inbox clears folder assignment.
 - **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **Trash** or back to **Inbox** only when chosen from the reader or context menu. Assigning any folder removes the item from Inbox so it rests only in that folder; filing from Trash restores the item into the folder. Trash is hidden from folders, tags, and the graph except in the Trash view. **To-read is now a normal tag**, not a mailbox state.
 - **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). Select text inside the reader and a small **Highlight** toolbar appears above the selection to save a synced quote under `item_highlights`; clicking a marked passage opens **Remove highlight**. Saved quotes render below the article and matching text is marked when possible. When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.

@@ -30,6 +30,7 @@
       --c-bookmarks:#3a5684;
       --c-macro:    #7c5a26;
       --c-investing: #2f5d4a;
+      --c-writing:  #6b3f2a;
       --serif: "EB Garamond", Georgia, "Times New Roman", serif;
     }
 
@@ -350,6 +351,7 @@
     .msg-source[data-category="Spotify"]        { color: var(--c-spotify); }
     .msg-source[data-category="Investing"]      { color: var(--c-investing); }
     .msg-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
+    .msg-source[data-category="Writing"]        { color: var(--c-writing); }
     .msg-date { font-size: 0.76rem; font-style: italic; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
     .msg-title {
       font-size: 1.05rem; font-weight: 600; line-height: 1.25; color: var(--ink);
@@ -396,6 +398,7 @@
     .reader-source[data-category="Spotify"]        { color: var(--c-spotify); }
     .reader-source[data-category="Investing"]      { color: var(--c-investing); }
     .reader-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
+    .reader-source[data-category="Writing"]        { color: var(--c-writing); }
     .reader-date { font-size: 0.85rem; font-style: italic; color: var(--ink-faint); }
 
     .reader-title { font-size: 1.9rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.7rem; }
@@ -457,6 +460,73 @@
     .reader-body.article-body h4 {
       color: var(--rubric); font-weight: 500; line-height: 1.2; margin-top: 1.6rem;
     }
+    .writer-title {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font: inherit;
+      font-size: 1.85rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin: 0.35rem 0 0.75rem;
+      padding: 0;
+      outline: none;
+    }
+    .writer-title::placeholder { color: var(--ink-faint); font-style: italic; font-weight: 400; }
+    .writer-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.55rem;
+      align-items: center;
+      margin: 0 0 0.85rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .writer-toolbar button {
+      border: none;
+      background: transparent;
+      font-family: var(--serif);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      cursor: pointer;
+      padding: 0.2rem 0.15rem;
+    }
+    .writer-toolbar button:hover { color: var(--rubric); }
+    .writer-toolbar .writer-status {
+      margin-left: auto;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .writer-body {
+      min-height: 14rem;
+      outline: none;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .writer-body:empty::before {
+      content: attr(data-placeholder);
+      color: var(--ink-faint);
+      font-style: italic;
+    }
+    .list-new-writing {
+      display: block;
+      width: 100%;
+      border: none;
+      background: transparent;
+      text-align: left;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      color: var(--rubric);
+      padding: 0.65rem 1rem;
+      cursor: pointer;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .list-new-writing:hover { background: var(--paper-sel); }
     .reader-highlight-mark {
       background: rgba(150, 118, 47, 0.22);
       color: inherit;
@@ -864,8 +934,8 @@
 
   <div class="workspace">
     <!-- Folder + tag rail -->
-    <nav class="col rail" aria-label="Reading room">
-      <div class="col-head"><span class="label">Reading Room</span></div>
+    <nav class="col rail" aria-label="Learning room">
+      <div class="col-head"><span class="label">Learning Room</span></div>
       <ul class="rail-list" id="rail-fixed"></ul>
       <div class="rail-folders-block">
         <div class="rail-divider label">Folders</div>
@@ -956,7 +1026,8 @@
   let checkedIds = new Set();
   let listFocusIndex = -1;
   let lastListClickIndex = -1;
-  let activeView = "inbox"; // inbox | all | trash | sources | folder:<name> | tag:<id>
+  let activeView = "inbox"; // inbox | all | trash | sources | writing | folder:<name> | tag:<id>
+  let editingWritingId = null; // writingId currently open in the editor
   let feedPollTimer = null;
   let workspaceLoaded = false; // first server pull attempted — gates feed-driven mutations
   let highlightToolbar = null;
@@ -1651,11 +1722,12 @@
   function computeMetaCounts() {
     const folderCounts = new Map();
     const tagCounts = new Map();
-    let inbox = 0, all = 0, trash = 0;
+    let inbox = 0, all = 0, trash = 0, writing = 0;
     for (const it of allItems) {
       const k = keyOf(it);
       if (itemStatus(it) === "trash") { trash++; continue; }
       all++;
+      if (it.category === "Writing") writing++;
       const folders = getItemFolders(k);
       if (!folders.length) inbox++;
       for (const f of folders) {
@@ -1667,7 +1739,7 @@
       }
     }
     return {
-      inbox, all, trash,
+      inbox, all, trash, writing,
       folder: (name) => folderCounts.get(normalizeFolderPath(name).toLowerCase()) || 0,
       tag: (id) => tagCounts.get(id) || 0,
     };
@@ -2180,10 +2252,10 @@
     const counts = computeMetaCounts();
     const fixed = [
       { id: "inbox",   glyph: "✦", name: "Inbox",   count: counts.inbox },
+      { id: "writing", glyph: "¶", name: "Writing", count: counts.writing },
       { id: "all",     glyph: "☰", name: "All",     count: counts.all },
       { id: "trash",   glyph: "×", name: "Trash",   count: counts.trash },
       { id: "sources", glyph: "☞", name: "Sources", count: allSources.length },
-      { id: "__add_piece__", glyph: "＋", name: "Add piece", count: "", action: "add-piece" },
     ];
     byId("rail-fixed").innerHTML = fixed.map(railItemHTML).join("");
 
@@ -2201,10 +2273,6 @@
       btn.addEventListener("click", () => {
         if (btn.dataset.metaSuppressClick === "1") {
           btn.dataset.metaSuppressClick = "0";
-          return;
-        }
-        if (btn.dataset.action === "add-piece") {
-          openLinkCreator(btn);
           return;
         }
         selectView(btn.dataset.view);
@@ -2293,6 +2361,8 @@
     updateGraphActive();
     if (activeView === "sources") {
       showReaderPane();
+    } else if (activeView === "writing" && isMobileLayout()) {
+      setMobilePane("list");
     } else if (isMobileLayout() && mobilePane() === "reader") {
       setMobilePane("list");
     }
@@ -2496,6 +2566,41 @@
     return data;
   }
 
+  async function saveWriting(payload, retryAuth = true) {
+    const res = await fetch("/api/writing", {
+      method: "POST",
+      headers: syncHeaders(),
+      body: JSON.stringify(payload),
+    });
+
+    if (res.status === 401) {
+      if (retryAuth && promptForSyncSecret()) return saveWriting(payload, false);
+      throw new Error("Unauthorized");
+    }
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    return data;
+  }
+
+  async function createWritingAndOpen() {
+    try {
+      const saved = await saveWriting({
+        title: "Untitled",
+        contentHtml: "<p></p>",
+      });
+      await loadFeed({ force: true, background: true });
+      selectView("writing");
+      const item = allItems.find((it) => it.link === saved.item.link);
+      if (item) {
+        editingWritingId = item.writingId || saved.item.writingId;
+        openItem(keyOf(item));
+      }
+    } catch (err) {
+      alert(err.message || "Could not create writing.");
+    }
+  }
+
   function openLinkCreator(anchor) {
     document.querySelector(".popover")?.remove();
     closeDrawers();
@@ -2655,6 +2760,7 @@
     if (activeView === "all") return "All";
     if (activeView === "trash") return "Trash";
     if (activeView === "sources") return "Sources";
+    if (activeView === "writing") return "Writing";
     if (activeView.startsWith("folder:")) return activeView.slice(7);
     const tag = tagById(activeView.slice(4));
     return tag ? tag.name : "Tag";
@@ -2681,6 +2787,9 @@
     if (activeView === "inbox") return statusItems().filter((it) => itemStatus(it) === "inbox");
     if (activeView === "all") return visibleItems();
     if (activeView === "trash") return allItems.filter((it) => itemStatus(it) === "trash");
+    if (activeView === "writing") {
+      return visibleItems().filter((it) => it.category === "Writing");
+    }
     if (activeView.startsWith("folder:")) {
       const name = activeView.slice(7);
       return visibleItems().filter((it) => getItemFolders(keyOf(it)).includes(name));
@@ -2907,13 +3016,19 @@
     byId("list-count").textContent = items.length ? `${items.length}` : "";
 
     if (!items.length) {
-      container.innerHTML = `<p class="empty-state">${
+      container.innerHTML = `${activeView === "writing"
+        ? `<button type="button" class="list-new-writing" id="btn-new-writing">＋ New writing</button>` : ""}
+        <p class="empty-state">${
         activeView === "inbox" && allItems.length ? "Inbox is clear. Folders and Trash hold processed items."
         : activeView === "all" && allItems.length ? "No items match these filters."
         : activeView === "trash" ? "Trash is empty."
+        : activeView === "writing" ? "No writings yet. Start one above — it lives in the same Inbox, folders, and tags as everything else."
         : activeView.startsWith("folder:") ? "This folder is empty. Open an item and file it here."
         : activeView.startsWith("tag:") ? "This tag is empty. Open an item and tag it."
         : allItems.length ? "No items match." : "Waiting for feed…"}</p>`;
+      if (activeView === "writing") {
+        byId("btn-new-writing")?.addEventListener("click", () => createWritingAndOpen());
+      }
       updateBulkBar();
       return;
     }
@@ -2973,6 +3088,15 @@
       ul.appendChild(li);
     });
     container.innerHTML = "";
+    if (activeView === "writing") {
+      const newBtn = document.createElement("button");
+      newBtn.type = "button";
+      newBtn.className = "list-new-writing";
+      newBtn.id = "btn-new-writing";
+      newBtn.textContent = "＋ New writing";
+      newBtn.addEventListener("click", () => createWritingAndOpen());
+      container.appendChild(newBtn);
+    }
     container.appendChild(ul);
     updateBulkBar();
   }
@@ -2982,6 +3106,7 @@
     selectedId = k;
     const item = allItems.find((it) => keyOf(it) === k);
     if (!item) return;
+    if (item.category !== "Writing") editingWritingId = null;
     setItemSeen(item);
     showReaderPane();
     renderReader(item);
@@ -2994,10 +3119,13 @@
   function renderReader(item) {
     hideHighlightToolbar();
     const k = keyOf(item);
+    const isWriting = item.category === "Writing";
+    const writingId = item.writingId || (isWriting ? String(item.link || "").split("/").pop() : "");
+    const isEditing = isWriting && editingWritingId && writingId && editingWritingId === writingId;
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
-    const hasArticleContent = item.category === "Substack" && item.contentHtml;
+    const hasArticleContent = (item.category === "Substack" || isWriting) && item.contentHtml;
     const status = itemStatus(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
@@ -3012,24 +3140,48 @@
     ).join("");
 
     let embedHTML = "";
-    if (yt) {
-      embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
-        title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy"></iframe></div>`;
-    } else if (sp) {
-      embedHTML = `<div class="reader-embed audio"><iframe src="${esc(sp)}" title="Podcast"
-        allow="encrypted-media; clipboard-write" loading="lazy"></iframe></div>`;
-    } else if (tweet) {
-      embedHTML = `<div class="reader-embed tweet"><blockquote class="twitter-tweet" data-dnt="true">
-        <a href="${esc(tweet)}">${esc(title)}</a>
-      </blockquote></div>`;
+    if (!isWriting) {
+      if (yt) {
+        embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
+          title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy"></iframe></div>`;
+      } else if (sp) {
+        embedHTML = `<div class="reader-embed audio"><iframe src="${esc(sp)}" title="Podcast"
+          allow="encrypted-media; clipboard-write" loading="lazy"></iframe></div>`;
+      } else if (tweet) {
+        embedHTML = `<div class="reader-embed tweet"><blockquote class="twitter-tweet" data-dnt="true">
+          <a href="${esc(tweet)}">${esc(title)}</a>
+        </blockquote></div>`;
+      }
     }
 
-    const bodyHTML = hasArticleContent
+    const bodyHTML = isEditing
+      ? `<div class="writer-toolbar">
+          <button type="button" data-cmd="bold">Bold</button>
+          <button type="button" data-cmd="italic">Italic</button>
+          <button type="button" data-cmd="formatBlock" data-value="h2">Heading</button>
+          <button type="button" data-cmd="formatBlock" data-value="blockquote">Quote</button>
+          <button type="button" data-cmd="insertUnorderedList">List</button>
+          <span class="writer-status" id="writer-status"></span>
+        </div>
+        <div class="reader-body article-body writer-body" id="writer-body" contenteditable="true" data-placeholder="Start writing…"></div>`
+      : hasArticleContent
       ? `<div class="reader-body article-body">${item.contentHtml}</div>`
       : item.snippet
       ? `<div class="reader-body"><p class="dropcap">${esc(item.snippet)}</p></div>`
-      : `<div class="reader-body"><p style="color:var(--ink-faint);font-style:italic">No preview text — open the original to read in full.</p></div>`;
+      : `<div class="reader-body"><p style="color:var(--ink-faint);font-style:italic">${
+          isWriting ? "Empty page — press Edit to write." : "No preview text — open the original to read in full."
+        }</p></div>`;
+
+    const openOriginal = isWriting
+      ? ""
+      : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
+    const writingActions = isWriting
+      ? (isEditing
+        ? `<button class="action-btn primary" id="btn-writing-save">Save</button>
+           <button class="action-btn" id="btn-writing-done">Done</button>`
+        : `<button class="action-btn primary" id="btn-writing-edit">Edit</button>`)
+      : "";
 
     const reader = byId("reader");
     reader.innerHTML = `
@@ -3039,12 +3191,15 @@
           <span class="reader-source" data-category="${esc(item.category)}">${esc(item.source)}</span>
           <span class="reader-date">${esc(fullDate(displayAddedAt(item)) || formatDate(displayAddedAt(item)))}</span>
         </div>
-        <h1 class="reader-title">${esc(title)}</h1>
-        ${hasCustomTitle(item) ? `<p class="reader-original-title">Originally: ${esc(originalTitle)}</p>` : ""}
-        ${item.date && displayAddedAt(item) && String(item.date) !== String(displayAddedAt(item))
+        ${isEditing
+          ? `<input class="writer-title" id="writer-title" value="${esc(title)}" aria-label="Title" placeholder="Title" />`
+          : `<h1 class="reader-title">${esc(title)}</h1>`}
+        ${!isEditing && hasCustomTitle(item) ? `<p class="reader-original-title">Originally: ${esc(originalTitle)}</p>` : ""}
+        ${!isEditing && item.date && displayAddedAt(item) && String(item.date) !== String(displayAddedAt(item))
           ? `<span class="reader-published">Published ${esc(fullDate(item.date) || formatDate(item.date))}</span>` : ""}
         <div class="reader-actions">
-          <a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+          ${openOriginal}
+          ${writingActions}
           ${statusButtons}
           <button class="action-btn" id="btn-rename">Rename</button>
           <button class="action-btn" id="btn-folder">Folder ❧</button>
@@ -3057,9 +3212,13 @@
             `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}</div>` : `<div class="chip-row" id="reader-meta"></div>`}
         ${embedHTML}
         ${bodyHTML}
-        ${renderHighlightsHTML(highlights)}
+        ${isEditing ? "" : renderHighlightsHTML(highlights)}
         <p class="reader-note">${
-          yt ? "Watching here — full context and comments on the original."
+          isWriting
+            ? (isEditing
+              ? "Your writing is saved to the library like any other piece — folders, tags, and Inbox still apply."
+              : "Your own writing, rendered like a Substack body. Edit anytime; file and tag as usual.")
+          : yt ? "Watching here — full context and comments on the original."
           : sp ? "Listening here — episode notes on the original."
           : tweet ? "X post embedded here when the platform script is available."
           : hasArticleContent ? "Substack body loaded from the feed. Open original for comments, paywalled sections, and the canonical page."
@@ -3067,15 +3226,31 @@
         }</p>
       </div>`;
     byId("reader-empty") && (byId("reader-empty").hidden = true);
-    if (tweet) hydrateTwitterEmbed(reader);
-    applyHighlightMarks(reader.querySelector(".reader-body"), highlights);
-    wireHighlightToolbar(reader, item);
+    if (tweet && !isWriting) hydrateTwitterEmbed(reader);
+    if (isEditing) {
+      const body = byId("writer-body");
+      if (body) body.innerHTML = item.contentHtml || "<p></p>";
+      wireWritingEditor(item);
+    } else {
+      applyHighlightMarks(reader.querySelector(".reader-body"), highlights);
+      wireHighlightToolbar(reader, item);
+    }
 
     reader.querySelectorAll("[data-status]").forEach((btn) =>
       btn.addEventListener("click", () => moveItemStatus(item, btn.dataset.status)));
     byId("btn-folder").addEventListener("click", (e) => openFolderPicker(e.currentTarget, item));
     byId("btn-tag").addEventListener("click", (e) => openTagPicker(e.currentTarget, item));
     byId("btn-rename").addEventListener("click", (e) => openRenamePopover(e.currentTarget, item));
+    byId("btn-writing-edit")?.addEventListener("click", () => {
+      editingWritingId = writingId;
+      renderReader(item);
+    });
+    byId("btn-writing-done")?.addEventListener("click", async () => {
+      await persistOpenWriting(item, { leaveEditor: true });
+    });
+    byId("btn-writing-save")?.addEventListener("click", async () => {
+      await persistOpenWriting(item, { leaveEditor: false });
+    });
     wireReaderBack();
     reader.querySelectorAll("[data-untag]").forEach((b) =>
       b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterMetaChange(item); }));
@@ -3083,6 +3258,49 @@
       b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.unfolder); afterMetaChange(item); }));
     reader.querySelectorAll("[data-unhighlight]").forEach((b) =>
       b.addEventListener("click", () => { removeItemHighlight(item, b.dataset.unhighlight); renderReader(item); }));
+  }
+
+  function wireWritingEditor(item) {
+    const body = byId("writer-body");
+    if (!body) return;
+    byId("reader").querySelectorAll(".writer-toolbar [data-cmd]").forEach((btn) => {
+      btn.addEventListener("mousedown", (e) => e.preventDefault());
+      btn.addEventListener("click", () => {
+        const cmd = btn.dataset.cmd;
+        const value = btn.dataset.value || null;
+        body.focus();
+        if (cmd === "formatBlock") document.execCommand(cmd, false, value);
+        else document.execCommand(cmd, false, null);
+      });
+    });
+  }
+
+  async function persistOpenWriting(item, { leaveEditor }) {
+    const writingId = item.writingId || String(item.link || "").split("/").pop();
+    const titleEl = byId("writer-title");
+    const bodyEl = byId("writer-body");
+    const statusEl = byId("writer-status");
+    if (!writingId || !bodyEl) return;
+
+    const title = (titleEl?.value || item.title || "Untitled").trim() || "Untitled";
+    const contentHtml = bodyEl.innerHTML;
+    if (statusEl) statusEl.textContent = "Saving…";
+
+    try {
+      const saved = await saveWriting({ id: writingId, title, contentHtml });
+      await loadFeed({ force: true, background: true });
+      const next = allItems.find((it) => it.link === saved.item.link) || saved.item;
+      if (leaveEditor) editingWritingId = null;
+      else editingWritingId = next.writingId || writingId;
+      selectedId = keyOf(next);
+      renderReader(next);
+      renderList();
+      renderRail();
+      if (statusEl && !leaveEditor) statusEl.textContent = "Saved";
+    } catch (err) {
+      if (statusEl) statusEl.textContent = err.message || "Save failed";
+      else alert(err.message || "Could not save writing.");
+    }
   }
 
   function afterMetaChange(item) {

@@ -47,7 +47,7 @@
 
 | Variable | Purpose |
 |----------|---------|
-| `SAVE_SECRET` | Workspace + manual-link writes; device pairing |
+| `SAVE_SECRET` | Workspace + manual-link + writing writes; device pairing |
 | `GITHUB_TOKEN` / `GH_TOKEN` | Production writes to repo |
 | `SPOTIFY_*` | Podcast episodes |
 | `VIC_SESSION` (+ `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest). `vic_session` alone expires ~2h — copy remember cookie too. Set on **Vercel and GitHub Actions secrets**. |
@@ -100,6 +100,7 @@ lib/vic.js          → Value Investors Club API (session cookie)
 lib/spotify.js      → Spotify Web API (saved shows → new episodes, 7 days; excludes Posse de Bola)
 lib/bookmarks.js    → reads data/bookmarks.json (deploy bundle in production)
 lib/manual-links.js → reads/writes data/manual-links.json (GitHub at runtime in prod)
+lib/writings.js → reads/writes data/writings.json (GitHub at runtime in prod)
 lib/workspace-state.js → workspace merge logic
 data/workspace.json → synced folders, tags, mailbox, highlights, item_added, item_titles
 data/vic-cache.json → VIC ideas cache
@@ -130,9 +131,11 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | Spotify Podcasts | Spotify | dynamic — Spotify Web API |
 | X Bookmarks | Bookmarks | dynamic — data/bookmarks.json |
 | Saved Links | Bookmarks/auto | dynamic — in-app Add link → data/manual-links.json |
+| Writing | Writing | dynamic — in-app Writing rail → data/writings.json |
 
 **To add a source:** edit `SOURCES` in `api/feed.js`, commit, push to GitHub.
 **To add one article/video/podcast:** use the top-bar `Add` button in the app; it writes `data/manual-links.json` through `/api/manual-link`.
+**To write a piece:** open **Writing** in the rail → **＋ New writing**; it writes `data/writings.json` through `/api/writing`.
 
 ## Features built
 
@@ -142,6 +145,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 - [x] VIC ideas feed, item rename, arrival dates (`item_added`)
 - [x] In-app Add link, Sources launchpad, tag map, Recent Read
 - [x] Spotify episodes, X bookmarks, manual links
+- [x] In-app Writing (personal articles in the same mailbox/folder/tag flow)
 
 ## Setup still needed (user action)
 
@@ -149,7 +153,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 
 | Variable | Status | Purpose |
 |----------|--------|---------|
-| `SAVE_SECRET` | ✅ local + Vercel | Workspace/manual-link auth; device pairing |
+| `SAVE_SECRET` | ✅ local + Vercel | Workspace/manual-link/writing auth; device pairing |
 | `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
 | `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
 | `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |
@@ -240,6 +244,8 @@ markets-dashboard/
 ├── api/
 │   ├── feed.js          ← SOURCES array + /api/feed handler
 │   ├── manual-link.js   ← /api/manual-link in-app saved links
+│   ├── writing.js       ← /api/writing personal articles
+│   ├── save.js          ← /api/save knowledge-base writes
 │   └── cron.js          ← morning cron handler
 ├── lib/
 │   ├── aggregate.js     ← merge all feeds
@@ -247,7 +253,8 @@ markets-dashboard/
 │   └── bookmarks.js     ← load bookmarks JSON
 ├── data/
 │   ├── bookmarks.json   ← synced from birdclaw
-│   └── manual-links.json ← links added from the app
+│   ├── manual-links.json ← links added from the app
+│   └── writings.json    ← personal articles from Writing rail
 ├── scripts/
 │   ├── dev.js           ← local dev server (loads .env.local)
 │   ├── setup-check.js   ← diagnose Spotify + X setup
