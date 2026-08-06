@@ -34,7 +34,7 @@ module.exports = async function handler(req, res) {
     return res.status(202).json({ ok: true, ...result });
   } catch (err) {
     if (err instanceof SaveError) {
-      return res.status(err.statusCode || 500).json({ error: err.message });
+      return res.status(err.status || 500).json({ error: err.message });
     }
     return res.status(500).json({ error: err.message });
   }

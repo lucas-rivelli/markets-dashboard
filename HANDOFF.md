@@ -7,7 +7,7 @@
 
 ### Diagnosed (Aug 6)
 
-- **Bookmark emails:** cron-job.org hits `/api/trigger-bookmarks` every **5 minutes**. GitHub Actions then piles up (queued/cancelled/failed runs → failure emails). Fix: throttle to **hourly** on cron-job.org; API now skips dispatch when a sync is already running; bookmark-only commits skip Vercel deploys and are read from GitHub at runtime.
+- **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running. Slowing cron to hourly is optional hygiene, not required.
 - **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
 - **VIC:** production feed currently reports `failed: ["Value Investors Club"]` (stale ideas may still render from cache). Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel.
 
@@ -43,9 +43,10 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 
 ### Open / next
 
-- [ ] Change cron-job.org bookmark job from every 5 min → every 60 min
+- [x] Merged + deployed skip-if-active + Spotify cache serve (`4f88d74`+)
 - [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
 - [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
+- [ ] Optional: slow cron-job.org bookmark job to hourly
 
 ---
 
