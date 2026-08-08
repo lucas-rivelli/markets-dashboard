@@ -1,6 +1,6 @@
 # Refresh Value Investors Club ideas daily into data/vic-cache.json.
-# Requires GitHub secrets: VIC_SESSION (and VIC_REMEMBER for lasting member access).
-# Cache-only commits skip Vercel builds via scripts/vercel-ignore.sh.
+# Guest (~90d delay) works with no secrets. Optional: VIC_SESSION + VIC_REMEMBER
+# for member access (~45d). Cache-only commits skip Vercel via scripts/vercel-ignore.sh.
 
 name: Sync VIC ideas
 
