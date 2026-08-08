@@ -37,7 +37,9 @@ async function main() {
         ok: true,
         count: result.items?.length || 0,
         cached: Boolean(result.cached),
+        mode: result.mode || (process.env.VIC_SESSION || process.env.VIC_COOKIE ? "member" : "guest"),
         error: result.error || null,
+        warning: result.warning || null,
         skipped: result.skipped || null,
         newest: newest
           ? { title: newest.title, date: newest.date, link: newest.link }

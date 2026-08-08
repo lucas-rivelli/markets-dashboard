@@ -3,13 +3,13 @@
 > Read this file first when opening a new chat to continue work on this project.
 > Also read `sota.md` (vision/roadmap) and `Claude.md` (UI/API contracts).
 
-## Current resume point — August 6, 2026
+## Current resume point — August 8, 2026
 
-### Diagnosed (Aug 6)
+### Diagnosed (Aug 8)
 
-- **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running. Slowing cron to hourly is optional hygiene, not required.
-- **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
-- **VIC:** production feed currently reports `failed: ["Value Investors Club"]` (stale ideas may still render from cache). Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel.
+- **VIC back (guest ~90d):** valueinvestorsclub.com is reachable again. No GitHub Actions `VIC_SESSION` secrets; daily `sync-vic.yml` runs as guest. `lib/vic.js` now merges guest unlocks into any richer member cache and does **not** mark the feed failed when a stale Vercel `VIC_SESSION` falls back to guest. Restored May 8–9 ideas (unlocked ~Aug 7–8 under the 90d guest window) to Inbox.
+- **Bookmark emails (Aug 6):** `/api/trigger-bookmarks` skip-if-active is on `main`. Slowing cron to hourly remains optional.
+- **Spotify (Aug 6):** ordinary `/api/feed` serves cache; live refresh only on daily cron / `?fresh=1` after 6h TTL.
 
 ### Local vs production data
 
@@ -44,8 +44,8 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 ### Open / next
 
 - [x] Merged + deployed skip-if-active + Spotify cache serve (`4f88d74`+)
-- [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
-- [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
+- [x] VIC guest (~90d) live again; stale session no longer marks feed failed
+- [ ] Optional: add `VIC_SESSION` + `VIC_REMEMBER` on Vercel **and** GitHub Actions for ~45d member delay
 - [ ] Optional: slow cron-job.org bookmark job to hourly
 
 ---
@@ -127,7 +127,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
 | `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
 | `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |
-| `VIC_SESSION` + `VIC_REMEMBER` | ✅ local session (refresh if rejected); ⬜ Vercel + GitHub Actions secrets | Daily VIC cache via sync-vic.yml |
+| `VIC_SESSION` + `VIC_REMEMBER` | ⬜ optional (guest ~90d works without); stale Vercel session falls back to guest | Member ~45d delay if set on Vercel + Actions |
 
 **Spotify app settings:**
 - Website: `https://markets-dashboard.vercel.app` (or GitHub repo URL)
