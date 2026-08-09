@@ -5,9 +5,13 @@
 
 ## Current resume point — August 6, 2026
 
+### Diagnosed (Aug 9)
+
+- **Bookmark / “Twitter” emails every ~5 min:** cron-job.org still hits `/api/trigger-bookmarks` every 5 minutes. Starting ~21:20 UTC Aug 9, `sync-bookmarks.yml` began failing on `npm ci` (stale lockfile) → GitHub failure emails every tick. Fix: workflow uses `npm install` + soft-fails bird errors; trigger enforces **1h min interval** (and `BOOKMARKS_SYNC_PAUSED=true` hard-stops). Prefer cron-job.org at **hourly**.
+
 ### Diagnosed (Aug 6)
 
-- **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running. Slowing cron to hourly is optional hygiene, not required.
+- **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running + 1h min interval.
 - **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
 - **VIC:** production feed currently reports `failed: ["Value Investors Club"]` (stale ideas may still render from cache). Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel.
 
@@ -31,6 +35,8 @@
 | `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
 | `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
 | `GITHUB_DISPATCH_TOKEN` | `/api/trigger-bookmarks` → Actions dispatch |
+| `BOOKMARKS_SYNC_MIN_INTERVAL_MS` | Optional; default `3600000` (1h). `0` = no interval skip |
+| `BOOKMARKS_SYNC_PAUSED` | Optional; `true`/`1` skips all bookmark dispatches |
 | `OPENROUTER_API_KEY` | Lucas Briefing daily job (GitHub Actions secret; also accepts `OPEN_ROUTER_KEY` in `.env.local`) |
 
 ### Key commands
@@ -49,7 +55,8 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 - [x] Lucas Briefing daily job + OpenRouter secrets
 - [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
 - [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
-- [ ] Optional: slow cron-job.org bookmark job to hourly
+- [ ] In cron-job.org: set bookmark job to **hourly** (API now rate-limits anyway)
+- [ ] If emails continue before Vercel redeploys: set Vercel env `BOOKMARKS_SYNC_PAUSED=true` briefly
 
 ---
 

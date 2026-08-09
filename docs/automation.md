@@ -37,15 +37,16 @@ not on a reliable cadence. Use the external cron below instead.
 3. Redeploy Vercel after adding vars.
 4. Create a free job at [cron-job.org](https://cron-job.org):
    - URL: `https://YOUR-SITE-URL/api/trigger-bookmarks`
-   - Schedule: **every 60 minutes** (every 5 minutes floods overlapping Actions runs → failure emails)
+   - Schedule: **every 60 minutes** (every 5 minutes used to flood Actions → failure / X login emails)
    - Method: GET
    - Header: `Authorization: Bearer YOUR_CRON_SECRET`
    - Optional header: `x-vercel-protection-bypass: YOUR_BYPASS_SECRET`
 5. Test: `npm run ping:bookmarks-cron`
 
 The endpoint queues `workflow_dispatch` on `sync-bookmarks.yml` via the GitHub API.
-If a sync is already queued or running, `/api/trigger-bookmarks` returns `200` with
-`skipped: true` instead of stacking another run.
+If a sync is already queued/running, or one ran within the last hour, `/api/trigger-bookmarks`
+returns `200` with `skipped: true` instead of stacking another run. Override interval with
+`BOOKMARKS_SYNC_MIN_INTERVAL_MS`; set `BOOKMARKS_SYNC_PAUSED=true` to hard-stop dispatches.
 
 Optional second cron-job.org job for feed cache:
 

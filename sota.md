@@ -72,7 +72,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | 
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
 - Frontend shows the last feed snapshot instantly, then syncs in the background.
 - Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API. Ordinary `/api/feed` builds always serve the persisted cache; live Spotify refresh only runs on daily cron / `?fresh=1` once the 6h TTL has elapsed. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
-- X bookmarks sync via external cron → `/api/trigger-bookmarks` → GitHub Actions. Production reads `data/bookmarks.json` from GitHub at runtime; bookmark-only commits skip Vercel deploys. The trigger endpoint skips dispatch when a sync is already running (prevents failure/email pile-ups when a job hangs). Hourly cron is optional hygiene; a healthy 5-minute cadence is fine.
+- X bookmarks sync via external cron → `/api/trigger-bookmarks` → GitHub Actions. Production reads `data/bookmarks.json` from GitHub at runtime; bookmark-only commits skip Vercel deploys. The trigger skips when a sync is already running **or** one ran within the last hour (override with `BOOKMARKS_SYNC_MIN_INTERVAL_MS`; hard-stop with `BOOKMARKS_SYNC_PAUSED=true`). Prefer hourly cron — a 5-minute cadence spam-fails and emails.
 - Keep the stack vanilla: no build step, no framework. `index.html` is self-contained.
 
 ## 4. Design language (July 2026 redesign)

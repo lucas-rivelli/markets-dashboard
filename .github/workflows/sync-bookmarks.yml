@@ -2,7 +2,8 @@
 # (from x.com cookies — refresh with: npm run setup:github-x-secrets).
 # Triggered by external cron (cron-job.org → /api/trigger-bookmarks hourly).
 # GitHub's built-in schedule is unreliable; do not re-add it here.
-# /api/trigger-bookmarks skips dispatch when a run is already queued/in progress.
+# /api/trigger-bookmarks skips dispatch when a run is already queued/in progress
+# and enforces a minimum interval (default 1h) so a 5-minute cron cannot spam.
 
 name: Sync X bookmarks
 
@@ -27,7 +28,9 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # package-lock drifts; npm ci fails and emails on every cron tick.
+        # Need devDeps (@steipete/bird) for the sync step.
+        run: npm install
 
       - name: Sync and export bookmarks
         env:
@@ -40,7 +43,11 @@ jobs:
             exit 0
           fi
           SINCE="$(node -e "const d=new Date(); d.setUTCFullYear(d.getUTCFullYear()-1); console.log(d.toISOString().slice(0,10));")"
-          npx bird bookmarks --all --max-pages 250 --json | BOOKMARKS_SINCE="$SINCE" node scripts/export-bookmarks.js
+          # Soft-fail: expired cookies / X blocks must not fail the job (GitHub emails).
+          if ! npx bird bookmarks --all --max-pages 250 --json | BOOKMARKS_SINCE="$SINCE" node scripts/export-bookmarks.js; then
+            echo "Bookmark sync failed (cookies expired or X rejected the session). Not failing the job."
+            exit 0
+          fi
 
       - name: Commit bookmark changes
         env:
@@ -48,6 +55,10 @@ jobs:
           CT0: ${{ secrets.CT0 }}
         run: |
           if [ -z "$AUTH_TOKEN" ] || [ -z "$CT0" ]; then
+            exit 0
+          fi
+          if [ ! -f data/bookmarks.json ]; then
+            echo "No bookmarks.json produced — nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
