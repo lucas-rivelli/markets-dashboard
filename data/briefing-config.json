@@ -1,0 +1,60 @@
+{
+  "titlePrefix": "Lucas Briefing",
+  "sourceName": "Lucas Briefing",
+  "category": "Briefing",
+  "timezone": "America/Sao_Paulo",
+  "model": "anthropic/claude-sonnet-4",
+  "sections": {
+    "global": {
+      "label": "Global news",
+      "readingMinutes": 5,
+      "maxHeadlines": 28,
+      "feeds": [
+        {
+          "name": "Google News Business (US)",
+          "url": "https://news.google.com/rss/headlines/section/topic/BUSINESS?hl=en-US&gl=US&ceid=US:en"
+        },
+        {
+          "name": "Google News World (US)",
+          "url": "https://news.google.com/rss/headlines/section/topic/WORLD?hl=en-US&gl=US&ceid=US:en"
+        }
+      ]
+    },
+    "brazil": {
+      "label": "Brazilian news",
+      "readingMinutes": 2,
+      "maxHeadlines": 18,
+      "feeds": [
+        {
+          "name": "Google News Brazil",
+          "url": "https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419"
+        },
+        {
+          "name": "Google News Brazil Business",
+          "url": "https://news.google.com/rss/search?q=mercado+OR+economia+OR+Bolsa+OR+Selic&hl=pt-BR&gl=BR&ceid=BR:pt-419"
+        }
+      ]
+    },
+    "companies": {
+      "label": "Company news",
+      "readingMinutes": 2,
+      "maxHeadlinesPerCompany": 6,
+      "companies": [
+        { "name": "Nvidia", "query": "Nvidia OR NVDA" },
+        { "name": "Viridis Mining", "query": "\"Viridis Mining\" OR Viridis OR VTM", "hl": "en-US", "gl": "US", "ceid": "US:en" },
+        { "name": "Motiva", "query": "Motiva Infraestrutura OR Motiva OR CCR", "hl": "pt-BR", "gl": "BR", "ceid": "BR:pt-419" },
+        { "name": "Ecorodovias", "query": "Ecorodovias OR ECOR3", "hl": "pt-BR", "gl": "BR", "ceid": "BR:pt-419" }
+      ]
+    },
+    "topic": {
+      "label": "Specific topic",
+      "readingMinutes": 1,
+      "name": "Chinese AI open models",
+      "query": "Chinese open-source AI OR DeepSeek OR Qwen OR Kimi OR \"open weight\" China",
+      "maxHeadlines": 12,
+      "hl": "en-US",
+      "gl": "US",
+      "ceid": "US:en"
+    }
+  }
+}

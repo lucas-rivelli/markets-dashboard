@@ -3,7 +3,7 @@
 > Companion to [sota.md](sota.md). Read **sota.md** for vision/roadmap; read **HANDOFF.md** for setup/env.
 > Update **both this file and sota.md** when UI behavior or direction changes.
 
-*Last updated: August 6, 2026*
+*Last updated: August 9, 2026*
 
 ---
 
@@ -38,12 +38,14 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 └──────────┴────────────────┴───────────────────┴──────────────┘
 ```
 
-**Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side via `PUT /api/workspace`. Local edits are journaled per item in `markets_pending_sync` (persisted, survives tab death); every sync **pulls, merges remote + pending local edits, then pushes only changed domains** (↻ **Sync** or tab close pushes immediately). Server merge (`lib/workspace-state.js`) must receive the RAW payload — omitted domains stay untouched; provided maps replace wholesale. Never rewrite existing `item_added` stamps (no client-side migrations) — remote stamps win, or old items reappear as newly added on every device. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device. Commits that touch only `data/workspace.json` / cache JSON / `data/writings.json` / `data/bookmarks.json` should skip Vercel deploys via `scripts/vercel-ignore.sh`.
+**Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side via `PUT /api/workspace`. Local edits are journaled per item in `markets_pending_sync` (persisted, survives tab death); every sync **pulls, merges remote + pending local edits, then pushes only changed domains** (↻ **Sync** or tab close pushes immediately). Server merge (`lib/workspace-state.js`) must receive the RAW payload — omitted domains stay untouched; provided maps replace wholesale. Never rewrite existing `item_added` stamps (no client-side migrations) — remote stamps win, or old items reappear as newly added on every device. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device. Commits that touch only `data/workspace.json` / cache JSON / `data/writings.json` / `data/bookmarks.json` / `data/briefings.json` should skip Vercel deploys via `scripts/vercel-ignore.sh`.
 On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
 
 **Add piece:** `#btn-add-link`, rail **Add piece**, and Sources **Add piece** open the same popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
 
 **Writing:** Rail **Writing** (`activeView=writing`) lists `category === "Writing"` items. **＋ New writing** calls `POST /api/writing` (same auth header), stores in `data/writings.json`, merges into `/api/feed`, and opens the reader in edit mode (`editingWritingId`). Reader Edit/Save/Done use contenteditable `.writer-body` styled like `.article-body`; bodies render inline like Substack `contentHtml`. No "Open original" for writings. Same Inbox/Trash/folder/tag/highlight/KB path as other items. Record key is `writingId`; feed `id` is SHA-256 of `https://writing.local/<writingId>`.
+
+**Lucas Briefing:** Dynamic source in `api/feed.js` (`category: Briefing`). Daily job `npm run briefing:daily` gathers Google News RSS (`lib/briefing-gather.js` + `data/briefing-config.json`), synthesizes HTML via OpenRouter (`lib/briefing-llm.js`), upserts `data/briefings.json` (`lib/briefings.js`). GitHub Action `.github/workflows/briefing-daily.yml` at 07:30 BRT. Reader shows `contentHtml` inline (same as Substack); not editable Writing. Synthetic link `https://briefing.local/<briefingId>`. Edit watchlists/topics in `data/briefing-config.json`. Env: `OPENROUTER_API_KEY` (GitHub Actions secret + optional `.env.local`).
 
 **Reading menu:** `#rail-toggle` (☰ Menu) and **⌘/Ctrl+S** toggle `data-folders=hidden|visible`, hiding `.rail-folders-block` (folder list + New folder). On mobile (≤820px), opening the menu also opens the rail drawer (`data-rail=open`).
 
@@ -53,7 +55,7 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 
 **Folders:** Folders are hierarchical paths stored as strings in `markets_folders` / workspace `folders`, e.g. `Macro/Rates`. Item assignments in `markets_item_folders` use the same full path. Creating `Parent/Child` auto-creates ancestors. Rename, move, and exclude actions must update descendant folder paths and all item assignments, so editing a mistaken parent folder behaves like email folders/subfolders. The folder manager can move a folder to top level or under another non-descendant folder. The item folder picker is also a move action: choosing a folder replaces the item's current folder location; `Move to Inbox` clears folder assignment.
 
-**Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items and **Writing** items may include sanitized `contentHtml`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
+**Reader embeds:** `renderReader()` embeds YouTube via `youtube-nocookie`, Spotify via `open.spotify.com/embed`, and X/Twitter status URLs via `platform.twitter.com/widgets.js`. Substack feed items, **Writing** items, and **Briefing** items may include sanitized `contentHtml`; render that inline instead of falling back to preview text. Keep folder/tag rail free of instructional hint copy.
 
 **Highlights:** Highlighting is contextual, not a fixed reader action button. Select text inside `.reader-body` and show a small `.reader-selection-toolbar` above the selection with `Highlight`; clicking an existing `.reader-highlight-mark` shows `Remove highlight`. Save quotes into `markets_item_highlights` / workspace `item_highlights`. Saved highlights render under the article and matching text is marked when possible. Highlight entries are `{ id, text, created_at }` by item key.
 
@@ -126,6 +128,7 @@ All reads/writes go through `readJSON`/`writeJSON` in `index.html`, which keep a
   - Substack and Writing items can include sanitized `contentHtml` for inline reading.
 - `POST /api/manual-link` — add one-off links to `data/manual-links.json`, then merged into `/api/feed`
 - `GET|POST|DELETE /api/writing` — list / upsert / delete personal writings in `data/writings.json`, then merged into `/api/feed`
+- Briefings: no HTTP write API — `npm run briefing:daily` / GitHub Action writes `data/briefings.json`, then merged into `/api/feed`
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights
 - `POST /api/save` — writes filed items to `kb/inbox/<id>.json` (auto from UI when foldered without To-read); enriches X/YouTube via `lib/kb-enrich.js`
@@ -155,7 +158,7 @@ Spotify: To-read yes, inbox/KB no.
 - Add X/Twitter RSS bridges (bookmarks via birdclaw → `data/bookmarks.json`).
 - Drift from manuscript aesthetic (panels, pills, shadows, dark mode).
 - Call the Spotify API outside `lib/spotify.js`, or bypass its persisted cache/cooldown (`data/spotify-cache.json`) — dev-mode 429 penalties last hours and escalate.
-- Break `scripts/vercel-ignore.sh`: commits touching only `data/workspace.json` / `data/spotify-cache.json` / `data/vic-cache.json` / `data/writings.json` / `data/bookmarks.json` must NOT trigger Vercel deploys (free tier caps ~100/day).
+- Break `scripts/vercel-ignore.sh`: commits touching only `data/workspace.json` / `data/spotify-cache.json` / `data/vic-cache.json` / `data/writings.json` / `data/bookmarks.json` / `data/briefings.json` must NOT trigger Vercel deploys (free tier caps ~100/day).
 
 ## When you ship UI work
 

@@ -31,12 +31,14 @@
 | `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
 | `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
 | `GITHUB_DISPATCH_TOKEN` | `/api/trigger-bookmarks` → Actions dispatch |
+| `OPENROUTER_API_KEY` | Lucas Briefing daily job (GitHub Actions secret; also accepts `OPEN_ROUTER_KEY` in `.env.local`) |
 
 ### Key commands
 
 ```bash
 npm run dev              # localhost:3000
 npm run sync:bookmarks   # Mac → data/bookmarks.json
+npm run briefing:daily   # gather headlines + OpenRouter → data/briefings.json
 npm run setup:check      # diagnose env
 npm run setup:external-cron  # print hourly cron-job.org instructions
 ```
@@ -44,6 +46,7 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 ### Open / next
 
 - [x] Merged + deployed skip-if-active + Spotify cache serve (`4f88d74`+)
+- [x] Lucas Briefing daily job + OpenRouter secrets
 - [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
 - [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
 - [ ] Optional: slow cron-job.org bookmark job to hourly

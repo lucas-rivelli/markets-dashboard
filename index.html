@@ -31,6 +31,7 @@
       --c-macro:    #7c5a26;
       --c-investing: #2f5d4a;
       --c-writing:  #6b3f2a;
+      --c-briefing: #3d4f5f;
       --serif: "EB Garamond", Georgia, "Times New Roman", serif;
     }
 
@@ -352,6 +353,7 @@
     .msg-source[data-category="Investing"]      { color: var(--c-investing); }
     .msg-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .msg-source[data-category="Writing"]        { color: var(--c-writing); }
+    .msg-source[data-category="Briefing"]       { color: var(--c-briefing); }
     .msg-date { font-size: 0.76rem; font-style: italic; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
     .msg-title {
       font-size: 1.05rem; font-weight: 600; line-height: 1.25; color: var(--ink);
@@ -399,6 +401,7 @@
     .reader-source[data-category="Investing"]      { color: var(--c-investing); }
     .reader-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .reader-source[data-category="Writing"]        { color: var(--c-writing); }
+    .reader-source[data-category="Briefing"]       { color: var(--c-briefing); }
     .reader-date { font-size: 0.85rem; font-style: italic; color: var(--ink-faint); }
 
     .reader-title { font-size: 1.9rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.7rem; }
@@ -795,7 +798,9 @@
       color: var(--rubric); margin-bottom: 0.3rem; }
     .sources-group-label::after { content: ""; flex: 1; border-top: 1px solid var(--rule-soft); }
     .chip { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 0.1rem;
-      border-top: 1px solid var(--rule-soft); color: var(--ink); }
+      border-top: 1px solid var(--rule-soft); color: var(--ink); background: transparent;
+      border-left: 0; border-right: 0; border-bottom: 0; width: 100%; text-align: left;
+      font: inherit; cursor: pointer; text-decoration: none; }
     .chip:first-child { border-top: none; }
     .chip-avatar { width: 38px; height: 38px; border: 1px solid var(--rule); border-radius: 2px;
       color: var(--rubric); font-weight: 500; font-size: 0.9rem; display: flex; align-items: center;
@@ -2583,20 +2588,51 @@
     return data;
   }
 
+  /* Merge a just-saved writing/manual item into the in-memory feed so the UI
+     can open it immediately — waiting on /api/feed?fresh=1 rebuilds every RSS
+     source and can take tens of seconds, which made ＋ New writing look dead. */
+  function upsertLocalFeedItem(item) {
+    if (!item || (!item.link && !item.id)) return null;
+    const link = item.link || item.url || "";
+    const idx = allItems.findIndex(
+      (it) => (link && it.link === link) || (item.id && keyOf(it) === item.id)
+    );
+    if (idx >= 0) allItems[idx] = { ...allItems[idx], ...item };
+    else allItems = [item, ...allItems];
+    if (workspaceLoaded) {
+      stampNewFeedItems([item]);
+      ensureToReadTag();
+      applyInboxToReadTags();
+    }
+    return allItems.find(
+      (it) => (link && it.link === link) || (item.id && keyOf(it) === item.id)
+    ) || item;
+  }
+
   async function createWritingAndOpen() {
+    const btn = byId("btn-new-writing");
+    if (btn?.dataset.busy === "1") return;
+    if (btn) {
+      btn.dataset.busy = "1";
+      btn.disabled = true;
+      btn.textContent = "Creating…";
+    }
     try {
       const saved = await saveWriting({
         title: "Untitled",
         contentHtml: "<p></p>",
       });
-      await loadFeed({ force: true, background: true });
+      const item = upsertLocalFeedItem(saved.item);
+      editingWritingId = item.writingId || saved.item.writingId;
       selectView("writing");
-      const item = allItems.find((it) => it.link === saved.item.link);
-      if (item) {
-        editingWritingId = item.writingId || saved.item.writingId;
-        openItem(keyOf(item));
-      }
+      openItem(keyOf(item));
+      loadFeed({ force: true, background: true });
     } catch (err) {
+      if (btn) {
+        btn.dataset.busy = "0";
+        btn.disabled = false;
+        btn.textContent = "＋ New writing";
+      }
       alert(err.message || "Could not create writing.");
     }
   }
@@ -3120,12 +3156,14 @@
     hideHighlightToolbar();
     const k = keyOf(item);
     const isWriting = item.category === "Writing";
+    const isBriefing = item.category === "Briefing";
     const writingId = item.writingId || (isWriting ? String(item.link || "").split("/").pop() : "");
     const isEditing = isWriting && editingWritingId && writingId && editingWritingId === writingId;
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
-    const hasArticleContent = (item.category === "Substack" || isWriting) && item.contentHtml;
+    const hasArticleContent =
+      (item.category === "Substack" || isWriting || isBriefing) && item.contentHtml;
     const status = itemStatus(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
@@ -3140,7 +3178,7 @@
     ).join("");
 
     let embedHTML = "";
-    if (!isWriting) {
+    if (!isWriting && !isBriefing) {
       if (yt) {
         embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
           title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -3173,7 +3211,7 @@
           isWriting ? "Empty page — press Edit to write." : "No preview text — open the original to read in full."
         }</p></div>`;
 
-    const openOriginal = isWriting
+    const openOriginal = isWriting || isBriefing
       ? ""
       : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
     const writingActions = isWriting
@@ -3218,6 +3256,8 @@
             ? (isEditing
               ? "Your writing is saved to the library like any other piece — folders, tags, and Inbox still apply."
               : "Your own writing, rendered like a Substack body. Edit anytime; file and tag as usual.")
+          : isBriefing
+            ? "Morning briefing synthesized from public headlines. Source links are inline; file and tag as usual."
           : yt ? "Watching here — full context and comments on the original."
           : sp ? "Listening here — episode notes on the original."
           : tweet ? "X post embedded here when the platform script is available."
@@ -3288,8 +3328,7 @@
 
     try {
       const saved = await saveWriting({ id: writingId, title, contentHtml });
-      await loadFeed({ force: true, background: true });
-      const next = allItems.find((it) => it.link === saved.item.link) || saved.item;
+      const next = upsertLocalFeedItem(saved.item) || saved.item;
       if (leaveEditor) editingWritingId = null;
       else editingWritingId = next.writingId || writingId;
       selectedId = keyOf(next);
@@ -3297,6 +3336,7 @@
       renderList();
       renderRail();
       if (statusEl && !leaveEditor) statusEl.textContent = "Saved";
+      loadFeed({ force: true, background: true });
     } catch (err) {
       if (statusEl) statusEl.textContent = err.message || "Save failed";
       else alert(err.message || "Could not save writing.");
@@ -3592,7 +3632,7 @@
     }
     const groups = {};
     allSources.forEach((s) => { (groups[s.category] ||= []).push(s); });
-    const ORDER = ["Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks"];
+    const ORDER = ["Briefing", "Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks", "Writing"];
     const keys = [...ORDER.filter((k) => groups[k]), ...Object.keys(groups).filter((k) => !ORDER.includes(k))];
     reader.innerHTML = `<div class="reader-inner">
       ${isMobileLayout() ? `<button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>` : ""}
@@ -3602,16 +3642,39 @@
       <p class="sources-add-hint">Save an article, video, or podcast that is not already in your feeds.</p>
       ${keys.map((cat) => `<div class="sources-group">
         <div class="sources-group-label label">${esc(cat)}</div>
-        ${groups[cat].map((s) => `<a class="chip" href="${esc(s.site)}" target="_blank" rel="noopener noreferrer">
+        ${groups[cat].map((s) => {
+          const meta =
+            s.category === "Briefing"
+              ? "Daily morning briefing"
+              : s.hasFeed
+              ? "RSS feed connected"
+              : "Launchpad only — no RSS";
+          const href = s.category === "Briefing" ? "#" : s.site;
+          const chipTag = s.category === "Briefing" ? "button" : "a";
+          const chipAttrs =
+            s.category === "Briefing"
+              ? `type="button" class="chip" id="sources-open-briefing"`
+              : `class="chip" href="${esc(href)}" target="_blank" rel="noopener noreferrer"`;
+          return `<${chipTag} ${chipAttrs}>
           <span class="chip-avatar">${esc(initials(s.name))}</span>
           <span class="chip-body"><div class="chip-name">${esc(s.name)}</div>
-          <div class="chip-meta">${s.hasFeed ? "RSS feed connected" : "Launchpad only — no RSS"}</div></span>
-          <span class="chip-arrow" aria-hidden="true">→</span></a>`).join("")}
+          <div class="chip-meta">${meta}</div></span>
+          <span class="chip-arrow" aria-hidden="true">→</span></${chipTag}>`;
+        }).join("")}
       </div>`).join("")}
     </div>`;
     wireReaderBack();
     const addBtn = byId("sources-add-piece");
     if (addBtn) addBtn.addEventListener("click", () => openLinkCreator(addBtn));
+    const briefingChip = byId("sources-open-briefing");
+    if (briefingChip) {
+      briefingChip.addEventListener("click", () => {
+        const latest = allItems
+          .filter((it) => it.category === "Briefing" && itemStatus(it) !== "trash")
+          .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))[0];
+        if (latest) openItem(latest);
+      });
+    }
     byId("reader-empty") && byId("reader-empty").remove();
   }
 

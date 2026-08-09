@@ -138,6 +138,13 @@ const SOURCES = [
     rss: null,
     dynamic: true,
   },
+  {
+    name: "Lucas Briefing",
+    category: "Briefing",
+    site: "/",
+    rss: null,
+    dynamic: true,
+  },
 ];
 
 const CACHE_SECONDS = Math.floor(REFRESH_MS / 1000);

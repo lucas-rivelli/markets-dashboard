@@ -14,9 +14,11 @@
     "setup:external-cron": "node scripts/setup-external-cron.js",
     "setup:github-dispatch-token": "node scripts/setup-github-dispatch-token.js",
     "ping:bookmarks-cron": "bash scripts/ping-bookmarks-cron.sh",
-    "spotify:auth": "node scripts/spotify-auth.js"
+    "spotify:auth": "node scripts/spotify-auth.js",
+    "briefing:daily": "node scripts/briefing-daily.js"
   },
   "dependencies": {
+    "puppeteer-core": "^24.43.1",
     "rss-parser": "^3.13.0",
     "sanitize-html": "^2.17.5",
     "youtube-transcript": "^1.3.1"

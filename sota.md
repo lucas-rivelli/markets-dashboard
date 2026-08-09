@@ -48,19 +48,19 @@ kb/                 → repo-backed knowledge base database
 scripts/            → dev server, Spotify OAuth, bookmark sync, setup check
 ```
 
-**Sources:** ~9 RSS feeds (Substacks, blogs, YouTube), Spotify podcast episodes (dynamic), X bookmarks (birdclaw → git), manual saved links from `data/manual-links.json`, and personal writings from `data/writings.json`. Full list in `api/feed.js`.
+**Sources:** ~9 RSS feeds (Substacks, blogs, YouTube), Spotify podcast episodes (dynamic), X bookmarks (birdclaw → git), manual saved links from `data/manual-links.json`, personal writings from `data/writings.json`, and **Lucas Briefing** from `data/briefings.json`. Full list in `api/feed.js`.
 
-**Features:** merged Latest timeline · in-app Add link for one-off articles/videos/podcasts · **Writing** rail for authoring pieces that join the same Inbox/folder/tag flow · Sources launchpad grouped by category · email-style item states (`Inbox`, `Trash`) plus folders/tags · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
+**Features:** merged Latest timeline · in-app Add link for one-off articles/videos/podcasts · **Writing** rail for authoring pieces that join the same Inbox/folder/tag flow · daily **Lucas Briefing** (~10 min morning digest) · Sources launchpad grouped by category · email-style item states (`Inbox`, `Trash`) plus folders/tags · search by title/source · morning cron + first-visit-of-day live fetch · manual refresh (`?fresh=1`) · 30-min edge cache.
 
 **Item shape** (from `lib/aggregate.js`):
 
 ```js
-{ id, source, category, title, link, date, snippet, contentHtml, writingId? }
+{ id, source, category, title, link, date, snippet, contentHtml, writingId?, briefingId? }
 ```
 
-`id` is a stable SHA-256 hash of `link`. `contentHtml` is sanitized body HTML for Substack posts (from the feed) and for personal writings. Writings also carry `writingId` (the record key in `data/writings.json`).
+`id` is a stable SHA-256 hash of `link`. `contentHtml` is sanitized body HTML for Substack posts (from the feed), personal writings, and Lucas Briefing digests. Writings also carry `writingId` (the record key in `data/writings.json`). Briefings carry `briefingId` (key in `data/briefings.json`).
 
-Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | Investing | Writing`.
+Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | Investing | Writing | Briefing`.
 
 ## 3. Hard constraints
 
@@ -84,7 +84,7 @@ rubricated manuscript / private reading room — not a SaaS dashboard.
 - **One typeface.** EB Garamond everywhere (Google Fonts). UI labels in letterspaced small caps; body in warm ink (`#292018`).
 - **Rubrication.** A single accent — deep vermilion `#7f2a1a` — marks what matters: active folder, inbox dot, links, graph nodes. Like red ink in a manuscript. Gold `#96762f` is reserved for flourishes (folder tags).
 - **Category inks** (muted manuscript pigments, text-only — no pill backgrounds):
-  Substack `#a04f1e` · YouTube `#9a2b21` · Blog `#5e4370` · Spotify `#3e6b4e` · Bookmarks `#3a5684` · Macro `#7c5a26` · Writing `#6b3f2a`.
+  Substack `#a04f1e` · YouTube `#9a2b21` · Blog `#5e4370` · Spotify `#3e6b4e` · Bookmarks `#3a5684` · Macro `#7c5a26` · Writing `#6b3f2a` · Briefing `#3d4f5f`.
 - **Ornament with restraint.** A fleuron (❦) as brand mark / empty-state; ❧ marks folders; ✦ marks the inbox. A drop-cap opens the reading pane. Double rule under the top bar. Nothing else.
 - Seen or processed items fade (opacity), like ink that has been absorbed.
 
@@ -110,9 +110,10 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 
 - **Add link** in the top bar posts to `/api/manual-link` using the same `SAVE_SECRET` header as workspace sync. Links are stored in `data/manual-links.json` (GitHub in production), merged by `/api/feed`, and appear in Inbox like normal feed items. The server auto-detects YouTube, Spotify, and X/Twitter links and tries to read page title/description when the user leaves them blank.
 - **Writing** (`activeView=writing`) lists personal pieces from `data/writings.json`. **＋ New writing** creates via `POST /api/writing` (same `SAVE_SECRET` / GitHub persistence as manual links), lands in Inbox with category `Writing`, and opens an in-reader editor (title + contenteditable body styled like Substack `article-body`). Saved bodies render inline like Substack posts; Edit/Save/Done stay in the reader. Writings use the same folders, tags, Inbox/Trash, highlights, and KB save funnel as any other item. Synthetic links are `https://writing.local/<writingId>`; stable feed `id` remains the SHA-256 of that link. Commits that only touch `data/writings.json` skip Vercel deploys via `scripts/vercel-ignore.sh`.
+- **Lucas Briefing** is a normal feed source (`category: Briefing`, source name `Lucas Briefing`) stored in `data/briefings.json`. A morning GitHub Action (`briefing:daily`) gathers Google News RSS packets (global, Brazil, watched companies, special topic from `data/briefing-config.json`), synthesizes HTML via OpenRouter, and upserts today’s piece (`briefingYYYYMMDD`). Bodies render inline like Substack; Inbox/folders/tags/highlights apply as usual. No personal Writing editor. Commits that only touch `data/briefings.json` skip Vercel deploys.
 - **Folders + tags** sync across devices via `GET/PUT /api/workspace` → `data/workspace.json` (GitHub in production). localStorage is a fast cache; the remote workspace is the cross-device source of truth. **Multi-select** in the list: ⌘/Ctrl+click, Shift+click, bulk bar, and Gmail-style keys (J/K, X, E, #, /, ?). **Folder ❧** and **Tag** assign items (bulk-aware). Folders are email-style hierarchical paths (`Parent/Child`); creating a subfolder auto-creates ancestors, and renaming/moving/excluding a parent updates descendant paths plus item assignments. Moving an item to a folder replaces its current folder location; moving it to Inbox clears folder assignment.
 - **Mailbox states** sync across devices as `item_status`: new items start in **Inbox**; opening an Inbox item only fades it as seen and does not move it. Items move to **Trash** or back to **Inbox** only when chosen from the reader or context menu. Assigning any folder removes the item from Inbox so it rests only in that folder; filing from Trash restores the item into the folder. Trash is hidden from folders, tags, and the graph except in the Trash view. **To-read is now a normal tag**, not a mailbox state.
-- **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts render sanitized RSS body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). Select text inside the reader and a small **Highlight** toolbar appears above the selection to save a synced quote under `item_highlights`; clicking a marked passage opens **Remove highlight**. Saved quotes render below the article and matching text is marked when possible. When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
+- **Reading pane** embeds YouTube (`youtube-nocookie`), Spotify, and X/Twitter status links; Substack posts and Lucas Briefings render sanitized body HTML inline when available. Other articles show a drop-cap preview + "Open original" (publishers often block iframing). Select text inside the reader and a small **Highlight** toolbar appears above the selection to save a synced quote under `item_highlights`; clicking a marked passage opens **Remove highlight**. Saved quotes render below the article and matching text is marked when possible. When `GET /api/library` has an enriched note for the item, its summary renders inline ("From your notes") — the Phase 3 hook.
 - **Right column** stacks the hand-rolled SVG tag map on top and **Recent Read** below. The recent list uses the existing seen/read history, updates when an item is opened, and lets you jump back to recently visited articles.
 - **Ask the KB** markup exists but is hidden (`display: none`); retrieval/LLM is deferred (Phase 3).
 
