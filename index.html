@@ -3157,13 +3157,16 @@
     const k = keyOf(item);
     const isWriting = item.category === "Writing";
     const isBriefing = item.category === "Briefing";
+    const isSyntheticLocal = /^https?:\/\/[^/]+\.local\//i.test(String(item.link || ""));
     const writingId = item.writingId || (isWriting ? String(item.link || "").split("/").pop() : "");
     const isEditing = isWriting && editingWritingId && writingId && editingWritingId === writingId;
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
-    const hasArticleContent =
-      (item.category === "Substack" || isWriting || isBriefing) && item.contentHtml;
+    // Prefer body HTML whenever the feed provides it (Briefing/Writing/Substack).
+    const hasArticleContent = Boolean(item.contentHtml) && (
+      item.category === "Substack" || isWriting || isBriefing || isSyntheticLocal
+    );
     const status = itemStatus(item);
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
@@ -3178,7 +3181,7 @@
     ).join("");
 
     let embedHTML = "";
-    if (!isWriting && !isBriefing) {
+    if (!isWriting && !isBriefing && !isSyntheticLocal) {
       if (yt) {
         embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
           title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -3211,7 +3214,7 @@
           isWriting ? "Empty page — press Edit to write." : "No preview text — open the original to read in full."
         }</p></div>`;
 
-    const openOriginal = isWriting || isBriefing
+    const openOriginal = isWriting || isBriefing || isSyntheticLocal
       ? ""
       : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
     const writingActions = isWriting
