@@ -154,5 +154,5 @@ console.log("  1. Spotify: create app → npm run spotify:auth → add vars to V
 console.log("  2. X: log into x.com in browser → npm run sync:bookmarks");
 console.log("  3. Vercel: add CRON_SECRET + GITHUB_DISPATCH_TOKEN + SPOTIFY_* + VIC_SESSION + VIC_REMEMBER → redeploy");
 console.log("  4. VIC daily: add VIC_SESSION (+ VIC_REMEMBER) as GitHub Actions secrets → Actions → Sync VIC ideas");
-console.log("  5. External cron: npm run setup:external-cron → cron-job.org every 5 min");
+console.log("  5. External cron: npm run setup:external-cron → cron-job.org hourly");
 console.log("");

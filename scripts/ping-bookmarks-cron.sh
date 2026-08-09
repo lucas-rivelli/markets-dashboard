@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Ping /api/trigger-bookmarks to queue a GitHub Actions bookmark sync.
-# Use with cron-job.org (every 5 minutes) or any external scheduler.
+# Use with cron-job.org (hourly recommended) or any external scheduler.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
