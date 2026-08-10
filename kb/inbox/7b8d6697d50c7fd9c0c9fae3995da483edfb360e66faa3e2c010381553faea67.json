@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "7b8d6697d50c7fd9c0c9fae3995da483edfb360e66faa3e2c010381553faea67",
+  "status": "saved",
+  "title": "In May, I spent a full week going deep on AI Excel. I built a 120-page PDF Buy-Side Modeling Operating Manual (with a…",
+  "url": "https://x.com/FundamentEdge/status/2086705556073705551",
+  "source": "X Bookmarks",
+  "category": "Bookmarks",
+  "date": "2026-08-10T06:45:48.000Z",
+  "saved_at": "2026-08-10T19:32:10.815Z",
+  "themes": [],
+  "tickers": [],
+  "type": "bookmark",
+  "snippet": "In May, I spent a full week going deep on AI Excel. I built a 120-page PDF Buy-Side Modeling Operating Manual (with all of my accumulated knowledge on all things buy-side modeling), converted that …",
+  "folders": [
+    "Usage/Ai for Investing"
+  ],
+  "tags": [],
+  "highlights": [],
+  "content_html": "",
+  "content_kind": "note",
+  "content_text": "In May, I spent a full week going deep on AI Excel. I built a 120-page PDF Buy-Side Modeling Operating Manual (with all of my accumulated knowledge on all things buy-side modeling), converted that manual into a system of 14 Skills files, and started testing out three levels of Excel complexity with AI, from Level 1 (update this model) to Level 3 (one shot a new build). I was rather disappointed in the outcome. I felt like I wasted a week coming to a highly unsatisfying conclusion (that LLMs could do simple quarterly updates in Excel, but not much more). The models largely ignored the Skills instructions and the outputs were not very good. Well, things have improved quite a bit. This afternoon, using my from-scratch model build skill and a Daloopa data sheet, I was able to one-shot a MSFT model that looked and felt pretty much exactly like the most basic version of my AMZN 3-statement model (purposely cutting off all but the MOD tab). Using both Sol & Fable (direct and in the Perplexity Computer harness). To crank up the complexity, and move beyond simple productivity improvements, I spent some time on approaches to Revenue Forecasting, pulling a library of 12 common revenue forecasting methods into a Skills library with a Digital Analyst Skill upfront assigning the appropriate Skill. I pulled the Monitoring Plan breakdown on MSFT from Canary's Super Analyst, then let it rip. It's not perfect, but it's a massive, massive improvement in just 3 months. Three months ago, LLMs would choke on this problem. A world where I can one-shot a detailed revenue build, spin up a monitoring plan, then build a Digital Analyst to ingest & update that revenue forecast in real-time felt far away in May. This experiment tells me we are getting closer to the promise of the Digital Analyst and \"Patterns & Process\". > Patterns: identify the recurring \"set-ups\" that exist in markets, industry & companies and assign forward table-odds / probabilities to forward performance (very similar in concept to Fundamental Quant approaches practiced today in low-Sharpe execution). > Process: spin up a Digital Analyst against the backdrop of set-up pattern & expectations engine to ingest massive context (data, research, transcripts, read-throughs) and identify inflections & revisions before the swarms of fundamental investors. Excel back on the development menu and plan to lean in hard here.",
+  "content_meta": {
+    "platform": "x",
+    "tweet_id": "2086705556073705551",
+    "thread_length": 1,
+    "is_note_tweet": true,
+    "enriched_at": "2026-08-10T19:32:10.815Z"
+  }
+}
