@@ -13,7 +13,7 @@
 
 - **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running + 1h min interval.
 - **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
-- **VIC:** production feed currently reports `failed: ["Value Investors Club"]` (stale ideas may still render from cache). Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel.
+- **VIC:** member cache refreshed Aug 9 (newest ideas ~Jun 25, ~45d delay). GitHub Actions secrets `VIC_SESSION` + `VIC_REMEMBER` are set; daily `sync-vic.yml` may still hit VIC bot/HTML blocks from Actions IPs — if so, run `npm run sync:vic` locally and push `data/vic-cache.json`. Also set both cookies on Vercel for runtime refresh.
 
 ### Local vs production data
 

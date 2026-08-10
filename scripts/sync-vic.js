@@ -52,6 +52,10 @@ async function main() {
   if (!result.items?.length) {
     process.exitCode = 1;
   }
+  // Surface auth/cache freezes so Actions doesn't look green while stuck.
+  if (result.error || result.skipped) {
+    process.exitCode = 1;
+  }
 }
 
 main().catch((err) => {
