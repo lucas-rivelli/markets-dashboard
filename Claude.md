@@ -43,7 +43,7 @@ On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#syn
 
 **Add piece:** `#btn-add-link`, rail **Add piece**, and Sources **Add piece** open the same popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
 
-**Writing:** Rail **Writing** (`activeView=writing`) lists `category === "Writing"` items. **＋ New writing** calls `POST /api/writing` (same auth header), stores in `data/writings.json`, merges into `/api/feed`, and opens the reader in edit mode (`editingWritingId`). Reader Edit/Save/Done use contenteditable `.writer-body` styled like `.article-body`; bodies render inline like Substack `contentHtml`. No "Open original" for writings. Same Inbox/Trash/folder/tag/highlight/KB path as other items. Record key is `writingId`; feed `id` is SHA-256 of `https://writing.local/<writingId>`.
+**Writing:** Rail **Writing** (`activeView=writing`) lists `category === "Writing"` items. **＋ New writing** calls `POST /api/writing` (same auth header), stores in `data/writings.json`, merges into `/api/feed`, and opens the reader in edit mode (`editingWritingId`). The editor autosaves on input (local draft in `markets_writing_drafts` immediately, server upsert ~900ms after typing pauses; serialized so concurrent GitHub writes cannot clobber). **Done** flushes the latest draft and leaves edit mode — there is no separate Save button. Never remount `.writer-body` from workspace sync, feed refresh, or meta chrome updates while editing; `applyFeedData` merges newer local/draft writing bodies over stale feed payloads. Bodies render inline like Substack `contentHtml`. No "Open original" for writings. Same Inbox/Trash/folder/tag/highlight/KB path as other items. Record key is `writingId`; feed `id` is SHA-256 of `https://writing.local/<writingId>`.
 
 **Lucas Briefing:** Dynamic source in `api/feed.js` (`category: Briefing`). Daily job `npm run briefing:daily` gathers Google News RSS (`lib/briefing-gather.js` + `data/briefing-config.json`), synthesizes HTML via OpenRouter (`lib/briefing-llm.js`), upserts `data/briefings.json` (`lib/briefings.js`). GitHub Action `.github/workflows/briefing-daily.yml` at 07:30 BRT. Reader shows `contentHtml` inline (same as Substack); not editable Writing. Synthetic link `https://briefing.local/<briefingId>`. Edit watchlists/topics in `data/briefing-config.json`. Env: `OPENROUTER_API_KEY` (GitHub Actions secret + optional `.env.local`).
 
@@ -120,6 +120,7 @@ All reads/writes go through `readJSON`/`writeJSON` in `index.html`, which keep a
 | `markets_item_tags` | Item → tag id[] map |
 | `markets_feed_snapshot` | Last feed JSON for instant load |
 | `markets_kb_saved` | Item ids already written to `kb/inbox/` this browser |
+| `markets_writing_drafts` | Writing id → `{ title, contentHtml, updated }` local drafts (survive tab death until server save lands) |
 | `markets_tags_migrated` | One-time folders→tags migration flag |
 
 ## API surface (frontend uses)

@@ -1033,6 +1033,9 @@
   let lastListClickIndex = -1;
   let activeView = "inbox"; // inbox | all | trash | sources | writing | folder:<name> | tag:<id>
   let editingWritingId = null; // writingId currently open in the editor
+  let writingSaveTimer = null;
+  let writingSaveChain = Promise.resolve();
+  let writingDirty = false;
   let feedPollTimer = null;
   let workspaceLoaded = false; // first server pull attempted — gates feed-driven mutations
   let highlightToolbar = null;
@@ -1058,7 +1061,9 @@
   const PENDING_SYNC_KEY  = "markets_pending_sync";
   const SOURCE_WATERMARK_KEY = "markets_source_watermarks";
   const PITCH_SEED_FLAG_KEY = "markets_pitch_sources_seeded_v1";
+  const WRITING_DRAFTS_KEY = "markets_writing_drafts";
   const REFRESH_MS      = 5 * 60 * 1000;
+  const WRITING_AUTOSAVE_MS = 900;
 
   // New pitch Substacks: on first seed, only the latest post stays in Inbox.
   const LATEST_ONLY_SEED_SOURCES = new Set([
@@ -1324,10 +1329,9 @@
       renderList();
       renderGraph();
       renderRecentRead();
-      if (selectedId) {
-        const item = allItems.find((it) => keyOf(it) === selectedId);
-        if (item) renderReader(item);
-      }
+      // Never remount the writing editor from workspace sync — that wiped
+      // unsaved keystrokes whenever a background pull finished mid-draft.
+      refreshOpenReader({ allowEditorRemount: false });
     } catch (err) {
       console.warn("Workspace load failed:", err.message);
     }
@@ -2417,10 +2421,7 @@
         renderRail();
         renderGraph();
         renderList();
-        if (selectedId) {
-          const item = allItems.find((it) => keyOf(it) === selectedId);
-          if (item) renderReader(item);
-        }
+        refreshOpenReader({ allowEditorRemount: false });
       } else {
         input.focus();
       }
@@ -2438,10 +2439,7 @@
         renderRail();
         renderGraph();
         renderList();
-        if (selectedId) {
-          const item = allItems.find((it) => keyOf(it) === selectedId);
-          if (item) renderReader(item);
-        }
+        refreshOpenReader({ allowEditorRemount: false });
       };
       pop.querySelector("[data-move-folder-button]").addEventListener("click", moveCurrentFolder);
 
@@ -2626,7 +2624,9 @@
       editingWritingId = item.writingId || saved.item.writingId;
       selectView("writing");
       openItem(keyOf(item));
-      loadFeed({ force: true, background: true });
+      // Soft refresh only — a forced rebuild can race the GitHub write and
+      // briefly omit the new piece; mergeFeedItemsPreservingWritings keeps it.
+      loadFeed({ background: true });
     } catch (err) {
       if (btn) {
         btn.dataset.busy = "0";
@@ -2937,8 +2937,7 @@
     items.forEach((item) => setItemStatus(item, status));
     if (status === "trash") removeToReadTagFromItems(items);
     if (selectedId && items.some((it) => keyOf(it) === selectedId)) {
-      const open = allItems.find((it) => keyOf(it) === selectedId);
-      if (open) renderReader(open);
+      refreshOpenReader({ allowEditorRemount: false });
     }
     clearCheckedIds();
     renderList();
@@ -2977,8 +2976,7 @@
 
   function afterBulkChange(items) {
     if (selectedId && items.some((it) => keyOf(it) === selectedId)) {
-      const open = allItems.find((it) => keyOf(it) === selectedId);
-      if (open) renderReader(open);
+      refreshOpenReader({ allowEditorRemount: false });
     }
     renderRail();
     renderGraph();
@@ -3137,12 +3135,190 @@
     updateBulkBar();
   }
 
+  /* ── Writing drafts + autosave ─────────────────────────────────────────── */
+  function writingIdOf(item) {
+    if (!item) return "";
+    return item.writingId || (item.category === "Writing"
+      ? String(item.link || "").split("/").pop()
+      : "");
+  }
+
+  function isoNewer(a, b) {
+    const ta = Date.parse(a || "") || 0;
+    const tb = Date.parse(b || "") || 0;
+    return ta >= tb;
+  }
+
+  function getWritingDrafts() {
+    return readJSON(WRITING_DRAFTS_KEY, {});
+  }
+
+  function setWritingDraft(writingId, draft) {
+    if (!writingId) return;
+    const map = getWritingDrafts();
+    map[writingId] = draft;
+    writeJSON(WRITING_DRAFTS_KEY, map);
+  }
+
+  function clearWritingDraft(writingId) {
+    if (!writingId) return;
+    const map = getWritingDrafts();
+    if (!(writingId in map)) return;
+    delete map[writingId];
+    writeJSON(WRITING_DRAFTS_KEY, map);
+  }
+
+  function captureLiveWriting(item) {
+    const writingId = writingIdOf(item) || editingWritingId;
+    const titleEl = byId("writer-title");
+    const bodyEl = byId("writer-body");
+    if (!writingId || !bodyEl) return null;
+    return {
+      writingId,
+      title: (titleEl?.value || item?.title || "Untitled").trim() || "Untitled",
+      contentHtml: bodyEl.innerHTML,
+      updated: new Date().toISOString(),
+    };
+  }
+
+  function rememberWritingDraft(item) {
+    const live = captureLiveWriting(item);
+    if (!live) return null;
+    setWritingDraft(live.writingId, {
+      title: live.title,
+      contentHtml: live.contentHtml,
+      updated: live.updated,
+    });
+    writingDirty = true;
+    const statusEl = byId("writer-status");
+    if (statusEl && statusEl.textContent !== "Saving…") statusEl.textContent = "Saving…";
+    return live;
+  }
+
+  function editorContentFor(item) {
+    const writingId = writingIdOf(item);
+    const draft = writingId ? getWritingDrafts()[writingId] : null;
+    if (draft && (!item?.updated || isoNewer(draft.updated, item.updated))) {
+      return {
+        title: draft.title || item.title || "Untitled",
+        contentHtml: draft.contentHtml || "<p></p>",
+      };
+    }
+    return {
+      title: itemTitle(item),
+      contentHtml: item.contentHtml || "<p></p>",
+    };
+  }
+
+  function isLiveWritingEditor(writingId) {
+    return Boolean(
+      editingWritingId
+      && writingId
+      && editingWritingId === writingId
+      && byId("writer-body")
+    );
+  }
+
+  function refreshReaderMetaChrome(item) {
+    const meta = byId("reader-meta");
+    if (!meta || !item) return;
+    const k = keyOf(item);
+    const tags = getItemTags(k);
+    const folders = getItemFolders(k);
+    meta.innerHTML = `${folders.map((f) =>
+      `<span class="chip-folder">${esc(f)} <button data-unfolder="${esc(f)}" aria-label="Remove from ${esc(f)}">✕</button></span>`).join("")
+    }${tags.map((tag) =>
+      `<span class="chip-tag" style="color:${esc(tag.color)}">${esc(tag.name)} <button data-untag="${esc(tag.id)}" aria-label="Remove ${esc(tag.name)}">✕</button></span>`).join("")}`;
+    meta.querySelectorAll("[data-untag]").forEach((b) =>
+      b.addEventListener("click", () => { toggleItemTag(k, b.dataset.untag); afterMetaChange(item); }));
+    meta.querySelectorAll("[data-unfolder]").forEach((b) =>
+      b.addEventListener("click", () => { toggleItemFolder(k, b.dataset.unfolder); afterMetaChange(item); }));
+
+    const status = itemStatus(item);
+    byId("reader")?.querySelectorAll("[data-status]").forEach((btn) => {
+      btn.classList.toggle("is-on", btn.dataset.status === status);
+    });
+  }
+
+  function refreshOpenReader({ allowEditorRemount = true } = {}) {
+    if (!selectedId) return;
+    const item = allItems.find((it) => keyOf(it) === selectedId);
+    if (!item) return;
+    if (!allowEditorRemount && isLiveWritingEditor(writingIdOf(item))) {
+      refreshReaderMetaChrome(item);
+      return;
+    }
+    renderReader(item);
+  }
+
+  /* Prefer in-memory / draft writing bodies over a stale feed refresh so a
+     background /api/feed pull cannot clobber text that hasn't landed in GitHub yet. */
+  function mergeFeedItemsPreservingWritings(incoming) {
+    const list = Array.isArray(incoming) ? incoming.slice() : [];
+    const prevById = new Map();
+    for (const it of allItems) {
+      const wid = writingIdOf(it);
+      if (wid) prevById.set(wid, it);
+    }
+    const drafts = getWritingDrafts();
+    const seen = new Set();
+
+    const merged = list.map((item) => {
+      if (item.category !== "Writing") return item;
+      const wid = writingIdOf(item);
+      if (!wid) return item;
+      seen.add(wid);
+      const prev = prevById.get(wid);
+      const draft = drafts[wid];
+      let next = item;
+      if (prev && (editingWritingId === wid || isoNewer(prev.updated, item.updated))) {
+        next = {
+          ...item,
+          title: prev.title || item.title,
+          contentHtml: prev.contentHtml ?? item.contentHtml,
+          snippet: prev.snippet || item.snippet,
+          updated: prev.updated || item.updated,
+          writingId: wid,
+        };
+      }
+      if (draft && (!next.updated || isoNewer(draft.updated, next.updated))) {
+        next = {
+          ...next,
+          title: draft.title || next.title,
+          contentHtml: draft.contentHtml ?? next.contentHtml,
+          updated: draft.updated,
+          writingId: wid,
+        };
+      }
+      return next;
+    });
+
+    for (const [wid, prev] of prevById) {
+      if (seen.has(wid)) continue;
+      // Keep just-created writings that a forced feed rebuild hasn't seen yet.
+      merged.unshift(prev);
+    }
+    return merged;
+  }
+
   /* ── Reading pane ─────────────────────────────────────────────────────── */
   function openItem(k) {
     selectedId = k;
     const item = allItems.find((it) => keyOf(it) === k);
     if (!item) return;
-    if (item.category !== "Writing") editingWritingId = null;
+    if (item.category !== "Writing") {
+      if (editingWritingId) {
+        const openWriting = allItems.find((it) => writingIdOf(it) === editingWritingId);
+        if (openWriting) rememberWritingDraft(openWriting);
+        clearTimeout(writingSaveTimer);
+        writingSaveTimer = null;
+        const toFlush = openWriting;
+        editingWritingId = null;
+        if (toFlush) persistOpenWriting(toFlush, { leaveEditor: false });
+      } else {
+        editingWritingId = null;
+      }
+    }
     setItemSeen(item);
     showReaderPane();
     renderReader(item);
@@ -3158,7 +3334,7 @@
     const isWriting = item.category === "Writing";
     const isBriefing = item.category === "Briefing";
     const isSyntheticLocal = /^https?:\/\/[^/]+\.local\//i.test(String(item.link || ""));
-    const writingId = item.writingId || (isWriting ? String(item.link || "").split("/").pop() : "");
+    const writingId = writingIdOf(item);
     const isEditing = isWriting && editingWritingId && writingId && editingWritingId === writingId;
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
@@ -3171,7 +3347,8 @@
     const tags = getItemTags(k);
     const folders = getItemFolders(k);
     const highlights = getItemHighlights(k);
-    const title = itemTitle(item);
+    const editorSeed = isEditing ? editorContentFor(item) : null;
+    const title = editorSeed ? editorSeed.title : itemTitle(item);
     const originalTitle = feedTitle(item);
     const statusButtons = [
       ["inbox", "Inbox"],
@@ -3219,8 +3396,7 @@
       : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
     const writingActions = isWriting
       ? (isEditing
-        ? `<button class="action-btn primary" id="btn-writing-save">Save</button>
-           <button class="action-btn" id="btn-writing-done">Done</button>`
+        ? `<button class="action-btn" id="btn-writing-done">Done</button>`
         : `<button class="action-btn primary" id="btn-writing-edit">Edit</button>`)
       : "";
 
@@ -3257,7 +3433,7 @@
         <p class="reader-note">${
           isWriting
             ? (isEditing
-              ? "Your writing is saved to the library like any other piece — folders, tags, and Inbox still apply."
+              ? "Autosaves as you type. Folders, tags, and Inbox still apply."
               : "Your own writing, rendered like a Substack body. Edit anytime; file and tag as usual.")
           : isBriefing
             ? "Morning briefing synthesized from public headlines. Source links are inline; file and tag as usual."
@@ -3272,7 +3448,14 @@
     if (tweet && !isWriting) hydrateTwitterEmbed(reader);
     if (isEditing) {
       const body = byId("writer-body");
-      if (body) body.innerHTML = item.contentHtml || "<p></p>";
+      if (body) body.innerHTML = editorSeed.contentHtml || "<p></p>";
+      const statusEl = byId("writer-status");
+      if (statusEl) {
+        const draft = getWritingDrafts()[writingId];
+        statusEl.textContent = draft && (!item.updated || isoNewer(draft.updated, item.updated))
+          ? "Saving…"
+          : "Saved";
+      }
       wireWritingEditor(item);
     } else {
       applyHighlightMarks(reader.querySelector(".reader-body"), highlights);
@@ -3289,10 +3472,7 @@
       renderReader(item);
     });
     byId("btn-writing-done")?.addEventListener("click", async () => {
-      await persistOpenWriting(item, { leaveEditor: true });
-    });
-    byId("btn-writing-save")?.addEventListener("click", async () => {
-      await persistOpenWriting(item, { leaveEditor: false });
+      await flushWritingSave({ leaveEditor: true });
     });
     wireReaderBack();
     reader.querySelectorAll("[data-untag]").forEach((b) =>
@@ -3305,7 +3485,9 @@
 
   function wireWritingEditor(item) {
     const body = byId("writer-body");
+    const titleEl = byId("writer-title");
     if (!body) return;
+
     byId("reader").querySelectorAll(".writer-toolbar [data-cmd]").forEach((btn) => {
       btn.addEventListener("mousedown", (e) => e.preventDefault());
       btn.addEventListener("click", () => {
@@ -3314,40 +3496,128 @@
         body.focus();
         if (cmd === "formatBlock") document.execCommand(cmd, false, value);
         else document.execCommand(cmd, false, null);
+        scheduleWritingAutosave(item);
       });
     });
+
+    const onEdit = () => scheduleWritingAutosave(item);
+    body.addEventListener("input", onEdit);
+    body.addEventListener("blur", () => flushWritingSave({ leaveEditor: false }));
+    titleEl?.addEventListener("input", onEdit);
+    titleEl?.addEventListener("blur", () => flushWritingSave({ leaveEditor: false }));
+  }
+
+  function scheduleWritingAutosave(item) {
+    rememberWritingDraft(item);
+    clearTimeout(writingSaveTimer);
+    writingSaveTimer = setTimeout(() => {
+      flushWritingSave({ leaveEditor: false });
+    }, WRITING_AUTOSAVE_MS);
+  }
+
+  function flushWritingSave({ leaveEditor = false } = {}) {
+    clearTimeout(writingSaveTimer);
+    writingSaveTimer = null;
+    const item = allItems.find((it) => writingIdOf(it) === editingWritingId)
+      || allItems.find((it) => keyOf(it) === selectedId);
+    if (!item || item.category !== "Writing") {
+      if (leaveEditor) editingWritingId = null;
+      return Promise.resolve();
+    }
+    return persistOpenWriting(item, { leaveEditor });
   }
 
   async function persistOpenWriting(item, { leaveEditor }) {
-    const writingId = item.writingId || String(item.link || "").split("/").pop();
-    const titleEl = byId("writer-title");
-    const bodyEl = byId("writer-body");
-    const statusEl = byId("writer-status");
-    if (!writingId || !bodyEl) return;
+    const run = async () => {
+      // Loop so Done can flush keystrokes typed during an in-flight save
+      // without re-entering the serialized chain (that deadlocks).
+      while (true) {
+        const live = captureLiveWriting(item) || (() => {
+          const writingId = writingIdOf(item);
+          const draft = writingId ? getWritingDrafts()[writingId] : null;
+          if (!writingId) return null;
+          return {
+            writingId,
+            title: draft?.title || item.title || "Untitled",
+            contentHtml: draft?.contentHtml || item.contentHtml || "<p></p>",
+            updated: draft?.updated || new Date().toISOString(),
+          };
+        })();
+        if (!live) return;
 
-    const title = (titleEl?.value || item.title || "Untitled").trim() || "Untitled";
-    const contentHtml = bodyEl.innerHTML;
-    if (statusEl) statusEl.textContent = "Saving…";
+        const statusEl = byId("writer-status");
+        if (statusEl) statusEl.textContent = "Saving…";
+        setWritingDraft(live.writingId, {
+          title: live.title,
+          contentHtml: live.contentHtml,
+          updated: live.updated,
+        });
+        writingDirty = true;
 
-    try {
-      const saved = await saveWriting({ id: writingId, title, contentHtml });
-      const next = upsertLocalFeedItem(saved.item) || saved.item;
-      if (leaveEditor) editingWritingId = null;
-      else editingWritingId = next.writingId || writingId;
-      selectedId = keyOf(next);
-      renderReader(next);
-      renderList();
-      renderRail();
-      if (statusEl && !leaveEditor) statusEl.textContent = "Saved";
-      loadFeed({ force: true, background: true });
-    } catch (err) {
-      if (statusEl) statusEl.textContent = err.message || "Save failed";
-      else alert(err.message || "Could not save writing.");
-    }
+        try {
+          const saved = await saveWriting({
+            id: live.writingId,
+            title: live.title,
+            contentHtml: live.contentHtml,
+          });
+          const next = upsertLocalFeedItem(saved.item) || saved.item;
+          item = next;
+          const stillLive = captureLiveWriting(next);
+          if (stillLive && (
+            stillLive.contentHtml !== live.contentHtml
+            || stillLive.title !== live.title
+          )) {
+            writingDirty = true;
+            if (!leaveEditor) {
+              if (statusEl) statusEl.textContent = "Saving…";
+              scheduleWritingAutosave(next);
+              return;
+            }
+            continue;
+          }
+
+          clearWritingDraft(live.writingId);
+          writingDirty = false;
+          selectedId = keyOf(next);
+
+          if (leaveEditor) {
+            editingWritingId = null;
+            renderReader(next);
+            renderList();
+            renderRail();
+            return;
+          }
+
+          // Only keep edit mode if this writing is still the open editor.
+          if (editingWritingId === live.writingId || editingWritingId === (next.writingId || live.writingId)) {
+            editingWritingId = next.writingId || live.writingId;
+            if (statusEl) statusEl.textContent = "Saved";
+          }
+          renderList();
+          renderRail();
+          return;
+        } catch (err) {
+          writingDirty = true;
+          const statusEl = byId("writer-status");
+          if (statusEl) statusEl.textContent = err.message || "Save failed";
+          else if (leaveEditor) alert(err.message || "Could not save writing.");
+          return;
+        }
+      }
+    };
+
+    // Serialize saves so concurrent GitHub upserts cannot clobber each other.
+    const queued = writingSaveChain.then(run, run);
+    writingSaveChain = queued.catch(() => {});
+    await queued;
   }
 
   function afterMetaChange(item) {
-    renderReader(item);
+    if (isLiveWritingEditor(writingIdOf(item)) || (editingWritingId && keyOf(item) === selectedId)) {
+      refreshReaderMetaChrome(item);
+    } else {
+      renderReader(item);
+    }
     renderRail();
     renderGraph();
     renderList();
@@ -4181,7 +4451,7 @@
         const item = allItems.find((it) => keyOf(it) === e.state.id);
         if (item) {
           selectedId = e.state.id;
-          renderReader(item);
+          refreshOpenReader({ allowEditorRemount: false });
         }
       } else if (activeView === "sources") {
         renderSources();
@@ -4282,9 +4552,15 @@
   });
 
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") flushWorkspaceIfDirty();
+    if (document.visibilityState === "hidden") {
+      flushWritingSave({ leaveEditor: false });
+      flushWorkspaceIfDirty();
+    }
   });
-  window.addEventListener("pagehide", () => { flushWorkspaceIfDirty(); });
+  window.addEventListener("pagehide", () => {
+    flushWritingSave({ leaveEditor: false });
+    flushWorkspaceIfDirty();
+  });
 
   MOBILE_MQ.addEventListener("change", () => {
     if (!isMobileLayout()) {
@@ -4345,7 +4621,7 @@
   }
 
   function applyFeedData(data, { fromSnapshot = false } = {}) {
-    allItems = data.items || [];
+    allItems = mergeFeedItemsPreservingWritings(data.items || []);
     allSources = data.sources || [];
     setUpdatedLine(data, { syncing: false });
     setFailedLine(data.failed);
