@@ -3332,16 +3332,15 @@
     hideHighlightToolbar();
     const k = keyOf(item);
     const isWriting = item.category === "Writing";
-    const isBriefing = item.category === "Briefing";
     const isSyntheticLocal = /^https?:\/\/[^/]+\.local\//i.test(String(item.link || ""));
     const writingId = writingIdOf(item);
     const isEditing = isWriting && editingWritingId && writingId && editingWritingId === writingId;
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
-    // Prefer body HTML whenever the feed provides it (Briefing/Writing/Substack).
+    // Prefer body HTML whenever the feed provides it (Writing/Substack).
     const hasArticleContent = Boolean(item.contentHtml) && (
-      item.category === "Substack" || isWriting || isBriefing || isSyntheticLocal
+      item.category === "Substack" || isWriting || isSyntheticLocal
     );
     const status = itemStatus(item);
     const tags = getItemTags(k);
@@ -3358,7 +3357,7 @@
     ).join("");
 
     let embedHTML = "";
-    if (!isWriting && !isBriefing && !isSyntheticLocal) {
+    if (!isWriting && !isSyntheticLocal) {
       if (yt) {
         embedHTML = `<div class="reader-embed"><iframe src="https://www.youtube-nocookie.com/embed/${yt}"
           title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -3391,7 +3390,7 @@
           isWriting ? "Empty page — press Edit to write." : "No preview text — open the original to read in full."
         }</p></div>`;
 
-    const openOriginal = isWriting || isBriefing || isSyntheticLocal
+    const openOriginal = isWriting || isSyntheticLocal
       ? ""
       : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
     const writingActions = isWriting
@@ -3435,8 +3434,6 @@
             ? (isEditing
               ? "Autosaves as you type. Folders, tags, and Inbox still apply."
               : "Your own writing, rendered like a Substack body. Edit anytime; file and tag as usual.")
-          : isBriefing
-            ? "Morning briefing synthesized from public headlines. Source links are inline; file and tag as usual."
           : yt ? "Watching here — full context and comments on the original."
           : sp ? "Listening here — episode notes on the original."
           : tweet ? "X post embedded here when the platform script is available."
@@ -3905,7 +3902,7 @@
     }
     const groups = {};
     allSources.forEach((s) => { (groups[s.category] ||= []).push(s); });
-    const ORDER = ["Briefing", "Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks", "Writing"];
+    const ORDER = ["Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks", "Writing"];
     const keys = [...ORDER.filter((k) => groups[k]), ...Object.keys(groups).filter((k) => !ORDER.includes(k))];
     reader.innerHTML = `<div class="reader-inner">
       ${isMobileLayout() ? `<button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>` : ""}
@@ -3916,38 +3913,20 @@
       ${keys.map((cat) => `<div class="sources-group">
         <div class="sources-group-label label">${esc(cat)}</div>
         ${groups[cat].map((s) => {
-          const meta =
-            s.category === "Briefing"
-              ? "Daily morning briefing"
-              : s.hasFeed
-              ? "RSS feed connected"
-              : "Launchpad only — no RSS";
-          const href = s.category === "Briefing" ? "#" : s.site;
-          const chipTag = s.category === "Briefing" ? "button" : "a";
-          const chipAttrs =
-            s.category === "Briefing"
-              ? `type="button" class="chip" id="sources-open-briefing"`
-              : `class="chip" href="${esc(href)}" target="_blank" rel="noopener noreferrer"`;
-          return `<${chipTag} ${chipAttrs}>
+          const meta = s.hasFeed
+            ? "RSS feed connected"
+            : "Launchpad only — no RSS";
+          return `<a class="chip" href="${esc(s.site)}" target="_blank" rel="noopener noreferrer">
           <span class="chip-avatar">${esc(initials(s.name))}</span>
           <span class="chip-body"><div class="chip-name">${esc(s.name)}</div>
           <div class="chip-meta">${meta}</div></span>
-          <span class="chip-arrow" aria-hidden="true">→</span></${chipTag}>`;
+          <span class="chip-arrow" aria-hidden="true">→</span></a>`;
         }).join("")}
       </div>`).join("")}
     </div>`;
     wireReaderBack();
     const addBtn = byId("sources-add-piece");
     if (addBtn) addBtn.addEventListener("click", () => openLinkCreator(addBtn));
-    const briefingChip = byId("sources-open-briefing");
-    if (briefingChip) {
-      briefingChip.addEventListener("click", () => {
-        const latest = allItems
-          .filter((it) => it.category === "Briefing" && itemStatus(it) !== "trash")
-          .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))[0];
-        if (latest) openItem(latest);
-      });
-    }
     byId("reader-empty") && byId("reader-empty").remove();
   }
 

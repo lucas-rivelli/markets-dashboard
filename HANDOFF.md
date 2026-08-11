@@ -37,14 +37,13 @@
 | `GITHUB_DISPATCH_TOKEN` | `/api/trigger-bookmarks` → Actions dispatch |
 | `BOOKMARKS_SYNC_MIN_INTERVAL_MS` | Optional; default `3600000` (1h). `0` = no interval skip |
 | `BOOKMARKS_SYNC_PAUSED` | Optional; `true`/`1` skips all bookmark dispatches |
-| `OPENROUTER_API_KEY` | Lucas Briefing daily job (GitHub Actions secret; also accepts `OPEN_ROUTER_KEY` in `.env.local`) |
 
 ### Key commands
 
 ```bash
 npm run dev              # localhost:3000
 npm run sync:bookmarks   # Mac → data/bookmarks.json
-npm run briefing:daily   # gather headlines + OpenRouter → data/briefings.json
+npm run sync:vic         # refresh Value Investors Club cache
 npm run setup:check      # diagnose env
 npm run setup:external-cron  # print hourly cron-job.org instructions
 ```
@@ -52,9 +51,8 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 ### Open / next
 
 - [x] Merged + deployed skip-if-active + Spotify cache serve (`4f88d74`+)
-- [x] Lucas Briefing daily job + OpenRouter secrets
 - [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
-- [ ] Confirm `VIC_SESSION` + `VIC_REMEMBER` on Vercel if VIC stays in `failed`
+- [ ] Refresh `VIC_SESSION` + `VIC_REMEMBER` (Arc login + Remember me), then `npm run sync:vic` and set GitHub secrets
 - [ ] In cron-job.org: set bookmark job to **hourly** (API now rate-limits anyway)
 - [ ] If emails continue before Vercel redeploys: set Vercel env `BOOKMARKS_SYNC_PAUSED=true` briefly
 
