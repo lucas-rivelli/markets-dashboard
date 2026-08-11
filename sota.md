@@ -66,7 +66,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | 
 
 - Feed items still flow through the API and vanish past the feed cap (10/feed, 100 total), but every returned item now has a stable `id`.
 - Item mailbox state syncs through `/api/workspace` as `item_status`; `read` keys are now only seen/fade markers, not category state.
-- Cross-device writes persist workspace state, including deletions/restores. New devices pair via `?sync=<SAVE_SECRET>` or `#sync=<SAVE_SECRET>`. Workspace **pulls + pushes every 5 minutes**; manual ↻ Sync pushes immediately. `scripts/vercel-ignore.sh` skips Vercel deploys for workspace/cache-only commits.
+- Cross-device writes persist workspace state, including deletions/restores. New devices unlock with the **device password** (`SAVE_SECRET`) on first visit, or via `?sync=<SAVE_SECRET>` / `#sync=<SAVE_SECRET>`. Workspace **pulls + pushes every 5 minutes**; manual ↻ Sync pushes immediately. `scripts/vercel-ignore.sh` skips Vercel deploys for workspace/cache-only commits.
 - Feed auto-refreshes every **5 minutes** via a free external cron (see `docs/automation.md`) or GitHub Actions templates — no Vercel Pro.
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.

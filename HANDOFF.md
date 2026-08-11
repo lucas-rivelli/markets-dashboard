@@ -28,7 +28,7 @@
 
 | Variable | Purpose |
 |----------|---------|
-| `SAVE_SECRET` | Workspace + manual-link + writing writes; device pairing |
+| `SAVE_SECRET` | Workspace + manual-link + writing writes; device unlock password + pairing |
 | `GITHUB_TOKEN` / `GH_TOKEN` | Production repo writes |
 | `SPOTIFY_*` | Podcast episodes |
 | `VIC_SESSION` (+ `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest). `vic_session` alone expires ~2h — copy remember cookie too. Set on **Vercel and GitHub Actions secrets**. |
@@ -131,7 +131,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 
 | Variable | Status | Purpose |
 |----------|--------|---------|
-| `SAVE_SECRET` | ✅ local + Vercel | Workspace/manual-link/writing auth; device pairing |
+| `SAVE_SECRET` | ✅ local + Vercel | Workspace/manual-link/writing auth; device unlock password + pairing |
 | `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
 | `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
 | `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |

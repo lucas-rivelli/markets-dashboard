@@ -39,7 +39,7 @@ top bar: ☰ Tags · ❦ MARKETS READING · updated · ＋ Add · ↻ Sync · �
 ```
 
 **Cross-device sync:** folders, tags, item assignments, mailbox state, highlights, and seen/fade links merge server-side via `PUT /api/workspace`. Local edits are journaled per item in `markets_pending_sync` (persisted, survives tab death); every sync **pulls, merges remote + pending local edits, then pushes only changed domains** (↻ **Sync** or tab close pushes immediately). Server merge (`lib/workspace-state.js`) must receive the RAW payload — omitted domains stay untouched; provided maps replace wholesale. Never rewrite existing `item_added` stamps (no client-side migrations) — remote stamps win, or old items reappear as newly added on every device. Production writes need `GITHUB_TOKEN`; optional `SAVE_SECRET` + `localStorage.markets_save_secret` on each device. Commits that touch only `data/workspace.json` / cache JSON / `data/writings.json` / `data/bookmarks.json` should skip Vercel deploys via `scripts/vercel-ignore.sh`.
-On a new phone/computer, open the site once with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`) to store the secret locally; the URL is cleaned after capture. If a write gets `401`, the UI prompts for the secret and retries once.
+On a new phone/computer, open the site and enter the **device password** (`SAVE_SECRET`) once — or open with `?sync=<SAVE_SECRET>` (or `#sync=<SAVE_SECRET>`). The password is verified via `POST /api/unlock`, stored in `localStorage.markets_save_secret`, and that device stays unlocked afterward (same secret powers sync writes). If a write gets `401`, the UI prompts for the secret and retries once. When `SAVE_SECRET` is unset (open local/dev), the gate is skipped.
 
 **Add piece:** `#btn-add-link`, rail **Add piece**, and Sources **Add piece** open the same popover for one-off article/video/podcast URLs. It posts to `POST /api/manual-link` with `X-Save-Secret` from `localStorage.markets_save_secret`, writes `data/manual-links.json` in production via GitHub Contents, refreshes `/api/feed?fresh=1`, and opens the new item in Inbox. The backend detects YouTube, Spotify, and X/Twitter categories and tries to read title/description when blank.
 
@@ -126,6 +126,7 @@ All reads/writes go through `readJSON`/`writeJSON` in `index.html`, which keep a
 - `GET /api/feed` — merged timeline (+ `?fresh=1` force)
   - Substack and Writing items can include sanitized `contentHtml` for inline reading.
 - `POST /api/manual-link` — add one-off links to `data/manual-links.json`, then merged into `/api/feed`
+- `GET|POST /api/unlock` — device password gate (`SAVE_SECRET`); GET reports whether a password is required
 - `GET|POST|DELETE /api/writing` — list / upsert / delete personal writings in `data/writings.json`, then merged into `/api/feed`
 - `GET /api/workspace` — folders, tags, item assignments, `item_status`, highlights, seen/fade links
 - `PUT /api/workspace` — persist current workspace, including deletions/restores for folders, tags, `item_status`, and highlights

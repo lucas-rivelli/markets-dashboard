@@ -916,9 +916,128 @@
       .reader-title { font-size: 1.45rem; }
     }
     .rail-toggle { display: inline-flex; }
+
+    /* ── Device unlock gate ─────────────────────────────────────────────── */
+    body:not([data-unlocked]) .app,
+    body:not([data-unlocked]) .drawer-scrim {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .device-gate {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: max(1.5rem, env(safe-area-inset-top, 0px))
+        max(1.25rem, env(safe-area-inset-right, 0px))
+        max(1.5rem, env(safe-area-inset-bottom, 0px))
+        max(1.25rem, env(safe-area-inset-left, 0px));
+      background: var(--paper);
+    }
+    body:not([data-unlocked]) .device-gate { display: flex; }
+    .device-gate-inner {
+      width: min(22rem, 100%);
+      text-align: center;
+    }
+    .device-gate-mark {
+      display: block;
+      color: var(--rubric);
+      font-size: 1.35rem;
+      margin-bottom: 0.55rem;
+    }
+    .device-gate-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+    .device-gate-copy {
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      line-height: 1.45;
+      margin-bottom: 1.35rem;
+    }
+    .device-gate form {
+      display: grid;
+      gap: 0.75rem;
+      text-align: left;
+    }
+    .device-gate label {
+      display: grid;
+      gap: 0.35rem;
+      color: var(--ink-faint);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .device-gate input[type="password"] {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--rule);
+      background: transparent;
+      font: inherit;
+      font-size: 1.15rem;
+      color: var(--ink);
+      padding: 0.55rem 0;
+      outline: none;
+      letter-spacing: 0.08em;
+    }
+    .device-gate input[type="password"]:focus {
+      border-bottom-color: var(--rubric);
+    }
+    .device-gate-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.35rem;
+    }
+    .device-gate-submit {
+      border: none;
+      background: transparent;
+      color: var(--rubric);
+      font: inherit;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0.55rem 0;
+      min-height: 2.75rem;
+    }
+    .device-gate-submit:disabled {
+      color: var(--ink-faint);
+      cursor: wait;
+    }
+    .device-gate-error {
+      color: var(--rubric);
+      font-style: italic;
+      font-size: 0.95rem;
+      min-height: 1.35rem;
+    }
   </style>
 </head>
 <body data-mobile="list" data-rail="closed" data-aside="closed" data-folders="visible">
+
+<div class="device-gate" id="device-gate" role="dialog" aria-modal="true" aria-labelledby="device-gate-title">
+  <div class="device-gate-inner">
+    <span class="device-gate-mark" aria-hidden="true">❦</span>
+    <h1 class="device-gate-title" id="device-gate-title">Markets Reading</h1>
+    <p class="device-gate-copy">Enter the password for this reading room. This device will stay unlocked afterward.</p>
+    <form class="device-gate-form" id="device-gate-form" autocomplete="current-password">
+      <label>Password
+        <input id="device-gate-password" name="password" type="password" autocomplete="current-password" required autofocus />
+      </label>
+      <div class="device-gate-actions">
+        <p class="device-gate-error" id="device-gate-error" aria-live="polite"></p>
+        <button type="submit" class="device-gate-submit" id="device-gate-submit">Enter</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <div class="drawer-scrim" id="drawer-scrim" aria-hidden="true" tabindex="-1"></div>
 
@@ -1137,7 +1256,7 @@
       || hashParams.get("sync")
       || hashParams.get("sync_secret")
       || hashParams.get("save_secret");
-    if (!secret) return;
+    if (!secret) return false;
 
     localStorage.setItem(SAVE_SECRET_KEY, secret);
     ["sync", "sync_secret", "save_secret"].forEach((key) => {
@@ -1147,6 +1266,7 @@
     const hash = hashParams.toString();
     url.hash = hash ? `#${hash}` : "";
     window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+    return true;
   }
 
   function promptForSyncSecret() {
@@ -1155,6 +1275,114 @@
     if (!secret) return false;
     localStorage.setItem(SAVE_SECRET_KEY, secret.trim());
     return true;
+  }
+
+  async function verifyDevicePassword(password) {
+    const res = await fetch("/api/unlock", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      throw new Error(data.error || "Wrong password");
+    }
+    return data;
+  }
+
+  async function unlockRequired() {
+    try {
+      const res = await fetch("/api/unlock", { cache: "no-store" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) return true;
+      return data.required !== false;
+    } catch {
+      // Offline / API down: if this device already has a stored secret, let it in.
+      return !localStorage.getItem(SAVE_SECRET_KEY);
+    }
+  }
+
+  function markDeviceUnlocked() {
+    document.body.dataset.unlocked = "1";
+    byId("device-gate")?.setAttribute("aria-hidden", "true");
+  }
+
+  function showDeviceGate(message = "") {
+    delete document.body.dataset.unlocked;
+    const gate = byId("device-gate");
+    const err = byId("device-gate-error");
+    const input = byId("device-gate-password");
+    if (gate) gate.setAttribute("aria-hidden", "false");
+    if (err) err.textContent = message || "";
+    if (input) {
+      input.value = "";
+      requestAnimationFrame(() => input.focus());
+    }
+  }
+
+  function wireDeviceGate(onUnlocked) {
+    const form = byId("device-gate-form");
+    const submit = byId("device-gate-submit");
+    const err = byId("device-gate-error");
+    const input = byId("device-gate-password");
+    if (!form || form.dataset.wired === "1") return;
+    form.dataset.wired = "1";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const password = (input?.value || "").trim();
+      if (!password) {
+        if (err) err.textContent = "Enter the password.";
+        return;
+      }
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = "Checking…";
+      }
+      if (err) err.textContent = "";
+      try {
+        await verifyDevicePassword(password);
+        localStorage.setItem(SAVE_SECRET_KEY, password);
+        markDeviceUnlocked();
+        onUnlocked();
+      } catch (ex) {
+        if (err) err.textContent = ex.message || "Wrong password";
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = "Enter";
+        }
+      }
+    });
+  }
+
+  async function ensureDeviceUnlocked() {
+    captureSyncSecretFromUrl();
+    const required = await unlockRequired();
+    if (!required) {
+      markDeviceUnlocked();
+      return true;
+    }
+
+    const stored = (localStorage.getItem(SAVE_SECRET_KEY) || "").trim();
+    if (stored) {
+      try {
+        await verifyDevicePassword(stored);
+        markDeviceUnlocked();
+        return true;
+      } catch {
+        localStorage.removeItem(SAVE_SECRET_KEY);
+      }
+    }
+
+    return new Promise((resolve) => {
+      showDeviceGate();
+      wireDeviceGate(() => resolve(true));
+    });
   }
 
   /* ── Pending-sync journal ─────────────────────────────────────────────────
@@ -4658,25 +4886,29 @@
     graphResizeTimer = setTimeout(() => { if (buildGraphData().nodes.length) renderGraph(); }, 150);
   });
 
-  captureSyncSecretFromUrl();
+  function startApp() {
+    syncWorkspace().then(() => {
+      workspaceLoaded = true;
+      stampNewFeedItems(allItems);
+      ensureToReadTag();
+      applyInboxToReadTags();
+      renderRail();
+      renderList();
+      renderGraph();
+      renderRecentRead();
+      syncKnowledgeSaves();
+    });
 
-  syncWorkspace().then(() => {
-    workspaceLoaded = true;
-    stampNewFeedItems(allItems);
-    ensureToReadTag();
-    applyInboxToReadTags();
-    renderRail();
-    renderList();
-    renderGraph();
-    renderRecentRead();
-    syncKnowledgeSaves();
-  });
-
-  if (!loadFeedSnapshot()) {
-    byId("updated-line").textContent = "Loading…";
+    if (!loadFeedSnapshot()) {
+      byId("updated-line").textContent = "Loading…";
+    }
+    loadFeed({ background: true });
+    startFeedPolling();
   }
-  loadFeed({ background: true });
-  startFeedPolling();
+
+  ensureDeviceUnlocked().then((ok) => {
+    if (ok) startApp();
+  });
 </script>
 </body>
 </html>
