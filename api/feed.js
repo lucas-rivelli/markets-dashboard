@@ -1,7 +1,9 @@
 const { getFeed, REFRESH_MS } = require("../lib/feed-cache");
+const { fundLetterSources } = require("../lib/fund-letters");
 
-// SOURCES array — edit here to add/remove sources
-const SOURCES = [
+// SOURCES array — edit here to add/remove RSS and launchpad sources.
+// Fund letters come from data/fund-letters-config.json (appended via allSources()).
+const BASE_SOURCES = [
   {
     name: "Jordi Visser",
     category: "Substack",
@@ -13,12 +15,6 @@ const SOURCES = [
     category: "YouTube",
     site: "https://www.youtube.com/@JordiVisserLabs",
     rss: "https://www.youtube.com/feeds/videos.xml?channel_id=UCSLOw8JrFTBb3qF-p4v0v_w",
-  },
-  {
-    name: "Consilient Observer",
-    category: "Macro/Official",
-    site: "https://www.morganstanley.com/im/en-us/financial-advisor/insights/series/consilient-observer.html",
-    rss: null,
   },
   {
     name: "ARK Next Gen Internet",
@@ -111,6 +107,12 @@ const SOURCES = [
     rss: "https://hatedmoats.substack.com/feed",
   },
   {
+    name: "Works in Progress",
+    category: "Substack",
+    site: "https://www.worksinprogress.news",
+    rss: "https://www.worksinprogress.news/feed",
+  },
+  {
     name: "Value Investors Club",
     category: "Investing",
     site: "https://valueinvestorsclub.com/ideas",
@@ -140,6 +142,10 @@ const SOURCES = [
   },
 ];
 
+function allSources() {
+  return [...BASE_SOURCES, ...fundLetterSources()];
+}
+
 const CACHE_SECONDS = Math.floor(REFRESH_MS / 1000);
 
 module.exports = async function handler(req, res) {
@@ -151,7 +157,7 @@ module.exports = async function handler(req, res) {
     req.query?.fresh === "1" ||
     req.query?.fresh === "true";
 
-  const data = await getFeed(SOURCES, { force });
+  const data = await getFeed(allSources(), { force });
 
   res.setHeader(
     "Cache-Control",
@@ -164,4 +170,7 @@ module.exports = async function handler(req, res) {
   return res.status(200).json(data);
 };
 
-module.exports.SOURCES = SOURCES;
+Object.defineProperty(module.exports, "SOURCES", {
+  enumerable: true,
+  get: () => allSources(),
+});

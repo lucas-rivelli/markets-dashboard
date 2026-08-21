@@ -13,13 +13,13 @@
 
 - **Bookmark emails:** Not a new cron. `/api/trigger-bookmarks` has fired every **5 minutes for a long time** (thousands of successful runs; Aug 5 was clean). Starting ~12:10 UTC Aug 6, Actions began failing/cancelling (`job was not acquired by runner`) — **those failures** email you. Fix (on `main`): skip dispatch when a sync is already running + 1h min interval.
 - **Spotify “not appearing” in Inbox:** API still returns ~71 cached episodes, but workspace has them filed (**0 inbox / ~66 trash / ~7 folders**). Live Spotify refresh was stuck in cooldown (`cooldown_until` ~2026-08-06T22:23Z) after feed warmers re-burst the API. Ordinary `/api/feed` now always serves the cache; live refresh only on daily cron / `?fresh=1` after the 6h TTL. After cooldown ends, hit ↻ Sync once — new episodes land in Inbox.
-- **VIC:** member cache refreshed Aug 9 (newest ideas ~Jun 25, ~45d delay). GitHub Actions secrets `VIC_SESSION` + `VIC_REMEMBER` are set; daily `sync-vic.yml` may still hit VIC bot/HTML blocks from Actions IPs — if so, run `npm run sync:vic` locally and push `data/vic-cache.json`. Also set both cookies on Vercel for runtime refresh.
+- **VIC:** `/api/feed` is cache-only. This Mac’s LaunchAgent (`npm run setup:vic-sync`) refreshes `data/vic-cache.json` at login, 08:15, 20:15, and every 12h. One Chrome login the first time; after that it is automatic. GitHub Actions only emails if the cache is >72h stale.
 
 ### Local vs production data
 
 | Data | Local | Production |
 |------|-------|------------|
-| RSS, VIC API, manual-links | disk / env | runtime + GitHub |
+| RSS, VIC cache, manual-links | disk / env | GitHub (`data/vic-cache.json`) |
 | `bookmarks.json` | disk immediately | GitHub at runtime (bookmark-only commits skip deploy) |
 | `workspace.json` | disk + GitHub via API | GitHub via API |
 | Spotify cache | `data/spotify-cache.json` | GitHub at runtime |
@@ -31,7 +31,7 @@
 | `SAVE_SECRET` | Workspace + manual-link + writing writes; device unlock password + pairing |
 | `GITHUB_TOKEN` / `GH_TOKEN` | Production repo writes |
 | `SPOTIFY_*` | Podcast episodes |
-| `VIC_SESSION` (+ `VIC_REMEMBER`) | VIC authenticated ideas (~45d delay vs ~90d guest). `vic_session` alone expires ~2h — copy remember cookie too. Set on **Vercel and GitHub Actions secrets**. |
+| `VIC_LOGIN` + `VIC_PASSWORD` | Optional. Auto-login inside the local Chrome profile used by `npm run sync:vic`. Prefer this over pasting cookies. |
 | `AUTH_TOKEN` + `CT0` | GitHub Action bookmark sync |
 | `CRON_SECRET` | `/api/cron`, `/api/trigger-bookmarks` |
 | `GITHUB_DISPATCH_TOKEN` | `/api/trigger-bookmarks` → Actions dispatch |
@@ -43,7 +43,10 @@
 ```bash
 npm run dev              # localhost:3000
 npm run sync:bookmarks   # Mac → data/bookmarks.json
-npm run sync:vic         # refresh Value Investors Club cache
+npm run setup:vic-sync   # install Mac LaunchAgent (automatic VIC refresh)
+npm run sync:vic         # manual VIC cache refresh
+npm run sync:vic:push    # manual refresh + commit + push
+npm run sync:fund-letters # refresh fund letters cache from config
 npm run setup:check      # diagnose env
 npm run setup:external-cron  # print hourly cron-job.org instructions
 ```
@@ -52,7 +55,7 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 
 - [x] Merged + deployed skip-if-active + Spotify cache serve (`4f88d74`+)
 - [ ] After Spotify cooldown ends, ↻ Sync once and confirm new episodes in Inbox
-- [ ] Refresh `VIC_SESSION` + `VIC_REMEMBER` (Arc login + Remember me), then `npm run sync:vic` and set GitHub secrets
+- [ ] VIC: `npm run setup:vic-sync` once (LaunchAgent + one Chrome login); after that it is automatic
 - [ ] In cron-job.org: set bookmark job to **hourly** (API now rate-limits anyway)
 - [ ] If emails continue before Vercel redeploys: set Vercel env `BOOKMARKS_SYNC_PAUSED=true` briefly
 
@@ -60,7 +63,7 @@ npm run setup:external-cron  # print hourly cron-job.org instructions
 
 ## What this is
 
-Personal **markets reading dashboard** — one page that merges RSS feeds (Substack, blogs, YouTube), Spotify podcast episodes, and X bookmarks into a single timeline with read/unread tracking.
+Personal **markets reading dashboard** — one page that merges RSS feeds (Substack, blogs, YouTube), Spotify podcast episodes, X bookmarks, and config-driven fund letters into a single timeline with read/unread tracking.
 
 - **Repo:** https://github.com/lucas-rivelli/markets-dashboard
 - **Deploy:** Vercel (auto-deploy on push to `main`, team scope `knowledgemaxxing`)
@@ -73,8 +76,9 @@ Personal **markets reading dashboard** — one page that merges RSS feeds (Subst
 index.html          → UI (vanilla JS, white Substack-style theme)
 api/feed.js         → GET /api/feed — merges all sources into JSON
 api/cron.js         → GET /api/cron — morning cron (Vercel, 7 AM ET)
-lib/aggregate.js    → RSS + Spotify + VIC + bookmarks + manual links
-lib/vic.js          → Value Investors Club API (session cookie)
+lib/aggregate.js    → RSS + Spotify + VIC + fund letters + bookmarks + manual links
+lib/vic.js          → VIC cache for /api/feed; refresh via lib/vic-browser.js
+lib/fund-letters.js → fund letter listing/rss/static scrape + cache
 lib/spotify.js      → Spotify Web API (saved shows → new episodes, 7 days; excludes Posse de Bola)
 lib/bookmarks.js    → reads data/bookmarks.json (GitHub at runtime in prod)
 lib/manual-links.js → reads/writes data/manual-links.json (GitHub at runtime in prod)
@@ -82,10 +86,13 @@ lib/writings.js → reads/writes data/writings.json (GitHub at runtime in prod)
 lib/workspace-state.js → workspace merge logic
 data/workspace.json → synced folders, tags, mailbox, highlights, item_added, item_titles
 data/vic-cache.json → VIC ideas cache
+data/fund-letters-config.json → firms to follow for Letters
+data/fund-letters-cache.json → scraped letter items
 data/spotify-cache.json → Spotify episodes + rate-limit cooldown
 scripts/vercel-ignore.sh → skip deploy for workspace/cache-only commits
 scripts/dev.js      → local server (no Vercel login needed)
 scripts/sync-bookmarks.sh  → birdclaw → JSON → git push
+scripts/sync-fund-letters.js → refresh fund letters cache
 scripts/spotify-auth.js    → one-time OAuth to get refresh token
 scripts/export-bookmarks.js → transforms birdclaw JSON → bookmarks.json
 vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
@@ -101,17 +108,24 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | Rebound Capital | Substack | reboundcapital.substack.com/feed |
 | Citrini Research | Substack | citrini.substack.com/feed |
 | Ray Dalio | Substack | raydalio.substack.com/feed |
+| Works in Progress | Substack | worksinprogress.news/feed |
 | Gregory Blotnick | Blog | gregoryblotnick.com/posts/feed |
 | Kyle Samani | Blog | kylesamani.com/rss.xml |
 | Paul Graham | Blog | olshansk/pgessays-rss community feed |
-| Consilient Observer | Macro/Official | launchpad only (no RSS) |
+| Michael Mauboussin | Macro/Official | dynamic — latest piece from michaelmauboussin.com/#writing |
+| Verde Multimercado Brasil | Letters | dynamic — Verde JSON adapter, fund 158094 |
+| Verde Ações Mundi | Letters | dynamic — Verde JSON adapter, fund 350132 |
+| Verde Ações Mundi BRL | Letters | dynamic — Verde JSON adapter, fund 350136 |
+| Verde Ações Brasil | Letters | dynamic — Verde JSON adapter, fund 118 |
+| Fund letters | Letters | dynamic — `data/fund-letters-config.json` + `data/fund-letters-cache.json` |
 | Value Investors Club | Investing | dynamic — `lib/vic.js` + `data/vic-cache.json` |
 | Spotify Podcasts | Spotify | dynamic — Spotify Web API |
 | X Bookmarks | Bookmarks | dynamic — data/bookmarks.json |
 | Saved Links | Bookmarks/auto | dynamic — in-app Add link → data/manual-links.json |
 | Writing | Writing | dynamic — in-app Writing rail → data/writings.json |
 
-**To add a source:** edit `SOURCES` in `api/feed.js`, commit, push to GitHub.
+**To add a source:** edit `SOURCES` / `BASE_SOURCES` in `api/feed.js`, commit, push to GitHub.
+**To add fund letters:** append a firm to `data/fund-letters-config.json` (`mode`: `listing` | `rss` | `static` | `verde` | `mauboussin`), run `npm run sync:fund-letters`, commit config (+ cache), push. Daily Action: `sync-fund-letters.yml`. Verde funds use `mode: "verde"` plus `verdeFundId`. Mauboussin uses `mode: "mauboussin"` (latest piece only).
 **To add one article/video/podcast:** use the top-bar `Add` button in the app; it writes `data/manual-links.json` through `/api/manual-link`.
 **To write a piece:** open **Writing** in the rail → **＋ New writing**; it writes `data/writings.json` through `/api/writing`.
 
@@ -135,7 +149,7 @@ vercel.json         → cron schedule: 0 12 * * * UTC (7 AM ET)
 | `GITHUB_TOKEN` | ✅ Vercel | Production repo writes |
 | `CRON_SECRET` | ✅ | Secures cron/trigger endpoints |
 | `SPOTIFY_*` | ✅ local + Vercel | Podcast episodes |
-| `VIC_SESSION` + `VIC_REMEMBER` | ✅ local session (refresh if rejected); ⬜ Vercel + GitHub Actions secrets | Daily VIC cache via sync-vic.yml |
+| `VIC_LOGIN` + `VIC_PASSWORD` | optional in `.env.local` | Unattended VIC Chrome login |
 
 **Spotify app settings:**
 - Website: `https://markets-dashboard.vercel.app` (or GitHub repo URL)
@@ -162,10 +176,25 @@ npm run sync:bookmarks   # after X auth (see below)
 3. **Manual cookies:** Set `AUTH_TOKEN` and `CT0` in `.env.local` (from browser dev tools → Application → Cookies → x.com)
 
 
-Optional cron (8 AM daily):
+Optional cron for bookmarks (8 AM daily):
 ```
 0 8 * * * cd /path/to/markets-dashboard && ./scripts/sync-bookmarks.sh >> ~/.markets-sync.log 2>&1
 ```
+
+### Value Investors Club (automatic on this Mac)
+
+VIC cannot be kept logged in from Vercel or GitHub Actions (bot check + short cookies). This Mac runs it instead:
+
+```bash
+npm run setup:vic-sync
+```
+
+That installs LaunchAgent `com.marketsdashboard.vic-sync`. It runs from a private copy under `~/Library/Application Support/markets-dashboard/repo` (launchd cannot read the OneDrive folder). It refreshes and pushes `data/vic-cache.json` at login, 08:15, 20:15, and at least every 12 hours. Log: `~/Library/Logs/markets-vic-sync.log`.
+
+The first run may open a Chrome window — log in once with **Remember me**. After that you do not run anything. Optional `VIC_LOGIN` + `VIC_PASSWORD` in `.env.local` lets it re-auth with no window.
+
+Status: `npm run setup:vic-sync -- --status`  
+Remove: `npm run setup:vic-sync -- --uninstall`
 
 ## Conventions
 
@@ -173,7 +202,7 @@ Optional cron (8 AM daily):
 - **Do not use X/Twitter RSS bridges** — deferred; bookmarks use birdclaw instead
 - **Local dev:** use `npm run dev`, not `vercel dev` (avoids login)
 - **Paul Graham:** no official RSS; uses community feed (olshansk/pgessays-rss)
-- **Morgan Stanley Consilient Observer:** no RSS; launchpad link only
+- **Michael Mauboussin:** `mode: "mauboussin"` in `data/fund-letters-config.json` — latest writing only (no archive backfill) from [michaelmauboussin.com/#writing](https://www.michaelmauboussin.com/#writing)
 
 ## Key commands
 
@@ -184,6 +213,7 @@ npm run dev              # local server :3000 (loads .env.local)
 npm run birdclaw:init    # one-time birdclaw workspace
 npm run spotify:auth     # one-time Spotify OAuth
 npm run sync:bookmarks   # birdclaw → git push
+npm run sync:fund-letters # scrape config → data/fund-letters-cache.json
 git add . && git commit && git push origin main
 ```
 
@@ -194,7 +224,7 @@ git add . && git commit && git push origin main
 - **Refresh button:** always live fetch
 - **Read state:** stored in browser `localStorage` key `markets_read`
 - **Recent Read:** right-column quick links are derived from `markets_read`, newest opens first
-- **Categories / pill colors:** Substack (orange), YouTube (red), Blog (purple), Spotify (green), Bookmarks (blue), Macro (amber)
+- **Categories / pill colors:** Substack (orange), YouTube (red), Blog (purple), Spotify (green), Bookmarks (blue), Macro (amber), Letters (sepia)
 
 ## Git history (recent)
 
@@ -208,7 +238,6 @@ d65c184 Add daily cron refresh and morning auto-fetch on first visit
 
 ## Backlog / ideas (not built)
 
-- [ ] Morgan Stanley scraper or RSS for Consilient Observer
 - [ ] Email digest of unread items
 
 ## File map
@@ -219,24 +248,28 @@ markets-dashboard/
 ├── README.md            ← user-facing docs
 ├── index.html           ← frontend
 ├── api/
-│   ├── feed.js          ← SOURCES array + /api/feed handler
+│   ├── feed.js          ← BASE_SOURCES + /api/feed handler
 │   ├── manual-link.js   ← /api/manual-link in-app saved links
 │   ├── writing.js       ← /api/writing personal articles
 │   ├── save.js          ← /api/save knowledge-base writes
 │   └── cron.js          ← morning cron handler
 ├── lib/
 │   ├── aggregate.js     ← merge all feeds
+│   ├── fund-letters.js  ← fund letter scrape + cache
 │   ├── spotify.js       ← Spotify API
 │   └── bookmarks.js     ← load bookmarks JSON
 ├── data/
 │   ├── bookmarks.json   ← synced from birdclaw
 │   ├── manual-links.json ← links added from the app
-│   └── writings.json    ← personal articles from Writing rail
+│   ├── writings.json    ← personal articles from Writing rail
+│   ├── fund-letters-config.json ← firms to follow
+│   └── fund-letters-cache.json  ← scraped letter items
 ├── scripts/
 │   ├── dev.js           ← local dev server (loads .env.local)
 │   ├── setup-check.js   ← diagnose Spotify + X setup
 │   ├── spotify-auth.js
 │   ├── sync-bookmarks.sh
+│   ├── sync-fund-letters.js
 │   └── export-bookmarks.js
 ├── vercel.json          ← cron config
 └── package.json
@@ -244,4 +277,4 @@ markets-dashboard/
 
 ---
 
-*Last updated: August 6, 2026*
+*Last updated: August 12, 2026*
