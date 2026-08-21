@@ -32,6 +32,7 @@
       --c-investing: #2f5d4a;
       --c-writing:  #6b3f2a;
       --c-briefing: #3d4f5f;
+      --c-letters:  #5a4a2e;
       --serif: "EB Garamond", Georgia, "Times New Roman", serif;
     }
 
@@ -354,6 +355,7 @@
     .msg-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .msg-source[data-category="Writing"]        { color: var(--c-writing); }
     .msg-source[data-category="Briefing"]       { color: var(--c-briefing); }
+    .msg-source[data-category="Letters"]        { color: var(--c-letters); }
     .msg-date { font-size: 0.76rem; font-style: italic; color: var(--ink-faint); margin-left: auto; white-space: nowrap; }
     .msg-title {
       font-size: 1.05rem; font-weight: 600; line-height: 1.25; color: var(--ink);
@@ -402,6 +404,7 @@
     .reader-source[data-category="Bookmarks"]      { color: var(--c-bookmarks); }
     .reader-source[data-category="Writing"]        { color: var(--c-writing); }
     .reader-source[data-category="Briefing"]       { color: var(--c-briefing); }
+    .reader-source[data-category="Letters"]        { color: var(--c-letters); }
     .reader-date { font-size: 0.85rem; font-style: italic; color: var(--ink-faint); }
 
     .reader-title { font-size: 1.9rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.7rem; }
@@ -437,6 +440,9 @@
     .reader-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 1.3rem;
       border: 1px solid var(--rule); background: #000; }
     .reader-embed.audio { aspect-ratio: auto; height: 232px; background: transparent; border: none; }
+    .reader-embed.pdf {
+      aspect-ratio: auto; height: min(70vh, 900px); background: var(--paper-rail);
+    }
     .reader-embed.tweet {
       aspect-ratio: auto; min-height: 180px; display: flex; justify-content: center;
       background: transparent; border: none;
@@ -446,22 +452,33 @@
     .reader-embed.tweet iframe { position: static !important; max-width: 100%; }
     .reader-embed .twitter-tweet { margin: 0 auto !important; }
 
-    .reader-body { font-size: 1.12rem; line-height: 1.7; color: var(--ink); }
-    .reader-body p { margin-bottom: 1rem; }
-    .reader-body.article-body > * { margin-bottom: 1rem; }
+    .reader-body { font-size: 1.12rem; line-height: 1.8; color: var(--ink); }
+    .reader-body p { margin: 0 0 1.15em; }
+    .reader-body.article-body > * { margin-bottom: 1.15em; }
+    .reader-body.article-body > *:last-child { margin-bottom: 0; }
     .reader-body.article-body a { color: var(--rubric); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.12em; }
     .reader-body.article-body blockquote {
-      margin: 1.2rem 0; padding-left: 1rem; border-left: 2px solid var(--rule);
+      margin: 1.35rem 0; padding-left: 1rem; border-left: 2px solid var(--rule);
       color: var(--ink-soft); font-style: italic;
     }
     .reader-body.article-body img {
-      display: block; max-width: 100%; height: auto; margin: 1.2rem auto;
+      display: block; max-width: 100%; height: auto; margin: 1.35rem auto;
       border: 1px solid var(--rule-soft);
     }
     .reader-body.article-body h2,
     .reader-body.article-body h3,
     .reader-body.article-body h4 {
-      color: var(--rubric); font-weight: 500; line-height: 1.2; margin-top: 1.6rem;
+      color: var(--rubric); font-weight: 500; line-height: 1.25;
+      margin: 1.85rem 0 0.85rem;
+    }
+    .reader-body.article-body h2:first-child,
+    .reader-body.article-body h3:first-child,
+    .reader-body.article-body h4:first-child {
+      margin-top: 0.35rem;
+    }
+    .reader-body.article-body b,
+    .reader-body.article-body strong {
+      font-weight: 600;
     }
     .writer-title {
       width: 100%;
@@ -508,8 +525,18 @@
       min-height: 14rem;
       outline: none;
       color: var(--ink);
-      font-size: 1.08rem;
-      line-height: 1.7;
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+    .writer-body p { margin: 0 0 1.15em; }
+    .writer-body p:last-child { margin-bottom: 0; }
+    .writer-body h2,
+    .writer-body h3,
+    .writer-body h4 {
+      color: var(--rubric);
+      font-weight: 500;
+      line-height: 1.25;
+      margin: 1.85rem 0 0.85rem;
     }
     .writer-body:empty::before {
       content: attr(data-placeholder);
@@ -2465,6 +2492,14 @@
       return null;
     }
   }
+  function isPdfLink(url) {
+    try {
+      const u = new URL(String(url || "").trim());
+      return /\.pdf$/i.test(u.pathname);
+    } catch {
+      return /\.pdf(\?|#|$)/i.test(String(url || ""));
+    }
+  }
   function hydrateTwitterEmbed(root) {
     const load = () => window.twttr?.widgets?.load(root);
     if (window.twttr?.widgets) {
@@ -3404,9 +3439,29 @@
     return {
       writingId,
       title: (titleEl?.value || item?.title || "Untitled").trim() || "Untitled",
-      contentHtml: bodyEl.innerHTML,
+      contentHtml: normalizeEditorHtml(bodyEl.innerHTML),
       updated: new Date().toISOString(),
     };
+  }
+
+  function normalizeEditorHtml(html) {
+    const root = document.createElement("div");
+    root.innerHTML = html || "";
+    const divs = [...root.querySelectorAll("div")];
+    for (let i = divs.length - 1; i >= 0; i--) {
+      const div = divs[i];
+      const p = document.createElement("p");
+      while (div.firstChild) p.appendChild(div.firstChild);
+      div.replaceWith(p);
+    }
+    // Keep at least one paragraph so Enter keeps creating block spacing.
+    if (![...root.childNodes].some((n) => n.nodeType === 1)) {
+      const p = document.createElement("p");
+      while (root.firstChild) p.appendChild(root.firstChild);
+      if (!p.childNodes.length) p.appendChild(document.createElement("br"));
+      root.appendChild(p);
+    }
+    return root.innerHTML || "<p></p>";
   }
 
   function rememberWritingDraft(item) {
@@ -3566,6 +3621,7 @@
     const yt = youtubeId(item.link);
     const sp = item.category === "Spotify" ? spotifyEmbed(item.link) : null;
     const tweet = xStatusUrl(item.link);
+    const pdf = !yt && !sp && !tweet && isPdfLink(item.link);
     // Prefer body HTML whenever the feed provides it (Writing/Substack).
     const hasArticleContent = Boolean(item.contentHtml) && (
       item.category === "Substack" || isWriting || isSyntheticLocal
@@ -3597,6 +3653,9 @@
         embedHTML = `<div class="reader-embed tweet"><blockquote class="twitter-tweet" data-dnt="true">
           <a href="${esc(tweet)}">${esc(title)}</a>
         </blockquote></div>`;
+      } else if (pdf) {
+        embedHTML = `<div class="reader-embed pdf"><iframe src="${esc(item.link)}"
+          title="PDF" loading="lazy"></iframe></div>`;
       }
     }
 
@@ -3615,12 +3674,18 @@
       : item.snippet
       ? `<div class="reader-body"><p class="dropcap">${esc(item.snippet)}</p></div>`
       : `<div class="reader-body"><p style="color:var(--ink-faint);font-style:italic">${
-          isWriting ? "Empty page — press Edit to write." : "No preview text — open the original to read in full."
+          isWriting
+            ? "Empty page — press Edit to write."
+            : pdf
+              ? "PDF preview may be blocked by the host — use Open PDF if the pane is blank."
+              : "No preview text — open the original to read in full."
         }</p></div>`;
 
     const openOriginal = isWriting || isSyntheticLocal
       ? ""
-      : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
+      : pdf
+        ? `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>`
+        : `<a class="action-btn primary" href="${esc(item.link)}" target="_blank" rel="noopener noreferrer">Open original ↗</a>`;
     const writingActions = isWriting
       ? (isEditing
         ? `<button class="action-btn" id="btn-writing-done">Done</button>`
@@ -3712,6 +3777,8 @@
     const body = byId("writer-body");
     const titleEl = byId("writer-title");
     if (!body) return;
+
+    try { document.execCommand("defaultParagraphSeparator", false, "p"); } catch {}
 
     byId("reader").querySelectorAll(".writer-toolbar [data-cmd]").forEach((btn) => {
       btn.addEventListener("mousedown", (e) => e.preventDefault());
@@ -4130,7 +4197,7 @@
     }
     const groups = {};
     allSources.forEach((s) => { (groups[s.category] ||= []).push(s); });
-    const ORDER = ["Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Bookmarks", "Writing"];
+    const ORDER = ["Substack", "YouTube", "Investing", "Spotify", "Blog", "Macro/Official", "Letters", "Bookmarks", "Writing"];
     const keys = [...ORDER.filter((k) => groups[k]), ...Object.keys(groups).filter((k) => !ORDER.includes(k))];
     reader.innerHTML = `<div class="reader-inner">
       ${isMobileLayout() ? `<button class="link-btn back-btn label" id="reader-back" style="margin-top:1rem;color:var(--rubric)">‹ Back</button>` : ""}
