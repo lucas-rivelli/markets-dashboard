@@ -1,0 +1,47 @@
+# Refresh fund letters into data/fund-letters-cache.json.
+# Configure firms in data/fund-letters-config.json.
+# Cache-only commits skip Vercel builds via scripts/vercel-ignore.sh.
+
+name: Sync fund letters
+
+on:
+  schedule:
+    # 06:30 America/Sao_Paulo (09:30 UTC) — before VIC / wiki
+    - cron: "30 9 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-fund-letters
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh fund letters cache
+        run: node scripts/sync-fund-letters.js
+
+      - name: Commit fund letters cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fund-letters-cache.json
+          if git diff --staged --quiet; then
+            echo "No fund letters cache changes."
+            exit 0
+          fi
+          git commit -m "Update fund letters cache"
+          git pull --rebase origin main
+          git push

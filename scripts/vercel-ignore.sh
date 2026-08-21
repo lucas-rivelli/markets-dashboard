@@ -22,7 +22,7 @@ fi
 while IFS= read -r path; do
   [ -z "$path" ] && continue
   case "$path" in
-    data/workspace.json|data/spotify-cache.json|data/vic-cache.json|data/writings.json|data/bookmarks.json) ;;    *) exit 1 ;;
+    data/workspace.json|data/spotify-cache.json|data/vic-cache.json|data/fund-letters-cache.json|data/writings.json|data/bookmarks.json) ;;    *) exit 1 ;;
   esac
 done <<EOF
 $CHANGED
