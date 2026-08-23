@@ -113,6 +113,30 @@ const BASE_SOURCES = [
     rss: "https://www.worksinprogress.news/feed",
   },
   {
+    name: "The Etymology Nerd",
+    category: "Substack",
+    site: "https://etymology.substack.com",
+    rss: "https://etymology.substack.com/feed",
+  },
+  {
+    name: "Meditations for the Anxious",
+    category: "Substack",
+    site: "https://meditationsfortheanxiousmind.substack.com",
+    rss: "https://meditationsfortheanxiousmind.substack.com/feed",
+  },
+  {
+    name: "Experimental History",
+    category: "Substack",
+    site: "https://www.experimental-history.com",
+    rss: "https://www.experimental-history.com/feed",
+  },
+  {
+    name: "luminousmen",
+    category: "Substack",
+    site: "https://luminousmen.substack.com",
+    rss: "https://luminousmen.substack.com/feed",
+  },
+  {
     name: "Value Investors Club",
     category: "Investing",
     site: "https://valueinvestorsclub.com/ideas",
