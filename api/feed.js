@@ -107,6 +107,12 @@ const BASE_SOURCES = [
     rss: "https://hatedmoats.substack.com/feed",
   },
   {
+    name: "Not Boring",
+    category: "Substack",
+    site: "https://www.notboring.co",
+    rss: "https://www.notboring.co/feed",
+  },
+  {
     name: "Works in Progress",
     category: "Substack",
     site: "https://www.worksinprogress.news",
