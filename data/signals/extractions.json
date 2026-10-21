@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-10-21T00:24:26.957Z",
+  "updatedAt": "2026-10-21T00:34:49.520Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -6953,6 +6953,79 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-10-21T00:24:26.957Z"
+    },
+    "1944b16545404577682cd67648d11162f74ace459d7eeaea0f9f7127579b588f": {
+      "id": "1944b16545404577682cd67648d11162f74ace459d7eeaea0f9f7127579b588f",
+      "title": "Fortanix Announces Confidential AI for Enterprise Grade Kubernetes Workloads on CNCF® Confidential Containers (CoCo)",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/fortanix-announces-confidential-ai-enterprise-130000846.html?.tsrc=rss",
+      "publishedAt": "2026-10-19T13:00:00.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-21T00:34:10.154Z"
+    },
+    "e5e28602299085a34511d5ddb783166396e8ced1a1c8ea19bcc44ec2992cbf78": {
+      "id": "e5e28602299085a34511d5ddb783166396e8ced1a1c8ea19bcc44ec2992cbf78",
+      "title": "Anthropic Is Targeting an IPO as Soon as Mid-November",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/20/anthropic-is-targeting-an-ipo-as-soon-as-mid-novem/?.tsrc=rss",
+      "publishedAt": "2026-10-21T00:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-21T00:34:10.424Z"
+    },
+    "af5b920659ce4505fa4a3fb54b623405dfd191cf86933356f4194c4dacb8a40f": {
+      "id": "af5b920659ce4505fa4a3fb54b623405dfd191cf86933356f4194c4dacb8a40f",
+      "title": "Musk Says SpaceX and Tesla Formed Committees to Discuss Potential Merger",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/video/musk-says-spacex-tesla-formed-234400202.html?.tsrc=rss",
+      "publishedAt": "2026-10-20T23:44:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-21T00:34:11.323Z"
+    },
+    "0b7e9115b47dda313309fb97a3c6c00d2cc997d6220fd84af72687ac30752227": {
+      "id": "0b7e9115b47dda313309fb97a3c6c00d2cc997d6220fd84af72687ac30752227",
+      "title": "LITE, CRWV, NBIS, AMAT, SMCI Were Among Last Week’s Biggest AI-Linked Losers: Which Stocks Are Flashing Oversold Signals?",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/lite-crwv-nbis-amat-smci-were-among-last-week-s-biggest-ai-linked-losers-which-stocks-are-flashing-oversold-signals/cZx8SPgRBMW?.tsrc=rss",
+      "publishedAt": "2026-10-19T09:01:11.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-21T00:34:18.152Z"
+    },
+    "30b0dfa72c5eba1b368d3860066086ce5e883be5781d6e4f9a031469c6bac210": {
+      "id": "30b0dfa72c5eba1b368d3860066086ce5e883be5781d6e4f9a031469c6bac210",
+      "title": "Google’s AI Return on Investment",
+      "source": "Bristlemoon Capital",
+      "sourceType": "Substack",
+      "url": "https://www.bristlemoonresearch.com/p/googles-ai-return-on-investment",
+      "publishedAt": "2026-07-28T19:52:07.000Z",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet (Google)",
+          "sentiment": 0.5,
+          "confidence": 0.8,
+          "stance": "bullish",
+          "rationale": "Author argues Google's naive ROIC is misleading, puts true incremental returns near 49%, and calls them healthy despite recent decline."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-21T00:34:49.520Z"
     }
   }
 }

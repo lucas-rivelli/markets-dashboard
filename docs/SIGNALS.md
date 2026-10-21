@@ -67,6 +67,11 @@ This file is the **only** thing anyone edits to change behaviour:
 - **Add a source:** append `{ "name": "My Blog", "rss": "https://…/feed", "sourceType": "Blog" }` to `extraSources` — or add a normal RSS source to `api/feed.js` `BASE_SOURCES` with a public category (`Substack | Blog | YouTube | Macro/Official`) and it is picked up automatically. `dynamic`/login sources are always excluded.
 - **Change thresholds:** edit `rules.mentionSpike / sentimentShift / divergence`, `windows`, `minConfidence`, `discoverMinMentions`. The page's what-if sliders mirror these live without saving.
 - **Change the AI:** `llm.model` (default `claude-haiku-5-5`), `llm.maxItemsPerRun` (cost cap per scheduled run), `llm.maxCharsPerItem`.
+- **Tune Must-Read:** `readingQueue.maxItems / windowDays / flagWeights / sourceWeights` — how the "most important research today" ranking weighs flags vs source depth.
+
+### Must-Read — the differentiator
+
+Screeners flag tickers; Signals tells you **what to read**. `lib/signals/reading-queue.js` (pure, shared by server and browser) ranks individual items from the last 7 days by: flagged ticker (LONG/SHORT > WATCH), sentiment-shift size, mention-spike strength, divergence, the item's own sentiment x confidence, source depth (long-form research above headline-only news), and recency decay — with a small bonus for discovered names. Every ranked item carries up to three plain-language reason chips ("CEG: Short candidate", "sentiment shift -0.38", "7 mentions this week (3.5x baseline)"). It costs nothing extra: scoring reuses extractions and screener rows, no LLM calls. The queue sits above the screener table, re-ranks live when the what-if sliders move, and items can be marked read (fades, stored only in the visitor's browser). Ticker detail adds a Bull case / Bear case split of the LLM's rationales, and a "Since last run" strip reuses the day's new alert firings.
 
 ## 4. How it works
 
@@ -123,6 +128,7 @@ lib/signals/prompt.js            the extraction prompt (quote this in the write-
 lib/signals/extract.js           LLM calls, JSON validation/retry, never-pay-twice store
 lib/signals/prices.js            provider interface + 2y/incremental price store
 lib/signals/compute.js           pure signal engine (Node + browser)
+lib/signals/reading-queue.js     pure Must-Read importance ranking (Node + browser)
 lib/signals/alerts.js            alerts store + ntfy
 lib/signals/track-record.js      daily replay, forward excess returns
 lib/signals/pipeline.js          fetch -> extract -> prices -> compute -> alerts -> state

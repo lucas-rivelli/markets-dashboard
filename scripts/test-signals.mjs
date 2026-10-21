@@ -5,6 +5,7 @@ import assert from "node:assert";
 
 const require = createRequire(import.meta.url);
 const { computeSignals } = require("../lib/signals/compute.js");
+const { buildReadingQueue } = require("../lib/signals/reading-queue.js");
 
 const config = {
   universe: ["AAA", "BBB"],
@@ -93,6 +94,30 @@ const strict = JSON.parse(JSON.stringify(config));
 strict.rules.mentionSpike.minMentions = 99;
 const rows2 = computeSignals(extractions, prices, strict, AS_OF);
 assert.ok(!rows2.find((r) => r.ticker === "AAA").rules.some((r) => r.id === "MENTION_SPIKE"), "slider threshold respected");
+
+// --- Must-Read queue -------------------------------------------------
+const queueConfig = {
+  ...config,
+  readingQueue: {
+    maxItems: 25,
+    windowDays: 7,
+    flagWeights: { LONG: 40, SHORT: 40, WATCH: 22 },
+    sourceWeights: { Substack: 10, Blog: 10, TickerNews: 3 },
+  },
+};
+const queueRecords = [
+  { id: "q1", title: "AAA deep dive", source: "Some Substack", sourceType: "Substack", url: "https://example.com/q1", publishedAt: item("q1", 1, []).publishedAt, mentions: [mention("AAA", 0.8)] },
+  { id: "q2", title: "BBB mention roundup", source: "Yahoo Finance — BBB", sourceType: "TickerNews", url: "https://example.com/q2", publishedAt: item("q2", 1, []).publishedAt, mentions: [mention("BBB", -0.8)] },
+  { id: "q3", title: "No mentions here", source: "Some Substack", sourceType: "Substack", url: "https://example.com/q3", publishedAt: item("q3", 1, []).publishedAt, mentions: [] },
+  { id: "q4", title: "Old AAA piece", source: "Some Substack", sourceType: "Substack", url: "https://example.com/q4", publishedAt: item("q4", 30, []).publishedAt, mentions: [mention("AAA", 0.9)] },
+];
+const queue = buildReadingQueue(queueRecords, rows, queueConfig, AS_OF);
+assert.strictEqual(queue.length, 2, "queue keeps only in-window items with mentions");
+assert.strictEqual(queue[0].id, "q1", "flagged LONG ticker + long-form source outranks headline item");
+assert.ok(queue[0].reasons.length >= 1 && queue[0].reasons.length <= 3, "reason chips present (max 3)");
+assert.ok(queue[0].reasons.some((r) => r.includes("AAA")), "reason names the ticker");
+assert.ok(queue[0].score > queue[1].score, "scores descending");
+assert.deepStrictEqual(buildReadingQueue([], rows, queueConfig, AS_OF), [], "empty input -> empty queue");
 
 console.log("test-signals: all assertions passed");
 console.log(rows.map((r) => `${r.ticker} flag=${r.flag || "-"} score=${r.score} rules=${r.rules.map((x) => x.id).join(",") || "-"}`).join("\n"));

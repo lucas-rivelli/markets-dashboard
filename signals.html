@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"></script>
 <script src="lib/signals/compute.js"></script>
+<script src="lib/signals/reading-queue.js"></script>
 <style>
   :root{
     --paper:#f3ecdd; --paper-rail:#efe6d3; --paper-sel:#e9dcc0;
@@ -65,6 +66,34 @@
   @media(min-width:900px){.cols{grid-template-columns:2fr 1fr;gap:34px}}
   .method p,.method li{font-size:17px}
   .err{border:1px solid var(--short);color:var(--short);padding:10px 14px;font-style:italic}
+  .edition{text-align:center;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 4px;margin-bottom:12px}
+  .changed{text-align:center;font-style:italic;color:var(--rubric);margin:8px 0 0;font-size:16.5px}
+  .stamp{display:inline-block;border:2px solid currentColor;padding:1px 8px 2px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-2deg);white-space:nowrap}
+  .stamp.LONG{color:var(--long)} .stamp.SHORT{color:var(--short)} .stamp.WATCH{color:var(--watch)}
+  .queue{list-style:none;margin:0;padding:0;counter-reset:q}
+  .queue li{display:flex;gap:14px;border-bottom:1px solid var(--rule-soft);padding:11px 4px;align-items:baseline}
+  .queue li.is-read{opacity:.42}
+  .queue .rank{font-size:26px;font-weight:600;color:var(--rubric);min-width:30px;text-align:right}
+  .queue .body{flex:1;min-width:0}
+  .queue .head{font-size:19px;line-height:1.3}
+  .queue .meta{font-size:14px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
+  .queue .why{font-style:italic;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chip{border:1px solid var(--gold);color:var(--ink);font-size:13.5px;letter-spacing:.04em;padding:1px 8px;background:var(--paper-rail)}
+  .queue .score{font-weight:600;white-space:nowrap}
+  .queue button{font-size:13.5px;padding:3px 10px;white-space:nowrap}
+  .attention{display:flex;gap:4px;overflow-x:auto;padding:8px 2px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .attention button{border:none;border-bottom:3px solid var(--rule);padding:4px 7px;min-height:44px;font-size:14px;letter-spacing:.05em}
+  .attention button:hover{background:var(--paper-rail)}
+  .attention .bars{display:flex;gap:1px;align-items:end;height:14px;margin-top:2px}
+  .attention .bars i{display:block;width:3px;background:var(--gold)}
+  .bullbear{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+  @media(min-width:700px){.bullbear{grid-template-columns:1fr 1fr}}
+  .bb{border:1px solid var(--rule);padding:10px 14px;background:#f7f1e3}
+  .bb h3{margin:0 0 6px;font-size:16px;letter-spacing:.16em;text-transform:uppercase}
+  .bb.bull h3{color:var(--long)} .bb.bear h3{color:var(--short)}
+  .bb p{margin:0 0 8px;font-size:16px}
+  .bb .who{font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
   footer{margin-top:44px;border-top:3px double var(--ink);padding-top:10px;text-align:center;color:var(--ink-soft);font-size:15px}
   @media(max-width:640px){h1{font-size:30px}body{font-size:17px}.wrap{padding:0 12px 48px}}
 </style>
@@ -72,9 +101,10 @@
 <body>
 <div class="wrap">
   <header class="top">
+    <div class="edition" id="edition">Morning Edition</div>
     <div class="brand">❦ Markets Reading</div>
     <h1>Signals</h1>
-    <p class="sub">A ticker signal screener — an LLM reads the research, prices keep it honest, explicit rules do the flagging.</p>
+    <p class="sub">Screeners flag tickers. Signals tells you what to read — an LLM reads the research, prices keep it honest, explicit rules do the flagging.</p>
     <div class="statusbar">
       <span id="updated">Loading…</span>
       <span id="sourcestatus"></span>
@@ -82,9 +112,16 @@
       <button id="btn-notify" type="button">Enable browser alerts</button>
       <span id="refresh-msg" class="note"></span>
     </div>
+    <p class="changed" id="changed"></p>
   </header>
 
   <main id="app" hidden>
+    <div class="attention" id="attention" aria-label="Research attention by ticker"></div>
+
+    <h2><span class="fleur">❦</span> Must-Read — the most important research today</h2>
+    <p class="note">Ranked by importance: flagged tickers, sentiment flips, mention spikes and divergences first. Mark items done and they fade — stored only in this browser.</p>
+    <ol class="queue" id="queue"></ol>
+
     <h2><span class="fleur">❦</span> Screener</h2>
     <div class="controls">
       <label>Flag
@@ -116,6 +153,7 @@
       <section>
         <h2><span class="fleur">❦</span> Ticker detail <span id="detail-ticker"></span></h2>
         <div class="chartbox"><canvas id="chart"></canvas></div>
+        <div class="bullbear" id="bullbear"></div>
         <ul class="items" id="items"></ul>
       </section>
       <section>
@@ -152,14 +190,18 @@ const fmtPct = (v) => v === null || v === undefined ? "—" : (v >= 0 ? "+" : ""
 const fmtNum = (v, dp=2) => v === null || v === undefined ? "—" : Number(v).toFixed(dp);
 const FLAG_LABEL = { LONG: "▲ Long candidate", SHORT: "▼ Short candidate", WATCH: "● Watch" };
 
-let payload = null, rows = [], thresholds = null, sortKey = "score", sortDir = -1;
+let payload = null, rows = [], readingQueue = [], thresholds = null, sortKey = "score", sortDir = -1;
 let selectedTicker = null, chart = null, knownAlertIds = new Set();
+const READ_KEY = "signals_read_items";
+let readItems = new Set();
+try { readItems = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch {}
+function saveReadItems(){ try { localStorage.setItem(READ_KEY, JSON.stringify([...readItems])); } catch {} }
 
 function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
 
 async function loadPayload(){
   try{
-    const res = await fetch("api/signals", { headers:{ Accept:"application/json" } });
+    const res = await fetch("api/signals", { headers:{ Accept:"application/json" }, cache:"no-store" });
     if(!res.ok) throw new Error("api " + res.status);
     return await res.json();
   }catch(e){
@@ -176,7 +218,7 @@ async function loadPayload(){
         (mentionsByTicker[m.ticker] = mentionsByTicker[m.ticker]||[]).push({ id:rec.id, title:rec.title, source:rec.source, url:rec.url, publishedAt:rec.publishedAt, sentiment:m.sentiment, confidence:m.confidence, rationale:m.rationale });
       }
     }
-    return { config, state, rows: state.rows||[], alerts: alertsStore.alerts||[], mentionsByTicker, pricesByTicker:{}, extractionsForCompute: Object.values(extractions.items||{}), trackRecord:null, ntfyTopic: state.ntfyTopic||null, _static:true };
+    return { config, state, rows: state.rows||[], readingQueue: state.readingQueue||[], alerts: alertsStore.alerts||[], mentionsByTicker, pricesByTicker:{}, extractionsForCompute: Object.values(extractions.items||{}), trackRecord:null, ntfyTopic: state.ntfyTopic||null, _static:true };
   }
 }
 
@@ -187,7 +229,66 @@ function recompute(){
   const prices = {};
   for(const [t, closes] of Object.entries(payload.pricesByTicker||{})) prices[t] = closes;
   rows = window.SignalsCompute.computeSignals(payload.extractionsForCompute||[], prices, cfg, payload.state?.asOf);
-  renderTable();
+  if(window.SignalsReadingQueue){
+    const qCfg = deepClone(payload.config); qCfg.rules = deepClone(thresholds);
+    readingQueue = window.SignalsReadingQueue.buildReadingQueue(payload.extractionsForCompute||[], rows, qCfg, payload.state?.asOf);
+  }
+  renderQueue(); renderAttention(); renderTable();
+}
+
+const STAMP_LABEL = { LONG: "Long", SHORT: "Short", WATCH: "Watch" };
+function renderQueue(){
+  const list = (readingQueue||[]).slice(0,10);
+  $("queue").innerHTML = list.length ? list.map((q,i) => `
+    <li class="${readItems.has(q.id)?"is-read":""}">
+      <span class="rank">${i+1}</span>
+      <div class="body">
+        <span class="head"><a href="${q.url}" target="_blank" rel="noopener">${q.title}</a></span>
+        ${q.flag?` <span class="stamp ${q.flag}">${STAMP_LABEL[q.flag]} · ${q.ticker}</span>`:` <span class="stamp">${q.ticker}</span>`}<br>
+        <span class="meta">${q.source} · ${(q.publishedAt||"").slice(0,10)} · score ${fmtNum(q.score,1)}</span><br>
+        ${q.rationale?`<span class="why">${q.rationale}</span>`:""}
+        <span class="chips">${(q.reasons||[]).map(r=>`<span class="chip">${r}</span>`).join("")}</span>
+      </div>
+      <span>
+        <button type="button" data-ticker="${q.ticker}" class="q-detail">${q.ticker} detail</button><br>
+        <button type="button" data-id="${q.id}" class="q-read">${readItems.has(q.id)?"Read ✓":"Mark read"}</button>
+      </span>
+    </li>`).join("") : `<li class="note">No ranked research yet — run a refresh.</li>`;
+  document.querySelectorAll(".q-detail").forEach(b => b.addEventListener("click", ()=>{ selectTicker(b.dataset.ticker); document.getElementById("detail-ticker")?.scrollIntoView({behavior:"smooth"}); }));
+  document.querySelectorAll(".q-read").forEach(b => b.addEventListener("click", ()=>{
+    if(readItems.has(b.dataset.id)) readItems.delete(b.dataset.id); else readItems.add(b.dataset.id);
+    saveReadItems(); renderQueue();
+  }));
+}
+
+function renderChanged(){
+  const asOf = (payload.state?.asOf || new Date().toISOString().slice(0,10));
+  const todays = (payload.alerts||[]).filter(a => !a.test && (a.firedDate === asOf));
+  if(!todays.length){ $("changed").textContent = ""; return; }
+  const parts = todays.slice(0,4).map(a => `${a.ticker} flagged ${STAMP_LABEL[a.flag]||a.flag}`);
+  $("changed").textContent = `Since last run: ${parts.join(" · ")}${todays.length>4?` · +${todays.length-4} more`:""}`;
+}
+
+function renderAttention(){
+  const asOf = payload.state?.asOf || new Date().toISOString().slice(0,10);
+  const days = [...Array(7)].map((_,i)=>{ const d=new Date(Date.parse(asOf)- (6-i)*86400000); return d.toISOString().slice(0,10); });
+  const tickers = (payload.config?.universe||[]);
+  $("attention").innerHTML = tickers.map(t => {
+    const items = payload.mentionsByTicker?.[t]||[];
+    const counts = days.map(d => items.filter(it => (it.publishedAt||"").slice(0,10)===d).length);
+    const max = Math.max(1, ...counts);
+    return `<button type="button" data-ticker="${t}">${t}<span class="bars">${counts.map(c=>`<i style="height:${Math.max(2, c/max*14)}px"></i>`).join("")}</span></button>`;
+  }).join("");
+  document.querySelectorAll(".attention button").forEach(b => b.addEventListener("click", ()=> selectTicker(b.dataset.ticker)));
+}
+
+function renderEdition(){
+  const iso = payload.state?.lastUpdated || payload.state?.asOf;
+  const d = iso ? new Date(iso) : new Date();
+  const label = d.toLocaleDateString(undefined, { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+  const epoch = Date.parse("2026-10-20T00:00:00Z");
+  const no = Math.max(1, Math.floor((Date.parse(d.toISOString().slice(0,10)) - epoch)/86400000) + 1);
+  $("edition").textContent = `Morning Edition · ${label} · No. ${no}`;
 }
 
 function renderTable(){
@@ -252,7 +353,14 @@ async function renderDetail(ticker){
     const bar = closes[labels.indexOf(d)];
     return bar ? bar.close : null;
   });
+  renderBullBear(items);
   if(chart) chart.destroy();
+  if(typeof Chart === "undefined"){
+    $("items").innerHTML = `<li class="note">Chart library could not load (CDN unreachable) — mention list below still works.</li>` + (items.length ? items.map(it => `
+    <li><span class="meta">${(it.publishedAt||"").slice(0,10)} · ${it.source} · sentiment <span class="sent ${it.sentiment>0?"pos":it.sentiment<0?"neg":""}">${it.sentiment>=0?"+":""}${fmtNum(it.sentiment)}</span> (conf ${fmtNum(it.confidence)})</span><br>
+    <a href="${it.url}" target="_blank" rel="noopener">${it.title}</a><br><span class="why">${it.rationale||""}</span></li>`).join("") : "");
+    return;
+  }
   chart = new Chart($("chart"), {
     data:{ labels, datasets:[
       { type:"line", label:`${ticker} close`, data:closes.map(c=>c.close), borderColor:"#292018", backgroundColor:"#292018", borderWidth:1.5, pointRadius:0, yAxisID:"y" },
@@ -267,10 +375,20 @@ async function renderDetail(ticker){
         y2:{min:-1,max:1,display:false} },
       plugins:{ legend:{labels:{font:{family:"EB Garamond",size:14}}} } }
   });
+  renderBullBear(items);
   $("items").innerHTML = items.length ? items.map(it => `
     <li><span class="meta">${(it.publishedAt||"").slice(0,10)} · ${it.source} · sentiment <span class="sent ${it.sentiment>0?"pos":it.sentiment<0?"neg":""}">${it.sentiment>=0?"+":""}${fmtNum(it.sentiment)}</span> (conf ${fmtNum(it.confidence)})</span><br>
     <a href="${it.url}" target="_blank" rel="noopener">${it.title}</a><br><span class="why">${it.rationale||""}</span></li>`).join("")
     : `<li class="note">No extracted mentions for ${ticker} yet.</li>`;
+}
+
+function renderBullBear(items){
+  const bulls = items.filter(it => (it.sentiment||0) > 0.15).sort((a,b)=>(b.confidence||0)-(a.confidence||0)).slice(0,3);
+  const bears = items.filter(it => (it.sentiment||0) < -0.15).sort((a,b)=>(b.confidence||0)-(a.confidence||0)).slice(0,3);
+  const col = (list, empty) => list.length ? list.map(it => `<p>${it.rationale||it.title}<br><span class="who">${it.source} · ${(it.publishedAt||"").slice(0,10)} · conf ${fmtNum(it.confidence)}</span></p>`).join("") : `<p class="note">${empty}</p>`;
+  $("bullbear").innerHTML = `
+    <div class="bb bull"><h3>Bull case</h3>${col(bulls, "No bullish research on this name in the current window.")}</div>
+    <div class="bb bear"><h3>Bear case</h3>${col(bears, "No bearish research on this name in the current window.")}</div>`;
 }
 
 function renderAlerts(){
@@ -308,6 +426,7 @@ function renderMethod(){
       <li><strong>Bullish / bearish shift → Long / Short candidate:</strong> confidence-weighted sentiment moves ≥ ${r.sentimentShift.minAbsShift} vs baseline (≥ ${r.sentimentShift.minMentions} recent mentions).</li>
       <li><strong>Divergence → Long / Short candidate:</strong> research sentiment ≥ ${r.divergence.minAbsSentiment} in one direction while the stock's ${c.windows.recentDays}-day excess return vs ${c.benchmark} is ≥ ${(r.divergence.minAbsExcessReturn*100)}% the other way.</li>
       <li><strong>Discovery:</strong> tickers outside the ${c.universe.length}-stock universe with ≥ ${c.discoverMinMentions} mentions get rows too (marked <span class="disc">discovered</span>); their prices join the next run.</li>
+      <li><strong>Must-Read queue:</strong> individual items from the last ${c.readingQueue?.windowDays || 7} days are ranked by importance — flagged tickers weigh most, then sentiment shifts, mention spikes, divergences, the item's own conviction, source depth (long-form above headline-only) and recency. Each item shows its top reasons. Weights live in <code>config.readingQueue</code>; moving the sliders above re-ranks it live.</li>
     </ul>
     <p><strong>Limitations.</strong> Sentiment is one LLM's reading of headlines and research text — it can mistake news tone for an author's view, and headline-only items carry little text. Mention counts measure attention, not quality. The screener flags candidates for human research; it is not investment advice and has no track record as a tradable strategy (see the in-sample check above). Data refreshes on a schedule, not tick-by-tick.</p>`;
 }
@@ -348,11 +467,14 @@ async function init(){
   }
   thresholds = deepClone(payload.config.rules);
   rows = payload.rows || [];
+  readingQueue = payload.readingQueue?.length ? payload.readingQueue
+    : (window.SignalsReadingQueue ? window.SignalsReadingQueue.buildReadingQueue(payload.extractionsForCompute||[], rows, payload.config, payload.state?.asOf) : []);
   $("loading").hidden = true; $("app").hidden = false;
   $("updated").textContent = "Last updated " + relativeTime(payload.state?.lastUpdated);
   const c = payload.state?.counts;
   $("sourcestatus").textContent = c ? `${c.sourcesOk} sources ok, ${c.sourcesFailed} failed · ${c.extractionsTotal} items read · ${c.mentionsTotal} mentions` : "";
   knownAlertIds = new Set((payload.alerts||[]).map(a=>a.id));
+  renderEdition(); renderChanged(); renderAttention(); renderQueue();
   renderSliders(); renderTable(); renderAlerts(); renderTrack(); renderMethod();
   const firstFlagged = rows.find(r=>r.flag) || rows[0];
   if(firstFlagged) selectTicker(firstFlagged.ticker);
@@ -365,7 +487,8 @@ async function pollAlerts(){
     const freshAlerts = fresh.alerts||[];
     const newOnes = freshAlerts.filter(a=>!knownAlertIds.has(a.id));
     if(newOnes.length){
-      payload = fresh; renderAlerts();
+      payload = fresh; readingQueue = fresh.readingQueue || readingQueue;
+      renderAlerts(); renderChanged(); renderQueue();
       if("Notification" in window && Notification.permission === "granted"){
         for(const a of newOnes.slice(0,3)) new Notification(`${FLAG_LABEL[a.flag]||"Signal"}: ${a.ticker}`, { body: a.ruleLabel||a.rule });
       }
