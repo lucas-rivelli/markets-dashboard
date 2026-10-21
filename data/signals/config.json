@@ -1,0 +1,17 @@
+{
+  "universe": ["NVDA", "MSFT", "GOOGL", "AMZN", "META", "AAPL", "TSLA", "AMD", "AVGO", "TSM", "PLTR", "SMCI", "COIN", "JPM", "GS", "XOM", "CEG", "VST", "NEE", "LLY"],
+  "benchmark": "SPY",
+  "discoverNewTickers": true,
+  "discoverMinMentions": 3,
+  "minConfidence": 0.6,
+  "windows": { "recentDays": 7, "baselineDays": 30 },
+  "rules": {
+    "mentionSpike": { "minMentions": 3, "minRatio": 2.0 },
+    "sentimentShift": { "minAbsShift": 0.3, "minMentions": 2 },
+    "divergence": { "minAbsSentiment": 0.3, "minAbsExcessReturn": 0.05 }
+  },
+  "sources": "Public RSS sources from api/feed.js BASE_SOURCES, filtered to categories Substack | Blog | YouTube | Macro/Official (dynamic/login sources excluded), plus per-ticker Yahoo Finance news RSS, plus extraSources below.",
+  "extraSources": [],
+  "llm": { "model": "claude-haiku-5-5", "maxItemsPerRun": 80, "maxCharsPerItem": 4000 },
+  "alerts": { "ntfy": true, "browser": true }
+}

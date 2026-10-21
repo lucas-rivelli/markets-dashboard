@@ -1,0 +1,908 @@
+{
+  "schema_version": 1,
+  "lastUpdated": "2026-10-21T00:24:36.007Z",
+  "startedAt": "2026-10-21T00:20:07.300Z",
+  "asOf": "2026-10-21",
+  "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
+  "publicUrl": null,
+  "llmModel": "claude-haiku-5-5",
+  "sourceStatus": [
+    {
+      "name": "Jordi Visser",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Jordi Visser Labs",
+      "sourceType": "YouTube",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "ARK Next Gen Internet",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Rebound Capital",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Citrini Research",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Gregory Blotnick",
+      "sourceType": "Blog",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Kyle Samani",
+      "sourceType": "Blog",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Paul Graham",
+      "sourceType": "Blog",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Ray Dalio",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Wizard's Winners",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Bristlemoon Capital",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Philipp Haas",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Indra's Thoughts",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Casteleyn Partnership",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "TacticzHazel",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "HF Best Ideas",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Hated Moats",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Works in Progress",
+      "sourceType": "Substack",
+      "ok": true,
+      "count": 10,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 19,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 18,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 15,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 14,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 16,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 13,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 14,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 17,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 15,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 17,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 13,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 18,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 19,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 16,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 17,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 19,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — CEG",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 16,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 20,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — NEE",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 12,
+      "error": null
+    },
+    {
+      "name": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "ok": true,
+      "count": 17,
+      "error": null
+    }
+  ],
+  "priceStatus": [
+    {
+      "ticker": "NVDA",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "MSFT",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "GOOGL",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "AMZN",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "META",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "AAPL",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "TSLA",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "AMD",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "AVGO",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "TSM",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "PLTR",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "SMCI",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "COIN",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "JPM",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "GS",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "XOM",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "CEG",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "VST",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "NEE",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "LLY",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "SPY",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "CVNA",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "NFLX",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    }
+  ],
+  "counts": {
+    "sourcesOk": 38,
+    "sourcesFailed": 0,
+    "sourcesTotal": 38,
+    "itemsFetched": 456,
+    "extractionsTotal": 436,
+    "mentionsTotal": 164,
+    "tickers": 20,
+    "pricesOk": 23,
+    "alertsTotal": 13,
+    "newAlerts": 13
+  },
+  "rows": [
+    {
+      "ticker": "TSM",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 10,
+      "sentRecent": 0.572,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0227,
+      "excessRecent": -0.0187,
+      "ret30": -0.056,
+      "score": 1.0257,
+      "lastPrice": 420.22,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "LLY",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 7,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 14,
+      "sentRecent": 0.388,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0261,
+      "excessRecent": 0.0302,
+      "ret30": 0.0648,
+      "score": 0.8065,
+      "lastPrice": 1240.34,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 4,
+      "sentRecent": 0.6,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0003,
+      "excessRecent": 0.0037,
+      "ret30": 0.0636,
+      "score": 0.6592,
+      "lastPrice": 533.52,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 8,
+      "sentRecent": 0.325,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0329,
+      "excessRecent": 0.037,
+      "ret30": 0.0155,
+      "score": 0.5231,
+      "lastPrice": 262.45,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "XOM",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 4,
+      "sentRecent": 0.467,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0072,
+      "excessRecent": 0.0112,
+      "ret30": 0.1262,
+      "score": 0.5127,
+      "lastPrice": 178.28,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "SMCI",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 7,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 14,
+      "sentRecent": 0.233,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.1029,
+      "excessRecent": -0.0988,
+      "ret30": -0.2209,
+      "score": 0.4839,
+      "lastPrice": 32.1,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "VST",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 16,
+      "sentRecent": 0.205,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0138,
+      "excessRecent": -0.0097,
+      "ret30": 0.0634,
+      "score": 0.4508,
+      "lastPrice": 149.7,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 6,
+      "sentRecent": 0.27,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0337,
+      "excessRecent": -0.0296,
+      "ret30": -0.0774,
+      "score": 0.3743,
+      "lastPrice": 334.59,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "CEG",
+      "discovered": false,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 8,
+      "sentRecent": 0.216,
+      "sentBaseline": 0.6,
+      "sentShift": -0.384,
+      "retRecent": -0.0585,
+      "excessRecent": -0.0544,
+      "ret30": 0.0041,
+      "score": 0.3476,
+      "lastPrice": 263.19,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "META",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 2,
+      "sentRecent": 0.5,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0435,
+      "excessRecent": -0.0395,
+      "ret30": -0.0483,
+      "score": 0.3466,
+      "lastPrice": 705.44,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "AMD",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 4,
+      "sentRecent": 0.25,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0574,
+      "excessRecent": -0.0534,
+      "ret30": -0.1259,
+      "score": 0.2747,
+      "lastPrice": 538.05,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 8,
+      "sentRecent": 0.12,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.019,
+      "excessRecent": -0.015,
+      "ret30": -0.0453,
+      "score": 0.1931,
+      "lastPrice": 217.09,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "NEE",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 10,
+      "sentRecent": 0.09,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0026,
+      "excessRecent": 0.0015,
+      "ret30": -0.0183,
+      "score": 0.1613,
+      "lastPrice": 78.17,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "GS",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 2,
+      "sentRecent": 0.2,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0033,
+      "excessRecent": 0.0007,
+      "ret30": -0.0871,
+      "score": 0.1386,
+      "lastPrice": 875.78,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "JPM",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 6,
+      "sentRecent": 0,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0052,
+      "excessRecent": -0.0012,
+      "ret30": -0.0526,
+      "score": 0,
+      "lastPrice": 333.53,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 6,
+      "sentRecent": 0,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0025,
+      "excessRecent": 0.0065,
+      "ret30": -0.0193,
+      "score": 0,
+      "lastPrice": 368.06,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "COIN",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 2,
+      "sentRecent": 0,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0257,
+      "excessRecent": -0.0216,
+      "ret30": -0.1621,
+      "score": 0,
+      "lastPrice": 168.45,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 2,
+      "sentRecent": 0,
+      "sentBaseline": 0.8,
+      "sentShift": -0.8,
+      "retRecent": -0.01,
+      "excessRecent": -0.0059,
+      "ret30": -0.0304,
+      "score": 0,
+      "lastPrice": 344.18,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "PLTR",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 0,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 0,
+      "sentRecent": null,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0339,
+      "excessRecent": -0.0299,
+      "ret30": 0.0604,
+      "score": 0,
+      "lastPrice": 194.15,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    },
+    {
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 8,
+      "sentRecent": -0.152,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0001,
+      "excessRecent": 0.004,
+      "ret30": 0.0117,
+      "score": -0.2442,
+      "lastPrice": 342.94,
+      "lastPriceDate": "2026-10-19",
+      "priceBars": 500
+    }
+  ]
+}

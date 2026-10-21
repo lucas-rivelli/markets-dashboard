@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "alerts": [
+    {
+      "id": "test-1792542313950",
+      "ticker": "NVDA",
+      "rule": "TEST",
+      "ruleLabel": "Test alert (forced)",
+      "flag": "LONG",
+      "test": true,
+      "firedAt": "2026-10-21T00:25:13.950Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 0,
+        "spikeRatio": 0,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": 0,
+        "excessRecent": 0,
+        "score": 0
+      },
+      "topItems": []
+    },
+    {
+      "id": "446847078e100457",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.815Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": null,
+        "retRecent": -0.0052,
+        "excessRecent": -0.0012,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/jpmorgan-brings-jpm-coin-ether-184142422.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/jpmorgan-forecasts-10-bitcoin-returns-163000023.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/crypto/articles/jpmorgan-deploys-jpm-coin-ethereum-194141714.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "79e4ab0a23eb9293",
+      "ticker": "TSLA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.815Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": null,
+        "retRecent": 0.0025,
+        "excessRecent": 0.0065,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/spacex-tesla-form-special-committees-222651320.html?.tsrc=rss",
+        "https://www.telegraph.co.uk/business/2026/10/20/elon-musk-wants-to-merge-spacex-and-tesla/?.tsrc=rss",
+        "https://finance.yahoo.com/video/spacex-tesla-merger-musk-speaks-on-tap-dancing-through-a-minefield-215718083.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "22b6fb7f92dfc848",
+      "ticker": "AAPL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.815Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.152,
+        "sentShift": null,
+        "retRecent": -0.0001,
+        "excessRecent": 0.004,
+        "score": -0.2442
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/apple-1-999-foldable-phone-210536588.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/0e91d904-b722-3eca-9e6f-93961c30a035/apple-stock-downgraded-as.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/apple-aapl-stock-sinks-market-204502756.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "da5a4c4783f16e9b",
+      "ticker": "SMCI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 14,
+        "sentRecent": 0.233,
+        "sentShift": null,
+        "retRecent": -0.1029,
+        "excessRecent": -0.0988,
+        "score": 0.4839
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/smci-stock-surges-16-as-preliminary-q1-sales-smash-estimates-amid-ai-boom/cZxAOcyRBHg?.tsrc=rss",
+        "https://finance.yahoo.com/m/65105cf9-3f6e-373a-89e7-00b311f8a8ea/super-micro-computer-surges.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/supermicro-stock-surges-12-raising-210904986.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "acb637d66a1a8cbb",
+      "ticker": "VST",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 8,
+        "spikeRatio": 16,
+        "sentRecent": 0.205,
+        "sentShift": null,
+        "retRecent": -0.0138,
+        "excessRecent": -0.0097,
+        "score": 0.4508
+      },
+      "topItems": [
+        "https://www.trefis.com/articles/619370/what-could-surprise-vistra-stock-investors-on-the-upside/2026-10-20?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-trending-stock-120006371.html?.tsrc=rss",
+        "https://www.tikr.com/blog/musk-ais-hard-part-is-scaling-power-3-stocks-uniquely-suited-to-win-this-new-bottleneck-trade?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5e8b1c796a0d6952",
+      "ticker": "AVGO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.27,
+        "sentShift": null,
+        "retRecent": -0.0337,
+        "excessRecent": -0.0296,
+        "score": 0.3743
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/articles/broadcom-avgo-vmware-remain-durable-134447254.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/20/nvidia-gets-the-attention-but-broadcom-could-deliver-the-bigger-surprise/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/broadcom-announces-continued-infrastructure-agreement-130000110.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f98d9e9b3e5727df",
+      "ticker": "CEG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.216,
+        "sentShift": -0.384,
+        "retRecent": -0.0585,
+        "excessRecent": -0.0544,
+        "score": 0.3476
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ceg-stock-outperforms-industry-3-135900458.html?.tsrc=rss",
+        "https://www.trefis.com/articles/619175/is-this-number-the-biggest-risk-to-constellation-energy-stock/2026-10-19?.tsrc=rss",
+        "https://www.tikr.com/blog/musk-ais-hard-part-is-scaling-power-3-stocks-uniquely-suited-to-win-this-new-bottleneck-trade?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1240cc577d2962ff",
+      "ticker": "CEG",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.216,
+        "sentShift": -0.384,
+        "retRecent": -0.0585,
+        "excessRecent": -0.0544,
+        "score": 0.3476
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ceg-stock-outperforms-industry-3-135900458.html?.tsrc=rss",
+        "https://www.trefis.com/articles/619175/is-this-number-the-biggest-risk-to-constellation-energy-stock/2026-10-19?.tsrc=rss",
+        "https://www.tikr.com/blog/musk-ais-hard-part-is-scaling-power-3-stocks-uniquely-suited-to-win-this-new-bottleneck-trade?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "2b9ca18c1941d03f",
+      "ticker": "NVDA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.12,
+        "sentShift": null,
+        "retRecent": -0.019,
+        "excessRecent": -0.015,
+        "score": 0.1931
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/43b6b732-d0a2-3c03-bfb2-181d681ee337/super-micro-stock-surges-on.html?.tsrc=rss",
+        "https://beincrypto.com/spacex-ai-spending-shock-3-stocks-upside/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/moment-jensen-huang-realized-nvidia-221554282.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "77ac58da71b3e2cd",
+      "ticker": "NEE",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.813Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": 0.09,
+        "sentShift": null,
+        "retRecent": -0.0026,
+        "excessRecent": 0.0015,
+        "score": 0.1613
+      },
+      "topItems": [
+        "https://www.utilitydive.com/news/virginia-governor-seeks-6-year-rate-freeze-if-dominion-nextera-merger-is-ap/833478/?.tsrc=rss",
+        "https://blockspace.media/insight/nextera-energy-price-target-cut/?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/nextera-energys-q3-earnings-offer-112900151.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "6903012a8bcb596d",
+      "ticker": "TSM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.812Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": 0.572,
+        "sentShift": null,
+        "retRecent": -0.0227,
+        "excessRecent": -0.0187,
+        "score": 1.0257
+      },
+      "topItems": [
+        "https://www.barchart.com/story/news/8235829/a-4-billion-reason-to-buy-tsmc-stock-now?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/3-stocks-set-benefit-long-141500170.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/zacks-investment-ideas-feature-highlights-121300756.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "2edbbd61d2995f3e",
+      "ticker": "LLY",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.812Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 14,
+        "sentRecent": 0.388,
+        "sentShift": null,
+        "retRecent": 0.0261,
+        "excessRecent": 0.0302,
+        "score": 0.8065
+      },
+      "topItems": [
+        "https://finance.yahoo.com/healthcare/articles/pediatric-ulcerative-colitis-data-altering-171615950.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/lly-stock-hits-new-record-eli-lilly-valuation-pushes-past-berkshire-hathaway-ahead-of-q3-earnings/cZxAGvFRBHP?.tsrc=rss",
+        "https://www.tikr.com/blog/eli-lilly-gains-4-6-as-goldman-sachs-lifts-price-target-to-1413?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b6b5794554aaf9b7",
+      "ticker": "AMZN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-21T00:24:35.812Z",
+      "firedDate": "2026-10-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.325,
+        "sentShift": null,
+        "retRecent": 0.0329,
+        "excessRecent": 0.037,
+        "score": 0.5231
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/10/20/amazon-stock-costs-more-than-the-market-i-d-still-buy-it-for-the-next-5-years/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/amazon-stockpiles-nvidia-ai-hardware-194615746.html?.tsrc=rss",
+        "https://www.thestreet.com/investing/amazons-350-target-rests-on-an-ai-bet-beyond-the-cloud?.tsrc=rss"
+      ]
+    }
+  ]
+}

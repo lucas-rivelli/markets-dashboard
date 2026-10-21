@@ -1,0 +1,68 @@
+# Markets Reading: Signals — incremental refresh every 30 minutes.
+# Fetches public sources, LLM-extracts new items, updates prices, recomputes
+# signals, fires alerts (ntfy), and commits data/signals/ back to this branch.
+# Data-only commits skip Vercel builds via scripts/vercel-ignore.sh; the page
+# reads fresh JSON from raw.githubusercontent.com, so no redeploy is needed.
+#
+# Required GitHub secrets (Settings → Secrets and variables → Actions):
+#   ANTHROPIC_API_KEY   (or OPENROUTER_API_KEY as fallback)
+#   NTFY_TOPIC          (public ntfy.sh topic name for alerts)
+# Optional: FMP_API_KEY, SIGNALS_PUBLIC_URL
+
+name: Signals refresh
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: signals-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fmkt256-signals
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --omit=dev
+
+      - name: Run signals refresh
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPEN_ROUTER_KEY: ${{ secrets.OPEN_ROUTER_KEY }}
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SIGNALS_PUBLIC_URL: ${{ vars.SIGNALS_PUBLIC_URL }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ] && [ -z "$OPENROUTER_API_KEY" ] && [ -z "$OPEN_ROUTER_KEY" ]; then
+            echo "Set ANTHROPIC_API_KEY (or OPENROUTER_API_KEY) as a GitHub Actions secret." >&2
+            exit 1
+          fi
+          node scripts/signals-refresh.mjs
+
+      - name: Commit signals data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/signals
+          if git diff --staged --quiet; then
+            echo "No signals data changes."
+            exit 0
+          fi
+          git commit -m "Signals refresh"
+          git pull --rebase origin fmkt256-signals || true
+          git push origin HEAD:fmkt256-signals

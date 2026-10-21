@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-21T00:24:36.006Z",
+  "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
+  "replayFrom": "2024-10-21",
+  "replayTo": "2026-10-19",
+  "windowDays": 37,
+  "events": [
+    {
+      "date": "2026-07-23",
+      "ticker": "META",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": -0.11541324503007544,
+      "fwd20": -0.13252039873199517
+    },
+    {
+      "date": "2026-10-14",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-15",
+      "ticker": "VST",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-16",
+      "ticker": "TSM",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "CEG",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-19",
+      "ticker": "NEE",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    }
+  ],
+  "byRule": [
+    {
+      "name": "DIVERGENCE_LONG",
+      "events": 4,
+      "measured": 1,
+      "hitRate20": 0,
+      "avgExcess5": -0.11541324503007544,
+      "avgExcess20": -0.13252039873199517
+    },
+    {
+      "name": "MENTION_SPIKE",
+      "events": 3,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    }
+  ],
+  "byFlag": [
+    {
+      "name": "LONG",
+      "events": 4,
+      "measured": 1,
+      "hitRate20": 0,
+      "avgExcess5": -0.11541324503007544,
+      "avgExcess20": -0.13252039873199517
+    },
+    {
+      "name": "WATCH",
+      "events": 3,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    }
+  ]
+}

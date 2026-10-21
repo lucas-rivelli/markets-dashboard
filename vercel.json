@@ -1,6 +1,15 @@
 {
   "ignoreCommand": "bash scripts/vercel-ignore.sh",
+  "rewrites": [
+    { "source": "/", "destination": "/signals.html" }
+  ],
   "functions": {
+    "api/signals/index.js": {
+      "maxDuration": 60
+    },
+    "api/signals/refresh.js": {
+      "maxDuration": 30
+    },
     "api/feed.js": {
       "maxDuration": 60
     },
