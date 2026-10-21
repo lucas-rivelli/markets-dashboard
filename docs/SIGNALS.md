@@ -39,6 +39,11 @@ The signals app is a **second Vercel project** pointing at the same repo, so the
 
 The workflow `.github/workflows/signals-refresh.yml` runs every 30 minutes on `fmkt256-signals`, commits `data/signals/` back, and those commits **skip Vercel builds** (`data/signals/*` in `scripts/vercel-ignore.sh`). Freshness without redeploys: `/api/signals` reads the newest committed JSON from `raw.githubusercontent.com` in production.
 
+> ⚠️ **GitHub limitation — one action required (verified Oct 20, 2026).** Scheduled and API-dispatched workflows only run when the workflow file exists on the repo's **default branch**. `gh workflow run signals-refresh.yml --ref fmkt256-signals` returns *"not found on the default branch"*. So until you choose one of these, `state.json` will **not** advance on its own and Refresh-now will 404:
+> 1. **Recommended:** merge *only* `.github/workflows/signals-refresh.yml` to `main` (a one-file PR). The workflow explicitly checks out and pushes to `fmkt256-signals`; no app code on `main` changes, and the personal app is unaffected. (This was deliberately **not** done for you — the ground rule was "never commit to `main`" — so it needs your explicit go.)
+> 2. Change the repo default branch to `fmkt256-signals` (not recommended — affects the personal app's automations).
+> 3. Run `node scripts/signals-refresh.mjs` from any always-on machine (e.g. the Mac LaunchAgent pattern used for VIC) and push.
+
 ## 2. Run locally
 
 ```bash
