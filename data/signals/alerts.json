@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "1ab5175188fcb25a",
+      "ticker": "ASML",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-24T23:31:43.089Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.09,
+        "sentShift": null,
+        "retRecent": -0.0425,
+        "excessRecent": -0.0382,
+        "score": -0.1248
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/making-advanced-microchips-takes-global-120622604.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/23/chinas-mid-tier-emergence-threatens-asml-over-the-next-3-5-years/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/3-stocks-set-benefit-long-141500170.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5c10754b9bcd699d",
+      "ticker": "PLTR",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-24T23:31:43.088Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.566,
+        "sentShift": null,
+        "retRecent": 0.0576,
+        "excessRecent": 0.0619,
+        "score": 0.7844
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/palantir-ruled-out-a-nato-kill-switch-heres-why-its-q3-expense-line-is-the-real-test?ref=yahoofinance&.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/23/palantir-investors-have-one-big-number-to-watch-in-2027/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/23/palantir-guided-for-216-billion-in-revenue-for-q3/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "69b6cec342ad5642",
       "ticker": "META",
       "rule": "DIVERGENCE_LONG",
