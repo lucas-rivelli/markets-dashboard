@@ -11,6 +11,8 @@ An LLM reads every incoming public research item, extracts which US stocks it di
 
 ## 1. Deploy the separate Vercel project (dashboard steps)
 
+**Live (as of Oct 24, 2026):** https://markets-signals.vercel.app — project `markets-signals`, production branch `fmkt256-signals`, Deployment Protection off. Hobby plan: this branch ships a `.vercelignore` that drops personal `api/*` routes and `index.html` so the deploy stays under the 12-function cap and `/` is Signals (not the gated personal app).
+
 The signals app is a **second Vercel project** pointing at the same repo, so the personal app is untouched.
 
 1. Vercel → **Add New → Project** → import `lucas-rivelli/markets-dashboard`.
