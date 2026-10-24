@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-21T00:35:07.222Z",
+  "generatedAt": "2026-10-24T18:56:32.263Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-19",
+  "replayTo": "2026-10-23",
   "windowDays": 37,
   "events": [
     {
@@ -18,7 +18,7 @@
       "ticker": "CEG",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.03601511233111365,
       "fwd20": null
     },
     {
@@ -26,7 +26,7 @@
       "ticker": "VST",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.07638261209308961,
       "fwd20": null
     },
     {
@@ -34,7 +34,7 @@
       "ticker": "CEG",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.06173788997345442,
       "fwd20": null
     },
     {
@@ -42,7 +42,7 @@
       "ticker": "TSM",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": 0.01859662955971353,
       "fwd20": null
     },
     {
@@ -60,20 +60,132 @@
       "flag": "WATCH",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "TSM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "LLY",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "AMZN",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "SMCI",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "AVGO",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "META",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "NVDA",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "TSLA",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-20",
+      "ticker": "AAPL",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-21",
+      "ticker": "CEG",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-22",
+      "ticker": "VST",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
+      "name": "MENTION_SPIKE",
+      "events": 12,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    },
+    {
       "name": "DIVERGENCE_LONG",
-      "events": 4,
+      "events": 7,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
       "avgExcess20": -0.13252039873199517
     },
     {
-      "name": "MENTION_SPIKE",
-      "events": 3,
+      "name": "BEARISH_SHIFT",
+      "events": 1,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -82,16 +194,24 @@
   ],
   "byFlag": [
     {
+      "name": "WATCH",
+      "events": 12,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    },
+    {
       "name": "LONG",
-      "events": 4,
+      "events": 7,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
       "avgExcess20": -0.13252039873199517
     },
     {
-      "name": "WATCH",
-      "events": 3,
+      "name": "SHORT",
+      "events": 1,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
