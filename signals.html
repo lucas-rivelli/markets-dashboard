@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Markets Reading: Signals — Ticker Signal Screener</title>
+<meta name="description" content="An LLM reads market research, extracts stock mentions and stance, combines them with price history, and flags long/short candidates by explicit rules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"></script>
+<script src="lib/signals/compute.js"></script>
+<script src="lib/signals/reading-queue.js"></script>
+<style>
+  :root{
+    --paper:#f3ecdd; --paper-rail:#efe6d3; --paper-sel:#e9dcc0;
+    --ink:#292018; --ink-soft:#5c4f3d; --rule:#d8cbae; --rule-soft:#e4dac2;
+    --rubric:#7f2a1a; --gold:#96762f; --long:#3e6b4e; --short:#9a2b21; --watch:#7c5a26;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--serif);}
+  body{font-size:18px;line-height:1.45;}
+  a{color:var(--rubric);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px 64px;}
+  header.top{border-bottom:3px double var(--ink);padding:22px 0 14px;margin-bottom:6px;}
+  .brand{font-size:15px;letter-spacing:.35em;text-transform:uppercase;color:var(--rubric);text-align:center}
+  h1{font-size:40px;font-weight:600;text-align:center;margin:4px 0 2px;letter-spacing:.04em}
+  .sub{text-align:center;color:var(--ink-soft);font-style:italic;margin:0 0 14px}
+  .statusbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:8px 4px;font-size:16px}
+  button{font-family:var(--serif);font-size:16px;letter-spacing:.08em;background:none;border:1px solid var(--ink);color:var(--ink);padding:5px 14px;cursor:pointer}
+  button:hover{background:var(--paper-sel)} button:disabled{opacity:.45;cursor:wait}
+  h2{font-size:22px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--rule);padding-bottom:4px;margin:34px 0 12px}
+  h2 .fleur{color:var(--rubric)}
+  .note{color:var(--ink-soft);font-style:italic;font-size:16px}
+  .tablewrap{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:16.5px;white-space:nowrap}
+  th{font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;text-align:right;padding:6px 8px;border-bottom:2px solid var(--ink);cursor:pointer;user-select:none}
+  th:first-child,td:first-child{text-align:left}
+  td{padding:6px 8px;border-bottom:1px solid var(--rule-soft);text-align:right;font-variant-numeric:tabular-nums}
+  tr.row{cursor:pointer} tr.row:hover{background:var(--paper-rail)} tr.row.selected{background:var(--paper-sel)}
+  .ticker{font-weight:600;letter-spacing:.05em}
+  .disc{color:var(--gold);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .flag{font-weight:600;letter-spacing:.06em}
+  .flag.LONG{color:var(--long)} .flag.SHORT{color:var(--short)} .flag.WATCH{color:var(--watch)}
+  .rules{font-size:14.5px;color:var(--ink-soft);white-space:normal;min-width:170px}
+  .pos{color:var(--long)} .neg{color:var(--short)}
+  .controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:10px 0}
+  .controls label{font-size:14px;letter-spacing:.12em;text-transform:uppercase;display:flex;flex-direction:column;gap:3px}
+  select,input[type=search]{font-family:var(--serif);font-size:16px;background:var(--paper);border:1px solid var(--ink);padding:4px 8px;color:var(--ink)}
+  .sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 26px;border:1px solid var(--rule);padding:14px 18px;background:var(--paper-rail)}
+  .sliders label{font-size:15.5px;display:flex;flex-direction:column;gap:2px}
+  .sliders label span{display:flex;justify-content:space-between}
+  .sliders output{font-weight:600}
+  input[type=range]{accent-color:var(--rubric);width:100%}
+  .chartbox{border:1px solid var(--rule);padding:14px;background:#f7f1e3}
+  #chart{max-height:360px}
+  .items{list-style:none;margin:10px 0;padding:0}
+  .items li{border-bottom:1px solid var(--rule-soft);padding:8px 2px}
+  .items .meta{font-size:14.5px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
+  .items .why{font-style:italic;color:var(--ink-soft)}
+  .sent{font-weight:600}
+  .alert{border-left:3px solid var(--rubric);padding:6px 12px;margin:0 0 10px;background:var(--paper-rail)}
+  .alert p{margin:2px 0}
+  .cols{display:grid;grid-template-columns:1fr;gap:0}
+  @media(min-width:900px){.cols{grid-template-columns:2fr 1fr;gap:34px}}
+  .method p,.method li{font-size:17px}
+  .err{border:1px solid var(--short);color:var(--short);padding:10px 14px;font-style:italic}
+  .edition{text-align:center;font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:5px 4px;margin-bottom:12px}
+  .changed{text-align:center;font-style:italic;color:var(--rubric);margin:8px 0 0;font-size:16.5px}
+  .stamp{display:inline-block;border:2px solid currentColor;padding:1px 8px 2px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-2deg);white-space:nowrap}
+  .stamp.LONG{color:var(--long)} .stamp.SHORT{color:var(--short)} .stamp.WATCH{color:var(--watch)}
+  .queue{list-style:none;margin:0;padding:0;counter-reset:q}
+  .queue li{display:flex;gap:14px;border-bottom:1px solid var(--rule-soft);padding:11px 4px;align-items:baseline}
+  .queue li.is-read{opacity:.42}
+  .queue .rank{font-size:26px;font-weight:600;color:var(--rubric);min-width:30px;text-align:right}
+  .queue .body{flex:1;min-width:0}
+  .queue .head{font-size:19px;line-height:1.3}
+  .queue .meta{font-size:14px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase}
+  .queue .why{font-style:italic;color:var(--ink-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .chip{border:1px solid var(--gold);color:var(--ink);font-size:13.5px;letter-spacing:.04em;padding:1px 8px;background:var(--paper-rail)}
+  .queue .score{font-weight:600;white-space:nowrap}
+  .queue button{font-size:13.5px;padding:3px 10px;white-space:nowrap}
+  .attention{display:flex;gap:4px;overflow-x:auto;padding:8px 2px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .attention button{border:none;border-bottom:3px solid var(--rule);padding:4px 7px;min-height:44px;font-size:14px;letter-spacing:.05em}
+  .attention button:hover{background:var(--paper-rail)}
+  .attention .bars{display:flex;gap:1px;align-items:end;height:14px;margin-top:2px}
+  .attention .bars i{display:block;width:3px;background:var(--gold)}
+  .bullbear{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+  @media(min-width:700px){.bullbear{grid-template-columns:1fr 1fr}}
+  .bb{border:1px solid var(--rule);padding:10px 14px;background:#f7f1e3}
+  .bb h3{margin:0 0 6px;font-size:16px;letter-spacing:.16em;text-transform:uppercase}
+  .bb.bull h3{color:var(--long)} .bb.bear h3{color:var(--short)}
+  .bb p{margin:0 0 8px;font-size:16px}
+  .bb .who{font-size:13.5px;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase}
+  footer{margin-top:44px;border-top:3px double var(--ink);padding-top:10px;text-align:center;color:var(--ink-soft);font-size:15px}
+  @media(max-width:640px){h1{font-size:30px}body{font-size:17px}.wrap{padding:0 12px 48px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="edition" id="edition">Morning Edition</div>
+    <div class="brand">❦ Markets Reading</div>
+    <h1>Signals</h1>
+    <p class="sub">Screeners flag tickers. Signals tells you what to read — an LLM reads the research, prices keep it honest, explicit rules do the flagging.</p>
+    <div class="statusbar">
+      <span id="updated">Loading…</span>
+      <span id="sourcestatus"></span>
+      <button id="btn-refresh" type="button">↻ Refresh now</button>
+      <button id="btn-notify" type="button">Enable browser alerts</button>
+      <span id="refresh-msg" class="note"></span>
+    </div>
+    <p class="changed" id="changed"></p>
+  </header>
+
+  <main id="app" hidden>
+    <div class="attention" id="attention" aria-label="Research attention by ticker"></div>
+
+    <h2><span class="fleur">❦</span> Must-Read — the most important research today</h2>
+    <p class="note">Ranked by importance: flagged tickers, sentiment flips, mention spikes and divergences first. Mark items done and they fade — stored only in this browser.</p>
+    <ol class="queue" id="queue"></ol>
+
+    <h2><span class="fleur">❦</span> Screener</h2>
+    <div class="controls">
+      <label>Flag
+        <select id="filter-flag">
+          <option value="">All</option><option value="LONG">Long candidates</option>
+          <option value="SHORT">Short candidates</option><option value="WATCH">Watch</option>
+          <option value="NONE">No flag</option>
+        </select>
+      </label>
+      <label>Search ticker <input type="search" id="filter-q" placeholder="NVDA…"></label>
+      <span class="note" id="table-note"></span>
+    </div>
+    <div class="tablewrap"><table id="table">
+      <thead><tr>
+        <th data-sort="ticker">Ticker</th><th data-sort="flag">Flag</th><th>Rules fired</th>
+        <th data-sort="mentionsRecent">Mentions 7d / base</th><th data-sort="sentRecent">Sentiment 7d</th>
+        <th data-sort="sentShift">Shift</th><th data-sort="retRecent">Return 7d</th>
+        <th data-sort="excessRecent">Excess vs SPY</th><th data-sort="ret30">Return 30d</th><th data-sort="score">Score</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table></div>
+
+    <h2><span class="fleur">❦</span> What-if thresholds</h2>
+    <p class="note">Move a slider and the table re-computes live, in your browser, with the same code the server runs. Nothing is saved.</p>
+    <div class="sliders" id="sliders"></div>
+    <p><button id="btn-reset" type="button">Reset to defaults</button></p>
+
+    <div class="cols">
+      <section>
+        <h2><span class="fleur">❦</span> Ticker detail <span id="detail-ticker"></span></h2>
+        <div class="chartbox"><canvas id="chart"></canvas></div>
+        <div class="bullbear" id="bullbear"></div>
+        <ul class="items" id="items"></ul>
+      </section>
+      <section>
+        <h2><span class="fleur">❦</span> Alerts</h2>
+        <p class="note" id="ntfy-line"></p>
+        <div id="alerts"></div>
+      </section>
+    </div>
+
+    <h2><span class="fleur">❦</span> Track record</h2>
+    <p class="note" id="track-label"></p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Group</th><th>Events</th><th>Measured (20d)</th><th>Hit rate 20d</th><th>Avg excess 5d</th><th>Avg excess 20d</th></tr></thead>
+      <tbody id="track-body"></tbody>
+    </table></div>
+
+    <h2><span class="fleur">❦</span> Methodology</h2>
+    <div class="method" id="method"></div>
+  </main>
+
+  <p id="loading" class="note">Reading the latest signals…</p>
+  <div id="error"></div>
+
+  <footer>
+    Markets Reading: Signals · An LLM extracts mentions; it does not give investment advice.
+    Headlines link to originals; no article text is reproduced. · <a href="https://github.com/lucas-rivelli/markets-dashboard">Source code</a>
+  </footer>
+</div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const fmtPct = (v) => v === null || v === undefined ? "—" : (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + "%";
+const fmtNum = (v, dp=2) => v === null || v === undefined ? "—" : Number(v).toFixed(dp);
+const FLAG_LABEL = { LONG: "▲ Long candidate", SHORT: "▼ Short candidate", WATCH: "● Watch" };
+
+let payload = null, rows = [], readingQueue = [], thresholds = null, sortKey = "score", sortDir = -1;
+let selectedTicker = null, chart = null, knownAlertIds = new Set();
+const READ_KEY = "signals_read_items";
+let readItems = new Set();
+try { readItems = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch {}
+function saveReadItems(){ try { localStorage.setItem(READ_KEY, JSON.stringify([...readItems])); } catch {} }
+
+function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+
+async function loadPayload(){
+  try{
+    const res = await fetch("api/signals", { headers:{ Accept:"application/json" }, cache:"no-store" });
+    if(!res.ok) throw new Error("api " + res.status);
+    return await res.json();
+  }catch(e){
+    // Static fallback: read the committed JSON directly (same data, no function).
+    const [config, state, alertsStore, extractions] = await Promise.all([
+      fetch("data/signals/config.json").then(r=>r.json()),
+      fetch("data/signals/state.json").then(r=>r.json()),
+      fetch("data/signals/alerts.json").then(r=>r.json()).catch(()=>({alerts:[]})),
+      fetch("data/signals/extractions.json").then(r=>r.json()).catch(()=>({items:{}})),
+    ]);
+    const mentionsByTicker = {};
+    for(const rec of Object.values(extractions.items||{})){
+      for(const m of rec.mentions||[]){
+        (mentionsByTicker[m.ticker] = mentionsByTicker[m.ticker]||[]).push({ id:rec.id, title:rec.title, source:rec.source, url:rec.url, publishedAt:rec.publishedAt, sentiment:m.sentiment, confidence:m.confidence, rationale:m.rationale });
+      }
+    }
+    return { config, state, rows: state.rows||[], readingQueue: state.readingQueue||[], alerts: alertsStore.alerts||[], mentionsByTicker, pricesByTicker:{}, extractionsForCompute: Object.values(extractions.items||{}), trackRecord:null, ntfyTopic: state.ntfyTopic||null, _static:true };
+  }
+}
+
+function recompute(){
+  if(!payload || !window.SignalsCompute) return;
+  const cfg = deepClone(payload.config);
+  cfg.rules = deepClone(thresholds);
+  const prices = {};
+  for(const [t, closes] of Object.entries(payload.pricesByTicker||{})) prices[t] = closes;
+  rows = window.SignalsCompute.computeSignals(payload.extractionsForCompute||[], prices, cfg, payload.state?.asOf);
+  if(window.SignalsReadingQueue){
+    const qCfg = deepClone(payload.config); qCfg.rules = deepClone(thresholds);
+    readingQueue = window.SignalsReadingQueue.buildReadingQueue(payload.extractionsForCompute||[], rows, qCfg, payload.state?.asOf);
+  }
+  renderQueue(); renderAttention(); renderTable();
+}
+
+const STAMP_LABEL = { LONG: "Long", SHORT: "Short", WATCH: "Watch" };
+function renderQueue(){
+  const list = (readingQueue||[]).slice(0,10);
+  $("queue").innerHTML = list.length ? list.map((q,i) => `
+    <li class="${readItems.has(q.id)?"is-read":""}">
+      <span class="rank">${i+1}</span>
+      <div class="body">
+        <span class="head"><a href="${q.url}" target="_blank" rel="noopener">${q.title}</a></span>
+        ${q.flag?` <span class="stamp ${q.flag}">${STAMP_LABEL[q.flag]} · ${q.ticker}</span>`:` <span class="stamp">${q.ticker}</span>`}<br>
+        <span class="meta">${q.source} · ${(q.publishedAt||"").slice(0,10)} · score ${fmtNum(q.score,1)}</span><br>
+        ${q.rationale?`<span class="why">${q.rationale}</span>`:""}
+        <span class="chips">${(q.reasons||[]).map(r=>`<span class="chip">${r}</span>`).join("")}</span>
+      </div>
+      <span>
+        <button type="button" data-ticker="${q.ticker}" class="q-detail">${q.ticker} detail</button><br>
+        <button type="button" data-id="${q.id}" class="q-read">${readItems.has(q.id)?"Read ✓":"Mark read"}</button>
+      </span>
+    </li>`).join("") : `<li class="note">No ranked research yet — run a refresh.</li>`;
+  document.querySelectorAll(".q-detail").forEach(b => b.addEventListener("click", ()=>{ selectTicker(b.dataset.ticker); document.getElementById("detail-ticker")?.scrollIntoView({behavior:"smooth"}); }));
+  document.querySelectorAll(".q-read").forEach(b => b.addEventListener("click", ()=>{
+    if(readItems.has(b.dataset.id)) readItems.delete(b.dataset.id); else readItems.add(b.dataset.id);
+    saveReadItems(); renderQueue();
+  }));
+}
+
+function renderChanged(){
+  const asOf = (payload.state?.asOf || new Date().toISOString().slice(0,10));
+  const todays = (payload.alerts||[]).filter(a => !a.test && (a.firedDate === asOf));
+  if(!todays.length){ $("changed").textContent = ""; return; }
+  const parts = todays.slice(0,4).map(a => `${a.ticker} flagged ${STAMP_LABEL[a.flag]||a.flag}`);
+  $("changed").textContent = `Since last run: ${parts.join(" · ")}${todays.length>4?` · +${todays.length-4} more`:""}`;
+}
+
+function renderAttention(){
+  const asOf = payload.state?.asOf || new Date().toISOString().slice(0,10);
+  const days = [...Array(7)].map((_,i)=>{ const d=new Date(Date.parse(asOf)- (6-i)*86400000); return d.toISOString().slice(0,10); });
+  const tickers = (payload.config?.universe||[]);
+  $("attention").innerHTML = tickers.map(t => {
+    const items = payload.mentionsByTicker?.[t]||[];
+    const counts = days.map(d => items.filter(it => (it.publishedAt||"").slice(0,10)===d).length);
+    const max = Math.max(1, ...counts);
+    return `<button type="button" data-ticker="${t}">${t}<span class="bars">${counts.map(c=>`<i style="height:${Math.max(2, c/max*14)}px"></i>`).join("")}</span></button>`;
+  }).join("");
+  document.querySelectorAll(".attention button").forEach(b => b.addEventListener("click", ()=> selectTicker(b.dataset.ticker)));
+}
+
+function renderEdition(){
+  const iso = payload.state?.lastUpdated || payload.state?.asOf;
+  const d = iso ? new Date(iso) : new Date();
+  const label = d.toLocaleDateString(undefined, { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+  const epoch = Date.parse("2026-10-20T00:00:00Z");
+  const no = Math.max(1, Math.floor((Date.parse(d.toISOString().slice(0,10)) - epoch)/86400000) + 1);
+  $("edition").textContent = `Morning Edition · ${label} · No. ${no}`;
+}
+
+function renderTable(){
+  const flag = $("filter-flag").value, q = $("filter-q").value.trim().toUpperCase();
+  let list = rows.filter(r => (!flag || (flag==="NONE" ? !r.flag : r.flag===flag)) && (!q || r.ticker.includes(q)));
+  list.sort((a,b)=>{
+    const av=a[sortKey], bv=b[sortKey];
+    if(av===null||av===undefined) return 1; if(bv===null||bv===undefined) return -1;
+    return (typeof av==="string" ? av.localeCompare(bv) : av-bv) * sortDir;
+  });
+  $("tbody").innerHTML = list.map(r => `
+    <tr class="row ${r.ticker===selectedTicker?"selected":""}" data-ticker="${r.ticker}">
+      <td><span class="ticker">${r.ticker}</span>${r.discovered?' <span class="disc">discovered</span>':""}</td>
+      <td class="flag ${r.flag||""}">${r.flag?FLAG_LABEL[r.flag]:"—"}</td>
+      <td class="rules">${r.rules.length?r.rules.map(x=>x.label).join("; "):"—"}</td>
+      <td>${r.mentionsRecent} / ${fmtNum(r.baselineRate,1)}</td>
+      <td class="${r.sentRecent>0?"pos":r.sentRecent<0?"neg":""}">${fmtNum(r.sentRecent)}</td>
+      <td class="${r.sentShift>0?"pos":r.sentShift<0?"neg":""}">${r.sentShift===null?"—":(r.sentShift>=0?"+":"")+fmtNum(r.sentShift)}</td>
+      <td>${fmtPct(r.retRecent)}</td>
+      <td class="${r.excessRecent>0?"pos":r.excessRecent<0?"neg":""}">${fmtPct(r.excessRecent)}</td>
+      <td>${fmtPct(r.ret30)}</td>
+      <td>${fmtNum(r.score)}</td>
+    </tr>`).join("");
+  $("table-note").textContent = `${list.length} of ${rows.length} tickers · click a row for detail`;
+  document.querySelectorAll("tr.row").forEach(tr => tr.addEventListener("click", ()=> selectTicker(tr.dataset.ticker)));
+}
+
+function selectTicker(ticker){
+  selectedTicker = ticker;
+  $("detail-ticker").textContent = "— " + ticker;
+  renderTableSelection(); renderDetail(ticker);
+}
+function renderTableSelection(){
+  document.querySelectorAll("tr.row").forEach(tr => tr.classList.toggle("selected", tr.dataset.ticker===selectedTicker));
+}
+
+async function priceSeriesFor(ticker){
+  if(payload.pricesByTicker?.[ticker]?.length) return payload.pricesByTicker[ticker];
+  try{
+    const d = await fetch(`data/signals/prices/${ticker}.json`).then(r=>r.json());
+    return (d.closes||[]).slice(-190);
+  }catch{ return []; }
+}
+
+async function renderDetail(ticker){
+  const items = (payload.mentionsByTicker?.[ticker]||[]);
+  const closes = await priceSeriesFor(ticker);
+  // Daily mention bars + 7d rolling sentiment over the chart window.
+  const byDate = {};
+  for(const it of items){ const d=(it.publishedAt||"").slice(0,10); if(d) (byDate[d]=byDate[d]||[]).push(it); }
+  const labels = closes.map(c=>c.date);
+  const bars = labels.map(d => (byDate[d]||[]).length);
+  const rolling = labels.map((d,i)=>{
+    let num=0, den=0;
+    for(let j=Math.max(0,i-6); j<=i; j++){ for(const it of byDate[labels[j]]||[]){ num += it.sentiment*(it.confidence||0); den += (it.confidence||0); } }
+    return den>0 ? Math.round(num/den*100)/100 : null;
+  });
+  const tickerAlerts = (payload.alerts||[]).filter(a=>a.ticker===ticker);
+  const alertPoints = labels.map(d => {
+    const hit = tickerAlerts.find(a => (a.firedDate||"")===d);
+    if(!hit) return null;
+    const bar = closes[labels.indexOf(d)];
+    return bar ? bar.close : null;
+  });
+  renderBullBear(items);
+  if(chart) chart.destroy();
+  if(typeof Chart === "undefined"){
+    $("items").innerHTML = `<li class="note">Chart library could not load (CDN unreachable) — mention list below still works.</li>` + (items.length ? items.map(it => `
+    <li><span class="meta">${(it.publishedAt||"").slice(0,10)} · ${it.source} · sentiment <span class="sent ${it.sentiment>0?"pos":it.sentiment<0?"neg":""}">${it.sentiment>=0?"+":""}${fmtNum(it.sentiment)}</span> (conf ${fmtNum(it.confidence)})</span><br>
+    <a href="${it.url}" target="_blank" rel="noopener">${it.title}</a><br><span class="why">${it.rationale||""}</span></li>`).join("") : "");
+    return;
+  }
+  chart = new Chart($("chart"), {
+    data:{ labels, datasets:[
+      { type:"line", label:`${ticker} close`, data:closes.map(c=>c.close), borderColor:"#292018", backgroundColor:"#292018", borderWidth:1.5, pointRadius:0, yAxisID:"y" },
+      { type:"bar", label:"Mentions/day", data:bars, backgroundColor:"rgba(150,118,47,.45)", yAxisID:"y1" },
+      { type:"line", label:"7d rolling sentiment", data:rolling, borderColor:"#7f2a1a", backgroundColor:"#7f2a1a", borderWidth:1.5, pointRadius:0, spanGaps:true, yAxisID:"y2" },
+      { type:"line", label:"Alert", data:alertPoints, borderColor:"#7f2a1a", backgroundColor:"#7f2a1a", pointStyle:"triangle", pointRadius:7, showLine:false, yAxisID:"y" },
+    ]},
+    options:{ responsive:true, interaction:{mode:"index",intersect:false},
+      scales:{ x:{ticks:{maxTicksLimit:8,font:{family:"EB Garamond"}}},
+        y:{position:"left",title:{display:true,text:"Close",font:{family:"EB Garamond"}}},
+        y1:{position:"right",beginAtZero:true,title:{display:true,text:"Mentions",font:{family:"EB Garamond"}},grid:{drawOnChartArea:false}},
+        y2:{min:-1,max:1,display:false} },
+      plugins:{ legend:{labels:{font:{family:"EB Garamond",size:14}}} } }
+  });
+  renderBullBear(items);
+  $("items").innerHTML = items.length ? items.map(it => `
+    <li><span class="meta">${(it.publishedAt||"").slice(0,10)} · ${it.source} · sentiment <span class="sent ${it.sentiment>0?"pos":it.sentiment<0?"neg":""}">${it.sentiment>=0?"+":""}${fmtNum(it.sentiment)}</span> (conf ${fmtNum(it.confidence)})</span><br>
+    <a href="${it.url}" target="_blank" rel="noopener">${it.title}</a><br><span class="why">${it.rationale||""}</span></li>`).join("")
+    : `<li class="note">No extracted mentions for ${ticker} yet.</li>`;
+}
+
+function renderBullBear(items){
+  const bulls = items.filter(it => (it.sentiment||0) > 0.15).sort((a,b)=>(b.confidence||0)-(a.confidence||0)).slice(0,3);
+  const bears = items.filter(it => (it.sentiment||0) < -0.15).sort((a,b)=>(b.confidence||0)-(a.confidence||0)).slice(0,3);
+  const col = (list, empty) => list.length ? list.map(it => `<p>${it.rationale||it.title}<br><span class="who">${it.source} · ${(it.publishedAt||"").slice(0,10)} · conf ${fmtNum(it.confidence)}</span></p>`).join("") : `<p class="note">${empty}</p>`;
+  $("bullbear").innerHTML = `
+    <div class="bb bull"><h3>Bull case</h3>${col(bulls, "No bullish research on this name in the current window.")}</div>
+    <div class="bb bear"><h3>Bear case</h3>${col(bears, "No bearish research on this name in the current window.")}</div>`;
+}
+
+function renderAlerts(){
+  const alerts = payload.alerts||[];
+  $("ntfy-line").innerHTML = payload.ntfyTopic
+    ? `Live alerts also post to <a href="https://ntfy.sh/${payload.ntfyTopic}" target="_blank" rel="noopener">ntfy.sh/${payload.ntfyTopic}</a> — open it in a browser or the free ntfy app, no account needed.`
+    : "Browser alerts available via the button above. (ntfy topic not configured on this deployment.)";
+  $("alerts").innerHTML = alerts.length ? alerts.slice(0,20).map(a => `
+    <div class="alert"><p><span class="flag ${a.flag}">${FLAG_LABEL[a.flag]||a.flag}</span> <span class="ticker">${a.ticker}</span> ${a.test?"· TEST":""}<br>
+    <span class="note">${a.ruleLabel||a.rule} · ${new Date(a.firedAt).toLocaleString()}</span></p>
+    <p class="note">mentions ${a.metrics?.mentionsRecent} · sent ${fmtNum(a.metrics?.sentRecent)} · shift ${fmtNum(a.metrics?.sentShift)} · excess ${fmtPct(a.metrics?.excessRecent)}</p>
+    ${(a.topItems||[]).map(u=>`<p><a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,"").slice(0,70)}…</a></p>`).join("")}</div>`).join("")
+    : `<p class="note">No alerts yet. Run the test-alert script or wait for a rule to fire.</p>`;
+}
+
+function renderTrack(){
+  const tr = payload.trackRecord;
+  $("track-label").textContent = tr ? `${tr.label} Replay: ${tr.replayFrom||"—"} → ${tr.replayTo||"—"}. Hit = forward 20d excess return in the flagged direction.` : "Not generated yet — run the backfill.";
+  if(!tr) { $("track-body").innerHTML=""; return; }
+  const row = (g) => `<tr><td>${g.name}</td><td>${g.events}</td><td>${g.measured}</td><td>${g.hitRate20===null?"—":(g.hitRate20*100).toFixed(0)+"%"}</td><td>${fmtPct(g.avgExcess5)}</td><td>${fmtPct(g.avgExcess20)}</td></tr>`;
+  $("track-body").innerHTML =
+    `<tr><td colspan="6"><em>By rule</em></td></tr>` + (tr.byRule||[]).map(row).join("") +
+    `<tr><td colspan="6"><em>By flag</em></td></tr>` + (tr.byFlag||[]).map(row).join("");
+}
+
+function renderMethod(){
+  const c = payload.config, r = c.rules;
+  $("method").innerHTML = `
+    <p>Every incoming item from ${payload.state?.counts?.sourcesTotal ?? ""} public sources (newsletters, blogs, YouTube and per-ticker finance news) is read once by
+    <strong>${payload.state?.llmModel || c.llm.model}</strong>, which extracts US-listed stock mentions with a per-stock sentiment
+    (−1 bearish … +1 bullish — the author's stance toward that stock, not the article's tone), a confidence, and a one-sentence rationale.
+    Only mentions with confidence ≥ ${c.minConfidence} count. Prices are daily closes (Nasdaq API, Yahoo Finance fallback), with ${c.benchmark} as benchmark.</p>
+    <ul>
+      <li><strong>Mention spike → Watch:</strong> ≥ ${r.mentionSpike.minMentions} mentions in ${c.windows.recentDays} days at ≥ ${r.mentionSpike.minRatio}× the ${c.windows.baselineDays}-day baseline rate.</li>
+      <li><strong>Bullish / bearish shift → Long / Short candidate:</strong> confidence-weighted sentiment moves ≥ ${r.sentimentShift.minAbsShift} vs baseline (≥ ${r.sentimentShift.minMentions} recent mentions).</li>
+      <li><strong>Divergence → Long / Short candidate:</strong> research sentiment ≥ ${r.divergence.minAbsSentiment} in one direction while the stock's ${c.windows.recentDays}-day excess return vs ${c.benchmark} is ≥ ${(r.divergence.minAbsExcessReturn*100)}% the other way.</li>
+      <li><strong>Discovery:</strong> tickers outside the ${c.universe.length}-stock universe with ≥ ${c.discoverMinMentions} mentions get rows too (marked <span class="disc">discovered</span>); their prices join the next run.</li>
+      <li><strong>Must-Read queue:</strong> individual items from the last ${c.readingQueue?.windowDays || 7} days are ranked by importance — flagged tickers weigh most, then sentiment shifts, mention spikes, divergences, the item's own conviction, source depth (long-form above headline-only) and recency. Each item shows its top reasons. Weights live in <code>config.readingQueue</code>; moving the sliders above re-ranks it live.</li>
+    </ul>
+    <p><strong>Limitations.</strong> Sentiment is one LLM's reading of headlines and research text — it can mistake news tone for an author's view, and headline-only items carry little text. Mention counts measure attention, not quality. The screener flags candidates for human research; it is not investment advice and has no track record as a tradable strategy (see the in-sample check above). Data refreshes on a schedule, not tick-by-tick.</p>`;
+}
+
+const SLIDERS = [
+  ["mentionSpike","minMentions","Spike: min mentions (7d)",1,10,1],
+  ["mentionSpike","minRatio","Spike: min ratio vs baseline",1,5,0.1],
+  ["sentimentShift","minAbsShift","Shift: min |sentiment shift|",0,1,0.05],
+  ["sentimentShift","minMentions","Shift: min mentions",1,6,1],
+  ["divergence","minAbsSentiment","Divergence: min |sentiment|",0,1,0.05],
+  ["divergence","minAbsExcessReturn","Divergence: min |excess return|",0,0.2,0.01],
+];
+function renderSliders(){
+  $("sliders").innerHTML = SLIDERS.map(([group,key,label,min,max,step]) => `
+    <label><span>${label} <output id="out-${group}-${key}">${thresholds[group][key]}</output></span>
+    <input type="range" min="${min}" max="${max}" step="${step}" value="${thresholds[group][key]}" data-group="${group}" data-key="${key}"></label>`).join("");
+  document.querySelectorAll("#sliders input").forEach(inp => inp.addEventListener("input", () => {
+    thresholds[inp.dataset.group][inp.dataset.key] = Number(inp.value);
+    $(`out-${inp.dataset.group}-${inp.dataset.key}`).textContent = inp.value;
+    recompute();
+  }));
+}
+
+function relativeTime(iso){
+  if(!iso) return "unknown";
+  const mins = Math.max(0, Math.round((Date.now() - new Date(iso).getTime())/60000));
+  if(mins < 1) return "just now"; if(mins < 60) return mins + " min ago";
+  const h = Math.floor(mins/60); return h + "h " + (mins%60) + "m ago";
+}
+
+async function init(){
+  try{
+    payload = await loadPayload();
+  }catch(e){
+    $("loading").hidden = true;
+    $("error").innerHTML = `<p class="err">Could not load signals data (${e.message}). If this is a fresh deployment, run the backfill and push — see docs/SIGNALS.md.</p>`;
+    return;
+  }
+  thresholds = deepClone(payload.config.rules);
+  rows = payload.rows || [];
+  readingQueue = payload.readingQueue?.length ? payload.readingQueue
+    : (window.SignalsReadingQueue ? window.SignalsReadingQueue.buildReadingQueue(payload.extractionsForCompute||[], rows, payload.config, payload.state?.asOf) : []);
+  $("loading").hidden = true; $("app").hidden = false;
+  $("updated").textContent = "Last updated " + relativeTime(payload.state?.lastUpdated);
+  const c = payload.state?.counts;
+  $("sourcestatus").textContent = c ? `${c.sourcesOk} sources ok, ${c.sourcesFailed} failed · ${c.extractionsTotal} items read · ${c.mentionsTotal} mentions` : "";
+  knownAlertIds = new Set((payload.alerts||[]).map(a=>a.id));
+  renderEdition(); renderChanged(); renderAttention(); renderQueue();
+  renderSliders(); renderTable(); renderAlerts(); renderTrack(); renderMethod();
+  const firstFlagged = rows.find(r=>r.flag) || rows[0];
+  if(firstFlagged) selectTicker(firstFlagged.ticker);
+  setInterval(pollAlerts, 60000);
+}
+
+async function pollAlerts(){
+  try{
+    const fresh = await loadPayload();
+    const freshAlerts = fresh.alerts||[];
+    const newOnes = freshAlerts.filter(a=>!knownAlertIds.has(a.id));
+    if(newOnes.length){
+      payload = fresh; readingQueue = fresh.readingQueue || readingQueue;
+      renderAlerts(); renderChanged(); renderQueue();
+      if("Notification" in window && Notification.permission === "granted"){
+        for(const a of newOnes.slice(0,3)) new Notification(`${FLAG_LABEL[a.flag]||"Signal"}: ${a.ticker}`, { body: a.ruleLabel||a.rule });
+      }
+    }
+    knownAlertIds = new Set(freshAlerts.map(a=>a.id));
+    $("updated").textContent = "Last updated " + relativeTime(fresh.state?.lastUpdated);
+  }catch{}
+}
+
+document.querySelectorAll("th[data-sort]").forEach(th => th.addEventListener("click", ()=>{
+  const k = th.dataset.sort;
+  if(sortKey===k) sortDir *= -1; else { sortKey=k; sortDir = k==="ticker"?1:-1; }
+  renderTable();
+}));
+$("filter-flag").addEventListener("change", renderTable);
+$("filter-q").addEventListener("input", renderTable);
+$("btn-reset").addEventListener("click", ()=>{ thresholds = deepClone(payload.config.rules); renderSliders(); recompute(); });
+$("btn-notify").addEventListener("click", async ()=>{
+  if(!("Notification" in window)){ $("refresh-msg").textContent = "This browser does not support notifications."; return; }
+  const perm = await Notification.requestPermission();
+  $("refresh-msg").textContent = perm==="granted" ? "Browser alerts on — new alerts will pop up here." : "Notifications not granted.";
+});
+$("btn-refresh").addEventListener("click", async ()=>{
+  const btn = $("btn-refresh"); btn.disabled = true; $("refresh-msg").textContent = "Requesting refresh…";
+  try{
+    const res = await fetch("api/signals/refresh", { method:"POST" });
+    const data = await res.json().catch(()=>({}));
+    $("refresh-msg").textContent = res.ok ? (data.message||"Refresh dispatched.") : (data.error||`Refresh failed (${res.status}).`);
+  }catch(e){ $("refresh-msg").textContent = "Refresh endpoint unavailable on this deployment."; }
+  setTimeout(()=>{ btn.disabled=false; }, 4000);
+});
+
+init();
+</script>
+</body>
+</html>

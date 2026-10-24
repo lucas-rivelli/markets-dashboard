@@ -1,0 +1,29 @@
+# Hobby plan caps Serverless Functions at 12. This branch powers the
+# markets-signals Vercel project only — keep just the Signals endpoints.
+# Personal app (main) does not use this file.
+
+# Root must be Signals. Vercel serves filesystem index.html over rewrites,
+# which would expose the personal app (and its device-password gate).
+index.html
+
+api/cron.js
+api/feed.js
+api/library.js
+api/manual-link.js
+api/read-state.js
+api/save.js
+api/trigger-bookmarks.js
+api/unlock.js
+api/wiki.js
+api/workspace.js
+api/writing.js
+
+# Personal / heavy trees not needed at runtime (Signals reads data from GitHub raw)
+kb/
+data/workspace.json
+data/bookmarks.json
+data/writings.json
+data/manual-links.json
+data/fund-letters-cache.json
+data/spotify-cache.json
+data/vic-cache.json

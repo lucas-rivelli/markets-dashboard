@@ -1,23 +1,17 @@
 {
   "ignoreCommand": "bash scripts/vercel-ignore.sh",
-  "functions": {
-    "api/feed.js": {
-      "maxDuration": 60
-    },
-    "api/cron.js": {
-      "maxDuration": 60
-    },
-    "api/trigger-bookmarks.js": {
-      "maxDuration": 15
-    },
-    "api/save.js": {
-      "maxDuration": 60
-    }
-  },
-  "crons": [
+  "rewrites": [
     {
-      "path": "/api/cron",
-      "schedule": "0 12 * * *"
+      "source": "/",
+      "destination": "/signals.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/signals/index.js": {
+      "maxDuration": 60
+    },
+    "api/signals/refresh.js": {
+      "maxDuration": 30
+    }
+  }
 }

@@ -11,6 +11,8 @@ const writingHandler = require("../api/writing");
 const workspaceHandler = require("../api/workspace");
 const readStateHandler = require("../api/read-state");
 const unlockHandler = require("../api/unlock");
+const signalsHandler = require("../api/signals/index");
+const signalsRefreshHandler = require("../api/signals/refresh");
 const { refreshFeedCache, REFRESH_MS } = require("../lib/feed-cache");
 const { SOURCES } = require("../api/feed");
 
@@ -179,6 +181,27 @@ const server = http.createServer(async (nodeReq, nodeRes) => {
   if (pathname === "/api/read-state") {
     try {
       await readStateHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/signals") {
+    nodeReq.method = nodeReq.method || "GET";
+    try {
+      await signalsHandler(nodeReq, vercelRes(nodeRes));
+    } catch (err) {
+      nodeRes.statusCode = 500;
+      nodeRes.end(JSON.stringify({ error: err.message }));
+    }
+    return;
+  }
+
+  if (pathname === "/api/signals/refresh") {
+    try {
+      await signalsRefreshHandler(nodeReq, vercelRes(nodeRes));
     } catch (err) {
       nodeRes.statusCode = 500;
       nodeRes.end(JSON.stringify({ error: err.message }));
