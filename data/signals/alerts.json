@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "69b6cec342ad5642",
+      "ticker": "META",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-10-24T21:25:02.216Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.333,
+        "sentShift": null,
+        "retRecent": -0.094,
+        "excessRecent": -0.0897,
+        "score": 0.4621
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/meta-stock-fell-7-in-a-day-after-a-revenue-beat-time-to-sell-or-load-up?ref=yahoofinance&.tsrc=rss",
+        "https://www.barchart.com/story/news/8405153/what-the-new-class-c-share-structure-actually-means-for-meta-platforms-stock-investors?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/20/meta-vs-alphabet-meta-is-better-built-for-agi/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "bdc1cd9dfef505c2",
+      "ticker": "CRDO",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-24T21:25:02.216Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.185,
+        "sentShift": -0.415,
+        "retRecent": -0.1321,
+        "excessRecent": -0.1278,
+        "score": 0.2028
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/credo-stock-bull-case-changed-051508633.html?.tsrc=rss",
+        "https://www.tikr.com/blog/credo-soars-7-as-super-micros-4-billion-forecast-hike-signals-increased-demand-for-ai-platforms?ref=yahoofinance&.tsrc=rss",
+        "https://hatedmoats.substack.com/p/credo-technology-new-position-in"
+      ]
+    },
+    {
+      "id": "bcf3ba934b13da59",
+      "ticker": "XOM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-24T21:25:02.215Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.338,
+        "sentShift": null,
+        "retRecent": 0.0236,
+        "excessRecent": 0.0279,
+        "score": 0.5443
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/10/23/3-energy-stocks-to-buy-and-hold-for-the-next-decad/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/exxon-mobil-holdings-xom-gains-204502424.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/exxonmobil-dividend-deep-pockets-shallow-141058728.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "56e5f3da8818d76d",
+      "ticker": "META",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-24T21:25:02.215Z",
+      "firedDate": "2026-10-24",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.333,
+        "sentShift": null,
+        "retRecent": -0.094,
+        "excessRecent": -0.0897,
+        "score": 0.4621
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/meta-stock-fell-7-in-a-day-after-a-revenue-beat-time-to-sell-or-load-up?ref=yahoofinance&.tsrc=rss",
+        "https://www.barchart.com/story/news/8405153/what-the-new-class-c-share-structure-actually-means-for-meta-platforms-stock-investors?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/20/meta-vs-alphabet-meta-is-better-built-for-agi/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "4442b27e226e1421",
       "ticker": "TSLA",
       "rule": "MENTION_SPIKE",

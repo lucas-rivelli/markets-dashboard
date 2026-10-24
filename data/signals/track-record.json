@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T18:56:32.263Z",
+  "generatedAt": "2026-10-24T21:25:02.687Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-10-23",
@@ -164,12 +164,28 @@
       "flag": "LONG",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-23",
+      "ticker": "XOM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-23",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 12,
+      "events": 14,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -195,7 +211,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 12,
+      "events": 14,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
