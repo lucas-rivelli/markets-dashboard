@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-25T19:28:10.892Z",
-  "startedAt": "2026-10-25T19:26:29.720Z",
+  "lastUpdated": "2026-10-25T22:00:02.876Z",
+  "startedAt": "2026-10-25T21:58:32.582Z",
   "asOf": "2026-10-25",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -235,7 +235,7 @@
       "name": "Yahoo Finance — GS",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -442,17 +442,23 @@
       "ok": true,
       "bars": 500,
       "provider": "nasdaq"
+    },
+    {
+      "ticker": "SMR",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
     }
   ],
   "counts": {
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 366,
-    "extractionsTotal": 901,
-    "mentionsTotal": 297,
-    "tickers": 24,
-    "pricesOk": 28,
+    "itemsFetched": 370,
+    "extractionsTotal": 923,
+    "mentionsTotal": 302,
+    "tickers": 25,
+    "pricesOk": 29,
     "alertsTotal": 64,
     "newAlerts": 0
   },
@@ -785,17 +791,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 6,
+      "mentionsRecent": 7,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 12,
-      "sentRecent": 0.276,
+      "spikeRatio": 14,
+      "sentRecent": 0.237,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": -0.094,
       "excessRecent": -0.0897,
       "ret30": -0.1451,
-      "score": 0.5364,
+      "score": 0.4933,
       "lastPrice": 642.62,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
@@ -828,6 +834,32 @@
       "ret30": -0.0373,
       "score": 0.4441,
       "lastPrice": 253.45,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 11,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 22,
+      "sentRecent": 0.155,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0493,
+      "excessRecent": 0.0536,
+      "ret30": 0.0003,
+      "score": 0.385,
+      "lastPrice": 372.22,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -889,32 +921,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 10,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 20,
-      "sentRecent": 0.111,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": 0.0493,
-      "excessRecent": 0.0536,
-      "ret30": 0.0003,
-      "score": 0.2664,
-      "lastPrice": 372.22,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
       "ticker": "CRDO",
       "discovered": true,
       "flag": "SHORT",
@@ -961,6 +967,32 @@
       "priceBars": 504
     },
     {
+      "ticker": "AMD",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 18,
+      "sentRecent": 0.038,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0226,
+      "excessRecent": -0.0183,
+      "ret30": -0.1805,
+      "score": 0.0875,
+      "lastPrice": 516.79,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "AAPL",
       "discovered": false,
       "flag": "WATCH",
@@ -983,32 +1015,6 @@
       "ret30": 0.0195,
       "score": 0.053,
       "lastPrice": 347.725,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "AMD",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 16,
-      "sentRecent": 0.004,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.0226,
-      "excessRecent": -0.0183,
-      "ret30": -0.1805,
-      "score": 0.0082,
-      "lastPrice": 516.79,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -1089,6 +1095,26 @@
       "lastPrice": 164.45,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
+    },
+    {
+      "ticker": "SMR",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 2,
+      "sentRecent": -0.4,
+      "sentBaseline": 0.05,
+      "sentShift": -0.45,
+      "retRecent": -0.0772,
+      "excessRecent": -0.0729,
+      "ret30": -0.361,
+      "score": -0.2773,
+      "lastPrice": 5.38,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 500
     }
   ],
   "readingQueue": [
@@ -1402,6 +1428,27 @@
       "confidence": 0.7
     },
     {
+      "id": "5faa07f7cf35bb0c0625ae7a2fa1a62b4bf04c4728be7b98ab8c52a96100a39e",
+      "title": "Tesla Delivers Strong Free Cash Flow, Surprising Analysts - Is TSLA Undervalued?",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8444047/tesla-delivers-strong-free-cash-flow-surprising-analysts-is-tsla-undervalued?.tsrc=rss",
+      "publishedAt": "2026-10-25T13:30:02.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 45.4,
+      "reasons": [
+        "TSLA: Watch",
+        "11 mentions this week (22.0x baseline)"
+      ],
+      "rationale": "Notes surprisingly strong free cash flow and suggests the stock could be undervalued if the trend continues.",
+      "sentiment": 0.5,
+      "confidence": 0.8
+    },
+    {
       "id": "3053a471c2e3dc3a8584bfddd9d623e51aa03e7d6f2e93bab71502d9f4630721",
       "title": "Elon Musk Says Tesla’s Megapacks Are Nearly Sold Out Through 2027 as Energy Demand Surges: 'Ramping Production as Quickly as Possible'",
       "source": "Yahoo Finance — TSLA",
@@ -1416,7 +1463,7 @@
       "score": 44.6,
       "reasons": [
         "TSLA: Watch",
-        "10 mentions this week (20.0x baseline)"
+        "11 mentions this week (22.0x baseline)"
       ],
       "rationale": "Reports CEO saying Megapack storage systems are nearly sold out and production is ramping on surging energy demand.",
       "sentiment": 0.5,
@@ -1437,7 +1484,7 @@
       "score": 44.1,
       "reasons": [
         "AMD: Watch",
-        "8 mentions this week (16.0x baseline)"
+        "9 mentions this week (18.0x baseline)"
       ],
       "rationale": "Author says the stock is too expensive to consider buying now, citing valuation as a red flag.",
       "sentiment": -0.4,
@@ -1458,7 +1505,7 @@
       "score": 43.8,
       "reasons": [
         "TSLA: Watch",
-        "10 mentions this week (20.0x baseline)"
+        "11 mentions this week (22.0x baseline)"
       ],
       "rationale": "Says the quarterly report strengthened the investment case for the stock, though the body text names only the title's company.",
       "sentiment": 0.5,
@@ -1507,27 +1554,6 @@
       "confidence": 0.6
     },
     {
-      "id": "b154b8f81fe3e85a291fea3b2b839a7e780054e75fcb4b9b891be534cded76b5",
-      "title": "Tesla stock sellers should pump their brakes, 5-star analyst says",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://www.thestreet.com/investing/tesla-stock-sellers-should-pump-their-brakes-5-star-analyst-says?.tsrc=rss",
-      "publishedAt": "2026-10-25T13:33:00.000Z",
-      "ticker": "TSLA",
-      "tickers": [
-        "TSLA"
-      ],
-      "flag": "WATCH",
-      "score": 42.8,
-      "reasons": [
-        "TSLA: Watch",
-        "10 mentions this week (20.0x baseline)"
-      ],
-      "rationale": "Headline suggests a five-star analyst views the post-earnings share weakness as a reason for sellers to hold off.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
       "id": "d043d34459b89b761b8cb546b5f0a90533ca1c974a998f32d3fbbb4245f140de",
       "title": "New data on Lilly's investigational treatment olomorasib at ESMO 2026 show durable first-line activity in KRAS G12C-mutant non-small cell lung cancer",
       "source": "Yahoo Finance — LLY",
@@ -1549,6 +1575,27 @@
       "confidence": 0.6
     },
     {
+      "id": "e2789baa675cf9bdfc68476ed01f1699cb2be944f1d5b5f4b4028cf27ddefcfc",
+      "title": "Dell, Lenovo, Cisco, HPE, Supermicro: Why AMD’s New AI Blueprint Has Everyone Signing On",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8444185/dell-lenovo-cisco-hpe-supermicro-why-amds-new-ai-blueprint-has-everyone-signing-on?.tsrc=rss",
+      "publishedAt": "2026-10-25T14:00:02.000Z",
+      "ticker": "AMD",
+      "tickers": [
+        "AMD"
+      ],
+      "flag": "WATCH",
+      "score": 42.4,
+      "reasons": [
+        "AMD: Watch",
+        "9 mentions this week (18.0x baseline)"
+      ],
+      "rationale": "Sees the Helios rack-scale blueprint widening AMD's inference opportunity, while flagging uncertainty about adoption and revenue timing.",
+      "sentiment": 0.3,
+      "confidence": 0.7
+    },
+    {
       "id": "6a753bb647c00c339aa5a537a39399ab404f89cc3a3351dd31a22848a3fd528a",
       "title": "Here's Why AMD Investors Should Consider Selling Before Nov. 3",
       "source": "Yahoo Finance — AMD",
@@ -1563,7 +1610,7 @@
       "score": 40.7,
       "reasons": [
         "AMD: Watch",
-        "8 mentions this week (16.0x baseline)"
+        "9 mentions this week (18.0x baseline)"
       ],
       "rationale": "Headline and body urge investors to sell AMD before a date, despite its strong 2026 performance.",
       "sentiment": -0.6,
@@ -1584,7 +1631,7 @@
       "score": 40.2,
       "reasons": [
         "META: Watch",
-        "6 mentions this week (12.0x baseline)"
+        "7 mentions this week (14.0x baseline)"
       ],
       "rationale": "Headline urges buying Meta before a price target, and the text credits AI with driving growth in recent quarterly results.",
       "sentiment": 0.6,
@@ -1609,27 +1656,6 @@
       ],
       "rationale": "Tigress sees large upside in Broadcom despite concerns about AI financing risks, as signaled by a $600 call.",
       "sentiment": 0.6,
-      "confidence": 0.7
-    },
-    {
-      "id": "5ba010730067738e1aeef59e9450d23098c221cddc6983b7ea4933b431c2b6a1",
-      "title": "Apple Is One of the Most Profitable Businesses in the World. Here's Why the Stock Is Worth $295 a Share Right Now.",
-      "source": "Yahoo Finance — AAPL",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/10/24/apple-is-one-of-the-most-profitable-businesses-in/?.tsrc=rss",
-      "publishedAt": "2026-10-24T08:05:00.000Z",
-      "ticker": "AAPL",
-      "tickers": [
-        "AAPL"
-      ],
-      "flag": "WATCH",
-      "score": 39.7,
-      "reasons": [
-        "AAPL: Watch",
-        "9 mentions this week (18.0x baseline)"
-      ],
-      "rationale": "Headline calls Apple one of the world's most profitable businesses and a long-term winner, implying the stock is worth its price.",
-      "sentiment": 0.55,
       "confidence": 0.7
     }
   ]
