@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-25T16:58:01.816Z",
-  "startedAt": "2026-10-25T16:56:20.610Z",
+  "lastUpdated": "2026-10-25T19:28:10.892Z",
+  "startedAt": "2026-10-25T19:26:29.720Z",
   "asOf": "2026-10-25",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -144,7 +144,7 @@
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -165,7 +165,7 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -200,7 +200,7 @@
       "name": "Yahoo Finance — TSM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -228,7 +228,7 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -448,13 +448,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 370,
-    "extractionsTotal": 874,
-    "mentionsTotal": 289,
+    "itemsFetched": 366,
+    "extractionsTotal": 901,
+    "mentionsTotal": 297,
     "tickers": 24,
     "pricesOk": 28,
     "alertsTotal": 64,
-    "newAlerts": 3
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -546,17 +546,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 3,
+      "mentionsRecent": 4,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 6,
-      "sentRecent": 0.566,
+      "spikeRatio": 8,
+      "sentRecent": 0.528,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": 0.0576,
       "excessRecent": 0.0619,
       "ret30": 0.0373,
-      "score": 0.7844,
+      "score": 0.8503,
       "lastPrice": 196.75,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
@@ -640,6 +640,32 @@
       "priceBars": 504
     },
     {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 17,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 34,
+      "sentRecent": 0.22,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0148,
+      "excessRecent": -0.0105,
+      "ret30": -0.0627,
+      "score": 0.6351,
+      "lastPrice": 210.96,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "XOM",
       "discovered": false,
       "flag": "WATCH",
@@ -719,32 +745,6 @@
       "ret30": -0.0067,
       "score": 0.608,
       "lastPrice": 248,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "NVDA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 15,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 30,
-      "sentRecent": 0.214,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.0148,
-      "excessRecent": -0.0105,
-      "ret30": -0.0627,
-      "score": 0.5929,
-      "lastPrice": 210.96,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -945,17 +945,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 1,
+      "mentionsRecent": 2,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 2,
-      "sentRecent": 0.2,
+      "spikeRatio": 4,
+      "sentRecent": 0.086,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": -0.0063,
       "excessRecent": -0.002,
       "ret30": -0.0639,
-      "score": 0.1386,
+      "score": 0.0942,
       "lastPrice": 875.68,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
@@ -1250,6 +1250,28 @@
       "confidence": 0.7
     },
     {
+      "id": "a9ed463800e69eb560964b14e17ddea1ed41e15ed34907607bcabf0eb7331461",
+      "title": "Nvidia CEO Jensen Huang Reaffirms His $4 Trillion Projection for AI Spending. Here's Why That Makes Nvidia a Screaming Buy Now.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/nvidia-ceo-jensen-huang-reaffirms-his-4-trillion-p/?.tsrc=rss",
+      "publishedAt": "2026-10-25T17:48:00.000Z",
+      "ticker": "NVDA",
+      "tickers": [
+        "NVDA"
+      ],
+      "flag": "WATCH",
+      "score": 49.9,
+      "reasons": [
+        "NVDA: Watch",
+        "17 mentions this week (34.0x baseline)",
+        "bullish view, confidence 0.85"
+      ],
+      "rationale": "The headline calls Nvidia a screaming buy, and the text says it could deliver multibagger returns if AI data center spending projections hold.",
+      "sentiment": 0.8,
+      "confidence": 0.85
+    },
+    {
       "id": "63bd9cce40fc4568a794c6036de4ff5430b2afd601dcd895653c59888a6f4134",
       "title": "Prediction: Amazon Stock Will Skyrocket After Oct. 29 Thanks to AWS Growth",
       "source": "Yahoo Finance — AMZN",
@@ -1308,7 +1330,7 @@
       "score": 46.2,
       "reasons": [
         "NVDA: Watch",
-        "15 mentions this week (30.0x baseline)"
+        "17 mentions this week (34.0x baseline)"
       ],
       "rationale": "Reports CEO Jensen Huang saying AI agents are driving sharply higher token consumption and GPU demand, with an analyst backing the view.",
       "sentiment": 0.6,
@@ -1352,7 +1374,7 @@
       "score": 45.7,
       "reasons": [
         "NVDA: Watch",
-        "15 mentions this week (30.0x baseline)"
+        "17 mentions this week (34.0x baseline)"
       ],
       "rationale": "Summary says Nvidia is well-positioned to benefit from major computing build-outs, presented as a stock that could help investors gain.",
       "sentiment": 0.6,
@@ -1443,6 +1465,27 @@
       "confidence": 0.6
     },
     {
+      "id": "326329fcc7f75825ef760362a2fea79dcf4429137b933c0469a41c6f08e093cb",
+      "title": "I Said Palantir Stock Would Top $220 This Year. Here's What It Has to Prove on Nov. 2.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/i-said-palantir-stock-would-top-220-this-year-here/?.tsrc=rss",
+      "publishedAt": "2026-10-25T17:03:00.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "WATCH",
+      "score": 42.8,
+      "reasons": [
+        "PLTR: Watch",
+        "4 mentions this week (8.0x baseline)"
+      ],
+      "rationale": "The author previously predicted a $220 share price and sees the Q3 report as a chance to show growth is still strong.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
       "id": "b268c9e162db424d561f34adcaadc15c6e9deb59aba77605186c049d89b0b0da",
       "title": "3 Massive Catalysts That Could Ignite an Eli Lilly Stock Rally on Oct 29",
       "source": "Yahoo Finance — LLY",
@@ -1504,28 +1547,6 @@
       "rationale": "Company press release promotes positive first-line olomorasib trial data as durable, though it is not an investment view.",
       "sentiment": 0.4,
       "confidence": 0.6
-    },
-    {
-      "id": "bffc169e91c3130c56535e6e25d12b9e76942f584f3cb4d209792226fe6ca56b",
-      "title": "AI bear slams Nvidia's GPU pitch: 'There's not scarcity other than that which is created by Jensen Huang'",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/article/ai-bear-slams-nvidias-gpu-pitch-theres-not-scarcity-other-than-that-which-is-created-by-jensen-huang-171507476.html?.tsrc=rss",
-      "publishedAt": "2026-10-24T17:15:07.000Z",
-      "ticker": "NVDA",
-      "tickers": [
-        "NVDA"
-      ],
-      "flag": "WATCH",
-      "score": 41.5,
-      "reasons": [
-        "NVDA: Watch",
-        "15 mentions this week (30.0x baseline)",
-        "bearish view, confidence 0.85"
-      ],
-      "rationale": "Critic argues Nvidia manufactures the scarcity behind its GPU sales pitch, implying the demand narrative is artificial.",
-      "sentiment": -0.6,
-      "confidence": 0.85
     },
     {
       "id": "6a753bb647c00c339aa5a537a39399ab404f89cc3a3351dd31a22848a3fd528a",
@@ -1610,28 +1631,6 @@
       "rationale": "Headline calls Apple one of the world's most profitable businesses and a long-term winner, implying the stock is worth its price.",
       "sentiment": 0.55,
       "confidence": 0.7
-    },
-    {
-      "id": "554c17e1d099224687d5e0f34f8ea198211c8fdf09bbc477276b3a7b13eda35d",
-      "title": "China’s Mid-Tier Emergence Threatens ASML Over the Next 3-5 Years",
-      "source": "Yahoo Finance — JPM",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/23/chinas-mid-tier-emergence-threatens-asml-over-the-next-3-5-years/?.tsrc=rss",
-      "publishedAt": "2026-10-23T14:45:28.000Z",
-      "ticker": "ASML",
-      "tickers": [
-        "ASML"
-      ],
-      "flag": "WATCH",
-      "score": 39.5,
-      "reasons": [
-        "ASML: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Argues a Chinese state-owned rival's lithography production threatens ASML's China sales sooner than the market expects.",
-      "sentiment": -0.6,
-      "confidence": 0.8
     }
   ]
 }
