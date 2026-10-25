@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-25T01:32:34.646Z",
-  "startedAt": "2026-10-25T01:30:44.513Z",
+  "lastUpdated": "2026-10-25T07:12:34.789Z",
+  "startedAt": "2026-10-25T07:11:07.310Z",
   "asOf": "2026-10-25",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": false,
-      "count": 0,
-      "error": "Status code 404"
+      "ok": true,
+      "count": 10,
+      "error": null
     },
     {
       "name": "ARK Next Gen Internet",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -151,7 +151,7 @@
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -165,7 +165,7 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -179,7 +179,7 @@
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -193,7 +193,7 @@
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -249,7 +249,7 @@
       "name": "Yahoo Finance — CEG",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -433,16 +433,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 25,
-    "sourcesFailed": 13,
+    "sourcesOk": 26,
+    "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 349,
-    "extractionsTotal": 759,
-    "mentionsTotal": 263,
+    "itemsFetched": 362,
+    "extractionsTotal": 785,
+    "mentionsTotal": 270,
     "tickers": 23,
     "pricesOk": 26,
     "alertsTotal": 61,
-    "newAlerts": 24
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -654,6 +654,37 @@
       "priceBars": 504
     },
     {
+      "ticker": "VST",
+      "discovered": false,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 4.286,
+      "sentRecent": 0.348,
+      "sentBaseline": 0.151,
+      "sentShift": 0.197,
+      "retRecent": -0.078,
+      "excessRecent": -0.0737,
+      "ret30": 0.0123,
+      "score": 0.6242,
+      "lastPrice": 140.16,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "META",
       "discovered": false,
       "flag": "LONG",
@@ -685,38 +716,7 @@
       "priceBars": 504
     },
     {
-      "ticker": "VST",
-      "discovered": false,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 4,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 3.429,
-      "sentRecent": 0.336,
-      "sentBaseline": 0.151,
-      "sentShift": 0.185,
-      "retRecent": -0.078,
-      "excessRecent": -0.0737,
-      "ret30": 0.0123,
-      "score": 0.5408,
-      "lastPrice": 140.16,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "AMZN",
+      "ticker": "NVDA",
       "discovered": false,
       "flag": "WATCH",
       "rules": [
@@ -726,18 +726,18 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 8,
+      "mentionsRecent": 14,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 16,
-      "sentRecent": 0.207,
+      "spikeRatio": 28,
+      "sentRecent": 0.185,
       "sentBaseline": null,
       "sentShift": null,
-      "retRecent": -0.008,
-      "excessRecent": -0.0037,
-      "ret30": -0.0067,
-      "score": 0.4551,
-      "lastPrice": 248,
+      "retRecent": -0.0148,
+      "excessRecent": -0.0105,
+      "ret30": -0.0627,
+      "score": 0.5013,
+      "lastPrice": 210.96,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -773,7 +773,7 @@
       "priceBars": 504
     },
     {
-      "ticker": "NVDA",
+      "ticker": "AMZN",
       "discovered": false,
       "flag": "WATCH",
       "rules": [
@@ -783,18 +783,18 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 13,
+      "mentionsRecent": 9,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 26,
-      "sentRecent": 0.149,
+      "spikeRatio": 18,
+      "sentRecent": 0.185,
       "sentBaseline": null,
       "sentShift": null,
-      "retRecent": -0.0148,
-      "excessRecent": -0.0105,
-      "ret30": -0.0627,
-      "score": 0.3936,
-      "lastPrice": 210.96,
+      "retRecent": -0.008,
+      "excessRecent": -0.0037,
+      "ret30": -0.0067,
+      "score": 0.4249,
+      "lastPrice": 248,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -897,6 +897,32 @@
       "priceBars": 504
     },
     {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 16,
+      "sentRecent": 0.031,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0493,
+      "excessRecent": 0.0536,
+      "ret30": 0.0003,
+      "score": 0.0689,
+      "lastPrice": 372.22,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "AAPL",
       "discovered": false,
       "flag": "WATCH",
@@ -971,32 +997,6 @@
       "ret30": -0.0335,
       "score": 0,
       "lastPrice": 331.58,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 14,
-      "sentRecent": -0.043,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": 0.0493,
-      "excessRecent": 0.0536,
-      "ret30": 0.0003,
-      "score": -0.0898,
-      "lastPrice": 372.22,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -1149,11 +1149,11 @@
         "VST"
       ],
       "flag": "LONG",
-      "score": 56,
+      "score": 56.9,
       "reasons": [
         "VST: Long candidate",
-        "stock moving against the research",
-        "4 mentions this week (3.4x baseline)"
+        "5 mentions this week (4.3x baseline)",
+        "stock moving against the research"
       ],
       "rationale": "Notes a strong earnings surprise history and favorable factors pointing to a likely beat next quarter.",
       "sentiment": 0.4,
@@ -1249,6 +1249,27 @@
       "confidence": 0.7
     },
     {
+      "id": "55e9f59d0fd1010cc527a9fbc881da58abd22bc14c19b0a81088ab779bed4e18",
+      "title": "Nvidia’s Jensen Huang Says AI Agents Have Sent Token, GPU Demand ‘Through the Roof’: Gene Munster Sees 15 Million Bot Users Soaring to Billions",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-jensen-huang-says-ai-013010925.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T01:30:10.000Z",
+      "ticker": "NVDA",
+      "tickers": [
+        "NVDA"
+      ],
+      "flag": "WATCH",
+      "score": 46.2,
+      "reasons": [
+        "NVDA: Watch",
+        "14 mentions this week (28.0x baseline)"
+      ],
+      "rationale": "Reports CEO Jensen Huang saying AI agents are driving sharply higher token consumption and GPU demand, with an analyst backing the view.",
+      "sentiment": 0.6,
+      "confidence": 0.75
+    },
+    {
       "id": "ba0202f45a0e47a9e9b8744f06dbddabe45c1c935bd178260cccbeaecaba6f3e",
       "title": "How Investors May Respond To Qualcomm Stock Earnings Outlook Concerns",
       "source": "Yahoo Finance — AAPL",
@@ -1269,6 +1290,27 @@
       "rationale": "Notes falling EPS, weaker operating margins, workforce cuts and smartphone pressure, though the dividend is affirmed; the view is implied rather than stated.",
       "sentiment": -0.3,
       "confidence": 0.6
+    },
+    {
+      "id": "3053a471c2e3dc3a8584bfddd9d623e51aa03e7d6f2e93bab71502d9f4630721",
+      "title": "Elon Musk Says Tesla’s Megapacks Are Nearly Sold Out Through 2027 as Energy Demand Surges: 'Ramping Production as Quickly as Possible'",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/elon-musk-says-tesla-megapacks-023019501.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T02:30:19.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 44.6,
+      "reasons": [
+        "TSLA: Watch",
+        "8 mentions this week (16.0x baseline)"
+      ],
+      "rationale": "Reports CEO saying Megapack storage systems are nearly sold out and production is ramping on surging energy demand.",
+      "sentiment": 0.5,
+      "confidence": 0.7
     },
     {
       "id": "6912d677f5d0e4b56efeb10539c14efe27cf9f8b8bba88e0ec8e70b18d5b7863",
@@ -1306,7 +1348,7 @@
       "score": 41.5,
       "reasons": [
         "NVDA: Watch",
-        "13 mentions this week (26.0x baseline)",
+        "14 mentions this week (28.0x baseline)",
         "bearish view, confidence 0.85"
       ],
       "rationale": "Critic argues Nvidia manufactures the scarcity behind its GPU sales pitch, implying the demand narrative is artificial.",
@@ -1349,30 +1391,9 @@
       "score": 40.2,
       "reasons": [
         "NVDA: Watch",
-        "13 mentions this week (26.0x baseline)"
+        "14 mentions this week (28.0x baseline)"
       ],
       "rationale": "Cited as seeing triple-digit data center and AI chip revenue gains, presented as evidence that spending is flowing into the theme.",
-      "sentiment": 0.6,
-      "confidence": 0.7
-    },
-    {
-      "id": "b615b4e5b9fe7d603b5ca451c969204fb8226782a1316c920fe48313da9b4b97",
-      "title": "Elon Musk Just Gave Fantastic News for Nvidia Investors",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/10/24/elon-musk-gave-great-news-for-nvidia-investors/?.tsrc=rss",
-      "publishedAt": "2026-10-24T20:37:00.000Z",
-      "ticker": "NVDA",
-      "tickers": [
-        "NVDA"
-      ],
-      "flag": "WATCH",
-      "score": 40.2,
-      "reasons": [
-        "NVDA: Watch",
-        "13 mentions this week (26.0x baseline)"
-      ],
-      "rationale": "Headline calls Elon Musk's news fantastic for Nvidia investors, implying a positive view of the Vera Rubin deal.",
       "sentiment": 0.6,
       "confidence": 0.7
     },
@@ -1498,11 +1519,54 @@
       "score": 39.2,
       "reasons": [
         "TSLA: Watch",
-        "7 mentions this week (14.0x baseline)"
+        "8 mentions this week (16.0x baseline)"
       ],
       "rationale": "Reports CEO Musk arguing that Tesla's value rests on its Full Self-Driving software, which he portrays as what customers are paying for.",
       "sentiment": 0.5,
       "confidence": 0.7
+    },
+    {
+      "id": "e2b59ee4034b840b5bb857ec9ab2e48023c3b78567849bdf1adf7c6d0a502df9",
+      "title": "What Does American Electric Power Company (AEP) Gain From Its 960 MW Nuclear Plan?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/does-american-electric-power-company-031436615.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:14:36.000Z",
+      "ticker": "AMZN",
+      "tickers": [
+        "AMZN"
+      ],
+      "flag": "WATCH",
+      "score": 39,
+      "reasons": [
+        "AMZN: Watch",
+        "9 mentions this week (18.0x baseline)"
+      ],
+      "rationale": "Named as a funding and power-purchase partner in the nuclear project, with no stated view on the stock.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
+      "id": "42993bc0fa78c49e17530ca95de467e86acdef6cb46cc04377a73d71bbf8e800",
+      "title": "VST Stock Trades Above 50-Day SMA: Is It Time to Buy or Hold Shares?",
+      "source": "Yahoo Finance — CEG",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vst-stock-trades-above-50-121800442.html?.tsrc=rss",
+      "publishedAt": "2026-10-21T12:18:00.000Z",
+      "ticker": "VST",
+      "tickers": [
+        "VST"
+      ],
+      "flag": "LONG",
+      "score": 38.9,
+      "reasons": [
+        "VST: Long candidate",
+        "5 mentions this week (4.3x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Notes shares trade above the 50-day moving average, citing growth prospects, rising earnings estimates and strong returns.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "70c25d11350ce24219fb0f8ecc5f0a07f2f26e55dff5562963ef8c315f371098",
@@ -1524,71 +1588,6 @@
       "rationale": "Analyst Gene Munster expects the higher-priced iPhone Duo to meaningfully lift Apple's iPhone growth and sales above consensus.",
       "sentiment": 0.5,
       "confidence": 0.6
-    },
-    {
-      "id": "29d665b80f5388f89a0de56dd71c6509a565d793e3c05e632f8602b4cbfff7b4",
-      "title": "Is Demand for Apple’s iPhone 18 Pro Weakening? Jefferies Reports Shorter Delivery Times and Order Cuts",
-      "source": "Yahoo Finance — AAPL",
-      "sourceType": "TickerNews",
-      "url": "https://investorshub.advfn.com/market-news/article/38470/is-demand-for-apples-iphone-18-pro-weakening-jefferies-reports-shorter-delivery-times-and-order-cuts?.tsrc=rss",
-      "publishedAt": "2026-10-24T14:51:41.000Z",
-      "ticker": "AAPL",
-      "tickers": [
-        "AAPL"
-      ],
-      "flag": "WATCH",
-      "score": 38.3,
-      "reasons": [
-        "AAPL: Watch",
-        "9 mentions this week (18.0x baseline)"
-      ],
-      "rationale": "Reports Jefferies' view that iPhone 18 Pro demand is slowing, based on delivery times, resale prices and supply-chain signals.",
-      "sentiment": -0.4,
-      "confidence": 0.7
-    },
-    {
-      "id": "a4c359f3ddb7023ee3fda444e5ceed611788ba9768e084ce1a3042145a679f77",
-      "title": "Making Advanced MicroChips Takes a Global Ecosystem",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/video/making-advanced-microchips-takes-global-120622604.html?.tsrc=rss",
-      "publishedAt": "2026-10-24T12:06:22.000Z",
-      "ticker": "ASML",
-      "tickers": [
-        "ASML",
-        "TSM"
-      ],
-      "flag": "WATCH",
-      "score": 38.3,
-      "reasons": [
-        "ASML: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Cited as a key node in the global chip supply chain, with EUV engineering described but no view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "341387c8aeade8fc838b69789514807ffd0f7f244b1c16ce98d2e76ea956205d",
-      "title": "Amazon’s AWS Has Already Sold “a Good Chunk” of 2028 Capacity",
-      "source": "Yahoo Finance — AMZN",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/24/amazons-aws-has-already-sold-a-good-chunk-of-2028-capacity/?.tsrc=rss",
-      "publishedAt": "2026-10-24T16:15:50.000Z",
-      "ticker": "AMZN",
-      "tickers": [
-        "AMZN"
-      ],
-      "flag": "WATCH",
-      "score": 37.8,
-      "reasons": [
-        "AMZN: Watch",
-        "8 mentions this week (16.0x baseline)"
-      ],
-      "rationale": "Questions whether AWS's pre-sold 2028 capacity is real, given Amazon's heavy cash burn and possible funding risk.",
-      "sentiment": -0.35,
-      "confidence": 0.7
     }
   ]
 }

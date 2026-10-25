@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-10-25T01:31:26.777Z",
+  "updatedAt": "2026-10-25T07:11:25.308Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -12026,6 +12026,406 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-10-25T01:31:26.777Z"
+    },
+    "4a1124dad5599d1bdfa0c7525c9648389b2149844740bfa43ff84c33e6e47f5f": {
+      "id": "4a1124dad5599d1bdfa0c7525c9648389b2149844740bfa43ff84c33e6e47f5f",
+      "title": "How Long Does It Take to Turn $300 per Month Into $1 Million in the Stock Market? Here's What History Says.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/how-long-turn-300-per-month-into-1-million-dollars/?.tsrc=rss",
+      "publishedAt": "2026-10-25T06:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:09.700Z"
+    },
+    "b3d7004b50ffca0198b90409d6a10e8f9d12fe5490e12c71815cb01ea9db5a72": {
+      "id": "b3d7004b50ffca0198b90409d6a10e8f9d12fe5490e12c71815cb01ea9db5a72",
+      "title": "Got $1,000? This Nuclear Fuel Stock Is the Pick-and-Shovel Play I'd Buy Right Now.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/got-1000-this-nuclear-fuel-stock-is-the-pick-and-s/?.tsrc=rss",
+      "publishedAt": "2026-10-25T06:25:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "LEU",
+          "company": "Centrus Energy",
+          "sentiment": 0.6,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "The title calls it a pick-and-shovel play the author would buy now, though the body only states its market position."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:10.564Z"
+    },
+    "7ad2e9bf0f16de40b65c3eee57bc503011ea2aa6f2f4e961565def97437b2e9f": {
+      "id": "7ad2e9bf0f16de40b65c3eee57bc503011ea2aa6f2f4e961565def97437b2e9f",
+      "title": "Meet the Ultra-High-Yield Dividend Stock That Has Doubled the S&P 500's Returns This Year",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/meet-the-ultra-high-yield-dividend-stock-that-has/?.tsrc=rss",
+      "publishedAt": "2026-10-25T05:38:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "MO",
+          "company": "Altria",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Presents Altria as a high-yield income stock that has shown unexpected growth this year, implying a favorable view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:11.580Z"
+    },
+    "ff5203cff72d61ed745c3497150195bd93f0038f8da905dc3b74c526dd955e6c": {
+      "id": "ff5203cff72d61ed745c3497150195bd93f0038f8da905dc3b74c526dd955e6c",
+      "title": "Should Aggregators block AI Agents?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/aggregators-block-ai-agents-063053689.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T06:30:53.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:11.706Z"
+    },
+    "ca1ed05586ff4e49d00c08c47769f40bb34ec39afacdd8d4f773aa9f46aa70df": {
+      "id": "ca1ed05586ff4e49d00c08c47769f40bb34ec39afacdd8d4f773aa9f46aa70df",
+      "title": "GM Just Announced a $20 Billion Buyback. Tesla Trades at 350 Times Earnings. Here's Which Auto Stock I'd Buy Today.",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/gm-just-announced-a-20-billion-buyback-tesla-trade/?.tsrc=rss",
+      "publishedAt": "2026-10-25T06:25:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:11.955Z"
+    },
+    "f901ddada0d13c095fad810407d964a5dbf51c88d2f1426089f353c26e11fbf0": {
+      "id": "f901ddada0d13c095fad810407d964a5dbf51c88d2f1426089f353c26e11fbf0",
+      "title": "Is AI Power Demand Reset Altering The Investment Case For Vistra Stock?",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-power-demand-reset-altering-051453540.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T05:14:53.000Z",
+      "tickerHint": "VST",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:12.481Z"
+    },
+    "060cb40ac54c181d66fafd9beadfbd39156e84f464679b5d31cb22d7efd576e0": {
+      "id": "060cb40ac54c181d66fafd9beadfbd39156e84f464679b5d31cb22d7efd576e0",
+      "title": "Warren Buffett Won His 10-Year Bet Against Hedge Funds. Here's What the S&P 500 Has Done Since It Ended.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/warren-buffett-won-his-10-year-bet-against-hedge-funds-here-s-what-the-s-and-p-500-has-done-since-it-ended/?.tsrc=rss",
+      "publishedAt": "2026-10-25T05:01:01.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:12.715Z"
+    },
+    "ddde5e47536f8b61e8b7eaa4e75a4aa8861c779c541a4a8172bfee4e47ed2971": {
+      "id": "ddde5e47536f8b61e8b7eaa4e75a4aa8861c779c541a4a8172bfee4e47ed2971",
+      "title": "As AI Labs Burn Cash, the Real Question Is Which Suppliers Get Paid",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/as-ai-labs-burn-cash-the-real-question-is-which-su/?.tsrc=rss",
+      "publishedAt": "2026-10-25T04:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:12.852Z"
+    },
+    "2be8c6985488bff848cd88b12d24d8ee2757336b588c800af4a3795a3c6fca86": {
+      "id": "2be8c6985488bff848cd88b12d24d8ee2757336b588c800af4a3795a3c6fca86",
+      "title": "Hexagon (OM:HEXA B) Stock Sees Modest Fair Value Lift After Analyst Target Increases",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/hexagon-om-hexa-b-stock-031952685.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:19:52.000Z",
+      "tickerHint": "JPM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:14.533Z"
+    },
+    "46c2bde5523774d842ca31bc87548cb58e7833b9b68602bee50fb9243b8a3415": {
+      "id": "46c2bde5523774d842ca31bc87548cb58e7833b9b68602bee50fb9243b8a3415",
+      "title": "Vistra (VST) Stock May Trade Below Fair Value After Nuclear Loan News",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-stock-may-trade-041957329.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T04:19:57.000Z",
+      "tickerHint": "VST",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:14.591Z"
+    },
+    "ba7cee55877784ea48969c555076dccfd949972378328cb54c332f0054bdce99": {
+      "id": "ba7cee55877784ea48969c555076dccfd949972378328cb54c332f0054bdce99",
+      "title": "Google’s Ex-CEO Says China Trails US by 6 Months in AI Race, but Could Still Win Due to This Strategy: ‘We’re Already Losing’",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/google-ex-ceo-says-china-033016284.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:30:16.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:14.714Z"
+    },
+    "24b5302cab3e8b0bbb39134435685b8e4840f1c6fab9126045f8c2a7cdc1f4d4": {
+      "id": "24b5302cab3e8b0bbb39134435685b8e4840f1c6fab9126045f8c2a7cdc1f4d4",
+      "title": "Should Investors Buy the Meta Platforms Dip?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/24/should-investors-buy-the-meta-platforms-dip/?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:15.423Z"
+    },
+    "b30e4e779ca00d6b3efc004290ba696b9902b67a9972bfa93c60e52a164d6278": {
+      "id": "b30e4e779ca00d6b3efc004290ba696b9902b67a9972bfa93c60e52a164d6278",
+      "title": "3 Top Founder Led Stocks To Watch With Up To 82% Revenue Growth",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-top-founder-led-stocks-031534778.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:15:34.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:15.630Z"
+    },
+    "8d5819362dcfec4750d98b7bd0d13ea5336f878ad1a18135658d794b5da6a19a": {
+      "id": "8d5819362dcfec4750d98b7bd0d13ea5336f878ad1a18135658d794b5da6a19a",
+      "title": "Prediction: The Stock Market Will Soar After Midterm Elections",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/24/prediction-the-stock-market-will-soar-after-midter/?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:15.695Z"
+    },
+    "3053a471c2e3dc3a8584bfddd9d623e51aa03e7d6f2e93bab71502d9f4630721": {
+      "id": "3053a471c2e3dc3a8584bfddd9d623e51aa03e7d6f2e93bab71502d9f4630721",
+      "title": "Elon Musk Says Tesla’s Megapacks Are Nearly Sold Out Through 2027 as Energy Demand Surges: 'Ramping Production as Quickly as Possible'",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/elon-musk-says-tesla-megapacks-023019501.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T02:30:19.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Reports CEO saying Megapack storage systems are nearly sold out and production is ramping on surging energy demand."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:17.342Z"
+    },
+    "e2b59ee4034b840b5bb857ec9ab2e48023c3b78567849bdf1adf7c6d0a502df9": {
+      "id": "e2b59ee4034b840b5bb857ec9ab2e48023c3b78567849bdf1adf7c6d0a502df9",
+      "title": "What Does American Electric Power Company (AEP) Gain From Its 960 MW Nuclear Plan?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/does-american-electric-power-company-031436615.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T03:14:36.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Named as a funding and power-purchase partner in the nuclear project, with no stated view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:17.370Z"
+    },
+    "38e9504f3624732b3329b864efa33ba2a67bfb48e28b7698e095c744fbe5fc45": {
+      "id": "38e9504f3624732b3329b864efa33ba2a67bfb48e28b7698e095c744fbe5fc45",
+      "title": "Constellation, Vistra, and GE Vernova Ranked From Worst to First for the AI Power Boom",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/24/constellation-vistra-and-ge-vernova-ranked-from-wo/?.tsrc=rss",
+      "publishedAt": "2026-10-25T02:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "GEV",
+          "company": "GE Vernova",
+          "sentiment": 0.6,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Described as a picks-and-shovels play with a big growth opportunity, and the title ranks it at the top."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:18.701Z"
+    },
+    "ac0c9d9044497bde4fd34ecaf42438bc2d322d418efc583873d70ed1d3b29ad6": {
+      "id": "ac0c9d9044497bde4fd34ecaf42438bc2d322d418efc583873d70ed1d3b29ad6",
+      "title": "FitLife Brands Eyes Acquisitions, Margin Gains to Offset Organic Growth Headwinds",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://www.marketbeat.com/instant-alerts/event-fitlife-brands-eyes-acquisitions-margin-gains-to-offset-organic-growth-headwinds-2026-10-24/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-25T03:02:03.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:18.987Z"
+    },
+    "4a9893decdaf80d218d8f7b1066c72a4e12b3aafc30a75e7fa8ae11d9a5f1d30": {
+      "id": "4a9893decdaf80d218d8f7b1066c72a4e12b3aafc30a75e7fa8ae11d9a5f1d30",
+      "title": "Rocket Lab Just Postponed Its Neutron Launch. Again.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/24/rocket-lab-just-postponed-its-neutron-launch-again/?.tsrc=rss",
+      "publishedAt": "2026-10-25T01:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:19.530Z"
+    },
+    "55e9f59d0fd1010cc527a9fbc881da58abd22bc14c19b0a81088ab779bed4e18": {
+      "id": "55e9f59d0fd1010cc527a9fbc881da58abd22bc14c19b0a81088ab779bed4e18",
+      "title": "Nvidia’s Jensen Huang Says AI Agents Have Sent Token, GPU Demand ‘Through the Roof’: Gene Munster Sees 15 Million Bot Users Soaring to Billions",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-jensen-huang-says-ai-013010925.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T01:30:10.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.6,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Reports CEO Jensen Huang saying AI agents are driving sharply higher token consumption and GPU demand, with an analyst backing the view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:19.759Z"
+    },
+    "29f1b202a96acaafda2eec012f1044b8ce3c4f2f5440ee10d085409e05496de5": {
+      "id": "29f1b202a96acaafda2eec012f1044b8ce3c4f2f5440ee10d085409e05496de5",
+      "title": "The Barrel That Matters Most Right Now Is Diesel",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/barrel-matters-most-now-diesel-140000275.html?.tsrc=rss",
+      "publishedAt": "2026-10-21T14:00:00.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:20.760Z"
+    },
+    "274d0249aaef573446fdbccc71af485a9cb36988b96adcb6396142c5a0d26fee": {
+      "id": "274d0249aaef573446fdbccc71af485a9cb36988b96adcb6396142c5a0d26fee",
+      "title": "Wall Street Analysts Think Vistra (VST) Is a Good Investment: Is It?",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/wall-street-analysts-think-vistra-123004856.html?.tsrc=rss",
+      "publishedAt": "2026-10-21T12:30:04.000Z",
+      "tickerHint": "VST",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:21.438Z"
+    },
+    "42993bc0fa78c49e17530ca95de467e86acdef6cb46cc04377a73d71bbf8e800": {
+      "id": "42993bc0fa78c49e17530ca95de467e86acdef6cb46cc04377a73d71bbf8e800",
+      "title": "VST Stock Trades Above 50-Day SMA: Is It Time to Buy or Hold Shares?",
+      "source": "Yahoo Finance — CEG",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/vst-stock-trades-above-50-121800442.html?.tsrc=rss",
+      "publishedAt": "2026-10-21T12:18:00.000Z",
+      "tickerHint": "CEG",
+      "mentions": [
+        {
+          "ticker": "VST",
+          "company": "Vistra",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Notes shares trade above the 50-day moving average, citing growth prospects, rising earnings estimates and strong returns."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:21.486Z"
+    },
+    "0bc9f8ca1334ee2d498a33f951d8d9cfaf5b693ab267d798ff2afea2fca1e6cb": {
+      "id": "0bc9f8ca1334ee2d498a33f951d8d9cfaf5b693ab267d798ff2afea2fca1e6cb",
+      "title": "3 Stocks to Buy Before Wall Street Catches On Before October Ends",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/10/21/3-stocks-to-buy-before-wall-street-catches-on-before-october-ends/?.tsrc=rss",
+      "publishedAt": "2026-10-21T12:15:30.000Z",
+      "tickerHint": "VST",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:22.252Z"
+    },
+    "3b66a310610a7abb99734490bb5198966e6df204729781bcc7c8f7c60911d378": {
+      "id": "3b66a310610a7abb99734490bb5198966e6df204729781bcc7c8f7c60911d378",
+      "title": "Bloom Energy vs. Vistra: Which Energy Stock Is a Better Buy in 2026?",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/coverage/better-buy/2026/10/21/bloom-energy-vs-vistra-which-energy-stock-is-a-better-buy-in-2026/?.tsrc=rss",
+      "publishedAt": "2026-10-21T10:52:42.000Z",
+      "tickerHint": "VST",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:24.332Z"
+    },
+    "11a96d408ceb4a562492979439798315ac6da2c21eba5983d6a120fc6e8dad85": {
+      "id": "11a96d408ceb4a562492979439798315ac6da2c21eba5983d6a120fc6e8dad85",
+      "title": "The Trucking Bottleneck",
+      "source": "Bristlemoon Capital",
+      "sourceType": "Substack",
+      "url": "https://www.bristlemoonresearch.com/p/the-trucking-bottleneck",
+      "publishedAt": "2026-06-17T21:13:57.000Z",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-25T07:11:25.308Z"
     }
   }
 }
