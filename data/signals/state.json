@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-25T07:12:34.789Z",
-  "startedAt": "2026-10-25T07:11:07.310Z",
+  "lastUpdated": "2026-10-25T12:42:12.199Z",
+  "startedAt": "2026-10-25T12:40:36.969Z",
   "asOf": "2026-10-25",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,28 +137,28 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -207,7 +207,7 @@
       "name": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -436,9 +436,9 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 362,
-    "extractionsTotal": 785,
-    "mentionsTotal": 270,
+    "itemsFetched": 367,
+    "extractionsTotal": 830,
+    "mentionsTotal": 275,
     "tickers": 23,
     "pricesOk": 26,
     "alertsTotal": 61,
@@ -498,6 +498,32 @@
       "priceBars": 504
     },
     {
+      "ticker": "LLY",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 16,
+      "sentRecent": 0.375,
+      "sentBaseline": 0.6,
+      "sentShift": -0.225,
+      "retRecent": 0.0131,
+      "excessRecent": 0.0174,
+      "ret30": 0.076,
+      "score": 0.8249,
+      "lastPrice": 1273.46,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "PLTR",
       "discovered": false,
       "flag": "WATCH",
@@ -520,32 +546,6 @@
       "ret30": 0.0373,
       "score": 0.7844,
       "lastPrice": 196.75,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "LLY",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 14,
-      "sentRecent": 0.373,
-      "sentBaseline": 0.6,
-      "sentShift": -0.227,
-      "retRecent": 0.0131,
-      "excessRecent": 0.0174,
-      "ret30": 0.076,
-      "score": 0.7749,
-      "lastPrice": 1273.46,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -685,6 +685,32 @@
       "priceBars": 504
     },
     {
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 20,
+      "sentRecent": 0.254,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.008,
+      "excessRecent": -0.0037,
+      "ret30": -0.0067,
+      "score": 0.608,
+      "lastPrice": 248,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "META",
       "discovered": false,
       "flag": "LONG",
@@ -773,32 +799,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "AMZN",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 18,
-      "sentRecent": 0.185,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.008,
-      "excessRecent": -0.0037,
-      "ret30": -0.0067,
-      "score": 0.4249,
-      "lastPrice": 248,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
       "ticker": "QCOM",
       "discovered": true,
       "flag": "WATCH",
@@ -851,6 +851,32 @@
       "priceBars": 501
     },
     {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 18,
+      "sentRecent": 0.081,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0493,
+      "excessRecent": 0.0536,
+      "ret30": 0.0003,
+      "score": 0.1858,
+      "lastPrice": 372.22,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "GOOGL",
       "discovered": false,
       "flag": "SHORT",
@@ -893,32 +919,6 @@
       "ret30": -0.0639,
       "score": 0.1386,
       "lastPrice": 875.68,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 16,
-      "sentRecent": 0.031,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": 0.0493,
-      "excessRecent": 0.0536,
-      "ret30": 0.0003,
-      "score": 0.0689,
-      "lastPrice": 372.22,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -1227,6 +1227,28 @@
       "confidence": 0.7
     },
     {
+      "id": "63bd9cce40fc4568a794c6036de4ff5430b2afd601dcd895653c59888a6f4134",
+      "title": "Prediction: Amazon Stock Will Skyrocket After Oct. 29 Thanks to AWS Growth",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/prediction-amazon-stock-will-skyrocket-after-oct-2/?.tsrc=rss",
+      "publishedAt": "2026-10-25T08:33:00.000Z",
+      "ticker": "AMZN",
+      "tickers": [
+        "AMZN"
+      ],
+      "flag": "WATCH",
+      "score": 48.5,
+      "reasons": [
+        "AMZN: Watch",
+        "10 mentions this week (20.0x baseline)",
+        "bullish view, confidence 0.85"
+      ],
+      "rationale": "Author expects Amazon's stock to rise after the Oct. 29 report, citing strong AWS growth and a favorable historical pattern.",
+      "sentiment": 0.7,
+      "confidence": 0.85
+    },
+    {
       "id": "fbc277b032bfab5cc49744cec1d1de707ab861708283b770801616a533fa6f8c",
       "title": "Why Constellation Energy Corporation (CEG) is Poised to Beat Earnings Estimates Again",
       "source": "Yahoo Finance — CEG",
@@ -1306,7 +1328,7 @@
       "score": 44.6,
       "reasons": [
         "TSLA: Watch",
-        "8 mentions this week (16.0x baseline)"
+        "9 mentions this week (18.0x baseline)"
       ],
       "rationale": "Reports CEO saying Megapack storage systems are nearly sold out and production is ramping on surging energy demand.",
       "sentiment": 0.5,
@@ -1332,6 +1354,48 @@
       "rationale": "Author says the stock is too expensive to consider buying now, citing valuation as a red flag.",
       "sentiment": -0.4,
       "confidence": 0.8
+    },
+    {
+      "id": "6b269630f7fe00b7db388848e101cd84ddb9f6ca8695454c8f9d4a6b2830cc60",
+      "title": "Good News for Tesla Investors: 3 Key Benchmarks Elon Musk's Company Delivered On in the Third Quarter",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/good-news-for-tesla-investors-3-key-benchmarks-elo/?.tsrc=rss",
+      "publishedAt": "2026-10-25T11:10:00.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 43.8,
+      "reasons": [
+        "TSLA: Watch",
+        "9 mentions this week (18.0x baseline)"
+      ],
+      "rationale": "Says the quarterly report strengthened the investment case for the stock, though the body text names only the title's company.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
+      "id": "d043d34459b89b761b8cb546b5f0a90533ca1c974a998f32d3fbbb4245f140de",
+      "title": "New data on Lilly's investigational treatment olomorasib at ESMO 2026 show durable first-line activity in KRAS G12C-mutant non-small cell lung cancer",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/healthcare/articles/data-lillys-investigational-treatment-olomorasib-073000412.html?.tsrc=rss",
+      "publishedAt": "2026-10-25T07:30:00.000Z",
+      "ticker": "LLY",
+      "tickers": [
+        "LLY"
+      ],
+      "flag": "WATCH",
+      "score": 42.8,
+      "reasons": [
+        "LLY: Watch",
+        "8 mentions this week (16.0x baseline)"
+      ],
+      "rationale": "Company press release promotes positive first-line olomorasib trial data as durable, though it is not an investment view.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "bffc169e91c3130c56535e6e25d12b9e76942f584f3cb4d209792226fe6ca56b",
@@ -1519,75 +1583,11 @@
       "score": 39.2,
       "reasons": [
         "TSLA: Watch",
-        "8 mentions this week (16.0x baseline)"
+        "9 mentions this week (18.0x baseline)"
       ],
       "rationale": "Reports CEO Musk arguing that Tesla's value rests on its Full Self-Driving software, which he portrays as what customers are paying for.",
       "sentiment": 0.5,
       "confidence": 0.7
-    },
-    {
-      "id": "e2b59ee4034b840b5bb857ec9ab2e48023c3b78567849bdf1adf7c6d0a502df9",
-      "title": "What Does American Electric Power Company (AEP) Gain From Its 960 MW Nuclear Plan?",
-      "source": "Yahoo Finance — AMZN",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/energy/articles/does-american-electric-power-company-031436615.html?.tsrc=rss",
-      "publishedAt": "2026-10-25T03:14:36.000Z",
-      "ticker": "AMZN",
-      "tickers": [
-        "AMZN"
-      ],
-      "flag": "WATCH",
-      "score": 39,
-      "reasons": [
-        "AMZN: Watch",
-        "9 mentions this week (18.0x baseline)"
-      ],
-      "rationale": "Named as a funding and power-purchase partner in the nuclear project, with no stated view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "42993bc0fa78c49e17530ca95de467e86acdef6cb46cc04377a73d71bbf8e800",
-      "title": "VST Stock Trades Above 50-Day SMA: Is It Time to Buy or Hold Shares?",
-      "source": "Yahoo Finance — CEG",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/vst-stock-trades-above-50-121800442.html?.tsrc=rss",
-      "publishedAt": "2026-10-21T12:18:00.000Z",
-      "ticker": "VST",
-      "tickers": [
-        "VST"
-      ],
-      "flag": "LONG",
-      "score": 38.9,
-      "reasons": [
-        "VST: Long candidate",
-        "5 mentions this week (4.3x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Notes shares trade above the 50-day moving average, citing growth prospects, rising earnings estimates and strong returns.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "70c25d11350ce24219fb0f8ecc5f0a07f2f26e55dff5562963ef8c315f371098",
-      "title": "Gene Munster Says Apple’s $2,200 iPhone Duo Could Add $8B To FY27 Revenue, Sees 20M Units In Sales Even As Wall Street Expects Only 12M",
-      "source": "Yahoo Finance — AAPL",
-      "sourceType": "TickerNews",
-      "url": "https://stocktwits.com/news-articles/markets/equity/gene-munster-apple-iphone-duo-2200-add-8-billion-fy-27-revenue/cZUG1LvRBUg?.tsrc=rss",
-      "publishedAt": "2026-10-24T09:24:25.000Z",
-      "ticker": "AAPL",
-      "tickers": [
-        "AAPL"
-      ],
-      "flag": "WATCH",
-      "score": 38.5,
-      "reasons": [
-        "AAPL: Watch",
-        "9 mentions this week (18.0x baseline)"
-      ],
-      "rationale": "Analyst Gene Munster expects the higher-priced iPhone Duo to meaningfully lift Apple's iPhone growth and sales above consensus.",
-      "sentiment": 0.5,
-      "confidence": 0.6
     }
   ]
 }
