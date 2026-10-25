@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-25T12:42:12.199Z",
-  "startedAt": "2026-10-25T12:40:36.969Z",
+  "lastUpdated": "2026-10-25T16:58:01.816Z",
+  "startedAt": "2026-10-25T16:56:20.610Z",
   "asOf": "2026-10-25",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -158,14 +158,14 @@
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 17,
       "error": null
     },
     {
@@ -186,7 +186,7 @@
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -228,7 +228,7 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -420,6 +420,18 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "HOOD",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "MU",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "NFLX",
       "ok": true,
       "bars": 504,
@@ -436,13 +448,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 367,
-    "extractionsTotal": 830,
-    "mentionsTotal": 275,
-    "tickers": 23,
-    "pricesOk": 26,
-    "alertsTotal": 61,
-    "newAlerts": 0
+    "itemsFetched": 370,
+    "extractionsTotal": 874,
+    "mentionsTotal": 289,
+    "tickers": 24,
+    "pricesOk": 28,
+    "alertsTotal": 64,
+    "newAlerts": 3
   },
   "rows": [
     {
@@ -456,18 +468,44 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 7,
+      "mentionsRecent": 8,
       "mentionsBaseline": 1,
       "baselineRate": 0.233,
-      "spikeRatio": 14,
-      "sentRecent": 0.536,
+      "spikeRatio": 16,
+      "sentRecent": 0.544,
       "sentBaseline": 0.4,
-      "sentShift": 0.136,
+      "sentShift": 0.144,
       "retRecent": 0.0143,
       "excessRecent": 0.0186,
       "ret30": -0.0712,
-      "score": 1.1153,
+      "score": 1.1958,
       "lastPrice": 418.51,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
+      "ticker": "LLY",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 18,
+      "sentRecent": 0.378,
+      "sentBaseline": 0.6,
+      "sentShift": -0.222,
+      "retRecent": 0.0131,
+      "excessRecent": 0.0174,
+      "ret30": 0.076,
+      "score": 0.8697,
+      "lastPrice": 1273.46,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -494,32 +532,6 @@
       "ret30": 0.0162,
       "score": 0.862,
       "lastPrice": 524.51,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "LLY",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 16,
-      "sentRecent": 0.375,
-      "sentBaseline": 0.6,
-      "sentShift": -0.225,
-      "retRecent": 0.0131,
-      "excessRecent": 0.0174,
-      "ret30": 0.076,
-      "score": 0.8249,
-      "lastPrice": 1273.46,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -711,37 +723,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "META",
-      "discovered": false,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 5,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 10,
-      "sentRecent": 0.329,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.094,
-      "excessRecent": -0.0897,
-      "ret30": -0.1451,
-      "score": 0.5895,
-      "lastPrice": 642.62,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
       "ticker": "NVDA",
       "discovered": false,
       "flag": "WATCH",
@@ -752,18 +733,70 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 14,
+      "mentionsRecent": 15,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 28,
-      "sentRecent": 0.185,
+      "spikeRatio": 30,
+      "sentRecent": 0.214,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": -0.0148,
       "excessRecent": -0.0105,
       "ret30": -0.0627,
-      "score": 0.5013,
+      "score": 0.5929,
       "lastPrice": 210.96,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
+      "ticker": "MU",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 6,
+      "sentRecent": 0.423,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0015,
+      "excessRecent": 0.0028,
+      "ret30": -0.1892,
+      "score": 0.5865,
+      "lastPrice": 877.55,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 500
+    },
+    {
+      "ticker": "META",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 6,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 12,
+      "sentRecent": 0.276,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.094,
+      "excessRecent": -0.0897,
+      "ret30": -0.1451,
+      "score": 0.5364,
+      "lastPrice": 642.62,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
     },
@@ -825,6 +858,63 @@
       "priceBars": 500
     },
     {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 6,
+      "sentRecent": 0.229,
+      "sentBaseline": 0.8,
+      "sentShift": -0.571,
+      "retRecent": -0.0598,
+      "excessRecent": -0.0555,
+      "ret30": -0.0689,
+      "score": 0.3169,
+      "lastPrice": 320.21,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 20,
+      "sentRecent": 0.111,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0493,
+      "excessRecent": 0.0536,
+      "ret30": 0.0003,
+      "score": 0.2664,
+      "lastPrice": 372.22,
+      "lastPriceDate": "2026-10-23",
+      "priceBars": 504
+    },
+    {
       "ticker": "CRDO",
       "discovered": true,
       "flag": "SHORT",
@@ -849,58 +939,6 @@
       "lastPrice": 147.29,
       "lastPriceDate": "2026-10-23",
       "priceBars": 501
-    },
-    {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 18,
-      "sentRecent": 0.081,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": 0.0493,
-      "excessRecent": 0.0536,
-      "ret30": 0.0003,
-      "score": 0.1858,
-      "lastPrice": 372.22,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
-    },
-    {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 4,
-      "sentRecent": 0.16,
-      "sentBaseline": 0.8,
-      "sentShift": -0.64,
-      "retRecent": -0.0598,
-      "excessRecent": -0.0555,
-      "ret30": -0.0689,
-      "score": 0.1758,
-      "lastPrice": 320.21,
-      "lastPriceDate": "2026-10-23",
-      "priceBars": 504
     },
     {
       "ticker": "GS",
@@ -1029,19 +1067,25 @@
     {
       "ticker": "COIN",
       "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 4,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 4,
-      "sentRecent": -0.2,
+      "spikeRatio": 8,
+      "sentRecent": -0.092,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": -0.0503,
       "excessRecent": -0.046,
       "ret30": -0.1571,
-      "score": -0.2197,
+      "score": -0.1486,
       "lastPrice": 164.45,
       "lastPriceDate": "2026-10-23",
       "priceBars": 504
@@ -1049,69 +1093,25 @@
   ],
   "readingQueue": [
     {
-      "id": "f39e6f9ea6fc8d661cf1184fe469c1c5e0d0bcb2cc69d0c47a0e8d4950166ff6",
-      "title": "Why You Should Buy Meta Stock Before It Touches $1,050",
-      "source": "Yahoo Finance — META",
+      "id": "a0ae24c60d2bb70c262eda3ff13fe936786e30cd2ae121daaebeb0c47585ed1d",
+      "title": "GOOGL's $250B AI Chip Opportunity Takes Aim At NVDA — Beth Kindig Says Google Is Going After ‘One Of The Most Profitable Hardware Businesses’",
+      "source": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8418338/why-you-should-buy-meta-stock-before-it-touches-1-050?.tsrc=rss",
-      "publishedAt": "2026-10-24T18:30:02.000Z",
-      "ticker": "META",
+      "url": "https://stocktwits.com/news-articles/markets/equity/google-250b-ai-chip-nvidia-biggest-threat-yet/cZUcx3MRBUo?.tsrc=rss",
+      "publishedAt": "2026-10-25T14:46:24.000Z",
+      "ticker": "GOOGL",
       "tickers": [
-        "META"
+        "GOOGL"
       ],
-      "flag": "LONG",
-      "score": 68.4,
+      "flag": "SHORT",
+      "score": 78,
       "reasons": [
-        "META: Long candidate",
-        "5 mentions this week (10.0x baseline)",
-        "stock moving against the research"
+        "GOOGL: Short candidate",
+        "sentiment shift -0.57",
+        "3 mentions this week (6.0x baseline)"
       ],
-      "rationale": "Headline urges buying Meta before a price target, and the text credits AI with driving growth in recent quarterly results.",
-      "sentiment": 0.6,
-      "confidence": 0.7
-    },
-    {
-      "id": "ac19afb689f87c46b7f434379ac1733779071b5f0825640131a4e12be6e98a96",
-      "title": "Meta Stock Fell 7% in a Day After a Revenue Beat. Time to Sell or Load Up?",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/meta-stock-fell-7-in-a-day-after-a-revenue-beat-time-to-sell-or-load-up?ref=yahoofinance&.tsrc=rss",
-      "publishedAt": "2026-10-24T20:43:41.000Z",
-      "ticker": "META",
-      "tickers": [
-        "META"
-      ],
-      "flag": "LONG",
-      "score": 66.7,
-      "reasons": [
-        "META: Long candidate",
-        "5 mentions this week (10.0x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Cites a mid target near $1,137 and about 77% potential return, implying upside, though the visible text is truncated before any explicit verdict.",
-      "sentiment": 0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "bec6dafd791916cf1f98261493879cc7aa938502878b60ab287632dc0e04f20d",
-      "title": "What the New Class C Share Structure Actually Means for Meta Platforms Stock Investors",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8405153/what-the-new-class-c-share-structure-actually-means-for-meta-platforms-stock-investors?.tsrc=rss",
-      "publishedAt": "2026-10-24T11:16:22.000Z",
-      "ticker": "META",
-      "tickers": [
-        "META"
-      ],
-      "flag": "LONG",
-      "score": 62.5,
-      "reasons": [
-        "META: Long candidate",
-        "5 mentions this week (10.0x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Describes a new share structure that trades off growth potential against founder control, without stating a clear view on the stock.",
-      "sentiment": 0,
+      "rationale": "Kindig argues Google's advantage may come from attacking AI infrastructure economics, not just building faster chips.",
+      "sentiment": 0.4,
       "confidence": 0.6
     },
     {
@@ -1128,10 +1128,11 @@
         "AMZN"
       ],
       "flag": "SHORT",
-      "score": 57.1,
+      "score": 68.6,
       "reasons": [
         "GOOGL: Short candidate",
-        "sentiment shift -0.64"
+        "sentiment shift -0.57",
+        "3 mentions this week (6.0x baseline)"
       ],
       "rationale": "Says Alphabet collects much of the AI spending and is more resilient than the AI labs paying it.",
       "sentiment": 0.4,
@@ -1202,6 +1203,28 @@
       "rationale": "Brief attention-style mention noting investor interest in the stock, with no stated view on its prospects.",
       "sentiment": 0,
       "confidence": 0.7
+    },
+    {
+      "id": "c2a91562e3e1f619c1c727562cc531760478272617b497f8faaf64a29b14d069",
+      "title": "Micron Just Revealed a New Business Strategy. That Change Makes It a Screaming Buy.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/micron-just-revealed-a-new-business-strategy/?.tsrc=rss",
+      "publishedAt": "2026-10-25T14:51:00.000Z",
+      "ticker": "MU",
+      "tickers": [
+        "MU"
+      ],
+      "flag": "WATCH",
+      "score": 51.4,
+      "reasons": [
+        "MU: Watch",
+        "3 mentions this week (6.0x baseline)",
+        "bullish view, confidence 0.75"
+      ],
+      "rationale": "Headline calls Micron a strong buy, citing a shift toward contract-based pricing instead of open-market pricing.",
+      "sentiment": 0.7,
+      "confidence": 0.75
     },
     {
       "id": "80e7a7ef98fca73cdeb5a784251432f117bad3d4b6e588af87fea328f6a7c0d5",
@@ -1285,7 +1308,7 @@
       "score": 46.2,
       "reasons": [
         "NVDA: Watch",
-        "14 mentions this week (28.0x baseline)"
+        "15 mentions this week (30.0x baseline)"
       ],
       "rationale": "Reports CEO Jensen Huang saying AI agents are driving sharply higher token consumption and GPU demand, with an analyst backing the view.",
       "sentiment": 0.6,
@@ -1314,6 +1337,49 @@
       "confidence": 0.6
     },
     {
+      "id": "f3c232f1ed5598674bd2af5304539a9b09d2fc57b7f72fcac37a975b0c84f903",
+      "title": "2 Quantum Computing Stocks That Could Help Make You a Fortune",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/2-quantum-computing-stocks-that-could-help-make-yo/?.tsrc=rss",
+      "publishedAt": "2026-10-25T16:31:00.000Z",
+      "ticker": "NVDA",
+      "tickers": [
+        "NVDA",
+        "IONQ"
+      ],
+      "flag": "WATCH",
+      "score": 45.7,
+      "reasons": [
+        "NVDA: Watch",
+        "15 mentions this week (30.0x baseline)"
+      ],
+      "rationale": "Summary says Nvidia is well-positioned to benefit from major computing build-outs, presented as a stock that could help investors gain.",
+      "sentiment": 0.6,
+      "confidence": 0.7
+    },
+    {
+      "id": "8fd3b30e68c8260838cf6433edc9a24cc90f26dfc7e83e4144e6a3fe89bc3494",
+      "title": "Taiwan Semiconductor Is Set to Cash in on AI. Here's What a $5,000 Investment Could Be Worth by 2030.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/taiwan-semiconductor-is-set-to-cash-in-on-ai-heres/?.tsrc=rss",
+      "publishedAt": "2026-10-25T14:15:00.000Z",
+      "ticker": "TSM",
+      "tickers": [
+        "TSM"
+      ],
+      "flag": "WATCH",
+      "score": 45.7,
+      "reasons": [
+        "TSM: Watch",
+        "8 mentions this week (16.0x baseline)"
+      ],
+      "rationale": "Predicts Taiwan Semiconductor will be among the best-performing AI stocks over the next few years.",
+      "sentiment": 0.6,
+      "confidence": 0.7
+    },
+    {
       "id": "3053a471c2e3dc3a8584bfddd9d623e51aa03e7d6f2e93bab71502d9f4630721",
       "title": "Elon Musk Says Tesla’s Megapacks Are Nearly Sold Out Through 2027 as Energy Demand Surges: 'Ramping Production as Quickly as Possible'",
       "source": "Yahoo Finance — TSLA",
@@ -1328,7 +1394,7 @@
       "score": 44.6,
       "reasons": [
         "TSLA: Watch",
-        "9 mentions this week (18.0x baseline)"
+        "10 mentions this week (20.0x baseline)"
       ],
       "rationale": "Reports CEO saying Megapack storage systems are nearly sold out and production is ramping on surging energy demand.",
       "sentiment": 0.5,
@@ -1370,10 +1436,52 @@
       "score": 43.8,
       "reasons": [
         "TSLA: Watch",
-        "9 mentions this week (18.0x baseline)"
+        "10 mentions this week (20.0x baseline)"
       ],
       "rationale": "Says the quarterly report strengthened the investment case for the stock, though the body text names only the title's company.",
       "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
+      "id": "b268c9e162db424d561f34adcaadc15c6e9deb59aba77605186c049d89b0b0da",
+      "title": "3 Massive Catalysts That Could Ignite an Eli Lilly Stock Rally on Oct 29",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/10/25/3-massive-catalysts-that-could-ignite-an-eli-lilly-stock-rally-on-oct-29/?.tsrc=rss",
+      "publishedAt": "2026-10-25T15:35:23.000Z",
+      "ticker": "LLY",
+      "tickers": [
+        "LLY"
+      ],
+      "flag": "WATCH",
+      "score": 42.8,
+      "reasons": [
+        "LLY: Watch",
+        "9 mentions this week (18.0x baseline)"
+      ],
+      "rationale": "Frames upcoming earnings catalysts as able to ignite a rally, citing a winning streak and pipeline dominance, though notes dependence on two drugs.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "b154b8f81fe3e85a291fea3b2b839a7e780054e75fcb4b9b891be534cded76b5",
+      "title": "Tesla stock sellers should pump their brakes, 5-star analyst says",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/investing/tesla-stock-sellers-should-pump-their-brakes-5-star-analyst-says?.tsrc=rss",
+      "publishedAt": "2026-10-25T13:33:00.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 42.8,
+      "reasons": [
+        "TSLA: Watch",
+        "10 mentions this week (20.0x baseline)"
+      ],
+      "rationale": "Headline suggests a five-star analyst views the post-earnings share weakness as a reason for sellers to hold off.",
+      "sentiment": 0.4,
       "confidence": 0.6
     },
     {
@@ -1391,7 +1499,7 @@
       "score": 42.8,
       "reasons": [
         "LLY: Watch",
-        "8 mentions this week (16.0x baseline)"
+        "9 mentions this week (18.0x baseline)"
       ],
       "rationale": "Company press release promotes positive first-line olomorasib trial data as durable, though it is not an investment view.",
       "sentiment": 0.4,
@@ -1412,7 +1520,7 @@
       "score": 41.5,
       "reasons": [
         "NVDA: Watch",
-        "14 mentions this week (28.0x baseline)",
+        "15 mentions this week (30.0x baseline)",
         "bearish view, confidence 0.85"
       ],
       "rationale": "Critic argues Nvidia manufactures the scarcity behind its GPU sales pitch, implying the demand narrative is artificial.",
@@ -1441,23 +1549,23 @@
       "confidence": 0.75
     },
     {
-      "id": "dbca425723bdfca69b80788b3e2d2506e4b8ecd03c8a34033841de5478639a8e",
-      "title": "Nvidia and 3 AI Infrastructure Stocks Backed by Hyperscaler Data Center Spending",
-      "source": "Yahoo Finance — NVDA",
+      "id": "f39e6f9ea6fc8d661cf1184fe469c1c5e0d0bcb2cc69d0c47a0e8d4950166ff6",
+      "title": "Why You Should Buy Meta Stock Before It Touches $1,050",
+      "source": "Yahoo Finance — META",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-3-ai-infrastructure-stocks-221122731.html?.tsrc=rss",
-      "publishedAt": "2026-10-24T22:11:22.000Z",
-      "ticker": "NVDA",
+      "url": "https://www.barchart.com/story/news/8418338/why-you-should-buy-meta-stock-before-it-touches-1-050?.tsrc=rss",
+      "publishedAt": "2026-10-24T18:30:02.000Z",
+      "ticker": "META",
       "tickers": [
-        "NVDA"
+        "META"
       ],
       "flag": "WATCH",
       "score": 40.2,
       "reasons": [
-        "NVDA: Watch",
-        "14 mentions this week (28.0x baseline)"
+        "META: Watch",
+        "6 mentions this week (12.0x baseline)"
       ],
-      "rationale": "Cited as seeing triple-digit data center and AI chip revenue gains, presented as evidence that spending is flowing into the theme.",
+      "rationale": "Headline urges buying Meta before a price target, and the text credits AI with driving growth in recent quarterly results.",
       "sentiment": 0.6,
       "confidence": 0.7
     },
@@ -1524,70 +1632,6 @@
       "rationale": "Argues a Chinese state-owned rival's lithography production threatens ASML's China sales sooner than the market expects.",
       "sentiment": -0.6,
       "confidence": 0.8
-    },
-    {
-      "id": "97b4ec9074c7761a31a1083b3fab324ba8c20eb44ab4da8da5e36b3de932e9e0",
-      "title": "Prediction: This Chip Stock Could Be a Sleeper AI Winner",
-      "source": "Yahoo Finance — AVGO",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/23/prediction-this-chip-stock-could-be-a-sleeper-ai-winner/?.tsrc=rss",
-      "publishedAt": "2026-10-23T14:00:40.000Z",
-      "ticker": "QCOM",
-      "tickers": [
-        "QCOM"
-      ],
-      "flag": "WATCH",
-      "score": 39.5,
-      "reasons": [
-        "QCOM: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Argues the market underprices Qualcomm's growth in automotive, data centers, and hyperscaler silicon, despite its handset-maker reputation.",
-      "sentiment": 0.6,
-      "confidence": 0.8
-    },
-    {
-      "id": "caf0847fc6acb4daab7aeeef24a25bf586e45daeccc50aabfdf466d10ca54526",
-      "title": "Microsoft May Be the Only Hyperscaler to Stay Cash-Flow Positive. What It Means for MSFT Stock",
-      "source": "Yahoo Finance — MSFT",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8415488/microsoft-may-be-the-only-hyperscaler-to-stay-cash-flow-positive-what-it-means-for-msft-stock?.tsrc=rss",
-      "publishedAt": "2026-10-24T15:30:02.000Z",
-      "ticker": "MSFT",
-      "tickers": [
-        "MSFT"
-      ],
-      "flag": "WATCH",
-      "score": 39.2,
-      "reasons": [
-        "MSFT: Watch",
-        "4 mentions this week (8.0x baseline)"
-      ],
-      "rationale": "Suggests Microsoft may keep positive free cash flow while peers struggle, which could give its stock an advantage.",
-      "sentiment": 0.5,
-      "confidence": 0.7
-    },
-    {
-      "id": "0ba09aee4322f65c88929c77cdf675de4c759f68289611f2f2ab66a45ad0966e",
-      "title": "Elon Musk Says Tesla Cars' Value Lies in FSD Service: 'People Are Buying FSD With a Car Attached, Not the Other Way Around'",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/articles/elon-musk-says-tesla-cars-013014650.html?.tsrc=rss",
-      "publishedAt": "2026-10-24T01:30:14.000Z",
-      "ticker": "TSLA",
-      "tickers": [
-        "TSLA"
-      ],
-      "flag": "WATCH",
-      "score": 39.2,
-      "reasons": [
-        "TSLA: Watch",
-        "9 mentions this week (18.0x baseline)"
-      ],
-      "rationale": "Reports CEO Musk arguing that Tesla's value rests on its Full Self-Driving software, which he portrays as what customers are paying for.",
-      "sentiment": 0.5,
-      "confidence": 0.7
     }
   ]
 }

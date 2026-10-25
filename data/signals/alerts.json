@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "218ac7f7adb9f8a4",
+      "ticker": "COIN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-25T16:58:00.883Z",
+      "firedDate": "2026-10-25",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.092,
+        "sentShift": null,
+        "retRecent": -0.0503,
+        "excessRecent": -0.046,
+        "score": -0.1486
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/10/25/coinbase-q3-earnings-preview-can-cryptos-rebound-save-coin-from-a-fourth-consecutive-miss-oct-29/?.tsrc=rss",
+        "https://beincrypto.com/crypto-stocks-to-watch-last-week-october-2026/?.tsrc=rss",
+        "https://247wallst.com/investing/cryptocurrency/2026/10/24/ethereum-etfs-have-lost-1-1-billion-in-three-weeks-what-would-bring-buyers-back/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "77f0228ccc7bb11d",
+      "ticker": "GOOGL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-25T16:58:00.882Z",
+      "firedDate": "2026-10-25",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.229,
+        "sentShift": -0.571,
+        "retRecent": -0.0598,
+        "excessRecent": -0.0555,
+        "score": 0.3169
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/google-250b-ai-chip-nvidia-biggest-threat-yet/cZUcx3MRBUo?.tsrc=rss",
+        "https://www.tikr.com/blog/chamath-0-70-75-of-every-dollar-of-ai-spend-is-vc-money-the-real-winners-are-already-publicly-traded?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/alphabet-googl-stock-declines-while-204504218.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d0e9d02a5e40428d",
+      "ticker": "MU",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-25T16:58:00.881Z",
+      "firedDate": "2026-10-25",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.423,
+        "sentShift": null,
+        "retRecent": -0.0015,
+        "excessRecent": 0.0028,
+        "score": 0.5865
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/10/25/micron-just-revealed-a-new-business-strategy/?.tsrc=rss",
+        "https://beincrypto.com/spacex-ai-spending-shock-3-stocks-upside/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/20/wall-street-gave-micron-back-its-1-trillion-crown-just-one-session-later/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "f899f99d5381179d",
       "ticker": "AMD",
       "rule": "MENTION_SPIKE",
