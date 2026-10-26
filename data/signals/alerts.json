@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "de8ff4b6a9e38437",
+      "ticker": "CRWV",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-25T23:57:50.370Z",
+      "firedDate": "2026-10-25",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.167,
+        "sentShift": null,
+        "retRecent": -0.1165,
+        "excessRecent": -0.1123,
+        "score": -0.231
+      },
+      "topItems": [
+        "https://beincrypto.com/musk-ai-cloud-firms-coreweave-debt/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/20/coreweaves-financing-and-interest-rate-concerns-will-show-up-in-one-place/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/concerns-over-coreweaves-debt-overblown-123400733.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "218ac7f7adb9f8a4",
       "ticker": "COIN",
       "rule": "MENTION_SPIKE",
