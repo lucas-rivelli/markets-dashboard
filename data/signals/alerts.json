@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "b590efbd54ecacfe",
+      "ticker": "INTC",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-26T16:16:49.969Z",
+      "firedDate": "2026-10-26",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.032,
+        "sentShift": null,
+        "retRecent": -0.0551,
+        "excessRecent": -0.0466,
+        "score": 0.0438
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/articles/global-application-specific-integrated-circuits-142500765.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/investors-overlooked-intels-127-run-141028501.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/23/the-foundry-disconnect-intel-nails-the-transistor-but-tsmc-holds-the-keys-to-yield-and-scale/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "762c63d65314ff97",
       "ticker": "CVX",
       "rule": "BEARISH_SHIFT",
