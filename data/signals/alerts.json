@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "762c63d65314ff97",
+      "ticker": "CVX",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-26T09:15:14.889Z",
+      "firedDate": "2026-10-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.269,
+        "sentShift": -0.331,
+        "retRecent": 0.0394,
+        "excessRecent": 0.0479,
+        "score": 0.2958
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/why-did-xom-cop-cvx-jump-to-52-week-highs-last-week/cZUdVAARBUz?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/chevron-vs-exxonmobil-stock-edge-134300230.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/buy-5-giant-oil-explorers-125400336.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "646491636096d07d",
       "ticker": "COIN",
       "rule": "MENTION_SPIKE",

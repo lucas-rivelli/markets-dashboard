@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-10-26T03:07:21.869Z",
+  "updatedAt": "2026-10-26T09:13:51.502Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -15127,6 +15127,649 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-10-26T03:07:21.869Z"
+    },
+    "4ac602b342f9841e57ca50837db7d1667c0bd83ee9178195b70bfd00b7bd9742": {
+      "id": "4ac602b342f9841e57ca50837db7d1667c0bd83ee9178195b70bfd00b7bd9742",
+      "title": "Tired of the AI Rollercoaster? Try This Dividend-Rich Index.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/77ee0fae-1d39-3f63-9805-36b3581f8793/tired-of-the-ai.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T09:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:32.132Z"
+    },
+    "b74a060b74464471779e4b339e6fcf3caf169688ad311699c9e8f21b5a10f95b": {
+      "id": "b74a060b74464471779e4b339e6fcf3caf169688ad311699c9e8f21b5a10f95b",
+      "title": "If I Could Buy Only 1 Stock, This Would Be It",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/if-i-could-only-buy-1-stock-this-would-be-it/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.7,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Author suggests Nvidia, already very large, still has substantial room for further growth in size."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:32.492Z"
+    },
+    "a115b2bcb8cb2ebbbeaf8e5eb8e10745804331659ce492bff5baba0c2b815c88": {
+      "id": "a115b2bcb8cb2ebbbeaf8e5eb8e10745804331659ce492bff5baba0c2b815c88",
+      "title": "1 Reason Apple Could Outperform in 2027",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/1-reason-apple-could-outperform-in-2027/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:44:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Says early demand for Apple's first folding iPhone is strong and the title suggests Apple could outperform."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:32.789Z"
+    },
+    "3cdecda55c213c02496ecfac88182955b2514cb19dc062aa7c2e18634e7b115f": {
+      "id": "3cdecda55c213c02496ecfac88182955b2514cb19dc062aa7c2e18634e7b115f",
+      "title": "Stocktwits Tech Watch: More Big Earnings, Apple’s Touch-Screen MacBook And Intel Results In Focus",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/stocktwits-tech-watch-more-big-earnings-apple-s-touch-screen-mac-book-and-intel-results-in-focus/cZUdHpARByQ?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:47:26.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:33.055Z"
+    },
+    "597a2e29da77bb70f7b2c10b268d89452b54b80455e940dd84e6bbfcc7ce055a": {
+      "id": "597a2e29da77bb70f7b2c10b268d89452b54b80455e940dd84e6bbfcc7ce055a",
+      "title": "Trump Says “We’re Making A Freaking Fortune” From The Iran War’s Oil Spike. Here’s What The Economic Data Actually Show",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/10/26/trump-says-were-making-a-freaking-fortune-from-the-iran-wars-oil-spike-heres-what-the-economic-data-actually-show/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:36:32.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:33.300Z"
+    },
+    "db58c1a1f154b696dee64a98321a44ee02e370b1cd4d3c249a8466c9e375afdf": {
+      "id": "db58c1a1f154b696dee64a98321a44ee02e370b1cd4d3c249a8466c9e375afdf",
+      "title": "The Nasdaq Composite Just Plunged Almost 700 Points in One Day: Is a Stock Market Crash Imminent?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/nasdaq-composite-just-plunged-700-points-in-one-day-is-a-stock-market-crash-imminent/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:26:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:33.855Z"
+    },
+    "162ec825d76cae07d0c897e76b46c17e5c8b6497e861e6a74f559e7a41bb6f49": {
+      "id": "162ec825d76cae07d0c897e76b46c17e5c8b6497e861e6a74f559e7a41bb6f49",
+      "title": "I'd Buy Half a Position in Amazon Stock Before Its Oct. 29 Report -- and Half After",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/i-d-buy-half-a-position-in-amazon-stock-before-its-oct-29-report-and-half-after/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:33:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Suggests buying a half position before Amazon's Oct. 29 report and the other half after, implying a positive view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:34.177Z"
+    },
+    "98fb18bf8cf99e28a01a0b466618fbbd7b1024f3ff6e6c861f134e0e36f77905": {
+      "id": "98fb18bf8cf99e28a01a0b466618fbbd7b1024f3ff6e6c861f134e0e36f77905",
+      "title": "Cameco Stock Is Down 42% From Its Record. Here's How I'd Buy It Around Its Oct. 30 Report.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/cameco-stock-is-down-42-from-its-record-here-s-how-i-d-buy-it-around-its-oct-30-report/?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:07:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "CCJ",
+          "company": "Cameco",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Headline frames Cameco's 42% drop as a buying opportunity, and the body notes uranium prices remain strong despite the stock's decline."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:35.378Z"
+    },
+    "c742f6439facdf6518e43a5b00f1ce0c5b46a339ff4f144c6f4ca0664f9b7c6d": {
+      "id": "c742f6439facdf6518e43a5b00f1ce0c5b46a339ff4f144c6f4ca0664f9b7c6d",
+      "title": "An EV Business Revival and Potential SpaceX Merger: Is Tesla Stock a Buy?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/an-ev-business-revival-and-potential-spacex-merger/?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:59:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Describes Tesla shares as attractive, citing several upcoming catalysts, and frames the headline as a buy question."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:36.083Z"
+    },
+    "815f1c8be730b64f56e9b5863c07616896a99c8b6a6ad2b4bc0c2c34826fd18d": {
+      "id": "815f1c8be730b64f56e9b5863c07616896a99c8b6a6ad2b4bc0c2c34826fd18d",
+      "title": "Honeywell Technologies Launches Forge Plant Cognition with Dangote, Built with NVIDIA AI and Dell Technologies Capabilities",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/honeywell-technologies-launches-forge-plant-080000518.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "HON",
+          "company": "Honeywell",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Announces a product launch with no investment view or valuation commentary about the stock."
+        },
+        {
+          "ticker": "NVDA",
+          "company": "NVIDIA",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Named as a technology partner supplying AI and accelerated computing for the platform, with no view on its shares."
+        },
+        {
+          "ticker": "DELL",
+          "company": "Dell Technologies",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Named as a supplier of AI infrastructure for the platform, with no view on its shares."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:36.741Z"
+    },
+    "c7e2c0899d6603b03a30e409b4d2bf2a3854598533e3d9322a6067b066a2322a": {
+      "id": "c7e2c0899d6603b03a30e409b4d2bf2a3854598533e3d9322a6067b066a2322a",
+      "title": "Nvidia Packaging Deal Puts OSAT Stocks Like ASE Technology Holding In Focus",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-packaging-deal-puts-osat-080739948.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T08:07:39.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:36.928Z"
+    },
+    "5eaa10da5403e22662ab6bcb67db3fd43817e8f09b1a67bf628f4289e85c00e0": {
+      "id": "5eaa10da5403e22662ab6bcb67db3fd43817e8f09b1a67bf628f4289e85c00e0",
+      "title": "SWI Compute Emerges from Stealth to Turn Gigawatts of Power Into NVIDIA AI Factories, Starting in Europe",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/swi-compute-emerges-stealth-turn-074500943.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:45:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Announces SWI Compute as a NVIDIA AI factory operator and system buyer, but expresses no view on Nvidia stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:37.838Z"
+    },
+    "019070f28ce8951b7a4cc56d5a88137533ce59c099aad9285dff25d507272ace": {
+      "id": "019070f28ce8951b7a4cc56d5a88137533ce59c099aad9285dff25d507272ace",
+      "title": "Warren Buffett Has Called This 1 Investing Decision the Costliest Mistake of His Career. Here's How to Avoid It.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/warren-buffett-has-called-this-1-investing-decisio/?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:37.887Z"
+    },
+    "787f7f1040367328d379b9c94dd294e7bb8c7240218b481b9d6ef70b3702b03a": {
+      "id": "787f7f1040367328d379b9c94dd294e7bb8c7240218b481b9d6ef70b3702b03a",
+      "title": "Elon Musk and SpaceX Just Delivered Incredible News to Nvidia That Could Help the Stock Double in the Next Year",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/elon-musk-and-spacex-just-delivered-incredible-new/?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.7,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Frames SpaceX's AI spending as a large future revenue opportunity that could sharply lift Nvidia's stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:38.282Z"
+    },
+    "e81fb9805363871f57a5990a2a39c14105f218791c1430b4c24798a59c57f635": {
+      "id": "e81fb9805363871f57a5990a2a39c14105f218791c1430b4c24798a59c57f635",
+      "title": "Should You Pick Apple Stock Over Its Competitors?",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/aapl/articles/620470/should-you-pick-apple-stock-over-its-competitors/2026-10-26?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:11:52.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:39.103Z"
+    },
+    "994c817d74c8bf3bed072316bb115fec20ca345691f7ffc09d9057279543ad9c": {
+      "id": "994c817d74c8bf3bed072316bb115fec20ca345691f7ffc09d9057279543ad9c",
+      "title": "Palantir’s Fast-Selling $170 Windbreaker Shows Its Korea Appeal",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/articles/palantir-fast-selling-170-windbreaker-071019945.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:10:19.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:39.977Z"
+    },
+    "9890744afc8c6596aa0380a827815733172f504cf97135623f5b57a6530d82a9": {
+      "id": "9890744afc8c6596aa0380a827815733172f504cf97135623f5b57a6530d82a9",
+      "title": "NVDA Stock Ticks Higher Overnight: a16z Data Shows GPU Rental Prices Rising Sharply, Even For Older Chips",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/nvda-stock-ticks-higher-overnight-a16z-data-shows-gpu-rental-prices-rising-sharply-even-for-older-chips/cZUdsyzRBy4?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:02:31.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.6,
+          "confidence": 0.8,
+          "stance": "bullish",
+          "rationale": "Reads rising GPU rental rates across Nvidia's lineup as evidence of resilient AI computing demand."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:40.209Z"
+    },
+    "e409e31390b781d10427104dc28fb555d95b5cec14f500b967c0d0f87c93769d": {
+      "id": "e409e31390b781d10427104dc28fb555d95b5cec14f500b967c0d0f87c93769d",
+      "title": "Are You Overpaying For IBM Stock Versus Its Rivals?",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/ibm/articles/620466/are-you-overpaying-for-ibm-stock-versus-its-rivals/2026-10-26?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:11:49.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:40.616Z"
+    },
+    "331c4b53676f993ab977004faf6469f810864e40364197cf03ba6fcec799784f": {
+      "id": "331c4b53676f993ab977004faf6469f810864e40364197cf03ba6fcec799784f",
+      "title": "3 AI Infrastructure Stocks Linked To Data Center Power Demand",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/3-ai-infrastructure-stocks-linked-070729460.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T07:07:29.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:41.495Z"
+    },
+    "8d03aa49fbfbeb0e2961bed2cedc4f707644983fadbfd94932d6b88e6199e888": {
+      "id": "8d03aa49fbfbeb0e2961bed2cedc4f707644983fadbfd94932d6b88e6199e888",
+      "title": "Billionaire Ken Griffin Is Buying This Dividend King That Wall Street Still Rates a Buy",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/billionaire-ken-griffin-is-buying-this-dividend-ki/?.tsrc=rss",
+      "publishedAt": "2026-10-26T06:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "ABBV",
+          "company": "AbbVie",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Calls AbbVie attractive despite a high valuation relative to earnings, though the item gives little supporting detail."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:42.000Z"
+    },
+    "21e29fd945668fda6f0d8bd365c7384948006b3f643c9a4c26e36f18a57dd64e": {
+      "id": "21e29fd945668fda6f0d8bd365c7384948006b3f643c9a4c26e36f18a57dd64e",
+      "title": "TSLA Stock Rises Overnight: Cybercabs Swarm Austin F1, Fresh Roadster Details Surface — But Analyst Sees 38% Downside",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/tsla-stock-cybercabs-austin-f1-roadster-details-analyst-downside/cZUdAawRBy5?.tsrc=rss",
+      "publishedAt": "2026-10-26T06:00:58.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:42.758Z"
+    },
+    "ce51af6313a059476245e75a736e5b117188943d774f37cbffe25c3903bf8b6b": {
+      "id": "ce51af6313a059476245e75a736e5b117188943d774f37cbffe25c3903bf8b6b",
+      "title": "SpaceX secures $40B in financing for GPUs as Elon Musk warns of AI cloud industry consolidation",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.foxbusiness.com/technology/spacex-secures-40b-financing-gpus-elon-musk-warns-ai-cloud-industry-consolidation?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:09:45.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:43.078Z"
+    },
+    "67bc15f5f07b7dd74fb2e61d7eb9aafc1ee362f3ac3106bae576e17dab01329d": {
+      "id": "67bc15f5f07b7dd74fb2e61d7eb9aafc1ee362f3ac3106bae576e17dab01329d",
+      "title": "Musk Says SpaceX Locked In $40 Billion for Chips, a Win for Nvidia: “We’re Investment Grade”",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/musk-says-spacex-locked-in-40-billion-for-chips-a-win-for-nvidia-were-investment-grade?ref=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-26T06:39:31.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:43.358Z"
+    },
+    "179fe6c73216844245ab69ae52cc5ba27b875d3032454cdbe6e11d1e150c7646": {
+      "id": "179fe6c73216844245ab69ae52cc5ba27b875d3032454cdbe6e11d1e150c7646",
+      "title": "How Low Can Snowflake Stock Go?",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/snow/articles/620456/how-low-can-snowflake-stock-go/2026-10-26?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:31:43.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:44.404Z"
+    },
+    "469567c4568a6a9b1d0ff7f03daa9d0d8e5bfb1a65801f8a4f2c6e12dda4827d": {
+      "id": "469567c4568a6a9b1d0ff7f03daa9d0d8e5bfb1a65801f8a4f2c6e12dda4827d",
+      "title": "Is Nvidia Stock Cheaper Now That Its Multiple Has Fallen?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/nvda/articles/620535/is-nvidia-stock-cheaper-now-that-its-multiple-has-fallen/2026-10-25?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:06:25.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:44.889Z"
+    },
+    "c1e021f8b29f1a78d38933f66b6dee2e3508da637a6ba4d2bace7d9e3052e118": {
+      "id": "c1e021f8b29f1a78d38933f66b6dee2e3508da637a6ba4d2bace7d9e3052e118",
+      "title": "What Changed In AMD's Story?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/amd/articles/620502/what-changed-in-amds-story-2/2026-10-25?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:06:06.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:45.160Z"
+    },
+    "cc6e7ef7bde38efc405ec7023c37d37eb6cbc39fcebcb6db820a213680b1a32f": {
+      "id": "cc6e7ef7bde38efc405ec7023c37d37eb6cbc39fcebcb6db820a213680b1a32f",
+      "title": "Which Dates Could Move Walmart Stock Most?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/wmt/articles/620487/which-dates-could-move-walmart-stock-most/2026-10-25?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:06:03.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:45.490Z"
+    },
+    "22ac8b62f5d36ff2c930af9bd21a2e55aa08b2510280098fe07e640446f036fc": {
+      "id": "22ac8b62f5d36ff2c930af9bd21a2e55aa08b2510280098fe07e640446f036fc",
+      "title": "From Crypto Roots to AI Selloff: Why CoreWeave Is Under Pressure",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://beincrypto.com/coreweave-ai-selloff-crypto-origins-debt/?.tsrc=rss",
+      "publishedAt": "2026-10-26T04:30:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:46.520Z"
+    },
+    "efd84539da9d5d105e23b478915270243ff8230960594fe7c8264beb546eb59f": {
+      "id": "efd84539da9d5d105e23b478915270243ff8230960594fe7c8264beb546eb59f",
+      "title": "Anthropic's $750 Billion Compute Bill Could Delay Its Path to Profitability",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/26/anthropics-750-billion-compute-bill-could-delay-it/?.tsrc=rss",
+      "publishedAt": "2026-10-26T04:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:46.721Z"
+    },
+    "e47e5d77f9adb90c75c30e20726f4870359b0664d50c3b1d9b9af57e51a2d8a3": {
+      "id": "e47e5d77f9adb90c75c30e20726f4870359b0664d50c3b1d9b9af57e51a2d8a3",
+      "title": "Is Duke Energy Stock a Good Fit For Your Portfolio Risk?",
+      "source": "Yahoo Finance — NEE",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/duk/articles/620488/is-duke-energy-stock-a-good-fit-for-your-portfolio-risk/2026-10-25?.tsrc=rss",
+      "publishedAt": "2026-10-26T05:05:59.000Z",
+      "tickerHint": "NEE",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:47.041Z"
+    },
+    "573584a3eb3092209e57e343979b94c0453081cb144897d9881047a7f8bc279e": {
+      "id": "573584a3eb3092209e57e343979b94c0453081cb144897d9881047a7f8bc279e",
+      "title": "Chip Stocks to Buy After Their Worst Day Since June",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/25/chip-stocks-to-buy-after-their-worst-day-since-june/?.tsrc=rss",
+      "publishedAt": "2026-10-26T03:37:02.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:47.166Z"
+    },
+    "d409296790784913c72cd14c55c8dfd0714e1a1260aca2ff82cbdb9cfa973ea3": {
+      "id": "d409296790784913c72cd14c55c8dfd0714e1a1260aca2ff82cbdb9cfa973ea3",
+      "title": "Shares are mixed in Asia after a decline on Wall Street, and oil prices fall more than 1%",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/articles/shares-fall-asia-decline-wall-024402963.html?.tsrc=rss",
+      "publishedAt": "2026-10-26T02:44:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:47.862Z"
+    },
+    "13e300b8da9dfaefc3c834a944c0d2ab67fbb804d395c8ed5ff02ceaf04f351f": {
+      "id": "13e300b8da9dfaefc3c834a944c0d2ab67fbb804d395c8ed5ff02ceaf04f351f",
+      "title": "Big Tech Earnings Are a No-Win Test as Investors Punish Both Capex Cuts and Hikes",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://beincrypto.com/big-tech-earnings-no-win-test/?.tsrc=rss",
+      "publishedAt": "2026-10-26T03:02:03.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:48.869Z"
+    },
+    "ae5c0f6363bff39e1e825736d7de9e71297aea157c215b836cefe485c1469857": {
+      "id": "ae5c0f6363bff39e1e825736d7de9e71297aea157c215b836cefe485c1469857",
+      "title": "ExxonMobil Stock Hit a Record Close as Brent Topped $116. Here’s Where the Stock Could Go by 2030",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/exxonmobil-stock-hit-a-record-close-as-brent-topped-116-heres-where-the-stock-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-26T01:20:28.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:49.215Z"
+    },
+    "25eaea6f64c7af5bb33a8b19d07cb07421b665a6a85fd5597ea1026f04a93c14": {
+      "id": "25eaea6f64c7af5bb33a8b19d07cb07421b665a6a85fd5597ea1026f04a93c14",
+      "title": "Why Did XOM, COP, CVX Jump To 52-Week Highs Last Week?",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/why-did-xom-cop-cvx-jump-to-52-week-highs-last-week/cZUdVAARBUz?.tsrc=rss",
+      "publishedAt": "2026-10-26T03:10:34.000Z",
+      "tickerHint": "XOM",
+      "mentions": [
+        {
+          "ticker": "XOM",
+          "company": "Exxon Mobil",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the stock hit annual highs on higher crude prices; no explicit view on the shares."
+        },
+        {
+          "ticker": "COP",
+          "company": "ConocoPhillips",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the stock hit annual highs on higher crude prices; no explicit view on the shares."
+        },
+        {
+          "ticker": "CVX",
+          "company": "Chevron",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the stock hit annual highs on higher crude prices; no explicit view on the shares."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:49.655Z"
+    },
+    "44fbee6e1e83cfce3422d996ab19eac27f05000f964a12529548b07934918ab9": {
+      "id": "44fbee6e1e83cfce3422d996ab19eac27f05000f964a12529548b07934918ab9",
+      "title": "Robinhood Stock Fell 15% in October Before Its Q3 Report. Here’s Where It Could Go by 2030",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/robinhood-stock-fell-15-in-october-before-its-q3-report-heres-where-it-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-26T01:13:52.000Z",
+      "tickerHint": "COIN",
+      "mentions": [
+        {
+          "ticker": "HOOD",
+          "company": "Robinhood Markets",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Lists a mid target price far above the current price, implying large expected upside, though the text is truncated."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:49.734Z"
+    },
+    "154e4297e52d3aba16e85e378e4ff41549fdb6080e510ddcd419398f841eebfb": {
+      "id": "154e4297e52d3aba16e85e378e4ff41549fdb6080e510ddcd419398f841eebfb",
+      "title": "Eli Lilly Stock Fell 2.5% Ahead of Q3. Here’s Why Revenue Could Dip Even as Patients Grow",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/eli-lilly-stock-fell-2-5-ahead-of-q3-heres-why-revenue-could-dip-even-as-patients-grow?ref=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-26T00:15:25.000Z",
+      "tickerHint": "LLY",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:51.098Z"
+    },
+    "7b953de6b5b4ab1c4db6a44da9c0ecaf9ae171cc9c8024a2169271be205e482f": {
+      "id": "7b953de6b5b4ab1c4db6a44da9c0ecaf9ae171cc9c8024a2169271be205e482f",
+      "title": "Apple Briefly Topped Nvidia as Nvidia’s Slide Reached 12%. Here’s Where Apple Stock Could Go by 2030",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/apple-briefly-topped-nvidia-as-nvidias-slide-reached-12-heres-where-apple-stock-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-10-26T01:04:48.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Presents a mid-case target about 40% above the current price and a roughly 9% annualized return, implying upside."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-26T09:13:51.502Z"
     }
   }
 }
