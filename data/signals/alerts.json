@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "bdb51f96e585d23c",
+      "ticker": "BE",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-26T21:09:22.250Z",
+      "firedDate": "2026-10-26",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.367,
+        "sentShift": null,
+        "retRecent": -0.1455,
+        "excessRecent": -0.137,
+        "score": 0.5083
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/4eddb774-be8e-33bf-a3b5-67d37abe27e9/bloom-energy-stock-and-other.html?.tsrc=rss",
+        "https://www.tikr.com/blog/bloom-energy-stock-fell-30-in-under-a-month-while-estimates-rose-heres-where-it-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/meta-earnings-2-other-ai-192300043.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "886b55f33e6d4de5",
+      "ticker": "BE",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-10-26T21:09:22.250Z",
+      "firedDate": "2026-10-26",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.367,
+        "sentShift": null,
+        "retRecent": -0.1455,
+        "excessRecent": -0.137,
+        "score": 0.5083
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/4eddb774-be8e-33bf-a3b5-67d37abe27e9/bloom-energy-stock-and-other.html?.tsrc=rss",
+        "https://www.tikr.com/blog/bloom-energy-stock-fell-30-in-under-a-month-while-estimates-rose-heres-where-it-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/meta-earnings-2-other-ai-192300043.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b590efbd54ecacfe",
       "ticker": "INTC",
       "rule": "MENTION_SPIKE",
