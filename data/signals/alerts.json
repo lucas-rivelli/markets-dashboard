@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "4c052bcd9fe49371",
+      "ticker": "MS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T16:48:30.720Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.114,
+        "sentShift": null,
+        "retRecent": 0.0171,
+        "excessRecent": 0.0219,
+        "score": 0.1584
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/ai-adoption-sustain-morgan-stanleys-144900951.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/banks-reportedly-got-cold-feet-032746843.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/bank-america-blackstone-citi-morgan-201500298.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "9a098d16bd78622e",
       "ticker": "DELL",
       "rule": "MENTION_SPIKE",
