@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "9a098d16bd78622e",
+      "ticker": "DELL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T11:27:19.654Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.12,
+        "sentShift": null,
+        "retRecent": 0.012,
+        "excessRecent": 0.0168,
+        "score": -0.1664
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/dell-stock-sinks-21-in-a-week-after-barclays-downgrade-is-the-ai-rally-losing-steam?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/honeywell-technologies-launches-forge-plant-080000518.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/22/supermicro-could-be-at-the-center-of-the-next-ai-spending-wave/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0c475d315fbb0a5d",
+      "ticker": "META",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-27T11:27:19.653Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 13,
+        "spikeRatio": 26,
+        "sentRecent": 0.163,
+        "sentShift": -0.337,
+        "retRecent": -0.0917,
+        "excessRecent": -0.087,
+        "score": 0.4301
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/brown-forman-2-other-great-101419826.html?.tsrc=rss",
+        "https://www.axios.com/2026/10/27/nvidia-meta-muse-investment#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-AI?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/nvidia-invest-3-bln-meta-064611851.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "6f18aa008ade4f73",
       "ticker": "GS",
       "rule": "MENTION_SPIKE",
