@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "53368f25c54b163d",
+      "ticker": "IBM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T21:07:44.293Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": null,
+        "retRecent": 0.0476,
+        "excessRecent": 0.0524,
+        "score": 0
+      },
+      "topItems": [
+        "https://decrypt.co/381998/intel-oracle-ibm-join-objections-okx-ice-tokenized-stock-total-26?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/ibm-introduces-identity-control-ai-040100163.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/ibm-introduces-identity-control-ai-040100228.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9b4cca7178e8445c",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T21:07:44.292Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.215,
+        "sentShift": null,
+        "retRecent": -0.0387,
+        "excessRecent": -0.034,
+        "score": 0.3462
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/oracle-plans-expand-multicloud-ai-193000795.html?.tsrc=rss",
+        "https://decrypt.co/381998/intel-oracle-ibm-join-objections-okx-ice-tokenized-stock-total-26?.tsrc=rss",
+        "https://finance.yahoo.com/technology/article/oracle-in-effort-to-reduce-reliance-on-nvidia-adds-ai-chips-from-google-cerebras-and-sambanova-160000593.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "4c052bcd9fe49371",
       "ticker": "MS",
       "rule": "MENTION_SPIKE",
