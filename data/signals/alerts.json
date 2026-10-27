@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "6f18aa008ade4f73",
+      "ticker": "GS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T05:54:24.644Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": 0.271,
+        "sentShift": 0.071,
+        "retRecent": 0.0096,
+        "excessRecent": 0.0144,
+        "score": 0.485
+      },
+      "topItems": [
+        "https://beincrypto.com/cramer-buy-goldman-sachs-anthropic-ipo/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/buy-gs-c-solid-q3-123600004.html?.tsrc=rss",
+        "https://www.privatebankerinternational.com/news/north-american-ma-advisers-q1-q3-2026/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "e6c6f11d8ca01eee",
+      "ticker": "C",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-27T05:54:24.644Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.12,
+        "sentShift": null,
+        "retRecent": -0.012,
+        "excessRecent": -0.0072,
+        "score": 0.1937
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/banks-reportedly-got-cold-feet-032746843.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/bank-america-blackstone-citi-morgan-201500298.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/buy-gs-c-solid-q3-123600004.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9be22f70face1f68",
+      "ticker": "TSLA",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-10-27T05:54:24.643Z",
+      "firedDate": "2026-10-27",
+      "metrics": {
+        "mentionsRecent": 30,
+        "spikeRatio": 42.857,
+        "sentRecent": 0.348,
+        "sentShift": 0.348,
+        "retRecent": 0.0479,
+        "excessRecent": 0.0527,
+        "score": 1.1948
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/articles/tesla-could-beyond-robotaxis-underground-043247703.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/tesla-tsla-nearing-sellout-megapack-031850274.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/elon-musk-ally-jason-calacanis-tesla-rally-1m-uber-bet-aims-higher/cZUIsMORBzh?.tsrc=rss"
+      ]
+    },
+    {
       "id": "61c33c57ec9770be",
       "ticker": "AMD",
       "rule": "MENTION_SPIKE",
