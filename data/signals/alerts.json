@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "d59a5a908e31f5c3",
+      "ticker": "HOOD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-28T19:17:07.833Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.167,
+        "sentShift": null,
+        "retRecent": -0.0723,
+        "excessRecent": -0.0679,
+        "score": 0.231
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/8aa305ef-cc61-37d7-bc76-82a4a4324c5b/stock-market-today%3A-nasdaq%2C.html?.tsrc=rss",
+        "https://www.tikr.com/blog/robinhood-stock-fell-15-in-october-before-its-q3-report-heres-where-it-could-go-by-2030?ref=yahoofinance&.tsrc=rss",
+        "https://beincrypto.com/crypto-stocks-to-watch-last-week-october-2026/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b541f8331ca7ffae",
+      "ticker": "CCJ",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-28T19:17:07.833Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.075,
+        "sentShift": null,
+        "retRecent": 0.0048,
+        "excessRecent": 0.0092,
+        "score": -0.1207
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ccj-falls-27-6-6-165100664.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/camecos-raised-revenue-outlook-faces-165000681.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/cameco-worth-buying-premium-valuation-164500892.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "dfb4ba01af455bee",
       "ticker": "QCOM",
       "rule": "MENTION_SPIKE",
