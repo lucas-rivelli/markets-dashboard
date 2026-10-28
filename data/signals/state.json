@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-28T19:17:08.672Z",
-  "startedAt": "2026-10-28T19:14:52.550Z",
+  "lastUpdated": "2026-10-28T23:25:32.693Z",
+  "startedAt": "2026-10-28T23:22:51.544Z",
   "asOf": "2026-10-28",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": true,
-      "count": 10,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "Status code 404"
     },
     {
       "name": "ARK Next Gen Internet",
@@ -137,28 +137,28 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 15,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 13,
+      "count": 12,
       "error": null
     },
     {
@@ -172,21 +172,21 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 15,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 14,
       "error": null
     },
     {
@@ -228,28 +228,28 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — GS",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — XOM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — CEG",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -535,16 +535,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 26,
-    "sourcesFailed": 12,
+    "sourcesOk": 25,
+    "sourcesFailed": 13,
     "sourcesTotal": 38,
-    "itemsFetched": 343,
-    "extractionsTotal": 1864,
-    "mentionsTotal": 640,
+    "itemsFetched": 347,
+    "extractionsTotal": 1943,
+    "mentionsTotal": 666,
     "tickers": 39,
     "pricesOk": 43,
     "alertsTotal": 179,
-    "newAlerts": 2
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -615,17 +615,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 6,
+      "mentionsRecent": 7,
       "mentionsBaseline": 1,
       "baselineRate": 0.233,
-      "spikeRatio": 12,
-      "sentRecent": 0.527,
+      "spikeRatio": 14,
+      "sentRecent": 0.511,
       "sentBaseline": 0.6,
-      "sentShift": -0.073,
+      "sentShift": -0.089,
       "retRecent": -0.0169,
       "excessRecent": -0.0125,
       "ret30": -0.1454,
-      "score": 1.0252,
+      "score": 1.0618,
       "lastPrice": 208.56,
       "lastPriceDate": "2026-10-27",
       "priceBars": 501
@@ -683,32 +683,6 @@
       "priceBars": 502
     },
     {
-      "ticker": "SMCI",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 7,
-      "baselineRate": 1.633,
-      "spikeRatio": 4.898,
-      "sentRecent": 0.414,
-      "sentBaseline": 0.233,
-      "sentShift": 0.181,
-      "retRecent": -0.0135,
-      "excessRecent": -0.0091,
-      "ret30": -0.1601,
-      "score": 0.9086,
-      "lastPrice": 35.09,
-      "lastPriceDate": "2026-10-27",
-      "priceBars": 506
-    },
-    {
       "ticker": "PLTR",
       "discovered": false,
       "flag": "WATCH",
@@ -731,6 +705,37 @@
       "ret30": 0.06,
       "score": 0.891,
       "lastPrice": 198.73,
+      "lastPriceDate": "2026-10-27",
+      "priceBars": 506
+    },
+    {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 34,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 68,
+      "sentRecent": 0.245,
+      "sentBaseline": 0.6,
+      "sentShift": -0.355,
+      "retRecent": -0.003,
+      "excessRecent": 0.0014,
+      "ret30": 0.0434,
+      "score": 0.8694,
+      "lastPrice": 531.33,
       "lastPriceDate": "2026-10-27",
       "priceBars": 506
     },
@@ -761,7 +766,7 @@
       "priceBars": 506
     },
     {
-      "ticker": "AVGO",
+      "ticker": "SMCI",
       "discovered": false,
       "flag": "WATCH",
       "rules": [
@@ -771,18 +776,18 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 17,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 24.286,
-      "sentRecent": 0.278,
-      "sentBaseline": 0.27,
-      "sentShift": 0.008,
-      "retRecent": 0.0134,
-      "excessRecent": 0.0178,
-      "ret30": -0.0207,
-      "score": 0.8027,
-      "lastPrice": 342.33,
+      "mentionsRecent": 9,
+      "mentionsBaseline": 7,
+      "baselineRate": 1.633,
+      "spikeRatio": 5.51,
+      "sentRecent": 0.359,
+      "sentBaseline": 0.233,
+      "sentShift": 0.126,
+      "retRecent": -0.0135,
+      "excessRecent": -0.0091,
+      "ret30": -0.1601,
+      "score": 0.8257,
+      "lastPrice": 35.09,
       "lastPriceDate": "2026-10-27",
       "priceBars": 506
     },
@@ -809,6 +814,32 @@
       "ret30": 0.0918,
       "score": 0.7755,
       "lastPrice": 82.42,
+      "lastPriceDate": "2026-10-27",
+      "priceBars": 506
+    },
+    {
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 18,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 25.714,
+      "sentRecent": 0.258,
+      "sentBaseline": 0.27,
+      "sentShift": -0.012,
+      "retRecent": 0.0134,
+      "excessRecent": 0.0178,
+      "ret30": -0.0207,
+      "score": 0.7603,
+      "lastPrice": 342.33,
       "lastPriceDate": "2026-10-27",
       "priceBars": 506
     },
@@ -979,37 +1010,6 @@
       "priceBars": 501
     },
     {
-      "ticker": "MSFT",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 25,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 50,
-      "sentRecent": 0.162,
-      "sentBaseline": 0.6,
-      "sentShift": -0.438,
-      "retRecent": -0.003,
-      "excessRecent": 0.0014,
-      "ret30": 0.0434,
-      "score": 0.5293,
-      "lastPrice": 531.33,
-      "lastPriceDate": "2026-10-27",
-      "priceBars": 506
-    },
-    {
       "ticker": "GS",
       "discovered": false,
       "flag": "WATCH",
@@ -1093,6 +1093,32 @@
       "priceBars": 506
     },
     {
+      "ticker": "HOOD",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 8,
+      "sentRecent": 0.225,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.0723,
+      "excessRecent": -0.0679,
+      "ret30": -0.188,
+      "score": 0.3621,
+      "lastPrice": 94.56,
+      "lastPriceDate": "2026-10-27",
+      "priceBars": 502
+    },
+    {
       "ticker": "SPCX",
       "discovered": true,
       "flag": "LONG",
@@ -1143,89 +1169,6 @@
       "lastPrice": 560.26,
       "lastPriceDate": "2026-10-27",
       "priceBars": 506
-    },
-    {
-      "ticker": "VST",
-      "discovered": false,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 1,
-      "mentionsBaseline": 9,
-      "baselineRate": 2.1,
-      "spikeRatio": 0.476,
-      "sentRecent": 0.4,
-      "sentBaseline": 0.223,
-      "sentShift": 0.177,
-      "retRecent": -0.0607,
-      "excessRecent": -0.0563,
-      "ret30": 0.0626,
-      "score": 0.2773,
-      "lastPrice": 146.66,
-      "lastPriceDate": "2026-10-27",
-      "priceBars": 506
-    },
-    {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 21,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 42,
-      "sentRecent": 0.078,
-      "sentBaseline": 0.411,
-      "sentShift": -0.333,
-      "retRecent": -0.0424,
-      "excessRecent": -0.0379,
-      "ret30": -0.0647,
-      "score": 0.2413,
-      "lastPrice": 320.58,
-      "lastPriceDate": "2026-10-27",
-      "priceBars": 506
-    },
-    {
-      "ticker": "HOOD",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 3,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 6,
-      "sentRecent": 0.167,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.0723,
-      "excessRecent": -0.0679,
-      "ret30": -0.188,
-      "score": 0.231,
-      "lastPrice": 94.56,
-      "lastPriceDate": "2026-10-27",
-      "priceBars": 502
     },
     {
       "ticker": "CRWV",
@@ -1306,6 +1249,26 @@
       "priceBars": 501
     },
     {
+      "ticker": "VST",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 9,
+      "baselineRate": 2.1,
+      "spikeRatio": 0.952,
+      "sentRecent": 0.16,
+      "sentBaseline": 0.223,
+      "sentShift": -0.063,
+      "retRecent": -0.0607,
+      "excessRecent": -0.0563,
+      "ret30": 0.0626,
+      "score": 0.1758,
+      "lastPrice": 146.66,
+      "lastPriceDate": "2026-10-27",
+      "priceBars": 506
+    },
+    {
       "ticker": "MS",
       "discovered": true,
       "flag": "WATCH",
@@ -1342,17 +1305,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 10,
+      "mentionsRecent": 11,
       "mentionsBaseline": 1,
       "baselineRate": 0.233,
-      "spikeRatio": 20,
-      "sentRecent": 0.035,
+      "spikeRatio": 22,
+      "sentRecent": 0.032,
       "sentBaseline": 0,
-      "sentShift": 0.035,
+      "sentShift": 0.032,
       "retRecent": -0.0903,
       "excessRecent": -0.0859,
       "ret30": -0.1601,
-      "score": 0.0846,
+      "score": 0.0806,
       "lastPrice": 161.09,
       "lastPriceDate": "2026-10-27",
       "priceBars": 506
@@ -1388,17 +1351,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 5,
+      "mentionsRecent": 6,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 10,
-      "sentRecent": 0.026,
+      "spikeRatio": 12,
+      "sentRecent": 0.022,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": 0.0108,
       "excessRecent": 0.0153,
       "ret30": -0.0156,
-      "score": 0.0467,
+      "score": 0.0432,
       "lastPrice": 130.53,
       "lastPriceDate": "2026-10-27",
       "priceBars": 501
@@ -1428,6 +1391,37 @@
       "lastPrice": 250.25,
       "lastPriceDate": "2026-10-27",
       "priceBars": 501
+    },
+    {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 27,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 54,
+      "sentRecent": -0.003,
+      "sentBaseline": 0.411,
+      "sentShift": -0.414,
+      "retRecent": -0.0424,
+      "excessRecent": -0.0379,
+      "ret30": -0.0647,
+      "score": -0.0108,
+      "lastPrice": 320.58,
+      "lastPriceDate": "2026-10-27",
+      "priceBars": 506
     },
     {
       "ticker": "INTC",
@@ -1582,26 +1576,92 @@
   ],
   "readingQueue": [
     {
-      "id": "15643145224afc38b6b0e3d1b1a3291ed82a8ecbae5fcb6bd27940ab5378e495",
-      "title": "Microsoft’s Contracted Backlog Could Grow Into a $1 Trillion Opportunity",
+      "id": "e6950e404bfa71abdd6321aed71eaf457f61242364b5ffc5744dc0e1c4749adf",
+      "title": "Shares in Google owner Alphabet plummet on profit miss, ad slowdown",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/shares-google-owner-alphabet-sink-204437200.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T21:37:18.000Z",
+      "ticker": "GOOGL",
+      "tickers": [
+        "GOOGL"
+      ],
+      "flag": "SHORT",
+      "score": 77.1,
+      "reasons": [
+        "GOOGL: Short candidate",
+        "27 mentions this week (54.0x baseline)",
+        "sentiment shift -0.41"
+      ],
+      "rationale": "Reports a profit miss, a slowing ad business, and heavy AI spending, with shares falling sharply after hours.",
+      "sentiment": -0.6,
+      "confidence": 0.8
+    },
+    {
+      "id": "fe24e419ad66a075a3aad97ce290f2dd32ac1d88a91221264a04926a79904796",
+      "title": "Microsoft beats expectations fueled by Azure cloud business",
       "source": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/28/microsofts-contracted-backlog-could-grow-into-a-1-trillion-opportunity/?.tsrc=rss",
-      "publishedAt": "2026-10-28T12:45:41.000Z",
+      "url": "https://finance.yahoo.com/technology/articles/microsoft-beats-expectations-fueled-azure-224832868.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T22:48:32.000Z",
       "ticker": "MSFT",
       "tickers": [
         "MSFT"
       ],
       "flag": "SHORT",
-      "score": 76.1,
+      "score": 75.8,
       "reasons": [
         "MSFT: Short candidate",
-        "25 mentions this week (50.0x baseline)",
-        "sentiment shift -0.44"
+        "34 mentions this week (68.0x baseline)",
+        "sentiment shift -0.35"
       ],
-      "rationale": "Argues Microsoft's contracted backlog is growing faster than its data center capacity and could become a major opportunity.",
-      "sentiment": 0.5,
-      "confidence": 0.75
+      "rationale": "Reports beat-expectations revenue and profit, with Azure growth of 48 percent, and shares rose over five percent.",
+      "sentiment": 0.6,
+      "confidence": 0.85
+    },
+    {
+      "id": "cdf36051e96cda13ed6adf864c9806a093b9a362148a7bdd98dda43bb560731c",
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/articles/microsoft-hits-10-quarters-record-212530463.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T21:25:30.000Z",
+      "ticker": "MSFT",
+      "tickers": [
+        "MSFT"
+      ],
+      "flag": "SHORT",
+      "score": 75.8,
+      "reasons": [
+        "MSFT: Short candidate",
+        "34 mentions this week (68.0x baseline)",
+        "sentiment shift -0.35"
+      ],
+      "rationale": "Describes Microsoft's current position as very good, citing a record quarterly revenue of $92.3 billion up 19%.",
+      "sentiment": 0.6,
+      "confidence": 0.85
+    },
+    {
+      "id": "9171a1b0a2f93bbc79273da6b18bcaebeb46a3f35a80601560b794173c38cc58",
+      "title": "Microsoft Tops Quarterly Estimates As Azure Growth Accelerates",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/cf3aeb8f-f025-36a5-a48a-15d9ec77a7bb/microsoft-tops-quarterly.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T22:12:51.000Z",
+      "ticker": "MSFT",
+      "tickers": [
+        "MSFT"
+      ],
+      "flag": "SHORT",
+      "score": 75.3,
+      "reasons": [
+        "MSFT: Short candidate",
+        "34 mentions this week (68.0x baseline)",
+        "sentiment shift -0.35"
+      ],
+      "rationale": "Reports Microsoft beat quarterly targets and notes the stock rose, implying a positive view of the results.",
+      "sentiment": 0.6,
+      "confidence": 0.8
     },
     {
       "id": "9839aa0abcd6bc2614fd67489b6eff913169dc593ded7438927eb52e1640e468",
@@ -1626,48 +1686,47 @@
       "confidence": 0.8
     },
     {
-      "id": "6beee30cf354b394310e03c0d72e57fecb70bc012c1deeac7ed5c881f7d42141",
-      "title": "Microsoft might be the 'adult in the room' when it comes AI. Here's why.",
-      "source": "Yahoo Finance — MSFT",
+      "id": "d9161e3d27273f716fcacd2749341eda90b71e43f581a759fe6ac05aa3091f4c",
+      "title": "GOOGL Stock Slumps 11% After-Hours: Alphabet’s Surge in AI Spending Pressures Third-Quarter Profits And Cash Flows",
+      "source": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/video/microsoft-might-be-the-adult-in-the-room-when-it-comes-ai-heres-why-174338169.html?.tsrc=rss",
-      "publishedAt": "2026-10-28T17:43:38.000Z",
-      "ticker": "MSFT",
+      "url": "https://stocktwits.com/news-articles/markets/equity/alphabet-s-surge-in-ai-spending-pressures-third-quarter-profits-and-cash-flows/cZU9MsjR9G8?.tsrc=rss",
+      "publishedAt": "2026-10-28T22:22:24.000Z",
+      "ticker": "GOOGL",
       "tickers": [
-        "MSFT",
         "GOOGL"
       ],
       "flag": "SHORT",
-      "score": 74,
+      "score": 73.9,
       "reasons": [
-        "MSFT: Short candidate",
-        "25 mentions this week (50.0x baseline)",
-        "sentiment shift -0.44"
+        "GOOGL: Short candidate",
+        "27 mentions this week (54.0x baseline)",
+        "sentiment shift -0.41"
       ],
-      "rationale": "Panelists suggest Microsoft may lead in AI because of its AI-powered software ecosystem, ahead of its earnings.",
-      "sentiment": 0.4,
-      "confidence": 0.6
+      "rationale": "Headline reports an after-hours drop tied to heavy AI infrastructure spending pressuring profits and cash flow, despite strong revenue growth.",
+      "sentiment": -0.4,
+      "confidence": 0.7
     },
     {
-      "id": "c59a784b34bbb862bb1fe0688d1f1ae93a88c1fe96db1985208095e9857f470a",
-      "title": "If You Invest $1,000 in Microsoft Today, Here’s What It Could Be Worth by 2030",
-      "source": "Yahoo Finance — MSFT",
+      "id": "20994ec997c1f671a51c3decb52ac266d7c2a594a5875a76c318ea39a058b773",
+      "title": "Google slumps amid fears of AI overspending",
+      "source": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/28/if-you-invest-1000-in-microsoft-today-heres-what-it-could-be-worth-by-2030/?.tsrc=rss",
-      "publishedAt": "2026-10-28T13:33:01.000Z",
-      "ticker": "MSFT",
+      "url": "https://uk.finance.yahoo.com/news/google-slumps-amid-fears-ai-222458519.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T22:24:58.000Z",
+      "ticker": "GOOGL",
       "tickers": [
-        "MSFT"
+        "GOOGL"
       ],
       "flag": "SHORT",
-      "score": 74,
+      "score": 73.3,
       "reasons": [
-        "MSFT: Short candidate",
-        "25 mentions this week (50.0x baseline)",
-        "sentiment shift -0.44"
+        "GOOGL: Short candidate",
+        "27 mentions this week (54.0x baseline)",
+        "sentiment shift -0.41"
       ],
-      "rationale": "Cites Azure passing $100 billion in revenue and a large signed backlog as signs of strength, while asking whether gains reach investors through 2030.",
-      "sentiment": 0.4,
+      "rationale": "Reports the shares falling on concern that a large AI spending program signals overinvestment, a skeptical framing without an explicit author view.",
+      "sentiment": -0.4,
       "confidence": 0.6
     },
     {
@@ -1847,51 +1906,6 @@
       "confidence": 0.6
     },
     {
-      "id": "44b585284c6968fcadcb43dabd59c72b0bd9444e6ac0ca8dda4cac08636588fb",
-      "title": "Microsoft vs. Alphabet earnings: The key metrics investors will be watching",
-      "source": "Yahoo Finance — MSFT",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/video/microsoft-vs-alphabet-earnings-the-key-metrics-investors-will-be-watching-132709130.html?.tsrc=rss",
-      "publishedAt": "2026-10-28T13:27:09.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL",
-        "MSFT"
-      ],
-      "flag": "SHORT",
-      "score": 67,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "21 mentions this week (42.0x baseline)",
-        "sentiment shift -0.33"
-      ],
-      "rationale": "Named as one of two tech giants reporting quarterly earnings, with no view on the stock expressed.",
-      "sentiment": 0,
-      "confidence": 0.8
-    },
-    {
-      "id": "c295b21fd8915841beb551e5956acec33982562ef084a177f8b7c8f659448f3c",
-      "title": "OpenAI plans to buy Google AI chips to expand computing capacity - The Information",
-      "source": "Yahoo Finance — GOOGL",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/openai-plans-buy-google-ai-025209648.html?.tsrc=rss",
-      "publishedAt": "2026-10-28T02:52:09.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL"
-      ],
-      "flag": "SHORT",
-      "score": 67,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "21 mentions this week (42.0x baseline)",
-        "sentiment shift -0.33"
-      ],
-      "rationale": "Reports that OpenAI plans to buy Google's AI chips, with no stated view on Alphabet's stock.",
-      "sentiment": 0,
-      "confidence": 0.8
-    },
-    {
       "id": "03e779254786aefffcbdf7a46f5053859b478535ff0c2dc3dd4bf1166f47bfc4",
       "title": "Tesla Could Go Beyond Robotaxis Into Underground Travel And Electric Aviation — TSLA Could ‘Own’ Transportation, ARK Says",
       "source": "Yahoo Finance — TSLA",
@@ -1910,29 +1924,6 @@
         "sentiment shift +0.34"
       ],
       "rationale": "ARK argues Tesla could dominate transportation, including robotaxis, underground travel, and electric aviation, and may collaborate with The Boring Company.",
-      "sentiment": 0.6,
-      "confidence": 0.7
-    },
-    {
-      "id": "3e9c1d83264b21cc3b9da8abf0e5cd81c53192453c820fb800951601b3c7eab5",
-      "title": "Prediction: 3 Stocks That Will Be Worth More Than Apple 5 Years From Now",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/10/26/prediction-3-stocks-that-will-be-worth-more-than-a/?.tsrc=rss",
-      "publishedAt": "2026-10-27T01:20:00.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL",
-        "NVDA"
-      ],
-      "flag": "SHORT",
-      "score": 64.9,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "21 mentions this week (42.0x baseline)",
-        "sentiment shift -0.33"
-      ],
-      "rationale": "Predicted to outgrow Apple in market value within five years, which implies a positive outlook on the stock.",
       "sentiment": 0.6,
       "confidence": 0.7
     },
@@ -1995,7 +1986,7 @@
       "score": 50.7,
       "reasons": [
         "VRT: Watch",
-        "6 mentions this week (12.0x baseline)",
+        "7 mentions this week (14.0x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Describes Vertiv as benefiting from hyperscaler capex and reports its stock surging on doubled orders.",
@@ -2017,7 +2008,7 @@
       "score": 49.7,
       "reasons": [
         "VRT: Watch",
-        "6 mentions this week (12.0x baseline)",
+        "7 mentions this week (14.0x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Reports that Vertiv beat expectations and its shares rose sharply before the open, framing the results positively.",
@@ -2045,6 +2036,50 @@
       "rationale": "Says Palantir's AI platform is winning customers across government and enterprise at a remarkable rate.",
       "sentiment": 0.7,
       "confidence": 0.8
+    },
+    {
+      "id": "7bebf123dff3bff27c5265f01e7bd4c35cfa1897c41c70a6727067f8aaf56203",
+      "title": "Micron, SK Hynix, Google, Microsoft, Vertiv, Wendy’s, Enphase, and More Stocks That Explain Today’s Market",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/c5c23db3-d508-3c1f-bab0-6408a09c4739/micron%2C-sk-hynix%2C-google%2C.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T21:28:00.000Z",
+      "ticker": "VRT",
+      "tickers": [
+        "VRT"
+      ],
+      "flag": "WATCH",
+      "score": 46.8,
+      "reasons": [
+        "VRT: Watch",
+        "7 mentions this week (14.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports Vertiv as the top S&P 500 performer after it raised full-year guidance, a positive framing without an explicit view.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "208a728ae88d5f010da5f8654a2cc7430d640ee5fcd62625d54ed7ad6ce1af4c",
+      "title": "Why Robinhood thinks we're at the beginning of a prediction market supercycle",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/video/why-robinhood-thinks-were-at-the-beginning-of-a-prediction-market-supercycle-194645061.html?.tsrc=rss",
+      "publishedAt": "2026-10-28T19:46:45.000Z",
+      "ticker": "HOOD",
+      "tickers": [
+        "HOOD"
+      ],
+      "flag": "WATCH",
+      "score": 46.8,
+      "reasons": [
+        "HOOD: Watch",
+        "4 mentions this week (8.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports the CFO's view that prediction markets are entering a supercycle with significant growth ahead for Robinhood.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "5453ff7df7e767c4030a19986570c28c341d722e5733b2eda6fbd3b86a6dd40a",
@@ -2089,48 +2124,6 @@
       "rationale": "Notes the stock fell 27.6% over six months and frames earnings, mine, and cost issues as challenges to its nuclear thesis.",
       "sentiment": -0.4,
       "confidence": 0.6
-    },
-    {
-      "id": "3cf348009a9eba01cef9a90a10d14a6685c7f8103cf55f20f3f2d256fede4a72",
-      "title": "Beyond NVIDIA: Why TSMC Stock Looks Attractive After Q3 Earnings",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/beyond-nvidia-why-tsmc-stock-180000531.html?.tsrc=rss",
-      "publishedAt": "2026-10-28T18:00:00.000Z",
-      "ticker": "TSM",
-      "tickers": [
-        "TSM"
-      ],
-      "flag": "WATCH",
-      "score": 46.7,
-      "reasons": [
-        "TSM: Watch",
-        "10 mentions this week (8.6x baseline)"
-      ],
-      "rationale": "Says the stock looks attractive after Q3 results, citing 41% revenue growth and AI chip demand for its 2026 outlook.",
-      "sentiment": 0.6,
-      "confidence": 0.8
-    },
-    {
-      "id": "e0d0f359805347012e12310e4aba10cd1d827d24c89573565e83a4a939695fa5",
-      "title": "Will Growing Stablecoin Adoption Strengthen Coinbase's Prospects?",
-      "source": "Yahoo Finance — COIN",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/crypto/articles/growing-stablecoin-adoption-strengthen-coinbases-170100414.html?.tsrc=rss",
-      "publishedAt": "2026-10-28T17:01:00.000Z",
-      "ticker": "COIN",
-      "tickers": [
-        "COIN"
-      ],
-      "flag": "WATCH",
-      "score": 46.7,
-      "reasons": [
-        "COIN: Watch",
-        "10 mentions this week (20.0x baseline)"
-      ],
-      "rationale": "Says rising stablecoin usage and large balances, plus banking partnerships, improve Coinbase's prospects for steadier recurring revenue.",
-      "sentiment": 0.6,
-      "confidence": 0.8
     }
   ]
 }
