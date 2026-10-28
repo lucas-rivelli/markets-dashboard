@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-28T00:40:20.998Z",
+  "generatedAt": "2026-10-28T06:34:31.514Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-26",
+  "replayTo": "2026-10-27",
   "windowDays": 37,
   "events": [
     {
@@ -66,7 +66,7 @@
       "ticker": "TSM",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.026942769186027338,
       "fwd20": null
     },
     {
@@ -74,7 +74,7 @@
       "ticker": "LLY",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.0021564757433342185,
       "fwd20": null
     },
     {
@@ -90,7 +90,7 @@
       "ticker": "AMZN",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.03707997770215832,
       "fwd20": null
     },
     {
@@ -98,7 +98,7 @@
       "ticker": "SMCI",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.07989668117126114,
       "fwd20": null
     },
     {
@@ -106,7 +106,7 @@
       "ticker": "AVGO",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.023012777054855382,
       "fwd20": null
     },
     {
@@ -114,7 +114,7 @@
       "ticker": "META",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.10746945575422318,
       "fwd20": null
     },
     {
@@ -122,7 +122,7 @@
       "ticker": "NVDA",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.005997592923966177,
       "fwd20": null
     },
     {
@@ -130,7 +130,7 @@
       "ticker": "JPM",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.0007876762152869698,
       "fwd20": null
     },
     {
@@ -138,7 +138,7 @@
       "ticker": "TSLA",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.08951748230152545,
       "fwd20": null
     },
     {
@@ -146,7 +146,7 @@
       "ticker": "AAPL",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.021592675162315667,
       "fwd20": null
     },
     {
@@ -356,12 +356,100 @@
       "flag": "WATCH",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "TSLA",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "MU",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "AAPL",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "BE",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "MSFT",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "META",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "MS",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "IBM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "DELL",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-27",
+      "ticker": "ASML",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 29,
+      "events": 33,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -377,7 +465,7 @@
     },
     {
       "name": "BEARISH_SHIFT",
-      "events": 5,
+      "events": 8,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -385,7 +473,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 2,
+      "events": 6,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -395,7 +483,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 29,
+      "events": 33,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -403,7 +491,7 @@
     },
     {
       "name": "LONG",
-      "events": 10,
+      "events": 14,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -411,7 +499,7 @@
     },
     {
       "name": "SHORT",
-      "events": 5,
+      "events": 8,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,

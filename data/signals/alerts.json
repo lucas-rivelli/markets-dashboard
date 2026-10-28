@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "8c276445ae961d2c",
+      "ticker": "CVX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-28T06:34:30.330Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.35,
+        "sentShift": -0.25,
+        "retRecent": 0.0064,
+        "excessRecent": 0.0108,
+        "score": 0.4852
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/10/27/ai-power-stocks-fell-7-to-13-in-a-week-while-exxon/?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/why-did-xom-cop-cvx-jump-to-52-week-highs-last-week/cZUdVAARBUz?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/chevron-vs-exxonmobil-stock-edge-134300230.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "e2c9250428f40bb7",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-28T06:34:30.330Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 4.286,
+        "sentRecent": -0.077,
+        "sentShift": -0.077,
+        "retRecent": 0.0018,
+        "excessRecent": 0.0062,
+        "score": -0.1062
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/anthropic-taps-jpmorgan-lead-ipo-013931112.html?.tsrc=rss",
+        "https://247wallst.com/videos/jamie-dimon-just-named-five-threats-to-the-economy-jpmorgan-is-already-acting/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/jpmorganchase-updates-2027-earnings-release-202100414.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "30ba64616412039d",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-10-28T06:34:30.328Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 6,
+        "sentRecent": 0.304,
+        "sentShift": -0.001,
+        "retRecent": -0.0674,
+        "excessRecent": -0.063,
+        "score": 0.6322
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-stocks-5b-doe-044043503.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/constellation-secures-5-billion-doe-021000884.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-corporation-ceg-beats-204502657.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "8cdfc28d00105041",
       "ticker": "DELL",
       "rule": "MENTION_SPIKE",
