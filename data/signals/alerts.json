@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "dfb4ba01af455bee",
+      "ticker": "QCOM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-28T13:46:30.934Z",
+      "firedDate": "2026-10-28",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.355,
+        "sentShift": -0.045,
+        "retRecent": 0.0349,
+        "excessRecent": 0.0393,
+        "score": 0.4915
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/10/28/qualcomm-stock-has-an-ai-opportunity-most-nvidia-investors-may-be-overlooking/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/investors-may-respond-qualcomm-stock-011117867.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/23/prediction-this-chip-stock-could-be-a-sleeper-ai-winner/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "8c276445ae961d2c",
       "ticker": "CVX",
       "rule": "MENTION_SPIKE",
