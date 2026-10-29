@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-28T23:25:32.691Z",
+  "generatedAt": "2026-10-29T02:39:48.683Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-27",
+  "replayTo": "2026-10-28",
   "windowDays": 37,
   "events": [
     {
@@ -154,7 +154,7 @@
       "ticker": "CEG",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.04575179169425303,
       "fwd20": null
     },
     {
@@ -444,12 +444,76 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "CVX",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "QCOM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "HOOD",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "SPCX",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "MRVL",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "BAC",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-28",
+      "ticker": "CCJ",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 33,
+      "events": 40,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -457,7 +521,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 8,
+      "events": 9,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -483,7 +547,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 33,
+      "events": 40,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -491,7 +555,7 @@
     },
     {
       "name": "LONG",
-      "events": 14,
+      "events": 15,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
