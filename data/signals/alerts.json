@@ -2,6 +2,121 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "684ae8afd79a8d88",
+      "ticker": "WMT",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T16:21:41.398Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": -0.0194,
+        "excessRecent": -0.0303,
+        "score": 0
+      },
+      "topItems": [
+        "https://unchainedcrypto.com/walmart-eli-lilly-and-cigna-file-objections-to-ice-and-okxs-tokenized-stock-venue/?.tsrc=rss",
+        "https://decrypt.co/382145/walmart-blocks-stock-okx-ice-tokenized-trading-venue?.tsrc=rss",
+        "https://www.businessinsider.com/recent-company-layoffs-laying-off-workers-2026?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "793d6598f71051e8",
+      "ticker": "DASH",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T16:21:41.397Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": null,
+        "retRecent": -0.0885,
+        "excessRecent": -0.0994,
+        "score": 0
+      },
+      "topItems": [
+        "https://firstformoney.com/doordash-plans-to-buy-instacart-for-17b-what-that-means-for-consumers-grocers-and-delivery-workers/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/doordash-soon-could-acquire-grocery-202305730.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/doordash-advanced-talks-acquire-instacart-200418058.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "646751d7064049e0",
+      "ticker": "F",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T16:21:41.394Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.023,
+        "sentShift": null,
+        "retRecent": 0.0008,
+        "excessRecent": -0.0101,
+        "score": 0.032
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/tesla-vs-ford-stock-edge-143900506.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ford-q3-earnings-beat-ford-143300651.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/27/fords-maverick-hybrid-sales-just-surged-60-heres/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1318798bd9b4f437",
+      "ticker": "CART",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T16:21:41.394Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": null,
+        "retRecent": 0.1304,
+        "excessRecent": 0.1195,
+        "score": 0
+      },
+      "topItems": [
+        "https://firstformoney.com/doordash-plans-to-buy-instacart-for-17b-what-that-means-for-consumers-grocers-and-delivery-workers/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/doordash-soon-could-acquire-grocery-202305730.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/doordash-advanced-talks-acquire-instacart-200418058.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "266b7d9832ad856f",
+      "ticker": "MRK",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T16:21:41.392Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.053,
+        "sentShift": null,
+        "retRecent": -0.0429,
+        "excessRecent": -0.0538,
+        "score": 0.073
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/10/29/merck-rises-5-as-earnings-beat-lifts-profit-outlook-eli-lilly-climbs-7-johnson-johnson-edges-higher/?.tsrc=rss",
+        "https://www.tikr.com/blog/merck-jumps-nearly-5-on-q3-beat-and-raised-outlook-as-ceo-touts-potentially-practice-changing-pipeline?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/healthcare/articles/whats-store-5-drug-biotech-134700230.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "16bf848bcf63a493",
       "ticker": "LITE",
       "rule": "MENTION_SPIKE",
