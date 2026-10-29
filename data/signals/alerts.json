@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "16bf848bcf63a493",
+      "ticker": "LITE",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T09:16:01.882Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.261,
+        "sentShift": null,
+        "retRecent": 0.2145,
+        "excessRecent": 0.2036,
+        "score": 0.3618
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/10/29/not-nvidia-not-amd-this-is-the-best-artificial-intelligence-ai-stock-to-buy-in-november/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/28/marvell-wants-lumentum-heres-why-coherent-could-win/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/lumentum-shares-jump-135-ytd-165400965.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "4c0395491aa0b8b4",
       "ticker": "CCJ",
       "rule": "MENTION_SPIKE",
