@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "624e76b822d393d2",
+      "ticker": "NBIS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T21:19:55.160Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.2,
+        "sentShift": null,
+        "retRecent": 0.1456,
+        "excessRecent": 0.1346,
+        "score": 0.2773
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/does-nebius-group-nbis-face-191810478.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/nebius-group-bulls-got-011019536.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/f50ef86d-1854-3c93-8629-76d3300a1070/neoclouds-face-%E2%80%98guppy-level.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1a3bf927d0486824",
+      "ticker": "ADI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-29T21:19:55.158Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.22,
+        "sentShift": null,
+        "retRecent": 0.1102,
+        "excessRecent": 0.0993,
+        "score": 0.3043
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/4364a01c-d452-3ae6-8e18-06c61a12054d/living-on-the-edge-with.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/asic-global-strategic-business-report-143600094.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/global-application-specific-integrated-circuits-142500765.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "2c3a5ce65ce4d291",
+      "ticker": "CVX",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-29T21:19:55.157Z",
+      "firedDate": "2026-10-29",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": 0.294,
+        "sentShift": -0.306,
+        "retRecent": 0.0111,
+        "excessRecent": 0.0002,
+        "score": 0.527
+      },
+      "topItems": [
+        "https://finance.yahoo.com/energy/articles/exxon-chevron-cancel-uae-oil-182546458.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/3-energy-stocks-poised-outshine-114200418.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/27/ai-power-stocks-fell-7-to-13-in-a-week-while-exxon/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "684ae8afd79a8d88",
       "ticker": "WMT",
       "rule": "MENTION_SPIKE",
