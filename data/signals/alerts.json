@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "7c506881431f27e4",
+      "ticker": "VZ",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-30T23:28:54.691Z",
+      "firedDate": "2026-10-30",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.373,
+        "sentShift": null,
+        "retRecent": -0.0224,
+        "excessRecent": -0.0347,
+        "score": 0.5167
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-verizon-221305487.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/why-verizon-vz-stock-down-025447041.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/086252f8-6c99-322f-af81-e2eb7c11ec0b/verizon-earnings-show-why-its.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "ca88d2854cf8eac9",
       "ticker": "BX",
       "rule": "MENTION_SPIKE",
