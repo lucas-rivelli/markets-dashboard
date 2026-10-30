@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-29T21:19:56.839Z",
+  "generatedAt": "2026-10-30T01:16:05.724Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-28",
+  "replayTo": "2026-10-29",
   "windowDays": 37,
   "events": [
     {
@@ -162,7 +162,7 @@
       "ticker": "VST",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.006216341728490615,
       "fwd20": null
     },
     {
@@ -508,12 +508,116 @@
       "flag": "WATCH",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "MU",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "CVX",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "NI",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "LITE",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "ADI",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "NBIS",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "MRK",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "F",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "CART",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "DASH",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "WMT",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "SMR",
+      "rule": "DIVERGENCE_SHORT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
+      "ticker": "ASML",
+      "rule": "DIVERGENCE_SHORT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 40,
+      "events": 49,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -529,7 +633,7 @@
     },
     {
       "name": "BEARISH_SHIFT",
-      "events": 8,
+      "events": 9,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -537,7 +641,15 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 6,
+      "events": 7,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    },
+    {
+      "name": "DIVERGENCE_SHORT",
+      "events": 2,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -547,7 +659,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 40,
+      "events": 49,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -555,7 +667,7 @@
     },
     {
       "name": "LONG",
-      "events": 15,
+      "events": 16,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -563,7 +675,7 @@
     },
     {
       "name": "SHORT",
-      "events": 8,
+      "events": 11,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
