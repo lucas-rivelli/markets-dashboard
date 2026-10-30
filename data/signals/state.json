@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-30T14:29:37.248Z",
-  "startedAt": "2026-10-30T14:26:29.681Z",
+  "lastUpdated": "2026-10-30T19:38:33.499Z",
+  "startedAt": "2026-10-30T19:35:09.992Z",
   "asOf": "2026-10-30",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,21 +137,21 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 14,
       "error": null
     },
     {
@@ -165,21 +165,21 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 10,
+      "count": 14,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 16,
       "error": null
     },
     {
@@ -193,7 +193,7 @@
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 18,
       "error": null
     },
     {
@@ -207,14 +207,14 @@
       "name": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — SMCI",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -242,7 +242,7 @@
       "name": "Yahoo Finance — XOM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 15,
       "error": null
     },
     {
@@ -270,7 +270,7 @@
       "name": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 20,
       "error": null
     }
   ],
@@ -429,6 +429,12 @@
       "ticker": "BE",
       "ok": true,
       "bars": 503,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "BX",
+      "ok": true,
+      "bars": 501,
       "provider": "nasdaq"
     },
     {
@@ -634,15 +640,46 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 342,
-    "extractionsTotal": 2485,
-    "mentionsTotal": 879,
-    "tickers": 53,
-    "pricesOk": 59,
-    "alertsTotal": 288,
-    "newAlerts": 3
+    "itemsFetched": 337,
+    "extractionsTotal": 2564,
+    "mentionsTotal": 901,
+    "tickers": 54,
+    "pricesOk": 60,
+    "alertsTotal": 289,
+    "newAlerts": 1
   },
   "rows": [
+    {
+      "ticker": "MU",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 20,
+      "sentRecent": 0.566,
+      "sentBaseline": 0.25,
+      "sentShift": 0.316,
+      "retRecent": 0.0646,
+      "excessRecent": 0.0523,
+      "ret30": -0.1228,
+      "score": 1.357,
+      "lastPrice": 934.27,
+      "lastPriceDate": "2026-10-29",
+      "priceBars": 504
+    },
     {
       "ticker": "TSLA",
       "discovered": false,
@@ -675,37 +712,6 @@
       "priceBars": 508
     },
     {
-      "ticker": "MU",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 18,
-      "sentRecent": 0.574,
-      "sentBaseline": 0.25,
-      "sentShift": 0.324,
-      "retRecent": 0.0646,
-      "excessRecent": 0.0523,
-      "ret30": -0.1228,
-      "score": 1.3211,
-      "lastPrice": 934.27,
-      "lastPriceDate": "2026-10-29",
-      "priceBars": 504
-    },
-    {
       "ticker": "LLY",
       "discovered": false,
       "flag": "WATCH",
@@ -716,17 +722,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 31,
+      "mentionsRecent": 33,
       "mentionsBaseline": 8,
       "baselineRate": 1.867,
-      "spikeRatio": 16.607,
-      "sentRecent": 0.36,
+      "spikeRatio": 17.679,
+      "sentRecent": 0.368,
       "sentBaseline": 0.401,
-      "sentShift": -0.041,
+      "sentShift": -0.032,
       "retRecent": 0.0787,
       "excessRecent": 0.0664,
       "ret30": 0.1872,
-      "score": 1.2469,
+      "score": 1.299,
       "lastPrice": 1373.7,
       "lastPriceDate": "2026-10-29",
       "priceBars": 508
@@ -758,6 +764,32 @@
       "priceBars": 508
     },
     {
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 28,
+      "mentionsBaseline": 4,
+      "baselineRate": 0.933,
+      "spikeRatio": 30,
+      "sentRecent": 0.327,
+      "sentBaseline": 0.356,
+      "sentShift": -0.029,
+      "retRecent": 0.0725,
+      "excessRecent": 0.0601,
+      "ret30": -0.0176,
+      "score": 1.1011,
+      "lastPrice": 345,
+      "lastPriceDate": "2026-10-29",
+      "priceBars": 508
+    },
+    {
       "ticker": "VRT",
       "discovered": true,
       "flag": "WATCH",
@@ -784,32 +816,6 @@
       "priceBars": 503
     },
     {
-      "ticker": "AVGO",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 25,
-      "mentionsBaseline": 4,
-      "baselineRate": 0.933,
-      "spikeRatio": 26.786,
-      "sentRecent": 0.304,
-      "sentBaseline": 0.356,
-      "sentShift": -0.052,
-      "retRecent": 0.0725,
-      "excessRecent": 0.0601,
-      "ret30": -0.0176,
-      "score": 0.9896,
-      "lastPrice": 345,
-      "lastPriceDate": "2026-10-29",
-      "priceBars": 508
-    },
-    {
       "ticker": "NVDA",
       "discovered": false,
       "flag": "WATCH",
@@ -820,17 +826,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 38,
+      "mentionsRecent": 41,
       "mentionsBaseline": 6,
       "baselineRate": 1.4,
-      "spikeRatio": 27.143,
-      "sentRecent": 0.268,
+      "spikeRatio": 29.286,
+      "sentRecent": 0.273,
       "sentBaseline": 0.2,
-      "sentShift": 0.068,
+      "sentShift": 0.073,
       "retRecent": 0.0128,
       "excessRecent": 0.0004,
       "ret30": -0.0645,
-      "score": 0.9809,
+      "score": 1.0203,
       "lastPrice": 213.66,
       "lastPriceDate": "2026-10-29",
       "priceBars": 508
@@ -872,17 +878,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 18,
+      "mentionsRecent": 20,
       "mentionsBaseline": 3,
       "baselineRate": 0.7,
-      "spikeRatio": 25.714,
-      "sentRecent": 0.287,
+      "spikeRatio": 28.571,
+      "sentRecent": 0.289,
       "sentBaseline": 0.566,
-      "sentShift": -0.279,
+      "sentShift": -0.277,
       "retRecent": -0.0017,
       "excessRecent": -0.014,
       "ret30": 0.0501,
-      "score": 0.8453,
+      "score": 0.8786,
       "lastPrice": 196.42,
       "lastPriceDate": "2026-10-29",
       "priceBars": 508
@@ -1038,17 +1044,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 22,
+      "mentionsRecent": 24,
       "mentionsBaseline": 5,
       "baselineRate": 1.167,
-      "spikeRatio": 18.857,
-      "sentRecent": 0.197,
+      "spikeRatio": 20.571,
+      "sentRecent": 0.194,
       "sentBaseline": -0.074,
-      "sentShift": 0.271,
+      "sentShift": 0.268,
       "retRecent": 0.0034,
       "excessRecent": -0.0089,
       "ret30": 0.0477,
-      "score": 0.6179,
+      "score": 0.6233,
       "lastPrice": 348.91,
       "lastPriceDate": "2026-10-29",
       "priceBars": 508
@@ -1078,6 +1084,26 @@
       "lastPrice": 222.3,
       "lastPriceDate": "2026-10-29",
       "priceBars": 503
+    },
+    {
+      "ticker": "NEE",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 12,
+      "baselineRate": 2.8,
+      "spikeRatio": 1.071,
+      "sentRecent": 0.417,
+      "sentBaseline": 0.249,
+      "sentShift": 0.168,
+      "retRecent": 0.0005,
+      "excessRecent": -0.0119,
+      "ret30": 0.0845,
+      "score": 0.5776,
+      "lastPrice": 82.14,
+      "lastPriceDate": "2026-10-29",
+      "priceBars": 508
     },
     {
       "ticker": "GS",
@@ -1168,38 +1194,18 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 42,
+      "mentionsRecent": 45,
       "mentionsBaseline": 4,
       "baselineRate": 0.933,
-      "spikeRatio": 45,
-      "sentRecent": 0.121,
+      "spikeRatio": 48.214,
+      "sentRecent": 0.123,
       "sentBaseline": 0.325,
-      "sentShift": -0.204,
+      "sentShift": -0.202,
       "retRecent": -0.017,
       "excessRecent": -0.0293,
       "ret30": -0.0215,
-      "score": 0.4536,
+      "score": 0.4725,
       "lastPrice": 243.79,
-      "lastPriceDate": "2026-10-29",
-      "priceBars": 508
-    },
-    {
-      "ticker": "NEE",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 12,
-      "baselineRate": 2.8,
-      "spikeRatio": 0.714,
-      "sentRecent": 0.4,
-      "sentBaseline": 0.249,
-      "sentShift": 0.151,
-      "retRecent": 0.0005,
-      "excessRecent": -0.0119,
-      "ret30": 0.0845,
-      "score": 0.4394,
-      "lastPrice": 82.14,
       "lastPriceDate": "2026-10-29",
       "priceBars": 508
     },
@@ -1334,37 +1340,6 @@
       "priceBars": 508
     },
     {
-      "ticker": "C",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 3,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 6,
-      "sentRecent": 0.253,
-      "sentBaseline": -0.4,
-      "sentShift": 0.653,
-      "retRecent": 0.0426,
-      "excessRecent": 0.0303,
-      "ret30": -0.0287,
-      "score": 0.351,
-      "lastPrice": 125.76,
-      "lastPriceDate": "2026-10-29",
-      "priceBars": 503
-    },
-    {
       "ticker": "SPCX",
       "discovered": true,
       "flag": null,
@@ -1437,6 +1412,37 @@
       "priceBars": 502
     },
     {
+      "ticker": "C",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 8,
+      "sentRecent": 0.189,
+      "sentBaseline": -0.4,
+      "sentShift": 0.589,
+      "retRecent": 0.0426,
+      "excessRecent": 0.0303,
+      "ret30": -0.0287,
+      "score": 0.304,
+      "lastPrice": 125.76,
+      "lastPriceDate": "2026-10-29",
+      "priceBars": 503
+    },
+    {
       "ticker": "NBIS",
       "discovered": true,
       "flag": "WATCH",
@@ -1473,17 +1479,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 5,
+      "mentionsRecent": 6,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 10,
-      "sentRecent": 0.136,
+      "spikeRatio": 12,
+      "sentRecent": 0.11,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": 0.0115,
       "excessRecent": -0.0009,
       "ret30": -0.0604,
-      "score": 0.2443,
+      "score": 0.2136,
       "lastPrice": 51.14,
       "lastPriceDate": "2026-10-29",
       "priceBars": 502
@@ -1530,17 +1536,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 4,
+      "mentionsRecent": 5,
       "mentionsBaseline": 0,
       "baselineRate": 0,
-      "spikeRatio": 8,
-      "sentRecent": 0.089,
+      "spikeRatio": 10,
+      "sentRecent": 0.069,
       "sentBaseline": null,
       "sentShift": null,
       "retRecent": 0.0586,
       "excessRecent": 0.0462,
       "ret30": 0.0102,
-      "score": 0.1431,
+      "score": 0.1229,
       "lastPrice": 190,
       "lastPriceDate": "2026-10-29",
       "priceBars": 503
@@ -1668,6 +1674,32 @@
       "lastPrice": 258.28,
       "lastPriceDate": "2026-10-29",
       "priceBars": 503
+    },
+    {
+      "ticker": "BX",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 6,
+      "sentRecent": 0,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": 0.0223,
+      "excessRecent": 0.0099,
+      "ret30": 0.0759,
+      "score": 0,
+      "lastPrice": 120.6,
+      "lastPriceDate": "2026-10-29",
+      "priceBars": 501
     },
     {
       "ticker": "CART",
@@ -1973,17 +2005,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 16,
+      "mentionsRecent": 17,
       "mentionsBaseline": 1,
       "baselineRate": 0.233,
-      "spikeRatio": 32,
-      "sentRecent": -0.249,
+      "spikeRatio": 34,
+      "sentRecent": -0.233,
       "sentBaseline": -0.3,
-      "sentShift": 0.051,
+      "sentShift": 0.067,
       "retRecent": 0.0588,
       "excessRecent": 0.0464,
       "ret30": -0.2342,
-      "score": -0.7055,
+      "score": -0.6735,
       "lastPrice": 92.07,
       "lastPriceDate": "2026-10-29",
       "priceBars": 503
@@ -2132,6 +2164,32 @@
       "confidence": 0.6
     },
     {
+      "id": "60e4ab500bc71f8bb4c2710f58e20da1f77244539c24d8ebb994fd1f0e1fde7d",
+      "title": "Cramer: Broadcom’s $63 Billion Anthropic Financing Works Because “There Is Only One Hock”",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/cramer-broadcoms-63-billion-anthropic-financing-works-because-there-is-only-one-hock?ref=yahoofinance&tlnk=yf-261030-vq95r5g2&.tsrc=rss",
+      "publishedAt": "2026-10-30T18:13:29.000Z",
+      "ticker": "C",
+      "tickers": [
+        "C",
+        "AVGO",
+        "BAC",
+        "MS",
+        "BX"
+      ],
+      "flag": "LONG",
+      "score": 78.7,
+      "reasons": [
+        "C: Long candidate",
+        "sentiment shift +0.59",
+        "4 mentions this week (8.0x baseline)"
+      ],
+      "rationale": "Named as one of the banks committing $63 billion to the vehicle, with no view on its stock.",
+      "sentiment": 0,
+      "confidence": 0.8
+    },
+    {
       "id": "e02cc8da486647e7639e592ce06b3ba6904d5010a9f8d618b63dbd1301419f4a",
       "title": "Could Alphabet Actually Climb 67%? Or Is Pivotal Research Totally Wrong?",
       "source": "Yahoo Finance — GOOGL",
@@ -2176,6 +2234,29 @@
       "confidence": 0.8
     },
     {
+      "id": "33754295f2c7245e8592e1b85271038f78a07dd7474aaad849eaee20a451f83b",
+      "title": "2 AI Stocks Poised to Surge on the Halloween Effect",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/2-ai-stocks-poised-surge-180000078.html?.tsrc=rss",
+      "publishedAt": "2026-10-30T18:00:00.000Z",
+      "ticker": "MU",
+      "tickers": [
+        "MU",
+        "NVDA"
+      ],
+      "flag": "LONG",
+      "score": 76.1,
+      "reasons": [
+        "MU: Long candidate",
+        "10 mentions this week (20.0x baseline)",
+        "sentiment shift +0.32"
+      ],
+      "rationale": "Says Micron could benefit from seasonal buying due to AI demand, revenue growth and expanding margins.",
+      "sentiment": 0.5,
+      "confidence": 0.7
+    },
+    {
       "id": "c52e1bc073194f154a96e9ea9767a59646ade12220674aaf8d9a168889e3a21f",
       "title": "Cramer Calls Microsoft a Buy, Says Alphabet Carries Too Much Baggage",
       "source": "Yahoo Finance — MSFT",
@@ -2210,10 +2291,10 @@
         "MU"
       ],
       "flag": "LONG",
-      "score": 75.5,
+      "score": 75.3,
       "reasons": [
         "MU: Long candidate",
-        "9 mentions this week (18.0x baseline)",
+        "10 mentions this week (20.0x baseline)",
         "sentiment shift +0.32"
       ],
       "rationale": "Expects tighter memory supply in 2027 to push Micron's shares higher, implying further upside after its recent run.",
@@ -2255,37 +2336,15 @@
         "MU"
       ],
       "flag": "LONG",
-      "score": 71.2,
+      "score": 71,
       "reasons": [
         "MU: Long candidate",
-        "9 mentions this week (18.0x baseline)",
-        "sentiment shift +0.32"
+        "10 mentions this week (20.0x baseline)",
+        "bullish view, confidence 0.75"
       ],
       "rationale": "Argues Micron's shares look very cheap on forward earnings and that the market is mispricing the stock, a buy signal.",
       "sentiment": 0.8,
       "confidence": 0.75
-    },
-    {
-      "id": "a07607b3e2a852764bfea06c58ff7d3d85a5478b4c7dfe2f730d6388650c5ccb",
-      "title": "Here's Why Micron Is a Top AI Stock to Buy Right Now",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/10/28/heres-why-micron-is-a-top-ai-stock-to-buy-right-no/?.tsrc=rss",
-      "publishedAt": "2026-10-29T00:38:00.000Z",
-      "ticker": "MU",
-      "tickers": [
-        "MU"
-      ],
-      "flag": "LONG",
-      "score": 69.5,
-      "reasons": [
-        "MU: Long candidate",
-        "9 mentions this week (18.0x baseline)",
-        "sentiment shift +0.32"
-      ],
-      "rationale": "Headline calls Micron a top AI stock to buy, and the body describes the memory-chip maker as a bargain.",
-      "sentiment": 0.8,
-      "confidence": 0.6
     },
     {
       "id": "5252e159c444e7835ae7d7c12fc8496b40a1e0a676a56d002fd4392ae5d85158",
@@ -2436,7 +2495,7 @@
       "score": 52,
       "reasons": [
         "INTC: Watch",
-        "16 mentions this week (32.0x baseline)",
+        "17 mentions this week (34.0x baseline)",
         "bearish view, confidence 0.80"
       ],
       "rationale": "Item says the weak outlook overshadowed an earnings beat, and the stock plunged on the guidance.",
@@ -2454,15 +2513,15 @@
       "tickers": [
         "C",
         "BAC",
-        "MS",
-        "BX"
+        "BX",
+        "MS"
       ],
       "flag": "LONG",
-      "score": 52,
+      "score": 51.8,
       "reasons": [
         "C: Long candidate",
-        "sentiment shift +0.65",
-        "3 mentions this week (6.0x baseline)"
+        "sentiment shift +0.59",
+        "4 mentions this week (8.0x baseline)"
       ],
       "rationale": "Named only as one of the lenders committing $63 billion to the Broadcom financing, with no stated view.",
       "sentiment": 0,
@@ -2505,7 +2564,7 @@
       "score": 48.6,
       "reasons": [
         "INTC: Watch",
-        "16 mentions this week (32.0x baseline)",
+        "17 mentions this week (34.0x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Notes Intel beat earnings but its weak outlook and rising spending plans raised concerns, with the stock plunging.",
@@ -2527,7 +2586,7 @@
       "score": 48.6,
       "reasons": [
         "INTC: Watch",
-        "16 mentions this week (32.0x baseline)",
+        "17 mentions this week (34.0x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Reports a 23% after-hours drop on a weak fourth-quarter guide and Jim Cramer's angry reaction to it.",
@@ -2555,28 +2614,6 @@
       "rationale": "Presents a far-above-price target and roughly 21% annualized return projection, implying strong upside despite recent bond issuance.",
       "sentiment": 0.7,
       "confidence": 0.85
-    },
-    {
-      "id": "4796a40231169232152de0e298697f7a02f01cbc604be508b165a0149e022442",
-      "title": "Eli Lilly Stock Rose Nearly 7% to a Record as It Lifted Its 2026 Sales Forecast to as Much as $92 Billion. Here’s Where the Stock Could Go",
-      "source": "Yahoo Finance — LLY",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/eli-lilly-stock-rose-nearly-7-to-a-record-as-it-lifted-its-2026-sales-forecast-to-as-much-as-92-billion-heres-where-the-stock-could-go?ref=yahoofinance&.tsrc=rss",
-      "publishedAt": "2026-10-30T13:02:36.000Z",
-      "ticker": "LLY",
-      "tickers": [
-        "LLY"
-      ],
-      "flag": "WATCH",
-      "score": 48,
-      "reasons": [
-        "LLY: Watch",
-        "31 mentions this week (16.6x baseline)",
-        "bullish view, confidence 0.80"
-      ],
-      "rationale": "Projects about 70% potential return from a mid target near $2,340, after the stock hit a record on a raised sales forecast.",
-      "sentiment": 0.7,
-      "confidence": 0.8
     }
   ]
 }
