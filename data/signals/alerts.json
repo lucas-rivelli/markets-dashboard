@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "ce602997474598f7",
+      "ticker": "RDDT",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-10-30T14:29:36.141Z",
+      "firedDate": "2026-10-30",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.457,
+        "sentShift": -1.157,
+        "retRecent": -0.1016,
+        "excessRecent": -0.1139,
+        "score": -0.7357
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/citizens-downgrades-reddit-google-ai-140537332.html?.tsrc=rss",
+        "https://www.tikr.com/blog/reddit-sinks-25-as-search-traffic-falls-down-meaningfully-and-q4-guidance-disappoints?ref=yahoofinance&.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/30/reddit-plunges-25-as-search-traffic-slump-and-soft-outlook-overshadow-earnings-beat-snap-falls-5-pinterest-drops-4-meta-dips/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "a40802f25571b8a5",
+      "ticker": "RDDT",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-30T14:29:36.140Z",
+      "firedDate": "2026-10-30",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.457,
+        "sentShift": -1.157,
+        "retRecent": -0.1016,
+        "excessRecent": -0.1139,
+        "score": -0.7357
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/citizens-downgrades-reddit-google-ai-140537332.html?.tsrc=rss",
+        "https://www.tikr.com/blog/reddit-sinks-25-as-search-traffic-falls-down-meaningfully-and-q4-guidance-disappoints?ref=yahoofinance&.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/30/reddit-plunges-25-as-search-traffic-slump-and-soft-outlook-overshadow-earnings-beat-snap-falls-5-pinterest-drops-4-meta-dips/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "249329a8816868e7",
+      "ticker": "RIVN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-10-30T14:29:36.138Z",
+      "firedDate": "2026-10-30",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.568,
+        "sentShift": null,
+        "retRecent": -0.0321,
+        "excessRecent": -0.0445,
+        "score": 0.7877
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/rivian-soars-4-on-r2-driven-beat-and-raised-guidance-ceo-very-confident-on-uber-milestone?ref=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/m/1a80829c-dd18-3b7c-9cb5-19f348c81f78/rivian-earnings-show-there-is.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/24/rivian-shines-as-a-bright-spot-in-a-down-us-ev-mar/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "aa7e16d4d9101b60",
       "ticker": "ANET",
       "rule": "BULLISH_SHIFT",
