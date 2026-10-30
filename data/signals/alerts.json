@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "aa7e16d4d9101b60",
+      "ticker": "ANET",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-10-30T07:30:34.764Z",
+      "firedDate": "2026-10-30",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.61,
+        "sentShift": 0.61,
+        "retRecent": 0.0687,
+        "excessRecent": 0.0564,
+        "score": 0.6698
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/arista-networks-anet-vs-csco-172012012.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/arista-networks-anet-winning-ai-210715608.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/22/supermicro-could-be-at-the-center-of-the-next-ai-spending-wave/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "3c7444c2ad8ef977",
       "ticker": "DELL",
       "rule": "MENTION_SPIKE",

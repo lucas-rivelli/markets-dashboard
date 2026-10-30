@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T01:16:05.724Z",
+  "generatedAt": "2026-10-30T07:30:36.032Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-10-29",
@@ -519,6 +519,14 @@
     },
     {
       "date": "2026-10-29",
+      "ticker": "ANET",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-29",
       "ticker": "CVX",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
@@ -641,7 +649,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 7,
+      "events": 8,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -667,7 +675,7 @@
     },
     {
       "name": "LONG",
-      "events": 16,
+      "events": 17,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
