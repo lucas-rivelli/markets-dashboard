@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-31T09:13:58.849Z",
-  "startedAt": "2026-10-31T09:10:53.360Z",
+  "lastUpdated": "2026-10-31T15:30:03.730Z",
+  "startedAt": "2026-10-31T15:26:41.760Z",
   "asOf": "2026-10-31",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,28 +137,28 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 18,
       "error": null
     },
     {
@@ -172,7 +172,7 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
       "name": "Yahoo Finance — COIN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 17,
       "error": null
     },
     {
@@ -235,7 +235,7 @@
       "name": "Yahoo Finance — GS",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -646,9 +646,9 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 337,
-    "extractionsTotal": 2767,
-    "mentionsTotal": 971,
+    "itemsFetched": 355,
+    "extractionsTotal": 2836,
+    "mentionsTotal": 978,
     "tickers": 55,
     "pricesOk": 61,
     "alertsTotal": 348,
@@ -754,17 +754,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 38,
+      "mentionsRecent": 40,
       "mentionsBaseline": 13,
       "baselineRate": 3.033,
-      "spikeRatio": 12.527,
+      "spikeRatio": 13.187,
       "sentRecent": 0.326,
       "sentBaseline": 0.149,
       "sentShift": 0.177,
       "retRecent": -0.03,
       "excessRecent": -0.0244,
       "ret30": -0.1136,
-      "score": 1.1943,
+      "score": 1.2101,
       "lastPrice": 204.64,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -780,17 +780,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 52,
+      "mentionsRecent": 53,
       "mentionsBaseline": 4,
       "baselineRate": 0.933,
-      "spikeRatio": 55.714,
-      "sentRecent": 0.299,
+      "spikeRatio": 56.786,
+      "sentRecent": 0.294,
       "sentBaseline": 0.536,
-      "sentShift": -0.236,
+      "sentShift": -0.241,
       "retRecent": -0.005,
       "excessRecent": 0.0006,
       "ret30": 0.0178,
-      "score": 1.1878,
+      "score": 1.1739,
       "lastPrice": 521.91,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -957,6 +957,42 @@
       "priceBars": 509
     },
     {
+      "ticker": "MRVL",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 10,
+      "sentRecent": 0.409,
+      "sentBaseline": -0.3,
+      "sentShift": 0.709,
+      "retRecent": -0.1405,
+      "excessRecent": -0.1349,
+      "ret30": -0.2674,
+      "score": 0.7335,
+      "lastPrice": 196.4,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 503
+    },
+    {
       "ticker": "CEG",
       "discovered": false,
       "flag": "WATCH",
@@ -1007,42 +1043,6 @@
       "lastPrice": 504.8,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
-    },
-    {
-      "ticker": "MRVL",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 4,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 8,
-      "sentRecent": 0.423,
-      "sentBaseline": -0.3,
-      "sentShift": 0.723,
-      "retRecent": -0.1405,
-      "excessRecent": -0.1349,
-      "ret30": -0.2674,
-      "score": 0.6809,
-      "lastPrice": 196.4,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 503
     },
     {
       "ticker": "ANET",
@@ -1480,32 +1480,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "META",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 23,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 19.714,
-      "sentRecent": 0.092,
-      "sentBaseline": 0.329,
-      "sentShift": -0.237,
-      "retRecent": -0.043,
-      "excessRecent": -0.0374,
-      "ret30": -0.1528,
-      "score": 0.2921,
-      "lastPrice": 614.99,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
-    },
-    {
       "ticker": "NBIS",
       "discovered": true,
       "flag": "WATCH",
@@ -1530,6 +1504,32 @@
       "lastPrice": 154.14,
       "lastPriceDate": "2026-10-30",
       "priceBars": 503
+    },
+    {
+      "ticker": "META",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 24,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 20.571,
+      "sentRecent": 0.081,
+      "sentBaseline": 0.329,
+      "sentShift": -0.248,
+      "retRecent": -0.043,
+      "excessRecent": -0.0374,
+      "ret30": -0.1528,
+      "score": 0.2594,
+      "lastPrice": 614.99,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
     },
     {
       "ticker": "BAC",
@@ -2073,23 +2073,45 @@
           "label": "Bearish sentiment shift"
         }
       ],
-      "mentionsRecent": 20,
+      "mentionsRecent": 21,
       "mentionsBaseline": 2,
       "baselineRate": 0.467,
-      "spikeRatio": 40,
-      "sentRecent": -0.3,
+      "spikeRatio": 42,
+      "sentRecent": -0.287,
       "sentBaseline": 0.05,
-      "sentShift": -0.35,
+      "sentShift": -0.337,
       "retRecent": -0.2438,
       "excessRecent": -0.2382,
       "ret30": -0.452,
-      "score": -0.9134,
+      "score": -0.8858,
       "lastPrice": 65.76,
       "lastPriceDate": "2026-10-30",
       "priceBars": 504
     }
   ],
   "readingQueue": [
+    {
+      "id": "9e9be59b919d39f5d7e39083307455be7feab179c0c1d444ba4a7dac111ade16",
+      "title": "Prediction: This Under-the-Radar AI Stock Could Have a Big 2030 Ahead",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/10/31/prediction-this-under-the-radar-ai-stock-could-have-a-big-2030-ahead/?.tsrc=rss",
+      "publishedAt": "2026-10-31T14:33:55.000Z",
+      "ticker": "MRVL",
+      "tickers": [
+        "MRVL"
+      ],
+      "flag": "LONG",
+      "score": 96.4,
+      "reasons": [
+        "MRVL: Long candidate",
+        "sentiment shift +0.71",
+        "5 mentions this week (10.0x baseline)"
+      ],
+      "rationale": "Calls Marvell a pure AI data center play with a strong upside outlook, but says a $500 2030 target requires several things to go right.",
+      "sentiment": 0.35,
+      "confidence": 0.6
+    },
     {
       "id": "7fa533f119f16fda54d50e57512aef93fa574f005bdc2404d0c2901956ecd443",
       "title": "Yes, Alphabet Stock Got Hammered. No, We’re Not Selling.",
@@ -2127,8 +2149,8 @@
       "score": 76.7,
       "reasons": [
         "MRVL: Long candidate",
-        "sentiment shift +0.72",
-        "4 mentions this week (8.0x baseline)"
+        "sentiment shift +0.71",
+        "5 mentions this week (10.0x baseline)"
       ],
       "rationale": "Notes the stock has fallen from recent highs and argues management's growth targets signal a buying opportunity.",
       "sentiment": 0.6,
@@ -2193,8 +2215,8 @@
       "score": 75.9,
       "reasons": [
         "MRVL: Long candidate",
-        "sentiment shift +0.72",
-        "4 mentions this week (8.0x baseline)"
+        "sentiment shift +0.71",
+        "5 mentions this week (10.0x baseline)"
       ],
       "rationale": "Author frames the stock as a buy below its record, citing an earlier pull-forward of its data center target.",
       "sentiment": 0.5,
@@ -2223,6 +2245,28 @@
       "confidence": 0.75
     },
     {
+      "id": "57ea35460ed9d376d91715ec94fc20968c669538a19ad37872e1b6e8108a1e74",
+      "title": "Intel Is Down 45% in October, Its Worst Month Ever",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/10/31/intel-is-down-45-in-october-its-worst-month-ever/?.tsrc=rss",
+      "publishedAt": "2026-10-31T11:18:52.000Z",
+      "ticker": "INTC",
+      "tickers": [
+        "INTC"
+      ],
+      "flag": "SHORT",
+      "score": 71.1,
+      "reasons": [
+        "INTC: Short candidate",
+        "21 mentions this week (42.0x baseline)",
+        "sentiment shift -0.34"
+      ],
+      "rationale": "Reports a 45% October drop and says analysts are split between seeing a buying opportunity and a value trap.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
       "id": "f48d64bcd812abbc90f4970f54f61766d4555f82248e83d69a7a2afbe5927a41",
       "title": "Intel Plunges 25% as Weak Outlook and PC Slump Overshadow Earnings Beat; Dell Tumbles 13%, AMD Sinks 10%, NVIDIA Falls 3%",
       "source": "Yahoo Finance — NVDA",
@@ -2234,11 +2278,11 @@
         "INTC"
       ],
       "flag": "SHORT",
-      "score": 71.3,
+      "score": 70.9,
       "reasons": [
         "INTC: Short candidate",
-        "20 mentions this week (40.0x baseline)",
-        "sentiment shift -0.35"
+        "21 mentions this week (42.0x baseline)",
+        "sentiment shift -0.34"
       ],
       "rationale": "Item says the weak outlook overshadowed an earnings beat, and the stock plunged on the guidance.",
       "sentiment": -0.7,
@@ -2348,35 +2392,13 @@
         "INTC"
       ],
       "flag": "SHORT",
-      "score": 68.3,
+      "score": 68,
       "reasons": [
         "INTC: Short candidate",
-        "20 mentions this week (40.0x baseline)",
-        "sentiment shift -0.35"
+        "21 mentions this week (42.0x baseline)",
+        "sentiment shift -0.34"
       ],
       "rationale": "Notes Intel beat earnings but its weak outlook and rising spending plans raised concerns, with the stock plunging.",
-      "sentiment": -0.5,
-      "confidence": 0.7
-    },
-    {
-      "id": "cda2e672a85b2dd50c7a772921bea9ea170021c5750fc5aa243cd84f757f8f9d",
-      "title": "Intel Stock Crashes 23% Overnight and Gets Jim Cramer 'Furious': 'I Am Actually Disappointed'",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/intel-stock-crashes-23-overnight-032819790.html?.tsrc=rss",
-      "publishedAt": "2026-10-30T03:28:19.000Z",
-      "ticker": "INTC",
-      "tickers": [
-        "INTC"
-      ],
-      "flag": "SHORT",
-      "score": 68.3,
-      "reasons": [
-        "INTC: Short candidate",
-        "20 mentions this week (40.0x baseline)",
-        "sentiment shift -0.35"
-      ],
-      "rationale": "Reports a 23% after-hours drop on a weak fourth-quarter guide and Jim Cramer's angry reaction to it.",
       "sentiment": -0.5,
       "confidence": 0.7
     },
@@ -2554,29 +2576,6 @@
         "sentiment shift +0.42"
       ],
       "rationale": "Named in the headline as paying no current federal income tax, but the item expresses no view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "3830a80b2d9256ef280dc3cf0d2576b1673e59e3570a6bb479f9b74b579c6211",
-      "title": "Marvell Wants Lumentum. Here’s Why Coherent Could Win.",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/28/marvell-wants-lumentum-heres-why-coherent-could-win/?.tsrc=rss",
-      "publishedAt": "2026-10-28T23:44:27.000Z",
-      "ticker": "MRVL",
-      "tickers": [
-        "MRVL",
-        "LITE"
-      ],
-      "flag": "LONG",
-      "score": 61,
-      "reasons": [
-        "MRVL: Long candidate",
-        "sentiment shift +0.72",
-        "4 mentions this week (8.0x baseline)"
-      ],
-      "rationale": "Named as the reported bidder for Lumentum, with no explicit view on its shares.",
       "sentiment": 0,
       "confidence": 0.6
     },
