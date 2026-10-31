@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-10-31T19:29:24.155Z",
-  "startedAt": "2026-10-31T19:26:17.386Z",
+  "lastUpdated": "2026-10-31T22:43:11.786Z",
+  "startedAt": "2026-10-31T22:40:18.802Z",
   "asOf": "2026-10-31",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -144,14 +144,14 @@
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -165,7 +165,7 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -647,8 +647,8 @@
     "sourcesFailed": 12,
     "sourcesTotal": 38,
     "itemsFetched": 349,
-    "extractionsTotal": 2874,
-    "mentionsTotal": 996,
+    "extractionsTotal": 2902,
+    "mentionsTotal": 1010,
     "tickers": 56,
     "pricesOk": 61,
     "alertsTotal": 348,
@@ -754,44 +754,18 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 40,
+      "mentionsRecent": 42,
       "mentionsBaseline": 13,
       "baselineRate": 3.033,
-      "spikeRatio": 13.187,
-      "sentRecent": 0.326,
+      "spikeRatio": 13.846,
+      "sentRecent": 0.31,
       "sentBaseline": 0.149,
-      "sentShift": 0.177,
+      "sentShift": 0.161,
       "retRecent": -0.03,
       "excessRecent": -0.0244,
       "ret30": -0.1136,
-      "score": 1.2101,
+      "score": 1.1666,
       "lastPrice": 204.64,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
-    },
-    {
-      "ticker": "TSM",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 10,
-      "mentionsBaseline": 8,
-      "baselineRate": 1.867,
-      "spikeRatio": 5.357,
-      "sentRecent": 0.493,
-      "sentBaseline": 0.522,
-      "sentShift": -0.029,
-      "retRecent": -0.0296,
-      "excessRecent": -0.024,
-      "ret30": -0.1156,
-      "score": 1.1822,
-      "lastPrice": 406.13,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
     },
@@ -806,18 +780,44 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 54,
+      "mentionsRecent": 56,
       "mentionsBaseline": 4,
       "baselineRate": 0.933,
-      "spikeRatio": 57.857,
-      "sentRecent": 0.294,
+      "spikeRatio": 60,
+      "sentRecent": 0.284,
       "sentBaseline": 0.536,
-      "sentShift": -0.241,
+      "sentShift": -0.251,
       "retRecent": -0.005,
       "excessRecent": 0.0006,
       "ret30": 0.0178,
-      "score": 1.1797,
+      "score": 1.1502,
       "lastPrice": 521.91,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
+    },
+    {
+      "ticker": "TSM",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 12,
+      "mentionsBaseline": 8,
+      "baselineRate": 1.867,
+      "spikeRatio": 6.429,
+      "sentRecent": 0.438,
+      "sentBaseline": 0.522,
+      "sentShift": -0.083,
+      "retRecent": -0.0296,
+      "excessRecent": -0.024,
+      "ret30": -0.1156,
+      "score": 1.1246,
+      "lastPrice": 406.13,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
     },
@@ -837,17 +837,17 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 25,
+      "mentionsRecent": 26,
       "mentionsBaseline": 3,
       "baselineRate": 0.7,
-      "spikeRatio": 35.714,
-      "sentRecent": 0.334,
+      "spikeRatio": 37.143,
+      "sentRecent": 0.333,
       "sentBaseline": 0.566,
-      "sentShift": -0.232,
+      "sentShift": -0.233,
       "retRecent": -0.0642,
       "excessRecent": -0.0587,
       "ret30": -0.0312,
-      "score": 1.0875,
+      "score": 1.0965,
       "lastPrice": 184.11,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -1071,17 +1071,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 22,
+      "mentionsRecent": 23,
       "mentionsBaseline": 9,
       "baselineRate": 2.1,
-      "spikeRatio": 10.476,
-      "sentRecent": 0.185,
+      "spikeRatio": 10.952,
+      "sentRecent": 0.177,
       "sentBaseline": 0.023,
-      "sentShift": 0.162,
+      "sentShift": 0.154,
       "retRecent": -0.0089,
       "excessRecent": -0.0033,
       "ret30": 0.0433,
-      "score": 0.5793,
+      "score": 0.5612,
       "lastPrice": 344.63,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -1475,6 +1475,32 @@
       "priceBars": 503
     },
     {
+      "ticker": "META",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 27,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 23.143,
+      "sentRecent": 0.082,
+      "sentBaseline": 0.329,
+      "sentShift": -0.247,
+      "retRecent": -0.043,
+      "excessRecent": -0.0374,
+      "ret30": -0.1528,
+      "score": 0.2721,
+      "lastPrice": 614.99,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
+    },
+    {
       "ticker": "BAC",
       "discovered": true,
       "flag": "WATCH",
@@ -1499,32 +1525,6 @@
       "lastPrice": 50.01,
       "lastPriceDate": "2026-10-30",
       "priceBars": 503
-    },
-    {
-      "ticker": "META",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 26,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 22.286,
-      "sentRecent": 0.06,
-      "sentBaseline": 0.329,
-      "sentShift": -0.269,
-      "retRecent": -0.043,
-      "excessRecent": -0.0374,
-      "ret30": -0.1528,
-      "score": 0.1978,
-      "lastPrice": 614.99,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
     },
     {
       "ticker": "VST",
@@ -1599,6 +1599,37 @@
       "priceBars": 504
     },
     {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 53,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 75.714,
+      "sentRecent": 0.029,
+      "sentBaseline": 0.408,
+      "sentShift": -0.379,
+      "retRecent": -0.1261,
+      "excessRecent": -0.1205,
+      "ret30": -0.1727,
+      "score": 0.1151,
+      "lastPrice": 279.84,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
+    },
+    {
       "ticker": "COIN",
       "discovered": false,
       "flag": "WATCH",
@@ -1669,37 +1700,6 @@
       "lastPrice": 66.62,
       "lastPriceDate": "2026-10-30",
       "priceBars": 504
-    },
-    {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 51,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 72.857,
-      "sentRecent": 0.016,
-      "sentBaseline": 0.408,
-      "sentShift": -0.392,
-      "retRecent": -0.1261,
-      "excessRecent": -0.1205,
-      "ret30": -0.1727,
-      "score": 0.063,
-      "lastPrice": 279.84,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
     },
     {
       "ticker": "ORCL",
@@ -2042,37 +2042,6 @@
       "priceBars": 505
     },
     {
-      "ticker": "RDDT",
-      "discovered": true,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 5,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 10,
-      "sentRecent": -0.467,
-      "sentBaseline": 0.7,
-      "sentShift": -1.167,
-      "retRecent": -0.3641,
-      "excessRecent": -0.3585,
-      "ret30": -0.3865,
-      "score": -0.837,
-      "lastPrice": 91.73,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 502
-    },
-    {
       "ticker": "INTC",
       "discovered": true,
       "flag": "SHORT",
@@ -2088,23 +2057,76 @@
           "label": "Bearish sentiment shift"
         }
       ],
-      "mentionsRecent": 22,
+      "mentionsRecent": 23,
       "mentionsBaseline": 2,
       "baselineRate": 0.467,
-      "spikeRatio": 44,
-      "sentRecent": -0.296,
+      "spikeRatio": 46,
+      "sentRecent": -0.3,
       "sentBaseline": 0.05,
-      "sentShift": -0.346,
+      "sentShift": -0.35,
       "retRecent": -0.2438,
       "excessRecent": -0.2382,
       "ret30": -0.452,
-      "score": -0.9272,
+      "score": -0.9534,
       "lastPrice": 65.76,
       "lastPriceDate": "2026-10-30",
       "priceBars": 504
+    },
+    {
+      "ticker": "RDDT",
+      "discovered": true,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 6,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 12,
+      "sentRecent": -0.492,
+      "sentBaseline": 0.7,
+      "sentShift": -1.192,
+      "retRecent": -0.3641,
+      "excessRecent": -0.3585,
+      "ret30": -0.3865,
+      "score": -0.9578,
+      "lastPrice": 91.73,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 502
     }
   ],
   "readingQueue": [
+    {
+      "id": "156f990564eb0d7278f3540390bb6898ae96299f98f410090245e4a00b0596bd",
+      "title": "Reddit Sinks as Google's AI Shift Takes a Bite Out of Search Traffic. What's Next for RDDT Stock.",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572259/reddit-sinks-as-google-s-ai-shift-takes-a-bite-out-of-search-traffic-what-s-next-for-rddt-stock?.tsrc=rss",
+      "publishedAt": "2026-10-31T13:45:02.000Z",
+      "ticker": "RDDT",
+      "tickers": [
+        "RDDT"
+      ],
+      "flag": "SHORT",
+      "score": 87.2,
+      "reasons": [
+        "RDDT: Short candidate",
+        "sentiment shift -1.19",
+        "6 mentions this week (12.0x baseline)"
+      ],
+      "rationale": "Reports stock falling on weak guidance and a Citizens downgrade tied to declining Google referral traffic.",
+      "sentiment": -0.6,
+      "confidence": 0.85
+    },
     {
       "id": "d24e99c282495f8443c811863b4c5d17e75bfdc67fc718bc7d172edff74db37b",
       "title": "Marvell Sinks 14% in a Week on Lumentum Talks: Chipmakers Like It “Don’t Have a Choice”",
@@ -2161,11 +2183,11 @@
         "GOOGL"
       ],
       "flag": "SHORT",
-      "score": 78.3,
+      "score": 77.9,
       "reasons": [
         "GOOGL: Short candidate",
-        "51 mentions this week (72.9x baseline)",
-        "sentiment shift -0.39"
+        "53 mentions this week (75.7x baseline)",
+        "sentiment shift -0.38"
       ],
       "rationale": "Author says they are holding rather than selling, arguing the stock trades at a discount and could gain substantially on a return to its historical",
       "sentiment": 0.7,
@@ -2206,10 +2228,10 @@
         "AMZN"
       ],
       "flag": "SHORT",
-      "score": 76.2,
+      "score": 76.3,
       "reasons": [
         "INTC: Short candidate",
-        "22 mentions this week (44.0x baseline)",
+        "23 mentions this week (46.0x baseline)",
         "sentiment shift -0.35"
       ],
       "rationale": "Describes Intel's earnings as underwhelming, contributing to the afternoon decline in tech shares.",
@@ -2231,8 +2253,8 @@
       "score": 76,
       "reasons": [
         "RDDT: Short candidate",
-        "sentiment shift -1.17",
-        "5 mentions this week (10.0x baseline)"
+        "sentiment shift -1.19",
+        "6 mentions this week (12.0x baseline)"
       ],
       "rationale": "Evercore ISI cut Reddit to In Line and sharply lowered its target despite a Q3 beat, citing traffic declines from AI search.",
       "sentiment": -0.5,
@@ -2253,34 +2275,101 @@
       "score": 76,
       "reasons": [
         "RDDT: Short candidate",
-        "sentiment shift -1.17",
-        "5 mentions this week (10.0x baseline)"
+        "sentiment shift -1.19",
+        "6 mentions this week (12.0x baseline)"
       ],
       "rationale": "Citizens cut its rating to Market Perform, citing uncertain user growth as Google search sends less traffic to the platform.",
       "sentiment": -0.5,
       "confidence": 0.85
     },
     {
-      "id": "a78dc763a8e79075fe53adfbc3e2b2198ada6a3117980bbe95182aaf937ec7cd",
-      "title": "Reddit Plunges 25% as Search Traffic Slump and Soft Outlook Overshadow Earnings Beat; Snap Falls 5%, Pinterest Drops 4%, Meta Dips",
-      "source": "Yahoo Finance — GOOGL",
+      "id": "a12f85627f1ad238a9b30dd7e59b13c8d88977f0a6835253831e752272abb381",
+      "title": "If Taiwan Semi Raises Prices, It Could Be Bad News for Intel Stock. Here’s Why.",
+      "source": "Yahoo Finance — TSM",
       "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/30/reddit-plunges-25-as-search-traffic-slump-and-soft-outlook-overshadow-earnings-beat-snap-falls-5-pinterest-drops-4-meta-dips/?.tsrc=rss",
-      "publishedAt": "2026-10-30T13:52:31.000Z",
-      "ticker": "RDDT",
+      "url": "https://www.barchart.com/story/news/8572976/if-taiwan-semi-raises-prices-it-could-be-bad-news-for-intel-stock-heres-why?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:08:39.000Z",
+      "ticker": "INTC",
       "tickers": [
-        "RDDT"
+        "INTC",
+        "TSM"
       ],
       "flag": "SHORT",
       "score": 75.3,
       "reasons": [
-        "RDDT: Short candidate",
-        "sentiment shift -1.17",
-        "5 mentions this week (10.0x baseline)"
+        "INTC: Short candidate",
+        "23 mentions this week (46.0x baseline)",
+        "sentiment shift -0.35"
       ],
-      "rationale": "Stock fell sharply despite an earnings beat, because the outlook and search-traffic threat weigh on it.",
-      "sentiment": -0.5,
-      "confidence": 0.75
+      "rationale": "Argues Intel's technology is not yet creating enough competitive pressure on TSMC, which the title frames as bad news for Intel stock.",
+      "sentiment": -0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "b85011fe5b0c74420e324aa0955e14ebeb42d613da1891d599358646c21e21f4",
+      "title": "Are Wall Street Analysts Predicting Palantir Technologies Stock Will Climb or Sink?",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573432/are-wall-street-analysts-predicting-palantir-technologies-stock-will-climb-or-sink?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:56:26.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 73.9,
+      "reasons": [
+        "PLTR: Long candidate",
+        "26 mentions this week (37.1x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Reports that analysts hold a moderately optimistic view despite the stock lagging the market over the past year.",
+      "sentiment": 0.3,
+      "confidence": 0.6
+    },
+    {
+      "id": "0d599ab267e3e3a38c823e27ba40ff04e7cf33f525812408f3d4f80c172ef07f",
+      "title": "Is Wall Street Bullish or Bearish on Alphabet Stock?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573068/is-wall-street-bullish-or-bearish-on-alphabet-stock?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:22:52.000Z",
+      "ticker": "GOOGL",
+      "tickers": [
+        "GOOGL"
+      ],
+      "flag": "SHORT",
+      "score": 72.2,
+      "reasons": [
+        "GOOGL: Short candidate",
+        "53 mentions this week (75.7x baseline)",
+        "sentiment shift -0.38"
+      ],
+      "rationale": "Reports that Wall Street analysts stay bullish on Alphabet, citing its strong performance against the broader market over the past year.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "27e31022783412b164cfbf16e0b540d58c869ca90baae55169e23d8c689bf12d",
+      "title": "Alphabet's Earnings Horror Show Continues, But GOOG Stock Is a Buy Below $300",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572384/alphabet-s-earnings-horror-show-continues-but-goog-stock-is-a-buy-below-300?.tsrc=rss",
+      "publishedAt": "2026-10-31T13:48:57.000Z",
+      "ticker": "GOOGL",
+      "tickers": [
+        "GOOGL"
+      ],
+      "flag": "SHORT",
+      "score": 72.2,
+      "reasons": [
+        "GOOGL: Short candidate",
+        "53 mentions this week (75.7x baseline)",
+        "sentiment shift -0.38"
+      ],
+      "rationale": "Calls the stock a buy below $300 despite disappointing quarterly numbers and a sharp selloff.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "57ea35460ed9d376d91715ec94fc20968c669538a19ad37872e1b6e8108a1e74",
@@ -2294,37 +2383,15 @@
         "INTC"
       ],
       "flag": "SHORT",
-      "score": 71.4,
+      "score": 71.5,
       "reasons": [
         "INTC: Short candidate",
-        "22 mentions this week (44.0x baseline)",
+        "23 mentions this week (46.0x baseline)",
         "sentiment shift -0.35"
       ],
       "rationale": "Reports a 45% October drop and says analysts are split between seeing a buying opportunity and a value trap.",
       "sentiment": 0,
       "confidence": 0.6
-    },
-    {
-      "id": "f48d64bcd812abbc90f4970f54f61766d4555f82248e83d69a7a2afbe5927a41",
-      "title": "Intel Plunges 25% as Weak Outlook and PC Slump Overshadow Earnings Beat; Dell Tumbles 13%, AMD Sinks 10%, NVIDIA Falls 3%",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/30/intel-plunges-25-as-weak-outlook-and-pc-slump-overshadow-earnings-beat-dell-tumbles-13-amd-sinks-10-nvidia-falls-3/?.tsrc=rss",
-      "publishedAt": "2026-10-30T13:09:56.000Z",
-      "ticker": "INTC",
-      "tickers": [
-        "INTC"
-      ],
-      "flag": "SHORT",
-      "score": 71.2,
-      "reasons": [
-        "INTC: Short candidate",
-        "22 mentions this week (44.0x baseline)",
-        "sentiment shift -0.35"
-      ],
-      "rationale": "Item says the weak outlook overshadowed an earnings beat, and the stock plunged on the guidance.",
-      "sentiment": -0.7,
-      "confidence": 0.8
     },
     {
       "id": "a86cf67cf0a8956246a7185f504a30f2031d3c54c8a87fc7a0cac987d2494afa",
@@ -2341,7 +2408,7 @@
       "score": 69.7,
       "reasons": [
         "PLTR: Long candidate",
-        "25 mentions this week (35.7x baseline)",
+        "26 mentions this week (37.1x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Reports analysts raising fair value and price targets, describing recent research as clearly constructive on Palantir's AI platform.",
@@ -2389,58 +2456,12 @@
       "score": 69.2,
       "reasons": [
         "PLTR: Long candidate",
-        "25 mentions this week (35.7x baseline)",
+        "26 mentions this week (37.1x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Expects Palantir's third-quarter revenue to surge on AI-driven demand across government and commercial units.",
       "sentiment": 0.6,
       "confidence": 0.8
-    },
-    {
-      "id": "3841381fad741ffb96ada0d1d3317e7e35efd0b03eda3a5cc365c9dcb1a913d3",
-      "title": "Dear Palantir Stock Fans, Mark Your Calendars for November 2",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8556489/dear-palantir-stock-fans-mark-your-calendars-for-november-2?.tsrc=rss",
-      "publishedAt": "2026-10-30T15:10:28.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 69.2,
-      "reasons": [
-        "PLTR: Long candidate",
-        "25 mentions this week (35.7x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Says Palantir's AI business is gaining steam and its upcoming earnings could give the stock another reason to rise.",
-      "sentiment": 0.6,
-      "confidence": 0.8
-    },
-    {
-      "id": "9b73db7b4a82ca09e663657cf9b954f7b0b35e79fb7249ba3119c5f0737a64c4",
-      "title": "France Wants a 5.5-Cent-per-Gigabyte Tax on Netflix, Google and Meta",
-      "source": "Yahoo Finance — GOOGL",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/10/31/france-wants-a-5-5-cent-per-gigabyte-tax-on-netflix-google-and-meta/?.tsrc=rss",
-      "publishedAt": "2026-10-31T17:07:01.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL",
-        "META",
-        "NFLX"
-      ],
-      "flag": "SHORT",
-      "score": 68.8,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "51 mentions this week (72.9x baseline)",
-        "sentiment shift -0.39"
-      ],
-      "rationale": "Named as a target of a proposed French per-gigabyte tax, with no view on the stock or its outlook.",
-      "sentiment": 0,
-      "confidence": 0.7
     },
     {
       "id": "33754295f2c7245e8592e1b85271038f78a07dd7474aaad849eaee20a451f83b",
@@ -2464,28 +2485,6 @@
       "rationale": "Says Micron could benefit from seasonal buying due to AI demand, revenue growth and expanding margins.",
       "sentiment": 0.5,
       "confidence": 0.7
-    },
-    {
-      "id": "e02cc8da486647e7639e592ce06b3ba6904d5010a9f8d618b63dbd1301419f4a",
-      "title": "Could Alphabet Actually Climb 67%? Or Is Pivotal Research Totally Wrong?",
-      "source": "Yahoo Finance — GOOGL",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/could-alphabet-actually-climb-67-or-is-pivotal-research-totally-wrong?ref=yahoofinance&.tsrc=rss",
-      "publishedAt": "2026-10-30T13:20:32.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL"
-      ],
-      "flag": "SHORT",
-      "score": 67.3,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "51 mentions this week (72.9x baseline)",
-        "sentiment shift -0.39"
-      ],
-      "rationale": "Pivotal Research reiterates a Buy with a $475 target, implying large upside despite a post-earnings selloff and weaker Search growth and cash flow.",
-      "sentiment": 0.6,
-      "confidence": 0.8
     },
     {
       "id": "e75658bf446ecb14cce10848ddfdb80fc444a0aaf006aae0b7e1ae43be3ac59c",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-10-31T19:26:43.602Z",
+  "updatedAt": "2026-10-31T22:40:34.690Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -45982,6 +45982,493 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-10-31T19:26:43.602Z"
+    },
+    "fe9527a792faaccb82265bc93f65bbda406756de0d3c15d20a4742e782274436": {
+      "id": "fe9527a792faaccb82265bc93f65bbda406756de0d3c15d20a4742e782274436",
+      "title": "3 AI Stocks With Earnings Growth Over 30%",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-ai-stocks-earnings-growth-221029656.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T22:10:29.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:20.723Z"
+    },
+    "a8745cc5583232e3f6a5665dc8c131fe5547c90b377b10760f5d132148979d28": {
+      "id": "a8745cc5583232e3f6a5665dc8c131fe5547c90b377b10760f5d132148979d28",
+      "title": "Want $1,000 a Month in Passive Income? Start With This Brilliant Dividend ETF.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/want-1000-month-passive-income-schd-dividend-etf/?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:20.979Z"
+    },
+    "4ebc2d6f82f5353642af64cc1968aeb0f6d7c57989509d563ac6e49e3f06fb2a": {
+      "id": "4ebc2d6f82f5353642af64cc1968aeb0f6d7c57989509d563ac6e49e3f06fb2a",
+      "title": "Nvidia (NVDA) CEO Jensen Huang Reportedly Targeted In Chinese Espionage Plot",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-ceo-jensen-huang-220818674.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T22:08:18.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports a alleged espionage plot against Nvidia's CEO and notes lawmaker and regulator scrutiny, without stating a view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:21.979Z"
+    },
+    "defd0d7a2102b8ffb5b5ca57e05a62d10ec42be3a69bea9941e55883082a48b2": {
+      "id": "defd0d7a2102b8ffb5b5ca57e05a62d10ec42be3a69bea9941e55883082a48b2",
+      "title": "Shopify Stock Is More Than 10% Below Its Record. Should You Buy Before Its Nov. 3 Report?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/shopify-stock-is-more-than-10-below-its-record-should-you-buy-before-its-nov-3-report/?.tsrc=rss",
+      "publishedAt": "2026-10-31T22:07:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:22.261Z"
+    },
+    "890816ccbef7bd6c50ff0406c489d78b3f3232a8c120f3f164ebb86af3ac94a1": {
+      "id": "890816ccbef7bd6c50ff0406c489d78b3f3232a8c120f3f164ebb86af3ac94a1",
+      "title": "SpaceX Says Starship Flies Commercial Payloads This Year. Here's What a Successful Flight Is Worth -- and What a Failure Costs.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/spacex-says-starship-flies-commercial-payloads-thi/?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:25:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:23.033Z"
+    },
+    "0487a818de9ebcbaa2aafa4b82728ce12348a99d358ed3c0b631f292b1fdd1ec": {
+      "id": "0487a818de9ebcbaa2aafa4b82728ce12348a99d358ed3c0b631f292b1fdd1ec",
+      "title": "The 5 most interesting analyst questions from Alphabet’s Q3 earnings call",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/5-most-interesting-analyst-questions-213100472.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:31:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:23.198Z"
+    },
+    "d444ddd585e9930f9ce8fe3c9e06e95cd6802c7d12bbf41498e084715e1937fb": {
+      "id": "d444ddd585e9930f9ce8fe3c9e06e95cd6802c7d12bbf41498e084715e1937fb",
+      "title": "5 Best High Growth Stocks Outside Big Tech",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/5-best-high-growth-stocks-213926607.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:39:26.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Cited as one of three mega-caps driving market concentration, with no stated view on the stock itself."
+        },
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Named among three mega-caps making up about 21.7% of S&P 500 market cap, with no stated view."
+        },
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Named among three mega-caps making up about 21.7% of S&P 500 market cap, with no stated view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:23.644Z"
+    },
+    "e3797bc44743d34913aeebeb9d8edb4a5d74dd54dcf8391391be242960ed4c89": {
+      "id": "e3797bc44743d34913aeebeb9d8edb4a5d74dd54dcf8391391be242960ed4c89",
+      "title": "Here’s Why Janus Henderson is Bullish On Meta Platforms, Inc. (META)",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-janus-henderson-bullish-meta-212034266.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:20:34.000Z",
+      "tickerHint": "META",
+      "mentions": [
+        {
+          "ticker": "META",
+          "company": "Meta Platforms",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "The headline reports that Janus Henderson is bullish on Meta, but the visible text is truncated and gives no supporting reasoning."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:24.042Z"
+    },
+    "6148e4dea6a504a13a46f6b2a468c84b84dc72e39895092c8e49109ad0cab074": {
+      "id": "6148e4dea6a504a13a46f6b2a468c84b84dc72e39895092c8e49109ad0cab074",
+      "title": "The SEC Chair Says Most Crypto Assets Are Not Securities. What Does That Mean for XRP After Its 5-Year Fight?",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/cryptocurrency/2026/10/31/the-sec-chair-says-most-crypto-assets-are-not-securities-what-does-that-mean-for-xrp-after-its-5-year-fight/?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:27:27.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:24.572Z"
+    },
+    "ff18b06089bfd048e577cfe249905b29a55ddf1a18407e64954a5123ac93ac39": {
+      "id": "ff18b06089bfd048e577cfe249905b29a55ddf1a18407e64954a5123ac93ac39",
+      "title": "5 Best Energy Infrastructure Stocks That Will Skyrocket",
+      "source": "Yahoo Finance — NEE",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/5-best-energy-infrastructure-stocks-210637860.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T21:06:37.000Z",
+      "tickerHint": "NEE",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:24.618Z"
+    },
+    "f3466c459266824ba3794201ea58266d6bd9705afc2d117288f69bf2841c2c21": {
+      "id": "f3466c459266824ba3794201ea58266d6bd9705afc2d117288f69bf2841c2c21",
+      "title": "5 Most Profitable Stocks of the Past 5 Years",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/5-most-profitable-stocks-past-202256304.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:22:56.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:25.154Z"
+    },
+    "2b0d02fc92cf941b3c6ecf965e1e1cf2061f07dff154ce567730c56c39ecb425": {
+      "id": "2b0d02fc92cf941b3c6ecf965e1e1cf2061f07dff154ce567730c56c39ecb425",
+      "title": "This Dirt Cheap $5 Stock Could Make You Filthy Rich",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/this-dirt-cheap-5-stock-could-make-you-filthy-rich/?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:25.437Z"
+    },
+    "d9d2adc042723396ebdabd2e9c09d16cab5f75cabe9e99d2c6a04f52a06399fc": {
+      "id": "d9d2adc042723396ebdabd2e9c09d16cab5f75cabe9e99d2c6a04f52a06399fc",
+      "title": "The U.S. Labor Market Just Delivered Its Strongest Signal in 57 Years. But There's a Catch.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/labor-market-delivered-strong-signal-theres-catch/?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:26.060Z"
+    },
+    "015260c6b7a3eac16884cb24ceed3b49e365256684813751e1ccd34e925b65bb": {
+      "id": "015260c6b7a3eac16884cb24ceed3b49e365256684813751e1ccd34e925b65bb",
+      "title": "After Meta, Could These Be Wall Street’s Next Blockbuster Stock Splits?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/after-meta-could-these-be-wall-street-s-next-blockbuster-stock-splits/?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:53:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:26.118Z"
+    },
+    "84fd965d56f63187d4c6f922157e8f4a21622ccfc97a5625dbbbcea59549bb63": {
+      "id": "84fd965d56f63187d4c6f922157e8f4a21622ccfc97a5625dbbbcea59549bb63",
+      "title": "Taiwan Semiconductor Manufacturing (TSM) Draws New Sunbelt Real Estate Fund Around Phoenix Fabs",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/real-estate/articles/taiwan-semiconductor-manufacturing-tsm-draws-200926595.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:09:26.000Z",
+      "tickerHint": "TSM",
+      "mentions": [
+        {
+          "ticker": "TSM",
+          "company": "Taiwan Semiconductor Manufacturing",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Named only as a chipmaker whose fab activity the new Sunbelt real estate fund targets; no view on the stock is expressed."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:26.572Z"
+    },
+    "d225516f1b562250fe24651d97ddefc708216af81f9dd882386a7217c35d7821": {
+      "id": "d225516f1b562250fe24651d97ddefc708216af81f9dd882386a7217c35d7821",
+      "title": "Boeing Stock Slumps Again; Time to Buy or Throw in the Towel?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/boeing-stock-slumps-again-time-to-buy-or-throw-in/?.tsrc=rss",
+      "publishedAt": "2026-10-31T19:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "BA",
+          "company": "Boeing",
+          "sentiment": 0.3,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Says delayed production and cash flow targets may prove conservative, implying the stock's slump could be overdone."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:27.644Z"
+    },
+    "73bae507192ffe74d59d15f5b405551bcd269a108494b8a69950b62dfbf2a6de": {
+      "id": "73bae507192ffe74d59d15f5b405551bcd269a108494b8a69950b62dfbf2a6de",
+      "title": "Will AI Answers Become as Winner-Take-All as Google? – Uneasy Money",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://unchainedcrypto.com/will-ai-answers-become-as-winner-take-all-as-google-uneasy-money/?.tsrc=rss",
+      "publishedAt": "2026-10-31T20:00:59.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:27.808Z"
+    },
+    "3cacee763c24f3b7de728643a7d4b3a6c09adabfc88b147c74ff11340a08c392": {
+      "id": "3cacee763c24f3b7de728643a7d4b3a6c09adabfc88b147c74ff11340a08c392",
+      "title": "3 Numbers to Watch to Know if Meta Platforms' AI Spending Is Paying Off",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/10/31/3-numbers-meta-platforms-ai-spend-pay-off/?.tsrc=rss",
+      "publishedAt": "2026-10-31T19:21:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:28.675Z"
+    },
+    "36805e0c15b84d5ae5e51f45498e260f45ed0c547480726d831a6d6b8d1a48ca": {
+      "id": "36805e0c15b84d5ae5e51f45498e260f45ed0c547480726d831a6d6b8d1a48ca",
+      "title": "Microsoft just gave Nvidia shareholders a reason to pay attention",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/investing/stocks/microsoft-just-gave-nvidia-shareholders-a-reason-to-pay-attention?.tsrc=rss",
+      "publishedAt": "2026-10-31T19:37:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Microsoft's earnings are the subject, but the item states no view on its stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:29.292Z"
+    },
+    "939fbac6164c74ca8f9088e9f9ab22d7683f857e6540d3d00490ab2529374551": {
+      "id": "939fbac6164c74ca8f9088e9f9ab22d7683f857e6540d3d00490ab2529374551",
+      "title": "AI boom hits a wall on Wall Street as OpenAI cuts fundraising target while Meta gets a credit warning over its cash flow, spending and monetization",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/ai-boom-hits-wall-wall-164135902.html?.tsrc=rss",
+      "publishedAt": "2026-10-31T16:41:35.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:29.369Z"
+    },
+    "b85011fe5b0c74420e324aa0955e14ebeb42d613da1891d599358646c21e21f4": {
+      "id": "b85011fe5b0c74420e324aa0955e14ebeb42d613da1891d599358646c21e21f4",
+      "title": "Are Wall Street Analysts Predicting Palantir Technologies Stock Will Climb or Sink?",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573432/are-wall-street-analysts-predicting-palantir-technologies-stock-will-climb-or-sink?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:56:26.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [
+        {
+          "ticker": "PLTR",
+          "company": "Palantir Technologies",
+          "sentiment": 0.3,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports that analysts hold a moderately optimistic view despite the stock lagging the market over the past year."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:29.544Z"
+    },
+    "0d599ab267e3e3a38c823e27ba40ff04e7cf33f525812408f3d4f80c172ef07f": {
+      "id": "0d599ab267e3e3a38c823e27ba40ff04e7cf33f525812408f3d4f80c172ef07f",
+      "title": "Is Wall Street Bullish or Bearish on Alphabet Stock?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573068/is-wall-street-bullish-or-bearish-on-alphabet-stock?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:22:52.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports that Wall Street analysts stay bullish on Alphabet, citing its strong performance against the broader market over the past year."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:30.868Z"
+    },
+    "75f4601bc6a47fa171016434cc360cc9471c38f543e69bcfb278587f387e640b": {
+      "id": "75f4601bc6a47fa171016434cc360cc9471c38f543e69bcfb278587f387e640b",
+      "title": "What Are Wall Street Analysts' Target Price for Alphabet Stock?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573046/what-are-wall-street-analysts-target-price-for-alphabet-stock?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:21:56.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:31.024Z"
+    },
+    "a12f85627f1ad238a9b30dd7e59b13c8d88977f0a6835253831e752272abb381": {
+      "id": "a12f85627f1ad238a9b30dd7e59b13c8d88977f0a6835253831e752272abb381",
+      "title": "If Taiwan Semi Raises Prices, It Could Be Bad News for Intel Stock. Here’s Why.",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572976/if-taiwan-semi-raises-prices-it-could-be-bad-news-for-intel-stock-heres-why?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:08:39.000Z",
+      "tickerHint": "TSM",
+      "mentions": [
+        {
+          "ticker": "TSM",
+          "company": "Taiwan Semiconductor",
+          "sentiment": 0.3,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Treats the reported price hike as a sign of strong AI chip demand, a positive signal implied rather than stated outright."
+        },
+        {
+          "ticker": "INTC",
+          "company": "Intel",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Argues Intel's technology is not yet creating enough competitive pressure on TSMC, which the title frames as bad news for Intel stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:31.809Z"
+    },
+    "46c9f28ecb1d07acf79cae7b998c9fd7bd0613b0b665df3d8d0335b130417410": {
+      "id": "46c9f28ecb1d07acf79cae7b998c9fd7bd0613b0b665df3d8d0335b130417410",
+      "title": "The AI Red Queen Effect: Why Big Tech Can’t Afford to Stop Spending",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8573211/the-ai-red-queen-effect-why-big-tech-cant-afford-to-stop-spending?.tsrc=rss",
+      "publishedAt": "2026-10-31T15:30:03.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:31.827Z"
+    },
+    "27e31022783412b164cfbf16e0b540d58c869ca90baae55169e23d8c689bf12d": {
+      "id": "27e31022783412b164cfbf16e0b540d58c869ca90baae55169e23d8c689bf12d",
+      "title": "Alphabet's Earnings Horror Show Continues, But GOOG Stock Is a Buy Below $300",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572384/alphabet-s-earnings-horror-show-continues-but-goog-stock-is-a-buy-below-300?.tsrc=rss",
+      "publishedAt": "2026-10-31T13:48:57.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Calls the stock a buy below $300 despite disappointing quarterly numbers and a sharp selloff."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:32.818Z"
+    },
+    "0b325c9bad4c9ae034daa2ca47e737a89c102c9dff65de16ad07cf66c2feeeac": {
+      "id": "0b325c9bad4c9ae034daa2ca47e737a89c102c9dff65de16ad07cf66c2feeeac",
+      "title": "ORCL Stock Has a Solid Base to Build on After Q1, Especially as Oracle Announces Key AI Partnerships",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572624/orcl-stock-has-a-solid-base-to-build-on-after-q1-especially-as-oracle-announces-key-ai-partnerships?.tsrc=rss",
+      "publishedAt": "2026-10-31T14:27:57.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:33.078Z"
+    },
+    "156f990564eb0d7278f3540390bb6898ae96299f98f410090245e4a00b0596bd": {
+      "id": "156f990564eb0d7278f3540390bb6898ae96299f98f410090245e4a00b0596bd",
+      "title": "Reddit Sinks as Google's AI Shift Takes a Bite Out of Search Traffic. What's Next for RDDT Stock.",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8572259/reddit-sinks-as-google-s-ai-shift-takes-a-bite-out-of-search-traffic-what-s-next-for-rddt-stock?.tsrc=rss",
+      "publishedAt": "2026-10-31T13:45:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "RDDT",
+          "company": "Reddit",
+          "sentiment": -0.6,
+          "confidence": 0.85,
+          "stance": "bearish",
+          "rationale": "Reports stock falling on weak guidance and a Citizens downgrade tied to declining Google referral traffic."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-10-31T22:40:34.690Z"
     }
   }
 }
