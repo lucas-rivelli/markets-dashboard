@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-30T23:28:55.864Z",
+  "generatedAt": "2026-10-31T02:40:34.827Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-29",
+  "replayTo": "2026-10-30",
   "windowDays": 37,
   "events": [
     {
@@ -170,7 +170,7 @@
       "ticker": "PLTR",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.05865163840898613,
       "fwd20": null
     },
     {
@@ -178,7 +178,7 @@
       "ticker": "XOM",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.027643524091576444,
       "fwd20": null
     },
     {
@@ -186,7 +186,7 @@
       "ticker": "AMD",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.01760858731749726,
       "fwd20": null
     },
     {
@@ -620,12 +620,100 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "PLTR",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "RIVN",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "MRVL",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "MRVL",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "VZ",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "SPCX",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "C",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "QCOM",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "BX",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "RDDT",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-10-30",
+      "ticker": "RDDT",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 49,
+      "events": 53,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -633,7 +721,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 9,
+      "events": 12,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -641,7 +729,7 @@
     },
     {
       "name": "BEARISH_SHIFT",
-      "events": 9,
+      "events": 11,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -649,7 +737,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 8,
+      "events": 10,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -667,7 +755,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 49,
+      "events": 53,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -675,7 +763,7 @@
     },
     {
       "name": "LONG",
-      "events": 17,
+      "events": 22,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -683,7 +771,7 @@
     },
     {
       "name": "SHORT",
-      "events": 11,
+      "events": 13,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
