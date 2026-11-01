@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "199eac282096985c",
+      "ticker": "GM",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-01T23:46:32.128Z",
+      "firedDate": "2026-11-01",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": -0.085,
+        "sentShift": -0.535,
+        "retRecent": 0.1512,
+        "excessRecent": 0.1568,
+        "score": -0.093
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/c98ba448-fbf5-3d3b-9314-94f45d1669d7/can-general-motors-and-ford.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/28/badly-crippled-gm-moves-to-nasdaq/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/25/forget-fords-lucrative-dividend-gm-has-a-different/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "8a414fb58d13aa62",
       "ticker": "CRWD",
       "rule": "BEARISH_SHIFT",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-01T20:04:10.571Z",
+  "updatedAt": "2026-11-01T23:43:41.490Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -48379,6 +48379,455 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-01T20:04:10.571Z"
+    },
+    "b3245b9a9ae1fcfb5afbfa964eef64a558c2a7e4317214cfc1369c6a39cac620": {
+      "id": "b3245b9a9ae1fcfb5afbfa964eef64a558c2a7e4317214cfc1369c6a39cac620",
+      "title": "Stock futures open a monster week after a $5 trillion AI wipeout",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/article/stock-futures-open-a-monster-week-after-a-5-trillion-ai-wipeout-232500194.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:25:00.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:29.307Z"
+    },
+    "55e83c181196536a95ce361033dbec0938b06f13321bb096a6e1a5b1722af3b4": {
+      "id": "55e83c181196536a95ce361033dbec0938b06f13321bb096a6e1a5b1722af3b4",
+      "title": "Dow Jones Futures Rise After Market Sell-Off; How Midterm Elections May Swing Stocks",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/d0bc23d0-115b-314d-8989-07ca797bebfa/dow-jones-futures-rise-after.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:36:17.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:29.771Z"
+    },
+    "acef0d3d402d71ff80288d476e5fc356b9f180c5452620865de041c924ffdf7a": {
+      "id": "acef0d3d402d71ff80288d476e5fc356b9f180c5452620865de041c924ffdf7a",
+      "title": "Should You Buy PayPal Stock at About 10 Times Its Expected 2026 Earnings?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/should-you-buy-paypal-stock-at-about-10-times-its/?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:30.015Z"
+    },
+    "c72df367298a70cc0ac059ec8eb0b7d0b297e83feda29e2581938f3b3409aac1": {
+      "id": "c72df367298a70cc0ac059ec8eb0b7d0b297e83feda29e2581938f3b3409aac1",
+      "title": "Reddit Stock Crashed 29%: Is Google AI Coming for More Stocks?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://beincrypto.com/reddit-stock-google-ai-traffic-crash/?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:00:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "RDDT",
+          "company": "Reddit",
+          "sentiment": -0.5,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Reports a sharp one-day drop tied to search AI answers reducing traffic, implying pressure on Reddit's outlook."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:30.612Z"
+    },
+    "4bbe9d255e45d2b646002e7057f462839600cc7510f0c54c0730e9a812f43c7c": {
+      "id": "4bbe9d255e45d2b646002e7057f462839600cc7510f0c54c0730e9a812f43c7c",
+      "title": "Instinct's WhatsApp replies fail, AI agent blames billing",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/crypto/artificial-intelligence/instincts-whatsapp-replies-fail-ai-agent-blames-billing?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:33:51.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:31.026Z"
+    },
+    "00abf42a53e754209d130ae56c38c33a15162bea7149f8b84a90be1f7e5e340e": {
+      "id": "00abf42a53e754209d130ae56c38c33a15162bea7149f8b84a90be1f7e5e340e",
+      "title": "Apple earnings: what to look for from AAPL",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-earnings-look-aapl-222407504.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:24:07.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Previews Apple's upcoming earnings report without stating any view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:31.183Z"
+    },
+    "197d06d38db6223afcea0f37822413daff496fdb8ae6e280312ef26251b400e7": {
+      "id": "197d06d38db6223afcea0f37822413daff496fdb8ae6e280312ef26251b400e7",
+      "title": "Netflix Stock Is Trading at a Historically Low Valuation. Is This a Generational Buying Opportunity?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/netflix-stock-is-trading-at-a-historically-low-valuation-is-this-a-generational-buying-opportunity/?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:48:01.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:31.680Z"
+    },
+    "3e2189a648c7c8e52c8d04a065c39aef9cd9bfccf99a31ea17b7df0d570edccd": {
+      "id": "3e2189a648c7c8e52c8d04a065c39aef9cd9bfccf99a31ea17b7df0d570edccd",
+      "title": "Stocks Are Entering Their Historically Strongest Stretch -- But There May Be a Catch This Year",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/stocks-are-entering-their-historically-strongest-s/?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:31.942Z"
+    },
+    "b10b01c4d75bfe7f42e11f3ae64ee30d93a926ccb5d371b9695ccc0ebfee143e": {
+      "id": "b10b01c4d75bfe7f42e11f3ae64ee30d93a926ccb5d371b9695ccc0ebfee143e",
+      "title": "Amazon Stock Fell After Earnings. Jim Cramer Says Buy Right Here",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/01/amazon-stock-fell-after-earnings-jim-cramer-says-buy-right-here/?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:07:05.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0.6,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Cites Jim Cramer's view that the stock is a buy after an earnings-driven drop, seeing value investors are missing."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:32.579Z"
+    },
+    "9ea2301e8fb399ac7af98e977eabf7f6d111354a043b8406e80ce336953babde": {
+      "id": "9ea2301e8fb399ac7af98e977eabf7f6d111354a043b8406e80ce336953babde",
+      "title": "Stellantis Stock Is Soaring. Europe Is Crashing the Party.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/stellantis-stock-is-soaring-europe-is-crashing-the/?.tsrc=rss",
+      "publishedAt": "2026-11-01T22:07:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "STLA",
+          "company": "Stellantis",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Describes the turnaround as gaining traction and highlights third-quarter cost-efficiency gains as a positive development for investors."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:32.953Z"
+    },
+    "2743888234c147e78e5a2e129ce2fd1caf7cebb03e441e1932a8575a6dda4403": {
+      "id": "2743888234c147e78e5a2e129ce2fd1caf7cebb03e441e1932a8575a6dda4403",
+      "title": "The Big Money Poll Shows Investors as Divided as America",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/ed866a6d-9ab0-3639-93f4-3a5dadd447c3/the-big-money-poll-shows.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:23:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:33.377Z"
+    },
+    "2cb5e072c79bb2c381f396658231a5a2acdfd64af9e09893126a3f7e8c8aa04a": {
+      "id": "2cb5e072c79bb2c381f396658231a5a2acdfd64af9e09893126a3f7e8c8aa04a",
+      "title": "Can General Motors and Ford Survive the Flood of Cheap Chinese EVs?",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/c98ba448-fbf5-3d3b-9314-94f45d1669d7/can-general-motors-and-ford.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:35:00.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "GM",
+          "company": "General Motors",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "The item argues General Motors could thrive despite cheap Chinese EV competition, though the view is only implied."
+        },
+        {
+          "ticker": "LEA",
+          "company": "Lear",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "The item argues Lear could thrive despite cheap Chinese EV competition, though the view is only implied."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:34.294Z"
+    },
+    "45afcd1f289e10642db10fae96e733d78af222649e24ac731f175bce3c16ae9c": {
+      "id": "45afcd1f289e10642db10fae96e733d78af222649e24ac731f175bce3c16ae9c",
+      "title": "MPLX Reports Earnings on Nov. 3, 2026. Here's What Investors Should Be Watching.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/mplx-reports-earnings-on-nov-3-2026-heres-what-investors-should-be-watching/?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:28:01.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:34.378Z"
+    },
+    "33197dcf5e3fed7ece5e8a88df2980b8d465878e731c07243141e82947d8f5ed": {
+      "id": "33197dcf5e3fed7ece5e8a88df2980b8d465878e731c07243141e82947d8f5ed",
+      "title": "Starlink's Subscriber Growth Is Explosive. Could SpaceX Unlock a Second Growth Engine?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/starlink-subscriber-growth-explosive-spacex-growth/?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:22:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:34.919Z"
+    },
+    "dc21aed9f341135ce80d73f76a93900e17e5e437df715f3f78e7948338819b4f": {
+      "id": "dc21aed9f341135ce80d73f76a93900e17e5e437df715f3f78e7948338819b4f",
+      "title": "Learn Why The Bull Case For JPMorgan Chase Stock Could Change Following Earnings Miss",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/learn-why-bull-case-jpmorgan-210931942.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:09:31.000Z",
+      "tickerHint": "JPM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:35.388Z"
+    },
+    "65a5148527d52147bbc228d59c54b728eb1bab3d2a61f90f438275822d32f18a": {
+      "id": "65a5148527d52147bbc228d59c54b728eb1bab3d2a61f90f438275822d32f18a",
+      "title": "1 Dividend-Paying Biotech Stock to Buy Hand Over Fist in November",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/1-dividend-paying-biotech-stock-to-buy-hand-over-f/?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:02:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:35.803Z"
+    },
+    "50132112a4a276e419d6268aa7033d3ed26d637e0fe7cc43c77152618fee1f58": {
+      "id": "50132112a4a276e419d6268aa7033d3ed26d637e0fe7cc43c77152618fee1f58",
+      "title": "Barclays Says a SpaceX Merger Is Now \"a Key Part\" of the Tesla Bull Case. Here's Who Actually Wins if It Happens -- and Who Pays.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/barclays-says-a-spacex-merger-is-now-a-key-part-of/?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:36.226Z"
+    },
+    "19e9cba57ef75dbbf7ec57fe62681f8e49d703b8eef6c4538143e18e2a0afc4b": {
+      "id": "19e9cba57ef75dbbf7ec57fe62681f8e49d703b8eef6c4538143e18e2a0afc4b",
+      "title": "Prediction: Nvidia Stock Is Going to Soar After Nov. 17",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/prediction-nvidia-stock-is-going-to-soar-after-dat/?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:49:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.7,
+          "confidence": 0.85,
+          "stance": "bullish",
+          "rationale": "Headline predicts a sharp rise, and the author credits strong big-cloud spending on infrastructure as a tailwind."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:36.487Z"
+    },
+    "7a30023bf493d8c69e525834a3d5e1a6d47388fcd6fd9e44fdc618f6178897fd": {
+      "id": "7a30023bf493d8c69e525834a3d5e1a6d47388fcd6fd9e44fdc618f6178897fd",
+      "title": "BWX Technologies Reports Earnings on Nov. 2 2026. Here's What Investors Should Be Watching.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/bwx-technologies-reports-earnings-on-nov-2-2026-heres-what-investors-should-be-watching/?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:34:11.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:37.760Z"
+    },
+    "3841002f851f018314af4b75eb15b19cea8ceae5379bb229c4a5f491c6832241": {
+      "id": "3841002f851f018314af4b75eb15b19cea8ceae5379bb229c4a5f491c6832241",
+      "title": "Intuitive Surgical Stock Just Fell Despite a 22% Revenue Jump. Here's What Investors Are Missing.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/intuitive-surgical-stock-just-fell-despite-a-22-re/?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:37.794Z"
+    },
+    "138962bda9d7aa82a7e0c93d72ee735e819bb4c1a94acdb3a4d93b3e1e80388a": {
+      "id": "138962bda9d7aa82a7e0c93d72ee735e819bb4c1a94acdb3a4d93b3e1e80388a",
+      "title": "What Does JPMorgan Chase (JPM) Hiring A Data Infrastructure Chief Mean Now?",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/does-jpmorgan-chase-jpm-hiring-200812032.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:08:12.000Z",
+      "tickerHint": "JPM",
+      "mentions": [
+        {
+          "ticker": "JPM",
+          "company": "JPMorgan Chase",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports a data infrastructure leadership appointment at the bank without stating any view on the stock's prospects."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:38.079Z"
+    },
+    "1b601f0858cad8486ab04e104522713ba3c737ac463b24cc411883cae59cd6c0": {
+      "id": "1b601f0858cad8486ab04e104522713ba3c737ac463b24cc411883cae59cd6c0",
+      "title": "Wall Street Says One Election Result Gives Bitcoin Its Best Chance at $100,000",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://beincrypto.com/bitcoin-100000-midterms-bloomberg-survey/?.tsrc=rss",
+      "publishedAt": "2026-11-01T19:58:27.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:38.639Z"
+    },
+    "7fe26341ad509011dc83ac576355fa2d28831f0e2ea1549887d315f5a1753901": {
+      "id": "7fe26341ad509011dc83ac576355fa2d28831f0e2ea1549887d315f5a1753901",
+      "title": "Energy Transfer's Next Earnings Report Could Send the Stock Higher",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/energy-transfer-s-next-earnings-report-could-send-the-stock-higher/?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:20:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "ET",
+          "company": "Energy Transfer",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Describes recent quarterly cash flow as strong and the outlook as improving, implying the stock could rise after earnings."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:38.664Z"
+    },
+    "5bcc254f7506691d6cb9aa30863da8887e13929b894b056283c3a9e99713bdbd": {
+      "id": "5bcc254f7506691d6cb9aa30863da8887e13929b894b056283c3a9e99713bdbd",
+      "title": "AI Stocks Are Getting a Reality Check, But Don’t Count the Trade Out Just Yet. Here’s Why.",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8580824/ai-stocks-are-getting-a-reality-check-but-dont-count-the-trade-out-just-yet-heres-why?.tsrc=rss",
+      "publishedAt": "2026-11-01T15:15:02.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:39.849Z"
+    },
+    "86af97ea1d5e03d21a40664be6330c6e9aaf05c8ae503cb86031ce28869d34ad": {
+      "id": "86af97ea1d5e03d21a40664be6330c6e9aaf05c8ae503cb86031ce28869d34ad",
+      "title": "Microsoft Delivered a Beat on Both Earnings and Revenue. Here’s How to Think About MSFT Stock Now.",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8580868/microsoft-delivered-a-beat-on-both-earnings-and-revenue-heres-how-to-think-about-msft-stock-now?.tsrc=rss",
+      "publishedAt": "2026-11-01T15:30:03.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports fiscal Q1 revenue and adjusted earnings both beating estimates, which implies a favorable view, though no explicit stock call is stated."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:40.080Z"
+    },
+    "2c3a79db22aa88034a686a59ba9242b9397bae5d1f20d9ae243676284b798008": {
+      "id": "2c3a79db22aa88034a686a59ba9242b9397bae5d1f20d9ae243676284b798008",
+      "title": "AppLovin Stock Is Struggling: 3 Things to Watch in Q3 Earnings That Could Get APP Back on Track",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8580741/applovin-stock-is-struggling-3-things-to-watch-in-q3-earnings-that-could-get-app-back-on-track?.tsrc=rss",
+      "publishedAt": "2026-11-01T15:00:03.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:41.197Z"
+    },
+    "45d1fdc8fa5fc17b5c6ea4c82e772f3d8c4de8d8a3c125249500eec686e1c04a": {
+      "id": "45d1fdc8fa5fc17b5c6ea4c82e772f3d8c4de8d8a3c125249500eec686e1c04a",
+      "title": "SpaceX Stock Is Nearly 30% Below Its Post-IPO High. Here's What Facebook's Stock Did From the Same Spot.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/spacex-stock-is-nearly-30-below-its-post-ipo-high-here-s-what-facebook-s-stock-did-from-the-same-spot/?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:03:01.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "META",
+          "company": "Meta Platforms (Facebook)",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Uses Facebook's past drawdown and recovery as a historical comparison, with no stated view on its current stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-01T23:43:41.490Z"
     }
   }
 }
