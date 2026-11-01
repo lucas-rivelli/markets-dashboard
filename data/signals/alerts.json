@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "8a414fb58d13aa62",
+      "ticker": "CRWD",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-01T20:06:50.460Z",
+      "firedDate": "2026-11-01",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0,
+        "sentShift": -0.6,
+        "retRecent": -0.0277,
+        "excessRecent": -0.0221,
+        "score": 0
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/01/prediction-3-stocks-that-will-be-worth-more-than-p/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/crowdstrike-crwd-stock-looks-overvalued-001653356.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/20/not-palantir-not-snowflake-this-ai-software-stock/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "79b87d07fbecc10d",
+      "ticker": "WMT",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-01T20:06:50.459Z",
+      "firedDate": "2026-11-01",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": 0.0302,
+        "excessRecent": 0.0358,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/media-advertising/articles/walmarts-120-walmart-sams-club-190000608.html?.tsrc=rss",
+        "https://unchainedcrypto.com/walmart-eli-lilly-and-cigna-file-objections-to-ice-and-okxs-tokenized-stock-venue/?.tsrc=rss",
+        "https://decrypt.co/382145/walmart-blocks-stock-okx-ice-tokenized-trading-venue?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "6bfcc44c5ff68892",
+      "ticker": "NFLX",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-01T20:06:50.458Z",
+      "firedDate": "2026-11-01",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.35,
+        "sentShift": 0.35,
+        "retRecent": -0.0573,
+        "excessRecent": -0.0517,
+        "score": 0.3845
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/01/why-netflix-stock-could-double-from-this-dip/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/31/france-wants-a-5-5-cent-per-gigabyte-tax-on-netflix-google-and-meta/?.tsrc=rss",
+        "https://www.fool.com/coverage/stock-market-today/2026/10/20/stock-market-today-oct-20-netflix-q3-revenue-rises-12-on-pricing-power/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b969ea6d639a4e16",
+      "ticker": "NFLX",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-01T20:06:50.456Z",
+      "firedDate": "2026-11-01",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.35,
+        "sentShift": 0.35,
+        "retRecent": -0.0573,
+        "excessRecent": -0.0517,
+        "score": 0.3845
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/01/why-netflix-stock-could-double-from-this-dip/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/31/france-wants-a-5-5-cent-per-gigabyte-tax-on-netflix-google-and-meta/?.tsrc=rss",
+        "https://www.fool.com/coverage/stock-market-today/2026/10/20/stock-market-today-oct-20-netflix-q3-revenue-rises-12-on-pricing-power/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "ad106602838ba699",
       "ticker": "INTC",
       "rule": "BEARISH_SHIFT",
