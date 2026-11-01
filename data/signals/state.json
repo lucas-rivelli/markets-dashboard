@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-01T08:36:47.097Z",
-  "startedAt": "2026-11-01T08:34:03.239Z",
+  "lastUpdated": "2026-11-01T15:44:03.013Z",
+  "startedAt": "2026-11-01T15:40:41.861Z",
   "asOf": "2026-11-01",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -151,35 +151,35 @@
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 13,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 19,
       "error": null
     },
     {
@@ -193,7 +193,7 @@
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -207,7 +207,7 @@
       "name": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 20,
       "error": null
     },
     {
@@ -242,7 +242,7 @@
       "name": "Yahoo Finance — XOM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -652,9 +652,9 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 351,
-    "extractionsTotal": 2932,
-    "mentionsTotal": 1019,
+    "itemsFetched": 356,
+    "extractionsTotal": 2992,
+    "mentionsTotal": 1030,
     "tickers": 56,
     "pricesOk": 62,
     "alertsTotal": 401,
@@ -672,17 +672,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 11,
+      "mentionsRecent": 12,
       "mentionsBaseline": 3,
       "baselineRate": 0.7,
-      "spikeRatio": 15.714,
-      "sentRecent": 0.557,
+      "spikeRatio": 17.143,
+      "sentRecent": 0.553,
       "sentBaseline": 0.423,
-      "sentShift": 0.134,
+      "sentShift": 0.13,
       "retRecent": 0.0082,
       "excessRecent": 0.0138,
       "ret30": -0.1769,
-      "score": 1.3852,
+      "score": 1.4183,
       "lastPrice": 884.74,
       "lastPriceDate": "2026-10-30",
       "priceBars": 505
@@ -724,17 +724,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 35,
+      "mentionsRecent": 36,
       "mentionsBaseline": 11,
       "baselineRate": 2.567,
-      "spikeRatio": 13.636,
-      "sentRecent": 0.364,
+      "spikeRatio": 14.026,
+      "sentRecent": 0.365,
       "sentBaseline": 0.155,
-      "sentShift": 0.209,
+      "sentShift": 0.21,
       "retRecent": 0.0741,
       "excessRecent": 0.0797,
       "ret30": 0.0788,
-      "score": 1.304,
+      "score": 1.3177,
       "lastPrice": 399.81,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -833,17 +833,17 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 25,
+      "mentionsRecent": 27,
       "mentionsBaseline": 4,
       "baselineRate": 0.933,
-      "spikeRatio": 26.786,
-      "sentRecent": 0.33,
+      "spikeRatio": 28.929,
+      "sentRecent": 0.305,
       "sentBaseline": 0.528,
-      "sentShift": -0.198,
+      "sentShift": -0.223,
       "retRecent": -0.0642,
       "excessRecent": -0.0587,
       "ret30": -0.0246,
-      "score": 1.0766,
+      "score": 1.016,
       "lastPrice": 184.11,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
@@ -901,6 +901,32 @@
       "priceBars": 509
     },
     {
+      "ticker": "XOM",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 18,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 15.429,
+      "sentRecent": 0.323,
+      "sentBaseline": 0.349,
+      "sentShift": -0.026,
+      "retRecent": 0.0221,
+      "excessRecent": 0.0276,
+      "ret30": 0.1417,
+      "score": 0.9507,
+      "lastPrice": 187.25,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
+    },
+    {
       "ticker": "AMD",
       "discovered": false,
       "flag": "WATCH",
@@ -923,32 +949,6 @@
       "ret30": -0.2037,
       "score": 0.8668,
       "lastPrice": 504.8,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
-    },
-    {
-      "ticker": "XOM",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 15,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 12.857,
-      "sentRecent": 0.307,
-      "sentBaseline": 0.349,
-      "sentShift": -0.042,
-      "retRecent": 0.0221,
-      "excessRecent": 0.0276,
-      "ret30": 0.1417,
-      "score": 0.8514,
-      "lastPrice": 187.25,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
     },
@@ -1057,32 +1057,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "AAPL",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 23,
-      "mentionsBaseline": 9,
-      "baselineRate": 2.1,
-      "spikeRatio": 10.952,
-      "sentRecent": 0.177,
-      "sentBaseline": 0.023,
-      "sentShift": 0.154,
-      "retRecent": -0.0089,
-      "excessRecent": -0.0033,
-      "ret30": 0.0328,
-      "score": 0.5612,
-      "lastPrice": 344.63,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
-    },
-    {
       "ticker": "MRVL",
       "discovered": true,
       "flag": "LONG",
@@ -1112,6 +1086,32 @@
       "lastPrice": 196.4,
       "lastPriceDate": "2026-10-30",
       "priceBars": 503
+    },
+    {
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 24,
+      "mentionsBaseline": 9,
+      "baselineRate": 2.1,
+      "spikeRatio": 11.429,
+      "sentRecent": 0.168,
+      "sentBaseline": 0.023,
+      "sentShift": 0.145,
+      "retRecent": -0.0089,
+      "excessRecent": -0.0033,
+      "ret30": 0.0328,
+      "score": 0.541,
+      "lastPrice": 344.63,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
     },
     {
       "ticker": "CRWV",
@@ -1573,6 +1573,32 @@
       "priceBars": 509
     },
     {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 52,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 44.571,
+      "sentRecent": 0.037,
+      "sentBaseline": 0.326,
+      "sentShift": -0.289,
+      "retRecent": -0.1261,
+      "excessRecent": -0.1205,
+      "ret30": -0.1853,
+      "score": 0.1466,
+      "lastPrice": 279.84,
+      "lastPriceDate": "2026-10-30",
+      "priceBars": 509
+    },
+    {
       "ticker": "MS",
       "discovered": true,
       "flag": "WATCH",
@@ -1621,37 +1647,6 @@
       "ret30": -0.2156,
       "score": 0.0983,
       "lastPrice": 143.54,
-      "lastPriceDate": "2026-10-30",
-      "priceBars": 509
-    },
-    {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 51,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 43.714,
-      "sentRecent": 0.023,
-      "sentBaseline": 0.326,
-      "sentShift": -0.303,
-      "retRecent": -0.1261,
-      "excessRecent": -0.1205,
-      "ret30": -0.1853,
-      "score": 0.0909,
-      "lastPrice": 279.84,
       "lastPriceDate": "2026-10-30",
       "priceBars": 509
     },
@@ -2051,17 +2046,17 @@
           "label": "Bearish sentiment shift"
         }
       ],
-      "mentionsRecent": 24,
+      "mentionsRecent": 25,
       "mentionsBaseline": 2,
       "baselineRate": 0.467,
-      "spikeRatio": 48,
-      "sentRecent": -0.272,
+      "spikeRatio": 50,
+      "sentRecent": -0.277,
       "sentBaseline": 0.05,
-      "sentShift": -0.322,
+      "sentShift": -0.327,
       "retRecent": -0.2438,
       "excessRecent": -0.2382,
       "ret30": -0.4489,
-      "score": -0.8767,
+      "score": -0.9032,
       "lastPrice": 65.76,
       "lastPriceDate": "2026-10-30",
       "priceBars": 504
@@ -2106,11 +2101,11 @@
         "INTC"
       ],
       "flag": "SHORT",
-      "score": 74.5,
+      "score": 74.7,
       "reasons": [
         "INTC: Short candidate",
-        "24 mentions this week (48.0x baseline)",
-        "sentiment shift -0.32"
+        "25 mentions this week (50.0x baseline)",
+        "sentiment shift -0.33"
       ],
       "rationale": "Notes Intel has started shipping on its most advanced process and suggests a real comeback, though the view is implied rather than stated.",
       "sentiment": 0.4,
@@ -2183,6 +2178,50 @@
       "confidence": 0.6
     },
     {
+      "id": "ca4cd588337e07a6ac77319cf6d93c1539ad9211d7f4563b945b44b215ee6e0d",
+      "title": "Is Palantir Stock a Buy?",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/is-palantir-stock-a-buy/?.tsrc=rss",
+      "publishedAt": "2026-11-01T12:07:00.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 71,
+      "reasons": [
+        "PLTR: Long candidate",
+        "27 mentions this week (28.9x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Reports that the stock fell into a correction and has since recovered most of the losses, with no explicit view on it.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
+      "id": "16dfbed48bdefd1e82a52b968826b9ba228d63da25a94973b25511bc05ef9c7c",
+      "title": "Palantir Technologies (PLTR) to report earnings tomorrow: here is what to expect",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-technologies-pltr-report-earnings-091500242.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T09:15:00.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 71,
+      "reasons": [
+        "PLTR: Long candidate",
+        "27 mentions this week (28.9x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Earnings preview that notes the upcoming report date without expressing any view on the stock.",
+      "sentiment": 0,
+      "confidence": 0.9
+    },
+    {
       "id": "45a1da965ac5ca0165ee6c886712534a64262b784b9bfc7e4f492fdd7e4e7b84",
       "title": "AppLovin, 8x8, Elastic, Shopify, and F5 shares are falling, what you need to know",
       "source": "Yahoo Finance — AMZN",
@@ -2195,58 +2234,35 @@
         "AMZN"
       ],
       "flag": "SHORT",
-      "score": 66.9,
+      "score": 67,
       "reasons": [
         "INTC: Short candidate",
-        "24 mentions this week (48.0x baseline)",
-        "sentiment shift -0.32"
+        "25 mentions this week (50.0x baseline)",
+        "sentiment shift -0.33"
       ],
       "rationale": "Describes Intel's earnings as underwhelming, contributing to the afternoon decline in tech shares.",
       "sentiment": -0.5,
       "confidence": 0.6
     },
     {
-      "id": "7fa533f119f16fda54d50e57512aef93fa574f005bdc2404d0c2901956ecd443",
-      "title": "Yes, Alphabet Stock Got Hammered. No, We’re Not Selling.",
-      "source": "Yahoo Finance — GOOGL",
+      "id": "f8b33939048a76ebe3aaf893599933bdf041931d4c0a3a4d1ee1d3d1fd73bd6c",
+      "title": "Intel Sinks 27% in a Week on a Weak Outlook, Despite “Extraordinary Demand” for Its Server Chips",
+      "source": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/c87c1f67-7e8d-3e32-a321-55370038842a/yes%2C-alphabet-stock-got.html?.tsrc=rss",
-      "publishedAt": "2026-10-31T06:41:00.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL"
-      ],
-      "flag": "SHORT",
-      "score": 66.5,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "51 mentions this week (43.7x baseline)",
-        "bullish view, confidence 0.85"
-      ],
-      "rationale": "Author says they are holding rather than selling, arguing the stock trades at a discount and could gain substantially on a return to its historical",
-      "sentiment": 0.7,
-      "confidence": 0.85
-    },
-    {
-      "id": "a12f85627f1ad238a9b30dd7e59b13c8d88977f0a6835253831e752272abb381",
-      "title": "If Taiwan Semi Raises Prices, It Could Be Bad News for Intel Stock. Here’s Why.",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8572976/if-taiwan-semi-raises-prices-it-could-be-bad-news-for-intel-stock-heres-why?.tsrc=rss",
-      "publishedAt": "2026-10-31T15:08:39.000Z",
+      "url": "https://www.tikr.com/blog/intel-sinks-27-in-a-week-on-a-weak-outlook-despite-extraordinary-demand-for-its-server-chips?ref=yahoofinance&tlnk=yf-261101-m2xvw7xq&.tsrc=rss",
+      "publishedAt": "2026-10-31T17:56:39.000Z",
       "ticker": "INTC",
       "tickers": [
-        "INTC",
-        "TSM"
+        "INTC"
       ],
       "flag": "SHORT",
-      "score": 66,
+      "score": 66.2,
       "reasons": [
         "INTC: Short candidate",
-        "24 mentions this week (48.0x baseline)",
-        "sentiment shift -0.32"
+        "25 mentions this week (50.0x baseline)",
+        "sentiment shift -0.33"
       ],
-      "rationale": "Argues Intel's technology is not yet creating enough competitive pressure on TSMC, which the title frames as bad news for Intel stock.",
+      "rationale": "Reports a 27% weekly share drop after a fourth-quarter revenue guide below expectations, implying a negative view of the outlook.",
       "sentiment": -0.4,
       "confidence": 0.6
     },
@@ -2288,55 +2304,11 @@
       "score": 65,
       "reasons": [
         "PLTR: Long candidate",
-        "25 mentions this week (26.8x baseline)",
+        "27 mentions this week (28.9x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Reports that analysts hold a moderately optimistic view despite the stock lagging the market over the past year.",
       "sentiment": 0.3,
-      "confidence": 0.6
-    },
-    {
-      "id": "0d599ab267e3e3a38c823e27ba40ff04e7cf33f525812408f3d4f80c172ef07f",
-      "title": "Is Wall Street Bullish or Bearish on Alphabet Stock?",
-      "source": "Yahoo Finance — GOOGL",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8573068/is-wall-street-bullish-or-bearish-on-alphabet-stock?.tsrc=rss",
-      "publishedAt": "2026-10-31T15:22:52.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL"
-      ],
-      "flag": "SHORT",
-      "score": 61.5,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "51 mentions this week (43.7x baseline)",
-        "sentiment shift -0.30"
-      ],
-      "rationale": "Reports that Wall Street analysts stay bullish on Alphabet, citing its strong performance against the broader market over the past year.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "27e31022783412b164cfbf16e0b540d58c869ca90baae55169e23d8c689bf12d",
-      "title": "Alphabet's Earnings Horror Show Continues, But GOOG Stock Is a Buy Below $300",
-      "source": "Yahoo Finance — GOOGL",
-      "sourceType": "TickerNews",
-      "url": "https://www.barchart.com/story/news/8572384/alphabet-s-earnings-horror-show-continues-but-goog-stock-is-a-buy-below-300?.tsrc=rss",
-      "publishedAt": "2026-10-31T13:48:57.000Z",
-      "ticker": "GOOGL",
-      "tickers": [
-        "GOOGL"
-      ],
-      "flag": "SHORT",
-      "score": 61.5,
-      "reasons": [
-        "GOOGL: Short candidate",
-        "51 mentions this week (43.7x baseline)",
-        "sentiment shift -0.30"
-      ],
-      "rationale": "Calls the stock a buy below $300 despite disappointing quarterly numbers and a sharp selloff.",
-      "sentiment": 0.4,
       "confidence": 0.6
     },
     {
@@ -2363,50 +2335,6 @@
       ],
       "rationale": "Named as one of the banks committing $63 billion to the vehicle, with no view on its stock.",
       "sentiment": 0,
-      "confidence": 0.8
-    },
-    {
-      "id": "a86cf67cf0a8956246a7185f504a30f2031d3c54c8a87fc7a0cac987d2494afa",
-      "title": "Palantir (PLTR) Stock Gets Fair Value Bump After Analysts Lift AI Driven Targets",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-pltr-stock-gets-fair-221856049.html?.tsrc=rss",
-      "publishedAt": "2026-10-30T22:18:56.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 60.2,
-      "reasons": [
-        "PLTR: Long candidate",
-        "25 mentions this week (26.8x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Reports analysts raising fair value and price targets, describing recent research as clearly constructive on Palantir's AI platform.",
-      "sentiment": 0.6,
-      "confidence": 0.85
-    },
-    {
-      "id": "ae9ae7840cab660ab8ca31bd192a71e16bca26bf9d8064a31737848067374627",
-      "title": "Will Top-Line Improvement Benefit Palantir in Q3 Earnings?",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/top-line-improvement-benefit-palantir-171100939.html?.tsrc=rss",
-      "publishedAt": "2026-10-30T17:11:00.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 59.8,
-      "reasons": [
-        "PLTR: Long candidate",
-        "25 mentions this week (26.8x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Expects Palantir's third-quarter revenue to surge on AI-driven demand across government and commercial units.",
-      "sentiment": 0.6,
       "confidence": 0.8
     },
     {
@@ -2468,12 +2396,56 @@
       "score": 48.8,
       "reasons": [
         "MU: Watch",
-        "11 mentions this week (15.7x baseline)",
+        "12 mentions this week (17.1x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Title argues the author would buy Micron now, citing a Chinese memory rival's rapid sales growth as context.",
       "sentiment": 0.6,
       "confidence": 0.6
+    },
+    {
+      "id": "1fd489a30e04b59578c39c6d652edb2bde4cc88caba9c241addbcfddf842e0e8",
+      "title": "Why Micron Stock Looks Cheap After a Record Year",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/why-micron-stock-looks-cheap-after-a-record-year/?.tsrc=rss",
+      "publishedAt": "2026-11-01T14:50:00.000Z",
+      "ticker": "MU",
+      "tickers": [
+        "MU"
+      ],
+      "flag": "WATCH",
+      "score": 47.8,
+      "reasons": [
+        "MU: Watch",
+        "12 mentions this week (17.1x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Argues the market is pricing in a downturn that recent results do not yet reflect, so the stock looks undervalued.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
+      "id": "9e9ecb2374bdec259337228bd03a3fb144327c4056106aafb454781de88dca74",
+      "title": "1 Reason Alphabet Stock Is Worth Buying on This Pullback",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/reason-alphabet-stock-worth-buying-pullback/?.tsrc=rss",
+      "publishedAt": "2026-11-01T13:20:00.000Z",
+      "ticker": "GOOGL",
+      "tickers": [
+        "GOOGL"
+      ],
+      "flag": "WATCH",
+      "score": 47.2,
+      "reasons": [
+        "GOOGL: Watch",
+        "52 mentions this week (44.6x baseline)",
+        "bullish view, confidence 0.85"
+      ],
+      "rationale": "Sees the recent selloff over heavy AI spending as a buying opportunity, citing strong cloud growth and a reasonable valuation.",
+      "sentiment": 0.6,
+      "confidence": 0.85
     },
     {
       "id": "eeeea789466a963591cb73db33e134ada663b83114a9888bd4443e0229d6089e",
@@ -2564,6 +2536,27 @@
       "confidence": 0.8
     },
     {
+      "id": "035a24b5f3092bc50b66c7c17faf6e747f430fad47da0acc30031b0e6987c942",
+      "title": "ExxonMobil Q3 Earnings: 3 Key Takeaways for Long-Term Investors",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/earnings/takeaways/2026/11/01/exxonmobil-q3-earnings-3-key-takeaways-for-long-term-investors/?.tsrc=rss",
+      "publishedAt": "2026-11-01T13:52:18.000Z",
+      "ticker": "XOM",
+      "tickers": [
+        "XOM"
+      ],
+      "flag": "WATCH",
+      "score": 44.6,
+      "reasons": [
+        "XOM: Watch",
+        "18 mentions this week (15.4x baseline)"
+      ],
+      "rationale": "Frames refining upgrades and planned buybacks as evidence of capital discipline that rewards shareholders through the cycle.",
+      "sentiment": 0.5,
+      "confidence": 0.7
+    },
+    {
       "id": "66bff46eb4d8cb9a732e96f555d7a840e86716620975b06aabcc06476f36b3f2",
       "title": "Eli Lilly stock surges as cheaper drugs unlock a bigger market",
       "source": "Yahoo Finance — LLY",
@@ -2585,6 +2578,27 @@
       "confidence": 0.6
     },
     {
+      "id": "70e342bf5a9730daf884e8e302a64c484783b9fe7e31c986d5b73f88f2accf89",
+      "title": "Tesla’s Cybercab Costs “About $25,000” to Build. Waymo Has a Big Problem: It’s Cost Is Nearly 4X That",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/teslas-cybercab-costs-about-25000-to-build-waymo-has-a-big-problem-its-cost-is-nearly-4x-that?ref=yahoofinance&tlnk=yf-261101-739mfm8c&.tsrc=rss",
+      "publishedAt": "2026-11-01T08:18:14.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 43.5,
+      "reasons": [
+        "TSLA: Watch",
+        "36 mentions this week (14.0x baseline)"
+      ],
+      "rationale": "Says Cybercab's low production cost gives Tesla a robotaxi cost edge over Waymo, though it narrows against Ojai.",
+      "sentiment": 0.4,
+      "confidence": 0.7
+    },
+    {
       "id": "1042a8c8843634866ab62727f0e58e1a7e4b36beb4c3bb1d835905cd565a8e86",
       "title": "Cybercab Expansion Might Change The Case For Investing In Tesla Stock (TSLA)",
       "source": "Yahoo Finance — TSLA",
@@ -2599,7 +2613,7 @@
       "score": 43.5,
       "reasons": [
         "TSLA: Watch",
-        "35 mentions this week (13.6x baseline)"
+        "36 mentions this week (14.0x baseline)"
       ],
       "rationale": "Frames the Cybercab and robotaxi expansion as strengthening Tesla's recurring service revenue and autonomy-driven investment case.",
       "sentiment": 0.4,
@@ -2620,34 +2634,12 @@
       "score": 43.4,
       "reasons": [
         "MU: Watch",
-        "11 mentions this week (15.7x baseline)",
+        "12 mentions this week (17.1x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Frames Musk's comments as signaling durable memory chip demand, which the headline presents as positive news for Micron.",
       "sentiment": 0.6,
       "confidence": 0.6
-    },
-    {
-      "id": "b6311f699407bc56c0cc4cff98ea1b9d43f705284889827cc78dd69ee35bce21",
-      "title": "Amazon Plans to Spend More on AI. Here’s Why the Stock is a Once-in-a-Decade Buy Hiding in Plain Sight.",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/10/31/amazon-plans-to-spend-more-on-ai-here-s-why-the-stock-is-a-once-in-a-decade-buy-hiding-in-plain-sight/?.tsrc=rss",
-      "publishedAt": "2026-10-31T08:30:02.000Z",
-      "ticker": "AMZN",
-      "tickers": [
-        "AMZN"
-      ],
-      "flag": "WATCH",
-      "score": 42.2,
-      "reasons": [
-        "AMZN: Watch",
-        "45 mentions this week (16.1x baseline)",
-        "bullish view, confidence 0.70"
-      ],
-      "rationale": "Headline calls the stock a rare buy opportunity after a roughly 14% drop from its August high, despite heavier AI spending.",
-      "sentiment": 0.8,
-      "confidence": 0.7
     }
   ]
 }
