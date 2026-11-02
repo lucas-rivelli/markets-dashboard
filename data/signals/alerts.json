@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "88e43832ac51801e",
+      "ticker": "GOOG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-02T11:59:48.303Z",
+      "firedDate": "2026-11-02",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": -0.1145,
+        "excessRecent": -0.1019,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-alphabet-goog-110321578.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/hot-takes-on-hot-wings-the-state-of-the-running-shoe-market-and-microsofts-recent-quarter-141512057.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/alphabet-cfo-walks-through-the-companys-q3-results-213801069.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "38f9fa380e138ff3",
+      "ticker": "CAT",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-02T11:59:48.302Z",
+      "firedDate": "2026-11-02",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.179,
+        "sentShift": -0.321,
+        "retRecent": -0.1002,
+        "excessRecent": -0.0876,
+        "score": 0.197
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/avantis-u-large-cap-value-110429785.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/eli-lilly-raises-forecast-ebay-143059520.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/24/caterpillar-is-quietly-becoming-an-ai-stock-heres/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "4251bc3b24753124",
       "ticker": "INTC",
       "rule": "BEARISH_SHIFT",
