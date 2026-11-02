@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "31245b555e846068",
+      "ticker": "NFLX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-02T21:24:52.543Z",
+      "firedDate": "2026-11-02",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.233,
+        "sentShift": 0.233,
+        "retRecent": -0.0285,
+        "excessRecent": -0.0159,
+        "score": 0.3235
+      },
+      "topItems": [
+        "https://www.axios.com/2026/11/02/netflix-darshan-kantak-ads-platform#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-media?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/why-netflix-stock-could-double-from-this-dip/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/31/france-wants-a-5-5-cent-per-gigabyte-tax-on-netflix-google-and-meta/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "364509406226b9df",
+      "ticker": "NOW",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-02T21:24:52.541Z",
+      "firedDate": "2026-11-02",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.4,
+        "sentShift": null,
+        "retRecent": -0.3354,
+        "excessRecent": -0.3228,
+        "score": 0.5545
+      },
+      "topItems": [
+        "https://www.fool.com/coverage/charts/2026/11/02/servicenow-vs-uipath-consistent-revenue-growth-vs-volatile-seasonal-trends/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/why-the-27-crash-in-servicenows-stock-looks-like-a/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/servicenow-now-gains-ai-traction-042520833.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "12147eacdcdc8218",
+      "ticker": "NOW",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-02T21:24:52.539Z",
+      "firedDate": "2026-11-02",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.4,
+        "sentShift": null,
+        "retRecent": -0.3354,
+        "excessRecent": -0.3228,
+        "score": 0.5545
+      },
+      "topItems": [
+        "https://www.fool.com/coverage/charts/2026/11/02/servicenow-vs-uipath-consistent-revenue-growth-vs-volatile-seasonal-trends/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/why-the-27-crash-in-servicenows-stock-looks-like-a/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/servicenow-now-gains-ai-traction-042520833.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "88e43832ac51801e",
       "ticker": "GOOG",
       "rule": "MENTION_SPIKE",
