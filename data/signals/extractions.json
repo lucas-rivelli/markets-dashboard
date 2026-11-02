@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-01T23:43:41.490Z",
+  "updatedAt": "2026-11-02T03:53:14.011Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -48828,6 +48828,389 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-01T23:43:41.490Z"
+    },
+    "b0fd2fda267650d7091c3a2fccefb2ed62eb4cf7b93fdb68d9421a7e135d1909": {
+      "id": "b0fd2fda267650d7091c3a2fccefb2ed62eb4cf7b93fdb68d9421a7e135d1909",
+      "title": "Asian stocks mixed as tech sector struggles to rebound from selloff",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-mixed-tech-sector-024236684.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:42:36.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:00.495Z"
+    },
+    "c682dafe7f662f26849cbef6111735d1685f911625b62c9aef3d7e5df34566a9": {
+      "id": "c682dafe7f662f26849cbef6111735d1685f911625b62c9aef3d7e5df34566a9",
+      "title": "Forget Anthropic, This Is the Best AI Investment to Buy and Hold",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/forget-anthropic-this-is-the-best-ai-investment-to/?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:01.102Z"
+    },
+    "bb69e6e5be9bbd86946df092b0d63febce216178580b12113695558e2d3ac7b9": {
+      "id": "bb69e6e5be9bbd86946df092b0d63febce216178580b12113695558e2d3ac7b9",
+      "title": "Dow Jones Futures Rise But Market Still Ails; Midterm Elections Ahead",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/d0bc23d0-115b-314d-8989-07ca797bebfa/dow-jones-futures-rise-but.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T03:38:04.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:01.972Z"
+    },
+    "5982fd85d484e4b9519f47aa81b950aa26f4e3a6a2aea68343766ee82e272f4f": {
+      "id": "5982fd85d484e4b9519f47aa81b950aa26f4e3a6a2aea68343766ee82e272f4f",
+      "title": "Intel Shares Collapse. Why I'm Still Not Buying the Stock",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/intel-shares-collapse-why-im-still-not-buying-the/?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "INTC",
+          "company": "Intel",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Author says they are still not buying after shares fell on weak guidance, implying a negative view of the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:02.228Z"
+    },
+    "a8d0e952e0d41d323993f6f8faad78a4e374f79beaa2101840848bdead97bd58": {
+      "id": "a8d0e952e0d41d323993f6f8faad78a4e374f79beaa2101840848bdead97bd58",
+      "title": "Why Did MO, GILD, XOM Stocks Surge To 52-Week Highs Last Week?",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/why-did-mo-gild-xom-stocks-surge-to-52-week-highs-last-week/cNG91e0R92X?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:48:50.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:02.528Z"
+    },
+    "56fad94d1e12332638a05f08ef87d98552b6c53afe39d2585b9b3e857a95b1e2": {
+      "id": "56fad94d1e12332638a05f08ef87d98552b6c53afe39d2585b9b3e857a95b1e2",
+      "title": "Tiger Brokers Singapore Brings Extended-Hours US Options Trading to Singapore Investors",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/options/articles/tiger-brokers-singapore-brings-extended-020500891.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:03.173Z"
+    },
+    "7f3e4841c4d910c3daafd5368fab5dfefcf19b6a8f67b2954a7f8b61d32b777d": {
+      "id": "7f3e4841c4d910c3daafd5368fab5dfefcf19b6a8f67b2954a7f8b61d32b777d",
+      "title": "Tiger Brokers Brings Extended-Hours* US Options Trading to Investors Worldwide",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/options/articles/tiger-brokers-brings-extended-hours-020000360.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:04.170Z"
+    },
+    "62cb368dfc4cc8a228053da9d87b82bf383ffd10adcb186b94ccc904c696e9a5": {
+      "id": "62cb368dfc4cc8a228053da9d87b82bf383ffd10adcb186b94ccc904c696e9a5",
+      "title": "Tiger Brokers Brings Extended-Hours* US Options Trading to Australian Investors",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/options/articles/tiger-brokers-brings-extended-hours-020000556.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "TIGR",
+          "company": "Tiger Brokers",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Announces a product launch with no view on the stock's prospects, so it is a neutral mention."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:04.398Z"
+    },
+    "cf71e20158a69a7b36abfa3639d0578704ad4887e82c5a65944f867c6e0f52ca": {
+      "id": "cf71e20158a69a7b36abfa3639d0578704ad4887e82c5a65944f867c6e0f52ca",
+      "title": "Here's What $5,000 in Vanguard's Tech ETF Could Be Worth by 2030",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/here-s-what-usd5-000-in-vanguard-s-tech-etf-could-be-worth-by-2030/?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:57:01.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:04.594Z"
+    },
+    "4f56b72d2b0eb9982efc2453c88cf9d39c618c4cb0a3d9d14df76f6817d1ab0a": {
+      "id": "4f56b72d2b0eb9982efc2453c88cf9d39c618c4cb0a3d9d14df76f6817d1ab0a",
+      "title": "SPCX Stock Jumps Overnight: Musk Reportedly Revives TSMC Terafab Talks — Says Capex Efficiency Is ‘Greatly Underestimated’",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/spcx-stock-musk-tsmc-terafab-talks-capex-efficiency-greatly-underestimated/cNG9KfcR92f?.tsrc=rss",
+      "publishedAt": "2026-11-02T02:14:16.000Z",
+      "tickerHint": "TSM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:04.669Z"
+    },
+    "7b0cc606a4a96933007a07bca0298b2b6de49439a1ec378b677089526a624f86": {
+      "id": "7b0cc606a4a96933007a07bca0298b2b6de49439a1ec378b677089526a624f86",
+      "title": "Here's My Top Reason to Buy SpaceX Stock Right Now",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/heres-my-top-reason-to-buy-spacex-stock-right-now/?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:32:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:06.439Z"
+    },
+    "8c381c1339f4b75030d6a2b5eb84176b65fe7514fd0a534e6cdaa826253c971a": {
+      "id": "8c381c1339f4b75030d6a2b5eb84176b65fe7514fd0a534e6cdaa826253c971a",
+      "title": "What Is Behind The Move In Robinhood Stock?",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/hood/articles/621887/what-is-behind-the-move-in-robinhood-stock/2026-11-01?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:23:38.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:06.858Z"
+    },
+    "2a8922520653529209e4d0160c348452e7c090259cf9d2fb5de3e859540ff4e2": {
+      "id": "2a8922520653529209e4d0160c348452e7c090259cf9d2fb5de3e859540ff4e2",
+      "title": "Why Is Coinbase Stock Falling?",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/coin/articles/621867/why-is-coinbase-stock-falling/2026-11-01?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:23:12.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:06.992Z"
+    },
+    "269183140dc88f3154eb65d6f1705903b523981f8cfc7630c77493cc60abdecb": {
+      "id": "269183140dc88f3154eb65d6f1705903b523981f8cfc7630c77493cc60abdecb",
+      "title": "U.S. stock futures edge high after bruising Oct; earnings, elections in focus",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-edge-high-010138847.html?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:01:38.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:07.912Z"
+    },
+    "a95834b69ecbccd9b326efa290e8d85bbd6f9581290e49429ae46e060fc78f4e": {
+      "id": "a95834b69ecbccd9b326efa290e8d85bbd6f9581290e49429ae46e060fc78f4e",
+      "title": "INTC, MSFT, META, DASH, VZ: Why Retail Traders Couldn’t Take Their Eyes Off These Stocks Last Week",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/intc-msft-meta-dash-vz-why-retail-traders-couldn-t-take-their-eyes-off-these-stocks-last-week/cNG9irRR92a?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:54:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:07.931Z"
+    },
+    "bfa2748469924ed565b0a34f2af3faeb4498e64746cfbe5fe8f42748e49f2496": {
+      "id": "bfa2748469924ed565b0a34f2af3faeb4498e64746cfbe5fe8f42748e49f2496",
+      "title": "If I Could Only Buy and Hold 1 \"Magnificent Seven\" Stock Through 2030, It Would Be This One",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/if-i-could-only-buy-and-hold-1-magnificent-seven-s/?.tsrc=rss",
+      "publishedAt": "2026-11-02T00:28:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.7,
+          "confidence": 0.8,
+          "stance": "bullish",
+          "rationale": "Says Nvidia is expected to grow much faster than its Magnificent Seven peers, implying a strong positive view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:08.481Z"
+    },
+    "fa94fa1b790a91c87974825cf326291367ee61ec771c10b534214eda1f5c9a76": {
+      "id": "fa94fa1b790a91c87974825cf326291367ee61ec771c10b534214eda1f5c9a76",
+      "title": "Learjet Plummets to Ground in Florida Neighborhood",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/video/learjet-plummets-ground-florida-neighborhood-235209409.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:52:09.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:08.671Z"
+    },
+    "f01f75758c6637f390291ebae865e422030a39694e830d3d285696aeb8f95e2a": {
+      "id": "f01f75758c6637f390291ebae865e422030a39694e830d3d285696aeb8f95e2a",
+      "title": "SK Hynix Sees the Memory Shortage Lasting Through 2030. 2 Memory Stocks to Buy and Hold Until Then.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/01/sk-hynix-sees-the-memory-shortage-lasting-through-2030-2-memory-stocks-to-buy-and-hold-until-then/?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:41:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:09.540Z"
+    },
+    "89899b4d81aa763184fd2f44dda39d1b33fd79c21ffcf9fccaf84a8df4367109": {
+      "id": "89899b4d81aa763184fd2f44dda39d1b33fd79c21ffcf9fccaf84a8df4367109",
+      "title": "What Gave Alphabet Stock Its Edge Over Zillow?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/zg/articles/621862/what-gave-alphabet-stock-its-edge-over-zillow/2026-11-01?.tsrc=rss",
+      "publishedAt": "2026-11-02T01:23:07.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:09.923Z"
+    },
+    "3c82bc8f9f1998e15380222f1b35003d2f9b7e5e6f7388f56ace9cf8ac2a8231": {
+      "id": "3c82bc8f9f1998e15380222f1b35003d2f9b7e5e6f7388f56ace9cf8ac2a8231",
+      "title": "Stock futures jump ahead of a monster week after a $5 trillion AI rout",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/article/stock-futures-jump-ahead-of-a-monster-week-after-a-5-trillion-ai-rout-021203996.html?.tsrc=rss",
+      "publishedAt": "2026-11-01T23:25:00.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:10.078Z"
+    },
+    "407c4c054fdb77bd924ea7a6a1ea886ed8a4ec71e806c3ebf49a888fbd44bbaa": {
+      "id": "407c4c054fdb77bd924ea7a6a1ea886ed8a4ec71e806c3ebf49a888fbd44bbaa",
+      "title": "Indian Trading Apps Are Offering Access to U.S. Stocks. Why That’s Huge News for Nvidia Stock.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8582170/indian-trading-apps-are-offering-access-to-u-s-stocks-why-thats-huge-news-for-nvidia-stock?.tsrc=rss",
+      "publishedAt": "2026-11-01T21:20:38.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Headline frames Indian retail access to U.S. stocks as huge news for Nvidia, and the text says its stock is gaining traction there."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:10.456Z"
+    },
+    "30853dd037bdf78acd2cd9031343c2dd10b74c37ea39f7af1508b5adf25da086": {
+      "id": "30853dd037bdf78acd2cd9031343c2dd10b74c37ea39f7af1508b5adf25da086",
+      "title": "Why It's Time to Buy the Pullback in Alphabet Stock",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8581807/why-it-s-time-to-buy-the-pullback-in-alphabet-stock?.tsrc=rss",
+      "publishedAt": "2026-11-01T19:30:03.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "sentiment": 0.8,
+          "confidence": 0.85,
+          "stance": "bullish",
+          "rationale": "Title and text urge buying the pullback, citing accelerating Cloud, AI ecosystem growth, and resilient subscriptions as long-term drivers."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:10.808Z"
+    },
+    "28dc1259ceeffcc3a554ccabb9b5dd0486de7031e9fba4a6e33c9c2e2a09daa7": {
+      "id": "28dc1259ceeffcc3a554ccabb9b5dd0486de7031e9fba4a6e33c9c2e2a09daa7",
+      "title": "Google Just Lost Half a Trillion Dollars. It Has a Real Problem With Search Monetization.",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8582012/google-just-lost-half-a-trillion-dollars-it-has-a-real-problem-with-search-monetization?.tsrc=rss",
+      "publishedAt": "2026-11-01T20:44:12.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet (Google)",
+          "sentiment": -0.4,
+          "confidence": 0.8,
+          "stance": "bearish",
+          "rationale": "Says Google lost value after earnings on weak AI search monetization and that investors need proof that ads and cash flow can catch up with"
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:10.881Z"
+    },
+    "2da51ad6f62d6de6afdf3fd99cc17b589ac6175ffcf8f3204faded18f221431e": {
+      "id": "2da51ad6f62d6de6afdf3fd99cc17b589ac6175ffcf8f3204faded18f221431e",
+      "title": "Midterm Elections, Important Earnings and Other Key things to Watch this Week",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8581500/midterm-elections-important-earnings-and-other-key-things-to-watch-this-week?.tsrc=rss",
+      "publishedAt": "2026-11-01T18:00:02.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Named only as kicking off a heavy earnings week, with no view on the stock expressed."
+        },
+        {
+          "ticker": "PLTR",
+          "company": "Palantir Technologies",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Listed alongside Apple as reporting results Monday, with no stated opinion on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-02T03:53:14.011Z"
     }
   }
 }
