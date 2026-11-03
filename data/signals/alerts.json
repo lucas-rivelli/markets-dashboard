@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "e2ded2e0976a48d9",
+      "ticker": "TSM",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-03T18:15:30.433Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 10,
+        "spikeRatio": 3.297,
+        "sentRecent": 0.307,
+        "sentShift": -0.215,
+        "retRecent": -0.0875,
+        "excessRecent": -0.0647,
+        "score": 0.737
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/03/taiwan-semi-or-broadcom-if-i-could-only-own-1-for/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/8-etfs-cut-taiwan-semiconductor-110332360.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/why-did-taiwan-semiconductor-manufacturing-032058802.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b3561972b0b08b28",
       "ticker": "INTC",
       "rule": "BEARISH_SHIFT",
