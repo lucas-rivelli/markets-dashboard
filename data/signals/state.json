@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-03T03:02:57.840Z",
-  "startedAt": "2026-11-03T02:59:11.605Z",
+  "lastUpdated": "2026-11-03T10:41:14.484Z",
+  "startedAt": "2026-11-03T10:37:51.630Z",
   "asOf": "2026-11-03",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": false,
-      "count": 0,
-      "error": "Status code 404"
+      "ok": true,
+      "count": 10,
+      "error": null
     },
     {
       "name": "ARK Next Gen Internet",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -158,7 +158,7 @@
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 19,
       "error": null
     },
     {
@@ -172,7 +172,7 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 16,
       "error": null
     },
     {
@@ -186,7 +186,7 @@
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -200,14 +200,14 @@
       "name": "Yahoo Finance — TSM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -228,14 +228,14 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 8,
       "error": null
     },
     {
       "name": "Yahoo Finance — GS",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -522,6 +522,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "ETR",
+      "ok": true,
+      "bars": 500,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "F",
       "ok": true,
       "bars": 504,
@@ -685,16 +691,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 25,
-    "sourcesFailed": 13,
+    "sourcesOk": 26,
+    "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 355,
-    "extractionsTotal": 3314,
-    "mentionsTotal": 1168,
-    "tickers": 62,
-    "pricesOk": 68,
+    "itemsFetched": 356,
+    "extractionsTotal": 3393,
+    "mentionsTotal": 1191,
+    "tickers": 63,
+    "pricesOk": 69,
     "alertsTotal": 505,
-    "newAlerts": 45
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -708,17 +714,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 30,
+      "mentionsRecent": 32,
       "mentionsBaseline": 17,
       "baselineRate": 3.967,
-      "spikeRatio": 7.563,
-      "sentRecent": 0.43,
+      "spikeRatio": 8.067,
+      "sentRecent": 0.433,
       "sentBaseline": 0.272,
-      "sentShift": 0.157,
+      "sentShift": 0.161,
       "retRecent": 0.1007,
       "excessRecent": 0.1235,
       "ret30": 0.2346,
-      "score": 1.4756,
+      "score": 1.5157,
       "lastPrice": 1410.99,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
@@ -796,20 +802,46 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 31,
+      "mentionsRecent": 36,
       "mentionsBaseline": 10,
       "baselineRate": 2.333,
-      "spikeRatio": 13.286,
-      "sentRecent": 0.326,
+      "spikeRatio": 15.429,
+      "sentRecent": 0.332,
       "sentBaseline": 0.406,
-      "sentShift": -0.081,
+      "sentShift": -0.074,
       "retRecent": -0.1026,
       "excessRecent": -0.0798,
       "ret30": -0.0552,
-      "score": 1.1283,
+      "score": 1.1983,
       "lastPrice": 178.34,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
+    },
+    {
+      "ticker": "RIVN",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 16,
+      "sentRecent": 0.468,
+      "sentBaseline": 0.6,
+      "sentShift": -0.132,
+      "retRecent": 0.1159,
+      "excessRecent": 0.1387,
+      "ret30": -0.0776,
+      "score": 1.0272,
+      "lastPrice": 13.19,
+      "lastPriceDate": "2026-11-02",
+      "priceBars": 503
     },
     {
       "ticker": "AVGO",
@@ -838,32 +870,6 @@
       "priceBars": 510
     },
     {
-      "ticker": "RIVN",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 14,
-      "sentRecent": 0.475,
-      "sentBaseline": 0.6,
-      "sentShift": -0.125,
-      "retRecent": 0.1159,
-      "excessRecent": 0.1387,
-      "ret30": -0.0776,
-      "score": 0.9882,
-      "lastPrice": 13.19,
-      "lastPriceDate": "2026-11-02",
-      "priceBars": 503
-    },
-    {
       "ticker": "NVDA",
       "discovered": false,
       "flag": "WATCH",
@@ -874,17 +880,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 32,
+      "mentionsRecent": 34,
       "mentionsBaseline": 38,
       "baselineRate": 8.867,
-      "spikeRatio": 3.609,
-      "sentRecent": 0.264,
+      "spikeRatio": 3.835,
+      "sentRecent": 0.248,
       "sentBaseline": 0.257,
-      "sentShift": 0.007,
+      "sentShift": -0.009,
       "retRecent": -0.0729,
       "excessRecent": -0.05,
       "ret30": -0.1363,
-      "score": 0.9233,
+      "score": 0.8823,
       "lastPrice": 202.06,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
@@ -900,17 +906,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 20,
+      "mentionsRecent": 21,
       "mentionsBaseline": 8,
       "baselineRate": 1.867,
-      "spikeRatio": 10.714,
-      "sentRecent": 0.262,
+      "spikeRatio": 11.25,
+      "sentRecent": 0.255,
       "sentBaseline": 0.336,
-      "sentShift": -0.075,
+      "sentShift": -0.082,
       "retRecent": -0.0013,
       "excessRecent": 0.0215,
       "ret30": 0.0955,
-      "score": 0.7966,
+      "score": 0.7872,
       "lastPrice": 179.67,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
@@ -1086,6 +1092,32 @@
       "priceBars": 510
     },
     {
+      "ticker": "MRVL",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 6,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 12,
+      "sentRecent": 0.258,
+      "sentBaseline": 0.125,
+      "sentShift": 0.133,
+      "retRecent": -0.2963,
+      "excessRecent": -0.2734,
+      "ret30": -0.3705,
+      "score": 0.5018,
+      "lastPrice": 171.41,
+      "lastPriceDate": "2026-11-02",
+      "priceBars": 504
+    },
+    {
       "ticker": "NOW",
       "discovered": true,
       "flag": "LONG",
@@ -1110,6 +1142,32 @@
       "lastPrice": 106.01,
       "lastPriceDate": "2026-11-02",
       "priceBars": 501
+    },
+    {
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 42,
+      "mentionsBaseline": 24,
+      "baselineRate": 5.6,
+      "spikeRatio": 7.5,
+      "sentRecent": 0.129,
+      "sentBaseline": 0.252,
+      "sentShift": -0.123,
+      "retRecent": -0.0295,
+      "excessRecent": -0.0067,
+      "ret30": -0.0234,
+      "score": 0.4856,
+      "lastPrice": 245.63,
+      "lastPriceDate": "2026-11-02",
+      "priceBars": 510
     },
     {
       "ticker": "QCOM",
@@ -1164,32 +1222,6 @@
       "priceBars": 504
     },
     {
-      "ticker": "MRVL",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 5,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 10,
-      "sentRecent": 0.231,
-      "sentBaseline": 0.125,
-      "sentShift": 0.106,
-      "retRecent": -0.2963,
-      "excessRecent": -0.2734,
-      "ret30": -0.3705,
-      "score": 0.4143,
-      "lastPrice": 171.41,
-      "lastPriceDate": "2026-11-02",
-      "priceBars": 504
-    },
-    {
       "ticker": "NEE",
       "discovered": false,
       "flag": null,
@@ -1206,32 +1238,6 @@
       "ret30": 0.1067,
       "score": 0.412,
       "lastPrice": 85.03,
-      "lastPriceDate": "2026-11-02",
-      "priceBars": 510
-    },
-    {
-      "ticker": "AMZN",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 40,
-      "mentionsBaseline": 24,
-      "baselineRate": 5.6,
-      "spikeRatio": 7.143,
-      "sentRecent": 0.107,
-      "sentBaseline": 0.252,
-      "sentShift": -0.145,
-      "retRecent": -0.0295,
-      "excessRecent": -0.0067,
-      "ret30": -0.0234,
-      "score": 0.3971,
-      "lastPrice": 245.63,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
     },
@@ -1352,6 +1358,26 @@
       "lastPrice": 62.34,
       "lastPriceDate": "2026-11-02",
       "priceBars": 510
+    },
+    {
+      "ticker": "ETR",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 4,
+      "sentRecent": 0.282,
+      "sentBaseline": 0.5,
+      "sentShift": -0.218,
+      "retRecent": 0.0133,
+      "excessRecent": 0.0361,
+      "ret30": 0.0888,
+      "score": 0.3102,
+      "lastPrice": 109.87,
+      "lastPriceDate": "2026-11-02",
+      "priceBars": 500
     },
     {
       "ticker": "LITE",
@@ -1530,32 +1556,6 @@
       "priceBars": 510
     },
     {
-      "ticker": "AAPL",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 32,
-      "mentionsBaseline": 19,
-      "baselineRate": 4.433,
-      "spikeRatio": 7.218,
-      "sentRecent": 0.045,
-      "sentBaseline": 0.168,
-      "sentShift": -0.122,
-      "retRecent": -0.0253,
-      "excessRecent": -0.0025,
-      "ret30": 0.0139,
-      "score": 0.1589,
-      "lastPrice": 338.32,
-      "lastPriceDate": "2026-11-02",
-      "priceBars": 510
-    },
-    {
       "ticker": "MRK",
       "discovered": true,
       "flag": null,
@@ -1574,6 +1574,32 @@
       "lastPrice": 148.36,
       "lastPriceDate": "2026-11-02",
       "priceBars": 504
+    },
+    {
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 37,
+      "mentionsBaseline": 19,
+      "baselineRate": 4.433,
+      "spikeRatio": 8.346,
+      "sentRecent": 0.015,
+      "sentBaseline": 0.168,
+      "sentShift": -0.153,
+      "retRecent": -0.0253,
+      "excessRecent": -0.0025,
+      "ret30": 0.0139,
+      "score": 0.0553,
+      "lastPrice": 338.32,
+      "lastPriceDate": "2026-11-02",
+      "priceBars": 510
     },
     {
       "ticker": "CRWV",
@@ -2220,7 +2246,7 @@
       "score": 76.6,
       "reasons": [
         "PLTR: Long candidate",
-        "31 mentions this week (13.3x baseline)",
+        "36 mentions this week (15.4x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Reports a robust quarterly report and CEO claims that customers are finding growing value in its AI platform.",
@@ -2228,48 +2254,48 @@
       "confidence": 0.7
     },
     {
-      "id": "3053da0042a44259e56d0d76dfd841ead835bc05643c4f2d6d607f4c981388c0",
-      "title": "Alex Karp on Palantir's AI demand: 'Much larger than we can service'",
-      "source": "Yahoo Finance — PLTR",
+      "id": "fa7eeca945747ec8b2e0faaefd4885848375b62922c72bd9592d578d3434e365",
+      "title": "Why Palantir stock doesn't deserve to be caught up in the AI stock meltdown",
+      "source": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/video/alex-karp-on-palantirs-ai-demand-much-larger-than-we-can-service-232326872.html?.tsrc=rss",
-      "publishedAt": "2026-11-02T23:23:26.000Z",
+      "url": "https://finance.yahoo.com/markets/stocks/article/why-palantir-stock-doesnt-deserve-to-be-caught-up-in-the-ai-stock-meltdown-101729102.html?.tsrc=rss",
+      "publishedAt": "2026-11-03T10:17:29.000Z",
       "ticker": "PLTR",
       "tickers": [
         "PLTR"
       ],
       "flag": "LONG",
-      "score": 70.9,
+      "score": 75.8,
       "reasons": [
         "PLTR: Long candidate",
-        "31 mentions this week (13.3x baseline)",
+        "36 mentions this week (15.4x baseline)",
         "stock moving against the research"
       ],
-      "rationale": "Reports CEO saying AI demand exceeds the company's delivery capacity, implying strong growth prospects.",
-      "sentiment": 0.7,
-      "confidence": 0.85
+      "rationale": "Headline argues Palantir's shares should not be lumped in with an AI-sector sell-off after earnings.",
+      "sentiment": 0.5,
+      "confidence": 0.6
     },
     {
-      "id": "71eae9d6ad46876dabff889f6a6337e420db6fd80e43614ef9b07ba5e811de9d",
-      "title": "Palantir Technologies (NASDAQ:PLTR) reports bullish Q3 2026, full-year sales guidance is optimistic",
+      "id": "96ae5581da591becfd378b24a9d5e6e95c40d926b1b7edd561332d4a5c9ad55a",
+      "title": "Palantir: 3 Key Takeaways for Long-Term Investors",
       "source": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-technologies-nasdaq-pltr-reports-215238038.html?.tsrc=rss",
-      "publishedAt": "2026-11-02T21:52:38.000Z",
+      "url": "https://www.fool.com/earnings/takeaways/2026/11/03/palantir-3-key-takeaways-for-long-term-investors/?.tsrc=rss",
+      "publishedAt": "2026-11-03T06:04:59.000Z",
       "ticker": "PLTR",
       "tickers": [
         "PLTR"
       ],
       "flag": "LONG",
-      "score": 70.9,
+      "score": 75.8,
       "reasons": [
         "PLTR: Long candidate",
-        "31 mentions this week (13.3x baseline)",
+        "36 mentions this week (15.4x baseline)",
         "stock moving against the research"
       ],
-      "rationale": "Highlights revenue growth above expectations, strong next-quarter guidance, and an earnings beat, all framed as positive results.",
-      "sentiment": 0.7,
-      "confidence": 0.85
+      "rationale": "Says the shift to enterprise workflows suggests Palantir's pricing power may compound as corporate adoption grows.",
+      "sentiment": 0.5,
+      "confidence": 0.6
     },
     {
       "id": "5982fd85d484e4b9519f47aa81b950aa26f4e3a6a2aea68343766ee82e272f4f",
@@ -2580,12 +2606,55 @@
       "score": 47.4,
       "reasons": [
         "AMZN: Watch",
-        "40 mentions this week (7.1x baseline)",
+        "42 mentions this week (7.5x baseline)",
         "bullish view, confidence 0.75"
       ],
       "rationale": "Author says the company's latest report met their criteria and they would add to the position.",
       "sentiment": 0.7,
       "confidence": 0.75
+    },
+    {
+      "id": "79690f66a28a5214c1929e61b2e88cc6f2091d380e82858452a24dca8f44433a",
+      "title": "Rivian Soars 15% in a Week on R2 Beat and Two Upgrades: “Initial R2 Demand Looks Solid”",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/rivian-soars-15-in-a-week-on-r2-beat-and-two-upgrades-initial-r2-demand-looks-solid?ref=yahoofinance&tlnk=yf-261103-f56hjh2m&.tsrc=rss",
+      "publishedAt": "2026-11-03T09:15:17.000Z",
+      "ticker": "RIVN",
+      "tickers": [
+        "RIVN"
+      ],
+      "flag": "WATCH",
+      "score": 46.8,
+      "reasons": [
+        "RIVN: Watch",
+        "8 mentions this week (16.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports a 15% weekly gain on a Q3 beat, a raised delivery outlook, and two upgrades to Buy, though some targets were cut.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "b7a358d4d18f9f0ed5bfdac994e410cf282d909bbf2b15251bda43fb88c0e091",
+      "title": "Amazon CEO Andy Jassy Says Investors Are ‘Sleeping a Bit’ on Retail as AMZN Stock Falls 7% in 6 Months",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-ceo-andy-jassy-says-043004682.html?.tsrc=rss",
+      "publishedAt": "2026-11-03T04:30:04.000Z",
+      "ticker": "AMZN",
+      "tickers": [
+        "AMZN"
+      ],
+      "flag": "WATCH",
+      "score": 46.7,
+      "reasons": [
+        "AMZN: Watch",
+        "42 mentions this week (7.5x baseline)"
+      ],
+      "rationale": "CEO argues the market underrates Amazon's retail business despite a recent six-month share decline.",
+      "sentiment": 0.6,
+      "confidence": 0.8
     },
     {
       "id": "0de96d917bff2042c0bd63c06651059b9bd531d3b9d5fd4c1ef70671ac211df3",
@@ -2602,7 +2671,7 @@
       "score": 46.7,
       "reasons": [
         "RIVN: Watch",
-        "7 mentions this week (14.0x baseline)",
+        "8 mentions this week (16.0x baseline)",
         "bullish view, confidence 0.85"
       ],
       "rationale": "A UBS analyst upgraded the stock to a buy rating, and the headline suggests it could gain over 30%.",
@@ -2624,12 +2693,33 @@
       "score": 45.9,
       "reasons": [
         "RIVN: Watch",
-        "7 mentions this week (14.0x baseline)",
+        "8 mentions this week (16.0x baseline)",
         "bullish view, confidence 0.90"
       ],
       "rationale": "Reports a UBS upgrade to Buy, calling the timing well-chosen given valuation near a three-year low.",
       "sentiment": 0.6,
       "confidence": 0.9
+    },
+    {
+      "id": "10c7ba7553421a24597b7d97e5cc742137e3e56ba7d73a7c04091989825b6674",
+      "title": "AAPL Stock Tumbles Overnight On Margin Pressure From Surging Memory Prices; MU, SNDK Inch Higher",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/aapl-stock-tumbles-overnight-on-margin-pressure-from-surging-memory-prices-mu-sndk-inch-higher/cNGQxyuR95f?.tsrc=rss",
+      "publishedAt": "2026-11-03T08:09:19.000Z",
+      "ticker": "AAPL",
+      "tickers": [
+        "AAPL"
+      ],
+      "flag": "WATCH",
+      "score": 44.6,
+      "reasons": [
+        "AAPL: Watch",
+        "37 mentions this week (8.3x baseline)"
+      ],
+      "rationale": "Headline says the stock fell on margin pressure, and the item expects rising memory costs to persist into next year.",
+      "sentiment": -0.5,
+      "confidence": 0.7
     },
     {
       "id": "8d01c64a66ca7231fe42564e5f097cc56ffd4bcb826cc9a138cb4e553350d6ef",
@@ -2653,113 +2743,46 @@
       "confidence": 0.7
     },
     {
-      "id": "e4514f839c30ce34d0dd93d4fd5eec35994304acf1692ee3ffd8963454966444",
-      "title": "Phillip Securities Says Amazon’s ‘Strong Demand Visibility’ Supports Aggressive Capex",
-      "source": "Yahoo Finance — AMZN",
+      "id": "97465e478dc4b598ea8cbc0bbffe16e00dee53f8df526606aa751284f5890dc4",
+      "title": "Amazon Thinks AWS Could Become a $1 Trillion Business. Here's Why.",
+      "source": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
-      "url": "https://stocktwits.com/news-articles/markets/equity/phillip-securities-says-amazon-s-strong-demand-visibility-supports-aggressive-capex/cNG9Hz2R92z?.tsrc=rss",
-      "publishedAt": "2026-11-02T11:22:47.000Z",
+      "url": "https://www.fool.com/investing/2026/11/03/amazon-thinks-aws-could-become-a-1-trillion-busine/?.tsrc=rss",
+      "publishedAt": "2026-11-03T08:46:00.000Z",
       "ticker": "AMZN",
       "tickers": [
         "AMZN"
       ],
       "flag": "WATCH",
-      "score": 43.4,
+      "score": 43.8,
       "reasons": [
         "AMZN: Watch",
-        "40 mentions this week (7.1x baseline)",
-        "bullish view, confidence 0.92"
+        "42 mentions this week (7.5x baseline)"
       ],
-      "rationale": "Phillip Securities upgraded Amazon to Buy and raised its price target, citing strong demand visibility supporting capex.",
-      "sentiment": 0.7,
-      "confidence": 0.92
-    },
-    {
-      "id": "e8872b89b7e8450398ef8ff009fb530efdc01b28e44e8fd9ec0d04482fe2346b",
-      "title": "Stock Market Today, Nov. 2: Rivian Rallies on UBS Upgrade and Solid R2 Demand Outlook",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/02/stock-market-today-nov-2-rivian-rallies-on-ubs-upgrade-and-solid-r2-demand-outlook/?.tsrc=rss",
-      "publishedAt": "2026-11-02T22:37:23.000Z",
-      "ticker": "RIVN",
-      "tickers": [
-        "RIVN"
-      ],
-      "flag": "WATCH",
-      "score": 43.2,
-      "reasons": [
-        "RIVN: Watch",
-        "7 mentions this week (14.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports the stock surged after UBS called the selloff overdone, citing early R2 demand and a path to positive margins.",
+      "rationale": "CEO argues Amazon's AWS opportunity extends past AI, implying optimism about its long-term growth potential.",
       "sentiment": 0.5,
-      "confidence": 0.7
-    },
-    {
-      "id": "08515a037769e043b1a842c78d9a319def720897c9b4af2cb927a9f1db5f47e1",
-      "title": "Morgan Stanley Just Took a Chainsaw to Coinbase",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://app.moby.co/home/news/news-coin-cut-down-by-morgan-stanleys-latest-note?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
-      "publishedAt": "2026-11-02T20:45:05.000Z",
-      "ticker": "COIN",
-      "tickers": [
-        "COIN"
-      ],
-      "flag": "WATCH",
-      "score": 43.2,
-      "reasons": [
-        "COIN: Watch",
-        "21 mentions this week (10.0x baseline)",
-        "bearish view, confidence 0.90"
-      ],
-      "rationale": "Morgan Stanley cut the rating to Underweight and lowered earnings forecasts, citing competitive and operating pressures.",
-      "sentiment": -0.7,
-      "confidence": 0.9
-    },
-    {
-      "id": "69dee7b1e1453341add22fe29786c46c64bdb663479c12c6106d73dffb61faab",
-      "title": "Apple Q4 Earnings Call Highlights",
-      "source": "Yahoo Finance — AAPL",
-      "sourceType": "TickerNews",
-      "url": "https://www.marketbeat.com/instant-alerts/transcript-apple-q4-earnings-call-highlights-2026-11-02/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
-      "publishedAt": "2026-11-03T01:14:06.000Z",
-      "ticker": "AAPL",
-      "tickers": [
-        "AAPL"
-      ],
-      "flag": "WATCH",
-      "score": 42.8,
-      "reasons": [
-        "AAPL: Watch",
-        "32 mentions this week (7.2x baseline)"
-      ],
-      "rationale": "Reports record September-quarter revenue up 12% with double-digit iPhone and Mac growth, a favorable tone the text never states as a formal view.",
-      "sentiment": 0.4,
       "confidence": 0.6
     },
     {
-      "id": "bfa2748469924ed565b0a34f2af3faeb4498e64746cfbe5fe8f42748e49f2496",
-      "title": "If I Could Only Buy and Hold 1 \"Magnificent Seven\" Stock Through 2030, It Would Be This One",
-      "source": "Yahoo Finance — NVDA",
+      "id": "e0471e84113730ce24014d9921c1816eddbfb88230c7a1006c1142e3c949b2a2",
+      "title": "Unprecedented weight-loss drug craze pushing Lilly to near-record highs",
+      "source": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/01/if-i-could-only-buy-and-hold-1-magnificent-seven-s/?.tsrc=rss",
-      "publishedAt": "2026-11-02T00:28:00.000Z",
-      "ticker": "NVDA",
+      "url": "https://www.thestreet.com/investing/stocks/unprecedented-weight-loss-drug-craze-is-pushing-lilly-to-record-highs?.tsrc=rss",
+      "publishedAt": "2026-11-03T03:03:00.000Z",
+      "ticker": "LLY",
       "tickers": [
-        "NVDA"
+        "LLY"
       ],
       "flag": "WATCH",
-      "score": 41.5,
+      "score": 43.8,
       "reasons": [
-        "NVDA: Watch",
-        "32 mentions this week (3.6x baseline)",
-        "bullish view, confidence 0.80"
+        "LLY: Watch",
+        "32 mentions this week (8.1x baseline)"
       ],
-      "rationale": "Says Nvidia is expected to grow much faster than its Magnificent Seven peers, implying a strong positive view.",
-      "sentiment": 0.7,
-      "confidence": 0.8
+      "rationale": "Reports Morgan Stanley raising its price target on rising Zepbound and Mounjaro demand, with the headline framing shares near record highs.",
+      "sentiment": 0.5,
+      "confidence": 0.6
     }
   ]
 }
