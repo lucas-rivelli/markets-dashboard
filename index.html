@@ -1469,15 +1469,26 @@
   function collectWorkspacePayload(snap) {
     const all = !snap;
     const payload = {};
-    if (all || snap.folders) payload.folders = getFolders();
-    if (all || snap.tags) payload.tags = getTags();
-    if (all || snap.read) payload.read = readJSON(READ_KEY, []);
-    if (all || snap.item_folders.size) payload.item_folders = readJSON(ITEM_FOLDERS_KEY, {});
-    if (all || snap.item_status.size) payload.item_status = getStatusMap();
-    if (all || snap.item_titles.size) payload.item_titles = getTitleMap();
-    if (all || snap.item_added.size) payload.item_added = getAddedMap();
-    if (all || snap.item_highlights.size) payload.item_highlights = readJSON(ITEM_HIGHLIGHTS_KEY, {});
-    if (all || snap.item_tags.size) payload.item_tags = readJSON(ITEM_TAGS_KEY, {});
+    // Never ship empty list/map domains on a force/full push — that wiped
+    // production folders when a fresh device synced over a populated server.
+    const folders = getFolders();
+    const tags = getTags();
+    const read = readJSON(READ_KEY, []);
+    const itemFolders = readJSON(ITEM_FOLDERS_KEY, {});
+    const itemStatus = getStatusMap();
+    const itemTitles = getTitleMap();
+    const itemAdded = getAddedMap();
+    const itemHighlights = readJSON(ITEM_HIGHLIGHTS_KEY, {});
+    const itemTags = readJSON(ITEM_TAGS_KEY, {});
+    if (all ? folders.length : snap.folders) payload.folders = folders;
+    if (all ? tags.length : snap.tags) payload.tags = tags;
+    if (all ? read.length : snap.read) payload.read = read;
+    if (all ? Object.keys(itemFolders).length : snap.item_folders.size) payload.item_folders = itemFolders;
+    if (all ? Object.keys(itemStatus).length : snap.item_status.size) payload.item_status = itemStatus;
+    if (all ? Object.keys(itemTitles).length : snap.item_titles.size) payload.item_titles = itemTitles;
+    if (all ? Object.keys(itemAdded).length : snap.item_added.size) payload.item_added = itemAdded;
+    if (all ? Object.keys(itemHighlights).length : snap.item_highlights.size) payload.item_highlights = itemHighlights;
+    if (all ? Object.keys(itemTags).length : snap.item_tags.size) payload.item_tags = itemTags;
     return payload;
   }
 
@@ -1492,8 +1503,17 @@
       }
       writeJSON(storageKey, merged);
     };
-    if (!pendingSync.folders) writeJSON(FOLDERS_KEY, Array.isArray(remote.folders) ? remote.folders : []);
-    if (!pendingSync.tags) writeJSON(TAGS_KEY, Array.isArray(remote.tags) ? remote.tags : []);
+    // Pending empty folders/tags must not block a populated remote.
+    const remoteFolders = Array.isArray(remote.folders) ? remote.folders : [];
+    const remoteTags = Array.isArray(remote.tags) ? remote.tags : [];
+    if (!pendingSync.folders || !getFolders().length) {
+      writeJSON(FOLDERS_KEY, remoteFolders);
+      if (pendingSync.folders && remoteFolders.length) pendingSync.folders = false;
+    }
+    if (!pendingSync.tags || !getTags().length) {
+      writeJSON(TAGS_KEY, remoteTags);
+      if (pendingSync.tags && remoteTags.length) pendingSync.tags = false;
+    }
     mergeMap(ITEM_FOLDERS_KEY, remote.item_folders, pendingSync.item_folders);
     mergeMap(ITEM_TAGS_KEY, remote.item_tags, pendingSync.item_tags);
     mergeMap(ITEM_STATUS_KEY, normalizeStatusMap(remote.item_status || {}), pendingSync.item_status);
