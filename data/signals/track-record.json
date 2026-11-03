@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-02T21:24:54.681Z",
+  "generatedAt": "2026-11-03T03:02:57.838Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-10-30",
+  "replayTo": "2026-11-02",
   "windowDays": 37,
   "events": [
     {
@@ -194,7 +194,7 @@
       "ticker": "SMCI",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.051490368366232886,
       "fwd20": null
     },
     {
@@ -202,7 +202,7 @@
       "ticker": "MU",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.06024303614009352,
       "fwd20": null
     },
     {
@@ -210,7 +210,7 @@
       "ticker": "MSFT",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.030502761554005997,
       "fwd20": null
     },
     {
@@ -218,7 +218,7 @@
       "ticker": "NEE",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": 0.05378365579495836,
       "fwd20": null
     },
     {
@@ -226,7 +226,7 @@
       "ticker": "VRT",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.13977269766593137,
       "fwd20": null
     },
     {
@@ -234,7 +234,7 @@
       "ticker": "META",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.02045378459066094,
       "fwd20": null
     },
     {
@@ -242,7 +242,7 @@
       "ticker": "BE",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.02027476980917786,
       "fwd20": null
     },
     {
@@ -250,7 +250,7 @@
       "ticker": "BE",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.02027476980917786,
       "fwd20": null
     },
     {
@@ -258,7 +258,7 @@
       "ticker": "XOM",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.009051923039907872,
       "fwd20": null
     },
     {
@@ -266,7 +266,7 @@
       "ticker": "QCOM",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.08021209183860378,
       "fwd20": null
     },
     {
@@ -274,7 +274,7 @@
       "ticker": "GS",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.02342793533584031,
       "fwd20": null
     },
     {
@@ -282,7 +282,7 @@
       "ticker": "GOOGL",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.10201172795477675,
       "fwd20": null
     },
     {
@@ -290,7 +290,7 @@
       "ticker": "GOOGL",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.10201172795477675,
       "fwd20": null
     },
     {
@@ -298,7 +298,7 @@
       "ticker": "CVX",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.0009370548302727322,
       "fwd20": null
     },
     {
@@ -306,7 +306,7 @@
       "ticker": "C",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.03435718673741939,
       "fwd20": null
     },
     {
@@ -314,7 +314,7 @@
       "ticker": "INTC",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.3197903103131231,
       "fwd20": null
     },
     {
@@ -322,7 +322,7 @@
       "ticker": "CRDO",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.056297441942152915,
       "fwd20": null
     },
     {
@@ -330,7 +330,7 @@
       "ticker": "CRWV",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.0739828719458745,
       "fwd20": null
     },
     {
@@ -338,7 +338,7 @@
       "ticker": "D",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.05758379524961754,
       "fwd20": null
     },
     {
@@ -346,7 +346,7 @@
       "ticker": "COIN",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.11906548925195903,
       "fwd20": null
     },
     {
@@ -354,7 +354,7 @@
       "ticker": "ASML",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.023368498802991078,
       "fwd20": null
     },
     {
@@ -708,12 +708,148 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "MU",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "NOW",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "NOW",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "ADI",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "ANET",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "NFLX",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "VZ",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "CAT",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "NBIS",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "GOOG",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "WMT",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "CRWD",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "SMCI",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "GM",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "CCJ",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-02",
+      "ticker": "INTC",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 53,
+      "events": 57,
+      "measured": 0,
+      "hitRate20": null,
+      "avgExcess5": null,
+      "avgExcess20": null
+    },
+    {
+      "name": "BEARISH_SHIFT",
+      "events": 19,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -721,23 +857,15 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 12,
+      "events": 15,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
       "avgExcess20": -0.13252039873199517
     },
     {
-      "name": "BEARISH_SHIFT",
-      "events": 11,
-      "measured": 0,
-      "hitRate20": null,
-      "avgExcess5": null,
-      "avgExcess20": null
-    },
-    {
       "name": "BULLISH_SHIFT",
-      "events": 10,
+      "events": 11,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -755,7 +883,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 53,
+      "events": 57,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -763,7 +891,7 @@
     },
     {
       "name": "LONG",
-      "events": 22,
+      "events": 26,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -771,7 +899,7 @@
     },
     {
       "name": "SHORT",
-      "events": 13,
+      "events": 21,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
