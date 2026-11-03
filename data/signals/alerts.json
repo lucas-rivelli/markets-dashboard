@@ -2,6 +2,121 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "cca367efe66c589d",
+      "ticker": "SOFI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-03T23:37:24.275Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.032,
+        "sentShift": 0.032,
+        "retRecent": 0.0122,
+        "excessRecent": 0.035,
+        "score": 0.0438
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss",
+        "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/sofi-just-made-a-big-move-into-blockchain-payments/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "fcf9fa4b81e02613",
+      "ticker": "SMCI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-03T23:37:24.274Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 11,
+        "spikeRatio": 3.143,
+        "sentRecent": 0.044,
+        "sentShift": -0.279,
+        "retRecent": -0.1325,
+        "excessRecent": -0.1097,
+        "score": 0.1101
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/03/supermicro-s-sales-quadruple-as-cash-drains-rapid-earnings-reaction/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-smci-beats-215008626.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-surges-6-214320298.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7d4efbec2fc896d1",
+      "ticker": "CRCL",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-03T23:37:24.273Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.4,
+        "sentShift": 1,
+        "retRecent": -0.1165,
+        "excessRecent": -0.0936,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/ba206994-8f6c-3504-a0ed-5f422d7c2b0d/crypto-fears-set-the-stage.html?.tsrc=rss",
+        "https://www.tikr.com/blog/circle-stock-fell-9-in-a-day-as-the-binance-hack-hit-crypto-stocks-heres-where-the-stock-could-go-by-2030?ref=yahoofinance&tlnk=yf-261031-7pv89fh2&.tsrc=rss",
+        "https://www.tikr.com/blog/circle-sinks-7-as-mizuho-warns-of-marked-risk-from-ai-agents-cuts-target-to-43?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f3e81be41cfcf598",
+      "ticker": "CRCL",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-03T23:37:24.272Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.4,
+        "sentShift": 1,
+        "retRecent": -0.1165,
+        "excessRecent": -0.0936,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/ba206994-8f6c-3504-a0ed-5f422d7c2b0d/crypto-fears-set-the-stage.html?.tsrc=rss",
+        "https://www.tikr.com/blog/circle-stock-fell-9-in-a-day-as-the-binance-hack-hit-crypto-stocks-heres-where-the-stock-could-go-by-2030?ref=yahoofinance&tlnk=yf-261031-7pv89fh2&.tsrc=rss",
+        "https://www.tikr.com/blog/circle-sinks-7-as-mizuho-warns-of-marked-risk-from-ai-agents-cuts-target-to-43?ref=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "51efa21b9ae974b2",
+      "ticker": "AMD",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-03T23:37:24.271Z",
+      "firedDate": "2026-11-03",
+      "metrics": {
+        "mentionsRecent": 37,
+        "spikeRatio": 12.198,
+        "sentRecent": 0.309,
+        "sentShift": 0.173,
+        "retRecent": -0.1667,
+        "excessRecent": -0.1439,
+        "score": 1.1224
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/amd-expectations-for-80-percent-revenue-jump-in-2027/cNGXj5vR9dK?.tsrc=rss",
+        "https://finance.yahoo.com/video/amd-forecast-exceeds-estimates-ai-223434603.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/amds-lisa-su-q3-was-largest-and-most-profitable-in-our-history-222718914.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "e2ded2e0976a48d9",
       "ticker": "TSM",
       "rule": "DIVERGENCE_LONG",
