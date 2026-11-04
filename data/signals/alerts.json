@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "9f8ba888c8fc06ee",
+      "ticker": "GOOG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-04T12:26:51.856Z",
+      "firedDate": "2026-11-04",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": -0.1355,
+        "excessRecent": -0.1123,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-buying-alphabet-goog-nov-110141008.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-alphabet-goog-110321578.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/hot-takes-on-hot-wings-the-state-of-the-running-shoe-market-and-microsofts-recent-quarter-141512057.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "08b4591ede368872",
+      "ticker": "NVO",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-04T12:26:51.855Z",
+      "firedDate": "2026-11-04",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.05,
+        "sentShift": 0.45,
+        "retRecent": 0.0496,
+        "excessRecent": 0.0729,
+        "score": 0.0549
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/b2170111-a1a4-3f88-8e76-51aaa34267ed/2-reasons-for-hope-from-novo.html?.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1100930/novo-nordisk-faces-tougher-glp-1-competition-citi-says-1100930.html?.tsrc=rss",
+        "https://tacticzhazel.substack.com/p/novo-is-down-75-cheap-or-broken"
+      ]
+    },
+    {
+      "id": "c0b97988ba7ca2ec",
+      "ticker": "AMAT",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-04T12:26:51.854Z",
+      "firedDate": "2026-11-04",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.328,
+        "sentShift": -0.172,
+        "retRecent": -0.0819,
+        "excessRecent": -0.0587,
+        "score": 0.3605
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/capital-group-dividend-value-cgdv-110429760.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/31/data-center-spending-will-surge-to-usd1-4-trillion-in-2027-here-s-1-stock-to-buy-with-usd500-to-capitalize-on-this-massive-opportunity/?.tsrc=rss",
+        "https://reboundcapital.substack.com/p/deep-dive-applied-materials-amat"
+      ]
+    },
+    {
       "id": "9bb7bf4fb0d750cd",
       "ticker": "INTC",
       "rule": "BEARISH_SHIFT",
