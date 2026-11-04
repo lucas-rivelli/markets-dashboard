@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "54f2e0bd01e63e47",
+      "ticker": "UBER",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-04T20:00:27.584Z",
+      "firedDate": "2026-11-04",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0,
+        "sentShift": -0.7,
+        "retRecent": 0.0204,
+        "excessRecent": 0.0436,
+        "score": 0
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/04/if-you-invested-1000-in-uber-at-its-ipo-heres-what-youd-have-now/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/uber-president-jill-hazelbaker-joins-204431583.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/elon-musk-ally-jason-calacanis-tesla-rally-1m-uber-bet-aims-higher/cZUIsMORBzh?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0be06fca005ac00a",
+      "ticker": "NVO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-04T20:00:27.582Z",
+      "firedDate": "2026-11-04",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.2,
+        "sentShift": 0.6,
+        "retRecent": 0.0496,
+        "excessRecent": 0.0729,
+        "score": 0.2773
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/04/novo-nordisk-stock-jumps-6-as-wegovy-hits-a-stunning-80-milestone/?.tsrc=rss",
+        "https://finance.yahoo.com/m/b2170111-a1a4-3f88-8e76-51aaa34267ed/2-reasons-for-hope-from-novo.html?.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1100930/novo-nordisk-faces-tougher-glp-1-competition-citi-says-1100930.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "9f8ba888c8fc06ee",
       "ticker": "GOOG",
       "rule": "MENTION_SPIKE",
