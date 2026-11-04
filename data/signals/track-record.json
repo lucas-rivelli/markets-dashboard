@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-03T23:37:25.511Z",
+  "generatedAt": "2026-11-04T04:29:07.375Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-11-02",
+  "replayTo": "2026-11-03",
   "windowDays": 37,
   "events": [
     {
@@ -362,7 +362,7 @@
       "ticker": "TSLA",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.0020979882583982423,
       "fwd20": null
     },
     {
@@ -370,7 +370,7 @@
       "ticker": "MU",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.05941814748605467,
       "fwd20": null
     },
     {
@@ -378,7 +378,7 @@
       "ticker": "AAPL",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.02389951425830994,
       "fwd20": null
     },
     {
@@ -386,7 +386,7 @@
       "ticker": "BE",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.00065729876504661,
       "fwd20": null
     },
     {
@@ -394,7 +394,7 @@
       "ticker": "MSFT",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": 0.0004313014450991748,
       "fwd20": null
     },
     {
@@ -402,7 +402,7 @@
       "ticker": "META",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": 0.021246323963988623,
       "fwd20": null
     },
     {
@@ -410,7 +410,7 @@
       "ticker": "MS",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.015504762124768479,
       "fwd20": null
     },
     {
@@ -418,7 +418,7 @@
       "ticker": "ORCL",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.013357161198803258,
       "fwd20": null
     },
     {
@@ -426,7 +426,7 @@
       "ticker": "IBM",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": 0.019052739480460712,
       "fwd20": null
     },
     {
@@ -434,7 +434,7 @@
       "ticker": "DELL",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.16649745341374356,
       "fwd20": null
     },
     {
@@ -442,7 +442,7 @@
       "ticker": "ASML",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.031117839404144254,
       "fwd20": null
     },
     {
@@ -836,12 +836,76 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "AMD",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "TSM",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "CRCL",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "CRCL",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "DELL",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "SMCI",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "SOFI",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-03",
+      "ticker": "F",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 57,
+      "events": 59,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -849,7 +913,7 @@
     },
     {
       "name": "BEARISH_SHIFT",
-      "events": 19,
+      "events": 20,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -857,7 +921,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 15,
+      "events": 18,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -865,7 +929,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 11,
+      "events": 13,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -883,7 +947,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 57,
+      "events": 59,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -891,7 +955,7 @@
     },
     {
       "name": "LONG",
-      "events": 26,
+      "events": 31,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -899,7 +963,7 @@
     },
     {
       "name": "SHORT",
-      "events": 21,
+      "events": 22,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
