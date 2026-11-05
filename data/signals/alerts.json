@@ -2,6 +2,144 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "f5cd54a79827c19f",
+      "ticker": "UBER",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T07:41:42.132Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.2,
+        "sentShift": -0.5,
+        "retRecent": 0.0628,
+        "excessRecent": 0.0661,
+        "score": 0.2773
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/tesla-uber-triple-5-years-elon-musk-ally-jason-calacanis-both-stocks-undervalued/cNG1d6SR9EQ?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/04/if-you-invested-1000-in-uber-at-its-ipo-heres-what-youd-have-now/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/uber-president-jill-hazelbaker-joins-204431583.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f35e6966c57de19c",
+      "ticker": "CRWD",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T07:41:42.131Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 2,
+        "sentRecent": 0.5,
+        "sentShift": 0.408,
+        "retRecent": -0.0772,
+        "excessRecent": -0.0738,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/01/prediction-3-stocks-that-will-be-worth-more-than-p/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/crowdstrike-crwd-stock-looks-overvalued-001653356.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/20/not-palantir-not-snowflake-this-ai-software-stock/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "fd3750d78a305f72",
+      "ticker": "VRT",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T07:41:42.130Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 0.536,
+        "sentRecent": 0.6,
+        "sentShift": 0.078,
+        "retRecent": -0.1642,
+        "excessRecent": -0.1608,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/03/microsoft-and-oracle-cant-cool-ai-data-centers-wit/?.tsrc=rss",
+        "https://finance.yahoo.com/m/c5c23db3-d508-3c1f-bab0-6408a09c4739/micron%2C-sk-hynix%2C-google%2C.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/article/vertiv-stock-surges-as-orders-double-amid-ai-build-out-evolving-faster-than-ever-122018206.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "3b13e866e55000bd",
+      "ticker": "GM",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T07:41:42.129Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.4,
+        "sentShift": 0.462,
+        "retRecent": 0.0783,
+        "excessRecent": 0.0816,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/general-motors-gains-12-in-a-week-to-a-52-week-high-is-there-room-to-run?ref=yahoofinance&tlnk=yf-261105-qmxxwphq&.tsrc=rss",
+        "https://finance.yahoo.com/m/c98ba448-fbf5-3d3b-9314-94f45d1669d7/can-general-motors-and-ford.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/28/badly-crippled-gm-moves-to-nasdaq/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7c04799439f6ef36",
+      "ticker": "CVX",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T07:41:42.127Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.45,
+        "sentShift": 0.101,
+        "retRecent": -0.0626,
+        "excessRecent": -0.0593,
+        "score": 0.4944
+      },
+      "topItems": [
+        "https://www.thestreet.com/investing/exxon-chevron-report-big-profits-and-say-new-investments-will-pay-off?.tsrc=rss",
+        "https://finance.yahoo.com/video/energy-stocks-are-surging-can-the-rally-last-141815208.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/exxon-chevron-cancel-uae-oil-182546458.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "97a18461946f5180",
+      "ticker": "AVGO",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T07:41:42.124Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 11,
+        "spikeRatio": 1.684,
+        "sentRecent": 0.303,
+        "sentShift": 0.005,
+        "retRecent": -0.0566,
+        "excessRecent": -0.0533,
+        "score": 0.7535
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/broadcom-inc-avgo-stock-slides-214502619.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/04/is-broadcom-stock-a-buy-now/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/53-etfs-add-broadcom-avgo-110105667.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "3c0b7f58e6de3bec",
       "ticker": "INTC",
       "rule": "MENTION_SPIKE",
