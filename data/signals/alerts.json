@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "f21a0f46d114659a",
+      "ticker": "MS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T21:55:41.648Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 3.214,
+        "sentRecent": -0.09,
+        "sentShift": -0.179,
+        "retRecent": 0.0209,
+        "excessRecent": 0.0242,
+        "score": -0.1248
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/49f88e01-fac3-3e0c-aecf-0a10a6095093/market-selloff-hits-financial.html?.tsrc=rss",
+        "https://www.tikr.com/blog/morgan-stanley-sinks-6-goldman-down-6-citi-down-5-as-market-selloff-drags-wall-street-banks?ref=yahoofinance&tlnk=yf-261105-jwpc6pp2&.tsrc=rss",
+        "https://www.tikr.com/blog/cramer-broadcoms-63-billion-anthropic-financing-works-because-there-is-only-one-hock?ref=yahoofinance&tlnk=yf-261030-vq95r5g2&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "597d2b157ec85e06",
+      "ticker": "HOOD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T21:55:41.647Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 3.214,
+        "sentRecent": 0,
+        "sentShift": -0.225,
+        "retRecent": -0.0456,
+        "excessRecent": -0.0423,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/49f88e01-fac3-3e0c-aecf-0a10a6095093/market-selloff-hits-financial.html?.tsrc=rss",
+        "https://www.tikr.com/blog/coinbase-rebounds-9-as-goldman-calls-it-best-positioned-for-the-binance-exodus?ref=yahoofinance&tlnk=yf-261103-r8vcm765&.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/31/why-robinhood-stock-down-40-from-its-record-high/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "917ffca5a43c569f",
+      "ticker": "APO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T21:55:41.645Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.167,
+        "sentShift": null,
+        "retRecent": 0.0354,
+        "excessRecent": 0.0387,
+        "score": 0.231
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/c1c18465-e452-3fab-bfd5-345aa9b5e237/spacex-lessors-look-to-sell.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/nvidia-eyes-apollo-s-struggling-telecom-sites-to-sidestep-data-center-moratoriums-report/cNG1vn9R94o?.tsrc=rss",
+        "https://www.marketbeat.com/instant-alerts/transcript-apollo-global-management-q3-earnings-call-highlights-2026-11-03/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c5019c99c66332a0",
+      "ticker": "ACHR",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-05T21:55:41.644Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 2,
+        "sentRecent": 0.5,
+        "sentShift": 0.6,
+        "retRecent": -0.0594,
+        "excessRecent": -0.056,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/05/prediction-buying-archer-today-could-set-you/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/cathie-wood-pours-million-archer-151352358.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/25/wall-street-thinks-archer-aviation-is-a-buy-heres/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "10148771afcd3244",
       "ticker": "SNAP",
       "rule": "MENTION_SPIKE",
