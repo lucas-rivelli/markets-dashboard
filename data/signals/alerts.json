@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "10148771afcd3244",
+      "ticker": "SNAP",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T16:03:26.945Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.197,
+        "sentShift": -0.197,
+        "retRecent": 0.0423,
+        "excessRecent": 0.0456,
+        "score": -0.3163
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/snap-sinks-8-on-q3-revenue-and-user-miss-as-ad-growth-remains-below-our-ambitions?ref=yahoofinance&tlnk=yf-261105-c6f7prvx&.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/05/snap-tumbles-11-as-user-growth-miss-and-sluggish-ad-sales-overshadow-return-to-profit-pinterest-dips-meta-holds-steady/?.tsrc=rss",
+        "https://www.tikr.com/blog/snap-settled-a-social-media-addiction-suit-heres-what-its-november-4-report-has-to-prove?ref=yahoofinance&tlnk=yf-261103-v6j3vc23&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c686fdfdf4b488f0",
+      "ticker": "LLY",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-05T16:03:26.944Z",
+      "firedDate": "2026-11-05",
+      "metrics": {
+        "mentionsRecent": 18,
+        "spikeRatio": 2.085,
+        "sentRecent": 0.419,
+        "sentShift": 0.067,
+        "retRecent": 0.0322,
+        "excessRecent": 0.0356,
+        "score": 1.2348
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/05/prediction-the-weight-loss-drug-boom-could-be-just-the-beginning-for-lilly/?.tsrc=rss",
+        "https://finance.yahoo.com/healthcare/articles/eli-lilly-lly-wins-ad-061439557.html?.tsrc=rss",
+        "https://www.tikr.com/blog/eli-lilly-is-up-10-in-a-week-is-a-5-5-billion-guidance-raise-really-that-good?ref=yahoofinance&tlnk=yf-261105-cjq8xj3f&.tsrc=rss"
+      ]
+    },
+    {
       "id": "f5cd54a79827c19f",
       "ticker": "UBER",
       "rule": "MENTION_SPIKE",
