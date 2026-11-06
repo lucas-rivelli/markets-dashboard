@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "ad549ffb4089c81e",
+      "ticker": "GSBD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-06T21:58:49.419Z",
+      "firedDate": "2026-11-06",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.026,
+        "sentShift": null,
+        "retRecent": -0.0146,
+        "excessRecent": 0.0155,
+        "score": -0.0362
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-inc-gsbd-211624479.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-q3-earnings-225642143.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-inc-reports-224600978.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "3ba98729350733ca",
+      "ticker": "RDDT",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-06T21:58:49.417Z",
+      "firedDate": "2026-11-06",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 3.429,
+        "sentRecent": 0,
+        "sentShift": 0.467,
+        "retRecent": 0.0227,
+        "excessRecent": 0.0527,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/reddit-rddt-short-term-pains-214600411.html?.tsrc=rss",
+        "https://beincrypto.com/reddit-stock-google-ai-traffic-crash/?.tsrc=rss",
+        "https://www.fool.com/coverage/charts/2026/11/01/reddit-vs-the-trade-desk-one-s-revenue-growth-overtook-the-other-s-lead/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9dc2e4d150924789",
+      "ticker": "WRBY",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-06T21:58:49.415Z",
+      "firedDate": "2026-11-06",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.143,
+        "sentShift": null,
+        "retRecent": 0.0597,
+        "excessRecent": 0.0898,
+        "score": 0.198
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/b61a0e29-c148-3da2-8c62-a956078b564c/warby-parker-sets-sights-on.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/05/why-warby-parker-stock-popped-today/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "5f2f41a3688878e7",
       "ticker": "SNDK",
       "rule": "MENTION_SPIKE",
