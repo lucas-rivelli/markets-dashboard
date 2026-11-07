@@ -2,6 +2,121 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "214388576938ec1a",
+      "ticker": "GS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T08:12:58.058Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 2.571,
+        "sentRecent": 0,
+        "sentShift": -0.204,
+        "retRecent": -0.0321,
+        "excessRecent": -0.0051,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/supreme-court-hear-goldman-sachs-191102310.html?.tsrc=rss",
+        "https://www.privatebankerinternational.com/news/goldman-sachs-partner-rank-promotes/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-108-5-million-110045861.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "17a6604c0eace88b",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T08:12:58.057Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.052,
+        "sentShift": 0.03,
+        "retRecent": -0.1115,
+        "excessRecent": -0.0845,
+        "score": 0.0726
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/oracle-beats-microsoft-amazon-key-160655388.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-software-igv-110607892.html?.tsrc=rss",
+        "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-oracle-falls-on-canceled-7-billion-tencent-chip-leasing-deal/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8af79085b9107761",
+      "ticker": "VRT",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-07T08:12:58.056Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.071,
+        "sentRecent": 0.138,
+        "sentShift": -0.384,
+        "retRecent": -0.2135,
+        "excessRecent": -0.1865,
+        "score": 0.1521
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/vertiv-sinks-another-16-as-data-center-selloff-deepens-forced-control-on-capex?ref=yahoofinance&tlnk=yf-261105-8p2c7ff9&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/03/microsoft-and-oracle-cant-cool-ai-data-centers-wit/?.tsrc=rss",
+        "https://finance.yahoo.com/m/c5c23db3-d508-3c1f-bab0-6408a09c4739/micron%2C-sk-hynix%2C-google%2C.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5aca352d9a3ec917",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T08:12:58.055Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 2.338,
+        "sentRecent": 0.101,
+        "sentShift": 0.12,
+        "retRecent": -0.0076,
+        "excessRecent": 0.0195,
+        "score": 0.1966
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/42-etfs-add-jpmorgan-chase-110120957.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/3078d472-e02d-3115-b36d-760d7f10d1df/capitalize-on-jpmorgan-stock.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/jpmorganchase-files-form-10-q-212500439.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "3fe131a811bf556a",
+      "ticker": "VST",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T08:12:58.054Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 2.308,
+        "sentRecent": 0.324,
+        "sentShift": 0.112,
+        "retRecent": -0.0981,
+        "excessRecent": -0.071,
+        "score": 0.6747
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-stock-climbs-record-021231280.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-q3-2026-011619400.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-stocks-jump-7-69-190727884.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "22f2f6cc191e395f",
       "ticker": "COIN",
       "rule": "MENTION_SPIKE",
