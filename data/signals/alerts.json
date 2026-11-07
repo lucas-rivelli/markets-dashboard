@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "78af714d2374a5aa",
+      "ticker": "NVO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T22:56:46.287Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.284,
+        "sentShift": 0.638,
+        "retRecent": 0.0078,
+        "excessRecent": 0.0348,
+        "score": 0.394
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/forget-lilly-and-novo-pfizer-is-planning-a-wave-of/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/04/novo-nordisk-stock-jumps-6-as-wegovy-hits-a-stunning-80-milestone/?.tsrc=rss",
+        "https://finance.yahoo.com/m/b2170111-a1a4-3f88-8e76-51aaa34267ed/2-reasons-for-hope-from-novo.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "f1475420defa3db8",
       "ticker": "GOOGL",
       "rule": "MENTION_SPIKE",

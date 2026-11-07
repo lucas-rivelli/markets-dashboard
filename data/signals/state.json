@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-07T19:21:40.937Z",
-  "startedAt": "2026-11-07T19:17:34.435Z",
+  "lastUpdated": "2026-11-07T22:56:48.801Z",
+  "startedAt": "2026-11-07T22:52:35.805Z",
   "asOf": "2026-11-07",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": true,
-      "count": 10,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "Status code 404"
     },
     {
       "name": "ARK Next Gen Internet",
@@ -172,7 +172,7 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -186,7 +186,7 @@
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -690,6 +690,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "NET",
+      "ok": true,
+      "bars": 501,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "NFLX",
       "ok": true,
       "bars": 514,
@@ -811,16 +817,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 26,
-    "sourcesFailed": 12,
+    "sourcesOk": 25,
+    "sourcesFailed": 13,
     "sourcesTotal": 38,
-    "itemsFetched": 356,
-    "extractionsTotal": 4718,
-    "mentionsTotal": 1667,
+    "itemsFetched": 353,
+    "extractionsTotal": 4738,
+    "mentionsTotal": 1673,
     "tickers": 85,
-    "pricesOk": 89,
-    "alertsTotal": 692,
-    "newAlerts": 2
+    "pricesOk": 90,
+    "alertsTotal": 693,
+    "newAlerts": 1
   },
   "rows": [
     {
@@ -885,17 +891,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 19,
+      "mentionsRecent": 20,
       "mentionsBaseline": 44,
       "baselineRate": 10.267,
-      "spikeRatio": 1.851,
-      "sentRecent": 0.341,
+      "spikeRatio": 1.948,
+      "sentRecent": 0.324,
       "sentBaseline": 0.383,
-      "sentShift": -0.042,
+      "sentShift": -0.06,
       "retRecent": -0.0448,
       "excessRecent": -0.0178,
       "ret30": 0.1577,
-      "score": 1.0226,
+      "score": 0.9849,
       "lastPrice": 1354,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
@@ -1259,32 +1265,6 @@
       "priceBars": 505
     },
     {
-      "ticker": "NVO",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 4,
-      "sentRecent": 0.45,
-      "sentBaseline": -0.354,
-      "sentShift": 0.804,
-      "retRecent": 0.0078,
-      "excessRecent": 0.0348,
-      "ret30": 0.0558,
-      "score": 0.4944,
-      "lastPrice": 40.31,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 508
-    },
-    {
       "ticker": "KO",
       "discovered": true,
       "flag": null,
@@ -1381,6 +1361,37 @@
       "lastPrice": 165.87,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
+    },
+    {
+      "ticker": "NVO",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 6,
+      "sentRecent": 0.284,
+      "sentBaseline": -0.354,
+      "sentShift": 0.638,
+      "retRecent": 0.0078,
+      "excessRecent": 0.0348,
+      "ret30": 0.0558,
+      "score": 0.394,
+      "lastPrice": 40.31,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 508
     },
     {
       "ticker": "LRCX",
@@ -2840,6 +2851,29 @@
       "confidence": 0.8
     },
     {
+      "id": "4cf75dc5ff27601ac9098beaeda725b5b3d07e1ece3eac6ad8faa814231f41a1",
+      "title": "Forget Lilly and Novo: Pfizer Is Planning a Wave of Phase 3 Obesity Trials",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/forget-lilly-and-novo-pfizer-is-planning-a-wave-of/?.tsrc=rss",
+      "publishedAt": "2026-11-07T21:35:00.000Z",
+      "ticker": "NVO",
+      "tickers": [
+        "NVO",
+        "LLY"
+      ],
+      "flag": "LONG",
+      "score": 79,
+      "reasons": [
+        "NVO: Long candidate",
+        "sentiment shift +0.64",
+        "3 mentions this week (6.0x baseline)"
+      ],
+      "rationale": "Mentioned only as a competitor in the GLP-1 battle, with no stated view on the stock.",
+      "sentiment": 0,
+      "confidence": 0.7
+    },
+    {
       "id": "014f74009c84a5ac447dedef66e459e345905a2da457577821332863c630b4cf",
       "title": "Amazon Prime members' new Uber Eats perk comes with a $25 minimum",
       "source": "Yahoo Finance — AMZN",
@@ -3173,6 +3207,50 @@
       "confidence": 0.75
     },
     {
+      "id": "336276aaf27c2171d61fb09a0db23465516135ac3751d69a429d14d6cfa39a1a",
+      "title": "Novo Nordisk Stock Jumps 6% as Wegovy Hits a Stunning 80% Milestone",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/04/novo-nordisk-stock-jumps-6-as-wegovy-hits-a-stunning-80-milestone/?.tsrc=rss",
+      "publishedAt": "2026-11-04T17:47:46.000Z",
+      "ticker": "NVO",
+      "tickers": [
+        "NVO"
+      ],
+      "flag": "LONG",
+      "score": 55.1,
+      "reasons": [
+        "NVO: Long candidate",
+        "sentiment shift +0.64",
+        "3 mentions this week (6.0x baseline)"
+      ],
+      "rationale": "Reports shares surging on Wegovy oral pill data that suggests faster market uptake than expected.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
+      "id": "872ae9598c725658884cbded4b2956d22db0122c867cfd4403c74a72bbdd0be8",
+      "title": "2 Reasons for Hope From Novo Nordisk Earnings",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/b2170111-a1a4-3f88-8e76-51aaa34267ed/2-reasons-for-hope-from-novo.html?.tsrc=rss",
+      "publishedAt": "2026-11-04T11:20:00.000Z",
+      "ticker": "NVO",
+      "tickers": [
+        "NVO"
+      ],
+      "flag": "LONG",
+      "score": 54.5,
+      "reasons": [
+        "NVO: Long candidate",
+        "sentiment shift +0.64",
+        "3 mentions this week (6.0x baseline)"
+      ],
+      "rationale": "Describes a dismal year but says third-quarter earnings gave a reason for hope, implying a mildly positive view.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
       "id": "c42784d1a4718168790f157f57fa8f27f4e5fe41535d6fdc7890499cc98631e9",
       "title": "General Motors Gains 12% in a Week to a 52-Week High: Is There Room to Run?",
       "source": "Yahoo Finance — TSLA",
@@ -3282,73 +3360,6 @@
       "rationale": "Argues investors underappreciate Arm's upside potential, suggesting the stock is undervalued despite its price.",
       "sentiment": 0.5,
       "confidence": 0.7
-    },
-    {
-      "id": "3617b5592c1907728ff0d5f22967147cd4074cc6e263b2a03db9e6c969b1a276",
-      "title": "1 Reason to Buy AMD Stock Before 2027",
-      "source": "Yahoo Finance — AMD",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/07/1-reason-to-buy-amd-stock-before-2027/?.tsrc=rss",
-      "publishedAt": "2026-11-07T09:25:00.000Z",
-      "ticker": "AMD",
-      "tickers": [
-        "AMD"
-      ],
-      "flag": "WATCH",
-      "score": 48.5,
-      "reasons": [
-        "AMD: Watch",
-        "49 mentions this week (7.0x baseline)",
-        "bullish view, confidence 0.85"
-      ],
-      "rationale": "Argues that raised growth guidance and a low forward earnings multiple make the stock worth buying before 2027.",
-      "sentiment": 0.7,
-      "confidence": 0.85
-    },
-    {
-      "id": "cc00a4ddb7045e3f840d5341be693c0bd22c1e1d8639464a7e702df5c062a3c2",
-      "title": "Vertiv Sinks Another 16% as Data Center Selloff Deepens: “Forced Control on CapEx”",
-      "source": "Yahoo Finance — VST",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/vertiv-sinks-another-16-as-data-center-selloff-deepens-forced-control-on-capex?ref=yahoofinance&tlnk=yf-261105-8p2c7ff9&.tsrc=rss",
-      "publishedAt": "2026-11-05T15:56:30.000Z",
-      "ticker": "VRT",
-      "tickers": [
-        "VRT"
-      ],
-      "flag": "SHORT",
-      "score": 48.4,
-      "reasons": [
-        "VRT: Short candidate",
-        "sentiment shift -0.38",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports Vertiv shares falling sharply on fears that Democratic midterm wins will slow data center construction.",
-      "sentiment": -0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "c1c967f0ddb03b133c0b12eac69e1e94df420d2ad8fe73f2a33a9983614c6c90",
-      "title": "Lam Research Soars 9% on $25 Billion Buyback as Chip Stocks Rebound From Rout",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/lam-research-soars-9-on-25-billion-buyback-as-chip-stocks-rebound-from-rout?ref=yahoofinance&tlnk=yf-261106-xvx7gc85&.tsrc=rss",
-      "publishedAt": "2026-11-06T15:10:09.000Z",
-      "ticker": "LRCX",
-      "tickers": [
-        "LRCX",
-        "ASML"
-      ],
-      "flag": "WATCH",
-      "score": 46.7,
-      "reasons": [
-        "LRCX: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "bullish view, confidence 0.85"
-      ],
-      "rationale": "Author sees the $25B buyback as the clearest driver of the share jump and a sign of strong confidence.",
-      "sentiment": 0.7,
-      "confidence": 0.85
     }
   ]
 }
