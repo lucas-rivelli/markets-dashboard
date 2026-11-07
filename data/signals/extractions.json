@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-07T14:59:43.896Z",
+  "updatedAt": "2026-11-07T19:18:02.466Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -75051,6 +75051,841 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-07T14:59:43.896Z"
+    },
+    "e9e470338f9115f7cf32b7aa26a52b8e7a75b08c8ba3ff97b416f725bb34fe3c": {
+      "id": "e9e470338f9115f7cf32b7aa26a52b8e7a75b08c8ba3ff97b416f725bb34fe3c",
+      "title": "He Loses His Job at 62 as Amazon Cuts 95 More Positions. He Claims Social Security to Get By, Then Faces an $8,400 Bill to Undo It",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/personal-finance/social-security/2026/11/07/he-loses-his-job-at-62-as-amazon-cuts-95-more-positions-he-claims-social-security-to-get-by-then-faces-an-8400-bill-to-undo-it/?.tsrc=rss",
+      "publishedAt": "2026-11-07T19:04:44.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:37.077Z"
+    },
+    "b7afe872bd2ab0fc9ea782fa70dd5dccdfe297dbeaa27fc2ce5b42c215deaf86": {
+      "id": "b7afe872bd2ab0fc9ea782fa70dd5dccdfe297dbeaa27fc2ce5b42c215deaf86",
+      "title": "Why Billionaire Armitage Trims but Still Keeps Alphabet (GOOGL) as a Core Hyperscaler Exposure",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-billionaire-armitage-trims-still-185518940.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:55:18.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Places Alphabet sixth on a best-stocks list tied to billionaire John Armitage, who kept his position despite trimming it."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:37.345Z"
+    },
+    "af9f53527a1bd9a9de178fc4a0cc32459f85e65132838351993b987f6bdde416": {
+      "id": "af9f53527a1bd9a9de178fc4a0cc32459f85e65132838351993b987f6bdde416",
+      "title": "Where Will Rigetti Computing Stock Be in 3 Years?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/where-will-rigetti-computing-stock-be-in-3-years/?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:57:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:37.365Z"
+    },
+    "0482343fbc0f242328b6be9b6bb31956a1ce3d10f486278f9d7ae44819ef29fb": {
+      "id": "0482343fbc0f242328b6be9b6bb31956a1ce3d10f486278f9d7ae44819ef29fb",
+      "title": "Eli Lilly Just Raised Its 2026 Revenue Forecast by $5.5 Billion. Is the Stock Still a Buy?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/eli-lilly-just-raised-its-2026-revenue-forecast-by/?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Concedes the shares look expensive but expects the GLP-1 market to be much bigger than forecast."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:37.858Z"
+    },
+    "c329e3f010d8dec5d89eae6b41d45f59c4a0ad85de6d69974ed8a3020e62fd50": {
+      "id": "c329e3f010d8dec5d89eae6b41d45f59c4a0ad85de6d69974ed8a3020e62fd50",
+      "title": "3 Dividend Stocks I'd Buy With $5,000 Before the End of November",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/3-dividend-stocks-buy-5000-november/?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:38.185Z"
+    },
+    "a8bb6ba0836a3d884ec98139cd013a130ae0fb88eef10be623753ae13bef5769": {
+      "id": "a8bb6ba0836a3d884ec98139cd013a130ae0fb88eef10be623753ae13bef5769",
+      "title": "Nvidia Stock Has More Than 60% Upside According to Analysts' Average Price Target. Should You Buy While the AI Trade Wobbles?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/nvidia-stock-has-more-than-60-upside-according-to/?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.6,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Says the stock looks cheaper and its growth outlook remains solid, implying a positive view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:39.025Z"
+    },
+    "a1dd13ce46f370f2a23056d7c0a62d732b3fce0937680c632ce232154beba5c7": {
+      "id": "a1dd13ce46f370f2a23056d7c0a62d732b3fce0937680c632ce232154beba5c7",
+      "title": "Oklo Q3 Earnings Call Highlights",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-oklo-q3-earnings-call-highlights-2026-11-07/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-11-07T18:14:16.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:39.080Z"
+    },
+    "12a0edb4e9e6dc349dd4b4ca65759807daa420f4667884a4aade29e0f204deeb": {
+      "id": "12a0edb4e9e6dc349dd4b4ca65759807daa420f4667884a4aade29e0f204deeb",
+      "title": "Hims & Hers Stock After Lilly Weight Loss Drug Deal Has The Bull Case Changed?",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/healthcare/articles/hims-hers-stock-lilly-weight-181307947.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:13:07.000Z",
+      "tickerHint": "LLY",
+      "mentions": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Described as the drugmaker partnering on Zepbound and Foundayo access, with no explicit view on its stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:40.710Z"
+    },
+    "2316d4d28db2b83a4f865bc2366aeb4557237b4c6a02671a0f0d93e806114b61": {
+      "id": "2316d4d28db2b83a4f865bc2366aeb4557237b4c6a02671a0f0d93e806114b61",
+      "title": "Older Nvidia Chips Just Cost Oracle Its Microsoft AI Deal",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/older-nvidia-chips-just-cost-oracle-its-microsoft-ai-deal/?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:08:44.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:41.720Z"
+    },
+    "014f74009c84a5ac447dedef66e459e345905a2da457577821332863c630b4cf": {
+      "id": "014f74009c84a5ac447dedef66e459e345905a2da457577821332863c630b4cf",
+      "title": "Amazon Prime members' new Uber Eats perk comes with a $25 minimum",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/retail/amazon-prime-uber-eats-grubhub-delivery-change?.tsrc=rss",
+      "publishedAt": "2026-11-07T18:07:00.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports a new Prime perk for Uber Eats orders without expressing any view on Amazon's stock."
+        },
+        {
+          "ticker": "UBER",
+          "company": "Uber",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Mentions Uber Eats only as the partner service in the Prime perk, with no opinion on Uber."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:42.142Z"
+    },
+    "c060b1624366ebcdd30c5e142a02bd3548a952f0bff9cb82cd119810cc7ca14d": {
+      "id": "c060b1624366ebcdd30c5e142a02bd3548a952f0bff9cb82cd119810cc7ca14d",
+      "title": "Micron and Sandisk Lead the Memory Market. 1 Stock Has Far Greater Upside.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/micron-and-sandisk-lead-the-memory-market-1-stock/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:42.662Z"
+    },
+    "1c62e12ba2d7e0e0dd98f9b7fa10763edc4e81b9e2ce4af84e8070697f2bcddb": {
+      "id": "1c62e12ba2d7e0e0dd98f9b7fa10763edc4e81b9e2ce4af84e8070697f2bcddb",
+      "title": "This Dividend King Yielding 2X the S&P 500 Looks Like a Buy in November.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/this-dividend-king-yielding-2x-the-sp-500-looks/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:42.900Z"
+    },
+    "e31fc060fdaaa4a5bed7b4bde8c8208eec39ed508936961404d5399562cb05ab": {
+      "id": "e31fc060fdaaa4a5bed7b4bde8c8208eec39ed508936961404d5399562cb05ab",
+      "title": "The S&P 500 Just Had Its Worst Week Since the April 2025 Tariff Crash",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/the-sp-500-just-had-its-worst-week-since-the-april-2025-tariff-crash/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:33:39.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:43.927Z"
+    },
+    "63d1c46afcb5227cb41c2d4fe33a081c03ab4d01c49af93a96fddda34d5057a2": {
+      "id": "63d1c46afcb5227cb41c2d4fe33a081c03ab4d01c49af93a96fddda34d5057a2",
+      "title": "Every Humanoid Robot Needs Rare-Earth Magnets. Here's the American Stock Positioned to Sell Them -- and It's Down 62%.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/every-humanoid-robot-needs-rare-earth-magnets-here/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:43.955Z"
+    },
+    "97baead1cf01ccfb7fe1d07eb45b9363a683067d6741ad8234f1bdb4729b5243": {
+      "id": "97baead1cf01ccfb7fe1d07eb45b9363a683067d6741ad8234f1bdb4729b5243",
+      "title": "Here's How Many Shares of PepsiCo You'd Need for $500 in Yearly Dividends",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/heres-how-many-shares-of-pepsico-youd-need-for-500/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:29:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "PEP",
+          "company": "PepsiCo",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Urges readers not to be deterred by negative headlines, framing PepsiCo as a dividend stalwart worth holding."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:44.064Z"
+    },
+    "88ba8e75d61a94104d44940c28b7c04b2e5ce5aacc24ab0c607e7db8659e3e5f": {
+      "id": "88ba8e75d61a94104d44940c28b7c04b2e5ce5aacc24ab0c607e7db8659e3e5f",
+      "title": "Musk Says His Terafab Chip Plant Could Cost $1 Trillion",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/musk-says-his-terafab-chip-plant-could-cost-1-trillion/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:16:41.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:45.422Z"
+    },
+    "e64f154f532ec56e62e7c45152c9ea55d78ee2cd721925b541f2a941bd51afef": {
+      "id": "e64f154f532ec56e62e7c45152c9ea55d78ee2cd721925b541f2a941bd51afef",
+      "title": "How Investors Are Reacting To Goldman Sachs Stock After Congress Shift",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/investors-reacting-goldman-sachs-stock-171144829.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:11:44.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:45.475Z"
+    },
+    "2aa059cd0acb9f919c0cb7945df187a60b21b109058956fd15f090e07327f762": {
+      "id": "2aa059cd0acb9f919c0cb7945df187a60b21b109058956fd15f090e07327f762",
+      "title": "Walton Family Gets $100 Billion Richer As Walmart Surges",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/walton-family-gets-100-billion-richer-as-walmart-surges/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:18:44.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:45.900Z"
+    },
+    "106cccc991e59aa3f07854aedd2a98fb3916f31a9c2f463f8d69dfe65e43ca2c": {
+      "id": "106cccc991e59aa3f07854aedd2a98fb3916f31a9c2f463f8d69dfe65e43ca2c",
+      "title": "Jim Cramer sends a strong signal to Nvidia stock investors",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/investing/stocks/jim-cramer-sends-a-strong-signal-to-nvidia-stock-investors?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:17:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:46.113Z"
+    },
+    "0eb65649755a6224705927023d8f0fa019a0b2d35113bac108418f6fce8c2541": {
+      "id": "0eb65649755a6224705927023d8f0fa019a0b2d35113bac108418f6fce8c2541",
+      "title": "The Artificial Intelligence (AI) Boom Is Far From Over. Here Are 4 Potential Long-Term Winners",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/the-artificial-intelligence-ai-boom-is-far-from-over-here-are-4-potential-long-term-winners/?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:05:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:46.927Z"
+    },
+    "889cafcfe90fbd45f4ee669fb1b5d8fdbccf81af43a96e30100e2c711db99fc8": {
+      "id": "889cafcfe90fbd45f4ee669fb1b5d8fdbccf81af43a96e30100e2c711db99fc8",
+      "title": "AI Stocks Are Falling; Bitcoin Is Holding Ground. Here's What Could Come Next.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/ai-stocks-are-falling-bitcoin-is-holding-ground/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:51:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:47.189Z"
+    },
+    "1def170657ab3bf93c33e936b74f900066e305a52cf2a1a48f8fb7da37134f32": {
+      "id": "1def170657ab3bf93c33e936b74f900066e305a52cf2a1a48f8fb7da37134f32",
+      "title": "These 5 Consumer Stocks Raised Their Dividends in 2026. Here's What $10,000 in Each Pays in 2027.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/these-5-consumer-stocks-raised-their-dividends-in/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:47.857Z"
+    },
+    "f9059dd59fd2379a0285d2e9c46aa1965349db1a5eaeaab4a9fdcad6803ec85e": {
+      "id": "f9059dd59fd2379a0285d2e9c46aa1965349db1a5eaeaab4a9fdcad6803ec85e",
+      "title": "Hims & Hers Health (HIMS) Adds FDA Approved Obesity Drugs To Its Platform",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/healthcare/articles/hims-hers-health-hims-adds-171134940.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:11:34.000Z",
+      "tickerHint": "LLY",
+      "mentions": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Eli Lilly appears as the drug supplier in a partnership announcement, with no stated view on its stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:48.258Z"
+    },
+    "2b8004436604a3393478e303545a276d67236f15d0da8ff89526bb95fb0f358b": {
+      "id": "2b8004436604a3393478e303545a276d67236f15d0da8ff89526bb95fb0f358b",
+      "title": "Apple Completes the Set: Every Magnificent Seven Stock Opts Out of OKX-ICE Venue",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://decrypt.co/382768/apple-meta-every-magnificent-seven-stock-opts-out-okx-ice-venue?.tsrc=rss",
+      "publishedAt": "2026-11-07T17:01:03.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports Apple's objection to listing its shares on the planned venue, with no stated view on the stock."
+        },
+        {
+          "ticker": "META",
+          "company": "Meta Platforms",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports Meta's objection to listing its shares on the planned venue, with no stated view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:48.469Z"
+    },
+    "7eb4a0b0c417f4a356844b5f25fe748c3c610aebc28144658adf0968ad53983d": {
+      "id": "7eb4a0b0c417f4a356844b5f25fe748c3c610aebc28144658adf0968ad53983d",
+      "title": "2 Soaring Stocks to Hold for the Next 20 Years",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/2-soaring-stocks-to-hold-for-the-next-20-years/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:40:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:49.289Z"
+    },
+    "e050f4fa4709b2f8d0a5a0fb38c2b56498a4f7c08981c4b275dc41029110fd7f": {
+      "id": "e050f4fa4709b2f8d0a5a0fb38c2b56498a4f7c08981c4b275dc41029110fd7f",
+      "title": "Prediction: These Are the 3 Biggest Threats Facing SpaceX in 2027",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/prediction-these-are-the-3-biggest-spacex-threats/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:33:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:49.532Z"
+    },
+    "266382f3de86a0fb3c0e140154ea0d57234360f330d73d2a8993cf24b9ef32ab": {
+      "id": "266382f3de86a0fb3c0e140154ea0d57234360f330d73d2a8993cf24b9ef32ab",
+      "title": "Prediction: Here's What a $1,000 Investment in Rivian Will Be Worth by 2030 if the R2 Ramp Holds",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/prediction-heres-what-a-1000-investment-in-rivian/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "RIVN",
+          "company": "Rivian",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Says the R2 is now Rivian's best-selling vehicle, which could move it closer to profitability, and frames the stock as a 2030 growth bet."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:49.923Z"
+    },
+    "ab344dc667fabffbe42473eb7ce0f2b2b35e29f5c6deb75fe1f24b0cd2486180": {
+      "id": "ab344dc667fabffbe42473eb7ce0f2b2b35e29f5c6deb75fe1f24b0cd2486180",
+      "title": "AST SpaceMobile Is Building Its Own Reusable Rocket to Rely Less on SpaceX",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/ast-spacemobile-is-building-its-own-reusable-rocket-to-rely-less-on-spacex/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:49:42.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "ASTS",
+          "company": "AST SpaceMobile",
+          "sentiment": -0.6,
+          "confidence": 0.75,
+          "stance": "bearish",
+          "rationale": "Argues the own-rocket plan could cost shareholders beyond dilution and that revenue-earning satellites remain undeployed."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:50.579Z"
+    },
+    "cbad827295ec9f602b769a848ed3bc385b418a1c6a90f91427e6c1ae6be052f7": {
+      "id": "cbad827295ec9f602b769a848ed3bc385b418a1c6a90f91427e6c1ae6be052f7",
+      "title": "1 AI Stock I'll Buy Hand Over Fist If the Market Crashes",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/1-ai-stock-ill-buy-hand-over-fist-if-market-crash/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:51.474Z"
+    },
+    "36cb858237d77ec94f9b85a7cef1f2f4ea186106d6702a049a3f8a117e18e795": {
+      "id": "36cb858237d77ec94f9b85a7cef1f2f4ea186106d6702a049a3f8a117e18e795",
+      "title": "3 Top Picks With At Least 2% Dividend Yield",
+      "source": "Yahoo Finance — NEE",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-top-picks-least-2-160951965.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:09:51.000Z",
+      "tickerHint": "NEE",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:51.675Z"
+    },
+    "2384dfcb3e7c88f1ad3f180574cb77573c2cdd0129b7995ca493ff7c2537b449": {
+      "id": "2384dfcb3e7c88f1ad3f180574cb77573c2cdd0129b7995ca493ff7c2537b449",
+      "title": "Treasury Says Crypto Exchange MEXC Moved at Least $16 Billion Tied to Illicit Activity",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/treasury-says-crypto-exchange-mexc-moved-at-least-16-billion-tied-to-illicit-activity/?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:18:55.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:51.907Z"
+    },
+    "db1a07a42a53ba1ee195aeee12082b47eb14190b62e84a0a30a0961fceb98676": {
+      "id": "db1a07a42a53ba1ee195aeee12082b47eb14190b62e84a0a30a0961fceb98676",
+      "title": "America Just Matched a 57-Year Employment Record. Why Are Workers Still Worried?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/america-just-matched-a-57-year-employment-record-why-are-workers-still-worried/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:59:21.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:52.808Z"
+    },
+    "bc846f5e4d2fdd0095cbd6be3d709be6d337e8feb25c35b4c9a3c0b09763e5a1": {
+      "id": "bc846f5e4d2fdd0095cbd6be3d709be6d337e8feb25c35b4c9a3c0b09763e5a1",
+      "title": "Snap Will Stop Reporting Daily Users in 2027. Its 92 Million North Americans Explain Why",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/snap-will-stop-reporting-daily-users-in-2027-its-92-million-north-americans-explain-why?ref=yahoofinance&tlnk=yf-261107-h43h6cvg&.tsrc=rss",
+      "publishedAt": "2026-11-07T16:06:23.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:52.905Z"
+    },
+    "c02caf8f87c7c0d4167b53c3f27f90dbf77c073176ea15c5689a2b5c32ac9a54": {
+      "id": "c02caf8f87c7c0d4167b53c3f27f90dbf77c073176ea15c5689a2b5c32ac9a54",
+      "title": "Anthropic Could Postpone Its $1.5 Trillion IPO, Per One Investor, As Market Sours On AI Trade. Another Says It Could End Up Closer To $1 Trillion",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/anthropic-could-postpone-its-1-5-trillion-ipo-per-one-investor-as-market-sours-on-ai-trade-another-says-it-could-end-up-closer-to-1-trillion/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:58:25.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:53.033Z"
+    },
+    "ae183fefd0f527d6c1a9c4f6a5a4e9b8047d1785ae3628dfe390a7fe7ec31e0e": {
+      "id": "ae183fefd0f527d6c1a9c4f6a5a4e9b8047d1785ae3628dfe390a7fe7ec31e0e",
+      "title": "AI Chip Stocks Bounce After Global Rout—But Is the Bubble Starting to Burst?",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://decrypt.co/382770/ai-chip-stocks-bounce-global-rout-bubble-starting-burst?.tsrc=rss",
+      "publishedAt": "2026-11-07T16:01:02.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:53.325Z"
+    },
+    "2e8e0ebedd43d52b6f7fa8037f8d9cd4c2308bddde490dd483318379fad48b00": {
+      "id": "2e8e0ebedd43d52b6f7fa8037f8d9cd4c2308bddde490dd483318379fad48b00",
+      "title": "AI Stocks Diverge as Democratic Election Victory Sparks Rotation Into Cloud Giants",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://investorshub.advfn.com/market-news/article/39467/ai-stocks-diverge-as-democratic-election-victory-sparks-rotation-into-cloud-giants?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:54:00.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:54.042Z"
+    },
+    "1258183b51a8c2b4a0dbe421a2fa363b978e8d867301a27951b9696553689f80": {
+      "id": "1258183b51a8c2b4a0dbe421a2fa363b978e8d867301a27951b9696553689f80",
+      "title": "Elon Musk reacts to Democrat call for AI pause — while $2T vanishes from tech stocks. Are you exposed?",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/elon-musk-reacts-democrat-call-153500258.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:35:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:54.474Z"
+    },
+    "a677a5b42811a192b1ab0f9adbe98137cb69b270a95934f0f14e78e041d84fdf": {
+      "id": "a677a5b42811a192b1ab0f9adbe98137cb69b270a95934f0f14e78e041d84fdf",
+      "title": "Anthropic's IPO Could Come Within Weeks. Amazon Already Owns a Piece of It.",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/anthropic-s-ipo-could-come-within-weeks-amazon-already-owns-a-piece-of-it/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:47:02.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0.1,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Notes Amazon already holds a large stake in Anthropic valued around $239 billion and asks how an IPO would change it, without a clear verdict."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:54.639Z"
+    },
+    "9b6a956c81428ef55610b1efc9da1a15f3e0f5dfa0dbe445170c09f683c7a941": {
+      "id": "9b6a956c81428ef55610b1efc9da1a15f3e0f5dfa0dbe445170c09f683c7a941",
+      "title": "CoreWeave’s Bonds Now Yield More Than 16%, Days Before Earnings",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/coreweaves-bonds-now-yield-more-than-16-days-before-earnings/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:37:53.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:55.046Z"
+    },
+    "fe811973753616c3f5a52a31ba7dea88edc359259f2e2afcca90eb18fd8e9d45": {
+      "id": "fe811973753616c3f5a52a31ba7dea88edc359259f2e2afcca90eb18fd8e9d45",
+      "title": "Wall Street May Have Lost $2.5 Trillion, but This 30% Warning Could Be an Even Bigger Problem for AI Stocks",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/wall-street-may-have-lost-2-5-trillion-but-this-30-warning-could-be-an-even-bigger-problem-for-ai-stocks/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:34:09.000Z",
+      "tickerHint": "AVGO",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:56.008Z"
+    },
+    "993fbf5c92c010dfc6166d448683ffdf85cd8e71d88411df9530afd618507cfe": {
+      "id": "993fbf5c92c010dfc6166d448683ffdf85cd8e71d88411df9530afd618507cfe",
+      "title": "AMD Stock Popped After Earnings, Then Gave It All Back. Is It a Buy Now?",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/amd-stock-popped-after-earnings-then-gave-it-back/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:23:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:56.069Z"
+    },
+    "39ced7c6847985ec58530b62850bcad3338a4c581987916ed4212bd2bd7be3f6": {
+      "id": "39ced7c6847985ec58530b62850bcad3338a4c581987916ed4212bd2bd7be3f6",
+      "title": "Fed Chair Kevin Warsh Just Issued a 6-Word Warning That Could Spell Disaster for AI Stocks",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/fed-chair-kevin-warsh-just-issued-a-6-word-warning-that-could-spell-disaster-for-ai-stocks/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:26:32.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:56.418Z"
+    },
+    "879bafd7f53d2e1c8019c5f8db54b201667cdadd4b6ef246363eef21cbddfe51": {
+      "id": "879bafd7f53d2e1c8019c5f8db54b201667cdadd4b6ef246363eef21cbddfe51",
+      "title": "Here's How These 6 Big Bank Stocks Make Their Money",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/how-these-6-big-bank-stocks-make-their-money/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:05:00.000Z",
+      "tickerHint": "JPM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:57.290Z"
+    },
+    "5be36ef3a2723d91d190000c0ded61bda91dbe662a6e55a75e8a53c8ff03165c": {
+      "id": "5be36ef3a2723d91d190000c0ded61bda91dbe662a6e55a75e8a53c8ff03165c",
+      "title": "TSMC Jumped 6% on a Report It Could Make Memory Chips for Nvidia",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/07/tsmc-jumped-6-on-a-report-it-could-make-memory-chips-for-nvidia/?.tsrc=rss",
+      "publishedAt": "2026-11-07T15:13:51.000Z",
+      "tickerHint": "TSM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:57.897Z"
+    },
+    "b4158cef95a874881da342365ea8e1b65a5e485dacdf2cfb15f6162b6d0cb5ab": {
+      "id": "b4158cef95a874881da342365ea8e1b65a5e485dacdf2cfb15f6162b6d0cb5ab",
+      "title": "Pinterest CEO: The EU Hit Was “Greater Than We Anticipated.” Its Q4 Guide Sits $70 Million Light",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/pinterest-ceo-the-eu-hit-was-greater-than-we-anticipated-its-q4-guide-sits-70-million-light?ref=yahoofinance&tlnk=yf-261107-43v3vfp7&.tsrc=rss",
+      "publishedAt": "2026-11-07T15:03:36.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:58.047Z"
+    },
+    "5d061b8f4ae1c16c99158e9a8aa14311a6efc20e27e3f4bbf638fb40fe8fcd90": {
+      "id": "5d061b8f4ae1c16c99158e9a8aa14311a6efc20e27e3f4bbf638fb40fe8fcd90",
+      "title": "3 Artificial Intelligence (AI) Stocks I’d Buy Without Hesitation in a Market Crash",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/3-artificial-intelligence-ai-stocks-i-d-buy-without-hesitation-in-a-market-crash/?.tsrc=rss",
+      "publishedAt": "2026-11-07T14:50:02.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:58.368Z"
+    },
+    "dc881b2f3b6316458b7a082a24c6362dd37054d2f936c24039d2d4aeaa7e163a": {
+      "id": "dc881b2f3b6316458b7a082a24c6362dd37054d2f936c24039d2d4aeaa7e163a",
+      "title": "Big Tech’s AI race will save small business owners time. It won’t find them customers",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/small-business/articles/big-tech-ai-race-save-124500247.html?.tsrc=rss",
+      "publishedAt": "2026-11-07T12:45:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:59.305Z"
+    },
+    "0d336809c5b70dcaf1f208f25406a6947050142a8c9392155ea36e46815c3ba5": {
+      "id": "0d336809c5b70dcaf1f208f25406a6947050142a8c9392155ea36e46815c3ba5",
+      "title": "Take-Two Expects 20% Growth From GTA VI. Roblox Guides Its Holiday Bookings Down 15%",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/roblox-just-gained-15-in-a-week-after-its-earnings-crash-take-profits-or-buy-more?ref=yahoofinance&tlnk=yf-261107-8cwrg7hr&.tsrc=rss",
+      "publishedAt": "2026-11-07T14:51:11.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:59.442Z"
+    },
+    "4fbcb8f187394049f0616f946b2307e7726a1cb1a27242428d0e2f730e3ac1d4": {
+      "id": "4fbcb8f187394049f0616f946b2307e7726a1cb1a27242428d0e2f730e3ac1d4",
+      "title": "What Goldman Sachs BDC (GSBD) Said on Its Q3 Earnings Call",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-what-goldman-sachs-bdc-gsbd-said-on-its-q3-earnings-call-2026-11-07/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-11-07T13:21:44.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:17:59.727Z"
+    },
+    "12d49c7d426c26c5a2bbbeefd14809bc916f63245aeb117b0c3641d2d7806cbd": {
+      "id": "12d49c7d426c26c5a2bbbeefd14809bc916f63245aeb117b0c3641d2d7806cbd",
+      "title": "What Fluor (FLR) Said on Its Q3 Earnings Call",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-what-fluor-flr-said-on-its-q3-earnings-call-2026-11-07/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-11-07T10:19:01.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "FLR",
+          "company": "Fluor",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports record project awards and a rising backlog, and maintained its full-year outlook, which reads as favorable."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:00.081Z"
+    },
+    "7d1b340fa176c5836e7482cf0a73a0187dff11b582beb97e12f4af15b9cdf5e5": {
+      "id": "7d1b340fa176c5836e7482cf0a73a0187dff11b582beb97e12f4af15b9cdf5e5",
+      "title": "Spooky Market Tales vs Facts",
+      "source": "Jordi Visser Labs",
+      "sourceType": "YouTube",
+      "url": "https://www.youtube.com/shorts/ot8RbNP__k0",
+      "publishedAt": "2026-11-04T01:30:24.000Z",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:00.835Z"
+    },
+    "2181bbeb120095ceccd7ce144b00c797b657ae785da15c4fcab229666f78a133": {
+      "id": "2181bbeb120095ceccd7ce144b00c797b657ae785da15c4fcab229666f78a133",
+      "title": "Microsoft Offers Buyout to 27% of Employees!",
+      "source": "Jordi Visser Labs",
+      "sourceType": "YouTube",
+      "url": "https://www.youtube.com/shorts/BbmfFrsKkHE",
+      "publishedAt": "2026-11-04T13:30:22.000Z",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:01.304Z"
+    },
+    "160fdf5e115e12053958d05d42d24fae909090dd62d050fcf4af89919280f24b": {
+      "id": "160fdf5e115e12053958d05d42d24fae909090dd62d050fcf4af89919280f24b",
+      "title": "Against supplements",
+      "source": "Works in Progress",
+      "sourceType": "Substack",
+      "url": "https://www.worksinprogress.news/p/against-supplements",
+      "publishedAt": "2026-11-03T12:03:35.000Z",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:01.640Z"
+    },
+    "e10f37819ba5985eaf80f3d0c521207a17b1d01804baef826ebb824cfa14b6c5": {
+      "id": "e10f37819ba5985eaf80f3d0c521207a17b1d01804baef826ebb824cfa14b6c5",
+      "title": "The New Market Structure #trading #stocks #investing",
+      "source": "Jordi Visser Labs",
+      "sourceType": "YouTube",
+      "url": "https://www.youtube.com/shorts/4ce0NT3MMXA",
+      "publishedAt": "2026-11-02T13:30:38.000Z",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:02.169Z"
+    },
+    "417fd4eec5bf4a82a371603659e1c3454e6da5310688264ee6f8ff4d83a9e06a": {
+      "id": "417fd4eec5bf4a82a371603659e1c3454e6da5310688264ee6f8ff4d83a9e06a",
+      "title": "Exxon or Pfizer: The One Dividend Stock I’d Hold for the Next 10 Years",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/exxon-or-pfizer-the-one-dividend-stock-id-hold-for-the-next-10-years?ref=yahoofinancedividend&tlnk=yf-261107-284jmj94&.tsrc=rss",
+      "publishedAt": "2026-11-06T21:52:33.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-07T19:18:02.466Z"
     }
   }
 }

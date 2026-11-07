@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "f1475420defa3db8",
+      "ticker": "GOOGL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T19:21:38.604Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 27,
+        "spikeRatio": 2.066,
+        "sentRecent": 0.124,
+        "sentShift": 0.07,
+        "retRecent": 0.0177,
+        "excessRecent": 0.0447,
+        "score": 0.4118
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/why-billionaire-armitage-trims-still-185518940.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/crusoe-announces-wyoming-data-center-190200368.html?.tsrc=rss",
+        "https://www.tikr.com/blog/arga-investment-management-bought-nokia-qualcomm-alphabet?ref=yahoofinance&tlnk=yf-261106-xw2jhg8h&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5e157badfb4f60e6",
+      "ticker": "AMZN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-07T19:21:38.594Z",
+      "firedDate": "2026-11-07",
+      "metrics": {
+        "mentionsRecent": 27,
+        "spikeRatio": 2.066,
+        "sentRecent": 0.256,
+        "sentShift": 0.124,
+        "retRecent": 0.0788,
+        "excessRecent": 0.1059,
+        "score": 0.8542
+      },
+      "topItems": [
+        "https://www.thestreet.com/retail/amazon-prime-uber-eats-grubhub-delivery-change?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/anthropic-s-ipo-could-come-within-weeks-amazon-already-owns-a-piece-of-it/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/amazons-ceo-andy-jassy-just-announced-huge-news/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "214388576938ec1a",
       "ticker": "GS",
       "rule": "MENTION_SPIKE",
