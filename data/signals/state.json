@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-07T08:12:59.977Z",
-  "startedAt": "2026-11-07T08:08:39.597Z",
+  "lastUpdated": "2026-11-07T15:03:36.160Z",
+  "startedAt": "2026-11-07T14:59:02.595Z",
   "asOf": "2026-11-07",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -151,42 +151,42 @@
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 20,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 12,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -270,7 +270,7 @@
       "name": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     }
   ],
@@ -654,6 +654,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "LULU",
+      "ok": true,
+      "bars": 501,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "MRK",
       "ok": true,
       "bars": 508,
@@ -808,15 +814,46 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 357,
-    "extractionsTotal": 4584,
-    "mentionsTotal": 1642,
+    "itemsFetched": 360,
+    "extractionsTotal": 4663,
+    "mentionsTotal": 1653,
     "tickers": 85,
-    "pricesOk": 88,
+    "pricesOk": 89,
     "alertsTotal": 690,
-    "newAlerts": 5
+    "newAlerts": 0
   },
   "rows": [
+    {
+      "ticker": "PLTR",
+      "discovered": false,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 29,
+      "mentionsBaseline": 29,
+      "baselineRate": 6.767,
+      "spikeRatio": 4.286,
+      "sentRecent": 0.331,
+      "sentBaseline": 0.356,
+      "sentShift": -0.025,
+      "retRecent": -0.1289,
+      "excessRecent": -0.1019,
+      "ret30": -0.1932,
+      "score": 1.1249,
+      "lastPrice": 160.38,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
+    },
     {
       "ticker": "LLY",
       "discovered": false,
@@ -838,37 +875,6 @@
       "priceBars": 514
     },
     {
-      "ticker": "PLTR",
-      "discovered": false,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 28,
-      "mentionsBaseline": 29,
-      "baselineRate": 6.767,
-      "spikeRatio": 4.138,
-      "sentRecent": 0.316,
-      "sentBaseline": 0.356,
-      "sentShift": -0.04,
-      "retRecent": -0.1289,
-      "excessRecent": -0.1019,
-      "ret30": -0.1932,
-      "score": 1.0632,
-      "lastPrice": 160.38,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
       "ticker": "AMD",
       "discovered": false,
       "flag": "WATCH",
@@ -879,17 +885,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 48,
+      "mentionsRecent": 49,
       "mentionsBaseline": 30,
       "baselineRate": 7,
-      "spikeRatio": 6.857,
-      "sentRecent": 0.258,
+      "spikeRatio": 7,
+      "sentRecent": 0.269,
       "sentBaseline": 0.207,
-      "sentShift": 0.05,
+      "sentShift": 0.062,
       "retRecent": -0.1105,
       "excessRecent": -0.0834,
       "ret30": -0.2765,
-      "score": 1.0033,
+      "score": 1.0522,
       "lastPrice": 449.04,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
@@ -1928,17 +1934,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 18,
+      "mentionsRecent": 19,
       "mentionsBaseline": 32,
       "baselineRate": 7.467,
-      "spikeRatio": 2.411,
-      "sentRecent": 0.064,
+      "spikeRatio": 2.545,
+      "sentRecent": 0.061,
       "sentBaseline": 0.119,
-      "sentShift": -0.055,
+      "sentShift": -0.058,
       "retRecent": -0.0079,
       "excessRecent": 0.0192,
       "ret30": -0.1536,
-      "score": 0.1877,
+      "score": 0.1826,
       "lastPrice": 610.15,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
@@ -2800,6 +2806,28 @@
       "confidence": 0.6
     },
     {
+      "id": "7985d8cf3f536de5827234c3c287459537f860cdeccce5052cfd738e6c0f9be1",
+      "title": "Palantir Stock Investors Just Got Great News From a Wall Street Analyst (Hint: The Stock Could Soar)",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/palantir-stock-investors-great-news-wall-street-stock-soar/?.tsrc=rss",
+      "publishedAt": "2026-11-07T10:08:02.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 80,
+      "reasons": [
+        "PLTR: Long candidate",
+        "29 mentions this week (4.3x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Cites a JPMorgan analyst's view that Palantir is significantly undervalued, with the headline suggesting upside potential.",
+      "sentiment": 0.7,
+      "confidence": 0.8
+    },
+    {
       "id": "65cdc7bce698ab3cb32617c8e0656b6e1ca571b6766b41889a9d700151eb5b17",
       "title": "Uber’s Robo Push",
       "source": "Yahoo Finance — AAPL",
@@ -2991,7 +3019,7 @@
       "score": 66.4,
       "reasons": [
         "PLTR: Long candidate",
-        "28 mentions this week (4.1x baseline)",
+        "29 mentions this week (4.3x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Praises last quarter's growth but flags slowing contract value growth as a warning sign for investors.",
@@ -3014,7 +3042,7 @@
       "score": 65.9,
       "reasons": [
         "PLTR: Long candidate",
-        "28 mentions this week (4.1x baseline)",
+        "29 mentions this week (4.3x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Says the stock trades at a high forward earnings multiple and implies a likely decline after its earnings report.",
@@ -3065,28 +3093,6 @@
       "rationale": "Reports shares rising after strong Q3 profit growth and a raised outlook, despite a revenue miss.",
       "sentiment": 0.5,
       "confidence": 0.7
-    },
-    {
-      "id": "132ea5dff3b058f022882b99e0d6d2ed6f933eb25aaf734c71915a7687b55a4e",
-      "title": "ETFs Are Net Sellers of Palantir (PLTR) on Wednesday",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-palantir-pltr-110350243.html?.tsrc=rss",
-      "publishedAt": "2026-11-06T11:03:50.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 62.5,
-      "reasons": [
-        "PLTR: Long candidate",
-        "28 mentions this week (4.1x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Reports a factual net outflow from ETFs in Palantir shares on one day, with no evaluative view expressed.",
-      "sentiment": 0,
-      "confidence": 0.8
     },
     {
       "id": "86fe48c664344bd835d7f90f2c96d3372511ef2e64010dbc54e8bfca4c383d48",
@@ -3244,6 +3250,28 @@
       "confidence": 0.7
     },
     {
+      "id": "3617b5592c1907728ff0d5f22967147cd4074cc6e263b2a03db9e6c969b1a276",
+      "title": "1 Reason to Buy AMD Stock Before 2027",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/07/1-reason-to-buy-amd-stock-before-2027/?.tsrc=rss",
+      "publishedAt": "2026-11-07T09:25:00.000Z",
+      "ticker": "AMD",
+      "tickers": [
+        "AMD"
+      ],
+      "flag": "WATCH",
+      "score": 48.5,
+      "reasons": [
+        "AMD: Watch",
+        "49 mentions this week (7.0x baseline)",
+        "bullish view, confidence 0.85"
+      ],
+      "rationale": "Argues that raised growth guidance and a low forward earnings multiple make the stock worth buying before 2027.",
+      "sentiment": 0.7,
+      "confidence": 0.85
+    },
+    {
       "id": "cc00a4ddb7045e3f840d5341be693c0bd22c1e1d8639464a7e702df5c062a3c2",
       "title": "Vertiv Sinks Another 16% as Data Center Selloff Deepens: “Forced Control on CapEx”",
       "source": "Yahoo Finance — VST",
@@ -3308,28 +3336,6 @@
       ],
       "rationale": "Reports shares surging on Wegovy oral pill data that suggests faster market uptake than expected.",
       "sentiment": 0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "872ae9598c725658884cbded4b2956d22db0122c867cfd4403c74a72bbdd0be8",
-      "title": "2 Reasons for Hope From Novo Nordisk Earnings",
-      "source": "Yahoo Finance — LLY",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/b2170111-a1a4-3f88-8e76-51aaa34267ed/2-reasons-for-hope-from-novo.html?.tsrc=rss",
-      "publishedAt": "2026-11-04T11:20:00.000Z",
-      "ticker": "NVO",
-      "tickers": [
-        "NVO"
-      ],
-      "flag": "LONG",
-      "score": 45.5,
-      "reasons": [
-        "NVO: Long candidate",
-        "sentiment shift +0.80",
-        "new name outside the universe"
-      ],
-      "rationale": "Describes a dismal year but says third-quarter earnings gave a reason for hope, implying a mildly positive view.",
-      "sentiment": 0.4,
       "confidence": 0.6
     }
   ]
