@@ -2,6 +2,857 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "6e1520aa5313e164",
+      "ticker": "COIN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.348Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 16,
+        "spikeRatio": 2.981,
+        "sentRecent": -0.233,
+        "sentShift": -0.244,
+        "retRecent": -0.0612,
+        "excessRecent": -0.0341,
+        "score": -0.6598
+      },
+      "topItems": [
+        "https://www.thestreet.com/crypto/markets/coinbase-has-news-for-gold-holders?.tsrc=rss",
+        "https://finance.yahoo.com/markets/crypto/articles/coinbase-building-more-resilient-profitable-162100995.html?.tsrc=rss",
+        "https://www.tikr.com/blog/coinbase-sinks-9-as-bitcoin-falls-below-76000?ref=yahoofinance&tlnk=yf-261105-hg64qgxm&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "92619b3807457799",
+      "ticker": "CRWV",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-08T02:02:58.347Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.779,
+        "sentRecent": -0.5,
+        "sentShift": -0.637,
+        "retRecent": -0.1544,
+        "excessRecent": -0.1273,
+        "score": -0.5493
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/03/coreweaves-bond-yield-is-a-warning-for-ai-debt/?.tsrc=rss",
+        "https://finance.yahoo.com/m/2335cbaf-5233-3425-9f7a-d062d58167f8/bond-market-signals-distress.html?.tsrc=rss",
+        "https://www.tikr.com/blog/spacex-just-dropped-9-in-a-october-is-it-time-to-sell-or-load-up?ref=yahoofinance&tlnk=yf-261031-r6433jr9&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "273984560f775e21",
+      "ticker": "SNAP",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.346Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": -0.275,
+        "sentShift": -0.275,
+        "retRecent": -0.0712,
+        "excessRecent": -0.0441,
+        "score": -0.4927
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/reddit-sinks-8-as-social-ad-worries-deepen-in-tech-rout?ref=yahoofinance&tlnk=yf-261105-whpgc2qp&.tsrc=rss",
+        "https://www.tikr.com/blog/snap-sinks-8-on-q3-revenue-and-user-miss-as-ad-growth-remains-below-our-ambitions?ref=yahoofinance&tlnk=yf-261105-c6f7prvx&.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/05/snap-tumbles-11-as-user-growth-miss-and-sluggish-ad-sales-overshadow-return-to-profit-pinterest-dips-meta-holds-steady/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "66708f0fe5f4b72b",
+      "ticker": "SNDK",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.344Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": -0.225,
+        "sentShift": null,
+        "retRecent": -0.2744,
+        "excessRecent": -0.2474,
+        "score": -0.3621
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures%3A-market.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/sandisk-just-crashed-22-on-midterms-down-43-over-3-months-one-of-the-highest-ranked-sell-side-analysts-just-doubled-down-that-it-will-nearly-quadruple/?.tsrc=rss",
+        "https://www.tikr.com/blog/sandisk-sinks-14-micron-down-10-as-a-top-phone-chipmaker-blames-weak-sales-on-industry-wide-memory-dynamics?ref=yahoofinance&tlnk=yf-261105-8gc35pvp&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0a829e6184fe7551",
+      "ticker": "GSBD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.343Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.026,
+        "sentShift": null,
+        "retRecent": -0.0325,
+        "excessRecent": -0.0054,
+        "score": -0.0362
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-inc-gsbd-211624479.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-q3-earnings-225642143.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-bdc-inc-reports-224600978.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1c6f67c0043741c4",
+      "ticker": "NFLX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.342Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 3.214,
+        "sentRecent": 0,
+        "sentShift": -0.188,
+        "retRecent": 0.0214,
+        "excessRecent": 0.0485,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss",
+        "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock?.tsrc=rss",
+        "https://www.axios.com/2026/11/02/netflix-darshan-kantak-ads-platform#utm_source=yahoo_finance&utm_medium=partner&utm_campaign=subs-partner-yahoo-finance-media?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "40c06ab38ba688e4",
+      "ticker": "GS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.340Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 2.571,
+        "sentRecent": 0,
+        "sentShift": -0.204,
+        "retRecent": -0.0321,
+        "excessRecent": -0.0051,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/supreme-court-hear-goldman-sachs-191102310.html?.tsrc=rss",
+        "https://www.privatebankerinternational.com/news/goldman-sachs-partner-rank-promotes/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-108-5-million-110045861.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "050448a7351853c9",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.339Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.052,
+        "sentShift": 0.03,
+        "retRecent": -0.1115,
+        "excessRecent": -0.0845,
+        "score": 0.0726
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/oracle-beats-microsoft-amazon-key-160655388.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-software-igv-110607892.html?.tsrc=rss",
+        "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-oracle-falls-on-canceled-7-billion-tencent-chip-leasing-deal/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0b77ae4c324c8f3a",
+      "ticker": "OKLO",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.338Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.075,
+        "sentShift": 0.475,
+        "retRecent": -0.0673,
+        "excessRecent": -0.0403,
+        "score": 0.0824
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/27/ai-power-stocks-fell-7-to-13-in-a-week-while-exxon/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "cd0dc01f3356578a",
+      "ticker": "AAPL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.336Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 44,
+        "spikeRatio": 5.238,
+        "sentRecent": 0.025,
+        "sentShift": -0.093,
+        "retRecent": -0.0066,
+        "excessRecent": 0.0205,
+        "score": 0.0936
+      },
+      "topItems": [
+        "https://decrypt.co/382768/apple-meta-every-magnificent-seven-stock-opts-out-okx-ice-venue?.tsrc=rss",
+        "https://finance.yahoo.com/m/aeb920dc-4bcd-3531-8458-6a642b7135df/tech-stock-sell-off-%27golden.html?.tsrc=rss",
+        "https://www.tikr.com/blog/dan-ives-20-of-the-world-will-access-ai-through-an-apple-device?ref=yahoofinance&tlnk=yf-261106-pxjfqqvq&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "ef2ce2edd8b8e18a",
+      "ticker": "TSLA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.335Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 26,
+        "spikeRatio": 2.371,
+        "sentRecent": 0.032,
+        "sentShift": -0.286,
+        "retRecent": -0.104,
+        "excessRecent": -0.077,
+        "score": 0.1055
+      },
+      "topItems": [
+        "https://www.thestreet.com/retail/elon-musk-says-tesla-will-stop-making-iconic-vehicles?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/musks-futuristic-cybertruck-rolls-toward-143948079.html?.tsrc=rss",
+        "https://www.foxbusiness.com/markets/tesla-wind-down-cybertruck-production-texas-factory-next-year-make-room-cybercab?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "2b198d861f6c8be9",
+      "ticker": "VRT",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-08T02:02:58.333Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.071,
+        "sentRecent": 0.138,
+        "sentShift": -0.384,
+        "retRecent": -0.2135,
+        "excessRecent": -0.1865,
+        "score": 0.1521
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/vertiv-sinks-another-16-as-data-center-selloff-deepens-forced-control-on-capex?ref=yahoofinance&tlnk=yf-261105-8p2c7ff9&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/03/microsoft-and-oracle-cant-cool-ai-data-centers-wit/?.tsrc=rss",
+        "https://finance.yahoo.com/m/c5c23db3-d508-3c1f-bab0-6408a09c4739/micron%2C-sk-hynix%2C-google%2C.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9beea6e4c72f986b",
+      "ticker": "META",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.332Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 20,
+        "spikeRatio": 2.597,
+        "sentRecent": 0.058,
+        "sentShift": -0.058,
+        "retRecent": -0.0079,
+        "excessRecent": 0.0192,
+        "score": 0.1765
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/nvidia-2-other-ai-stocks-231249303.html?.tsrc=rss",
+        "https://decrypt.co/382768/apple-meta-every-magnificent-seven-stock-opts-out-okx-ice-venue?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/mark-zuckerberg-fortune-tops-200-093000359.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "bb7ebf6f03adee5c",
+      "ticker": "WRBY",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.330Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.143,
+        "sentShift": null,
+        "retRecent": 0.0354,
+        "excessRecent": 0.0624,
+        "score": 0.198
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/b61a0e29-c148-3da2-8c62-a956078b564c/warby-parker-sets-sights-on.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/05/why-warby-parker-stock-popped-today/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "678892597207b5d4",
+      "ticker": "APO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.328Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.167,
+        "sentShift": null,
+        "retRecent": 0.0079,
+        "excessRecent": 0.0349,
+        "score": 0.231
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/c1c18465-e452-3fab-bfd5-345aa9b5e237/spacex-lessors-look-to-sell.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/nvidia-eyes-apollo-s-struggling-telecom-sites-to-sidestep-data-center-moratoriums-report/cNG1vn9R94o?.tsrc=rss",
+        "https://www.marketbeat.com/instant-alerts/transcript-apollo-global-management-q3-earnings-call-highlights-2026-11-03/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "e90059efa0a318c4",
+      "ticker": "MRVL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.326Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 2.449,
+        "sentRecent": 0.146,
+        "sentShift": -0.056,
+        "retRecent": -0.2811,
+        "excessRecent": -0.254,
+        "score": 0.2352
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/05/marvell-just-dropped-49-in-a-month-is-mrvl-stock-hopeless-or-ready-for-a-rebound/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/05/marvell-stock-eyes-35-upside-after-lumentum-deal/?.tsrc=rss",
+        "https://www.tikr.com/blog/marvell-sinks-7-as-democratic-sweep-hits-ai-data-center-stocks?ref=yahoofinance&tlnk=yf-261104-c3963v6x&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d81a4470c340391d",
+      "ticker": "QCOM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.325Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 5,
+        "sentRecent": 0.145,
+        "sentShift": -0.183,
+        "retRecent": 0.0038,
+        "excessRecent": 0.0308,
+        "score": 0.3023
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/arga-investment-management-bought-nokia-qualcomm-alphabet?ref=yahoofinance&tlnk=yf-261106-xw2jhg8h&.tsrc=rss",
+        "https://www.tikr.com/blog/baird-cut-its-qualcomm-target-to-320-it-still-sees-104-upside?ref=yahoofinance&tlnk=yf-261105-m8g363m2&.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/qualcomm-says-non-handset-revenue-will-make-up-50-of-chip-sales-this-fiscal-retail-sentiment-turns-bullish/cNG1BpuR9ES?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b122eae68f47d9f1",
+      "ticker": "ARM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.323Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.196,
+        "sentShift": null,
+        "retRecent": -0.1522,
+        "excessRecent": -0.1252,
+        "score": 0.3159
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/06/think-arm-is-too-expensive-1-thing-you-need-to-understand-about-the-chip-stock/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/the-ai-chip-race-is-changing-this-could-matter-more-than-gpu-market-share/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/arm-stock-plunges-smartphone-business-150511881.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9e9b92dca33e3341",
+      "ticker": "UBER",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-08T02:02:58.322Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 10,
+        "spikeRatio": 20,
+        "sentRecent": 0.151,
+        "sentShift": -0.549,
+        "retRecent": 0.0512,
+        "excessRecent": 0.0782,
+        "score": 0.3615
+      },
+      "topItems": [
+        "https://www.thestreet.com/retail/amazon-prime-uber-eats-grubhub-delivery-change?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/could-uber-technologies-uber-gain-042520829.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/b007a5be-2a9e-3534-973c-5e577846b13e/uber%E2%80%99s-robo-push.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "71682ab3f0adff87",
+      "ticker": "UBER",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.320Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 10,
+        "spikeRatio": 20,
+        "sentRecent": 0.151,
+        "sentShift": -0.549,
+        "retRecent": 0.0512,
+        "excessRecent": 0.0782,
+        "score": 0.3615
+      },
+      "topItems": [
+        "https://www.thestreet.com/retail/amazon-prime-uber-eats-grubhub-delivery-change?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/could-uber-technologies-uber-gain-042520829.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/b007a5be-2a9e-3534-973c-5e577846b13e/uber%E2%80%99s-robo-push.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "52f095758e547192",
+      "ticker": "NVDA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.318Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 47,
+        "spikeRatio": 3.473,
+        "sentRecent": 0.095,
+        "sentShift": -0.197,
+        "retRecent": -0.088,
+        "excessRecent": -0.0609,
+        "score": 0.3691
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/nvidia-stock-has-more-than-60-upside-according-to/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/3-us-semiconductor-stocks-less-061548967.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/870e9d6a-dbbb-3380-9680-17f32e5017a1/nvidia-stock%2C-other-ai-names.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c3d6ef863a6d472e",
+      "ticker": "DELL",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.316Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.343,
+        "sentShift": 0.474,
+        "retRecent": -0.2257,
+        "excessRecent": -0.1987,
+        "score": 0.3767
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/dell-rises-5-as-ai-stocks-rebound-from-post-midterm-selloff?ref=yahoofinance&tlnk=yf-261106-cgj2v6r6&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/dell-dell-top-10-cheap-185313697.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/29/the-next-ai-stock-to-break-out-may-not-be-on-most-investors-radar/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "106a54bd57431d2a",
+      "ticker": "DELL",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.315Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.343,
+        "sentShift": 0.474,
+        "retRecent": -0.2257,
+        "excessRecent": -0.1987,
+        "score": 0.3767
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/dell-rises-5-as-ai-stocks-rebound-from-post-midterm-selloff?ref=yahoofinance&tlnk=yf-261106-cgj2v6r6&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/dell-dell-top-10-cheap-185313697.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/29/the-next-ai-stock-to-break-out-may-not-be-on-most-investors-radar/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d4b1d9cce4c11b6c",
+      "ticker": "LRCX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.314Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.277,
+        "sentShift": 0.277,
+        "retRecent": -0.1617,
+        "excessRecent": -0.1347,
+        "score": 0.3836
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/lam-research-soars-9-on-25-billion-buyback-as-chip-stocks-rebound-from-rout?ref=yahoofinance&tlnk=yf-261106-xvx7gc85&.tsrc=rss",
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss",
+        "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "04fcd8f7c30b5ee3",
+      "ticker": "IREN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.312Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 18,
+        "sentRecent": 0.217,
+        "sentShift": null,
+        "retRecent": -0.0965,
+        "excessRecent": -0.0694,
+        "score": 0.5002
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/iren-ceo-old-nvidia-h100s-just-recontracted-at-double-the-original-contract-price?ref=yahoofinance&tlnk=yf-261106-j3qqpw48&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/iren-stock-jumps-despite-delay-191527859.html?.tsrc=rss",
+        "https://www.tikr.com/blog/iren-is-down-44-in-2026-bernstein-cut-its-target-but-still-sees-158-upside?ref=yahoofinance&tlnk=yf-261106-3x678mqj&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "73df94d2536b6620",
+      "ticker": "NVO",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.311Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.312,
+        "sentShift": 0.666,
+        "retRecent": 0.0078,
+        "excessRecent": 0.0348,
+        "score": 0.5021
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/novo-nordisk-just-delivered-great-news-for-investors-is-a-comeback-finally-underway/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/forget-lilly-and-novo-pfizer-is-planning-a-wave-of/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/04/novo-nordisk-stock-jumps-6-as-wegovy-hits-a-stunning-80-milestone/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "04fa3e90a4b8e5d0",
+      "ticker": "NVO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.309Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.312,
+        "sentShift": 0.666,
+        "retRecent": 0.0078,
+        "excessRecent": 0.0348,
+        "score": 0.5021
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/novo-nordisk-just-delivered-great-news-for-investors-is-a-comeback-finally-underway/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/forget-lilly-and-novo-pfizer-is-planning-a-wave-of/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/04/novo-nordisk-stock-jumps-6-as-wegovy-hits-a-stunning-80-milestone/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8c6fca1c45e6a734",
+      "ticker": "MU",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.307Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 2,
+        "sentRecent": 0.305,
+        "sentShift": -0.221,
+        "retRecent": -0.2201,
+        "excessRecent": -0.1931,
+        "score": 0.6347
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures%3A-market.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/a-17-billion-hedge-fund-is-handing-back-cash-after-its-worst-month-since-2020/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/why-micron-stock-bounced-back-friday/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1ba2bdc2beb7ad0c",
+      "ticker": "MU",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.306Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 2,
+        "sentRecent": 0.305,
+        "sentShift": -0.221,
+        "retRecent": -0.2201,
+        "excessRecent": -0.1931,
+        "score": 0.6347
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures%3A-market.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/a-17-billion-hedge-fund-is-handing-back-cash-after-its-worst-month-since-2020/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/why-micron-stock-bounced-back-friday/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "91016ccff8c4ee1c",
+      "ticker": "VST",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.304Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 2.308,
+        "sentRecent": 0.324,
+        "sentShift": 0.112,
+        "retRecent": -0.0981,
+        "excessRecent": -0.071,
+        "score": 0.6747
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-stock-climbs-record-021231280.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-q3-2026-011619400.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-stocks-jump-7-69-190727884.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9f4d4d3fe39a5ccd",
+      "ticker": "VST",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.303Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 7,
+        "spikeRatio": 2.308,
+        "sentRecent": 0.324,
+        "sentShift": 0.112,
+        "retRecent": -0.0981,
+        "excessRecent": -0.071,
+        "score": 0.6747
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-stock-climbs-record-021231280.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-q3-2026-011619400.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-stocks-jump-7-69-190727884.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "416ffe0f7f54ef93",
+      "ticker": "HIMS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.301Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 12,
+        "sentRecent": 0.357,
+        "sentShift": null,
+        "retRecent": -0.0607,
+        "excessRecent": -0.0337,
+        "score": 0.6942
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/3eaa7d18-56f8-336a-a6a8-2cb209834b70/hims-%26-hers-surges-on.html?.tsrc=rss",
+        "https://finance.yahoo.com/healthcare/articles/hims-hers-stock-climbs-direct-175700315.html?.tsrc=rss",
+        "https://www.tikr.com/blog/hims-hers-gained-as-the-market-dipped-heres-what-the-november-9-report-must-prove?ref=yahoofinance&tlnk=yf-261106-3x47j4hm&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "24d29fb14d9f948d",
+      "ticker": "SMCI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.299Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 24,
+        "spikeRatio": 6.05,
+        "sentRecent": 0.22,
+        "sentShift": -0.03,
+        "retRecent": -0.1272,
+        "excessRecent": -0.1001,
+        "score": 0.7086
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/smcis-collaboration-nvda-help-challenge-140100026.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/despite-strong-revenue-growth-and-a-cheap-valuatio/?.tsrc=rss",
+        "https://www.barchart.com/story/news/8698103/2-red-flags-supermicro-investors-shouldnt-ignore-after-earnings?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "ca2d2778ae80196c",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.298Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 48,
+        "spikeRatio": 6.636,
+        "sentRecent": 0.267,
+        "sentShift": 0.054,
+        "retRecent": -0.1105,
+        "excessRecent": -0.0834,
+        "score": 1.0375
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/1-reason-to-buy-amd-stock-before-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/advanced-micro-devices-amd-joined-211815190.html?.tsrc=rss",
+        "https://www.tikr.com/blog/amd-soars-10-intel-up-7-as-chip-stocks-rebound-from-election-sell-off?ref=yahoofinance&tlnk=yf-261106-4j5fgh47&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "babb0199efd5d708",
+      "ticker": "RIVN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.296Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 5.143,
+        "sentRecent": 0.545,
+        "sentShift": 0.131,
+        "retRecent": 0.1192,
+        "excessRecent": 0.1463,
+        "score": 1.0604
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/prediction-heres-what-a-1000-investment-in-rivian/?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/zero-to-sixty-fort-worth-gets-tesla-robotaxi-while-ubs-upgrades-rivian-and-citigroup-shuffles-ev-holdings/cNGl4ABR94q?.tsrc=rss",
+        "https://www.tikr.com/blog/rivian-soars-15-in-a-week-on-r2-beat-and-two-upgrades-initial-r2-demand-looks-solid?ref=yahoofinance&tlnk=yf-261103-f56hjh2m&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7d4ab2835fe46d91",
+      "ticker": "PLTR",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T02:02:58.294Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 25,
+        "spikeRatio": 3.247,
+        "sentRecent": 0.371,
+        "sentShift": 0.048,
+        "retRecent": -0.1289,
+        "excessRecent": -0.1019,
+        "score": 1.2081
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/palantir-stock-investors-great-news-wall-street-stock-soar/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/the-biggest-takeaway-from-palantir-technologies-latest-quarterly-report-is-a-potential-warning-sign-investors-shouldn-t-miss/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-palantir-pltr-110350243.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c1eed400e453107d",
+      "ticker": "PLTR",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T02:02:58.291Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 25,
+        "spikeRatio": 3.247,
+        "sentRecent": 0.371,
+        "sentShift": 0.048,
+        "retRecent": -0.1289,
+        "excessRecent": -0.1019,
+        "score": 1.2081
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/palantir-stock-investors-great-news-wall-street-stock-soar/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/the-biggest-takeaway-from-palantir-technologies-latest-quarterly-report-is-a-potential-warning-sign-investors-shouldn-t-miss/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-palantir-pltr-110350243.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "78af714d2374a5aa",
       "ticker": "NVO",
       "rule": "MENTION_SPIKE",
