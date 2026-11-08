@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-08T20:10:48.633Z",
-  "startedAt": "2026-11-08T20:05:48.798Z",
+  "lastUpdated": "2026-11-08T23:56:17.151Z",
+  "startedAt": "2026-11-08T23:51:38.203Z",
   "asOf": "2026-11-08",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": true,
-      "count": 10,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "Status code 404"
     },
     {
       "name": "ARK Next Gen Internet",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 17,
       "error": null
     },
     {
@@ -165,7 +165,7 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -179,7 +179,7 @@
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
@@ -255,9 +255,9 @@
     {
       "name": "Yahoo Finance — VST",
       "sourceType": "TickerNews",
-      "ok": true,
-      "count": 19,
-      "error": null
+      "ok": false,
+      "count": 0,
+      "error": "Request timed out after 8000ms"
     },
     {
       "name": "Yahoo Finance — NEE",
@@ -835,16 +835,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 26,
-    "sourcesFailed": 12,
+    "sourcesOk": 24,
+    "sourcesFailed": 14,
     "sourcesTotal": 38,
-    "itemsFetched": 375,
-    "extractionsTotal": 4870,
-    "mentionsTotal": 1718,
+    "itemsFetched": 349,
+    "extractionsTotal": 4903,
+    "mentionsTotal": 1728,
     "tickers": 89,
     "pricesOk": 92,
     "alertsTotal": 737,
-    "newAlerts": 1
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -879,6 +879,32 @@
       "priceBars": 514
     },
     {
+      "ticker": "AMD",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 49,
+      "mentionsBaseline": 31,
+      "baselineRate": 7.233,
+      "spikeRatio": 6.774,
+      "sentRecent": 0.274,
+      "sentBaseline": 0.213,
+      "sentShift": 0.061,
+      "retRecent": -0.1105,
+      "excessRecent": -0.0834,
+      "ret30": -0.2616,
+      "score": 1.0719,
+      "lastPrice": 449.04,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
+    },
+    {
       "ticker": "RIVN",
       "discovered": true,
       "flag": "WATCH",
@@ -905,32 +931,6 @@
       "priceBars": 507
     },
     {
-      "ticker": "AMD",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 48,
-      "mentionsBaseline": 31,
-      "baselineRate": 7.233,
-      "spikeRatio": 6.636,
-      "sentRecent": 0.267,
-      "sentBaseline": 0.213,
-      "sentShift": 0.054,
-      "retRecent": -0.1105,
-      "excessRecent": -0.0834,
-      "ret30": -0.2616,
-      "score": 1.0375,
-      "lastPrice": 449.04,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
       "ticker": "LLY",
       "discovered": false,
       "flag": null,
@@ -947,26 +947,6 @@
       "ret30": 0.1482,
       "score": 0.9444,
       "lastPrice": 1354,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
-      "ticker": "AMZN",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 26,
-      "mentionsBaseline": 59,
-      "baselineRate": 13.767,
-      "spikeRatio": 1.889,
-      "sentRecent": 0.262,
-      "sentBaseline": 0.136,
-      "sentShift": 0.125,
-      "retRecent": 0.0788,
-      "excessRecent": 0.1059,
-      "ret30": -0.0119,
-      "score": 0.8623,
-      "lastPrice": 259.3,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
     },
@@ -995,6 +975,26 @@
       "lastPrice": 59.04,
       "lastPriceDate": "2026-11-06",
       "priceBars": 502
+    },
+    {
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 27,
+      "mentionsBaseline": 59,
+      "baselineRate": 13.767,
+      "spikeRatio": 1.961,
+      "sentRecent": 0.253,
+      "sentBaseline": 0.136,
+      "sentShift": 0.117,
+      "retRecent": 0.0788,
+      "excessRecent": 0.1059,
+      "ret30": -0.0119,
+      "score": 0.8433,
+      "lastPrice": 259.3,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
     },
     {
       "ticker": "SMCI",
@@ -1141,26 +1141,6 @@
       "priceBars": 514
     },
     {
-      "ticker": "MSFT",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 17,
-      "mentionsBaseline": 62,
-      "baselineRate": 14.467,
-      "spikeRatio": 1.175,
-      "sentRecent": 0.199,
-      "sentBaseline": 0.309,
-      "sentShift": -0.109,
-      "retRecent": 0.0167,
-      "excessRecent": 0.0437,
-      "ret30": -0.0083,
-      "score": 0.5756,
-      "lastPrice": 530.61,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
       "ticker": "BKH",
       "discovered": true,
       "flag": null,
@@ -1179,6 +1159,26 @@
       "lastPrice": 84.87,
       "lastPriceDate": "2026-11-06",
       "priceBars": 501
+    },
+    {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 18,
+      "mentionsBaseline": 62,
+      "baselineRate": 14.467,
+      "spikeRatio": 1.244,
+      "sentRecent": 0.188,
+      "sentBaseline": 0.309,
+      "sentShift": -0.121,
+      "retRecent": 0.0167,
+      "excessRecent": 0.0437,
+      "ret30": -0.0083,
+      "score": 0.5534,
+      "lastPrice": 530.61,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
     },
     {
       "ticker": "NVO",
@@ -1387,32 +1387,6 @@
       "priceBars": 509
     },
     {
-      "ticker": "NVDA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 50,
-      "mentionsBaseline": 58,
-      "baselineRate": 13.533,
-      "spikeRatio": 3.695,
-      "sentRecent": 0.093,
-      "sentBaseline": 0.293,
-      "sentShift": -0.199,
-      "retRecent": -0.088,
-      "excessRecent": -0.0609,
-      "ret30": -0.186,
-      "score": 0.3675,
-      "lastPrice": 186.64,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
       "ticker": "UBER",
       "discovered": true,
       "flag": "SHORT",
@@ -1568,6 +1542,32 @@
       "lastPrice": 32.62,
       "lastPriceDate": "2026-11-06",
       "priceBars": 502
+    },
+    {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 54,
+      "mentionsBaseline": 58,
+      "baselineRate": 13.533,
+      "spikeRatio": 3.99,
+      "sentRecent": 0.08,
+      "sentBaseline": 0.293,
+      "sentShift": -0.213,
+      "retRecent": -0.088,
+      "excessRecent": -0.0609,
+      "ret30": -0.186,
+      "score": 0.3207,
+      "lastPrice": 186.64,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
     },
     {
       "ticker": "ARM",
@@ -1726,32 +1726,6 @@
       "lastPrice": 101.97,
       "lastPriceDate": "2026-11-06",
       "priceBars": 505
-    },
-    {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 29,
-      "mentionsBaseline": 47,
-      "baselineRate": 10.967,
-      "spikeRatio": 2.644,
-      "sentRecent": 0.077,
-      "sentBaseline": 0.318,
-      "sentShift": -0.241,
-      "retRecent": -0.104,
-      "excessRecent": -0.077,
-      "ret30": -0.064,
-      "score": 0.2618,
-      "lastPrice": 358.22,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
     },
     {
       "ticker": "ANET",
@@ -1968,18 +1942,44 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 21,
+      "mentionsRecent": 22,
       "mentionsBaseline": 33,
       "baselineRate": 7.7,
-      "spikeRatio": 2.727,
-      "sentRecent": 0.056,
+      "spikeRatio": 2.857,
+      "sentRecent": 0.061,
       "sentBaseline": 0.116,
-      "sentShift": -0.06,
+      "sentShift": -0.054,
       "retRecent": -0.0079,
       "excessRecent": 0.0192,
       "ret30": -0.151,
-      "score": 0.1721,
+      "score": 0.1919,
       "lastPrice": 610.15,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
+    },
+    {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 31,
+      "mentionsBaseline": 47,
+      "baselineRate": 10.967,
+      "spikeRatio": 2.827,
+      "sentRecent": 0.049,
+      "sentBaseline": 0.318,
+      "sentShift": -0.269,
+      "retRecent": -0.104,
+      "excessRecent": -0.077,
+      "ret30": -0.064,
+      "score": 0.1712,
+      "lastPrice": 358.22,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
     },
@@ -3270,10 +3270,10 @@
         "NVDA"
       ],
       "flag": "WATCH",
-      "score": 47.9,
+      "score": 48.5,
       "reasons": [
         "NVDA: Watch",
-        "50 mentions this week (3.7x baseline)",
+        "54 mentions this week (4.0x baseline)",
         "bullish view, confidence 0.85"
       ],
       "rationale": "Argues the stalled shares are a buying opportunity because the underlying business has kept performing.",
@@ -3304,6 +3304,27 @@
       "confidence": 0.6
     },
     {
+      "id": "a2f73f1cca5f62b61e10490028340a266a10b3b785790bab9272d1195950a460",
+      "title": "Lisa Su Expects 80% Revenue Growth in 2027. AMD Stock Is Still a Strong Buy, But It Demands Flawless Execution.",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8724548/lisa-su-expects-80-revenue-growth-in-2027-amd-stock-is-still-a-strong-buy-but-it-demands-flawless-execution?.tsrc=rss",
+      "publishedAt": "2026-11-08T14:26:11.000Z",
+      "ticker": "AMD",
+      "tickers": [
+        "AMD"
+      ],
+      "flag": "WATCH",
+      "score": 46.2,
+      "reasons": [
+        "AMD: Watch",
+        "49 mentions this week (6.8x baseline)"
+      ],
+      "rationale": "Headline calls AMD a strong buy despite needing flawless execution; the view is stated in the title but the body is brief.",
+      "sentiment": 0.6,
+      "confidence": 0.75
+    },
+    {
       "id": "b707987fe150612b3c0e9e7df79d9cff3d7a9d000a7e1789f730527519bd57c7",
       "title": "Ben Thompson: NVIDIA Will “Almost Certainly Be a Short-Term Loser” From the Blue Wave",
       "source": "Yahoo Finance — NVDA",
@@ -3315,10 +3336,10 @@
         "NVDA"
       ],
       "flag": "WATCH",
-      "score": 45.6,
+      "score": 46.2,
       "reasons": [
         "NVDA: Watch",
-        "50 mentions this week (3.7x baseline)"
+        "54 mentions this week (4.0x baseline)"
       ],
       "rationale": "Headline attributes to Ben Thompson a view that Nvidia will be a short-term loser after the Democratic midterm win.",
       "sentiment": -0.6,
@@ -3369,6 +3390,28 @@
       "confidence": 0.6
     },
     {
+      "id": "729528bbd1e8c51847eccd997fbf9163d2bd38214597b2575697b18738600971",
+      "title": "Cathie Wood Sees Tesla’s Robotaxi Business Taking Off — Says This Is The Moment Investors Have Waited For",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/cathie-wood-tesla-robotaxi-business-escape-velocity-investors-waiting-for/cNGYPoVR9IH?.tsrc=rss",
+      "publishedAt": "2026-11-08T13:09:30.000Z",
+      "ticker": "TSLA",
+      "tickers": [
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 45.1,
+      "reasons": [
+        "TSLA: Watch",
+        "31 mentions this week (2.8x baseline)",
+        "bullish view, confidence 0.75"
+      ],
+      "rationale": "Cathie Wood says Tesla's robotaxi business is taking off, and ARK bought Tesla shares during the recent pullback.",
+      "sentiment": 0.7,
+      "confidence": 0.75
+    },
+    {
       "id": "7a1b16c64b5c0535e3a201d2e9f29effae067ed934fa9069377249069f5860fe",
       "title": "Astera Labs Has Slumped Since June: Why J.P. Morgan Still Sees 157% Upside",
       "source": "Yahoo Finance — JPM",
@@ -3388,50 +3431,6 @@
       ],
       "rationale": "Headline says J.P. Morgan sees roughly 157% upside after a slump, with strong revenue and guidance cited; the body is truncated.",
       "sentiment": 0.6,
-      "confidence": 0.7
-    },
-    {
-      "id": "729528bbd1e8c51847eccd997fbf9163d2bd38214597b2575697b18738600971",
-      "title": "Cathie Wood Sees Tesla’s Robotaxi Business Taking Off — Says This Is The Moment Investors Have Waited For",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://stocktwits.com/news-articles/markets/equity/cathie-wood-tesla-robotaxi-business-escape-velocity-investors-waiting-for/cNGYPoVR9IH?.tsrc=rss",
-      "publishedAt": "2026-11-08T13:09:30.000Z",
-      "ticker": "TSLA",
-      "tickers": [
-        "TSLA"
-      ],
-      "flag": "WATCH",
-      "score": 44.7,
-      "reasons": [
-        "TSLA: Watch",
-        "29 mentions this week (2.6x baseline)",
-        "bullish view, confidence 0.75"
-      ],
-      "rationale": "Cathie Wood says Tesla's robotaxi business is taking off, and ARK bought Tesla shares during the recent pullback.",
-      "sentiment": 0.7,
-      "confidence": 0.75
-    },
-    {
-      "id": "266382f3de86a0fb3c0e140154ea0d57234360f330d73d2a8993cf24b9ef32ab",
-      "title": "Prediction: Here's What a $1,000 Investment in Rivian Will Be Worth by 2030 if the R2 Ramp Holds",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/07/prediction-heres-what-a-1000-investment-in-rivian/?.tsrc=rss",
-      "publishedAt": "2026-11-07T16:35:00.000Z",
-      "ticker": "RIVN",
-      "tickers": [
-        "RIVN"
-      ],
-      "flag": "WATCH",
-      "score": 43.2,
-      "reasons": [
-        "RIVN: Watch",
-        "6 mentions this week (5.1x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Says the R2 is now Rivian's best-selling vehicle, which could move it closer to profitability, and frames the stock as a 2030 growth bet.",
-      "sentiment": 0.5,
       "confidence": 0.7
     }
   ]

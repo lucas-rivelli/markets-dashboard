@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-08T20:06:17.798Z",
+  "updatedAt": "2026-11-08T23:52:05.053Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -78307,6 +78307,525 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-08T20:06:17.798Z"
+    },
+    "bde23004d9afc0f706c779d57069cc53e954fa80a927d56b06dc46f2b131b94a": {
+      "id": "bde23004d9afc0f706c779d57069cc53e954fa80a927d56b06dc46f2b131b94a",
+      "title": "Nvidia Board Launches Probe In CEO Jensen Huang Spying Case",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/7d4c4e40-eb01-324f-b03d-99c6800c4248/nvidia-board-launches-probe.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T23:33:35.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports the board's independent probe into a reported espionage plot against the CEO, with no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:48.306Z"
+    },
+    "2e44d112efabe47aab84b3d00ce4c5e61c8c7ad08496fa5cee53341c81b4e368": {
+      "id": "2e44d112efabe47aab84b3d00ce4c5e61c8c7ad08496fa5cee53341c81b4e368",
+      "title": "Here's What a $1,000 Investment in Tesla Stock Could Be Worth in 5 Years",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/heres-what-a-1000-investment-in-tesla-stock-could/?.tsrc=rss",
+      "publishedAt": "2026-11-08T23:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:48.629Z"
+    },
+    "79a9dc70a13b1dab67d6a2a329a4f3984daebd7852fe2089177a432536f6ab6f": {
+      "id": "79a9dc70a13b1dab67d6a2a329a4f3984daebd7852fe2089177a432536f6ab6f",
+      "title": "AMD or Nvidia: Which AI Chip Stock Would I Buy With $1,000 Today?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/amd-or-nvidia-which-ai-chip-stock-would-i-buy-with/?.tsrc=rss",
+      "publishedAt": "2026-11-08T23:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:49.006Z"
+    },
+    "03bb468041ff13df16cf935422a385a7ba10429b0f0b883f24d2f7581530db45": {
+      "id": "03bb468041ff13df16cf935422a385a7ba10429b0f0b883f24d2f7581530db45",
+      "title": "An Analyst Who Expects One More Big Drop Still Sees Bitcoin Reaching $2 Million. Can BTC Rise 26 Times From $75,000?",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/cryptocurrency/2026/11/08/an-analyst-who-expects-one-more-big-drop-still-sees-bitcoin-reaching-2-million-can-btc-rise-26-times-from-75000/?.tsrc=rss",
+      "publishedAt": "2026-11-08T23:01:42.000Z",
+      "tickerHint": "JPM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:49.183Z"
+    },
+    "d74b94c620f4d158a02c089dd9993073b6b5c1486edbd31ec65fc524c52cd60f": {
+      "id": "d74b94c620f4d158a02c089dd9993073b6b5c1486edbd31ec65fc524c52cd60f",
+      "title": "Could HBF be the solution to the Memory bottleneck?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/could-hbf-solution-memory-bottleneck-224023081.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:40:23.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:49.457Z"
+    },
+    "793fd46f723fd3057c7099d77f9c03c247ae8dcbc4be95f184cd3f4c0ab6ef09": {
+      "id": "793fd46f723fd3057c7099d77f9c03c247ae8dcbc4be95f184cd3f4c0ab6ef09",
+      "title": "Dow Jones Futures Rise, Techs Slide A Nvidia Probes CEO Jensen Huang Spying Case",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures-rise%2C-techs.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T23:39:48.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:49.482Z"
+    },
+    "3e292ccdad4599dead81e7092242b84b34b5b1826456f41f0e564999625f1401": {
+      "id": "3e292ccdad4599dead81e7092242b84b34b5b1826456f41f0e564999625f1401",
+      "title": "This Semiconductor ETF Just Had Its Worst Day Since March 2020",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/this-semiconductor-etf-just-had-its-worst-day-sinc/?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:50.142Z"
+    },
+    "e3d1536f6ae7fcb247d7922d0696591b8bf30737cdc12eb17bb7690a91651295": {
+      "id": "e3d1536f6ae7fcb247d7922d0696591b8bf30737cdc12eb17bb7690a91651295",
+      "title": "3 Growth Stocks With Earnings Growth Over 20%",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/3-growth-stocks-earnings-growth-220719361.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:07:19.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:50.582Z"
+    },
+    "7aeaff1ca5254e48ae9fd84078955d803fe3f31d2cd0c37fac4a09d12a97dea0": {
+      "id": "7aeaff1ca5254e48ae9fd84078955d803fe3f31d2cd0c37fac4a09d12a97dea0",
+      "title": "Ohio, Georgia, and Arizona Rank Right Behind Texas for New Data Centers, and Democrats Won All 3",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/ohio-georgia-and-arizona-rank-right-behind-texas-f/?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:51.613Z"
+    },
+    "35b44326396d96874fa1f53e4668e5a9f240a422e26cb5a743ac93bec5ade2ea": {
+      "id": "35b44326396d96874fa1f53e4668e5a9f240a422e26cb5a743ac93bec5ade2ea",
+      "title": "Tesla Bulls Could Get Burned? Gary Black Sees Trouble With SpaceX All-Stock Merger: Warns 24% Premium 'Can Quickly Go Negative'",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-bulls-could-burned-gary-223005762.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:30:05.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Reports Gary Black's dilution concerns over a proposed all-stock merger and his warning that the premium could reverse."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:51.836Z"
+    },
+    "cc6d2608168df8bfd51562e6ae222c466d19cc9e86f6b0fcbadd6b42ba6526ae": {
+      "id": "cc6d2608168df8bfd51562e6ae222c466d19cc9e86f6b0fcbadd6b42ba6526ae",
+      "title": "Nvidia launches investigation into CEO Jensen Huang over foreign intelligence concerns",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.cnn.com/2026/11/08/business/nvidia-investigation-ceo-jensen-huang?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:01:35.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:53.228Z"
+    },
+    "d7f01fdcf120b8bcc92b8c6d6c6f5e6abcaf803bd0a8a2d9a713447bf3890c48": {
+      "id": "d7f01fdcf120b8bcc92b8c6d6c6f5e6abcaf803bd0a8a2d9a713447bf3890c48",
+      "title": "What Is Meta Platforms (META) Facing As Legal Risks Rise And AI Deals Expand?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/meta-platforms-meta-facing-legal-220633031.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:06:33.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:53.535Z"
+    },
+    "49fb3d67f07d4aad285a80d3f9d2e7cbe6033e8be2c028f871f5ebcca19f4104": {
+      "id": "49fb3d67f07d4aad285a80d3f9d2e7cbe6033e8be2c028f871f5ebcca19f4104",
+      "title": "SpaceX (SPCX) Lands $45 Billion AI Deal As New Contracts Recast Its Growth Story",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/spacex-spcx-lands-45-billion-220638884.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T22:06:38.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:53.859Z"
+    },
+    "5e8b7030e27d0dc0050473156b857f660d09e8b0b5574d6ed1875c0216d2bb25": {
+      "id": "5e8b7030e27d0dc0050473156b857f660d09e8b0b5574d6ed1875c0216d2bb25",
+      "title": "XRP and Solana Both Hit 30-Day Lows This Week. Is It Better to Buy XRP or SOL Right Now?",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/cryptocurrency/2026/11/08/xrp-and-solana-both-hit-30-day-lows-this-week-is-it-better-to-buy-xrp-or-sol-right-now/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:53:24.000Z",
+      "tickerHint": "COIN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:54.846Z"
+    },
+    "f8eaba5773cd294efc01bf23661a243732031bea9368ddae1a190a9c1daee8eb": {
+      "id": "f8eaba5773cd294efc01bf23661a243732031bea9368ddae1a190a9c1daee8eb",
+      "title": "The Top 5 Biotech Stocks I'd Buy Right Now Without Any Hesitation",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/the-top-5-biotech-stocks-id-buy-right-now-without/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:52:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:54.872Z"
+    },
+    "74485eb1000b9c5594b4afa34d98d08ea9af4588518e4f6c0ae44da48bcd4f8f": {
+      "id": "74485eb1000b9c5594b4afa34d98d08ea9af4588518e4f6c0ae44da48bcd4f8f",
+      "title": "Apple Won’t “Play in Traffic” on AI. It’s Up 28% in a Year: Too Late to Buy?",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/apple-wont-play-in-traffic-on-ai-its-up-28-in-a-year-too-late-to-buy?ref=yahoofinance&tlnk=yf-261108-522mf3wh&.tsrc=rss",
+      "publishedAt": "2026-11-08T21:55:41.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "MSFT",
+          "company": "Microsoft",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports its quarterly capital expenditures as a data point, with no stated view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:55.444Z"
+    },
+    "eedb537d6eb7161c50001d38503cb9a77dc8349851f44b22d0ec51dd97eba516": {
+      "id": "eedb537d6eb7161c50001d38503cb9a77dc8349851f44b22d0ec51dd97eba516",
+      "title": "Jensen Huang Just Handed Nvidia Shareholders a Warning No Earnings Report Can Fix",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/08/jensen-huang-just-handed-nvidia-shareholders-a-warning-no-earnings-report-can-fix/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:38:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Frames a board investigation of CEO Jensen Huang as a governance risk that could drive a sizable share price drop."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:55.526Z"
+    },
+    "4231babe94cc3d65a92712e12e3636bdea653410de3aa836deacbfaf370a561b": {
+      "id": "4231babe94cc3d65a92712e12e3636bdea653410de3aa836deacbfaf370a561b",
+      "title": "Nvidia Board Starts Independent Investigation of Huang’s Links to Alleged Spy",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/09a7b85b-f39c-346a-88bc-f818668a56a9/nvidia-board-starts.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:34:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the board's independent investigation into CEO Huang's alleged ties to a spy, with no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:56.312Z"
+    },
+    "a5bbba7a72fff951f7d72874cb1b1408f0e4b57d2aff67df6b01e2ea52a58c37": {
+      "id": "a5bbba7a72fff951f7d72874cb1b1408f0e4b57d2aff67df6b01e2ea52a58c37",
+      "title": "Warren Buffett Has 1 Simple Rule for Surviving a Stock Market Crash, and History Says It's Never Once Failed",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/warren-buffett-has-1-crucial-rule-for-surviving-a/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:20:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:56.836Z"
+    },
+    "519147319f4e954128238b4d03b2b01bdb1cec83b4f8ece98c640beb3826d50d": {
+      "id": "519147319f4e954128238b4d03b2b01bdb1cec83b4f8ece98c640beb3826d50d",
+      "title": "Why ASML Holdings Fell in October",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/why-asml-holdings-fell-in-october/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:30:35.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:56.889Z"
+    },
+    "dfbd1669012daff3df4b36e92bc7ee38f0c1fbf7a67c8281d3cd9bb486d37edc": {
+      "id": "dfbd1669012daff3df4b36e92bc7ee38f0c1fbf7a67c8281d3cd9bb486d37edc",
+      "title": "Amazon.com (AMZN) Added Over 100 New Alexa Shopping Functions",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-amzn-added-over-211017852.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:10:17.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon.com",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports Alexa shopping feature expansion and a satellite broadband distribution deal without stating any view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:58.036Z"
+    },
+    "7417e383262f8c7fee6a601cc6d5c6aafe8e8307c0722ef5a988ebfbd2e8e08e": {
+      "id": "7417e383262f8c7fee6a601cc6d5c6aafe8e8307c0722ef5a988ebfbd2e8e08e",
+      "title": "Mark Cuban Says Elon Musk Is Amazing and the ‘Best Entrepreneur of Our Lifetime,’ But He’s a Salesman — ‘He’s Gotta Sell What He’s Got to Sell’",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/small-business/articles/mark-cuban-says-elon-musk-213006371.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:30:06.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:58.122Z"
+    },
+    "831cfc91a528dcca70e1dd2e65ef71222e9d39a9ed155930bdb71b6d0ca2667f": {
+      "id": "831cfc91a528dcca70e1dd2e65ef71222e9d39a9ed155930bdb71b6d0ca2667f",
+      "title": "Nvidia CEO Huang admits to affair, apologizes to employees as probe launched",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-ceo-huang-admits-affair-210656939.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:06:56.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports the CEO's personal scandal and a board investigation without offering any view on the stock's prospects."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:58.533Z"
+    },
+    "9118d915612f8e6bcd79a7c03aa3acb4af84f9fb3973f8c917902fece8c5d485": {
+      "id": "9118d915612f8e6bcd79a7c03aa3acb4af84f9fb3973f8c917902fece8c5d485",
+      "title": "Why Nov. 9 Could Be a Huge Day for Rocket Lab Investors",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/why-nov-9-could-be-a-huge-day-for-rocket-lab-inves/?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:58.863Z"
+    },
+    "503ee2cd8650fdd10365b68ac7c90fefe4b39024666dce4109b39f0aaa7a964d": {
+      "id": "503ee2cd8650fdd10365b68ac7c90fefe4b39024666dce4109b39f0aaa7a964d",
+      "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-investigate-ceo-jensen-huang-210011206.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T21:00:11.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:51:59.887Z"
+    },
+    "2c8b35fe9956202e38d64b6467b5264b288d3585b9f68c7e07a1fa66795c4c28": {
+      "id": "2c8b35fe9956202e38d64b6467b5264b288d3585b9f68c7e07a1fa66795c4c28",
+      "title": "Should You Buy Meta Platforms Before Its Stock Split?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/should-you-buy-meta-platforms-before-its-stock-spl/?.tsrc=rss",
+      "publishedAt": "2026-11-08T20:52:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:00.284Z"
+    },
+    "4c22a52906df72a3805ef1028405a043421295762482fe8fb38639662993ee76": {
+      "id": "4c22a52906df72a3805ef1028405a043421295762482fe8fb38639662993ee76",
+      "title": "Tesla Isn’t a Mag-7 Stock. This Is.",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/1989a8d6-2668-3d81-b94f-8613123a1e6b/tesla-isn%E2%80%99t-a-mag-7-stock..html?.tsrc=rss",
+      "publishedAt": "2026-11-08T19:44:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Title says Tesla is not a Mag-7 stock, and the body calls a private rocket company a better tech investment than Tesla."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:00.703Z"
+    },
+    "2da94c1dee3be32d6ab4dcb8a90cc105fd7576a6893970cce3fbff981c6c461f": {
+      "id": "2da94c1dee3be32d6ab4dcb8a90cc105fd7576a6893970cce3fbff981c6c461f",
+      "title": "Meta Stock Dips Towards $600 But Don’t Load Up Just Yet",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8724565/meta-stock-dips-towards-600-but-dont-load-up-just-yet?.tsrc=rss",
+      "publishedAt": "2026-11-08T14:31:25.000Z",
+      "tickerHint": "META",
+      "mentions": [
+        {
+          "ticker": "META",
+          "company": "Meta Platforms",
+          "sentiment": 0.2,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Sees the stock as somewhat attractive after a dip, but urges restraint rather than aggressive buying."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:01.299Z"
+    },
+    "a2f73f1cca5f62b61e10490028340a266a10b3b785790bab9272d1195950a460": {
+      "id": "a2f73f1cca5f62b61e10490028340a266a10b3b785790bab9272d1195950a460",
+      "title": "Lisa Su Expects 80% Revenue Growth in 2027. AMD Stock Is Still a Strong Buy, But It Demands Flawless Execution.",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8724548/lisa-su-expects-80-revenue-growth-in-2027-amd-stock-is-still-a-strong-buy-but-it-demands-flawless-execution?.tsrc=rss",
+      "publishedAt": "2026-11-08T14:26:11.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "AMD",
+          "company": "Advanced Micro Devices",
+          "sentiment": 0.6,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Headline calls AMD a strong buy despite needing flawless execution; the view is stated in the title but the body is brief."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:02.072Z"
+    },
+    "d5f36351023bb512773c6cd59399d9d696d5656be1b91aedd8a54cd59c7c31a2": {
+      "id": "d5f36351023bb512773c6cd59399d9d696d5656be1b91aedd8a54cd59c7c31a2",
+      "title": "How to Play SpaceX Stock after Democrats Sweep Midterm Elections",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8724518/how-to-play-spacex-stock-after-democrats-sweep-midterm-elections?.tsrc=rss",
+      "publishedAt": "2026-11-08T14:20:59.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:02.523Z"
+    },
+    "b4520f2f04c277b6f4cd4946560dca82ab7640dd3de204c0881d7ca40b456081": {
+      "id": "b4520f2f04c277b6f4cd4946560dca82ab7640dd3de204c0881d7ca40b456081",
+      "title": "Inflation Data, Constellation Energy, Skydance, Applied Materials, and More to Watch This Week",
+      "source": "Yahoo Finance — CEG",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/826f68d8-6715-357e-b04d-885d04102528/inflation-data%2C-constellation.html?.tsrc=rss",
+      "publishedAt": "2026-11-08T19:00:00.000Z",
+      "tickerHint": "CEG",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:02.885Z"
+    },
+    "663bc1185242443a8d91f4314ea398fdb6ba92c4dfd7e3b81b08124fd4d3d90d": {
+      "id": "663bc1185242443a8d91f4314ea398fdb6ba92c4dfd7e3b81b08124fd4d3d90d",
+      "title": "Data Centers Aren’t Dead; They’re Just About to Go Micro. These Are My Top VPP Stocks to Watch.",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.barchart.com/story/news/8724501/data-centers-arent-dead-theyre-just-about-to-go-micro-these-are-my-top-vpp-stocks-to-watch?.tsrc=rss",
+      "publishedAt": "2026-11-08T14:15:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:03.799Z"
+    },
+    "b25a54fe373c8fdbdff10f04946f407b038e8677eef9caae17ea9443a9b8c68b": {
+      "id": "b25a54fe373c8fdbdff10f04946f407b038e8677eef9caae17ea9443a9b8c68b",
+      "title": "Exxon or Altria: I Can Only Pick One Dividend Stock for the Next 10 Years. Here’s Mine",
+      "source": "Yahoo Finance — XOM",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/exxon-or-altria-i-can-only-pick-one-dividend-stock-for-the-next-10-years-heres-mine?ref=yahoofinancedividend&tlnk=yf-261108-qr7w48r8&.tsrc=rss",
+      "publishedAt": "2026-11-06T21:54:04.000Z",
+      "tickerHint": "XOM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-08T23:52:05.053Z"
     }
   }
 }
