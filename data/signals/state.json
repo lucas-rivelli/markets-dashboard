@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-08T02:03:02.294Z",
-  "startedAt": "2026-11-08T01:58:55.346Z",
+  "lastUpdated": "2026-11-08T08:50:35.076Z",
+  "startedAt": "2026-11-08T08:46:22.879Z",
   "asOf": "2026-11-08",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -17,9 +17,9 @@
     {
       "name": "Jordi Visser Labs",
       "sourceType": "YouTube",
-      "ok": false,
-      "count": 0,
-      "error": "Status code 404"
+      "ok": true,
+      "count": 10,
+      "error": null
     },
     {
       "name": "ARK Next Gen Internet",
@@ -165,7 +165,7 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -193,7 +193,7 @@
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -228,7 +228,7 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
@@ -823,16 +823,16 @@
     }
   ],
   "counts": {
-    "sourcesOk": 25,
-    "sourcesFailed": 13,
+    "sourcesOk": 26,
+    "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 351,
-    "extractionsTotal": 4750,
-    "mentionsTotal": 1676,
+    "itemsFetched": 368,
+    "extractionsTotal": 4776,
+    "mentionsTotal": 1683,
     "tickers": 86,
     "pricesOk": 90,
-    "alertsTotal": 730,
-    "newAlerts": 37
+    "alertsTotal": 732,
+    "newAlerts": 2
   },
   "rows": [
     {
@@ -959,6 +959,37 @@
       "priceBars": 514
     },
     {
+      "ticker": "MU",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 15,
+      "baselineRate": 3.5,
+      "spikeRatio": 2.286,
+      "sentRecent": 0.327,
+      "sentBaseline": 0.527,
+      "sentShift": -0.2,
+      "retRecent": -0.2201,
+      "excessRecent": -0.1931,
+      "ret30": -0.3294,
+      "score": 0.7182,
+      "lastPrice": 690,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 510
+    },
+    {
       "ticker": "SMCI",
       "discovered": false,
       "flag": "WATCH",
@@ -1033,64 +1064,48 @@
     {
       "ticker": "VST",
       "discovered": false,
-      "flag": "LONG",
+      "flag": "WATCH",
       "rules": [
         {
           "id": "MENTION_SPIKE",
           "flag": "WATCH",
           "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 7,
+      "mentionsRecent": 9,
       "mentionsBaseline": 13,
       "baselineRate": 3.033,
-      "spikeRatio": 2.308,
-      "sentRecent": 0.324,
+      "spikeRatio": 2.967,
+      "sentRecent": 0.288,
       "sentBaseline": 0.213,
-      "sentShift": 0.112,
+      "sentShift": 0.076,
       "retRecent": -0.0981,
       "excessRecent": -0.071,
       "ret30": -0.2271,
-      "score": 0.6747,
+      "score": 0.6635,
       "lastPrice": 124.8,
       "lastPriceDate": "2026-11-06",
       "priceBars": 514
     },
     {
-      "ticker": "MU",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 15,
-      "baselineRate": 3.5,
-      "spikeRatio": 2,
-      "sentRecent": 0.305,
-      "sentBaseline": 0.527,
-      "sentShift": -0.221,
-      "retRecent": -0.2201,
-      "excessRecent": -0.1931,
-      "ret30": -0.3294,
-      "score": 0.6347,
-      "lastPrice": 690,
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 33,
+      "baselineRate": 7.7,
+      "spikeRatio": 1.299,
+      "sentRecent": 0.264,
+      "sentBaseline": 0.335,
+      "sentShift": -0.071,
+      "retRecent": -0.0993,
+      "excessRecent": -0.0723,
+      "ret30": -0.1877,
+      "score": 0.632,
+      "lastPrice": 293.69,
       "lastPriceDate": "2026-11-06",
-      "priceBars": 510
+      "priceBars": 514
     },
     {
       "ticker": "TSM",
@@ -1131,26 +1146,6 @@
       "lastPrice": 84.87,
       "lastPriceDate": "2026-11-06",
       "priceBars": 501
-    },
-    {
-      "ticker": "AVGO",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 33,
-      "baselineRate": 7.7,
-      "spikeRatio": 1.169,
-      "sentRecent": 0.241,
-      "sentBaseline": 0.335,
-      "sentShift": -0.094,
-      "retRecent": -0.0993,
-      "excessRecent": -0.0723,
-      "ret30": -0.1877,
-      "score": 0.5559,
-      "lastPrice": 293.69,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
     },
     {
       "ticker": "ABBV",
@@ -1728,26 +1723,6 @@
       "priceBars": 510
     },
     {
-      "ticker": "JPM",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 5,
-      "mentionsBaseline": 12,
-      "baselineRate": 2.8,
-      "spikeRatio": 1.786,
-      "sentRecent": 0.119,
-      "sentBaseline": -0.017,
-      "sentShift": 0.136,
-      "retRecent": -0.0076,
-      "excessRecent": 0.0195,
-      "ret30": 0.0045,
-      "score": 0.2124,
-      "lastPrice": 334.49,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 514
-    },
-    {
       "ticker": "CRCL",
       "discovered": true,
       "flag": null,
@@ -1786,6 +1761,32 @@
       "lastPrice": 179.67,
       "lastPriceDate": "2026-11-06",
       "priceBars": 508
+    },
+    {
+      "ticker": "JPM",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 6,
+      "mentionsBaseline": 12,
+      "baselineRate": 2.8,
+      "spikeRatio": 2.143,
+      "sentRecent": 0.103,
+      "sentBaseline": -0.017,
+      "sentShift": 0.12,
+      "retRecent": -0.0076,
+      "excessRecent": 0.0195,
+      "ret30": 0.0045,
+      "score": 0.2009,
+      "lastPrice": 334.49,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 514
     },
     {
       "ticker": "WRBY",
@@ -1978,32 +1979,6 @@
       "priceBars": 514
     },
     {
-      "ticker": "OKLO",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 4,
-      "sentRecent": 0.075,
-      "sentBaseline": -0.4,
-      "sentShift": 0.475,
-      "retRecent": -0.0673,
-      "excessRecent": -0.0403,
-      "ret30": -0.3213,
-      "score": 0.0824,
-      "lastPrice": 23.55,
-      "lastPriceDate": "2026-11-06",
-      "priceBars": 501
-    },
-    {
       "ticker": "ORCL",
       "discovered": true,
       "flag": "WATCH",
@@ -2028,6 +2003,37 @@
       "lastPrice": 116.1,
       "lastPriceDate": "2026-11-06",
       "priceBars": 509
+    },
+    {
+      "ticker": "OKLO",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 6,
+      "sentRecent": 0.045,
+      "sentBaseline": -0.4,
+      "sentShift": 0.445,
+      "retRecent": -0.0673,
+      "excessRecent": -0.0403,
+      "ret30": -0.3213,
+      "score": 0.0624,
+      "lastPrice": 23.55,
+      "lastPriceDate": "2026-11-06",
+      "priceBars": 501
     },
     {
       "ticker": "GS",
@@ -2774,6 +2780,28 @@
   ],
   "readingQueue": [
     {
+      "id": "994c44295a9914806a0b171e0d493d581e86379c97ba3683e68e9dc7f137f9bf",
+      "title": "Is Micron Stock a Buy Right Now?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/08/is-micron-stock-a-buy-right-now/?.tsrc=rss",
+      "publishedAt": "2026-11-08T08:35:00.000Z",
+      "ticker": "MU",
+      "tickers": [
+        "MU"
+      ],
+      "flag": "LONG",
+      "score": 76.4,
+      "reasons": [
+        "MU: Long candidate",
+        "stock moving against the research",
+        "8 mentions this week (2.3x baseline)"
+      ],
+      "rationale": "Highlights sold-out memory demand and rising profits despite a 34% share drop, implying the stock looks attractive.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
       "id": "f8ee81f7bdf0f4ceabc17ca971f5c331c568ccfbe2104970f73a3d55f6c86a78",
       "title": "Novo Nordisk Just Delivered Great News for Investors. Is a Comeback Finally Underway?",
       "source": "Yahoo Finance — NVDA",
@@ -2908,48 +2936,27 @@
       "confidence": 0.7
     },
     {
-      "id": "996ddc5b526ec985150cfc4210d47a60e29eca3ed8c3bc94f41a9433ea99eeb2",
-      "title": "Vistra Corp (VST) (Q3 2026) Earnings Call Highlights: Record Adjusted EBITDA of $2. ...",
+      "id": "1111af467f7b2f2492a24ea62b3ab1a81c89eca88cf0ad65cb665d108bcfe6d5",
+      "title": "NuScale Just Hit a New 52-Week Low After Losing 26% in a Week. Is the Selling Overdone?",
       "source": "Yahoo Finance — VST",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-q3-2026-011619400.html?.tsrc=rss",
-      "publishedAt": "2026-11-07T01:16:19.000Z",
-      "ticker": "VST",
+      "url": "https://www.tikr.com/blog/nuscale-just-hit-a-new-52-week-low-after-losing-26-in-a-week-is-the-selling-overdone?ref=yahoofinance&tlnk=yf-261108-fj48xrfp&.tsrc=rss",
+      "publishedAt": "2026-11-07T23:49:37.000Z",
+      "ticker": "OKLO",
       "tickers": [
+        "OKLO",
         "VST"
       ],
       "flag": "LONG",
-      "score": 63.7,
+      "score": 65.9,
       "reasons": [
-        "VST: Long candidate",
-        "stock moving against the research",
-        "7 mentions this week (2.3x baseline)"
+        "OKLO: Long candidate",
+        "3 mentions this week (6.0x baseline)",
+        "sentiment shift +0.45"
       ],
-      "rationale": "Summarizes a record quarter, raised 2026 guidance, and a disciplined capital return plan, all framed positively.",
-      "sentiment": 0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "8cecd2fd4a90f22660a7bff9971869bda7d6241b7bdbd4b312152c86187e15a9",
-      "title": "Vistra (VST) Stock Climbs After Record Q3 Earnings Power",
-      "source": "Yahoo Finance — VST",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-stock-climbs-record-021231280.html?.tsrc=rss",
-      "publishedAt": "2026-11-07T02:12:31.000Z",
-      "ticker": "VST",
-      "tickers": [
-        "VST"
-      ],
-      "flag": "LONG",
-      "score": 62.5,
-      "reasons": [
-        "VST: Long candidate",
-        "stock moving against the research",
-        "7 mentions this week (2.3x baseline)"
-      ],
-      "rationale": "Describes a record quarter and a 3.8% share jump as confirming strength, though the view is mostly implied rather than stated.",
-      "sentiment": 0.35,
-      "confidence": 0.6
+      "rationale": "Mentioned only as a nuclear power stock that sold off around the election, with no view expressed.",
+      "sentiment": 0,
+      "confidence": 0.8
     },
     {
       "id": "a20958d32ad4320dfdc05b018638556299d2ea875c76d6b7e80d2b4b2f81bbb1",
@@ -2963,15 +2970,37 @@
         "MU"
       ],
       "flag": "LONG",
-      "score": 60.4,
+      "score": 60.8,
       "reasons": [
         "MU: Long candidate",
         "stock moving against the research",
-        "7 mentions this week (2.0x baseline)"
+        "8 mentions this week (2.3x baseline)"
       ],
       "rationale": "Author argues Micron trades at about 5x forward earnings, so the stock looks undervalued and not worth selling.",
       "sentiment": 0.6,
       "confidence": 0.75
+    },
+    {
+      "id": "86fe48c664344bd835d7f90f2c96d3372511ef2e64010dbc54e8bfca4c383d48",
+      "title": "Nuclear Reactor Firm Oklo Beats Earnings Expectations. That’s Not Why the Stock Is Up.",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
+      "publishedAt": "2026-11-06T23:07:00.000Z",
+      "ticker": "OKLO",
+      "tickers": [
+        "OKLO"
+      ],
+      "flag": "LONG",
+      "score": 60.4,
+      "reasons": [
+        "OKLO: Long candidate",
+        "3 mentions this week (6.0x baseline)",
+        "sentiment shift +0.45"
+      ],
+      "rationale": "Describes Oklo as making progress on its Aurora reactors and securing key deals, implying a positive view of the company.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "54fd791e3b970e9967f9fe03b5ba3f5f2332b88a66452a15301241318388c6fd",
@@ -2985,37 +3014,36 @@
         "MU"
       ],
       "flag": "LONG",
-      "score": 59.3,
+      "score": 59.7,
       "reasons": [
         "MU: Long candidate",
         "stock moving against the research",
-        "7 mentions this week (2.0x baseline)"
+        "8 mentions this week (2.3x baseline)"
       ],
       "rationale": "Headline author says they would still buy after a 40% drop, though the body only poses a question about falling profits.",
       "sentiment": 0.6,
       "confidence": 0.6
     },
     {
-      "id": "362d6b4721b485a6095ae5bbbe8c965cf35d425d1b8444631ad40eaf0ef1c8d1",
-      "title": "Dow Jones Futures: Market Needs Repair But Sandisk, Micron Look Broken; Apple, Amazon, Microsoft Strong",
-      "source": "Yahoo Finance — NVDA",
+      "id": "c522f64812a6ab7baacdca68d3ad4e3591a824aab1cc7911109930db6075b827",
+      "title": "Oklo Jumps 19% on Narrower-Than-Expected Loss as Nuclear Stocks Rebound; NuScale Power Surges 15%, Nano Nuclear Energy Jumps 9%",
+      "source": "Yahoo Finance — META",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures%3A-market.html?.tsrc=rss",
-      "publishedAt": "2026-11-06T23:41:36.000Z",
-      "ticker": "MU",
+      "url": "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss",
+      "publishedAt": "2026-11-06T16:05:38.000Z",
+      "ticker": "OKLO",
       "tickers": [
-        "MU",
-        "SNDK"
+        "OKLO"
       ],
       "flag": "LONG",
-      "score": 58.6,
+      "score": 59.3,
       "reasons": [
-        "MU: Long candidate",
-        "stock moving against the research",
-        "7 mentions this week (2.0x baseline)"
+        "OKLO: Long candidate",
+        "3 mentions this week (6.0x baseline)",
+        "sentiment shift +0.45"
       ],
-      "rationale": "Headline and text portray Micron's shares as weak and damaged in the day's futures coverage.",
-      "sentiment": -0.5,
+      "rationale": "Sees the rebound as fragile due to a missing key figure and a nonbinding Meta agreement.",
+      "sentiment": -0.25,
       "confidence": 0.6
     },
     {
@@ -3083,72 +3111,6 @@
       ],
       "rationale": "Says the stock trades at a high forward earnings multiple and implies a likely decline after its earnings report.",
       "sentiment": -0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "3c8513ff9019956772effe41410325e3263b290f9287c05906ee268933526a76",
-      "title": "Vistra Shares Rise 5% as Q3 Profit Surges Despite Revenue Miss, Raises 2026 Outlook",
-      "source": "Yahoo Finance — VST",
-      "sourceType": "TickerNews",
-      "url": "https://investorshub.advfn.com/market-news/article/39445/vistra-shares-rise-5-as-q3-profit-surges-despite-revenue-miss-raises-2026-outlook?.tsrc=rss",
-      "publishedAt": "2026-11-06T13:13:36.000Z",
-      "ticker": "VST",
-      "tickers": [
-        "VST"
-      ],
-      "flag": "LONG",
-      "score": 55.6,
-      "reasons": [
-        "VST: Long candidate",
-        "stock moving against the research",
-        "7 mentions this week (2.3x baseline)"
-      ],
-      "rationale": "Reports shares rising after strong Q3 profit growth and a raised outlook, despite a revenue miss.",
-      "sentiment": 0.5,
-      "confidence": 0.7
-    },
-    {
-      "id": "86fe48c664344bd835d7f90f2c96d3372511ef2e64010dbc54e8bfca4c383d48",
-      "title": "Nuclear Reactor Firm Oklo Beats Earnings Expectations. That’s Not Why the Stock Is Up.",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
-      "publishedAt": "2026-11-06T23:07:00.000Z",
-      "ticker": "OKLO",
-      "tickers": [
-        "OKLO"
-      ],
-      "flag": "LONG",
-      "score": 50.4,
-      "reasons": [
-        "OKLO: Long candidate",
-        "sentiment shift +0.47",
-        "new name outside the universe"
-      ],
-      "rationale": "Describes Oklo as making progress on its Aurora reactors and securing key deals, implying a positive view of the company.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "c522f64812a6ab7baacdca68d3ad4e3591a824aab1cc7911109930db6075b827",
-      "title": "Oklo Jumps 19% on Narrower-Than-Expected Loss as Nuclear Stocks Rebound; NuScale Power Surges 15%, Nano Nuclear Energy Jumps 9%",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss",
-      "publishedAt": "2026-11-06T16:05:38.000Z",
-      "ticker": "OKLO",
-      "tickers": [
-        "OKLO"
-      ],
-      "flag": "LONG",
-      "score": 49.3,
-      "reasons": [
-        "OKLO: Long candidate",
-        "sentiment shift +0.47",
-        "new name outside the universe"
-      ],
-      "rationale": "Sees the rebound as fragile due to a missing key figure and a nonbinding Meta agreement.",
-      "sentiment": -0.25,
       "confidence": 0.6
     },
     {
@@ -3285,6 +3247,27 @@
       "confidence": 0.85
     },
     {
+      "id": "391e0d3a865d7ca19e4cf77d8633be8b7ce11463732b49420dd5407918baf55f",
+      "title": "Vistra Q3 Earnings Call Highlights",
+      "source": "Yahoo Finance — VST",
+      "sourceType": "TickerNews",
+      "url": "https://www.marketbeat.com/instant-alerts/transcript-vistra-q3-earnings-call-highlights-2026-11-08/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+      "publishedAt": "2026-11-08T06:14:09.000Z",
+      "ticker": "VST",
+      "tickers": [
+        "VST"
+      ],
+      "flag": "WATCH",
+      "score": 40.8,
+      "reasons": [
+        "VST: Watch",
+        "9 mentions this week (3.0x baseline)"
+      ],
+      "rationale": "Summarizes record Q3 adjusted earnings and raised 2026 outlook midpoints, driven by higher power prices and capacity revenue.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
       "id": "a8bb6ba0836a3d884ec98139cd013a130ae0fb88eef10be623753ae13bef5769",
       "title": "Nvidia Stock Has More Than 60% Upside According to Analysts' Average Price Target. Should You Buy While the AI Trade Wobbles?",
       "source": "Yahoo Finance — NVDA",
@@ -3326,6 +3309,28 @@
       "rationale": "Reports AI Cloud revenue nearly tripling and says its revenue target stays fully contracted and funded despite a delay.",
       "sentiment": 0.6,
       "confidence": 0.8
+    },
+    {
+      "id": "16f78194e4ce07facf903b441e37b3998071e3730eb86b37fed729a858481dc3",
+      "title": "Hims & Hers Rises 4% as Eli Lilly Deal Brings Zepbound to Its Platform: “A Clear Positive”",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/hims-hers-rises-4-as-eli-lilly-deal-brings-zepbound-to-its-platform-a-clear-positive?ref=yahoofinance&tlnk=yf-261106-629h4w9f&.tsrc=rss",
+      "publishedAt": "2026-11-06T14:39:31.000Z",
+      "ticker": "HIMS",
+      "tickers": [
+        "HIMS"
+      ],
+      "flag": "WATCH",
+      "score": 38.7,
+      "reasons": [
+        "HIMS: Watch",
+        "6 mentions this week (12.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Shares rose after the Zepbound platform deal, which the headline frames as clearly positive for the company.",
+      "sentiment": 0.6,
+      "confidence": 0.7
     }
   ]
 }

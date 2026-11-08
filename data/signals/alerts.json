@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "b9e9bf95c832aaf9",
+      "ticker": "OKLO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T08:50:33.383Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.045,
+        "sentShift": 0.445,
+        "retRecent": -0.0673,
+        "excessRecent": -0.0403,
+        "score": 0.0624
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/nuscale-just-hit-a-new-52-week-low-after-losing-26-in-a-week-is-the-selling-overdone?ref=yahoofinance&tlnk=yf-261108-fj48xrfp&.tsrc=rss",
+        "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "07fb6da08734b215",
+      "ticker": "JPM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T08:50:33.381Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.103,
+        "sentShift": 0.12,
+        "retRecent": -0.0076,
+        "excessRecent": 0.0195,
+        "score": 0.2009
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/could-senate-epstein-probe-mean-021323031.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/42-etfs-add-jpmorgan-chase-110120957.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/3078d472-e02d-3115-b36d-760d7f10d1df/capitalize-on-jpmorgan-stock.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "6e1520aa5313e164",
       "ticker": "COIN",
       "rule": "MENTION_SPIKE",
