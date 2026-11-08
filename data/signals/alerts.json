@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "55ffc814d0cfb29d",
+      "ticker": "CRWD",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T15:47:35.929Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.5,
+        "sentShift": 0.279,
+        "retRecent": -0.1339,
+        "excessRecent": -0.1069,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/08/got-5000-2-growth-stocks-building-the-software-bac/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/prediction-3-stocks-that-will-be-worth-more-than-p/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/crowdstrike-crwd-stock-looks-overvalued-001653356.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "6d97834d94c03201",
+      "ticker": "ALAB",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-08T15:47:35.928Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.415,
+        "sentShift": -0.185,
+        "retRecent": -0.2628,
+        "excessRecent": -0.2358,
+        "score": 0.4563
+      },
+      "topItems": [
+        "https://www.marketbeat.com/articles/astera-labs-just-crushed-earnings-so-why-are-analysts-cutting-price-targets/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+        "https://www.tikr.com/blog/astera-labs-has-slumped-since-june-why-j-p-morgan-still-sees-157-upside?ref=yahoofinance&tlnk=yf-261105-2jhx2mwc&.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/23/if-only-buy-ai-stock-in-november-sell-off-alab/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0abc080a38b8c34b",
+      "ticker": "ABBV",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T15:47:35.926Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.333,
+        "sentShift": 0.083,
+        "retRecent": -0.0121,
+        "excessRecent": 0.0149,
+        "score": 0.4621
+      },
+      "topItems": [
+        "https://www.marketbeat.com/articles/marketbeat-week-in-review-2026-11-2-11-6/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/healthcare/articles/2-defensive-healthcare-stocks-hitting-222200294.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/02/prediction-abbvies-next-blockbuster-is-hiding-in-a/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "e6a9ef400780bde2",
+      "ticker": "O",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T15:47:35.923Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.61,
+        "sentShift": 0.11,
+        "retRecent": 0.0371,
+        "excessRecent": 0.0641,
+        "score": 0.845
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/08/3-reasons-why-ultra-high-yield-realty-income-is-a/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/06/should-realty-income-be-the-first-dividend-stock-y/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/05/realty-income-pays-you-12-times-a-year-id-own-it-f/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b9e9bf95c832aaf9",
       "ticker": "OKLO",
       "rule": "MENTION_SPIKE",
