@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "bc357215b58cef4f",
+      "ticker": "SOFI",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-08T20:10:46.017Z",
+      "firedDate": "2026-11-08",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.21,
+        "sentShift": 0.16,
+        "retRecent": -0.0328,
+        "excessRecent": -0.0058,
+        "score": 0.2911
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/08/sofi-17-million-members-prediction-20-million-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss",
+        "https://decrypt.co/382458/elon-musk-tesla-spacex-block-okx-ice-tokenized-stock?.tsrc=rss"
+      ]
+    },
+    {
       "id": "55ffc814d0cfb29d",
       "ticker": "CRWD",
       "rule": "DIVERGENCE_LONG",
