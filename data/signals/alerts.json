@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "dc35bc38f0bd803e",
+      "ticker": "LCID",
+      "rule": "DIVERGENCE_SHORT",
+      "ruleLabel": "Bearish divergence (research down, price leading)",
+      "flag": "SHORT",
+      "firedAt": "2026-11-09T23:09:24.685Z",
+      "firedDate": "2026-11-09",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": -0.4,
+        "sentShift": 0.1,
+        "retRecent": 0.0967,
+        "excessRecent": 0.119,
+        "score": -0.4394
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/09/why-lucid-stock-fell-25-in-october/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/09/tesla-rises-5-despite-musks-cybertruck-refund-warning-lucid-jumps-8-ahead-of-earnings-rivian-climbs-2/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/31/betting-on-archer-aviation-or-joby-aviation-being/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "a5427b1a74520dfa",
+      "ticker": "NET",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-09T23:09:24.684Z",
+      "firedDate": "2026-11-09",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.3,
+        "sentShift": null,
+        "retRecent": 0.0135,
+        "excessRecent": 0.0359,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/cloudflare-tumbled-into-earnings-why-goldman-sachs-sees-56-upside?ref=yahoofinance&tlnk=yf-261109-97qc2m8w&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/too-late-buy-cloudflare-stock-1-reason-still-time/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "91c28a29efe64324",
       "ticker": "SNDK",
       "rule": "MENTION_SPIKE",
