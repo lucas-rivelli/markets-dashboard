@@ -2213,7 +2213,7 @@
   }
 
   function shouldSaveToKnowledgeBase(item) {
-    if (!item || item.category === "Spotify") return false;
+    if (!item) return false;
     const k = keyOf(item);
     if (!getItemFolders(k).length) return false;
     if (hasToReadTag(k)) return false;

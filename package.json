@@ -14,6 +14,7 @@
     "sync:vic:push": "bash scripts/sync-vic.sh",
     "setup:vic-sync": "node scripts/setup-vic-launchd.js",
     "sync:fund-letters": "node scripts/sync-fund-letters.js",
+    "sync:spotify": "node scripts/sync-spotify.js",
     "setup:external-cron": "node scripts/setup-external-cron.js",
     "setup:github-dispatch-token": "node scripts/setup-github-dispatch-token.js",
     "ping:bookmarks-cron": "bash scripts/ping-bookmarks-cron.sh",
