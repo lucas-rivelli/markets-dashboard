@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "c1bd92d7a3a2d699",
+      "ticker": "MS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-10T20:36:43.693Z",
+      "firedDate": "2026-11-10",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.571,
+        "sentRecent": 0.033,
+        "sentShift": -0.035,
+        "retRecent": 0.0054,
+        "excessRecent": 0.0076,
+        "score": 0.0462
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/morgan-stanleys-vinyl-equity-deal-180800729.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/49f88e01-fac3-3e0c-aecf-0a10a6095093/market-selloff-hits-financial.html?.tsrc=rss",
+        "https://www.tikr.com/blog/morgan-stanley-sinks-6-goldman-down-6-citi-down-5-as-market-selloff-drags-wall-street-banks?ref=yahoofinance&tlnk=yf-261105-jwpc6pp2&.tsrc=rss"
+      ]
+    },
+    {
       "id": "7ab3e9149fda356d",
       "ticker": "AMAT",
       "rule": "BEARISH_SHIFT",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-10T13:16:31.404Z",
-  "startedAt": "2026-11-10T13:12:05.907Z",
+  "lastUpdated": "2026-11-10T20:36:46.495Z",
+  "startedAt": "2026-11-10T20:31:54.474Z",
   "asOf": "2026-11-10",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 14,
       "error": null
     },
     {
@@ -151,14 +151,14 @@
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -172,21 +172,21 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 15,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -200,7 +200,7 @@
       "name": "Yahoo Finance — TSM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -228,7 +228,7 @@
       "name": "Yahoo Finance — JPM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -270,7 +270,7 @@
       "name": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     }
   ],
@@ -844,35 +844,15 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 359,
-    "extractionsTotal": 5246,
-    "mentionsTotal": 1851,
+    "itemsFetched": 361,
+    "extractionsTotal": 5325,
+    "mentionsTotal": 1891,
     "tickers": 91,
     "pricesOk": 93,
-    "alertsTotal": 815,
-    "newAlerts": 3
+    "alertsTotal": 816,
+    "newAlerts": 1
   },
   "rows": [
-    {
-      "ticker": "LLY",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 17,
-      "mentionsBaseline": 50,
-      "baselineRate": 11.667,
-      "spikeRatio": 1.457,
-      "sentRecent": 0.349,
-      "sentBaseline": 0.386,
-      "sentShift": -0.037,
-      "retRecent": 0.0018,
-      "excessRecent": 0.004,
-      "ret30": 0.1973,
-      "score": 1.0092,
-      "lastPrice": 1411.95,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
     {
       "ticker": "AMD",
       "discovered": false,
@@ -884,18 +864,95 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 41,
+      "mentionsRecent": 43,
       "mentionsBaseline": 51,
       "baselineRate": 11.9,
-      "spikeRatio": 3.445,
-      "sentRecent": 0.255,
+      "spikeRatio": 3.613,
+      "sentRecent": 0.27,
       "sentBaseline": 0.268,
-      "sentShift": -0.013,
+      "sentShift": 0.002,
       "retRecent": 0.051,
       "excessRecent": 0.0532,
       "ret30": -0.1637,
-      "score": 0.9536,
+      "score": 1.0221,
       "lastPrice": 508.58,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
+    },
+    {
+      "ticker": "LLY",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 18,
+      "mentionsBaseline": 50,
+      "baselineRate": 11.667,
+      "spikeRatio": 1.543,
+      "sentRecent": 0.332,
+      "sentBaseline": 0.386,
+      "sentShift": -0.054,
+      "retRecent": 0.0018,
+      "excessRecent": 0.004,
+      "ret30": 0.1973,
+      "score": 0.9783,
+      "lastPrice": 1411.95,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
+    },
+    {
+      "ticker": "MU",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 14,
+      "mentionsBaseline": 16,
+      "baselineRate": 3.733,
+      "spikeRatio": 3.75,
+      "sentRecent": 0.338,
+      "sentBaseline": 0.491,
+      "sentShift": -0.153,
+      "retRecent": -0.1426,
+      "excessRecent": -0.1404,
+      "ret30": -0.2875,
+      "score": 0.9158,
+      "lastPrice": 733.15,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 511
+    },
+    {
+      "ticker": "VST",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 11,
+      "mentionsBaseline": 13,
+      "baselineRate": 3.033,
+      "spikeRatio": 3.626,
+      "sentRecent": 0.346,
+      "sentBaseline": 0.213,
+      "sentShift": 0.133,
+      "retRecent": -0.0406,
+      "excessRecent": -0.0384,
+      "ret30": -0.1707,
+      "score": 0.859,
+      "lastPrice": 133.92,
       "lastPriceDate": "2026-11-09",
       "priceBars": 515
     },
@@ -926,85 +983,22 @@
       "priceBars": 503
     },
     {
-      "ticker": "MU",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 13,
-      "mentionsBaseline": 16,
-      "baselineRate": 3.733,
-      "spikeRatio": 3.482,
-      "sentRecent": 0.317,
-      "sentBaseline": 0.491,
-      "sentShift": -0.174,
-      "retRecent": -0.1426,
-      "excessRecent": -0.1404,
-      "ret30": -0.2875,
-      "score": 0.8362,
-      "lastPrice": 733.15,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 511
-    },
-    {
-      "ticker": "SMCI",
+      "ticker": "TSM",
       "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 15,
-      "mentionsBaseline": 26,
-      "baselineRate": 6.067,
-      "spikeRatio": 2.473,
-      "sentRecent": 0.274,
-      "sentBaseline": 0.211,
-      "sentShift": 0.063,
-      "retRecent": -0.0889,
-      "excessRecent": -0.0867,
-      "ret30": -0.3167,
-      "score": 0.7587,
-      "lastPrice": 28.6,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
-      "ticker": "VST",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 10,
-      "mentionsBaseline": 13,
-      "baselineRate": 3.033,
-      "spikeRatio": 3.297,
-      "sentRecent": 0.313,
-      "sentBaseline": 0.213,
-      "sentShift": 0.101,
-      "retRecent": -0.0406,
-      "excessRecent": -0.0384,
-      "ret30": -0.1707,
-      "score": 0.7516,
-      "lastPrice": 133.92,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 8,
+      "mentionsBaseline": 23,
+      "baselineRate": 5.367,
+      "spikeRatio": 1.491,
+      "sentRecent": 0.336,
+      "sentBaseline": 0.43,
+      "sentShift": -0.094,
+      "retRecent": -0.04,
+      "excessRecent": -0.0378,
+      "ret30": -0.1427,
+      "score": 0.7387,
+      "lastPrice": 388.62,
       "lastPriceDate": "2026-11-09",
       "priceBars": 515
     },
@@ -1049,22 +1043,28 @@
       "priceBars": 515
     },
     {
-      "ticker": "TSM",
+      "ticker": "SMCI",
       "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 23,
-      "baselineRate": 5.367,
-      "spikeRatio": 1.304,
-      "sentRecent": 0.328,
-      "sentBaseline": 0.43,
-      "sentShift": -0.102,
-      "retRecent": -0.04,
-      "excessRecent": -0.0378,
-      "ret30": -0.1427,
-      "score": 0.682,
-      "lastPrice": 388.62,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 16,
+      "mentionsBaseline": 26,
+      "baselineRate": 6.067,
+      "spikeRatio": 2.637,
+      "sentRecent": 0.239,
+      "sentBaseline": 0.211,
+      "sentShift": 0.028,
+      "retRecent": -0.0889,
+      "excessRecent": -0.0867,
+      "ret30": -0.3167,
+      "score": 0.6776,
+      "lastPrice": 28.6,
       "lastPriceDate": "2026-11-09",
       "priceBars": 515
     },
@@ -1099,18 +1099,44 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 20,
+      "mentionsRecent": 22,
       "mentionsBaseline": 68,
       "baselineRate": 15.867,
-      "spikeRatio": 1.261,
+      "spikeRatio": 1.387,
       "sentRecent": 0.203,
       "sentBaseline": 0.169,
       "sentShift": 0.034,
       "retRecent": 0.0648,
       "excessRecent": 0.067,
       "ret30": 0.0171,
-      "score": 0.6182,
+      "score": 0.6358,
       "lastPrice": 266.93,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
+    },
+    {
+      "ticker": "CEG",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 17,
+      "baselineRate": 3.967,
+      "spikeRatio": 2.269,
+      "sentRecent": 0.274,
+      "sentBaseline": 0.278,
+      "sentShift": -0.004,
+      "retRecent": 0.0482,
+      "excessRecent": 0.0504,
+      "ret30": -0.0737,
+      "score": 0.6309,
+      "lastPrice": 276.09,
       "lastPriceDate": "2026-11-09",
       "priceBars": 515
     },
@@ -1155,135 +1181,6 @@
       "priceBars": 508
     },
     {
-      "ticker": "CEG",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 17,
-      "baselineRate": 3.967,
-      "spikeRatio": 2.017,
-      "sentRecent": 0.246,
-      "sentBaseline": 0.278,
-      "sentShift": -0.032,
-      "retRecent": 0.0482,
-      "excessRecent": 0.0504,
-      "ret30": -0.0737,
-      "score": 0.5406,
-      "lastPrice": 276.09,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
-      "ticker": "MSFT",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 20,
-      "mentionsBaseline": 66,
-      "baselineRate": 15.4,
-      "spikeRatio": 1.299,
-      "sentRecent": 0.177,
-      "sentBaseline": 0.303,
-      "sentShift": -0.127,
-      "retRecent": 0.0464,
-      "excessRecent": 0.0486,
-      "ret30": 0.0189,
-      "score": 0.5385,
-      "lastPrice": 545.18,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
-      "ticker": "IREN",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 1,
-      "baselineRate": 0.233,
-      "spikeRatio": 16,
-      "sentRecent": 0.242,
-      "sentBaseline": 0,
-      "sentShift": 0.242,
-      "retRecent": -0.1247,
-      "excessRecent": -0.1225,
-      "ret30": -0.3916,
-      "score": 0.5324,
-      "lastPrice": 21.41,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 503
-    },
-    {
-      "ticker": "NVO",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "BULLISH_SHIFT",
-          "flag": "LONG",
-          "label": "Bullish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 4,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 8,
-      "sentRecent": 0.312,
-      "sentBaseline": -0.354,
-      "sentShift": 0.666,
-      "retRecent": 0.0296,
-      "excessRecent": 0.0318,
-      "ret30": 0.0709,
-      "score": 0.5021,
-      "lastPrice": 41.38,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 509
-    },
-    {
-      "ticker": "HIMS",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 7,
-      "mentionsBaseline": 0,
-      "baselineRate": 0,
-      "spikeRatio": 14,
-      "sentRecent": 0.236,
-      "sentBaseline": null,
-      "sentShift": null,
-      "retRecent": -0.1074,
-      "excessRecent": -0.1052,
-      "ret30": -0.2581,
-      "score": 0.4915,
-      "lastPrice": 22.94,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 502
-    },
-    {
       "ticker": "LRCX",
       "discovered": true,
       "flag": null,
@@ -1302,6 +1199,32 @@
       "lastPrice": 221.31,
       "lastPriceDate": "2026-11-09",
       "priceBars": 505
+    },
+    {
+      "ticker": "UBER",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 20,
+      "sentRecent": 0.192,
+      "sentBaseline": 0.361,
+      "sentShift": -0.168,
+      "retRecent": 0.0686,
+      "excessRecent": 0.0708,
+      "ret30": -0.0048,
+      "score": 0.4611,
+      "lastPrice": 71.17,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 510
     },
     {
       "ticker": "ALAB",
@@ -1328,6 +1251,57 @@
       "lastPrice": 216.87,
       "lastPriceDate": "2026-11-09",
       "priceBars": 501
+    },
+    {
+      "ticker": "NVO",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 10,
+      "sentRecent": 0.252,
+      "sentBaseline": -0.354,
+      "sentShift": 0.605,
+      "retRecent": 0.0296,
+      "excessRecent": 0.0318,
+      "ret30": 0.0709,
+      "score": 0.4508,
+      "lastPrice": 41.38,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 509
+    },
+    {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 25,
+      "mentionsBaseline": 66,
+      "baselineRate": 15.4,
+      "spikeRatio": 1.623,
+      "sentRecent": 0.133,
+      "sentBaseline": 0.303,
+      "sentShift": -0.171,
+      "retRecent": 0.0464,
+      "excessRecent": 0.0486,
+      "ret30": 0.0189,
+      "score": 0.4324,
+      "lastPrice": 545.18,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
     },
     {
       "ticker": "META",
@@ -1396,30 +1370,24 @@
       "priceBars": 508
     },
     {
-      "ticker": "UBER",
-      "discovered": true,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 18,
-      "sentRecent": 0.171,
-      "sentBaseline": 0.361,
-      "sentShift": -0.189,
-      "retRecent": 0.0686,
-      "excessRecent": 0.0708,
-      "ret30": -0.0048,
-      "score": 0.3942,
-      "lastPrice": 71.17,
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 27,
+      "mentionsBaseline": 62,
+      "baselineRate": 14.467,
+      "spikeRatio": 1.866,
+      "sentRecent": 0.113,
+      "sentBaseline": 0.051,
+      "sentShift": 0.063,
+      "retRecent": 0.0566,
+      "excessRecent": 0.0588,
+      "ret30": 0.0417,
+      "score": 0.3781,
+      "lastPrice": 350.69,
       "lastPriceDate": "2026-11-09",
-      "priceBars": 510
+      "priceBars": 515
     },
     {
       "ticker": "QCOM",
@@ -1600,44 +1568,30 @@
       "priceBars": 503
     },
     {
-      "ticker": "AAPL",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 26,
-      "mentionsBaseline": 62,
-      "baselineRate": 14.467,
-      "spikeRatio": 1.797,
-      "sentRecent": 0.104,
-      "sentBaseline": 0.051,
-      "sentShift": 0.053,
-      "retRecent": 0.0566,
-      "excessRecent": 0.0588,
-      "ret30": 0.0417,
-      "score": 0.3424,
-      "lastPrice": 350.69,
+      "ticker": "IREN",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 18,
+      "sentRecent": 0.142,
+      "sentBaseline": 0,
+      "sentShift": 0.142,
+      "retRecent": -0.1247,
+      "excessRecent": -0.1225,
+      "ret30": -0.3916,
+      "score": 0.3278,
+      "lastPrice": 21.41,
       "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 22,
-      "mentionsBaseline": 69,
-      "baselineRate": 16.1,
-      "spikeRatio": 1.366,
-      "sentRecent": 0.106,
-      "sentBaseline": 0.077,
-      "sentShift": 0.029,
-      "retRecent": 0.029,
-      "excessRecent": 0.0312,
-      "ret30": -0.1806,
-      "score": 0.3338,
-      "lastPrice": 288.15,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
+      "priceBars": 503
     },
     {
       "ticker": "ARM",
@@ -1664,6 +1618,26 @@
       "lastPrice": 186.3,
       "lastPriceDate": "2026-11-09",
       "priceBars": 503
+    },
+    {
+      "ticker": "GOOGL",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 24,
+      "mentionsBaseline": 69,
+      "baselineRate": 16.1,
+      "spikeRatio": 1.491,
+      "sentRecent": 0.098,
+      "sentBaseline": 0.077,
+      "sentShift": 0.021,
+      "retRecent": 0.029,
+      "excessRecent": 0.0312,
+      "ret30": -0.1806,
+      "score": 0.3148,
+      "lastPrice": 288.15,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
     },
     {
       "ticker": "JPM",
@@ -1829,6 +1803,32 @@
       "priceBars": 506
     },
     {
+      "ticker": "HIMS",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 9,
+      "mentionsBaseline": 0,
+      "baselineRate": 0,
+      "spikeRatio": 18,
+      "sentRecent": 0.089,
+      "sentBaseline": null,
+      "sentShift": null,
+      "retRecent": -0.1074,
+      "excessRecent": -0.1052,
+      "ret30": -0.2581,
+      "score": 0.206,
+      "lastPrice": 22.94,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 502
+    },
+    {
       "ticker": "DASH",
       "discovered": true,
       "flag": null,
@@ -1847,6 +1847,32 @@
       "lastPrice": 180.96,
       "lastPriceDate": "2026-11-09",
       "priceBars": 509
+    },
+    {
+      "ticker": "GS",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 11,
+      "baselineRate": 2.567,
+      "spikeRatio": 3.896,
+      "sentRecent": 0.078,
+      "sentBaseline": 0.187,
+      "sentShift": -0.109,
+      "retRecent": 0.0113,
+      "excessRecent": 0.0135,
+      "ret30": 0.0122,
+      "score": 0.1877,
+      "lastPrice": 906.22,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
     },
     {
       "ticker": "INTC",
@@ -1875,58 +1901,6 @@
       "priceBars": 510
     },
     {
-      "ticker": "GS",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 8,
-      "mentionsBaseline": 11,
-      "baselineRate": 2.567,
-      "spikeRatio": 3.117,
-      "sentRecent": 0.053,
-      "sentBaseline": 0.187,
-      "sentShift": -0.134,
-      "retRecent": 0.0113,
-      "excessRecent": 0.0135,
-      "ret30": 0.0122,
-      "score": 0.1156,
-      "lastPrice": 906.22,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
-      "ticker": "NVDA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 55,
-      "mentionsBaseline": 78,
-      "baselineRate": 18.2,
-      "spikeRatio": 3.022,
-      "sentRecent": 0.027,
-      "sentBaseline": 0.238,
-      "sentShift": -0.211,
-      "retRecent": -0.1356,
-      "excessRecent": -0.1334,
-      "ret30": -0.2207,
-      "score": 0.1068,
-      "lastPrice": 178.67,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 515
-    },
-    {
       "ticker": "MRVL",
       "discovered": true,
       "flag": null,
@@ -1945,6 +1919,32 @@
       "lastPrice": 154.6,
       "lastPriceDate": "2026-11-09",
       "priceBars": 509
+    },
+    {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 63,
+      "mentionsBaseline": 78,
+      "baselineRate": 18.2,
+      "spikeRatio": 3.462,
+      "sentRecent": 0.015,
+      "sentBaseline": 0.238,
+      "sentShift": -0.222,
+      "retRecent": -0.1356,
+      "excessRecent": -0.1334,
+      "ret30": -0.2207,
+      "score": 0.0628,
+      "lastPrice": 178.67,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 515
     },
     {
       "ticker": "OKLO",
@@ -1976,6 +1976,32 @@
       "lastPrice": 26.84,
       "lastPriceDate": "2026-11-09",
       "priceBars": 502
+    },
+    {
+      "ticker": "MS",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 2.571,
+      "sentRecent": 0.033,
+      "sentBaseline": 0.069,
+      "sentShift": -0.035,
+      "retRecent": 0.0054,
+      "excessRecent": 0.0076,
+      "ret30": -0.0154,
+      "score": 0.0462,
+      "lastPrice": 187.1,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 510
     },
     {
       "ticker": "NEE",
@@ -2119,6 +2145,26 @@
       "lastPrice": 1513.25,
       "lastPriceDate": "2026-11-09",
       "priceBars": 512
+    },
+    {
+      "ticker": "C",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 0.857,
+      "sentRecent": 0,
+      "sentBaseline": 0.095,
+      "sentShift": -0.095,
+      "retRecent": -0.006,
+      "excessRecent": -0.0038,
+      "ret30": -0.0592,
+      "score": 0,
+      "lastPrice": 121.97,
+      "lastPriceDate": "2026-11-09",
+      "priceBars": 510
     },
     {
       "ticker": "D",
@@ -2299,26 +2345,6 @@
       "lastPrice": 124.05,
       "lastPriceDate": "2026-11-09",
       "priceBars": 508
-    },
-    {
-      "ticker": "C",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 0,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 0,
-      "sentRecent": null,
-      "sentBaseline": 0.095,
-      "sentShift": null,
-      "retRecent": -0.006,
-      "excessRecent": -0.0038,
-      "ret30": -0.0592,
-      "score": 0,
-      "lastPrice": 121.97,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 510
     },
     {
       "ticker": "CART",
@@ -2737,40 +2763,20 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 7,
+      "mentionsRecent": 8,
       "mentionsBaseline": 33,
       "baselineRate": 7.7,
-      "spikeRatio": 0.909,
-      "sentRecent": -0.064,
+      "spikeRatio": 1.039,
+      "sentRecent": -0.055,
       "sentBaseline": -0.084,
-      "sentShift": 0.019,
+      "sentShift": 0.029,
       "retRecent": -0.0643,
       "excessRecent": -0.0621,
       "ret30": -0.2413,
-      "score": -0.134,
+      "score": -0.1202,
       "lastPrice": 136.1,
       "lastPriceDate": "2026-11-09",
       "priceBars": 515
-    },
-    {
-      "ticker": "MS",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 1.714,
-      "sentRecent": -0.15,
-      "sentBaseline": 0.069,
-      "sentShift": -0.219,
-      "retRecent": 0.0054,
-      "excessRecent": 0.0076,
-      "ret30": -0.0154,
-      "score": -0.1648,
-      "lastPrice": 187.1,
-      "lastPriceDate": "2026-11-09",
-      "priceBars": 510
     },
     {
       "ticker": "CRDO",
@@ -2898,6 +2904,28 @@
   ],
   "readingQueue": [
     {
+      "id": "1fed3433495aae6d01b221d795b47a0e5b4cdd825e1c24f9fb7d3f8e5f4a8dec",
+      "title": "How Micron Stock Can Soar 148% and End Its Slump",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/55b989f2-5d6a-398c-b346-62d37789e968/how-micron-stock-can-soar.html?.tsrc=rss",
+      "publishedAt": "2026-11-10T18:31:00.000Z",
+      "ticker": "MU",
+      "tickers": [
+        "MU"
+      ],
+      "flag": "LONG",
+      "score": 81.2,
+      "reasons": [
+        "MU: Long candidate",
+        "stock moving against the research",
+        "14 mentions this week (3.8x baseline)"
+      ],
+      "rationale": "Cites an analyst who sees room for the shares to rally sharply from their recent decline.",
+      "sentiment": 0.6,
+      "confidence": 0.7
+    },
+    {
       "id": "e97e8a2d37d6cfd346284b793c6731f39a76d6dfd80a2b32b7ff7bd304053d37",
       "title": "The Case for Micron Stock Leaping 140%",
       "source": "Yahoo Finance — GOOGL",
@@ -2909,15 +2937,39 @@
         "MU"
       ],
       "flag": "LONG",
-      "score": 80.7,
+      "score": 81.2,
       "reasons": [
         "MU: Long candidate",
         "stock moving against the research",
-        "13 mentions this week (3.5x baseline)"
+        "14 mentions this week (3.8x baseline)"
       ],
       "rationale": "Summary says an analyst believes Micron shares can rebound sharply after a recent monthly decline.",
       "sentiment": 0.6,
       "confidence": 0.7
+    },
+    {
+      "id": "ac5b867f2b32ed0fc53a9878efdf58595ccfeefd73bf4107d76ec0cfe9ade963",
+      "title": "Hims & Hers Drops 18% as Q3 Loss and Profit Outlook Cut Disappoint; Novo Nordisk Slides 2%, Eli Lilly Holds Steady",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/10/hims-hers-drops-18-as-q3-loss-and-profit-outlook-cut-disappoint-novo-nordisk-slides-2-eli-lilly-holds-steady/?.tsrc=rss",
+      "publishedAt": "2026-11-10T18:52:32.000Z",
+      "ticker": "NVO",
+      "tickers": [
+        "NVO",
+        "HIMS",
+        "LLY"
+      ],
+      "flag": "LONG",
+      "score": 79,
+      "reasons": [
+        "NVO: Long candidate",
+        "sentiment shift +0.60",
+        "5 mentions this week (10.0x baseline)"
+      ],
+      "rationale": "Mentioned only in the headline as sliding 2% alongside the Hims selloff, with no view offered.",
+      "sentiment": 0,
+      "confidence": 0.6
     },
     {
       "id": "5cde87827b65770fe58f5c17506c73c370c00d89711c47cea8a1801776f7ff37",
@@ -2932,39 +2984,13 @@
         "AMD"
       ],
       "flag": "LONG",
-      "score": 74,
+      "score": 74.5,
       "reasons": [
         "MU: Long candidate",
         "stock moving against the research",
-        "13 mentions this week (3.5x baseline)"
+        "14 mentions this week (3.8x baseline)"
       ],
       "rationale": "Named only as a stock an ETF added to its holdings, with no view from the author on its prospects.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "c18d012a837f810509f4dbee1551f327a71467436af721977453b239516a81bf",
-      "title": "Micron, FormFactor, Amkor, Teradyne, and Nvidia shares skyrocket, what you need to know",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/micron-formfactor-amkor-teradyne-nvidia-024536276.html?.tsrc=rss",
-      "publishedAt": "2026-11-10T02:45:36.000Z",
-      "ticker": "MU",
-      "tickers": [
-        "MU",
-        "NVDA",
-        "FORM",
-        "AMKR",
-        "TER"
-      ],
-      "flag": "LONG",
-      "score": 74,
-      "reasons": [
-        "MU: Long candidate",
-        "stock moving against the research",
-        "13 mentions this week (3.5x baseline)"
-      ],
-      "rationale": "Named in the headline as having jumped in the session; the item expresses no view on the company itself.",
       "sentiment": 0,
       "confidence": 0.6
     },
@@ -3186,8 +3212,8 @@
       "score": 54.5,
       "reasons": [
         "NVO: Long candidate",
-        "sentiment shift +0.67",
-        "4 mentions this week (8.0x baseline)"
+        "sentiment shift +0.60",
+        "5 mentions this week (10.0x baseline)"
       ],
       "rationale": "Says the latest earnings report gave Novo a much-needed boost, implying a positive view of its recovery.",
       "sentiment": 0.4,
@@ -3209,8 +3235,8 @@
       "score": 52,
       "reasons": [
         "NVO: Long candidate",
-        "sentiment shift +0.67",
-        "4 mentions this week (8.0x baseline)"
+        "sentiment shift +0.60",
+        "5 mentions this week (10.0x baseline)"
       ],
       "rationale": "Mentioned only as a competitor in the GLP-1 battle, with no stated view on the stock.",
       "sentiment": 0,
@@ -3261,6 +3287,28 @@
       "rationale": "Named as an alternative chip architecture competitor to Nvidia, without a stated view on its stock.",
       "sentiment": 0,
       "confidence": 0.6
+    },
+    {
+      "id": "24a3429acf4fbb20cb2d23f07d1d4a4dc867dedc31cebc8010155223deb35e75",
+      "title": "IREN Sinks 10% as Analyst Target Cuts Pile Up After Microsoft Delay; Cipher Digital Falls 6%, TeraWulf Slides 2%",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/10/iren-sinks-10-as-analyst-target-cuts-pile-up-after-microsoft-delay-cipher-digital-falls-6-terawulf-slides-2/?.tsrc=rss",
+      "publishedAt": "2026-11-10T18:02:24.000Z",
+      "ticker": "IREN",
+      "tickers": [
+        "IREN"
+      ],
+      "flag": "WATCH",
+      "score": 49.7,
+      "reasons": [
+        "IREN: Watch",
+        "9 mentions this week (18.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Analysts are cutting price targets after a delayed Microsoft buildout and a funding gap, worsened by hot inflation data.",
+      "sentiment": -0.6,
+      "confidence": 0.7
     },
     {
       "id": "d25869641a5bc3ee471fde6401b62caecd23ddd51e9a625f3851a12e5a57dae7",
@@ -3329,6 +3377,50 @@
       "confidence": 0.6
     },
     {
+      "id": "1772a177bbe0947e345812ba9ffc0446e02cc309f2637ccbd440b3dc09bde10c",
+      "title": "AMD Stock Just Got Massive Upgrade From Oppenheimer",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-just-got-massive-194039394.html?.tsrc=rss",
+      "publishedAt": "2026-11-10T19:40:39.000Z",
+      "ticker": "AMD",
+      "tickers": [
+        "AMD"
+      ],
+      "flag": "WATCH",
+      "score": 47.2,
+      "reasons": [
+        "AMD: Watch",
+        "43 mentions this week (3.6x baseline)",
+        "bullish view, confidence 0.80"
+      ],
+      "rationale": "Headline says Oppenheimer upgraded the stock and raised its price target on expected strong cloud spending.",
+      "sentiment": 0.7,
+      "confidence": 0.8
+    },
+    {
+      "id": "3c803024d101abcb626f99b9164e0a221b07e0efb44f9ad3c5190275acd1244b",
+      "title": "Uber Joins with Amazon on Food Delivery: A Major Growth Catalyst?",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/uber-joins-amazon-food-delivery-181000408.html?.tsrc=rss",
+      "publishedAt": "2026-11-10T18:10:00.000Z",
+      "ticker": "UBER",
+      "tickers": [
+        "UBER"
+      ],
+      "flag": "WATCH",
+      "score": 46.8,
+      "reasons": [
+        "UBER: Watch",
+        "10 mentions this week (20.0x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Describes the Amazon Prime partnership as expanding Uber Eats' reach and creating new growth opportunities.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
       "id": "dae529c6ee87e6079fb1f509ce380f9cdc27475052a01656fb12d982baa8a499",
       "title": "Sandisk Stock Has Collapsed by 65%, but It's Still Undergoing an 8-for-1 Stock Split on Nov. 19. Here's Why I'm Still Not Buying Shares Amidst This Nasdaq Market Slump.",
       "source": "Yahoo Finance — NVDA",
@@ -3372,93 +3464,6 @@
       "rationale": "Named only in a list of U.S. stocks Securitize is tokenizing on Solana, with no view expressed.",
       "sentiment": 0,
       "confidence": 0.6
-    },
-    {
-      "id": "5db2a1c31cf0aa51d59be47694437e4482e375e7ddf7b0dcda184ba030101ee7",
-      "title": "What could NVIDIA’s latest risks mean for the AI chip ecosystem?",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/could-nvidia-latest-risks-mean-124641710.html?.tsrc=rss",
-      "publishedAt": "2026-11-10T12:46:41.000Z",
-      "ticker": "NVDA",
-      "tickers": [
-        "NVDA"
-      ],
-      "flag": "WATCH",
-      "score": 43.4,
-      "reasons": [
-        "NVDA: Watch",
-        "55 mentions this week (3.0x baseline)"
-      ],
-      "rationale": "Reports that Bank of America, Mizuho and Raymond James keep bullish ratings despite near-term governance uncertainty, citing strong long-term fundamentals.",
-      "sentiment": 0.5,
-      "confidence": 0.8
-    },
-    {
-      "id": "86fe48c664344bd835d7f90f2c96d3372511ef2e64010dbc54e8bfca4c383d48",
-      "title": "Nuclear Reactor Firm Oklo Beats Earnings Expectations. That’s Not Why the Stock Is Up.",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
-      "publishedAt": "2026-11-06T23:07:00.000Z",
-      "ticker": "OKLO",
-      "tickers": [
-        "OKLO"
-      ],
-      "flag": "LONG",
-      "score": 42.6,
-      "reasons": [
-        "OKLO: Long candidate",
-        "3 mentions this week (6.0x baseline)",
-        "sentiment shift +0.45"
-      ],
-      "rationale": "Describes Oklo as making progress on its Aurora reactors and securing key deals, implying a positive view of the company.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "e0c1bc56ef951929e06b86f2f8358a9fcbb2a8a18172394d93614be2ee62209a",
-      "title": "Cloudflare Tumbled Into Earnings: Why Goldman Sachs Sees 56% Upside",
-      "source": "Yahoo Finance — GS",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/cloudflare-tumbled-into-earnings-why-goldman-sachs-sees-56-upside?ref=yahoofinance&tlnk=yf-261109-97qc2m8w&.tsrc=rss",
-      "publishedAt": "2026-11-09T21:21:22.000Z",
-      "ticker": "NET",
-      "tickers": [
-        "NET"
-      ],
-      "flag": "WATCH",
-      "score": 42.5,
-      "reasons": [
-        "NET: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Headline cites a Goldman Sachs view of 56% upside after a 32% drop, implying the analyst is bullish on the stock. Item text is truncated.",
-      "sentiment": 0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "d24355fa929d0832e399aea40f87119ac1cb35a4a8de2bac9b9122811a213969",
-      "title": "Hims' Roller Coaster Ride Continues With Surprise Losses, Light Sales And A Guidance Cut",
-      "source": "Yahoo Finance — LLY",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/m/be02fc16-549b-3590-ad14-e9b76fa34b69/hims%27-roller-coaster-ride.html?.tsrc=rss",
-      "publishedAt": "2026-11-09T21:17:52.000Z",
-      "ticker": "HIMS",
-      "tickers": [
-        "HIMS"
-      ],
-      "flag": "WATCH",
-      "score": 42.3,
-      "reasons": [
-        "HIMS: Watch",
-        "7 mentions this week (14.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports a surprise loss and weak annual guidance, with the stock falling after the announcement.",
-      "sentiment": -0.4,
-      "confidence": 0.7
     }
   ]
 }
