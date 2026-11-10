@@ -60,7 +60,7 @@ One `/api/feed` response merges:
 | Source | How it gets in |
 |--------|----------------|
 | **RSS** | Substacks, blogs, YouTube channels in `api/feed.js` |
-| **Spotify** | Saved-show episodes in a forever git cache (shallow refresh + deep backfill) |
+| **Spotify** | Recent saved-show episodes, plus ones you filed (sticky; not full archives) |
 | **X bookmarks** | Synced from Mac via birdclaw → `data/bookmarks.json` |
 | **Fund letters** | Config in `data/fund-letters-config.json`; daily cache, not scraped on each request |
 | **Manual links** | One-off URLs you add in the UI (articles, videos, podcasts) |
@@ -139,7 +139,7 @@ Folders, tags, mailbox state, highlights, and seen/fade markers sync through `/a
 3. Remove **To-read** (while filed) → `POST /api/save` writes `kb/inbox/<id>.json` (folders, tags, highlights; X/YouTube enriched with full text/transcript when possible).
 4. `GET /api/library` / `kb/index.json` expose a searchable index.
 
-Spotify follows the same funnel (file + drop To-read → `kb/inbox/` as `podcast`). `npm run sync:spotify` deep-crawls show history into the forever cache; the feed then shows the recent window plus any older episodes you already filed (folder assignments reconnect via stable episode URLs). In-app “Ask the KB” is deferred; querying with Claude/Cursor over the repo is the intended path for now.
+Spotify follows the same funnel (file + drop To-read → `kb/inbox/` as `podcast`). Filed episodes stay in the sticky cache forever; unfiled ones age out of the recent window. In-app “Ask the KB” is deferred; querying with Claude/Cursor over the repo is the intended path for now.
 
 ---
 
@@ -147,7 +147,7 @@ Spotify follows the same funnel (file + drop To-read → `kb/inbox/` as `podcast
 
 - Feed edge-cached (~5 minutes); snapshot loads instantly, then background sync.
 - **↻ Sync** / `?fresh=1` forces a live rebuild when allowed.
-- Spotify serves a forever-accumulated cache so serverless cold starts do not hammer rate-limited APIs.
+- Spotify serves a sticky cache (recent ∪ filed) so serverless cold starts do not hammer rate-limited APIs.
 - Morning cron warms the feed; bookmarks and fund letters refresh on their own schedules.
 
 ---

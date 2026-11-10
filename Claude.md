@@ -146,7 +146,7 @@ kb/index.json            generated app read model
 
 **Enrichment on save (`lib/kb-enrich.js`):** X/YouTube body text into inbox JSON only.
 
-Spotify: To-read yes; KB yes once filed without To-read (`podcast`). Forever episode cache via `data/spotify-cache.json`; deep recover with `npm run sync:spotify`.
+Spotify: To-read yes; KB yes once filed without To-read (`podcast`). Sticky cache = recent ∪ filed episodes (`data/spotify-cache.json`); refresh with `npm run sync:spotify`.
 
 **localStorage:** `markets_kb_saved` — ids already saved this browser.
 

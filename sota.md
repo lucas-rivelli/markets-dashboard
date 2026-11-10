@@ -36,7 +36,7 @@ api/manual-link.js  → POST /api/manual-link — add one-off links from the UI
 api/writing.js      → GET/POST/DELETE /api/writing — create and edit personal writings
 api/cron.js         → GET /api/cron — Vercel cron, 7 AM ET daily
 lib/aggregate.js    → fetches RSS feeds, merges Spotify + bookmarks + saved links + writings
-lib/spotify.js      → Spotify Web API (saved shows → forever cache; shallow 7d refresh + deep backfill)
+lib/spotify.js      → Spotify Web API (saved shows → sticky cache: recent ∪ filed)
 lib/bookmarks.js    → reads data/bookmarks.json (GitHub at runtime in prod)
 lib/kb-index.js     → builds the Library read model from kb files
 lib/writings.js     → reads/writes data/writings.json (GitHub at runtime in prod)
@@ -71,7 +71,7 @@ Categories: `Substack | YouTube | Blog | Macro/Official | Spotify | Bookmarks | 
   Vercel Hobby cron is daily backup only. Edge cache on `/api/feed` is 5 minutes.
 - Local dev writes `data/feed-cache.json` and refreshes in the background every 5 minutes.
 - Frontend shows the last feed snapshot instantly, then syncs in the background.
-- Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API. Episodes **accumulate forever** by link (live refresh only merges the recent window; never drops older cached episodes). The feed surfaces the recent window **plus** any older episodes already filed in workspace folders (so past saves reappear without shipping the entire archive into `/api/feed`). Recover full show history with `npm run sync:spotify` (deep crawl, checkpoints per show). Ordinary `/api/feed` builds always serve the persisted cache; live Spotify refresh only runs on daily cron / `?fresh=1` once the 6h TTL has elapsed. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
+- Spotify rate-limits hard in dev mode (HTTP 429 with multi-hour penalties). `lib/spotify.js` persists its episode cache **and** the rate-limit cooldown to `data/spotify-cache.json` (via the GitHub Contents API in production) so cold serverless instances never re-burst the API. The sticky set is **recent window ∪ episodes you filed** (folder/highlight) — not full show archives. Live refresh merges the recent window by link, then prunes unfiled aged-out episodes. `npm run sync:spotify` does the same locally. Ordinary `/api/feed` builds always serve the persisted cache; live Spotify refresh only runs on daily cron / `?fresh=1` once the 6h TTL has elapsed. Cache-only commits skip Vercel deploys (`scripts/vercel-ignore.sh`).
 - X bookmarks sync via external cron → `/api/trigger-bookmarks` → GitHub Actions. Production reads `data/bookmarks.json` from GitHub at runtime; bookmark-only commits skip Vercel deploys. The trigger skips when a sync is already running **or** one ran within the last hour (override with `BOOKMARKS_SYNC_MIN_INTERVAL_MS`; hard-stop with `BOOKMARKS_SYNC_PAUSED=true`). Prefer hourly cron — a 5-minute cadence spam-fails and emails.
 - Keep the stack vanilla: no build step, no framework. `index.html` is self-contained.
 

@@ -1,23 +1,19 @@
 #!/usr/bin/env node
 /**
- * Deep-backfill Spotify episodes into data/spotify-cache.json (forever cache).
+ * Refresh Spotify's sticky cache: recent window ∪ episodes you filed.
  *
- * Recovers past episodes that fell out of the shallow NEW_EPISODE_DAYS window.
- * Filed folder/tag/status keys reconnect automatically (stable id = hash of link).
+ * Does NOT pull full show archives. Unfiled aged-out episodes are pruned.
  *
- * Usage:
- *   npm run sync:spotify
- *   npm run sync:spotify -- --force   # ignore backfill_complete and crawl again
+ * Usage: npm run sync:spotify
  */
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const ENV_LOCAL = path.join(ROOT, ".env.local");
 
-function loadEnvLocal() {
-  if (!fs.existsSync(ENV_LOCAL)) return;
-  for (const line of fs.readFileSync(ENV_LOCAL, "utf8").split("\n")) {
+function loadEnvFile(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  for (const line of fs.readFileSync(filePath, "utf8").split("\n")) {
     const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/);
     if (!m) continue;
     const key = m[1];
@@ -33,61 +29,29 @@ function loadEnvLocal() {
 }
 
 async function main() {
-  loadEnvLocal();
-  // Prefer repo-root .env.local when running from a worktree.
-  const parentEnv = path.join(ROOT, "..", ".env.local");
-  if (!fs.existsSync(ENV_LOCAL) && fs.existsSync(parentEnv)) {
-    for (const line of fs.readFileSync(parentEnv, "utf8").split("\n")) {
-      const m = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/);
-      if (!m) continue;
-      const key = m[1];
-      let val = m[2].trim();
-      if (
-        (val.startsWith('"') && val.endsWith('"')) ||
-        (val.startsWith("'") && val.endsWith("'"))
-      ) {
-        val = val.slice(1, -1);
-      }
-      if (process.env[key] === undefined) process.env[key] = val;
-    }
-  }
+  loadEnvFile(path.join(ROOT, ".env.local"));
+  loadEnvFile(path.join(ROOT, "..", ".env.local"));
 
-  const force = process.argv.includes("--force");
-  const { backfillSpotifyCache, SPOTIFY_CACHE_FILE } = require("../lib/spotify");
+  const { syncStickySpotifyCache, SPOTIFY_CACHE_FILE } = require("../lib/spotify");
 
-  console.error("Deep-backfilling Spotify episodes into %s …", SPOTIFY_CACHE_FILE);
-  const result = await backfillSpotifyCache({
-    force,
-    onShow: ({ show, added, total, remaining }) => {
+  console.error("Refreshing sticky Spotify cache (%s) …", SPOTIFY_CACHE_FILE);
+  const result = await syncStickySpotifyCache({
+    onProgress: ({ fetched, sticky, filedKept }) => {
       console.error(
-        "  ✓ %s (+%d eps) · cache %d · %d shows left",
-        show,
-        added,
-        total,
-        remaining
+        "  fetched %d recent · sticky cache %d (of which %d filed)",
+        fetched,
+        sticky,
+        filedKept
       );
     },
   });
 
   if (!result.ok) {
-    console.error("Spotify backfill failed: %s", result.error || "unknown");
+    console.error("Spotify sync failed: %s", result.error || "unknown");
     process.exit(1);
   }
 
-  if (result.skipped) {
-    console.error("%s", result.skipped);
-  }
-
-  console.error(
-    "Done. %d episodes in cache · backfill_complete=%s · processed %d show(s)",
-    result.items.length,
-    result.backfillComplete,
-    result.processed
-  );
-  console.error(
-    "Commit & push %s so production serves the recovered episodes.",
-    SPOTIFY_CACHE_FILE
-  );
+  console.error("Done. %d episodes in sticky cache.", result.items.length);
 }
 
 main().catch((err) => {
