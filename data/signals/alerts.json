@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "7ab3e9149fda356d",
+      "ticker": "AMAT",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-10T13:16:28.636Z",
+      "firedDate": "2026-11-10",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0,
+        "sentShift": -0.594,
+        "retRecent": -0.0298,
+        "excessRecent": -0.0276,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/9a37b2c1-4285-3079-a1ca-57e262925bd6/s%26p-500%3A-just-three-of-nov..html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/capital-group-dividend-value-cgdv-110429760.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/31/data-center-spending-will-surge-to-usd1-4-trillion-in-2027-here-s-1-stock-to-buy-with-usd500-to-capitalize-on-this-massive-opportunity/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "412c5fe63ea78f41",
+      "ticker": "APP",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-10T13:16:28.633Z",
+      "firedDate": "2026-11-10",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.15,
+        "sentShift": -0.35,
+        "retRecent": 0.67,
+        "excessRecent": 0.6722,
+        "score": 0.2079
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/first-trust-nasdaq-100-tech-110615305.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/08/applovin-shares-surge-revenue-soar-buy-stock/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "fb2fcadaf8cae21c",
+      "ticker": "APP",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-10T13:16:28.630Z",
+      "firedDate": "2026-11-10",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.15,
+        "sentShift": -0.35,
+        "retRecent": 0.67,
+        "excessRecent": 0.6722,
+        "score": 0.2079
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/first-trust-nasdaq-100-tech-110615305.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/08/applovin-shares-surge-revenue-soar-buy-stock/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "894fe0572130b5f4",
       "ticker": "SNAP",
       "rule": "BEARISH_SHIFT",
