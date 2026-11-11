@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "10876744f23049ac",
+      "ticker": "SMCI",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-11T07:38:46.953Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 8,
+        "spikeRatio": 0.952,
+        "sentRecent": -0.081,
+        "sentShift": -0.345,
+        "retRecent": -0.0611,
+        "excessRecent": -0.0391,
+        "score": -0.1769
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/2-scandals-1-destination-why-225122827.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/supermicro-announces-participation-upcoming-investor-210500597.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-stocks-fall-192505738.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0ab83e3c23795c18",
+      "ticker": "CEG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-11T07:38:46.950Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 11,
+        "spikeRatio": 2.619,
+        "sentRecent": 0.286,
+        "sentShift": 0.003,
+        "retRecent": 0.0897,
+        "excessRecent": 0.1117,
+        "score": 0.7118
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/ceg-stock-is-on-track-to-reverse-last-week-s-losses-here-s-why-this-analyst-sees-an-upside-of-29/cNGDf4dR9Jp?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-ceg-stock-cools-021550597.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/constellation-q3-earnings-call-highlights-185900032.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "c3a061d8522a248f",
       "ticker": "SNAP",
       "rule": "BEARISH_SHIFT",

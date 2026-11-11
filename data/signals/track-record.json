@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-11T01:02:58.372Z",
+  "generatedAt": "2026-11-11T07:38:48.925Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
-  "replayTo": "2026-11-09",
+  "replayTo": "2026-11-10",
   "windowDays": 37,
   "events": [
     {
@@ -842,7 +842,7 @@
       "ticker": "AMD",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": 0.07057605668071676,
       "fwd20": null
     },
     {
@@ -850,7 +850,7 @@
       "ticker": "TSM",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.014680754129343554,
       "fwd20": null
     },
     {
@@ -858,7 +858,7 @@
       "ticker": "CRCL",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.1302614013586041,
       "fwd20": null
     },
     {
@@ -866,7 +866,7 @@
       "ticker": "CRCL",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.1302614013586041,
       "fwd20": null
     },
     {
@@ -874,7 +874,7 @@
       "ticker": "DELL",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.17537127299598976,
       "fwd20": null
     },
     {
@@ -882,7 +882,7 @@
       "ticker": "SMCI",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.108813600243574,
       "fwd20": null
     },
     {
@@ -890,7 +890,7 @@
       "ticker": "SOFI",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.01797951132092168,
       "fwd20": null
     },
     {
@@ -898,7 +898,7 @@
       "ticker": "F",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": 0.0034355625000235257,
       "fwd20": null
     },
     {
@@ -1244,12 +1244,108 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "VST",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "SOFI",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "CRWV",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "CRWV",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "ETN",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "APP",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "APP",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "INTC",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "MS",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "APO",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "AMAT",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-10",
+      "ticker": "SNAP",
+      "rule": "BEARISH_SHIFT",
+      "flag": "SHORT",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 82,
+      "events": 84,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -1257,7 +1353,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 27,
+      "events": 30,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -1265,7 +1361,7 @@
     },
     {
       "name": "BEARISH_SHIFT",
-      "events": 24,
+      "events": 28,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -1273,7 +1369,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 19,
+      "events": 22,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -1291,7 +1387,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 82,
+      "events": 84,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -1299,7 +1395,7 @@
     },
     {
       "name": "LONG",
-      "events": 46,
+      "events": 52,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.11541324503007544,
@@ -1307,7 +1403,7 @@
     },
     {
       "name": "SHORT",
-      "events": 27,
+      "events": 31,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
