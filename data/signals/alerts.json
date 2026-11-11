@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "394314ce5bed70bc",
+      "ticker": "GEV",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-11T15:51:47.913Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.269,
+        "sentShift": -0.331,
+        "retRecent": -0.043,
+        "excessRecent": -0.0209,
+        "score": 0.2958
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/0a60be01-c44e-3261-8966-1a6d0f9b9328/ge-vernova-could-withstand-a.html?.tsrc=rss",
+        "https://www.fool.com/coverage/better-buy/2026/11/05/ge-vernova-vs-nextera-energy-which-industrials-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/24/constellation-vistra-and-ge-vernova-ranked-from-wo/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "4c0f7315c1453749",
+      "ticker": "CRWV",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-11T15:51:47.910Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 2.967,
+        "sentRecent": 0.328,
+        "sentShift": 0.286,
+        "retRecent": 0.0064,
+        "excessRecent": 0.0284,
+        "score": 0.7543
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/2199baae-3d36-344b-b4d8-76ff24b7f5e9/stock-market-today%3A-nasdaq.html?.tsrc=rss",
+        "https://www.tikr.com/blog/amd-rises-4-as-coreweaves-raised-outlook-revives-the-ai-chip-trade?ref=yahoofinance&tlnk=yf-261111-c9f92pr4&.tsrc=rss",
+        "https://finance.yahoo.com/m/ad611b90-19b3-3483-8e63-8cdb59726707/why-coreweave-earnings%2C.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c89b495cd39fdda2",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-11T15:51:47.906Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 34,
+        "spikeRatio": 2.175,
+        "sentRecent": 0.346,
+        "sentShift": 0.084,
+        "retRecent": 0.0541,
+        "excessRecent": 0.0761,
+        "score": 1.229
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/amd-rises-4-as-coreweaves-raised-outlook-revives-the-ai-chip-trade?ref=yahoofinance&tlnk=yf-261111-c9f92pr4&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/1-unstoppable-stock-split-stock-to-buy-before-it-j/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/server-cpu-strength-persists-amd-132222608.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "10876744f23049ac",
       "ticker": "SMCI",
       "rule": "BEARISH_SHIFT",
