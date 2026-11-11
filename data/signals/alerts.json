@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "64a9917b361330ef",
+      "ticker": "ANET",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-11T22:30:37.710Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.607,
+        "sentShift": 0.307,
+        "retRecent": 0.0366,
+        "excessRecent": 0.0587,
+        "score": 0.6665
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-buy-anet-190000623.html?.tsrc=rss",
+        "https://www.thestreet.com/investing/stocks/arista-networks-stock-gets-fresh-backing-from-jim-cramer-and-wall-street-anet?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/arista-networks-inc-reports-third-210500149.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "15681dcb64cba4aa",
+      "ticker": "MU",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-11T22:30:37.707Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 15,
+        "spikeRatio": 3.571,
+        "sentRecent": 0.334,
+        "sentShift": -0.177,
+        "retRecent": -0.0882,
+        "excessRecent": -0.0661,
+        "score": 0.9261
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/11/jim-cramer-says-micron-isnt-going-away-heres-why-he-picks-it-over-sandisk/?.tsrc=rss",
+        "https://www.tikr.com/blog/micron-stock-fell-30-in-a-week-bernstein-says-it-could-nearly-double?ref=yahoofinance&tlnk=yf-261111-vf93wfjf&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-buy-anet-190000623.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "4f09cfe13927a223",
+      "ticker": "TSM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-11T22:30:37.703Z",
+      "firedDate": "2026-11-11",
+      "metrics": {
+        "mentionsRecent": 11,
+        "spikeRatio": 2.05,
+        "sentRecent": 0.384,
+        "sentShift": -0.046,
+        "retRecent": 0.0018,
+        "excessRecent": 0.0239,
+        "score": 0.9547
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-buy-anet-190000623.html?.tsrc=rss",
+        "https://www.tikr.com/blog/david-tepper-bought-coreweave-before-it-fell-51-is-he-wrong-or-early?ref=yahoofinance&tlnk=yf-261111-hj589vr2&.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1101547/tsmc-record-sales-strengthen-wedbush-s-bullish-outlook-1101547.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "394314ce5bed70bc",
       "ticker": "GEV",
       "rule": "BEARISH_SHIFT",
