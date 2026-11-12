@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "a3953f4476db5d67",
+      "ticker": "GOOG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T11:42:19.246Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.571,
+        "sentRecent": 0,
+        "sentShift": 0,
+        "retRecent": 0.0316,
+        "excessRecent": -0.005,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/etfs-bought-83-8-million-110149451.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/market-chatter-alphabet-begins-marketing-093053494.html?.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1101606/alphabet-explores-first-hong-kong-and-singapore-dollar-bond-sales-worth-up-to-3-billion-1101606.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b49e1b02784d83af",
       "ticker": "LCID",
       "rule": "DIVERGENCE_SHORT",
