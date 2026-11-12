@@ -2,6 +2,650 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "b49e1b02784d83af",
+      "ticker": "LCID",
+      "rule": "DIVERGENCE_SHORT",
+      "ruleLabel": "Bearish divergence (research down, price leading)",
+      "flag": "SHORT",
+      "firedAt": "2026-11-12T03:18:02.310Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": -0.4,
+        "sentShift": 0.1,
+        "retRecent": 0.2315,
+        "excessRecent": 0.195,
+        "score": -0.4394
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/09/why-lucid-stock-fell-25-in-october/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/09/tesla-rises-5-despite-musks-cybertruck-refund-warning-lucid-jumps-8-ahead-of-earnings-rivian-climbs-2/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/10/31/betting-on-archer-aviation-or-joby-aviation-being/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "97d46e327be9da82",
+      "ticker": "SMCI",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-12T03:18:02.308Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 6,
+        "spikeRatio": 0.677,
+        "sentRecent": -0.183,
+        "sentShift": -0.449,
+        "retRecent": 0.1237,
+        "excessRecent": 0.0871,
+        "score": -0.3564
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/2-scandals-1-destination-why-225122827.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/supermicro-announces-participation-upcoming-investor-210500597.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-stocks-fall-192505738.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "ad97e57b3ff881aa",
+      "ticker": "SNDK",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.307Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 10,
+        "sentRecent": -0.169,
+        "sentShift": 0.281,
+        "retRecent": 0.2124,
+        "excessRecent": 0.1758,
+        "score": -0.3024
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/10/sandisk-stock-has-collapsed-65-and-is-undergoing-a/?.tsrc=rss",
+        "https://finance.yahoo.com/m/9a37b2c1-4285-3079-a1ca-57e262925bd6/s%26p-500%3A-just-three-of-nov..html?.tsrc=rss",
+        "https://finance.yahoo.com/m/283e1bd9-349e-390b-a32b-b4ed9a9034f3/dow-jones-futures-loom-with.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "fa8ef2a9ee6744a6",
+      "ticker": "TSLA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.305Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 29,
+        "spikeRatio": 2.107,
+        "sentRecent": 0.017,
+        "sentShift": -0.259,
+        "retRecent": 0.1372,
+        "excessRecent": 0.1006,
+        "score": 0.057
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/tesla-tsla-forms-special-committee-181131688.html?.tsrc=rss",
+        "https://beincrypto.com/tesla-crystal-sun-solar-factory/?.tsrc=rss",
+        "https://www.tikr.com/blog/tesla-bull-predicts-democrats-will-block-autonomy-a-bigger-risk-than-data-centers?ref=yahoofinance&tlnk=yf-261110-qjgp8mrq&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "788913a7d2d3a3e9",
+      "ticker": "NVDA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.303Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 59,
+        "spikeRatio": 2.69,
+        "sentRecent": 0.014,
+        "sentShift": -0.188,
+        "retRecent": -0.0433,
+        "excessRecent": -0.0799,
+        "score": 0.0589
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-heat-intensifies-taiwan-014454440.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/11/meet-ian-buck-the-nvidia-executive-insiders-believe-is-the-one-man-who-can-replace-jensen-huang/?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/nasdaq-100-futures-drop-as-reports-relating-to-jensen-huang-s-ousting/cNGzQslR997?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "a02f183af990c380",
+      "ticker": "OKLO",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.301Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.045,
+        "sentShift": 0.445,
+        "retRecent": 0.3469,
+        "excessRecent": 0.3103,
+        "score": 0.0624
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/nuscale-just-hit-a-new-52-week-low-after-losing-26-in-a-week-is-the-selling-overdone?ref=yahoofinance&tlnk=yf-261108-fj48xrfp&.tsrc=rss",
+        "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5ae2117954094187",
+      "ticker": "OKLO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.300Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.045,
+        "sentShift": 0.445,
+        "retRecent": 0.3469,
+        "excessRecent": 0.3103,
+        "score": 0.0624
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/nuscale-just-hit-a-new-52-week-low-after-losing-26-in-a-week-is-the-selling-overdone?ref=yahoofinance&tlnk=yf-261108-fj48xrfp&.tsrc=rss",
+        "https://finance.yahoo.com/m/f6bb533b-3d0c-39bc-adfc-c5131b00ffb9/nuclear-reactor-firm-oklo.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/06/oklo-jumps-19-on-narrower-than-expected-loss-as-nuclear-stocks-rebound-nuscale-power-surges-15-nano-nuclear-energy-jumps-9/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "52315b44e2851f7f",
+      "ticker": "NVO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.298Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 3.214,
+        "sentRecent": 0.126,
+        "sentShift": 0.094,
+        "retRecent": 0.0196,
+        "excessRecent": -0.017,
+        "score": 0.1751
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/10/hims-hers-drops-18-as-q3-loss-and-profit-outlook-cut-disappoint-novo-nordisk-slides-2-eli-lilly-holds-steady/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/novo-nordisk-just-delivered-great-news-for-investors-is-a-comeback-finally-underway/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/forget-lilly-and-novo-pfizer-is-planning-a-wave-of/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "216f1029476e72a4",
+      "ticker": "GS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.296Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 2.967,
+        "sentRecent": 0.084,
+        "sentShift": -0.076,
+        "retRecent": 0.0666,
+        "excessRecent": 0.03,
+        "score": 0.1943
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/goldman-sachs-gs-sees-strong-191611905.html?.tsrc=rss",
+        "https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants?.tsrc=rss",
+        "https://finance.yahoo.com/markets/crypto/articles/goldman-citi-join-global-banks-172846900.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f07ba52d8ca8a834",
+      "ticker": "HIMS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.295Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 18,
+        "sentRecent": 0.089,
+        "sentShift": null,
+        "retRecent": -0.1351,
+        "excessRecent": -0.1717,
+        "score": 0.206
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/10/hims-hers-drops-18-as-q3-loss-and-profit-outlook-cut-disappoint-novo-nordisk-slides-2-eli-lilly-holds-steady/?.tsrc=rss",
+        "https://247wallst.com/investing/etf/2026/11/10/hims-hers-celebrated-its-eli-lilly-deal-then-lost-a-quarter-of-its-value-in-a-week/?.tsrc=rss",
+        "https://finance.yahoo.com/m/be02fc16-549b-3590-ad14-e9b76fa34b69/hims%27-roller-coaster-ride.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8680d55d581b4d4a",
+      "ticker": "INTC",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.293Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 0.39,
+        "sentRecent": 0.17,
+        "sentShift": 0.4,
+        "retRecent": 0.1962,
+        "excessRecent": 0.1596,
+        "score": 0.2363
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/09/not-amd-not-intel-this-is-the-artificial-intellige/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/intel-stock-intc-deep-sell-213300842.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/ai-data-centers-face-a-higher-barnot-a-haltafter-the-blue-wave-154506200.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d5a6c47f57a5bc41",
+      "ticker": "SNAP",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.292Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.228,
+        "sentShift": 0.463,
+        "retRecent": 0.0491,
+        "excessRecent": 0.0125,
+        "score": 0.25
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/11/snap-is-still-down-34-in-2026-did-today-mark-the-bottom-for-snap-stock/?.tsrc=rss",
+        "https://www.tikr.com/blog/snap-soars-7-as-deutsche-bank-says-its-subscription-story-is-better-than-the-tape-suggests?ref=yahoofinance&tlnk=yf-261111-93hc988r&.tsrc=rss",
+        "https://www.tikr.com/blog/reddit-sinks-8-as-social-ad-worries-deepen-in-tech-rout?ref=yahoofinance&tlnk=yf-261105-whpgc2qp&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b693b5fd5fb209db",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.290Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 3.061,
+        "sentRecent": 0.142,
+        "sentShift": 0.138,
+        "retRecent": 0.1148,
+        "excessRecent": 0.0782,
+        "score": 0.2552
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/11/oracle-stock-just-surged-after-coreweave-earnings-here-s-why-one-analyst-says-it-s-built-for-the-data-center-backlash/?.tsrc=rss",
+        "https://www.tikr.com/blog/the-stock-market-is-petrified-of-oracles-balance-sheet-as-microsoft-walks-away?ref=yahoofinance&tlnk=yf-261109-qqf46fhh&.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/wall-street-names-3-ai-185527055.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "be1489aaa69d3735",
+      "ticker": "UBER",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.289Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 2.679,
+        "sentRecent": 0.15,
+        "sentShift": -0.092,
+        "retRecent": 0.0276,
+        "excessRecent": -0.009,
+        "score": 0.2688
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/david-tepper-bought-coreweave-before-it-fell-51-is-he-wrong-or-early?ref=yahoofinance&tlnk=yf-261111-hj589vr2&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/uber-joins-amazon-food-delivery-181000408.html?.tsrc=rss",
+        "https://www.thestreet.com/retail/amazon-prime-uber-eats-grubhub-delivery-change?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "bd412af24b678e03",
+      "ticker": "CRCL",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.288Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.4,
+        "sentShift": 0.385,
+        "retRecent": -0.034,
+        "excessRecent": -0.0705,
+        "score": 0.2773
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/crypto/articles/crcl-expands-partnerships-globally-strengthen-180200787.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/ba206994-8f6c-3504-a0ed-5f422d7c2b0d/crypto-fears-set-the-stage.html?.tsrc=rss",
+        "https://www.tikr.com/blog/circle-stock-fell-9-in-a-day-as-the-binance-hack-hit-crypto-stocks-heres-where-the-stock-could-go-by-2030?ref=yahoofinance&tlnk=yf-261031-7pv89fh2&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8b67afec4977c4ca",
+      "ticker": "HOOD",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.286Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.224,
+        "sentRecent": 0.454,
+        "sentShift": 0.325,
+        "retRecent": 0.079,
+        "excessRecent": 0.0424,
+        "score": 0.4986
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/robinhood-rises-5-as-record-trading-day-shows-cautiously-aggressive-customers-buying-the-dip?ref=yahoofinance&tlnk=yf-261111-cv7g7pfp&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/robinhoods-latest-earnings-report-tells-you-all-yo/?.tsrc=rss",
+        "https://finance.yahoo.com/m/49f88e01-fac3-3e0c-aecf-0a10a6095093/market-selloff-hits-financial.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c920825c7d5cfab9",
+      "ticker": "NET",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.284Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.5,
+        "sentShift": 0.5,
+        "retRecent": 0.2883,
+        "excessRecent": 0.2517,
+        "score": 0.5493
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/cloudflare-tumbled-into-earnings-why-goldman-sachs-sees-56-upside?ref=yahoofinance&tlnk=yf-261109-97qc2m8w&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/too-late-buy-cloudflare-stock-1-reason-still-time/?.tsrc=rss",
+        "https://beincrypto.com/stocks-gained-during-nasdaq-selloff-thursday/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8fbdd6faf78559e4",
+      "ticker": "WRBY",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.283Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.392,
+        "sentShift": 0.392,
+        "retRecent": 0.1561,
+        "excessRecent": 0.1195,
+        "score": 0.6314
+      },
+      "topItems": [
+        "https://www.barchart.com/story/news/8765555/warby-parker-stock-could-get-a-big-boost-from-warbys-smart-glasses?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/warby-parker-wrby-prospects-looking-033428066.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/b61a0e29-c148-3da2-8c62-a956078b564c/warby-parker-sets-sights-on.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7eaba78923c7241f",
+      "ticker": "WRBY",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.281Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 8,
+        "sentRecent": 0.392,
+        "sentShift": 0.392,
+        "retRecent": 0.1561,
+        "excessRecent": 0.1195,
+        "score": 0.6314
+      },
+      "topItems": [
+        "https://www.barchart.com/story/news/8765555/warby-parker-stock-could-get-a-big-boost-from-warbys-smart-glasses?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/warby-parker-wrby-prospects-looking-033428066.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/b61a0e29-c148-3da2-8c62-a956078b564c/warby-parker-sets-sights-on.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "90a77781dfe34957",
+      "ticker": "SOFI",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.279Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.6,
+        "sentShift": 0.576,
+        "retRecent": 0.0143,
+        "excessRecent": -0.0222,
+        "score": 0.6592
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/09/sofis-earnings-shine-while-paypal-boeings-earnings-look-meh/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/08/sofi-17-million-members-prediction-20-million-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "edb444db855c3d0e",
+      "ticker": "CEG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.278Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 10,
+        "spikeRatio": 2.256,
+        "sentRecent": 0.319,
+        "sentShift": 0.053,
+        "retRecent": 0.1464,
+        "excessRecent": 0.1098,
+        "score": 0.7646
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/ceg-stock-is-on-track-to-reverse-last-week-s-losses-here-s-why-this-analyst-sees-an-upside-of-29/cNGDf4dR9Jp?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-ceg-stock-cools-021550597.html?.tsrc=rss",
+        "https://finance.yahoo.com/energy/articles/constellation-q3-earnings-call-highlights-185900032.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7d283580444849b4",
+      "ticker": "VST",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.276Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 13,
+        "spikeRatio": 4.286,
+        "sentRecent": 0.295,
+        "sentShift": 0.082,
+        "retRecent": 0.1821,
+        "excessRecent": 0.1455,
+        "score": 0.7783
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/vistra-corp-vst-attracting-investor-202121257.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/vst-q3-earnings-beat-strong-180600034.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/10/constellation-and-vistra-get-the-headlines-these-2/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f345cda948c02c9f",
+      "ticker": "CRWV",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.275Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 11,
+        "spikeRatio": 3.626,
+        "sentRecent": 0.314,
+        "sentShift": 0.273,
+        "retRecent": 0.3919,
+        "excessRecent": 0.3553,
+        "score": 0.781
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/market-rally-offers-a-much-needed-boost-for-investors-coreweave-beats-third-quarter-estimates-184231615.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/nvidia-amd-broadcom-lead-ai-183708900.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/2199baae-3d36-344b-b4d8-76ff24b7f5e9/stock-market-today%3A-nasdaq.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "ee914c37df3f9e69",
+      "ticker": "IREN",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-12T03:18:02.273Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 12.857,
+        "sentRecent": 0.347,
+        "sentShift": 0.587,
+        "retRecent": 0.1559,
+        "excessRecent": 0.1193,
+        "score": 0.7982
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/iren-stock-falls-even-jpmorgan-224457686.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/10/iren-sinks-10-as-analyst-target-cuts-pile-up-after-microsoft-delay-cipher-digital-falls-6-terawulf-slides-2/?.tsrc=rss",
+        "https://www.tikr.com/blog/jpmorgan-cut-its-iren-target-to-55-it-still-sees-148-upside?ref=yahoofinance&tlnk=yf-261110-7vwcm6xp&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f5a57aa893fc0d2b",
+      "ticker": "IREN",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.272Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 9,
+        "spikeRatio": 12.857,
+        "sentRecent": 0.347,
+        "sentShift": 0.587,
+        "retRecent": 0.1559,
+        "excessRecent": 0.1193,
+        "score": 0.7982
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/iren-stock-falls-even-jpmorgan-224457686.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/10/iren-sinks-10-as-analyst-target-cuts-pile-up-after-microsoft-delay-cipher-digital-falls-6-terawulf-slides-2/?.tsrc=rss",
+        "https://www.tikr.com/blog/jpmorgan-cut-its-iren-target-to-55-it-still-sees-148-upside?ref=yahoofinance&tlnk=yf-261110-7vwcm6xp&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b2f18eb4773fdfd1",
+      "ticker": "MU",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.270Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 15,
+        "spikeRatio": 3.571,
+        "sentRecent": 0.334,
+        "sentShift": -0.177,
+        "retRecent": 0.236,
+        "excessRecent": 0.1994,
+        "score": 0.9261
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/11/jim-cramer-says-micron-isnt-going-away-heres-why-he-picks-it-over-sandisk/?.tsrc=rss",
+        "https://www.tikr.com/blog/micron-stock-fell-30-in-a-week-bernstein-says-it-could-nearly-double?ref=yahoofinance&tlnk=yf-261111-vf93wfjf&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-buy-anet-190000623.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9e420a52a57af177",
+      "ticker": "TSM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.268Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 12,
+        "spikeRatio": 2.236,
+        "sentRecent": 0.402,
+        "sentShift": -0.028,
+        "retRecent": 0.1706,
+        "excessRecent": 0.1341,
+        "score": 1.0322
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-buy-anet-190000623.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/predict-stocks-worth-more-amazon-tsm-avgo/?.tsrc=rss",
+        "https://www.tikr.com/blog/david-tepper-bought-coreweave-before-it-fell-51-is-he-wrong-or-early?ref=yahoofinance&tlnk=yf-261111-hj589vr2&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "dbd06242e3bc011d",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T03:18:02.266Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 33,
+        "spikeRatio": 2.02,
+        "sentRecent": 0.375,
+        "sentShift": 0.129,
+        "retRecent": 0.3672,
+        "excessRecent": 0.3306,
+        "score": 1.3237
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/super-micro-computer-smci-unveils-181419192.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/why-advanced-micro-devices-stock-popped-today/?.tsrc=rss",
+        "https://www.tikr.com/blog/amd-rises-4-as-coreweaves-raised-outlook-revives-the-ai-chip-trade?ref=yahoofinance&tlnk=yf-261111-c9f92pr4&.tsrc=rss"
+      ]
+    },
+    {
       "id": "64a9917b361330ef",
       "ticker": "ANET",
       "rule": "BULLISH_SHIFT",
