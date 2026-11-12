@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "a31dba2b36f8e67b",
+      "ticker": "LCID",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T19:30:18.899Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.437,
+        "sentShift": 0.063,
+        "retRecent": 0.2315,
+        "excessRecent": 0.195,
+        "score": -0.6056
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/12/lucid-sinks-8-as-cash-burn-worries-linger-after-earnings-rivian-falls-3-tesla-holds-steady-after-musks-jensen-huang-remark/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/09/why-lucid-stock-fell-25-in-october/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/09/tesla-rises-5-despite-musks-cybertruck-refund-warning-lucid-jumps-8-ahead-of-earnings-rivian-climbs-2/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8b0c246adb0c4a32",
+      "ticker": "QCOM",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-12T19:30:18.898Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 1.071,
+        "sentRecent": -0.126,
+        "sentShift": -0.376,
+        "retRecent": 0.1264,
+        "excessRecent": 0.0899,
+        "score": -0.1751
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/articles/qualcomms-5-billion-data-center-174700875.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/qualcomm-stock-worth-buying-diversification-172700159.html?.tsrc=rss",
+        "https://www.tikr.com/blog/arga-investment-management-bought-nokia-qualcomm-alphabet?ref=yahoofinance&tlnk=yf-261106-xw2jhg8h&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "18365bfe0d55400b",
+      "ticker": "NET",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T19:30:18.896Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.293,
+        "sentShift": 0.293,
+        "retRecent": 0.2883,
+        "excessRecent": 0.2517,
+        "score": 0.4057
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/lmsys-org-launches-sglang-consortium-190000546.html?.tsrc=rss",
+        "https://www.tikr.com/blog/cloudflare-tumbled-into-earnings-why-goldman-sachs-sees-56-upside?ref=yahoofinance&tlnk=yf-261109-97qc2m8w&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/07/too-late-buy-cloudflare-stock-1-reason-still-time/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "38d2a33240f1867c",
+      "ticker": "AVGO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-12T19:30:18.893Z",
+      "firedDate": "2026-11-12",
+      "metrics": {
+        "mentionsRecent": 19,
+        "spikeRatio": 2.088,
+        "sentRecent": 0.348,
+        "sentShift": 0.048,
+        "retRecent": 0.1842,
+        "excessRecent": 0.1476,
+        "score": 1.0428
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/nvidia-succession-uncertainty-opens-door-182630689.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/broadcom-stocks-climb-4-54-175645897.html?.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1101701/amd-and-broadcom-rally-after-nvidia-chief-jensen-huang-s-shock-resignation-1101701.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "a3953f4476db5d67",
       "ticker": "GOOG",
       "rule": "MENTION_SPIKE",

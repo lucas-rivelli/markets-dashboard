@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-12T11:38:01.389Z",
+  "updatedAt": "2026-11-12T19:26:22.263Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -93384,6 +93384,1309 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-12T11:38:01.389Z"
+    },
+    "9de9aedb1de271914495fc6b489641ed24729cadfd52607111cbd77c3ae4c678": {
+      "id": "9de9aedb1de271914495fc6b489641ed24729cadfd52607111cbd77c3ae4c678",
+      "title": "Is investor appetite for AI running out? Why Ranmore is turning to Asia",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/investor-appetite-ai-running-why-191350950.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:13:50.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:34.180Z"
+    },
+    "cdb52fa2f10b3ef43c73469b2284d9f1fb93daac6f80d2d089c3b440e5e3c41a": {
+      "id": "cdb52fa2f10b3ef43c73469b2284d9f1fb93daac6f80d2d089c3b440e5e3c41a",
+      "title": "Duolingo CEO on owl's guilt-trip reminders: 'Passive-aggressive works'",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/article/duolingo-ceo-on-owls-guilt-trip-reminders-passive-aggressive-works-191641543.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:16:41.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "DUOL",
+          "company": "Duolingo",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Says the owl mascot strategy is winning by keeping users motivated and engaged daily, an implied positive view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:34.693Z"
+    },
+    "f3636a184af03e410c4cdb6d46e8d0ebdd7435c8e70a5adbe45f28a2c5f519cd": {
+      "id": "f3636a184af03e410c4cdb6d46e8d0ebdd7435c8e70a5adbe45f28a2c5f519cd",
+      "title": "AI industry reassesses future without Jensen Huang at Nvidia",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/ai-industry-reassesses-future-without-190520571.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:05:20.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:35.402Z"
+    },
+    "2459b69ce148d3256096ffcd10faf6fd18b628b1845d273b67b363f3ffb42b3a": {
+      "id": "2459b69ce148d3256096ffcd10faf6fd18b628b1845d273b67b363f3ffb42b3a",
+      "title": "Nvidia CEO Resigns: What It Means for Your Shares",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/nvidia-ceo-resigns-what-it-means-for-your-shares/?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:16:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:35.553Z"
+    },
+    "b9142c42263da32eb3fcf7ce78cad55d93eef36ed92c4b276b08bbd4dfa2e5c5": {
+      "id": "b9142c42263da32eb3fcf7ce78cad55d93eef36ed92c4b276b08bbd4dfa2e5c5",
+      "title": "Warren Buffett's Successor, Greg Abel, Has Nearly $110 Billion Invested in These 2 Tech Stocks",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/warren-buffetts-successor-greg-abel-has-nearly-110/?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:05:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:35.840Z"
+    },
+    "11fffc87fcdc5f243313c0ec018033c66812b77d1eab30079ab058933c2ba38a": {
+      "id": "11fffc87fcdc5f243313c0ec018033c66812b77d1eab30079ab058933c2ba38a",
+      "title": "Nvidia Stock Hammered As CEO Resigns In Disgrace",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/bd774c13-5dc3-3d4c-ba55-5184f381438a/nvidia-stock-hammered-as-ceo.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:00:40.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": -0.6,
+          "confidence": 0.8,
+          "stance": "bearish",
+          "rationale": "Reports that Wall Street analysts issued further downgrades and price-target cuts after recent CEO news, signaling negative sentiment toward the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:36.549Z"
+    },
+    "5d0f22990ac72452101044568c498073149f1794e912a130d1dae91790582079": {
+      "id": "5d0f22990ac72452101044568c498073149f1794e912a130d1dae91790582079",
+      "title": "SovAI and BAM Energy Sign Memorandum of Understanding to Co-Develop Super Intelligent, Nuclear-Powered AI Factories",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/sovai-bam-energy-sign-memorandum-190000739.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:37.353Z"
+    },
+    "e3b82a5b7350fcd48067b64467bc0b622aa6b4cdd88a411aef69ddd45442b88a": {
+      "id": "e3b82a5b7350fcd48067b64467bc0b622aa6b4cdd88a411aef69ddd45442b88a",
+      "title": "Democrats Win Sweeping Control of Congress. Here's 1 Cryptocurrency to Buy and 1 Cryptocurrency to Sell.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/democrats-win-sweeping-control-of-congress-heres-1/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:55:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:38.058Z"
+    },
+    "7baa62b8464979f4c0cf70962314d633a5f7ba76903b715c9a5f9858856e5f0f": {
+      "id": "7baa62b8464979f4c0cf70962314d633a5f7ba76903b715c9a5f9858856e5f0f",
+      "title": "Who Is Colette Kress, Jensen Huang’s Successor as Nvidia CEO?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://decrypt.co/383189/who-colette-kress-jensen-huang-successor-nvidia-ceo?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:55:03.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:38.350Z"
+    },
+    "9f9d5ebf1ff0dd81a8f8205514d9496dbe24862319e5bd7340f218bb46e22368": {
+      "id": "9f9d5ebf1ff0dd81a8f8205514d9496dbe24862319e5bd7340f218bb46e22368",
+      "title": "LMSYS Org Launches SGLang Consortium with NVIDIA, AMD, Intel, Google, Meta, Cloudflare, Modal and RadixArk to Advance Open-Source AI Inference",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/lmsys-org-launches-sglang-consortium-190000546.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T19:00:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Listed as a founding member of the SGLang Consortium, with no view on the stock expressed."
+        },
+        {
+          "ticker": "AMD",
+          "company": "AMD",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Named among the consortium's founding members, a passing mention with no investment view."
+        },
+        {
+          "ticker": "INTC",
+          "company": "Intel",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Named among the consortium's founding members, a passing mention with no investment view."
+        },
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet (Google)",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Google is named as a founding member of the consortium, a passing mention with no stock view."
+        },
+        {
+          "ticker": "META",
+          "company": "Meta Platforms",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Named as a founding consortium member, a passing mention with no stock view."
+        },
+        {
+          "ticker": "NET",
+          "company": "Cloudflare",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Listed as a founding consortium member, a passing mention with no stock view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:38.486Z"
+    },
+    "68fd5fe434815f5e5240b306ed9b943199a949a106ee966e5b863eae1d57beec": {
+      "id": "68fd5fe434815f5e5240b306ed9b943199a949a106ee966e5b863eae1d57beec",
+      "title": "MP Materials Gains 3% as Traders Pick Winners Among Critical-Minerals Stocks; United States Antimony Slides 6%, Critical Metals Drops 5%",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/mp-materials-gains-3-as-traders-pick-winners-among-critical-minerals-stocks-united-states-antimony-slides-6-critical-metals-drops-5/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:57:16.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:39.879Z"
+    },
+    "edb18ff0951288c500c233eb48548c3c21c7194622941797980fa5f0f9b2cf5d": {
+      "id": "edb18ff0951288c500c233eb48548c3c21c7194622941797980fa5f0f9b2cf5d",
+      "title": "Neocloud stocks crash following Nvidia controversy",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/crypto/business/neocloud-stocks-crash-following-nvidia-controversy?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:51:46.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:40.126Z"
+    },
+    "fc0f3d3e0b6b7072cd8c662280baa055f5814a7ea4ed8ad32cd7c96cb3437111": {
+      "id": "fc0f3d3e0b6b7072cd8c662280baa055f5814a7ea4ed8ad32cd7c96cb3437111",
+      "title": "Update: US Equity Indexes Mixed After Nvidia CEO Resigns, Treasury Yields Soar",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-mixed-nvidia-185020214.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:50:20.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:40.163Z"
+    },
+    "4359494e5bb50c9e9e0899c62639f59ddd4b5cf7fd41c03a72774674e2d9e417": {
+      "id": "4359494e5bb50c9e9e0899c62639f59ddd4b5cf7fd41c03a72774674e2d9e417",
+      "title": "The S&P 500 Is Hiding a Sneaky Risk. Here's How Investors Can Prepare for Potential Volatility.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/sp-500-hiding-sneaky-risk-how-investors-prepare/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:50:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:40.974Z"
+    },
+    "acf15a3517683a591d33886c724f7145ee7f8efa0917e274fce5d9c82d7b10cb": {
+      "id": "acf15a3517683a591d33886c724f7145ee7f8efa0917e274fce5d9c82d7b10cb",
+      "title": "Jensen Huang Says AI's 'Most Profound Impact' Will Be in Life Sciences -- and Eli Lilly Is Already Building on It",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/nvidia-ceo-jensen-huang-says-ais-most-profound-imp/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:36:00.000Z",
+      "tickerHint": "LLY",
+      "mentions": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Describes Eli Lilly as making shrewd investments in its future and already building on AI, an implied positive view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:41.873Z"
+    },
+    "04c13e34e3ecf23bd2d9b7b9fca5581567bb94b3c1a6c49b7d0db57ac32fd164": {
+      "id": "04c13e34e3ecf23bd2d9b7b9fca5581567bb94b3c1a6c49b7d0db57ac32fd164",
+      "title": "The RFK Jr. Effect: Why GLP-1s Won't Be The Last 'Explosive' Story In Peptides. What Comes Next.",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/c014f1b3-7469-3330-942d-9297ecc3897d/the-rfk-jr.-effect%3A-why.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:44:44.000Z",
+      "tickerHint": "LLY",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:42.096Z"
+    },
+    "dd4935f2c7e15096a8c1f2df99d9bb66959dbe4eb2ab343ce5ad48e29d1cda9f": {
+      "id": "dd4935f2c7e15096a8c1f2df99d9bb66959dbe4eb2ab343ce5ad48e29d1cda9f",
+      "title": "Why Corteva Stock Dropped on Thursday",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/why-corteva-stock-dropped-on-thursday/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:51:36.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "CTVA",
+          "company": "Corteva",
+          "sentiment": -0.5,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Headline and text say Corteva missed earnings and its stock dropped, implying a negative view of the result."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:42.707Z"
+    },
+    "667055ba80a15ff6afe0b6df1b04e24f674adffee3859eebb4230b96f34b7b72": {
+      "id": "667055ba80a15ff6afe0b6df1b04e24f674adffee3859eebb4230b96f34b7b72",
+      "title": "Nvidia succession uncertainty opens door for Google TPU and Broadcom, analyst says",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-succession-uncertainty-opens-door-182630689.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:26:30.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOGL",
+          "company": "Alphabet",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Analyst sees Alphabet's TPU chips as a primary beneficiary of Nvidia's leadership turmoil."
+        },
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "sentiment": 0.55,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Named as a TPU development partner expected to benefit from Nvidia's leadership upheaval."
+        },
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Reports the stock fell sharply after the CEO's abrupt resignation and governance crisis, implying a negative outlook."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:43.772Z"
+    },
+    "2d5cc3b9592af5f88aabfc0a38b916ffdc6419a3b45090c314f94407ec6510a0": {
+      "id": "2d5cc3b9592af5f88aabfc0a38b916ffdc6419a3b45090c314f94407ec6510a0",
+      "title": "Drone Maker Ondas Updates Its Profitability Forecast as Revenue Surges 1,558%",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/3980cbc1-887b-3643-8fbf-eda8b4e74972/drone-maker-ondas-updates-its.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:26:00.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [
+        {
+          "ticker": "ONDS",
+          "company": "Ondas",
+          "sentiment": 0.3,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports the drone maker's forecast for reaching break-even ahead of schedule, a mildly positive development without an explicit recommendation."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:44.057Z"
+    },
+    "6fc80b85037605e11ef6b827eeaac297bf49250135fc57ddf0281f809f682ca9": {
+      "id": "6fc80b85037605e11ef6b827eeaac297bf49250135fc57ddf0281f809f682ca9",
+      "title": "Equities Rise Intraday Despite Nvidia Sell-Off Post CEO's Departure",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/equities-rise-intraday-despite-nvidia-182433809.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:24:33.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:45.214Z"
+    },
+    "8b6fb85944dd11ecef8f7855025fe1c924c55c2191a075b12b38ca504202d578": {
+      "id": "8b6fb85944dd11ecef8f7855025fe1c924c55c2191a075b12b38ca504202d578",
+      "title": "CoreWeave and These Other Stocks Are in the Nvidia Danger Zone",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/132c1ddf-8ad0-330b-9318-c5c25c3e8674/coreweave-and-these-other.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:25:00.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:45.275Z"
+    },
+    "4072b5d8ef3f2b1893da9533c171bbced5a4e8f5202697986b4a668807fd5eb0": {
+      "id": "4072b5d8ef3f2b1893da9533c171bbced5a4e8f5202697986b4a668807fd5eb0",
+      "title": "You Don’t Need Nvidia to Beat the S&P 500. These ETFs Prove It.",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/e06ea049-e52a-3263-b062-441c2cbea837/you-don%E2%80%99t-need-nvidia-to-beat.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:21:00.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:45.977Z"
+    },
+    "296af202280211fdfd63e8eaf4f6e4d598671de88e69b5512775f5da91b89747": {
+      "id": "296af202280211fdfd63e8eaf4f6e4d598671de88e69b5512775f5da91b89747",
+      "title": "Why AMD Shares Are Surging and What a $10,000 Investment in the Stock Could Be Worth in 3 Years",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/why-amd-shares-are-surging-and-what-a-usd10-000-investment-in-the-stock-could-be-worth-in-3-years/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:24:01.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "AMD",
+          "company": "Advanced Micro Devices",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Says the chipmaker could double over three years and frames its shares as surging."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:45.999Z"
+    },
+    "872b8b1442a4cb32dff7a77e3991758f4e24b6707b9fe2992a16053464beb565": {
+      "id": "872b8b1442a4cb32dff7a77e3991758f4e24b6707b9fe2992a16053464beb565",
+      "title": "Why customer trust is everything to Yahoo CEO Jim Lanzone",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/video/why-customer-trust-is-everything-to-yahoo-ceo-jim-lanzone-180933734.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:09:33.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:47.038Z"
+    },
+    "c0d09d1efb98fc51612b4ad3099c35a28df7ce853403022d2512117daccbf166": {
+      "id": "c0d09d1efb98fc51612b4ad3099c35a28df7ce853403022d2512117daccbf166",
+      "title": "Palantir (PLTR) Faces A European Rival In Defense AI",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/palantir-pltr-faces-european-rival-180906023.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:09:06.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:47.534Z"
+    },
+    "a8e6cc132b00882e077194b9aaa0db545413b9234693cf74d548f8357b3f975f": {
+      "id": "a8e6cc132b00882e077194b9aaa0db545413b9234693cf74d548f8357b3f975f",
+      "title": "ZipRecruiter (ZIP) Stock Sees Fair Value Lift After Analyst Target Increases",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ziprecruiter-zip-stock-sees-fair-180939409.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:09:39.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:47.718Z"
+    },
+    "28d2d373faf10371d9f6eebda507c05bf89a33c0f3984d943b529d2934e231b0": {
+      "id": "28d2d373faf10371d9f6eebda507c05bf89a33c0f3984d943b529d2934e231b0",
+      "title": "Super Micro stock sinks 5% despite $19.9 billion quarter",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-stock-sinks-5-180725562.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:07:25.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:48.899Z"
+    },
+    "cc360ba4c061401482755ce0a1bf0065324615cc730737308272cb5782a13ca4": {
+      "id": "cc360ba4c061401482755ce0a1bf0065324615cc730737308272cb5782a13ca4",
+      "title": "Micron, Other Memory Chip Stocks Fall on Nvidia Shakeup. Why They’re at Risk.",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/f926aef6-fcf4-3434-ab71-c741fbd3bf3e/micron%2C-other-memory-chip.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:16:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:48.989Z"
+    },
+    "2a660f79e5dbd4616c593caf6e392877c4a856c3044c743719f68cd32aee035c": {
+      "id": "2a660f79e5dbd4616c593caf6e392877c4a856c3044c743719f68cd32aee035c",
+      "title": "Stock Market Midday, Nov. 12: Nvidia CEO Resigns, AMD Surges as Wall Street Edges Higher",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/12/stock-market-midday-nov-12-nvidia-ceo-resigns-amd-surges-as-wall-street-edges-higher/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:05:02.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:50.108Z"
+    },
+    "9fd36a43aeb22348991fae814bf7aad7ff2ff00f529df5cd224b16ef9ef0ad48": {
+      "id": "9fd36a43aeb22348991fae814bf7aad7ff2ff00f529df5cd224b16ef9ef0ad48",
+      "title": "Nvidia, AMD, Broadcom: The AI Stock Winners and Losers After Jensen Huang’s Ousting",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://decrypt.co/383146/nvidia-amd-broadcom-ai-stock-winners-loses-jensen-huang?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:06:03.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:51.634Z"
+    },
+    "703f27f49f3fc00d0d5afdaf0b8bcc1d79c1b2b5ca724c513c003b9483479cbd": {
+      "id": "703f27f49f3fc00d0d5afdaf0b8bcc1d79c1b2b5ca724c513c003b9483479cbd",
+      "title": "CoreWeave stock sinks as resignation of Jensen Huang ripples through AI trade",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/article/coreweave-stock-sinks-as-resignation-of-jensen-huang-ripples-through-ai-trade-180319031.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:03:19.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [
+        {
+          "ticker": "CRWV",
+          "company": "CoreWeave",
+          "sentiment": -0.4,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Reports the stock sinking on Thursday as AI-trade weakness hit it, implying negative near-term sentiment without a stated long-term view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:51.922Z"
+    },
+    "80a023008b140470dc610de9efcea8b86a9edcd876c35ee9b3121870a19a62bd": {
+      "id": "80a023008b140470dc610de9efcea8b86a9edcd876c35ee9b3121870a19a62bd",
+      "title": "Alphabet Climbs 3% as NVIDIA’s Leadership Shake-Up Puts Google’s AI Chips in the Spotlight; Microsoft Gains 2%, Amazon Ticks Up",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/alphabet-climbs-3-as-nvidias-leadership-shake-up-puts-googles-ai-chips-in-the-spotlight-microsoft-gains-2-amazon-ticks-up/?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:02:51.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:52.608Z"
+    },
+    "aa7e538ff73ef87e159a67d4e919c931c268d9ec0a7e7a8b999fe23d335b04ff": {
+      "id": "aa7e538ff73ef87e159a67d4e919c931c268d9ec0a7e7a8b999fe23d335b04ff",
+      "title": "TSMC Stocks Fall 2.21% as NVIDIA Shake-Up Overshadows Record October Revenue",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-stocks-fall-2-21-180251979.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:02:51.000Z",
+      "tickerHint": "TSM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:52.955Z"
+    },
+    "0c29fba210b37ee8950fb593b692066841f2cb88cd2db8b533acdeb57105004b": {
+      "id": "0c29fba210b37ee8950fb593b692066841f2cb88cd2db8b533acdeb57105004b",
+      "title": "Microsoft Stocks Edge Higher as Anthropic Ties Deepen Despite Spreadsheet Rivalry",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/microsoft-stocks-edge-higher-anthropic-180145730.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:01:45.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:53.374Z"
+    },
+    "08cc44c83d262a015939a2331d8b0f671aa7830b768739bb8b8e8d5784454668": {
+      "id": "08cc44c83d262a015939a2331d8b0f671aa7830b768739bb8b8e8d5784454668",
+      "title": "Nvidia’s Loss Is AMD and Broadcom’s Gain",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/e24000fb-771f-351d-965d-387bb526b5ce/nvidia%E2%80%99s-loss-is-amd-and.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:02:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:55.017Z"
+    },
+    "522e7cd3f308112381b027bb570e2ef6403c76d655a9fe956e23366ab613f0e9": {
+      "id": "522e7cd3f308112381b027bb570e2ef6403c76d655a9fe956e23366ab613f0e9",
+      "title": "Amazon Stocks Gain as Anthropic IPO Puts $271.8 Billion Value on Stake",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-stocks-gain-anthropic-ipo-175921521.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:59:21.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:55.092Z"
+    },
+    "365ea964aa7817312a4776ebb9e4eaf9760619f9b550508e0da4ff8905d797b0": {
+      "id": "365ea964aa7817312a4776ebb9e4eaf9760619f9b550508e0da4ff8905d797b0",
+      "title": "ALSO and Intermedia Form Joint Venture to Build a Next-Generation U.S. Cloud and Technology Business",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/articles/intermedia-form-joint-venture-build-180000447.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T18:00:00.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:56.803Z"
+    },
+    "2ffd974c0f712e390660ed21dfc5ed4133dd9be742d3c5a663c5e48d93493b56": {
+      "id": "2ffd974c0f712e390660ed21dfc5ed4133dd9be742d3c5a663c5e48d93493b56",
+      "title": "Alphabet Stocks Rise as Google Commits $10 Billion to Anthropic at IPO",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-stocks-rise-google-commits-175810483.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:58:10.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:57.279Z"
+    },
+    "db3759fff0f5656a05488d162c2bf04c6f6cb89ad343d7d9287fcc7e5d69d1b5": {
+      "id": "db3759fff0f5656a05488d162c2bf04c6f6cb89ad343d7d9287fcc7e5d69d1b5",
+      "title": "Supermicro, Nvidia Reportedly Face DOJ Scrutiny In Separate Inquiries — SMCI Stock Plunges",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/supermicro-nvidia-reportedly-face-doj-scrutiny-in-separate-inquiries-smci-stock-plunges/cNGCcz4R9OG?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:58:45.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [
+        {
+          "ticker": "SMCI",
+          "company": "Supermicro",
+          "sentiment": -0.6,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Reports federal prosecutors are probing whether linked parties helped smuggle Supermicro products into China, and the headline notes the stock plunged."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:58.223Z"
+    },
+    "cc414c5d96af0311fd6d0ea14a873c3f717992be3e23104dc57aa4831abd1c5d": {
+      "id": "cc414c5d96af0311fd6d0ea14a873c3f717992be3e23104dc57aa4831abd1c5d",
+      "title": "Michael Burry Says Nvidia Has Bigger Problems Than Jensen Huang",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/michael-burry-says-nvidia-has-bigger-problems-than-jensen-huang/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:55:18.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": -0.45,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Cites Michael Burry's view that a hidden risk in customers' chip-cost accounting poses a bigger problem for Nvidia."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:59.255Z"
+    },
+    "79b5712f9191d25b97f7395c0c89c2de439ee15345e72ecc94920454e28516ab": {
+      "id": "79b5712f9191d25b97f7395c0c89c2de439ee15345e72ecc94920454e28516ab",
+      "title": "Broadcom Stocks Climb 4.54% as Custom AI Chips Gain Appeal After NVIDIA Shake-Up",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-stocks-climb-4-54-175645897.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:56:45.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "sentiment": 0.4,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Reports the stock extending an 18% weekly rally and cites a $1 billion Anthropic IPO purchase as positive momentum."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:25:59.276Z"
+    },
+    "dad1013ada706e83e56ce5b9d030b0b29a2849adb69c1380a58308c786a02d13": {
+      "id": "dad1013ada706e83e56ce5b9d030b0b29a2849adb69c1380a58308c786a02d13",
+      "title": "DBS’s $290 Oracle Target Still Implies 126% Upside, Even After a Cut",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/dbss-290-oracle-target-still-implies-126-upside-even-after-a-cut?ref=yahoofinance&tlnk=yf-261112-cv8xpwhw&.tsrc=rss",
+      "publishedAt": "2026-11-12T17:51:26.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "ORCL",
+          "company": "Oracle",
+          "sentiment": 0.6,
+          "confidence": 0.8,
+          "stance": "bullish",
+          "rationale": "DBS trimmed its Oracle price target but kept a Buy rating, implying substantial remaining upside from the reference price."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:00.139Z"
+    },
+    "732b7fab55ff6ad5de07731e6663a601f4456d4dc3f656f9ebd90b43753c0ca1": {
+      "id": "732b7fab55ff6ad5de07731e6663a601f4456d4dc3f656f9ebd90b43753c0ca1",
+      "title": "Binance founder CZ says crypto exchange didn't sell any SpaceX stock amid hack",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/crypto/article/binance-founder-cz-says-crypto-exchange-didnt-sell-any-spacex-stock-amid-hack-174829693.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:48:29.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:00.200Z"
+    },
+    "8e939cda07310f90526614fd54b3a6b21f0155e894e33d34da5ed33beea70de7": {
+      "id": "8e939cda07310f90526614fd54b3a6b21f0155e894e33d34da5ed33beea70de7",
+      "title": "What Happened With Rigetti Computing Stock Yesterday?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/rgti/articles/624577/what-happened-with-rigetti-computing-stock-yesterday/2026-11-12?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:50:49.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:01.586Z"
+    },
+    "419ca203cda2aa17f4d24443aceb95ccfea21ed9ba1130516264888a02b04ff2": {
+      "id": "419ca203cda2aa17f4d24443aceb95ccfea21ed9ba1130516264888a02b04ff2",
+      "title": "Super Micro sinks as DOJ probes possible China smuggling links to Nvidia fallout",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/news/super-micro-sinks-doj-probes-174746367.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:47:46.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [
+        {
+          "ticker": "SMCI",
+          "company": "Super Micro Computer",
+          "sentiment": -0.6,
+          "confidence": 0.7,
+          "stance": "bearish",
+          "rationale": "Reports shares fell 12% on a DOJ probe into possible smuggling of its products into China, implying negative pressure."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:02.384Z"
+    },
+    "fcc2b3b2fe1d7e7cf8f26be7c993fd25d85665a53c0ef09777100724efde8bed": {
+      "id": "fcc2b3b2fe1d7e7cf8f26be7c993fd25d85665a53c0ef09777100724efde8bed",
+      "title": "Nvidia CEO Jensen Huang Resigns—and the Stock Is Falling",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/3d72c4df-c159-3f9f-bf8f-967cb1e59a7f/nvidia-ceo-jensen-huang.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:47:00.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:03.200Z"
+    },
+    "001898da6f1f9b8b3c75f071dcf4fbb376d348c4cc8a2cb4884b5b84299cdd3c": {
+      "id": "001898da6f1f9b8b3c75f071dcf4fbb376d348c4cc8a2cb4884b5b84299cdd3c",
+      "title": "Qualcomm's $5 Billion Data Center Ramp Puts Execution in Focus Now",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/articles/qualcomms-5-billion-data-center-174700875.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:47:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "QCOM",
+          "company": "Qualcomm",
+          "sentiment": -0.2,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Flags customer concentration, margin pressure and heavy investment as risks to its data center sales target."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:03.806Z"
+    },
+    "52b88450d983888c19e090a8e639c0e67a6f42b41938206caf52c9f05f49a83e": {
+      "id": "52b88450d983888c19e090a8e639c0e67a6f42b41938206caf52c9f05f49a83e",
+      "title": "Goldman Sachs sees $66 billion problem with Anthropic's blockbuster IPO",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://www.thestreet.com/investing/stocks/goldman-sachs-anthropic-2027-cash-forecast?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:47:00.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:04.276Z"
+    },
+    "f73bc667ef1f4a28b30b2128ff7263a51008d521bc64b1401707c156698415ac": {
+      "id": "f73bc667ef1f4a28b30b2128ff7263a51008d521bc64b1401707c156698415ac",
+      "title": "Is There Hope for Oracle After Plummeting 35% This Year? ‘Yes’ Says One Analyst Predicting 210% Gains From Here",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/is-there-hope-for-oracle-after-plummeting-35-this-year-yes-says-one-analyst-predicting-210-gains-from-here/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:45:28.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:04.954Z"
+    },
+    "8e002d7a922343ad17e3fdb2e17bff93b2d21cb9d2702f2dd5ca0b71c2fb0d3e": {
+      "id": "8e002d7a922343ad17e3fdb2e17bff93b2d21cb9d2702f2dd5ca0b71c2fb0d3e",
+      "title": "3 Unstoppable Dow Stocks to Buy in November and Hold for the Next Decade",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/3-unstoppable-dow-stocks-to-buy-in-november-and-hold-for-the-next-decade/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:35:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:05.511Z"
+    },
+    "ba812c8ffc1a91c88e9a0bf749dec4f1f2d5fa3760756f50a3b34dadeece583d": {
+      "id": "ba812c8ffc1a91c88e9a0bf749dec4f1f2d5fa3760756f50a3b34dadeece583d",
+      "title": "Wall Street Models Lag Structural Reality, Prompting Me To Add an ‘Overvalued’ Apple",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/wall-street-models-lag-structural-reality-prompting-me-to-add-an-overvalued-apple/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:45:33.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Author keeps buying Apple after earnings and adds it despite valuation above analyst targets, though memory costs are flagged as a risk."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:06.015Z"
+    },
+    "5967f50273d7234b6db647a1b2d26dc356dfebe4979d319622e609c9e106f9ea": {
+      "id": "5967f50273d7234b6db647a1b2d26dc356dfebe4979d319622e609c9e106f9ea",
+      "title": "Tesla Vs. Nvidia: The Regulatory Crosshairs are Trained on These Two Mag 7 Shares, One is Worse Off",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/tesla-vs-nvidia-the-regulatory-crosshairs-are-trained-on-these-two-mag-7-shares-one-is-worse-off/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:45:07.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:06.375Z"
+    },
+    "668ead3b771e7ea8a6c25c4419fa8ca2dc02376ae388aca38acb0599666841d0": {
+      "id": "668ead3b771e7ea8a6c25c4419fa8ca2dc02376ae388aca38acb0599666841d0",
+      "title": "More Good News for Eli Lilly Sends the Stock Even Higher",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/more-good-news-for-eli-lilly-sends-the-stock-even-higher/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:35:02.000Z",
+      "tickerHint": "LLY",
+      "mentions": [
+        {
+          "ticker": "LLY",
+          "company": "Eli Lilly",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Headline frames trial news on an experimental obesity-class drug as good news that lifts the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:06.547Z"
+    },
+    "4ea0bb5017ec29e7fdc00d58340b9aee04a4dc21bd89083d999a68151045371a": {
+      "id": "4ea0bb5017ec29e7fdc00d58340b9aee04a4dc21bd89083d999a68151045371a",
+      "title": "Update: US Equity Indexes Shrug Off Turmoil at Nvidia as CEO Jensen Huang Resigns",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-shrug-off-173400993.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:34:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:07.920Z"
+    },
+    "8936ef47de8fd3147aab04be259ad51a86f58106fd279102f85270db7bc80b61": {
+      "id": "8936ef47de8fd3147aab04be259ad51a86f58106fd279102f85270db7bc80b61",
+      "title": "Is Intel Stock Paying You Enough For The Swings?",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/intc/articles/624584/is-intel-stock-paying-you-enough-for-the-swings/2026-11-12?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:32:19.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:07.966Z"
+    },
+    "08554631ca44bc8b2db8f16e588152064ca9cb2f216dcc40f4ba01fb5342d5b2": {
+      "id": "08554631ca44bc8b2db8f16e588152064ca9cb2f216dcc40f4ba01fb5342d5b2",
+      "title": "Tesla May Be Done With Cybertruck, but This Company Wants to Keep It Alive — and Ross Gerber Is on Board",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-may-done-cybertruck-company-173008375.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:30:08.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:08.443Z"
+    },
+    "c8976688b7ba53e7164bb929aee1b6678321796d7d9aa50779fb831b38d295f6": {
+      "id": "c8976688b7ba53e7164bb929aee1b6678321796d7d9aa50779fb831b38d295f6",
+      "title": "Mirendil Raises $1B to Democratize Frontier AI R&D",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mirendil-raises-1b-democratize-frontier-173000747.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:30:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:08.696Z"
+    },
+    "cb44fe732e293eec5906659d57f97bbeeb0ff51c796f55efbba86e9b9d8072d7": {
+      "id": "cb44fe732e293eec5906659d57f97bbeeb0ff51c796f55efbba86e9b9d8072d7",
+      "title": "Your Family’s Bills Are Still Rising — But the Government Can’t Tell You By How Much",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/your-familys-bills-are-still-rising-but-the-government-cant-tell-you-by-how-much/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:28:00.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:08.724Z"
+    },
+    "9fc2ba54a7dd3ec4f3aaad856904c5deeced4fbc1982cfec8da1ee86d1c93c50": {
+      "id": "9fc2ba54a7dd3ec4f3aaad856904c5deeced4fbc1982cfec8da1ee86d1c93c50",
+      "title": "Is Qualcomm Stock Worth Buying as Diversification Meets Margin Risk?",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/qualcomm-stock-worth-buying-diversification-172700159.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:27:00.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "QCOM",
+          "company": "Qualcomm",
+          "sentiment": -0.2,
+          "confidence": 0.6,
+          "stance": "bearish",
+          "rationale": "Notes diversification gains but says falling estimates and margin pressure cloud the buy case."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:09.884Z"
+    },
+    "53149afb50304203a62a851cbbe66ef775bd3b25aec586afa367db534aa7a7cb": {
+      "id": "53149afb50304203a62a851cbbe66ef775bd3b25aec586afa367db534aa7a7cb",
+      "title": "Nvidia Looks Dirt Cheap After Jensen Huang’s Exit. Wall Street Isn’t Buying.",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/9ee7db7c-bfc3-372b-9051-3ddab62b9230/nvidia-looks-dirt-cheap-after.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:29:00.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:09.907Z"
+    },
+    "daaed95ec2ecfb31e286ddfc7f7217276659f76facc403d7e3df7a0cd43e39a4": {
+      "id": "daaed95ec2ecfb31e286ddfc7f7217276659f76facc403d7e3df7a0cd43e39a4",
+      "title": "Apple's Market Cap Grew From $347 Billion to $4.6 Trillion During Tim Cook's 15 Years as CEO. Here's What That Growth Curve Means for Apple's Next Chapter Under John Ternus.",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/apples-market-cap-grew-from-usd347-billion-to-usd4-6-trillion-during-tim-cook-s-15-years-as-ceo-here-s-what-that-growth-curve-means-for-apple-s-next-chapter-under-john-ternus/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:23:02.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Describes Apple as a strong financial business whose new leadership is investing in foldables, AI, and servers, implying a favorable view."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:10.308Z"
+    },
+    "cc23161560b2f5c8803f2dcbfe8982e88714ffca4e21a4f32003856ef582b982": {
+      "id": "cc23161560b2f5c8803f2dcbfe8982e88714ffca4e21a4f32003856ef582b982",
+      "title": "Nvidia, AMD, CoreWeave, Nebius, Tesla, and More Stocks That Explain Today’s Market",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/923c0fbe-6605-3913-952c-4b295e62fcac/nvidia%2C-amd%2C-coreweave%2C.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:24:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:11.064Z"
+    },
+    "2719971247d5f34ce390efeaa3313636387f21373bad1a2d569ab787f21566c7": {
+      "id": "2719971247d5f34ce390efeaa3313636387f21373bad1a2d569ab787f21566c7",
+      "title": "Voters Just Rejected AI Data Centers in 40 of 41 Elections. Is the $1 Trillion Boom in Trouble?",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/voters-just-rejected-ai-data-centers-in-40-of-41-elections-is-the-1-trillion-boom-in-trouble/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:20:01.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:11.414Z"
+    },
+    "5d7d1aecf20602a65d6146e08c7415d5959697a63c01de56427d12557844163f": {
+      "id": "5d7d1aecf20602a65d6146e08c7415d5959697a63c01de56427d12557844163f",
+      "title": "Warren Buffett Doesn't Follow His Own S&P 500 Advice. Should You?",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/12/warren-buffett-doesnt-follow-his-own-sp-500-advice-should-you/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:20:02.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:11.942Z"
+    },
+    "7c3b76fa72e82145162a44871ea5cc4b6805238245866a4c37539e43656d0818": {
+      "id": "7c3b76fa72e82145162a44871ea5cc4b6805238245866a4c37539e43656d0818",
+      "title": "Berkshire’s Greg Abel Spent $14.4 Billion on Buffett’s Favorite Stock",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/berkshires-greg-abel-spent-14-4-billion-on-buffetts-favorite-stock/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:08:37.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:13.046Z"
+    },
+    "4ee711e5bae9c527e8ae0ba3d68da601a890d31e9f3145a907989ba30dad2bdf": {
+      "id": "4ee711e5bae9c527e8ae0ba3d68da601a890d31e9f3145a907989ba30dad2bdf",
+      "title": "Tom Lee Says Jensen Huang Exit Doesn’t Change His Bullish Tech Outlook: AVGO, AMD Stocks Lead Chip Rally",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/tom-lee-jensen-huang-exit-no-impact-on-tech-amd-avgo-stocks-lead-chip-rally/cNGCcGiR9aH?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:22:03.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:13.225Z"
+    },
+    "2e68f50f01b5e8e2d6537ea27c7a69264e0a145584e4655b37ffa1b9c731a9b8": {
+      "id": "2e68f50f01b5e8e2d6537ea27c7a69264e0a145584e4655b37ffa1b9c731a9b8",
+      "title": "How Risky Is Hewlett Packard Enterprise Stock?",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/hpe/articles/624688/how-risky-is-hewlett-packard-enterprise-stock/2026-11-12?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:10:12.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:13.866Z"
+    },
+    "550708ae3b5de2cff1e268b46785763f8922def8357ebc8c6332e7110671d796": {
+      "id": "550708ae3b5de2cff1e268b46785763f8922def8357ebc8c6332e7110671d796",
+      "title": "Michael Burry Warned About This AI Risk a Year Ago. Microsoft May Have Just Proved His Point",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/michael-burry-warned-about-this-ai-risk-a-year-ago-microsoft-may-have-just-proved-his-point/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:14:26.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:14.084Z"
+    },
+    "4b98a2e8a4051c4e90e4a28e4b7f8cebfe0e888b97a626823a8d4bf6e2e21253": {
+      "id": "4b98a2e8a4051c4e90e4a28e4b7f8cebfe0e888b97a626823a8d4bf6e2e21253",
+      "title": "NVIDIA Is Bouncing After a $430 Billion Wipeout. One Analyst Just Downgraded It. Where’s the Price Target?",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/nvidia-is-bouncing-after-a-430-billion-wipeout-one-analyst-just-downgraded-it-wheres-the-price-target/?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:03:50.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:15.202Z"
+    },
+    "aa0f98c45aab8bb28144805faccff9f27bdcd5b1586d615655a22de99cc7b4d1": {
+      "id": "aa0f98c45aab8bb28144805faccff9f27bdcd5b1586d615655a22de99cc7b4d1",
+      "title": "PayPal's Venmo Grows in Q3: Can Rising Monetization Fuel Earnings?",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/paypals-venmo-grows-q3-rising-170100262.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:01:00.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "PYPL",
+          "company": "PayPal",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Describes Venmo growth accelerating with rising monetization and payment volumes, implying improved earnings prospects."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:15.409Z"
+    },
+    "36cebaa735cd5bdd4db4f3054c85c9c43f16c441d3ab10ef7abc31f746d2abfa": {
+      "id": "36cebaa735cd5bdd4db4f3054c85c9c43f16c441d3ab10ef7abc31f746d2abfa",
+      "title": "Twin1 AI Adds $5 Million Seed Extension Led by Curql to Expand AI-Powered Digital Twins Across Regulated Industries and Enterprises",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/twin1-ai-adds-5-million-170000464.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T17:00:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:15.530Z"
+    },
+    "7184ea753b92d25407cc3b9ac49e1a888f1ff209da9ea2a4c898b3900fb480f5": {
+      "id": "7184ea753b92d25407cc3b9ac49e1a888f1ff209da9ea2a4c898b3900fb480f5",
+      "title": "Apple Stock Called 'Safe Haven,' Hits Record High",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/7dbdf3a7-eb6f-38f5-abbb-3d4ea8a38ecf/apple-stock-called-%27safe.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:59:14.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Reports Apple hitting a record high and an analyst describing it as a defensive holding during market turmoil."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:16.686Z"
+    },
+    "f8d99394386bde2350c6e64959dfd37fa4f23cf66ab9ba76f042e6b63f8008ba": {
+      "id": "f8d99394386bde2350c6e64959dfd37fa4f23cf66ab9ba76f042e6b63f8008ba",
+      "title": "AMD is Trading at a Premium at 38.39X P/E: Is the Stock Still a Buy?",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amd-trading-premium-38-39x-165900879.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:59:00.000Z",
+      "tickerHint": "AVGO",
+      "mentions": [
+        {
+          "ticker": "AMD",
+          "company": "AMD",
+          "sentiment": 0.35,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Notes a steep forward P/E premium but says surging data center revenue and AI GPU adoption support the valuation."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:17.072Z"
+    },
+    "d6be2ba4156c6de6981498da6a28703171ce8020fd0f3d96badb758237874138": {
+      "id": "d6be2ba4156c6de6981498da6a28703171ce8020fd0f3d96badb758237874138",
+      "title": "How Did AbbVie's Immunology Franchise Fare in Q3?",
+      "source": "Yahoo Finance — LLY",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/healthcare/articles/did-abbvies-immunology-franchise-fare-165600383.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:56:00.000Z",
+      "tickerHint": "LLY",
+      "mentions": [
+        {
+          "ticker": "ABBV",
+          "company": "AbbVie",
+          "sentiment": 0.4,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Reports strong 16.6% immunology sales growth and raised 2026 forecasts, implying a positive view despite Humira's decline."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:18.344Z"
+    },
+    "41aa9e378a2020a368e56f8769f6a78758f8e240aa3272c48e194d27fb85ae61": {
+      "id": "41aa9e378a2020a368e56f8769f6a78758f8e240aa3272c48e194d27fb85ae61",
+      "title": "Lucid Sinks 8% as Cash-Burn Worries Linger After Earnings; Rivian Falls 3%, Tesla Holds Steady After Musk’s Jensen Huang Remark",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/12/lucid-sinks-8-as-cash-burn-worries-linger-after-earnings-rivian-falls-3-tesla-holds-steady-after-musks-jensen-huang-remark/?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:56:50.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [
+        {
+          "ticker": "LCID",
+          "company": "Lucid Group",
+          "sentiment": -0.5,
+          "confidence": 0.7,
+          "stance": "bearish",
+          "rationale": "Frames the stock as sliding on cash-burn concerns and questions how long its main backer will stay patient."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:18.572Z"
+    },
+    "e4b65bdf2ae08b884334627eb4fb4797b65f9ac54e1f588f27609b21f67bc576": {
+      "id": "e4b65bdf2ae08b884334627eb4fb4797b65f9ac54e1f588f27609b21f67bc576",
+      "title": "What Changed In PG&E's Story?",
+      "source": "Yahoo Finance — NEE",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/pcg/articles/624640/what-changed-in-pges-story-2/2026-11-12?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:56:07.000Z",
+      "tickerHint": "NEE",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:19.407Z"
+    },
+    "d3365b4b7d1cb85a9531d2542f38dd916326301f076ba14984fd61b7c5969961": {
+      "id": "d3365b4b7d1cb85a9531d2542f38dd916326301f076ba14984fd61b7c5969961",
+      "title": "Trevor Goring recaps Mass Torts Made Perfect 2026 and the next wave of mass tort filings on Coffee With Q",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/healthcare/articles/trevor-goring-recaps-mass-torts-164300096.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:43:00.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:20.187Z"
+    },
+    "38a4cbbd383a1ea4944b9564a3386e0d090c28c4cf25e3c6e37b670f82db6aea": {
+      "id": "38a4cbbd383a1ea4944b9564a3386e0d090c28c4cf25e3c6e37b670f82db6aea",
+      "title": "AMD and Broadcom rally after Nvidia chief Jensen Huang's shock resignation",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://www.proactiveinvestors.com/companies/news/1101701/amd-and-broadcom-rally-after-nvidia-chief-jensen-huang-s-shock-resignation-1101701.html?.tsrc=rss",
+      "publishedAt": "2026-11-12T16:51:00.000Z",
+      "tickerHint": "AVGO",
+      "mentions": [
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the stock gained 6% after Nvidia's CEO news, with no view on Broadcom itself expressed."
+        },
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports the abrupt CEO resignation as news without giving any view on Nvidia's stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-12T19:26:22.263Z"
     }
   }
 }
