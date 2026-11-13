@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "25e0e4fe811f2a41",
+      "ticker": "ORCL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-13T15:56:49.716Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 2.381,
+        "sentRecent": 0.124,
+        "sentShift": 0.092,
+        "retRecent": 0.0948,
+        "excessRecent": 0.0651,
+        "score": 0.2226
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/forget-nvidia-curbs-on-chinas-remote-chip-access-are-a-nightmare-scenario-for-oracle?ref=yahoofinance&tlnk=yf-261113-ff3m8w53&.tsrc=rss",
+        "https://www.tikr.com/blog/dbss-290-oracle-target-still-implies-126-upside-even-after-a-cut?ref=yahoofinance&tlnk=yf-261112-cv8xpwhw&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/oracle-stock-just-surged-after-coreweave-earnings-here-s-why-one-analyst-says-it-s-built-for-the-data-center-backlash/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "3a8182dc591acec7",
+      "ticker": "GEV",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-13T15:56:49.713Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 4.286,
+        "sentRecent": 0.342,
+        "sentShift": -0.068,
+        "retRecent": 0.0573,
+        "excessRecent": 0.0276,
+        "score": 0.4743
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/ken-fisher-is-buying-exxonmobil?ref=yahoofinance&tlnk=yf-261113-m485gcmv&.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/11/ge-vernova-fell-25-on-data-center-fears-only-about/?.tsrc=rss",
+        "https://finance.yahoo.com/m/0a60be01-c44e-3261-8966-1a6d0f9b9328/ge-vernova-could-withstand-a.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "952a8ae73e667227",
+      "ticker": "CBRS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-13T15:56:49.710Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.495,
+        "sentShift": null,
+        "retRecent": 0.09,
+        "excessRecent": 0.0603,
+        "score": 0.6865
+      },
+      "topItems": [
+        "https://www.proactiveinvestors.com/companies/news/1101765/cerebras-shares-jump-16-as-earnings-beat-and-microsoft-deal-fuel-raised-outlook-1101765.html?.tsrc=rss",
+        "https://www.tikr.com/blog/cerebras-soars-15-on-raised-outlook-and-microsoft-deal-expects-to-triple-revenue-in-2027?ref=yahoofinance&tlnk=yf-261113-3gm6v536&.tsrc=rss",
+        "https://www.marketbeat.com/instant-alerts/transcript-what-cerebras-systems-cbrs-said-on-its-q3-earnings-call-2026-11-12/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss"
+      ]
+    },
+    {
       "id": "8ceb976447307ac3",
       "ticker": "CVX",
       "rule": "BEARISH_SHIFT",
