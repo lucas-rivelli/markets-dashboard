@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "8ceb976447307ac3",
+      "ticker": "CVX",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-13T07:37:19.326Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.071,
+        "sentRecent": -0.215,
+        "sentShift": -0.587,
+        "retRecent": 0.0176,
+        "excessRecent": -0.0121,
+        "score": -0.2366
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/xom-cvx-cop-this-analyst-trims-price-targets-warns-oil-stocks-may-struggle-to-appreciate/cNbbN7xR9Oa?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ishares-global-energy-etf-ixc-110558884.html?.tsrc=rss",
+        "https://www.thestreet.com/investing/exxon-chevron-report-big-profits-and-say-new-investments-will-pay-off?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "28602218f8c82d87",
+      "ticker": "RIVN",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-13T07:37:19.325Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 0.429,
+        "sentRecent": 0.5,
+        "sentShift": 0.015,
+        "retRecent": -0.0595,
+        "excessRecent": -0.0892,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/07/prediction-heres-what-a-1000-investment-in-rivian/?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/zero-to-sixty-fort-worth-gets-tesla-robotaxi-while-ubs-upgrades-rivian-and-citigroup-shuffles-ev-holdings/cNGl4ABR94q?.tsrc=rss",
+        "https://www.tikr.com/blog/rivian-soars-15-in-a-week-on-r2-beat-and-two-upgrades-initial-r2-demand-looks-solid?ref=yahoofinance&tlnk=yf-261103-f56hjh2m&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "22aec73f3c0edb25",
+      "ticker": "SOFI",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-13T07:37:19.323Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.6,
+        "sentShift": 0.576,
+        "retRecent": -0.0358,
+        "excessRecent": -0.0655,
+        "score": 0.6592
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/09/sofis-earnings-shine-while-paypal-boeings-earnings-look-meh/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/08/sofi-17-million-members-prediction-20-million-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "04cbcc734c630ee8",
+      "ticker": "TTWO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-13T07:37:19.322Z",
+      "firedDate": "2026-11-13",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.609,
+        "sentShift": null,
+        "retRecent": 0.0562,
+        "excessRecent": 0.0265,
+        "score": 0.8447
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/71d9f72e-471f-3b18-a9fd-e82af767e21b/grand-theft-auto-vi-makes.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-names-top-mid-small-201832036.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/gta-6-preorder-sales-hit-023006438.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "2687f7029a96a020",
       "ticker": "SMCI",
       "rule": "BEARISH_SHIFT",
