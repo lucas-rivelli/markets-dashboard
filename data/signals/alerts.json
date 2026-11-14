@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "9bbbaaffa2d8e839",
+      "ticker": "NFLX",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-14T20:06:55.995Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.224,
+        "sentRecent": 0.652,
+        "sentShift": 0.545,
+        "retRecent": -0.0199,
+        "excessRecent": -0.0458,
+        "score": 0.716
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/14/netflix-engagement-growth-is-slowing-i-bought-more-anyway/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/article/billionaire-investor-bill-ackman-on-why-hes-staying-bullish-on-netflix-213455263.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/tesla-amazon-spacex-among-companies-210000505.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "276e3d9eb8ab889d",
       "ticker": "DKNG",
       "rule": "MENTION_SPIKE",
