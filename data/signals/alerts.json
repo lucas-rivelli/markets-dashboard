@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "3057719434e4ec16",
+      "ticker": "COP",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-14T08:37:09.924Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": -0.031,
+        "sentShift": -0.364,
+        "retRecent": 0.0441,
+        "excessRecent": 0.0182,
+        "score": -0.0338
+      },
+      "topItems": [
+        "https://finance.yahoo.com/energy/articles/conocophillips-lower-48-willow-assets-171100025.html?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/xom-cvx-cop-this-analyst-trims-price-targets-warns-oil-stocks-may-struggle-to-appreciate/cNbbN7xR9Oa?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/why-did-xom-cop-cvx-jump-to-52-week-highs-last-week/cZUdVAARBUz?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "21fa557866c7401c",
+      "ticker": "C",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T08:37:09.922Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.571,
+        "sentRecent": 0,
+        "sentShift": -0.095,
+        "retRecent": 0.0417,
+        "excessRecent": 0.0157,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/crypto/articles/goldman-sachs-gs-backs-270-200743183.html?.tsrc=rss",
+        "https://decrypt.co/382953/goldman-citi-global-banks-270-million-challenge-crypto-stablecoin-giants?.tsrc=rss",
+        "https://finance.yahoo.com/markets/crypto/articles/goldman-citi-join-global-banks-172846900.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "31c06e01ff38ac52",
+      "ticker": "AVGO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T08:37:09.920Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 21,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.284,
+        "sentShift": -0.03,
+        "retRecent": 0.1816,
+        "excessRecent": 0.1556,
+        "score": 0.8787
+      },
+      "topItems": [
+        "https://www.thestreet.com/video/nvidia-ceo-out-10-stock-to-buy-before-sp-500-hits-8000?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/broadcom-inc-avgo-suffers-larger-214501014.html?.tsrc=rss",
+        "https://www.barchart.com/story/news/8826973/this-analyst-just-downgraded-broadcom-stock-here-s-why?.tsrc=rss"
+      ]
+    },
+    {
       "id": "2e4954be1fb61aa3",
       "ticker": "SMCI",
       "rule": "BEARISH_SHIFT",
