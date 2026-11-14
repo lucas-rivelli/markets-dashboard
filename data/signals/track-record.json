@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T08:37:11.938Z",
+  "generatedAt": "2026-11-14T15:33:32.202Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-11-13",
@@ -1572,12 +1572,20 @@
       "flag": "SHORT",
       "fwd5": null,
       "fwd20": null
+    },
+    {
+      "date": "2026-11-13",
+      "ticker": "DKNG",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
     }
   ],
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 97,
+      "events": 98,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.07638261209308961,
@@ -1619,7 +1627,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 97,
+      "events": 98,
       "measured": 1,
       "hitRate20": 0,
       "avgExcess5": -0.07638261209308961,

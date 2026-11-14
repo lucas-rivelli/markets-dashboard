@@ -2,6 +2,121 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "276e3d9eb8ab889d",
+      "ticker": "DKNG",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T15:33:28.792Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": -0.569,
+        "sentShift": null,
+        "retRecent": 0.0205,
+        "excessRecent": -0.0054,
+        "score": -0.7886
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/draftkings-predictions-bet-bulls-reeling-143010643.html?.tsrc=rss",
+        "https://www.barchart.com/story/news/8742534/analysts-are-turning-bearish-on-draftkings-stock-here-s-why?.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/draft-kings-faces-three-analyst-downgrades-jp-morgan-says-it-s-increasingly-difficult-to-recommend-the-stock/cNGrerKR9eN?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "769882cc2e58c080",
+      "ticker": "CSCO",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-14T15:33:28.790Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.3,
+        "sentShift": 0.3,
+        "retRecent": 0.0191,
+        "excessRecent": -0.0069,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/14/cisco-just-raised-its-ai-forecast-again-is-it-a-buy/?.tsrc=rss",
+        "https://www.tikr.com/blog/ken-fisher-is-buying-exxonmobil?ref=yahoofinance&tlnk=yf-261113-m485gcmv&.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/still-early-in-networking-super-cycle-cisco-delivers-beat-and-raise-quarter-but-shares-drop-amid-nvidia-linked-volatility/cNbbAvIR9OZ?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9a799fb780f2c35d",
+      "ticker": "CSCO",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T15:33:28.788Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.3,
+        "sentShift": 0.3,
+        "retRecent": 0.0191,
+        "excessRecent": -0.0069,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/14/cisco-just-raised-its-ai-forecast-again-is-it-a-buy/?.tsrc=rss",
+        "https://www.tikr.com/blog/ken-fisher-is-buying-exxonmobil?ref=yahoofinance&tlnk=yf-261113-m485gcmv&.tsrc=rss",
+        "https://stocktwits.com/news-articles/markets/equity/still-early-in-networking-super-cycle-cisco-delivers-beat-and-raise-quarter-but-shares-drop-amid-nvidia-linked-volatility/cNbbAvIR9OZ?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "4d6a72686e65240f",
+      "ticker": "TSM",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T15:33:28.784Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 13,
+        "spikeRatio": 2.063,
+        "sentRecent": 0.355,
+        "sentShift": -0.066,
+        "retRecent": 0.062,
+        "excessRecent": 0.0361,
+        "score": 0.9364
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/tsmc-just-booked-a-record-nt587-billion-month-nvidias-november-17-report-is-the-next-test?ref=yahoofinance&tlnk=yf-261113-5rqrqp4w&.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/13/taiwan-semiconductor-just-became-even-more-of-an-ai-anchor-on-nvidias-25-plummet/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/bernstein-mark-li-raised-taiwan-231139059.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5cc14c5b781c3ba9",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-14T15:33:28.781Z",
+      "firedDate": "2026-11-14",
+      "metrics": {
+        "mentionsRecent": 37,
+        "spikeRatio": 2.007,
+        "sentRecent": 0.355,
+        "sentShift": 0.109,
+        "retRecent": 0.1893,
+        "excessRecent": 0.1634,
+        "score": 1.2923
+      },
+      "topItems": [
+        "https://247wallst.com/investing/2026/11/14/amd-just-beat-nvidia-by-the-widest-margin-since-1999/?.tsrc=rss",
+        "https://www.fool.com/coverage/stock-market-today/2026/11/13/stock-market-today-nov-13-amd-sinks-8-75-on-sector-ai-chip-sell-off-after-early-gains-reverse/?.tsrc=rss",
+        "https://www.tikr.com/blog/amd-sinks-9-marvell-down-5-as-chip-rally-reverses-and-treasury-yields-hit-5?ref=yahoofinance&tlnk=yf-261113-c83jxhmp&.tsrc=rss"
+      ]
+    },
+    {
       "id": "3057719434e4ec16",
       "ticker": "COP",
       "rule": "BEARISH_SHIFT",
