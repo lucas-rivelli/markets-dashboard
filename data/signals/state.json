@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-15T20:00:13.397Z",
-  "startedAt": "2026-11-15T19:55:05.080Z",
+  "lastUpdated": "2026-11-15T23:45:47.569Z",
+  "startedAt": "2026-11-15T23:40:59.912Z",
   "asOf": "2026-11-15",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
@@ -158,7 +158,7 @@
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -928,13 +928,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 372,
-    "extractionsTotal": 6570,
-    "mentionsTotal": 2296,
+    "itemsFetched": 373,
+    "extractionsTotal": 6592,
+    "mentionsTotal": 2299,
     "tickers": 105,
     "pricesOk": 107,
     "alertsTotal": 980,
-    "newAlerts": 1
+    "newAlerts": 0
   },
   "rows": [
     {
@@ -1060,17 +1060,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 19,
+      "mentionsRecent": 20,
       "mentionsBaseline": 44,
       "baselineRate": 10.267,
-      "spikeRatio": 1.851,
-      "sentRecent": 0.265,
+      "spikeRatio": 1.948,
+      "sentRecent": 0.277,
       "sentBaseline": 0.322,
-      "sentShift": -0.056,
+      "sentShift": -0.045,
       "retRecent": 0.1816,
       "excessRecent": 0.1556,
       "ret30": 0.0555,
-      "score": 0.7952,
+      "score": 0.8428,
       "lastPrice": 347.01,
       "lastPriceDate": "2026-11-13",
       "priceBars": 519
@@ -2977,17 +2977,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 87,
+      "mentionsRecent": 88,
       "mentionsBaseline": 112,
       "baselineRate": 26.133,
-      "spikeRatio": 3.329,
+      "spikeRatio": 3.367,
       "sentRecent": -0.034,
       "sentBaseline": 0.19,
-      "sentShift": -0.225,
+      "sentShift": -0.224,
       "retRecent": -0.1275,
       "excessRecent": -0.1534,
       "ret30": -0.2395,
-      "score": -0.1544,
+      "score": -0.1526,
       "lastPrice": 162.85,
       "lastPriceDate": "2026-11-13",
       "priceBars": 519
@@ -3655,7 +3655,7 @@
       "score": 42.5,
       "reasons": [
         "NVDA: Watch",
-        "87 mentions this week (3.3x baseline)"
+        "88 mentions this week (3.4x baseline)"
       ],
       "rationale": "Says a development undermines Nvidia's competitive advantages, and the headline calls it bad news for Nvidia investors.",
       "sentiment": -0.5,
@@ -3676,7 +3676,7 @@
       "score": 42.5,
       "reasons": [
         "NVDA: Watch",
-        "87 mentions this week (3.3x baseline)"
+        "88 mentions this week (3.4x baseline)"
       ],
       "rationale": "Reports Dan Ives calling CEO Jensen Huang indispensable to Nvidia, a view that implies a positive outlook on the company.",
       "sentiment": 0.5,
@@ -3716,10 +3716,10 @@
         "NVDA"
       ],
       "flag": "WATCH",
-      "score": 42.1,
+      "score": 42.2,
       "reasons": [
         "NVDA: Watch",
-        "87 mentions this week (3.3x baseline)"
+        "88 mentions this week (3.4x baseline)"
       ],
       "rationale": "Reports that at least ten analysts cut their rating to Hold, and the headline says Wall Street has soured on the stock.",
       "sentiment": -0.4,
