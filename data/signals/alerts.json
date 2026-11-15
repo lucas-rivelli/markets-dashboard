@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "a84cdc632d7de090",
+      "ticker": "AMD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-15T06:59:52.049Z",
+      "firedDate": "2026-11-15",
+      "metrics": {
+        "mentionsRecent": 38,
+        "spikeRatio": 2.036,
+        "sentRecent": 0.359,
+        "sentShift": 0.108,
+        "retRecent": 0.1893,
+        "excessRecent": 0.1634,
+        "score": 1.3156
+      },
+      "topItems": [
+        "https://stocktwits.com/news-articles/markets/equity/amd-two-big-catalysts-2027-nvidia-watching/cNbEERhR9Q8?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/14/amd-just-beat-nvidia-by-the-widest-margin-since-1999/?.tsrc=rss",
+        "https://www.barchart.com/story/news/8837690/why-analysts-think-amd-could-emerge-as-the-biggest-winner-from-nvidias-turmoil?.tsrc=rss"
+      ]
+    },
+    {
       "id": "39af31359f6a2065",
       "ticker": "DKNG",
       "rule": "MENTION_SPIKE",

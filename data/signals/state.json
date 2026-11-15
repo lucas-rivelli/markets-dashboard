@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-15T00:06:39.540Z",
-  "startedAt": "2026-11-15T00:01:41.998Z",
+  "lastUpdated": "2026-11-15T06:59:54.002Z",
+  "startedAt": "2026-11-15T06:54:47.949Z",
   "asOf": "2026-11-15",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,7 +137,7 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -158,28 +158,28 @@
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -270,7 +270,7 @@
       "name": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 15,
       "error": null
     }
   ],
@@ -928,31 +928,37 @@
     "sourcesOk": 25,
     "sourcesFailed": 13,
     "sourcesTotal": 38,
-    "itemsFetched": 355,
-    "extractionsTotal": 6464,
-    "mentionsTotal": 2270,
+    "itemsFetched": 353,
+    "extractionsTotal": 6487,
+    "mentionsTotal": 2275,
     "tickers": 105,
     "pricesOk": 107,
-    "alertsTotal": 978,
-    "newAlerts": 29
+    "alertsTotal": 979,
+    "newAlerts": 1
   },
   "rows": [
     {
       "ticker": "AMD",
       "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 37,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 38,
       "mentionsBaseline": 80,
       "baselineRate": 18.667,
-      "spikeRatio": 1.982,
-      "sentRecent": 0.356,
+      "spikeRatio": 2.036,
+      "sentRecent": 0.359,
       "sentBaseline": 0.251,
-      "sentShift": 0.105,
+      "sentShift": 0.108,
       "retRecent": 0.1893,
       "excessRecent": 0.1634,
       "ret30": 0.01,
-      "score": 1.2941,
+      "score": 1.3156,
       "lastPrice": 534.06,
       "lastPriceDate": "2026-11-13",
       "priceBars": 519
@@ -1239,6 +1245,26 @@
       "priceBars": 519
     },
     {
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 23,
+      "mentionsBaseline": 81,
+      "baselineRate": 18.9,
+      "spikeRatio": 1.217,
+      "sentRecent": 0.195,
+      "sentBaseline": 0.066,
+      "sentShift": 0.129,
+      "retRecent": 0.0406,
+      "excessRecent": 0.0147,
+      "ret30": 0.0373,
+      "score": 0.6196,
+      "lastPrice": 356.27,
+      "lastPriceDate": "2026-11-13",
+      "priceBars": 519
+    },
+    {
       "ticker": "WRBY",
       "discovered": true,
       "flag": "LONG",
@@ -1329,26 +1355,6 @@
       "lastPrice": 99.25,
       "lastPriceDate": "2026-11-13",
       "priceBars": 509
-    },
-    {
-      "ticker": "AAPL",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 22,
-      "mentionsBaseline": 81,
-      "baselineRate": 18.9,
-      "spikeRatio": 1.164,
-      "sentRecent": 0.172,
-      "sentBaseline": 0.066,
-      "sentShift": 0.106,
-      "retRecent": 0.0406,
-      "excessRecent": 0.0147,
-      "ret30": 0.0373,
-      "score": 0.5393,
-      "lastPrice": 356.27,
-      "lastPriceDate": "2026-11-13",
-      "priceBars": 519
     },
     {
       "ticker": "ANET",
@@ -1844,17 +1850,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 21,
+      "mentionsRecent": 22,
       "mentionsBaseline": 78,
       "baselineRate": 18.2,
-      "spikeRatio": 1.154,
-      "sentRecent": 0.047,
+      "spikeRatio": 1.209,
+      "sentRecent": 0.045,
       "sentBaseline": 0.212,
-      "sentShift": -0.165,
+      "sentShift": -0.167,
       "retRecent": 0.0893,
       "excessRecent": 0.0634,
       "ret30": 0.1001,
-      "score": 0.1438,
+      "score": 0.1397,
       "lastPrice": 390.22,
       "lastPriceDate": "2026-11-13",
       "priceBars": 519
@@ -2930,6 +2936,32 @@
       "priceBars": 502
     },
     {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 79,
+      "mentionsBaseline": 112,
+      "baselineRate": 26.133,
+      "spikeRatio": 3.023,
+      "sentRecent": -0.02,
+      "sentBaseline": 0.19,
+      "sentShift": -0.21,
+      "retRecent": -0.1275,
+      "excessRecent": -0.1534,
+      "ret30": -0.2395,
+      "score": -0.0864,
+      "lastPrice": 162.85,
+      "lastPriceDate": "2026-11-13",
+      "priceBars": 519
+    },
+    {
       "ticker": "JPM",
       "discovered": false,
       "flag": "WATCH",
@@ -2952,32 +2984,6 @@
       "ret30": 0.019,
       "score": -0.0877,
       "lastPrice": 346.19,
-      "lastPriceDate": "2026-11-13",
-      "priceBars": 519
-    },
-    {
-      "ticker": "NVDA",
-      "discovered": false,
-      "flag": "WATCH",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        }
-      ],
-      "mentionsRecent": 77,
-      "mentionsBaseline": 112,
-      "baselineRate": 26.133,
-      "spikeRatio": 2.946,
-      "sentRecent": -0.026,
-      "sentBaseline": 0.19,
-      "sentShift": -0.216,
-      "retRecent": -0.1275,
-      "excessRecent": -0.1534,
-      "ret30": -0.2395,
-      "score": -0.1141,
-      "lastPrice": 162.85,
       "lastPriceDate": "2026-11-13",
       "priceBars": 519
     },
@@ -3520,6 +3526,27 @@
       "confidence": 0.7
     },
     {
+      "id": "a0428f86771d0e9bba93f3e8b222c752edfb71f8286994be1ed1f0cd53c3cf8a",
+      "title": "Nvidia's Jensen Huang Is 'Irreplaceable' And Worth $1 Trillion To The Story, Says Dan Ives Amid Support From Elon Musk, Gavin Baker And Others",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/nvidia-jensen-huang-worth-1-trillion-dan-ives-elon-musk-support/cNbEIBvR9QY?.tsrc=rss",
+      "publishedAt": "2026-11-15T06:39:09.000Z",
+      "ticker": "NVDA",
+      "tickers": [
+        "NVDA"
+      ],
+      "flag": "WATCH",
+      "score": 41.8,
+      "reasons": [
+        "NVDA: Watch",
+        "79 mentions this week (3.0x baseline)"
+      ],
+      "rationale": "Reports Dan Ives calling CEO Jensen Huang indispensable to Nvidia, a view that implies a positive outlook on the company.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
       "id": "d0f4a627f3a5098f11000f682c11a27c51b540fbc4e8e0c9bc23f9134ac1a538",
       "title": "Robinhood's Latest Earnings Report Tells You All You Need to Know About the Future of Crypto. These 2 Numbers Really Stood Out.",
       "source": "Yahoo Finance — NVDA",
@@ -3586,6 +3613,27 @@
       "confidence": 0.6
     },
     {
+      "id": "23a867546cc5f2a7a84e8d5fe9fdbd467e192f8726a56d9702af93e283900c90",
+      "title": "AMD Has Two Big Catalysts Lined Up For 2027 — And Nvidia Should Be Watching, Says IO Fund",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/amd-two-big-catalysts-2027-nvidia-watching/cNbEERhR9Q8?.tsrc=rss",
+      "publishedAt": "2026-11-15T05:53:25.000Z",
+      "ticker": "AMD",
+      "tickers": [
+        "AMD"
+      ],
+      "flag": "WATCH",
+      "score": 39.9,
+      "reasons": [
+        "AMD: Watch",
+        "38 mentions this week (2.0x baseline)"
+      ],
+      "rationale": "Firm sees two upcoming catalysts as strengthening AMD's competitive position in GPUs, though not overtaking the leader.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
       "id": "032122a3040021e3811aea0e6e00363845dba75d540cdd272c32632a87c7a066",
       "title": "Cerebras Soars 15% on Raised Outlook and Microsoft Deal, Expects to “Triple Revenue in 2027”",
       "source": "Yahoo Finance — MSFT",
@@ -3622,14 +3670,35 @@
         "LLY"
       ],
       "flag": "WATCH",
-      "score": 38.4,
+      "score": 38.5,
       "reasons": [
         "NVDA: Watch",
-        "77 mentions this week (2.9x baseline)"
+        "79 mentions this week (3.0x baseline)"
       ],
       "rationale": "Reports that a CIO calls the stock a buy despite a drop of over 30% from its highs.",
       "sentiment": 0.6,
       "confidence": 0.7
+    },
+    {
+      "id": "07bf030513dbf6bb3493d0aaa8e8d0d8c73bd36ef27a8e7bd4ceed222329bec3",
+      "title": "Think Nvidia Stock Is a Bargain? 6 Reasons the Face of the AI Build-Out Can Plunge Another 50% Following Jensen Huang's Resignation.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/14/think-nvidia-stock-bargain-6-reasons-face-ai-build-out-can-plunge-50-after-jensen-huang-resignation/?.tsrc=rss",
+      "publishedAt": "2026-11-14T14:26:02.000Z",
+      "ticker": "NVDA",
+      "tickers": [
+        "NVDA"
+      ],
+      "flag": "WATCH",
+      "score": 37.9,
+      "reasons": [
+        "NVDA: Watch",
+        "79 mentions this week (3.0x baseline)"
+      ],
+      "rationale": "Author concedes Nvidia looks cheap but argues its risks outweigh the potential upside, and the title warns of a steep further decline.",
+      "sentiment": -0.5,
+      "confidence": 0.75
     },
     {
       "id": "4ac7804bf707d452004b38c067c790b2efdd135df0da48815efe20a1daad6938",
@@ -3696,71 +3765,6 @@
       "rationale": "Deutsche Bank reiterates a Buy rating and $8 target, arguing investors underrate Snap's subscription growth and its contribution to added revenue.",
       "sentiment": 0.6,
       "confidence": 0.85
-    },
-    {
-      "id": "07bf030513dbf6bb3493d0aaa8e8d0d8c73bd36ef27a8e7bd4ceed222329bec3",
-      "title": "Think Nvidia Stock Is a Bargain? 6 Reasons the Face of the AI Build-Out Can Plunge Another 50% Following Jensen Huang's Resignation.",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/14/think-nvidia-stock-bargain-6-reasons-face-ai-build-out-can-plunge-50-after-jensen-huang-resignation/?.tsrc=rss",
-      "publishedAt": "2026-11-14T14:26:02.000Z",
-      "ticker": "NVDA",
-      "tickers": [
-        "NVDA"
-      ],
-      "flag": "WATCH",
-      "score": 37.7,
-      "reasons": [
-        "NVDA: Watch",
-        "77 mentions this week (2.9x baseline)"
-      ],
-      "rationale": "Author concedes Nvidia looks cheap but argues its risks outweigh the potential upside, and the title warns of a steep further decline.",
-      "sentiment": -0.5,
-      "confidence": 0.75
-    },
-    {
-      "id": "0860926d3394cbed3ae0ce3f51e0a8c380ae1583b56cd4b86c32232914235b09",
-      "title": "What Cerebras Systems (CBRS) Said on Its Q3 Earnings Call",
-      "source": "Yahoo Finance — MSFT",
-      "sourceType": "TickerNews",
-      "url": "https://www.marketbeat.com/instant-alerts/transcript-what-cerebras-systems-cbrs-said-on-its-q3-earnings-call-2026-11-12/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
-      "publishedAt": "2026-11-13T01:14:30.000Z",
-      "ticker": "CBRS",
-      "tickers": [
-        "CBRS"
-      ],
-      "flag": "WATCH",
-      "score": 37.5,
-      "reasons": [
-        "CBRS: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports record quarterly revenue and a raised outlook, offset by data center delays hitting its OpenAI contract.",
-      "sentiment": 0.4,
-      "confidence": 0.8
-    },
-    {
-      "id": "5b3fe2c6ace511a106dfa7dd16b7b8ce864a02a5eb4fce574abb45048b691d10",
-      "title": "Cerebras shares jump 16% as earnings beat and Microsoft deal fuel raised outlook",
-      "source": "Yahoo Finance — MSFT",
-      "sourceType": "TickerNews",
-      "url": "https://www.proactiveinvestors.com/companies/news/1101765/cerebras-shares-jump-16-as-earnings-beat-and-microsoft-deal-fuel-raised-outlook-1101765.html?.tsrc=rss",
-      "publishedAt": "2026-11-13T14:38:00.000Z",
-      "ticker": "CBRS",
-      "tickers": [
-        "CBRS"
-      ],
-      "flag": "WATCH",
-      "score": 37.3,
-      "reasons": [
-        "CBRS: Watch",
-        "3 mentions this week (6.0x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports the stock jumped 16% on record revenue, a first adjusted profit and a raised outlook, implying a positive view.",
-      "sentiment": 0.5,
-      "confidence": 0.6
     }
   ]
 }
