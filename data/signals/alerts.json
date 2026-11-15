@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "6d61da585a2aad5d",
+      "ticker": "SOFI",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-15T20:00:10.417Z",
+      "firedDate": "2026-11-15",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.546,
+        "sentShift": 0.396,
+        "retRecent": -0.0487,
+        "excessRecent": -0.0747,
+        "score": 0.6
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/15/sofi-expects-about-50-earnings-growth-in-2027-and/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/09/sofis-earnings-shine-while-paypal-boeings-earnings-look-meh/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/08/sofi-17-million-members-prediction-20-million-2027/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "a84cdc632d7de090",
       "ticker": "AMD",
       "rule": "MENTION_SPIKE",
