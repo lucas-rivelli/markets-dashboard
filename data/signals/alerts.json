@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "bc14d5cdb218434f",
+      "ticker": "F",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-18T21:07:56.269Z",
+      "firedDate": "2026-11-18",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 4.286,
+        "sentRecent": 0,
+        "sentShift": -0.023,
+        "retRecent": -0.0743,
+        "excessRecent": -0.0383,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/articles/ford-begins-ev-battery-cell-182741966.html?.tsrc=rss",
+        "https://www.wallstreethorizon.com/blog/Beyond-NVIDIA--Anthropic-3-Important-Stock-Catalysts-to-Watch-Into-December?.tsrc=rss",
+        "https://www.slashgear.com/2005251/american-automaker-tesla-more-profitable-than-ford-general-motors/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "1deaaf0a338d5996",
+      "ticker": "ASML",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-18T21:07:56.266Z",
+      "firedDate": "2026-11-18",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 4.286,
+        "sentRecent": 0.238,
+        "sentShift": 0.305,
+        "retRecent": -0.0986,
+        "excessRecent": -0.0626,
+        "score": 0.3833
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/nvidias-leadership-woes-buy-tsmc-190000738.html?.tsrc=rss",
+        "https://www.fool.com/coverage/better-buy/2026/11/14/asml-vs-nvidia-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+        "https://www.tikr.com/blog/asml-soars-10-in-a-week-as-chip-stocks-bounce-and-musks-terafab-eyes-a-million-wafers?ref=yahoofinance&tlnk=yf-261114-g2565jf3&.tsrc=rss"
+      ]
+    },
+    {
       "id": "612e8ed9d93567a2",
       "ticker": "SMCI",
       "rule": "BEARISH_SHIFT",
