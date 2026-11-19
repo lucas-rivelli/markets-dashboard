@@ -2,6 +2,98 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "e1605a837bb91428",
+      "ticker": "TTWO",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-19T11:05:45.851Z",
+      "firedDate": "2026-11-19",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.31,
+        "sentShift": -0.304,
+        "retRecent": -0.0456,
+        "excessRecent": -0.01,
+        "score": 0.3409
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/sony-shares-rise-playstation-dominates-063734369.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/71d9f72e-471f-3b18-a9fd-e82af767e21b/grand-theft-auto-vi-makes.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-names-top-mid-small-201832036.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "87e0fc5d191c5bcd",
+      "ticker": "NBIS",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-19T11:05:45.849Z",
+      "firedDate": "2026-11-19",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.071,
+        "sentRecent": 0.5,
+        "sentShift": 0.425,
+        "retRecent": -0.1685,
+        "excessRecent": -0.133,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/19/prediction-nebius-stock-will-trade-at-this-price-at-the-end-of-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/nebius-tests-neocloud-playbook-40-212710015.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/does-nebius-group-nbis-face-191810478.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f4abb21681cc1785",
+      "ticker": "QCOM",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-19T11:05:45.847Z",
+      "firedDate": "2026-11-19",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.571,
+        "sentRecent": 0.354,
+        "sentShift": 0.174,
+        "retRecent": -0.0978,
+        "excessRecent": -0.0623,
+        "score": 0.3887
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/could-qualcomm-actually-climb-85-or-is-baird-totally-wrong?ref=yahoofinance&tlnk=yf-261118-fj25pvqf&.tsrc=rss",
+        "https://www.proactiveinvestors.com/companies/news/1102042/baird-cuts-qualcomm-estimates-over-potential-loss-of-bytedance-chip-business-1102042.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/qualcomms-5-billion-data-center-174700875.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9063f6e37166463c",
+      "ticker": "NOW",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-19T11:05:45.844Z",
+      "firedDate": "2026-11-19",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.6,
+        "sentShift": 0.2,
+        "retRecent": -0.1,
+        "excessRecent": -0.0645,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/servicenow-stock-now-historic-sell-213800295.html?.tsrc=rss",
+        "https://www.fool.com/coverage/charts/2026/11/02/servicenow-vs-uipath-consistent-revenue-growth-vs-volatile-seasonal-trends/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/01/why-the-27-crash-in-servicenows-stock-looks-like-a/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "472589bc08c10de9",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",

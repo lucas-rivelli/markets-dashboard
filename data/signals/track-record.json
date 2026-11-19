@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T02:47:50.444Z",
+  "generatedAt": "2026-11-19T11:05:49.079Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-11-18",
@@ -1210,7 +1210,7 @@
       "ticker": "GEV",
       "rule": "MENTION_SPIKE",
       "flag": "WATCH",
-      "fwd5": null,
+      "fwd5": -0.005595701620800586,
       "fwd20": null
     },
     {
@@ -1234,7 +1234,7 @@
       "ticker": "DASH",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
-      "fwd5": null,
+      "fwd5": -0.02531784959561645,
       "fwd20": null
     },
     {
@@ -1242,7 +1242,7 @@
       "ticker": "SMCI",
       "rule": "BEARISH_SHIFT",
       "flag": "SHORT",
-      "fwd5": null,
+      "fwd5": -0.16017531113670724,
       "fwd20": null
     },
     {
@@ -1626,10 +1626,10 @@
     {
       "name": "BEARISH_SHIFT",
       "events": 35,
-      "measured": 0,
-      "hitRate20": null,
-      "avgExcess5": null,
-      "avgExcess20": null
+      "measured": 1,
+      "hitRate20": 0,
+      "avgExcess5": -0.04575179169425303,
+      "avgExcess20": 0.02593001908905912
     },
     {
       "name": "BULLISH_SHIFT",
@@ -1668,10 +1668,10 @@
     {
       "name": "SHORT",
       "events": 38,
-      "measured": 0,
-      "hitRate20": null,
-      "avgExcess5": null,
-      "avgExcess20": null
+      "measured": 1,
+      "hitRate20": 0,
+      "avgExcess5": -0.04575179169425303,
+      "avgExcess20": 0.02593001908905912
     }
   ]
 }
