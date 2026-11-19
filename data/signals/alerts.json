@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "0e7996b82a4aad16",
+      "ticker": "NVDA",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-19T19:32:10.405Z",
+      "firedDate": "2026-11-19",
+      "metrics": {
+        "mentionsRecent": 80,
+        "spikeRatio": 2.065,
+        "sentRecent": 0.054,
+        "sentShift": -0.059,
+        "retRecent": -0.0916,
+        "excessRecent": -0.0561,
+        "score": 0.2365
+      },
+      "topItems": [
+        "https://www.ibtimes.com/trump-financial-disclosure-nvidia-spacex-tesla-purchases-3809977?.tsrc=rss",
+        "https://finance.yahoo.com/video/nvidia-will-not-be-the-leader-5-years-from-now-tiernan-ray-185954396.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/19/nvidia-doubled-its-revenue-in-its-first-quarter-without-huang-heres-our-price-target/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "e1605a837bb91428",
       "ticker": "TTWO",
       "rule": "BEARISH_SHIFT",
