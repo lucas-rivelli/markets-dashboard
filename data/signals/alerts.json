@@ -2,6 +2,144 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "8233858b0a462bbe",
+      "ticker": "CRDO",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.652Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.5,
+        "sentShift": 0.5,
+        "retRecent": -0.1046,
+        "excessRecent": -0.0535,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/15/is-credo-technology-a-better-ai-networking-buy-than-broadcom/?.tsrc=rss",
+        "https://www.tikr.com/blog/credo-sinks-10-as-democratic-sweep-hits-ai-data-center-stocks-biggest-worry?ref=yahoofinance&tlnk=yf-261104-q6q34365&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/credo-stock-bull-case-changed-051508633.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "9fd0006b04f0bfc0",
+      "ticker": "CAT",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.649Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.5,
+        "sentShift": 0.216,
+        "retRecent": -0.1047,
+        "excessRecent": -0.0536,
+        "score": 0.3466
+      },
+      "topItems": [
+        "https://www.thestreet.com/video/the-market-could-fall-10-12-stock-to-buy-and-sell-now?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/avantis-u-large-cap-value-110429785.html?.tsrc=rss",
+        "https://finance.yahoo.com/video/eli-lilly-raises-forecast-ebay-143059520.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "c9e417b0a70acef1",
+      "ticker": "MU",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.647Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.252,
+        "sentRecent": 0.323,
+        "sentShift": -0.109,
+        "retRecent": -0.1129,
+        "excessRecent": -0.0619,
+        "score": 0.3549
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/19/nvidia-just-raised-its-supply-commitments-to-usd390-billion-mostly-for-memory-micron-is-the-memory-stock-i-d-buy/?.tsrc=rss",
+        "https://www.fool.com/coverage/better-buy/2026/11/17/broadcom-vs-micron-technology-which-tech-stock-is-the-better-buy-for-2027/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/12/great-news-nvidia-micron-broadcom-amd-wall-street-mistake/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "5c93a7ef682f4ce2",
+      "ticker": "PANW",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.644Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.4,
+        "sentShift": 0.4,
+        "retRecent": 0.1225,
+        "excessRecent": 0.1736,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/ai-hacking-is-a-fantastic-bonanza-for-crowdstrike-and-palo-alto-per-paul-kedrosky?ref=yahoofinance&tlnk=yf-261119-xq2rf628&.tsrc=rss",
+        "https://finance.yahoo.com/m/107e5a2c-4fba-3df3-b2fd-5d1160e65516/dow-jones-futures-rise%2C-techs.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-software-igv-110607892.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d0aabdce58997140",
+      "ticker": "NBIS",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.641Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.557,
+        "sentShift": 0.482,
+        "retRecent": -0.1636,
+        "excessRecent": -0.1126,
+        "score": 0.6121
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/nebius-stock-nbis-q3-sell-195748939.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/19/prediction-nebius-stock-will-trade-at-this-price-at-the-end-of-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/nebius-tests-neocloud-playbook-40-212710015.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "19bc26abf51aed0c",
+      "ticker": "NBIS",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-20T08:55:14.637Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.557,
+        "sentShift": 0.482,
+        "retRecent": -0.1636,
+        "excessRecent": -0.1126,
+        "score": 0.6121
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/nebius-stock-nbis-q3-sell-195748939.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/19/prediction-nebius-stock-will-trade-at-this-price-at-the-end-of-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/technology/articles/nebius-tests-neocloud-playbook-40-212710015.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b29324ae291a5439",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",
