@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "6c24d02542aa1e51",
+      "ticker": "CRM",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-20T23:21:35.797Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0,
+        "sentShift": -0.6,
+        "retRecent": -0.1585,
+        "excessRecent": -0.1075,
+        "score": 0
+      },
+      "topItems": [
+        "https://www.fool.com/coverage/better-buy/2026/11/20/salesforce-vs-servicenow-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/18/coatue-builds-1-8-billion-salesforce-stake-its-biggest-new-bet-as-the-stock-sinks-17/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/10/30/prediction-this-could-be-the-ai-comeback-story-of-the-decade/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "e219bd0f7b62056a",
+      "ticker": "TTWO",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-20T23:21:35.793Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.857,
+        "sentRecent": 0.231,
+        "sentShift": -0.379,
+        "retRecent": -0.0841,
+        "excessRecent": -0.0331,
+        "score": 0.2535
+      },
+      "topItems": [
+        "https://finance.yahoo.com/m/3c42b1d1-621c-33f2-a790-3a224aa2698d/take-two-smashes-sales.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/sony-shares-rise-playstation-dominates-063734369.html?.tsrc=rss",
+        "https://finance.yahoo.com/m/71d9f72e-471f-3b18-a9fd-e82af767e21b/grand-theft-auto-vi-makes.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "2485105ad32bf8f7",
       "ticker": "SPCX",
       "rule": "MENTION_SPIKE",

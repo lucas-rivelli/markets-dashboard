@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-20T17:33:37.929Z",
-  "startedAt": "2026-11-20T17:27:39.122Z",
+  "lastUpdated": "2026-11-20T23:21:38.191Z",
+  "startedAt": "2026-11-20T23:15:51.144Z",
   "asOf": "2026-11-20",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,21 +137,21 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 15,
       "error": null
     },
     {
@@ -172,14 +172,14 @@
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 16,
       "error": null
     },
     {
@@ -193,7 +193,7 @@
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
@@ -207,14 +207,14 @@
       "name": "Yahoo Finance — PLTR",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — SMCI",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 16,
       "error": null
     },
     {
@@ -561,6 +561,12 @@
       "ticker": "CRDO",
       "ok": true,
       "bars": 520,
+      "provider": "nasdaq"
+    },
+    {
+      "ticker": "CRM",
+      "ok": true,
+      "bars": 501,
       "provider": "nasdaq"
     },
     {
@@ -976,13 +982,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 347,
-    "extractionsTotal": 7424,
-    "mentionsTotal": 2595,
-    "tickers": 112,
-    "pricesOk": 115,
-    "alertsTotal": 1100,
-    "newAlerts": 1
+    "itemsFetched": 361,
+    "extractionsTotal": 7504,
+    "mentionsTotal": 2615,
+    "tickers": 113,
+    "pricesOk": 116,
+    "alertsTotal": 1102,
+    "newAlerts": 2
   },
   "rows": [
     {
@@ -990,17 +996,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 16,
+      "mentionsRecent": 17,
       "mentionsBaseline": 115,
       "baselineRate": 26.833,
-      "spikeRatio": 0.596,
-      "sentRecent": 0.407,
+      "spikeRatio": 0.634,
+      "sentRecent": 0.386,
       "sentBaseline": 0.279,
-      "sentShift": 0.128,
+      "sentShift": 0.107,
       "retRecent": -0.084,
       "excessRecent": -0.033,
       "ret30": -0.1149,
-      "score": 1.1534,
+      "score": 1.1171,
       "lastPrice": 489.19,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
@@ -1016,17 +1022,17 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 10,
+      "mentionsRecent": 11,
       "mentionsBaseline": 40,
       "baselineRate": 9.333,
-      "spikeRatio": 1.071,
-      "sentRecent": 0.38,
+      "spikeRatio": 1.179,
+      "sentRecent": 0.352,
       "sentBaseline": 0.399,
-      "sentShift": -0.018,
+      "sentShift": -0.047,
       "retRecent": -0.117,
       "excessRecent": -0.0659,
       "ret30": -0.1848,
-      "score": 0.9122,
+      "score": 0.8744,
       "lastPrice": 352.09,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
@@ -1068,6 +1074,26 @@
       "ret30": 0.0262,
       "score": 0.8384,
       "lastPrice": 346.65,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
+      "ticker": "CEG",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 32,
+      "baselineRate": 7.467,
+      "spikeRatio": 0.536,
+      "sentRecent": 0.422,
+      "sentBaseline": 0.283,
+      "sentShift": 0.139,
+      "retRecent": -0.1005,
+      "excessRecent": -0.0495,
+      "ret30": -0.0691,
+      "score": 0.6795,
+      "lastPrice": 252.03,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1200,26 +1226,6 @@
       "priceBars": 523
     },
     {
-      "ticker": "CEG",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 3,
-      "mentionsBaseline": 32,
-      "baselineRate": 7.467,
-      "spikeRatio": 0.402,
-      "sentRecent": 0.36,
-      "sentBaseline": 0.283,
-      "sentShift": 0.077,
-      "retRecent": -0.1005,
-      "excessRecent": -0.0495,
-      "ret30": -0.0691,
-      "score": 0.4991,
-      "lastPrice": 252.03,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
       "ticker": "CRWD",
       "discovered": true,
       "flag": null,
@@ -1260,6 +1266,26 @@
       "priceBars": 523
     },
     {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 20,
+      "mentionsBaseline": 105,
+      "baselineRate": 24.5,
+      "spikeRatio": 0.816,
+      "sentRecent": 0.149,
+      "sentBaseline": 0.262,
+      "sentShift": -0.114,
+      "retRecent": -0.0488,
+      "excessRecent": 0.0022,
+      "ret30": -0.065,
+      "score": 0.4529,
+      "lastPrice": 498.3,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
       "ticker": "PANW",
       "discovered": true,
       "flag": "LONG",
@@ -1286,46 +1312,6 @@
       "priceBars": 501
     },
     {
-      "ticker": "MSFT",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 18,
-      "mentionsBaseline": 105,
-      "baselineRate": 24.5,
-      "spikeRatio": 0.735,
-      "sentRecent": 0.146,
-      "sentBaseline": 0.262,
-      "sentShift": -0.116,
-      "retRecent": -0.0488,
-      "excessRecent": 0.0022,
-      "ret30": -0.065,
-      "score": 0.4308,
-      "lastPrice": 498.3,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
-      "ticker": "AMZN",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 16,
-      "mentionsBaseline": 100,
-      "baselineRate": 23.333,
-      "spikeRatio": 0.686,
-      "sentRecent": 0.15,
-      "sentBaseline": 0.18,
-      "sentShift": -0.03,
-      "retRecent": -0.0348,
-      "excessRecent": 0.0162,
-      "ret30": -0.0191,
-      "score": 0.425,
-      "lastPrice": 257.37,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
       "ticker": "DIS",
       "discovered": true,
       "flag": null,
@@ -1346,30 +1332,24 @@
       "priceBars": 503
     },
     {
-      "ticker": "NOW",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 1,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 1.429,
-      "sentRecent": 0.6,
-      "sentBaseline": 0.4,
-      "sentShift": 0.2,
-      "retRecent": -0.1309,
-      "excessRecent": -0.0798,
-      "ret30": -0.4196,
-      "score": 0.4159,
-      "lastPrice": 88.87,
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 18,
+      "mentionsBaseline": 100,
+      "baselineRate": 23.333,
+      "spikeRatio": 0.771,
+      "sentRecent": 0.133,
+      "sentBaseline": 0.18,
+      "sentShift": -0.047,
+      "retRecent": -0.0348,
+      "excessRecent": 0.0162,
+      "ret30": -0.0191,
+      "score": 0.3926,
+      "lastPrice": 257.37,
       "lastPriceDate": "2026-11-19",
-      "priceBars": 514
+      "priceBars": 523
     },
     {
       "ticker": "QCOM",
@@ -1410,6 +1390,32 @@
       "lastPrice": 336.68,
       "lastPriceDate": "2026-11-19",
       "priceBars": 501
+    },
+    {
+      "ticker": "NOW",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 2.857,
+      "sentRecent": 0.352,
+      "sentBaseline": 0.4,
+      "sentShift": -0.048,
+      "retRecent": -0.1309,
+      "excessRecent": -0.0798,
+      "ret30": -0.4196,
+      "score": 0.3864,
+      "lastPrice": 88.87,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 514
     },
     {
       "ticker": "AAPL",
@@ -1550,6 +1556,46 @@
       "priceBars": 507
     },
     {
+      "ticker": "NI",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 1.429,
+      "sentRecent": 0.5,
+      "sentBaseline": 0.3,
+      "sentShift": 0.2,
+      "retRecent": -0.0324,
+      "excessRecent": 0.0187,
+      "ret30": 0.0365,
+      "score": 0.3466,
+      "lastPrice": 44.56,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 517
+    },
+    {
+      "ticker": "PFE",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 1.429,
+      "sentRecent": 0.5,
+      "sentBaseline": 0.227,
+      "sentShift": 0.273,
+      "retRecent": -0.0467,
+      "excessRecent": 0.0043,
+      "ret30": -0.0774,
+      "score": 0.3466,
+      "lastPrice": 27.54,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 505
+    },
+    {
       "ticker": "SOFI",
       "discovered": true,
       "flag": "LONG",
@@ -1640,20 +1686,46 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 71,
+      "mentionsRecent": 74,
       "mentionsBaseline": 180,
       "baselineRate": 42,
-      "spikeRatio": 1.69,
-      "sentRecent": 0.057,
+      "spikeRatio": 1.762,
+      "sentRecent": 0.061,
       "sentBaseline": 0.109,
-      "sentShift": -0.052,
+      "sentShift": -0.048,
       "retRecent": -0.1036,
       "excessRecent": -0.0526,
       "ret30": -0.3423,
-      "score": 0.2423,
+      "score": 0.2627,
       "lastPrice": 145.98,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
+    },
+    {
+      "ticker": "TTWO",
+      "discovered": true,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 2.857,
+      "sentRecent": 0.231,
+      "sentBaseline": 0.609,
+      "sentShift": -0.379,
+      "retRecent": -0.0841,
+      "excessRecent": -0.0331,
+      "ret30": 0.0121,
+      "score": 0.2535,
+      "lastPrice": 208.65,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 506
     },
     {
       "ticker": "COIN",
@@ -1908,6 +1980,32 @@
       "priceBars": 517
     },
     {
+      "ticker": "CRM",
+      "discovered": true,
+      "flag": "SHORT",
+      "rules": [
+        {
+          "id": "BEARISH_SHIFT",
+          "flag": "SHORT",
+          "label": "Bearish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 1,
+      "baselineRate": 0.233,
+      "spikeRatio": 4,
+      "sentRecent": 0,
+      "sentBaseline": 0.6,
+      "sentShift": -0.6,
+      "retRecent": -0.1585,
+      "excessRecent": -0.1075,
+      "ret30": -0.2418,
+      "score": 0,
+      "lastPrice": 183.31,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 501
+    },
+    {
       "ticker": "D",
       "discovered": true,
       "flag": null,
@@ -1972,6 +2070,26 @@
       "lastPrice": 167.46,
       "lastPriceDate": "2026-11-19",
       "priceBars": 503
+    },
+    {
+      "ticker": "ARM",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 4,
+      "baselineRate": 0.933,
+      "spikeRatio": 1.071,
+      "sentRecent": 0,
+      "sentBaseline": 0.196,
+      "sentShift": -0.196,
+      "retRecent": -0.0701,
+      "excessRecent": -0.0191,
+      "ret30": -0.2181,
+      "score": 0,
+      "lastPrice": 177.17,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 511
     },
     {
       "ticker": "BX",
@@ -2112,26 +2230,6 @@
       "lastPrice": 20.84,
       "lastPriceDate": "2026-11-19",
       "priceBars": 510
-    },
-    {
-      "ticker": "TTWO",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 1,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 1.429,
-      "sentRecent": 0,
-      "sentBaseline": 0.609,
-      "sentShift": -0.609,
-      "retRecent": -0.0841,
-      "excessRecent": -0.0331,
-      "ret30": 0.0121,
-      "score": 0,
-      "lastPrice": 208.65,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 506
     },
     {
       "ticker": "UBER",
@@ -2332,26 +2430,6 @@
       "lastPrice": 379.02,
       "lastPriceDate": "2026-11-19",
       "priceBars": 514
-    },
-    {
-      "ticker": "ARM",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 0,
-      "mentionsBaseline": 4,
-      "baselineRate": 0.933,
-      "spikeRatio": 0,
-      "sentRecent": null,
-      "sentBaseline": 0.196,
-      "sentShift": null,
-      "retRecent": -0.0701,
-      "excessRecent": -0.0191,
-      "ret30": -0.2181,
-      "score": 0,
-      "lastPrice": 177.17,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 511
     },
     {
       "ticker": "BA",
@@ -2834,26 +2912,6 @@
       "priceBars": 510
     },
     {
-      "ticker": "NI",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 0,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 0,
-      "sentRecent": null,
-      "sentBaseline": 0.3,
-      "sentShift": null,
-      "retRecent": -0.0324,
-      "excessRecent": 0.0187,
-      "ret30": 0.0365,
-      "score": 0,
-      "lastPrice": 44.56,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 517
-    },
-    {
       "ticker": "NTNX",
       "discovered": true,
       "flag": null,
@@ -2932,26 +2990,6 @@
       "lastPrice": 110.57,
       "lastPriceDate": "2026-11-19",
       "priceBars": 518
-    },
-    {
-      "ticker": "PFE",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 0,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 0,
-      "sentRecent": null,
-      "sentBaseline": 0.227,
-      "sentShift": null,
-      "retRecent": -0.0467,
-      "excessRecent": 0.0043,
-      "ret30": -0.0774,
-      "score": 0,
-      "lastPrice": 27.54,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 505
     },
     {
       "ticker": "RIVN",
@@ -3154,26 +3192,6 @@
       "priceBars": 523
     },
     {
-      "ticker": "TSLA",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 15,
-      "mentionsBaseline": 96,
-      "baselineRate": 22.4,
-      "spikeRatio": 0.67,
-      "sentRecent": -0.042,
-      "sentBaseline": 0.187,
-      "sentShift": -0.229,
-      "retRecent": -0.0405,
-      "excessRecent": 0.0105,
-      "ret30": -0.0312,
-      "score": -0.1167,
-      "lastPrice": 374.41,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
       "ticker": "KO",
       "discovered": true,
       "flag": "SHORT",
@@ -3203,6 +3221,26 @@
       "lastPrice": 96.09,
       "lastPriceDate": "2026-11-19",
       "priceBars": 513
+    },
+    {
+      "ticker": "TSLA",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 16,
+      "mentionsBaseline": 96,
+      "baselineRate": 22.4,
+      "spikeRatio": 0.714,
+      "sentRecent": -0.057,
+      "sentBaseline": 0.187,
+      "sentShift": -0.245,
+      "retRecent": -0.0405,
+      "excessRecent": 0.0105,
+      "ret30": -0.0312,
+      "score": -0.1627,
+      "lastPrice": 374.41,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
     },
     {
       "ticker": "LCID",
@@ -3321,17 +3359,17 @@
           "label": "Mention spike"
         }
       ],
-      "mentionsRecent": 4,
+      "mentionsRecent": 5,
       "mentionsBaseline": 3,
       "baselineRate": 0.7,
-      "spikeRatio": 5.714,
-      "sentRecent": -0.35,
+      "spikeRatio": 7.143,
+      "sentRecent": -0.384,
       "sentBaseline": -0.1,
-      "sentShift": -0.25,
+      "sentShift": -0.284,
       "retRecent": -0.2284,
       "excessRecent": -0.1773,
       "ret30": -0.4388,
-      "score": -0.5633,
+      "score": -0.6878,
       "lastPrice": 86.13,
       "lastPriceDate": "2026-11-19",
       "priceBars": 505
@@ -3431,6 +3469,51 @@
       "confidence": 0.7
     },
     {
+      "id": "613daa8122430a9e7ed6dc5ff3cc5b9638ae8867ba7965b14e17dc061dd09083",
+      "title": "Salesforce vs. ServiceNow: Which Technology Stock Is a Better Buy for 2027?",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/coverage/better-buy/2026/11/20/salesforce-vs-servicenow-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+      "publishedAt": "2026-11-20T21:47:17.000Z",
+      "ticker": "CRM",
+      "tickers": [
+        "CRM",
+        "NOW"
+      ],
+      "flag": "SHORT",
+      "score": 65,
+      "reasons": [
+        "CRM: Short candidate",
+        "sentiment shift -0.60",
+        "new name outside the universe"
+      ],
+      "rationale": "Compared on valuation as having a lower forward P/E than ServiceNow, with no explicit view on its stock.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
+      "id": "688e24401080f688052742584086e665dd8ad23f62a9774d8a7d887a5ee35320",
+      "title": "Take-Two Smashes Sales Records With 'Grand Theft Auto 6'",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/3c42b1d1-621c-33f2-a790-3a224aa2698d/take-two-smashes-sales.html?.tsrc=rss",
+      "publishedAt": "2026-11-20T21:32:20.000Z",
+      "ticker": "TTWO",
+      "tickers": [
+        "TTWO"
+      ],
+      "flag": "SHORT",
+      "score": 63.2,
+      "reasons": [
+        "TTWO: Short candidate",
+        "sentiment shift -0.38",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports that the Grand Theft Auto 6 launch set record video game sales, a positive implied view of the company.",
+      "sentiment": 0.5,
+      "confidence": 0.6
+    },
+    {
       "id": "a627bc0d97b16fb4eb387877608c33d58899f062c131d9fb092d018302278818",
       "title": "Thinking About Buying Anthropic’s IPO on Nov. 19? Here’s an AI Stock I’d Consider First (Hint: It’s Not Nvidia or Broadcom).",
       "source": "Yahoo Finance — GOOGL",
@@ -3476,6 +3559,28 @@
       "confidence": 0.8
     },
     {
+      "id": "41df100269998dda4a3ae4ff5dc94c8c0878386e5b8eb1f8fc0cd4104fc1e65b",
+      "title": "Coatue Builds $1.8 Billion Salesforce Stake, Its Biggest New Bet, as the Stock Sinks 17%",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/18/coatue-builds-1-8-billion-salesforce-stake-its-biggest-new-bet-as-the-stock-sinks-17/?.tsrc=rss",
+      "publishedAt": "2026-11-19T02:47:06.000Z",
+      "ticker": "CRM",
+      "tickers": [
+        "CRM"
+      ],
+      "flag": "SHORT",
+      "score": 57.7,
+      "reasons": [
+        "CRM: Short candidate",
+        "sentiment shift -0.60",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports a Coatue stake and the stock's recent decline without giving the author's own view on the shares.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
       "id": "e601d885ad7a9316c7e772bb99386ca3ff1872c5d13708686c8251b6707cc3c7",
       "title": "Susquehanna’s $600 Target Says TSMC’s Selloff Went Too Far",
       "source": "Yahoo Finance — TSM",
@@ -3496,6 +3601,28 @@
       "rationale": "Susquehanna maintains a Buy rating and $600 target, arguing the recent selloff in the stock overshot.",
       "sentiment": 0.7,
       "confidence": 0.75
+    },
+    {
+      "id": "0323019690381694061ed05283265c06e254e44da9cde8c1b37fc7973f2e51ac",
+      "title": "A $9.7 Billion Fund Bought These 3 Stocks Last Quarter",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/a-9-7-billion-fund-bought-these-3-stocks-last-quarter?ref=yahoofinance&tlnk=yf-261120-83gq9xg9&.tsrc=rss",
+      "publishedAt": "2026-11-20T21:35:24.000Z",
+      "ticker": "TSM",
+      "tickers": [
+        "TSM",
+        "ARM"
+      ],
+      "flag": "LONG",
+      "score": 57,
+      "reasons": [
+        "TSM: Long candidate",
+        "stock moving against the research"
+      ],
+      "rationale": "Reports that a large fund added to its stake in the company during the third quarter, with no author view given.",
+      "sentiment": 0,
+      "confidence": 0.6
     },
     {
       "id": "4b5350d945f6b641dabbc5aaf2056864e94a9652b7b27ecbc82a86a1d11e5ca8",
@@ -3565,26 +3692,26 @@
       "confidence": 0.6
     },
     {
-      "id": "5ac54d37956a9cf9983e2bebc1cdb8fdf49e4ac3cb76d1f6fe719ffd9cb9eeb4",
-      "title": "Taiwan Semiconductor Stock (TSM) Looks Too Cheap for Its Growth Outlook",
-      "source": "Yahoo Finance — AMD",
+      "id": "a0d026c68a988d8db19d22101be8e6ee0b7d35099f57b18092d9f014f4964e84",
+      "title": "Sony shares rise as Playstation dominates GTA VI sales",
+      "source": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-stock-tsm-looks-210800765.html?.tsrc=rss",
-      "publishedAt": "2026-11-18T21:08:00.000Z",
-      "ticker": "TSM",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/sony-shares-rise-playstation-dominates-063734369.html?.tsrc=rss",
+      "publishedAt": "2026-11-19T06:37:34.000Z",
+      "ticker": "TTWO",
       "tickers": [
-        "TSM"
+        "TTWO"
       ],
-      "flag": "LONG",
-      "score": 50.6,
+      "flag": "SHORT",
+      "score": 51.8,
       "reasons": [
-        "TSM: Long candidate",
-        "stock moving against the research",
-        "bullish view, confidence 0.85"
+        "TTWO: Short candidate",
+        "sentiment shift -0.38",
+        "new name outside the universe"
       ],
-      "rationale": "Author says the foundry's shares look too cheap relative to its growth outlook after a 26% drop.",
-      "sentiment": 0.7,
-      "confidence": 0.85
+      "rationale": "Named only as the publisher of the game; the item expresses no view on its shares.",
+      "sentiment": 0,
+      "confidence": 0.7
     },
     {
       "id": "b51018138a5028757fa81269bdc1ee1fd3298fd53977e0de237de0a1a920d071",
@@ -3608,6 +3735,28 @@
       "rationale": "Credits Cisco's stable leadership, diversified revenue, and raised 2027 outlook as reasons it may be the better buy.",
       "sentiment": 0.5,
       "confidence": 0.6
+    },
+    {
+      "id": "cdf6ec168711cc622972a6398f795654b9f80c939fb2d360e4378e09ed98baa9",
+      "title": "Strategy Is Down 44% in a Month as Crypto Stocks Crumble: Can MSTR Stock Get Back to $100 This Year?",
+      "source": "Yahoo Finance — COIN",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/20/strategy-is-down-44-in-a-month-as-crypto-stocks-crumble-can-mstr-stock-get-back-to-100-this-year/?.tsrc=rss",
+      "publishedAt": "2026-11-20T20:02:35.000Z",
+      "ticker": "MSTR",
+      "tickers": [
+        "MSTR"
+      ],
+      "flag": "WATCH",
+      "score": 48.6,
+      "reasons": [
+        "MSTR: Watch",
+        "5 mentions this week (7.1x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Highlights heavy borrowing and magnified losses from Bitcoin's slide, and questions what must go right for shareholders.",
+      "sentiment": -0.5,
+      "confidence": 0.7
     },
     {
       "id": "afb6faaaabfaf510dadd9931cea521e8e19a60cefa6bc98afa0c2385554b30fb",
@@ -3738,7 +3887,7 @@
       "score": 42.5,
       "reasons": [
         "MSTR: Watch",
-        "4 mentions this week (5.7x baseline)",
+        "5 mentions this week (7.1x baseline)",
         "new name outside the universe"
       ],
       "rationale": "Summarizes Schiff's view that the company's premium to bitcoin holdings has collapsed, so its share-issuance trade no longer works.",
@@ -3788,117 +3937,6 @@
       "rationale": "Author sees the sell-off as excessive, citing solid subscription growth, a raised cash-flow outlook, and a modest valuation multiple.",
       "sentiment": 0.6,
       "confidence": 0.85
-    },
-    {
-      "id": "36eff78f52e9e4061768ca2b99d43aff8327d3eefc7e1ed0de9aa1c809216bd0",
-      "title": "Is Credo Technology a Better AI Networking Buy Than Broadcom?",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/15/is-credo-technology-a-better-ai-networking-buy-than-broadcom/?.tsrc=rss",
-      "publishedAt": "2026-11-15T13:57:01.000Z",
-      "ticker": "CRDO",
-      "tickers": [
-        "CRDO"
-      ],
-      "flag": "LONG",
-      "score": 34.7,
-      "reasons": [
-        "CRDO: Long candidate",
-        "sentiment shift +0.50",
-        "stock moving against the research"
-      ],
-      "rationale": "Presents Credo's triple-digit growth as a potentially more lucrative option for risk-tolerant investors.",
-      "sentiment": 0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "ab1fc6b5e6d8bea2033eab450d993ecbb3429abcd06a4ad850e8387601cc5968",
-      "title": "Ford begins EV battery cell production in the U.S. with China’s tech",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/articles/ford-begins-ev-battery-cell-182741966.html?.tsrc=rss",
-      "publishedAt": "2026-11-18T18:27:41.000Z",
-      "ticker": "F",
-      "tickers": [
-        "F"
-      ],
-      "flag": "WATCH",
-      "score": 33.6,
-      "reasons": [
-        "F: Watch",
-        "3 mentions this week (4.3x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports Ford has started battery cell manufacturing in Michigan using licensed Chinese technology, with no evaluative view expressed.",
-      "sentiment": 0,
-      "confidence": 0.8
-    },
-    {
-      "id": "520bec3694acc782f951e6f3f36b0c0a7c06ce7731b5c047234b9b974d8db3b0",
-      "title": "SpaceX (SPCX) Merger Talks Advance As $74 Billion AI Campus Plan Takes Shape",
-      "source": "Yahoo Finance — TSLA",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/spacex-spcx-merger-talks-advance-011143094.html?.tsrc=rss",
-      "publishedAt": "2026-11-18T01:11:43.000Z",
-      "ticker": "SPCX",
-      "tickers": [
-        "SPCX",
-        "TSLA"
-      ],
-      "flag": "WATCH",
-      "score": 33.6,
-      "reasons": [
-        "SPCX: Watch",
-        "3 mentions this week (4.3x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Reports on advanced merger talks with Tesla and a planned $74 billion AI campus build-out, without stating a view.",
-      "sentiment": 0,
-      "confidence": 0.7
-    },
-    {
-      "id": "a8dfad1b015c329dc506f44a5352d5d25607e132fdbd394a5507239052d64976",
-      "title": "Coca-Cola Has Paid a Growing Dividend for 64 Years. Here's the Income $5,000 Can Start You With.",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/14/coca-cola-has-paid-a-growing-dividend-for-64-years-heres-the-income-5000-can-start-you-with/?.tsrc=rss",
-      "publishedAt": "2026-11-14T19:16:57.000Z",
-      "ticker": "KO",
-      "tickers": [
-        "KO"
-      ],
-      "flag": "SHORT",
-      "score": 31,
-      "reasons": [
-        "KO: Short candidate",
-        "sentiment shift -0.65",
-        "3 mentions this week (3.2x baseline)"
-      ],
-      "rationale": "Describes Coca-Cola's dividend record and asset-light model as producing high-margin profits, implying a favorable view; the text is brief.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "0c30e53b82d97b62a474d65ae77bbd9af36003acdd83b1eb3264237844d71c3b",
-      "title": "Jeff Bezos’ Former Hedge Fund Is Buying Bitcoin Again",
-      "source": "Yahoo Finance — AMZN",
-      "sourceType": "TickerNews",
-      "url": "https://beincrypto.com/de-shaw-bitcoin-etf-strategy-strive/?.tsrc=rss",
-      "publishedAt": "2026-11-17T22:29:16.000Z",
-      "ticker": "MSTR",
-      "tickers": [
-        "MSTR"
-      ],
-      "flag": "WATCH",
-      "score": 29,
-      "reasons": [
-        "MSTR: Watch",
-        "4 mentions this week (5.7x baseline)",
-        "new name outside the universe"
-      ],
-      "rationale": "Named only as a stake that a hedge fund boosted in Q3; the item gives no view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
     }
   ]
 }
