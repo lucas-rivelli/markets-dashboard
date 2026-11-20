@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "2485105ad32bf8f7",
+      "ticker": "SPCX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-20T17:33:34.624Z",
+      "firedDate": "2026-11-20",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 4.286,
+        "sentRecent": 0,
+        "sentShift": -0.158,
+        "retRecent": -0.0049,
+        "excessRecent": 0.0461,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/apollo-goldman-sachs-announce-pricing-160200875.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/elon-musk-dream-meets-wall-062433324.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/spacex-spcx-merger-talks-advance-011143094.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "8233858b0a462bbe",
       "ticker": "CRDO",
       "rule": "DIVERGENCE_LONG",

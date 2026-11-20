@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-20T08:55:18.536Z",
-  "startedAt": "2026-11-20T08:49:22.933Z",
+  "lastUpdated": "2026-11-20T17:33:37.929Z",
+  "startedAt": "2026-11-20T17:27:39.122Z",
   "asOf": "2026-11-20",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,21 +137,21 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 15,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
@@ -165,42 +165,42 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 14,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — AVGO",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -221,7 +221,7 @@
       "name": "Yahoo Finance — COIN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -235,14 +235,14 @@
       "name": "Yahoo Finance — GS",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — XOM",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -263,7 +263,7 @@
       "name": "Yahoo Finance — NEE",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -702,6 +702,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "INTU",
+      "ok": true,
+      "bars": 501,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "IONQ",
       "ok": true,
       "bars": 511,
@@ -970,13 +976,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 356,
-    "extractionsTotal": 7344,
-    "mentionsTotal": 2580,
+    "itemsFetched": 347,
+    "extractionsTotal": 7424,
+    "mentionsTotal": 2595,
     "tickers": 112,
-    "pricesOk": 114,
-    "alertsTotal": 1099,
-    "newAlerts": 6
+    "pricesOk": 115,
+    "alertsTotal": 1100,
+    "newAlerts": 1
   },
   "rows": [
     {
@@ -984,38 +990,18 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 15,
+      "mentionsRecent": 16,
       "mentionsBaseline": 115,
       "baselineRate": 26.833,
-      "spikeRatio": 0.559,
-      "sentRecent": 0.393,
+      "spikeRatio": 0.596,
+      "sentRecent": 0.407,
       "sentBaseline": 0.279,
-      "sentShift": 0.114,
+      "sentShift": 0.128,
       "retRecent": -0.084,
       "excessRecent": -0.033,
       "ret30": -0.1149,
-      "score": 1.0906,
+      "score": 1.1534,
       "lastPrice": 489.19,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
-      "ticker": "AVGO",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 62,
-      "baselineRate": 14.467,
-      "spikeRatio": 0.622,
-      "sentRecent": 0.45,
-      "sentBaseline": 0.3,
-      "sentShift": 0.149,
-      "retRecent": -0.001,
-      "excessRecent": 0.05,
-      "ret30": 0.0262,
-      "score": 1.0352,
-      "lastPrice": 346.65,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1050,18 +1036,38 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 6,
+      "mentionsRecent": 7,
       "mentionsBaseline": 69,
       "baselineRate": 16.1,
-      "spikeRatio": 0.373,
-      "sentRecent": 0.436,
+      "spikeRatio": 0.435,
+      "sentRecent": 0.418,
       "sentBaseline": 0.317,
-      "sentShift": 0.119,
+      "sentShift": 0.101,
       "retRecent": -0.0852,
       "excessRecent": -0.0341,
       "ret30": -0.2382,
-      "score": 0.8482,
+      "score": 0.8687,
       "lastPrice": 153.68,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 10,
+      "mentionsBaseline": 62,
+      "baselineRate": 14.467,
+      "spikeRatio": 0.691,
+      "sentRecent": 0.35,
+      "sentBaseline": 0.3,
+      "sentShift": 0.05,
+      "retRecent": -0.001,
+      "excessRecent": 0.05,
+      "ret30": 0.0262,
+      "score": 0.8384,
+      "lastPrice": 346.65,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1234,22 +1240,22 @@
       "priceBars": 514
     },
     {
-      "ticker": "AMZN",
+      "ticker": "GOOGL",
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 15,
-      "mentionsBaseline": 100,
-      "baselineRate": 23.333,
-      "spikeRatio": 0.643,
-      "sentRecent": 0.158,
-      "sentBaseline": 0.18,
-      "sentShift": -0.022,
-      "retRecent": -0.0348,
-      "excessRecent": 0.0162,
-      "ret30": -0.0191,
-      "score": 0.4394,
-      "lastPrice": 257.37,
+      "mentionsRecent": 17,
+      "mentionsBaseline": 105,
+      "baselineRate": 24.5,
+      "spikeRatio": 0.694,
+      "sentRecent": 0.166,
+      "sentBaseline": 0.079,
+      "sentShift": 0.087,
+      "retRecent": -0.0781,
+      "excessRecent": -0.0271,
+      "ret30": -0.1855,
+      "score": 0.48,
+      "lastPrice": 272.66,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1280,26 +1286,6 @@
       "priceBars": 501
     },
     {
-      "ticker": "GOOGL",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 16,
-      "mentionsBaseline": 105,
-      "baselineRate": 24.5,
-      "spikeRatio": 0.653,
-      "sentRecent": 0.153,
-      "sentBaseline": 0.079,
-      "sentShift": 0.073,
-      "retRecent": -0.0781,
-      "excessRecent": -0.0271,
-      "ret30": -0.1855,
-      "score": 0.433,
-      "lastPrice": 272.66,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
       "ticker": "MSFT",
       "discovered": false,
       "flag": null,
@@ -1316,6 +1302,26 @@
       "ret30": -0.065,
       "score": 0.4308,
       "lastPrice": 498.3,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
+      "ticker": "AMZN",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 16,
+      "mentionsBaseline": 100,
+      "baselineRate": 23.333,
+      "spikeRatio": 0.686,
+      "sentRecent": 0.15,
+      "sentBaseline": 0.18,
+      "sentShift": -0.03,
+      "retRecent": -0.0348,
+      "excessRecent": 0.0162,
+      "ret30": -0.0191,
+      "score": 0.425,
+      "lastPrice": 257.37,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1630,42 +1636,42 @@
       "priceBars": 517
     },
     {
-      "ticker": "COIN",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 6,
-      "mentionsBaseline": 46,
-      "baselineRate": 10.733,
-      "spikeRatio": 0.559,
-      "sentRecent": 0.127,
-      "sentBaseline": -0.061,
-      "sentShift": 0.188,
-      "retRecent": -0.1471,
-      "excessRecent": -0.0961,
-      "ret30": -0.3852,
-      "score": 0.2472,
-      "lastPrice": 108.87,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
       "ticker": "NVDA",
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 69,
+      "mentionsRecent": 71,
       "mentionsBaseline": 180,
       "baselineRate": 42,
-      "spikeRatio": 1.643,
-      "sentRecent": 0.058,
+      "spikeRatio": 1.69,
+      "sentRecent": 0.057,
       "sentBaseline": 0.109,
-      "sentShift": -0.051,
+      "sentShift": -0.052,
       "retRecent": -0.1036,
       "excessRecent": -0.0526,
       "ret30": -0.3423,
-      "score": 0.247,
+      "score": 0.2423,
       "lastPrice": 145.98,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
+      "ticker": "COIN",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 7,
+      "mentionsBaseline": 46,
+      "baselineRate": 10.733,
+      "spikeRatio": 0.652,
+      "sentRecent": 0.111,
+      "sentBaseline": -0.061,
+      "sentShift": 0.172,
+      "retRecent": -0.1471,
+      "excessRecent": -0.0961,
+      "ret30": -0.3852,
+      "score": 0.2315,
+      "lastPrice": 108.87,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
     },
@@ -1836,6 +1842,52 @@
       "priceBars": 517
     },
     {
+      "ticker": "NEE",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 23,
+      "baselineRate": 5.367,
+      "spikeRatio": 0.559,
+      "sentRecent": 0,
+      "sentBaseline": 0.199,
+      "sentShift": -0.199,
+      "retRecent": -0.0156,
+      "excessRecent": 0.0354,
+      "ret30": 0.0704,
+      "score": 0,
+      "lastPrice": 83.79,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 523
+    },
+    {
+      "ticker": "SPCX",
+      "discovered": true,
+      "flag": "WATCH",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        }
+      ],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 3,
+      "baselineRate": 0.7,
+      "spikeRatio": 4.286,
+      "sentRecent": 0,
+      "sentBaseline": 0.158,
+      "sentShift": -0.158,
+      "retRecent": -0.0049,
+      "excessRecent": 0.0461,
+      "ret30": -0.1311,
+      "score": 0,
+      "lastPrice": 138.43,
+      "lastPriceDate": "2026-11-19",
+      "priceBars": 112
+    },
+    {
       "ticker": "BAC",
       "discovered": true,
       "flag": null,
@@ -1894,46 +1946,6 @@
       "lastPrice": 626.5,
       "lastPriceDate": "2026-11-19",
       "priceBars": 501
-    },
-    {
-      "ticker": "NEE",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 23,
-      "baselineRate": 5.367,
-      "spikeRatio": 0.373,
-      "sentRecent": 0,
-      "sentBaseline": 0.199,
-      "sentShift": -0.199,
-      "retRecent": -0.0156,
-      "excessRecent": 0.0354,
-      "ret30": 0.0704,
-      "score": 0,
-      "lastPrice": 83.79,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 523
-    },
-    {
-      "ticker": "SPCX",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 3,
-      "baselineRate": 0.7,
-      "spikeRatio": 2.857,
-      "sentRecent": 0,
-      "sentBaseline": 0.158,
-      "sentShift": -0.158,
-      "retRecent": -0.0049,
-      "excessRecent": 0.0461,
-      "ret30": -0.1311,
-      "score": 0,
-      "lastPrice": 138.43,
-      "lastPriceDate": "2026-11-19",
-      "priceBars": 112
     },
     {
       "ticker": "TGT",
@@ -3126,17 +3138,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 13,
+      "mentionsRecent": 14,
       "mentionsBaseline": 67,
       "baselineRate": 15.633,
-      "spikeRatio": 0.832,
-      "sentRecent": -0.018,
+      "spikeRatio": 0.896,
+      "sentRecent": -0.017,
       "sentBaseline": 0.089,
-      "sentShift": -0.107,
+      "sentShift": -0.106,
       "retRecent": -0.0709,
       "excessRecent": -0.0198,
       "ret30": -0.1452,
-      "score": -0.0467,
+      "score": -0.0449,
       "lastPrice": 596.22,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
@@ -3146,17 +3158,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 14,
+      "mentionsRecent": 15,
       "mentionsBaseline": 96,
       "baselineRate": 22.4,
-      "spikeRatio": 0.625,
-      "sentRecent": -0.046,
+      "spikeRatio": 0.67,
+      "sentRecent": -0.042,
       "sentBaseline": 0.187,
-      "sentShift": -0.233,
+      "sentShift": -0.229,
       "retRecent": -0.0405,
       "excessRecent": 0.0105,
       "ret30": -0.0312,
-      "score": -0.1245,
+      "score": -0.1167,
       "lastPrice": 374.41,
       "lastPriceDate": "2026-11-19",
       "priceBars": 523
@@ -3643,6 +3655,51 @@
       "confidence": 0.6
     },
     {
+      "id": "77e89995eb877930145aefcf53e9c7a5fd4e35af50966b00c598729620a8aae6",
+      "title": "Apollo and Goldman Sachs Announce Pricing of $44 Billion SpaceX GPU Financing",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/apollo-goldman-sachs-announce-pricing-160200875.html?.tsrc=rss",
+      "publishedAt": "2026-11-20T16:02:00.000Z",
+      "ticker": "SPCX",
+      "tickers": [
+        "SPCX",
+        "NVDA"
+      ],
+      "flag": "WATCH",
+      "score": 43,
+      "reasons": [
+        "SPCX: Watch",
+        "3 mentions this week (4.3x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "SpaceX is the beneficiary of the GPU financing, mentioned only as the purchaser with no view on its shares.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
+      "id": "da00c6c6a3f197fe583dbc2e0371de457e5b167f59600465eb96255f1dd6ac4c",
+      "title": "Elon Musk’s Dream Meets Wall Street Reality: SpaceX Lenders Don’t Want Nvidia Chips Leaving Earth",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/elon-musk-dream-meets-wall-062433324.html?.tsrc=rss",
+      "publishedAt": "2026-11-20T06:24:33.000Z",
+      "ticker": "SPCX",
+      "tickers": [
+        "SPCX"
+      ],
+      "flag": "WATCH",
+      "score": 43,
+      "reasons": [
+        "SPCX: Watch",
+        "3 mentions this week (4.3x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports that lenders on its $43 billion debt deal are pushing to keep Nvidia chips from being launched, with no clear view on the stock.",
+      "sentiment": 0,
+      "confidence": 0.6
+    },
+    {
       "id": "9c97eca0118710a9600cb1f1237fefb3657204c108a489880bcdae122ecc2112",
       "title": "Beyond NVIDIA & Anthropic: 3 Important Stock Catalysts to Watch Into December",
       "source": "Yahoo Finance — TSM",
@@ -3777,6 +3834,29 @@
       "confidence": 0.8
     },
     {
+      "id": "520bec3694acc782f951e6f3f36b0c0a7c06ce7731b5c047234b9b974d8db3b0",
+      "title": "SpaceX (SPCX) Merger Talks Advance As $74 Billion AI Campus Plan Takes Shape",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/spacex-spcx-merger-talks-advance-011143094.html?.tsrc=rss",
+      "publishedAt": "2026-11-18T01:11:43.000Z",
+      "ticker": "SPCX",
+      "tickers": [
+        "SPCX",
+        "TSLA"
+      ],
+      "flag": "WATCH",
+      "score": 33.6,
+      "reasons": [
+        "SPCX: Watch",
+        "3 mentions this week (4.3x baseline)",
+        "new name outside the universe"
+      ],
+      "rationale": "Reports on advanced merger talks with Tesla and a planned $74 billion AI campus build-out, without stating a view.",
+      "sentiment": 0,
+      "confidence": 0.7
+    },
+    {
       "id": "a8dfad1b015c329dc506f44a5352d5d25607e132fdbd394a5507239052d64976",
       "title": "Coca-Cola Has Paid a Growing Dividend for 64 Years. Here's the Income $5,000 Can Start You With.",
       "source": "Yahoo Finance — NVDA",
@@ -3817,73 +3897,6 @@
         "new name outside the universe"
       ],
       "rationale": "Named only as a stake that a hedge fund boosted in Q3; the item gives no view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "c6732fa503999a5925ddd9e1ef40d10717845080a01d2bb892b64ff75fc37428",
-      "title": "SoFi Expects About 50% Earnings Growth in 2027 and Says It Won't Need to Raise New Capital",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/investing/2026/11/15/sofi-expects-about-50-earnings-growth-in-2027-and/?.tsrc=rss",
-      "publishedAt": "2026-11-15T19:19:00.000Z",
-      "ticker": "SOFI",
-      "tickers": [
-        "SOFI"
-      ],
-      "flag": "LONG",
-      "score": 29,
-      "reasons": [
-        "SOFI: Long candidate",
-        "stock moving against the research",
-        "new name outside the universe"
-      ],
-      "rationale": "Describes SoFi's growth as earned rather than bought and calls it a key turning point for investors.",
-      "sentiment": 0.5,
-      "confidence": 0.7
-    },
-    {
-      "id": "f7309c8edd90fd4b976cb8ba6d9c28a8f511bec413c4c3d2b91b53f1ef4dc932",
-      "title": "ASML Soars 10% in a Week as Chip Stocks Bounce and Musk’s Terafab Eyes a Million Wafers",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/asml-soars-10-in-a-week-as-chip-stocks-bounce-and-musks-terafab-eyes-a-million-wafers?ref=yahoofinance&tlnk=yf-261114-g2565jf3&.tsrc=rss",
-      "publishedAt": "2026-11-14T09:26:35.000Z",
-      "ticker": "ASML",
-      "tickers": [
-        "ASML"
-      ],
-      "flag": "LONG",
-      "score": 28.5,
-      "reasons": [
-        "ASML: Long candidate",
-        "sentiment shift +0.44",
-        "4 mentions this week (3.4x baseline)"
-      ],
-      "rationale": "Reports ASML's 10% weekly gain but attributes most of it to the broader chip rally rather than company-specific views.",
-      "sentiment": 0.1,
-      "confidence": 0.6
-    },
-    {
-      "id": "81f96779b28617cbe222554f69131c6d3ad7128b82e09b57cbfa3ae89838a082",
-      "title": "ASML vs. NVIDIA: Which Technology Stock Is a Better Buy for 2027?",
-      "source": "Yahoo Finance — NVDA",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/coverage/better-buy/2026/11/14/asml-vs-nvidia-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
-      "publishedAt": "2026-11-14T22:14:02.000Z",
-      "ticker": "ASML",
-      "tickers": [
-        "ASML",
-        "NVDA"
-      ],
-      "flag": "LONG",
-      "score": 28.2,
-      "reasons": [
-        "ASML: Long candidate",
-        "sentiment shift +0.44",
-        "4 mentions this week (3.4x baseline)"
-      ],
-      "rationale": "Named as the chip equipment counterpart to Nvidia, with no explicit stance on the stock given.",
       "sentiment": 0,
       "confidence": 0.6
     }
