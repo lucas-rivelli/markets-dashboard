@@ -2,6 +2,75 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "4fe9a02f3df0145c",
+      "ticker": "INTC",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-21T19:59:53.323Z",
+      "firedDate": "2026-11-21",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 0.579,
+        "sentRecent": 0.133,
+        "sentShift": 0.318,
+        "retRecent": -0.1405,
+        "excessRecent": -0.0549,
+        "score": 0.2389
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/billionaire-investor-philippe-laffont-just-highlighted-2-companies-he-expects-to-be-big-winners-of-the-agentic-ai-era/?.tsrc=rss",
+        "https://www.verdict.co.uk/intel-microsoft-deal-azure-cloud/?.tsrc=rss",
+        "https://www.trefis.com/stock/mrvl/articles/626099/marvell-and-intel-halved-how-long-until-they-recover/2026-11-18?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f67a71e697d0cf48",
+      "ticker": "HD",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-21T19:59:53.321Z",
+      "firedDate": "2026-11-21",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 6,
+        "sentRecent": 0.232,
+        "sentShift": -0.268,
+        "retRecent": -0.0277,
+        "excessRecent": 0.0579,
+        "score": 0.3214
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/trump-calls-huangs-exit-such-a-tragedy-as-his-filing-shows-up-to-380000-of-nvidia-buys?ref=yahoofinance&tlnk=yf-261121-64rjxj6w&.tsrc=rss",
+        "https://www.tikr.com/blog/a-6-6-billion-fund-dumps-these-2-stocks?ref=yahoofinance&tlnk=yf-261119-6frhj2xf&.tsrc=rss",
+        "https://www.tikr.com/blog/9-upside-for-home-depot-even-after-a-target-cut-goldman-sachs-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261118-6pvx3vx9&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0af541d8b30707fb",
+      "ticker": "NBIS",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-21T19:59:53.317Z",
+      "firedDate": "2026-11-21",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 4.286,
+        "sentRecent": 0.323,
+        "sentShift": 0.248,
+        "retRecent": -0.2983,
+        "excessRecent": -0.2127,
+        "score": 0.52
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/could-investing-500-a-month-in-nebius-help-you-retire-a-millionaire/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/20/michael-burry-says-he-tried-to-warn-you-about-nebius-the-stock-just-crashed-16-and-is-72-below-its-record/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/nebius-stock-nbis-q3-sell-195748939.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "f565a58939472546",
       "ticker": "WMT",
       "rule": "BULLISH_SHIFT",
