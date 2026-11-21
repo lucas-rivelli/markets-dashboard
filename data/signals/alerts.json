@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "f565a58939472546",
+      "ticker": "WMT",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-21T12:58:39.825Z",
+      "firedDate": "2026-11-21",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.4,
+        "sentShift": 0.4,
+        "retRecent": -0.0011,
+        "excessRecent": 0.0845,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/article/walmart-costco-see-some-panic-buying-after-tech-outages-191922568.html?.tsrc=rss",
+        "https://finance.yahoo.com/media-advertising/articles/walmarts-120-walmart-sams-club-190000608.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "89ca771c3078ee8f",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-21T04:13:31.748Z",
-  "startedAt": "2026-11-21T04:07:50.033Z",
+  "lastUpdated": "2026-11-21T12:58:42.728Z",
+  "startedAt": "2026-11-21T12:52:43.443Z",
   "asOf": "2026-11-21",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,21 +137,21 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 18,
       "error": null
     },
     {
@@ -165,28 +165,28 @@
       "name": "Yahoo Finance — META",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — AAPL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — TSLA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 17,
+      "count": 16,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 15,
+      "count": 16,
       "error": null
     },
     {
@@ -214,7 +214,7 @@
       "name": "Yahoo Finance — SMCI",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
@@ -263,14 +263,14 @@
       "name": "Yahoo Finance — NEE",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 16,
+      "count": 17,
       "error": null
     },
     {
       "name": "Yahoo Finance — LLY",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     }
   ],
@@ -876,6 +876,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "PG",
+      "ok": true,
+      "bars": 501,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "QCOM",
       "ok": true,
       "bars": 520,
@@ -972,6 +978,12 @@
       "provider": "nasdaq"
     },
     {
+      "ticker": "WDC",
+      "ok": true,
+      "bars": 501,
+      "provider": "nasdaq"
+    },
+    {
       "ticker": "WMT",
       "ok": true,
       "bars": 518,
@@ -994,13 +1006,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 364,
-    "extractionsTotal": 7583,
-    "mentionsTotal": 2642,
-    "tickers": 115,
-    "pricesOk": 118,
-    "alertsTotal": 1127,
-    "newAlerts": 25
+    "itemsFetched": 354,
+    "extractionsTotal": 7663,
+    "mentionsTotal": 2664,
+    "tickers": 117,
+    "pricesOk": 120,
+    "alertsTotal": 1128,
+    "newAlerts": 1
   },
   "rows": [
     {
@@ -1030,6 +1042,26 @@
       "priceBars": 524
     },
     {
+      "ticker": "AVGO",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 11,
+      "mentionsBaseline": 63,
+      "baselineRate": 14.7,
+      "spikeRatio": 0.748,
+      "sentRecent": 0.353,
+      "sentBaseline": 0.304,
+      "sentShift": 0.049,
+      "retRecent": -0.1228,
+      "excessRecent": -0.0372,
+      "ret30": -0.0583,
+      "score": 0.8773,
+      "lastPrice": 304.41,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "TSM",
       "discovered": false,
       "flag": "LONG",
@@ -1040,17 +1072,17 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 10,
+      "mentionsRecent": 11,
       "mentionsBaseline": 41,
       "baselineRate": 9.567,
-      "spikeRatio": 1.045,
-      "sentRecent": 0.38,
+      "spikeRatio": 1.15,
+      "sentRecent": 0.352,
       "sentBaseline": 0.39,
-      "sentShift": -0.01,
+      "sentShift": -0.038,
       "retRecent": -0.2007,
       "excessRecent": -0.1151,
       "ret30": -0.2271,
-      "score": 0.9122,
+      "score": 0.8744,
       "lastPrice": 318.71,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
@@ -1066,38 +1098,18 @@
           "label": "Bullish divergence (research up, price lagging)"
         }
       ],
-      "mentionsRecent": 7,
+      "mentionsRecent": 9,
       "mentionsBaseline": 69,
       "baselineRate": 16.1,
-      "spikeRatio": 0.435,
-      "sentRecent": 0.418,
+      "spikeRatio": 0.559,
+      "sentRecent": 0.373,
       "sentBaseline": 0.317,
-      "sentShift": 0.101,
+      "sentShift": 0.056,
       "retRecent": -0.1458,
       "excessRecent": -0.0603,
       "ret30": -0.2686,
-      "score": 0.8687,
+      "score": 0.8596,
       "lastPrice": 143.49,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
-    },
-    {
-      "ticker": "AVGO",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 10,
-      "mentionsBaseline": 63,
-      "baselineRate": 14.7,
-      "spikeRatio": 0.68,
-      "sentRecent": 0.327,
-      "sentBaseline": 0.304,
-      "sentShift": 0.023,
-      "retRecent": -0.1228,
-      "excessRecent": -0.0372,
-      "ret30": -0.0583,
-      "score": 0.7843,
-      "lastPrice": 304.41,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
     },
@@ -1229,6 +1241,32 @@
       "lastPrice": 343.32,
       "lastPriceDate": "2026-11-20",
       "priceBars": 502
+    },
+    {
+      "ticker": "WMT",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        }
+      ],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 5,
+      "baselineRate": 1.167,
+      "spikeRatio": 1.714,
+      "sentRecent": 0.4,
+      "sentBaseline": 0,
+      "sentShift": 0.4,
+      "retRecent": -0.0011,
+      "excessRecent": 0.0845,
+      "ret30": 0.0564,
+      "score": 0.4394,
+      "lastPrice": 127.95,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 518
     },
     {
       "ticker": "MSFT",
@@ -1515,6 +1553,26 @@
       "priceBars": 514
     },
     {
+      "ticker": "NVDA",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 71,
+      "mentionsBaseline": 189,
+      "baselineRate": 44.1,
+      "spikeRatio": 1.61,
+      "sentRecent": 0.079,
+      "sentBaseline": 0.104,
+      "sentShift": -0.026,
+      "retRecent": -0.2292,
+      "excessRecent": -0.1436,
+      "ret30": -0.4085,
+      "score": 0.3358,
+      "lastPrice": 125.53,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "NBIS",
       "discovered": true,
       "flag": "WATCH",
@@ -1621,24 +1679,24 @@
       "priceBars": 524
     },
     {
-      "ticker": "NVDA",
-      "discovered": false,
+      "ticker": "BRK.B",
+      "discovered": true,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 68,
-      "mentionsBaseline": 189,
-      "baselineRate": 44.1,
-      "spikeRatio": 1.542,
-      "sentRecent": 0.071,
-      "sentBaseline": 0.104,
-      "sentShift": -0.033,
-      "retRecent": -0.2292,
-      "excessRecent": -0.1436,
-      "ret30": -0.4085,
-      "score": 0.3009,
-      "lastPrice": 125.53,
+      "mentionsRecent": 1,
+      "mentionsBaseline": 4,
+      "baselineRate": 0.933,
+      "spikeRatio": 1.071,
+      "sentRecent": 0.4,
+      "sentBaseline": 0.332,
+      "sentShift": 0.068,
+      "retRecent": -0.0387,
+      "excessRecent": 0.0469,
+      "ret30": 0.0421,
+      "score": 0.2773,
+      "lastPrice": 570,
       "lastPriceDate": "2026-11-20",
-      "priceBars": 524
+      "priceBars": 513
     },
     {
       "ticker": "IBM",
@@ -1679,26 +1737,6 @@
       "lastPrice": 115.25,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
-    },
-    {
-      "ticker": "WMT",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 1,
-      "mentionsBaseline": 5,
-      "baselineRate": 1.167,
-      "spikeRatio": 0.857,
-      "sentRecent": 0.4,
-      "sentBaseline": 0,
-      "sentShift": 0.4,
-      "retRecent": -0.0011,
-      "excessRecent": 0.0845,
-      "ret30": 0.0564,
-      "score": 0.2773,
-      "lastPrice": 127.95,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 518
     },
     {
       "ticker": "TGT",
@@ -1782,17 +1820,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 12,
+      "mentionsRecent": 13,
       "mentionsBaseline": 103,
       "baselineRate": 24.033,
-      "spikeRatio": 0.499,
-      "sentRecent": 0.074,
+      "spikeRatio": 0.541,
+      "sentRecent": 0.068,
       "sentBaseline": 0.089,
-      "sentShift": -0.015,
+      "sentShift": -0.021,
       "retRecent": -0.0385,
       "excessRecent": 0.0471,
       "ret30": -0.0163,
-      "score": 0.1897,
+      "score": 0.1799,
       "lastPrice": 342.56,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
@@ -1838,6 +1876,66 @@
       "priceBars": 518
     },
     {
+      "ticker": "BAC",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 3,
+      "mentionsBaseline": 8,
+      "baselineRate": 1.867,
+      "spikeRatio": 1.607,
+      "sentRecent": 0.117,
+      "sentBaseline": 0.148,
+      "sentShift": -0.031,
+      "retRecent": -0.078,
+      "excessRecent": 0.0076,
+      "ret30": -0.0791,
+      "score": 0.1617,
+      "lastPrice": 47.04,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 518
+    },
+    {
+      "ticker": "NEE",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 23,
+      "baselineRate": 5.367,
+      "spikeRatio": 0.932,
+      "sentRecent": 0.071,
+      "sentBaseline": 0.199,
+      "sentShift": -0.129,
+      "retRecent": -0.0196,
+      "excessRecent": 0.066,
+      "ret30": 0.0189,
+      "score": 0.1265,
+      "lastPrice": 83.45,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
+      "ticker": "SMCI",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 4,
+      "mentionsBaseline": 50,
+      "baselineRate": 11.667,
+      "spikeRatio": 0.343,
+      "sentRecent": 0.048,
+      "sentBaseline": 0.149,
+      "sentShift": -0.1,
+      "retRecent": -0.1941,
+      "excessRecent": -0.1085,
+      "ret30": -0.3579,
+      "score": 0.0775,
+      "lastPrice": 21.65,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "AKAM",
       "discovered": true,
       "flag": null,
@@ -1858,26 +1956,6 @@
       "priceBars": 502
     },
     {
-      "ticker": "JPM",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 9,
-      "mentionsBaseline": 27,
-      "baselineRate": 6.3,
-      "spikeRatio": 1.429,
-      "sentRecent": 0,
-      "sentBaseline": 0.005,
-      "sentShift": -0.005,
-      "retRecent": -0.103,
-      "excessRecent": -0.0174,
-      "ret30": -0.0773,
-      "score": 0,
-      "lastPrice": 310.53,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
-    },
-    {
       "ticker": "INTC",
       "discovered": true,
       "flag": null,
@@ -1896,26 +1974,6 @@
       "lastPrice": 51.28,
       "lastPriceDate": "2026-11-20",
       "priceBars": 519
-    },
-    {
-      "ticker": "NEE",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 4,
-      "mentionsBaseline": 23,
-      "baselineRate": 5.367,
-      "spikeRatio": 0.745,
-      "sentRecent": 0,
-      "sentBaseline": 0.199,
-      "sentShift": -0.199,
-      "retRecent": -0.0196,
-      "excessRecent": 0.066,
-      "ret30": 0.0189,
-      "score": 0,
-      "lastPrice": 83.45,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
     },
     {
       "ticker": "MA",
@@ -1968,26 +2026,6 @@
       "lastPrice": 127.79,
       "lastPriceDate": "2026-11-20",
       "priceBars": 113
-    },
-    {
-      "ticker": "BAC",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 8,
-      "baselineRate": 1.867,
-      "spikeRatio": 1.071,
-      "sentRecent": 0,
-      "sentBaseline": 0.148,
-      "sentShift": -0.148,
-      "retRecent": -0.078,
-      "excessRecent": 0.0076,
-      "ret30": -0.0791,
-      "score": 0,
-      "lastPrice": 47.04,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 518
     },
     {
       "ticker": "CRM",
@@ -2216,6 +2254,26 @@
       "priceBars": 524
     },
     {
+      "ticker": "PG",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 2,
+      "sentRecent": 0,
+      "sentBaseline": 0.508,
+      "sentShift": -0.508,
+      "retRecent": -0.0025,
+      "excessRecent": 0.083,
+      "ret30": 0.0228,
+      "score": 0,
+      "lastPrice": 169.37,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 501
+    },
+    {
       "ticker": "UBER",
       "discovered": true,
       "flag": null,
@@ -2234,6 +2292,26 @@
       "lastPrice": 63.47,
       "lastPriceDate": "2026-11-20",
       "priceBars": 519
+    },
+    {
+      "ticker": "WDC",
+      "discovered": true,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 1,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 2,
+      "sentRecent": 0,
+      "sentBaseline": 0.3,
+      "sentShift": -0.3,
+      "retRecent": -0.1168,
+      "excessRecent": -0.0312,
+      "ret30": -0.2628,
+      "score": 0,
+      "lastPrice": 261.11,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 501
     },
     {
       "ticker": "ABBV",
@@ -2474,26 +2552,6 @@
       "lastPrice": 86.7,
       "lastPriceDate": "2026-11-13",
       "priceBars": 506
-    },
-    {
-      "ticker": "BRK.B",
-      "discovered": true,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 0,
-      "mentionsBaseline": 4,
-      "baselineRate": 0.933,
-      "spikeRatio": 0,
-      "sentRecent": null,
-      "sentBaseline": 0.332,
-      "sentShift": null,
-      "retRecent": -0.0387,
-      "excessRecent": 0.0469,
-      "ret30": 0.0421,
-      "score": 0,
-      "lastPrice": 570,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 513
     },
     {
       "ticker": "CART",
@@ -3236,6 +3294,26 @@
       "priceBars": 524
     },
     {
+      "ticker": "JPM",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 11,
+      "mentionsBaseline": 27,
+      "baselineRate": 6.3,
+      "spikeRatio": 1.746,
+      "sentRecent": -0.035,
+      "sentBaseline": 0.005,
+      "sentShift": -0.04,
+      "retRecent": -0.103,
+      "excessRecent": -0.0174,
+      "ret30": -0.0773,
+      "score": -0.0881,
+      "lastPrice": 310.53,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "TSLA",
       "discovered": false,
       "flag": null,
@@ -3340,32 +3418,6 @@
       "lastPrice": 208.37,
       "lastPriceDate": "2026-11-20",
       "priceBars": 519
-    },
-    {
-      "ticker": "SMCI",
-      "discovered": false,
-      "flag": "SHORT",
-      "rules": [
-        {
-          "id": "BEARISH_SHIFT",
-          "flag": "SHORT",
-          "label": "Bearish sentiment shift"
-        }
-      ],
-      "mentionsRecent": 2,
-      "mentionsBaseline": 50,
-      "baselineRate": 11.667,
-      "spikeRatio": 0.171,
-      "sentRecent": -0.269,
-      "sentBaseline": 0.149,
-      "sentShift": -0.418,
-      "retRecent": -0.1941,
-      "excessRecent": -0.1085,
-      "ret30": -0.3579,
-      "score": -0.2958,
-      "lastPrice": 21.65,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
     },
     {
       "ticker": "CRWV",
@@ -3475,6 +3527,28 @@
       "confidence": 0.7
     },
     {
+      "id": "31c2e7fdc04c9971007c3bad64eecdf357f79617a5441ac44edfb882042c93ef",
+      "title": "Walmart Has Paid Investors a Growing Dividend for 53 Straight Years. Here's What $10,000 Starts You With.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?.tsrc=rss",
+      "publishedAt": "2026-11-21T10:40:00.000Z",
+      "ticker": "WMT",
+      "tickers": [
+        "WMT"
+      ],
+      "flag": "LONG",
+      "score": 62.8,
+      "reasons": [
+        "WMT: Long candidate",
+        "sentiment shift +0.40",
+        "new name outside the universe"
+      ],
+      "rationale": "Portrays Walmart positively for its long record of growing dividends and continued status as a dividend leader.",
+      "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
       "id": "dbb7c580ec1bee323d2ba7fcffdbcf45be56ab8a2d3261c99137d4d3ceca6f9f",
       "title": "Nvidia Just Raised Its Supply Commitments to $390 Billion, Mostly for Memory. Micron Is the Memory Stock I'd Buy.",
       "source": "Yahoo Finance — NVDA",
@@ -3565,6 +3639,27 @@
       ],
       "rationale": "Micron's president signals strong supplier leverage in a multi-year memory shortage, implying favorable pricing for Micron.",
       "sentiment": 0.4,
+      "confidence": 0.6
+    },
+    {
+      "id": "3ab2b15345f92b4e2f990f7e556d6b92862a54d57a01fa238a9d7b8216af2c52",
+      "title": "Taiwan Semiconductor Manufacturing (NYSE:TSM) Pauses Advanced Chip Shipments To China",
+      "source": "Yahoo Finance — TSM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/articles/taiwan-semiconductor-manufacturing-nyse-tsm-042528694.html?.tsrc=rss",
+      "publishedAt": "2026-11-21T04:25:28.000Z",
+      "ticker": "TSM",
+      "tickers": [
+        "TSM"
+      ],
+      "flag": "LONG",
+      "score": 57,
+      "reasons": [
+        "TSM: Long candidate",
+        "stock moving against the research"
+      ],
+      "rationale": "Reports that the company halted advanced chip shipments to China after new US export rules, without giving an explicit view on the stock.",
+      "sentiment": 0,
       "confidence": 0.6
     },
     {
@@ -3673,6 +3768,27 @@
       "rationale": "Reports Barclays raising its price target to $371, implying about 45% upside from the current share price.",
       "sentiment": 0.6,
       "confidence": 0.7
+    },
+    {
+      "id": "36d34f6fee6fda77a71c74ce96843279f8df80264acf82558b1959354b5a9b0f",
+      "title": "Cathie Wood's Ark Has Been Selling Palantir Stock. Under $160, I'd Buy It Now.",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/20/cathie-wood-s-ark-has-been-selling-palantir-stock-under-usd160-i-d-buy-it-now/?.tsrc=rss",
+      "publishedAt": "2026-11-20T14:04:02.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 55.2,
+      "reasons": [
+        "PLTR: Long candidate",
+        "stock moving against the research"
+      ],
+      "rationale": "Headline argues the stock is a buy below $160 despite Ark Invest selling shares and recent price declines.",
+      "sentiment": 0.6,
+      "confidence": 0.6
     },
     {
       "id": "f1e032db8a360d9055e6e739eb1ff284d2b33c8ce1f6a6a774e3836fd8fdb3e1",
@@ -3831,6 +3947,27 @@
       "confidence": 0.6
     },
     {
+      "id": "01e7d87524d82ecc459160a27ef185b6787e24519cafdcac85068a38ff6c67a4",
+      "title": "Investors Heavily Search Palantir Technologies Inc. (PLTR): Here is What You Need to Know",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/investors-heavily-search-palantir-technologies-130003474.html?.tsrc=rss",
+      "publishedAt": "2026-11-20T13:00:03.000Z",
+      "ticker": "PLTR",
+      "tickers": [
+        "PLTR"
+      ],
+      "flag": "LONG",
+      "score": 50.2,
+      "reasons": [
+        "PLTR: Long candidate",
+        "stock moving against the research"
+      ],
+      "rationale": "Notes heavy user search interest in Palantir without offering any view on its prospects or valuation.",
+      "sentiment": 0,
+      "confidence": 0.9
+    },
+    {
       "id": "e601d885ad7a9316c7e772bb99386ca3ff1872c5d13708686c8251b6707cc3c7",
       "title": "Susquehanna’s $600 Target Says TSMC’s Selloff Went Too Far",
       "source": "Yahoo Finance — TSM",
@@ -3853,46 +3990,28 @@
       "confidence": 0.75
     },
     {
-      "id": "4d282bbd4902da0ae8bc35123d15d12e7f57388719e9d40d7285a12ee374cf09",
-      "title": "Ex-Super Micro executive, married to Jensen Huang’s ex-sales chief, says she took a CEO job at an Nvidia customer days before a $2.5 billion China smuggling scandal broke",
-      "source": "Yahoo Finance — SMCI",
+      "id": "6ddd1ddd7c0b6a16d8c348119912efdf4e923162fb894f999026b782ff13fa3d",
+      "title": "Walmart, Costco see some panic-buying after tech outages",
+      "source": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/articles/ex-super-micro-executive-married-152004969.html?.tsrc=rss",
-      "publishedAt": "2026-11-20T15:20:04.000Z",
-      "ticker": "SMCI",
+      "url": "https://finance.yahoo.com/markets/article/walmart-costco-see-some-panic-buying-after-tech-outages-191922568.html?.tsrc=rss",
+      "publishedAt": "2026-11-19T19:19:22.000Z",
+      "ticker": "WMT",
       "tickers": [
-        "SMCI"
-      ],
-      "flag": "SHORT",
-      "score": 48.9,
-      "reasons": [
-        "SMCI: Short candidate",
-        "sentiment shift -0.42"
-      ],
-      "rationale": "Reports a $200 million payment from ChronoScale to Super Micro for GPUs, with no stated view on the stock.",
-      "sentiment": 0,
-      "confidence": 0.6
-    },
-    {
-      "id": "4b5350d945f6b641dabbc5aaf2056864e94a9652b7b27ecbc82a86a1d11e5ca8",
-      "title": "Ken Fisher’s Quiet Bet on TSMC (TSM): Owning the AI Boom Without Picking a Winner",
-      "source": "Yahoo Finance — TSM",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/ken-fisher-quiet-bet-tsmc-181236877.html?.tsrc=rss",
-      "publishedAt": "2026-11-19T18:12:36.000Z",
-      "ticker": "TSM",
-      "tickers": [
-        "TSM"
+        "WMT",
+        "AAPL",
+        "MSFT"
       ],
       "flag": "LONG",
-      "score": 47.6,
+      "score": 48.7,
       "reasons": [
-        "TSM: Long candidate",
-        "stock moving against the research"
+        "WMT: Long candidate",
+        "sentiment shift +0.40",
+        "new name outside the universe"
       ],
-      "rationale": "Presents TSM as a top pick in a billionaire's portfolio, implying a positive view of the stock.",
-      "sentiment": 0.5,
-      "confidence": 0.7
+      "rationale": "Suggests the tech outages could benefit Walmart, implying a positive view of its near-term sales.",
+      "sentiment": 0.4,
+      "confidence": 0.6
     },
     {
       "id": "afb6faaaabfaf510dadd9931cea521e8e19a60cefa6bc98afa0c2385554b30fb",
@@ -3936,69 +4055,6 @@
       ],
       "rationale": "Reports a 16% one-day drop and a 72% decline from record, and frames Burry's warnings about the stock as validated.",
       "sentiment": -0.5,
-      "confidence": 0.6
-    },
-    {
-      "id": "cd5d179828c1a1e0311caa687c22893df15e1f9498754e3dceb1a028cecf5e98",
-      "title": "Constellation Energy (CEG) Following Its Earnings Beat And Guidance Hike Looks Cheap Versus Fair Value",
-      "source": "Yahoo Finance — CEG",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-ceg-following-earnings-201045909.html?.tsrc=rss",
-      "publishedAt": "2026-11-19T20:10:45.000Z",
-      "ticker": "CEG",
-      "tickers": [
-        "CEG"
-      ],
-      "flag": "LONG",
-      "score": 46.2,
-      "reasons": [
-        "CEG: Long candidate",
-        "stock moving against the research"
-      ],
-      "rationale": "Highlights an earnings beat and raised guidance, and the title frames the shares as looking cheap versus fair value.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "1077973c8f9bcda531fa22d7623dfe50a3912f1ee10868e3889c4bd839795204",
-      "title": "Palantir Technologies (PLTR) Gets A Fresh AI Signal From A Key Platform Partner",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/technology/ai/articles/palantir-technologies-pltr-gets-fresh-200954508.html?.tsrc=rss",
-      "publishedAt": "2026-11-19T20:09:54.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 46.2,
-      "reasons": [
-        "PLTR: Long candidate",
-        "stock moving against the research"
-      ],
-      "rationale": "Reports that Nvidia cited Palantir as a key AI partner, framing it as a fresh positive signal for the company.",
-      "sentiment": 0.4,
-      "confidence": 0.6
-    },
-    {
-      "id": "5dc696e6be759c99499bf405fcc8364964ab5071fd8e448016d6cdf03716a5f2",
-      "title": "UiPath vs. Palantir Technologies: Comparing Modest Revenue Growth vs. Rapid Expansion",
-      "source": "Yahoo Finance — PLTR",
-      "sourceType": "TickerNews",
-      "url": "https://www.fool.com/coverage/charts/2026/11/18/uipath-vs-palantir-technologies-comparing-modest-revenue-growth-vs-rapid-expansion/?.tsrc=rss",
-      "publishedAt": "2026-11-19T00:45:18.000Z",
-      "ticker": "PLTR",
-      "tickers": [
-        "PLTR"
-      ],
-      "flag": "LONG",
-      "score": 46.2,
-      "reasons": [
-        "PLTR: Long candidate",
-        "stock moving against the research"
-      ],
-      "rationale": "Notes that quarterly revenue has more than doubled over eight quarters, framing its expansion favorably against a peer.",
-      "sentiment": 0.4,
       "confidence": 0.6
     }
   ]
