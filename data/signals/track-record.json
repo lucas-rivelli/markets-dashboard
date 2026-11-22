@@ -1,18 +1,10 @@
 {
-  "generatedAt": "2026-11-21T19:59:55.812Z",
+  "generatedAt": "2026-11-22T00:07:46.939Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-11-20",
   "windowDays": 37,
   "events": [
-    {
-      "date": "2026-10-26",
-      "ticker": "CRWV",
-      "rule": "MENTION_SPIKE",
-      "flag": "WATCH",
-      "fwd5": -0.0739828719458745,
-      "fwd20": null
-    },
     {
       "date": "2026-10-26",
       "ticker": "D",
@@ -1495,14 +1487,6 @@
     },
     {
       "date": "2026-11-19",
-      "ticker": "CEG",
-      "rule": "DIVERGENCE_LONG",
-      "flag": "LONG",
-      "fwd5": null,
-      "fwd20": null
-    },
-    {
-      "date": "2026-11-19",
       "ticker": "PANW",
       "rule": "BULLISH_SHIFT",
       "flag": "LONG",
@@ -1518,8 +1502,16 @@
       "fwd20": null
     },
     {
+      "date": "2026-11-19",
+      "ticker": "HD",
+      "rule": "MENTION_SPIKE",
+      "flag": "WATCH",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
       "date": "2026-11-20",
-      "ticker": "PLTR",
+      "ticker": "ASML",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
       "fwd5": null,
@@ -1527,7 +1519,15 @@
     },
     {
       "date": "2026-11-20",
-      "ticker": "ASML",
+      "ticker": "BABA",
+      "rule": "BULLISH_SHIFT",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-20",
+      "ticker": "BABA",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
       "fwd5": null,
@@ -1609,7 +1609,7 @@
   "byRule": [
     {
       "name": "MENTION_SPIKE",
-      "events": 106,
+      "events": 107,
       "measured": 15,
       "hitRate20": 0.533,
       "avgExcess5": 0.006348179497029208,
@@ -1617,7 +1617,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 60,
+      "events": 59,
       "measured": 7,
       "hitRate20": 0.286,
       "avgExcess5": -0.044072532426405076,
@@ -1633,7 +1633,7 @@
     },
     {
       "name": "BULLISH_SHIFT",
-      "events": 32,
+      "events": 33,
       "measured": 0,
       "hitRate20": null,
       "avgExcess5": null,
@@ -1651,7 +1651,7 @@
   "byFlag": [
     {
       "name": "WATCH",
-      "events": 106,
+      "events": 107,
       "measured": 15,
       "hitRate20": 0.533,
       "avgExcess5": 0.006348179497029208,
