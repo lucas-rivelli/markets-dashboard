@@ -1,18 +1,10 @@
 {
-  "generatedAt": "2026-11-22T00:07:46.939Z",
+  "generatedAt": "2026-11-22T07:18:15.446Z",
   "label": "Small-sample, in-sample check — not a backtest of a tradable strategy. No costs, no position sizing; mention history only exists where feeds published.",
   "replayFrom": "2024-10-21",
   "replayTo": "2026-11-20",
   "windowDays": 37,
   "events": [
-    {
-      "date": "2026-10-26",
-      "ticker": "D",
-      "rule": "MENTION_SPIKE",
-      "flag": "WATCH",
-      "fwd5": 0.05758379524961754,
-      "fwd20": null
-    },
     {
       "date": "2026-10-26",
       "ticker": "COIN",
@@ -1511,6 +1503,14 @@
     },
     {
       "date": "2026-11-20",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "flag": "LONG",
+      "fwd5": null,
+      "fwd20": null
+    },
+    {
+      "date": "2026-11-20",
       "ticker": "ASML",
       "rule": "DIVERGENCE_LONG",
       "flag": "LONG",
@@ -1617,7 +1617,7 @@
     },
     {
       "name": "DIVERGENCE_LONG",
-      "events": 59,
+      "events": 60,
       "measured": 7,
       "hitRate20": 0.286,
       "avgExcess5": -0.044072532426405076,
@@ -1659,7 +1659,7 @@
     },
     {
       "name": "LONG",
-      "events": 92,
+      "events": 93,
       "measured": 7,
       "hitRate20": 0.286,
       "avgExcess5": -0.044072532426405076,
