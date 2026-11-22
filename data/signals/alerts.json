@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "e91d0301f16ec654",
+      "ticker": "WMT",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-22T21:36:16.931Z",
+      "firedDate": "2026-11-22",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.571,
+        "sentRecent": 0.524,
+        "sentShift": 0.524,
+        "retRecent": -0.0011,
+        "excessRecent": 0.0845,
+        "score": 0.727
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/22/walmart-has-raised-its-dividend-53-straight-years-id-buy-it-before-december-and-never-sell/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/article/walmart-costco-see-some-panic-buying-after-tech-outages-191922568.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "ee3c79a896bed7b9",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",
