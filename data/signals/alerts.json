@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "4b78523dc6c4435f",
+      "ticker": "NOW",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-23T22:14:33.695Z",
+      "firedDate": "2026-11-23",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0,
+        "sentShift": -0.464,
+        "retRecent": -0.1183,
+        "excessRecent": -0.0506,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/small-business/articles/leading-chros-business-executives-convene-212500658.html?.tsrc=rss",
+        "https://www.fool.com/coverage/better-buy/2026/11/20/salesforce-vs-servicenow-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/servicenow-stock-now-historic-sell-213800295.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f239ab08b0f09a40",
+      "ticker": "CRDO",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-23T22:14:33.690Z",
+      "firedDate": "2026-11-23",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.071,
+        "sentRecent": 0.7,
+        "sentShift": 0.58,
+        "retRecent": -0.1727,
+        "excessRecent": -0.105,
+        "score": 0.4852
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/credo-technology-ai-rebound-potential-185817118.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/15/is-credo-technology-a-better-ai-networking-buy-than-broadcom/?.tsrc=rss",
+        "https://www.tikr.com/blog/credo-sinks-10-as-democratic-sweep-hits-ai-data-center-stocks-biggest-worry?ref=yahoofinance&tlnk=yf-261104-q6q34365&.tsrc=rss"
+      ]
+    },
+    {
       "id": "712633ae60ff21f9",
       "ticker": "RKLB",
       "rule": "BULLISH_SHIFT",
