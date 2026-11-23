@@ -2,6 +2,52 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "712633ae60ff21f9",
+      "ticker": "RKLB",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-23T10:13:50.310Z",
+      "firedDate": "2026-11-23",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.6,
+        "sentShift": 0.65,
+        "retRecent": -0.2083,
+        "excessRecent": -0.1405,
+        "score": 0.6592
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/20/prediction-rocket-lab-will-triple-its-revenue-by-2028-here-s-what-that-would-mean-for-the-stock/?.tsrc=rss",
+        "https://www.tikr.com/blog/rocket-lab-sinks-7-ast-spacemobile-down-12-as-tech-selloff-and-vulcan-failure-hit-space-stocks?ref=yahoofinance&tlnk=yf-261116-xj5m8wmh&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "4b56560895565d07",
+      "ticker": "NBIS",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-23T10:13:50.305Z",
+      "firedDate": "2026-11-23",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 5.357,
+        "sentRecent": 0.375,
+        "sentShift": 0.3,
+        "retRecent": -0.241,
+        "excessRecent": -0.1733,
+        "score": 0.6719
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/could-investing-500-a-month-in-nebius-help-you-retire-a-millionaire/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/20/michael-burry-says-he-tried-to-warn-you-about-nebius-the-stock-just-crashed-16-and-is-72-below-its-record/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "dfb2593598f350a1",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",

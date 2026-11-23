@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "lastUpdated": "2026-11-23T01:59:05.122Z",
-  "startedAt": "2026-11-23T01:53:17.329Z",
+  "lastUpdated": "2026-11-23T10:13:54.125Z",
+  "startedAt": "2026-11-23T10:08:16.683Z",
   "asOf": "2026-11-23",
   "ntfyTopic": "markets-reading-signals-fmkt256-x7q",
   "publicUrl": "https://markets-signals.vercel.app",
@@ -137,28 +137,28 @@
       "name": "Yahoo Finance — NVDA",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — MSFT",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 18,
       "error": null
     },
     {
       "name": "Yahoo Finance — GOOGL",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
       "name": "Yahoo Finance — AMZN",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 19,
+      "count": 20,
       "error": null
     },
     {
@@ -186,7 +186,7 @@
       "name": "Yahoo Finance — AMD",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 20,
+      "count": 19,
       "error": null
     },
     {
@@ -214,7 +214,7 @@
       "name": "Yahoo Finance — SMCI",
       "sourceType": "TickerNews",
       "ok": true,
-      "count": 18,
+      "count": 19,
       "error": null
     },
     {
@@ -1030,13 +1030,13 @@
     "sourcesOk": 26,
     "sourcesFailed": 12,
     "sourcesTotal": 38,
-    "itemsFetched": 383,
-    "extractionsTotal": 7997,
-    "mentionsTotal": 2779,
+    "itemsFetched": 389,
+    "extractionsTotal": 8045,
+    "mentionsTotal": 2787,
     "tickers": 120,
     "pricesOk": 124,
-    "alertsTotal": 1181,
-    "newAlerts": 23
+    "alertsTotal": 1183,
+    "newAlerts": 2
   },
   "rows": [
     {
@@ -1163,24 +1163,91 @@
       "priceBars": 524
     },
     {
+      "ticker": "NBIS",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "MENTION_SPIKE",
+          "flag": "WATCH",
+          "label": "Mention spike"
+        },
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 5,
+      "mentionsBaseline": 4,
+      "baselineRate": 0.933,
+      "spikeRatio": 5.357,
+      "sentRecent": 0.375,
+      "sentBaseline": 0.075,
+      "sentShift": 0.3,
+      "retRecent": -0.241,
+      "excessRecent": -0.1733,
+      "ret30": -0.4878,
+      "score": 0.6719,
+      "lastPrice": 81.31,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 518
+    },
+    {
       "ticker": "NVDA",
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 58,
+      "mentionsRecent": 60,
       "mentionsBaseline": 211,
       "baselineRate": 49.233,
-      "spikeRatio": 1.178,
-      "sentRecent": 0.164,
+      "spikeRatio": 1.219,
+      "sentRecent": 0.162,
       "sentBaseline": 0.083,
-      "sentShift": 0.08,
+      "sentShift": 0.078,
       "retRecent": -0.196,
       "excessRecent": -0.1283,
       "ret30": -0.405,
-      "score": 0.667,
+      "score": 0.6652,
       "lastPrice": 125.53,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
+    },
+    {
+      "ticker": "RKLB",
+      "discovered": true,
+      "flag": "LONG",
+      "rules": [
+        {
+          "id": "BULLISH_SHIFT",
+          "flag": "LONG",
+          "label": "Bullish sentiment shift"
+        },
+        {
+          "id": "DIVERGENCE_LONG",
+          "flag": "LONG",
+          "label": "Bullish divergence (research up, price lagging)"
+        }
+      ],
+      "mentionsRecent": 2,
+      "mentionsBaseline": 2,
+      "baselineRate": 0.467,
+      "spikeRatio": 4,
+      "sentRecent": 0.6,
+      "sentBaseline": -0.05,
+      "sentShift": 0.65,
+      "retRecent": -0.2083,
+      "excessRecent": -0.1405,
+      "ret30": -0.1365,
+      "score": 0.6592,
+      "lastPrice": 45.42,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 501
     },
     {
       "ticker": "TSM",
@@ -1315,37 +1382,6 @@
       "priceBars": 524
     },
     {
-      "ticker": "NBIS",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "MENTION_SPIKE",
-          "flag": "WATCH",
-          "label": "Mention spike"
-        },
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 4,
-      "mentionsBaseline": 4,
-      "baselineRate": 0.933,
-      "spikeRatio": 4.286,
-      "sentRecent": 0.323,
-      "sentBaseline": 0.075,
-      "sentShift": 0.248,
-      "retRecent": -0.241,
-      "excessRecent": -0.1733,
-      "ret30": -0.4878,
-      "score": 0.52,
-      "lastPrice": 81.31,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 518
-    },
-    {
       "ticker": "PANW",
       "discovered": true,
       "flag": "LONG",
@@ -1450,32 +1486,6 @@
       "lastPrice": 37.82,
       "lastPriceDate": "2026-11-20",
       "priceBars": 518
-    },
-    {
-      "ticker": "RKLB",
-      "discovered": true,
-      "flag": "LONG",
-      "rules": [
-        {
-          "id": "DIVERGENCE_LONG",
-          "flag": "LONG",
-          "label": "Bullish divergence (research up, price lagging)"
-        }
-      ],
-      "mentionsRecent": 1,
-      "mentionsBaseline": 2,
-      "baselineRate": 0.467,
-      "spikeRatio": 2,
-      "sentRecent": 0.6,
-      "sentBaseline": -0.05,
-      "sentShift": 0.65,
-      "retRecent": -0.2083,
-      "excessRecent": -0.1405,
-      "ret30": -0.1365,
-      "score": 0.4159,
-      "lastPrice": 45.42,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 501
     },
     {
       "ticker": "VZ",
@@ -1698,6 +1708,26 @@
       "priceBars": 520
     },
     {
+      "ticker": "MSFT",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 26,
+      "mentionsBaseline": 108,
+      "baselineRate": 25.2,
+      "spikeRatio": 1.032,
+      "sentRecent": 0.091,
+      "sentBaseline": 0.264,
+      "sentShift": -0.173,
+      "retRecent": -0.0646,
+      "excessRecent": 0.0031,
+      "ret30": -0.0762,
+      "score": 0.3011,
+      "lastPrice": 484.52,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "GOOGL",
       "discovered": false,
       "flag": null,
@@ -1866,26 +1896,6 @@
       "priceBars": 507
     },
     {
-      "ticker": "MSFT",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 25,
-      "mentionsBaseline": 108,
-      "baselineRate": 25.2,
-      "spikeRatio": 0.992,
-      "sentRecent": 0.075,
-      "sentBaseline": 0.264,
-      "sentShift": -0.19,
-      "retRecent": -0.0646,
-      "excessRecent": 0.0031,
-      "ret30": -0.0762,
-      "score": 0.2436,
-      "lastPrice": 484.52,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
-    },
-    {
       "ticker": "BAC",
       "discovered": true,
       "flag": null,
@@ -2050,17 +2060,17 @@
       "discovered": false,
       "flag": null,
       "rules": [],
-      "mentionsRecent": 6,
+      "mentionsRecent": 7,
       "mentionsBaseline": 41,
       "baselineRate": 9.567,
-      "spikeRatio": 0.627,
-      "sentRecent": 0.063,
+      "spikeRatio": 0.732,
+      "sentRecent": 0.055,
       "sentBaseline": 0.194,
-      "sentShift": -0.131,
+      "sentShift": -0.139,
       "retRecent": -0.0412,
       "excessRecent": 0.0265,
       "ret30": -0.1267,
-      "score": 0.1219,
+      "score": 0.1138,
       "lastPrice": 159.99,
       "lastPriceDate": "2026-11-20",
       "priceBars": 524
@@ -3416,6 +3426,26 @@
       "priceBars": 519
     },
     {
+      "ticker": "AAPL",
+      "discovered": false,
+      "flag": null,
+      "rules": [],
+      "mentionsRecent": 14,
+      "mentionsBaseline": 106,
+      "baselineRate": 24.733,
+      "spikeRatio": 0.566,
+      "sentRecent": -0.086,
+      "sentBaseline": 0.097,
+      "sentShift": -0.183,
+      "retRecent": -0.029,
+      "excessRecent": 0.0388,
+      "ret30": -0.0149,
+      "score": -0.233,
+      "lastPrice": 342.56,
+      "lastPriceDate": "2026-11-20",
+      "priceBars": 524
+    },
+    {
       "ticker": "CVX",
       "discovered": true,
       "flag": null,
@@ -3434,26 +3464,6 @@
       "lastPrice": 208.37,
       "lastPriceDate": "2026-11-20",
       "priceBars": 519
-    },
-    {
-      "ticker": "AAPL",
-      "discovered": false,
-      "flag": null,
-      "rules": [],
-      "mentionsRecent": 13,
-      "mentionsBaseline": 106,
-      "baselineRate": 24.733,
-      "spikeRatio": 0.526,
-      "sentRecent": -0.092,
-      "sentBaseline": 0.097,
-      "sentShift": -0.189,
-      "retRecent": -0.029,
-      "excessRecent": 0.0388,
-      "ret30": -0.0149,
-      "score": -0.2427,
-      "lastPrice": 342.56,
-      "lastPriceDate": "2026-11-20",
-      "priceBars": 524
     },
     {
       "ticker": "COIN",
@@ -3576,6 +3586,29 @@
   ],
   "readingQueue": [
     {
+      "id": "69561048393ee7d99db952ef58089bac703168d9d87af3508421165199147b66",
+      "title": "Rocket Lab and Nebius Are Each About 66% Below Their Highs. I'd Buy Both and Hold Through 2030.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+      "publishedAt": "2026-11-23T09:07:02.000Z",
+      "ticker": "RKLB",
+      "tickers": [
+        "RKLB",
+        "NBIS"
+      ],
+      "flag": "LONG",
+      "score": 84.8,
+      "reasons": [
+        "RKLB: Long candidate",
+        "sentiment shift +0.65",
+        "stock moving against the research"
+      ],
+      "rationale": "Headline says the author would buy the stock and hold it through 2030, despite a roughly two-thirds drop from its high.",
+      "sentiment": 0.6,
+      "confidence": 0.6
+    },
+    {
       "id": "77950d892acf89ad283c53e0a9132002f6e4715ea2cd392fbed4078fb232bacd",
       "title": "Walmart Has Raised Its Dividend 53 Straight Years. I'd Buy It Before December and Never Sell.",
       "source": "Yahoo Finance — NVDA",
@@ -3609,10 +3642,10 @@
         "NBIS"
       ],
       "flag": "LONG",
-      "score": 62.3,
+      "score": 69.2,
       "reasons": [
         "NBIS: Long candidate",
-        "4 mentions this week (4.3x baseline)",
+        "5 mentions this week (5.4x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Headline suggests a long-term buy, and the body calls the neocloud stock a bargain at current prices.",
@@ -3631,10 +3664,10 @@
         "NBIS"
       ],
       "flag": "LONG",
-      "score": 61.6,
+      "score": 68.4,
       "reasons": [
         "NBIS: Long candidate",
-        "4 mentions this week (4.3x baseline)",
+        "5 mentions this week (5.4x baseline)",
         "stock moving against the research"
       ],
       "rationale": "Reports a 16% one-day drop and a 72% decline from record, and frames Burry's warnings about the stock as validated.",
@@ -3803,6 +3836,28 @@
       "confidence": 0.7
     },
     {
+      "id": "41e5b3b76769b56285fdefbecfbf2d91e02e755f3b51e428f668ce15fbf4d624",
+      "title": "Nebius Stock’s (NBIS) Q3 Sell-Off Looks Like an Opportunity",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nebius-stock-nbis-q3-sell-195748939.html?.tsrc=rss",
+      "publishedAt": "2026-11-19T19:57:48.000Z",
+      "ticker": "NBIS",
+      "tickers": [
+        "NBIS"
+      ],
+      "flag": "LONG",
+      "score": 49.6,
+      "reasons": [
+        "NBIS: Long candidate",
+        "5 mentions this week (5.4x baseline)",
+        "stock moving against the research"
+      ],
+      "rationale": "Calls the Q3 sell-off an attractive entry point, citing larger multi-year customer commitments despite a capacity delay.",
+      "sentiment": 0.6,
+      "confidence": 0.8
+    },
+    {
       "id": "bcd0818e6d140142b5d00768d8df8e83c5ce06865dc7cd65f023f34a76eb8339",
       "title": "CoreWeave Borrowed at Under 6% Against Its GPUs. SpaceX Just Paid Above 8% for Chip-Backed Debt",
       "source": "Yahoo Finance — META",
@@ -3848,28 +3903,6 @@
       "rationale": "Author is taking profits on this consumer staples name, implying he sees limited upside from here.",
       "sentiment": -0.4,
       "confidence": 0.6
-    },
-    {
-      "id": "41e5b3b76769b56285fdefbecfbf2d91e02e755f3b51e428f668ce15fbf4d624",
-      "title": "Nebius Stock’s (NBIS) Q3 Sell-Off Looks Like an Opportunity",
-      "source": "Yahoo Finance — META",
-      "sourceType": "TickerNews",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nebius-stock-nbis-q3-sell-195748939.html?.tsrc=rss",
-      "publishedAt": "2026-11-19T19:57:48.000Z",
-      "ticker": "NBIS",
-      "tickers": [
-        "NBIS"
-      ],
-      "flag": "LONG",
-      "score": 44.9,
-      "reasons": [
-        "NBIS: Long candidate",
-        "4 mentions this week (4.3x baseline)",
-        "stock moving against the research"
-      ],
-      "rationale": "Calls the Q3 sell-off an attractive entry point, citing larger multi-year customer commitments despite a capacity delay.",
-      "sentiment": 0.6,
-      "confidence": 0.8
     },
     {
       "id": "13656e10d9ab88baa2c3744e852ec8f6e6a87429267c188ac0944a69dea579dd",
@@ -4121,29 +4154,6 @@
       "rationale": "Reports that a fund newly bought a sizable Home Depot position, with no view from the author.",
       "sentiment": 0,
       "confidence": 0.9
-    },
-    {
-      "id": "e10427282d841b0ab7a2924302618250cbf66b98ca890c200d7c6b9da68c6da5",
-      "title": "AI Hacking Is “a Fantastic Bonanza” for CrowdStrike and Palo Alto, per Paul Kedrosky",
-      "source": "Yahoo Finance — MSFT",
-      "sourceType": "TickerNews",
-      "url": "https://www.tikr.com/blog/ai-hacking-is-a-fantastic-bonanza-for-crowdstrike-and-palo-alto-per-paul-kedrosky?ref=yahoofinance&tlnk=yf-261119-xq2rf628&.tsrc=rss",
-      "publishedAt": "2026-11-19T22:37:57.000Z",
-      "ticker": "PANW",
-      "tickers": [
-        "PANW",
-        "CRWD"
-      ],
-      "flag": "LONG",
-      "score": 37.3,
-      "reasons": [
-        "PANW: Long candidate",
-        "sentiment shift +0.40",
-        "bullish view, confidence 0.80"
-      ],
-      "rationale": "Describes the flood of AI-found flaws as a large windfall for Palo Alto Networks.",
-      "sentiment": 0.7,
-      "confidence": 0.8
     }
   ]
 }
