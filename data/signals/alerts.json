@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "291d1e6060ce98fc",
+      "ticker": "DELL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-24T18:08:48.865Z",
+      "firedDate": "2026-11-24",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 2.143,
+        "sentRecent": 0,
+        "sentShift": -0.012,
+        "retRecent": 0.0375,
+        "excessRecent": 0.0514,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-stocks-fall-7-174249169.html?.tsrc=rss",
+        "https://www.usatoday.com/story/news/state/texas/2026/11/21/heb-leads-southwest-dell-tesla-in-texas-company-ranking/92879701007/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/20/dell-stock-plunges-10-in-the-ai-selloff-and-heads-for-its-worst-month-since-its-2018-return-to-the-stock-market-earnings-are-tuesday/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "4c18c5aeaabb0786",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",
