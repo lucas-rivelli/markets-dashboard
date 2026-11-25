@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updatedAt": "2026-11-25T02:41:22.741Z",
+  "updatedAt": "2026-11-25T11:59:34.990Z",
   "items": {
     "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49": {
       "id": "3cb7502b84e42466c29ebcff97491425c21e41d82252dd258c98a0b90e861d49",
@@ -133899,6 +133899,1264 @@
       "model": "anthropic/claude-haiku-5.5",
       "provider": "openrouter",
       "extractedAt": "2026-11-25T02:41:22.741Z"
+    },
+    "cf9fec235f40df92fb48e3add42ce4187fffba2aad5f8600efbfdc0e1f482b9d": {
+      "id": "cf9fec235f40df92fb48e3add42ce4187fffba2aad5f8600efbfdc0e1f482b9d",
+      "title": "BYD plans car production in France to boost its push into the European market",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.euronews.com/2026/11/25/byd-plans-car-production-in-france-to-boost-its-push-into-the-european-market?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:46:56.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:55.455Z"
+    },
+    "9d129b76d836fc4fb34763af6e5996502af6e3fa4f8642d75b42b3bf3b04556b": {
+      "id": "9d129b76d836fc4fb34763af6e5996502af6e3fa4f8642d75b42b3bf3b04556b",
+      "title": "Dow Jones Futures Fall, Techs Tumble; Trump Says 'Not Too Late' For U.S. To Take Nvidia Stake",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/d96603c1-fe7f-3bf3-8158-0728b464d469/dow-jones-futures-fall%2C-techs.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:39:39.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:56.190Z"
+    },
+    "b303fc2b492637eff1069e8578f8521310c740befef013611b9aa58e36e5157d": {
+      "id": "b303fc2b492637eff1069e8578f8521310c740befef013611b9aa58e36e5157d",
+      "title": "AI Chips Update - NVIDIA Reinstates Huang Amid Compliance and Leadership Focus",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/ai-chips-nvidia-reinstates-huang-113727572.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:37:27.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports on governance changes, including Huang's reinstatement and a new export control committee, without stating a view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:56.335Z"
+    },
+    "ae33891c26c7620fe67eac01c0d3642acd4bab208f729816cea01fc641ecdfaa": {
+      "id": "ae33891c26c7620fe67eac01c0d3642acd4bab208f729816cea01fc641ecdfaa",
+      "title": "CrowdStrike CEO Says Security Has Gone “From the Brakes to the Gas” as Fortune 50 Clients Pause AI Rollouts",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/crowdstrike-ceo-says-security-has-gone-from-the-brakes-to-the-gas-as-fortune-50-clients-pause-ai-rollouts?ref=yahoofinance&tlnk=yf-261125-p6p2v33f&.tsrc=rss",
+      "publishedAt": "2026-11-25T11:36:17.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:56.597Z"
+    },
+    "56e0f6943e3b3e3ae96f8580b891d3a8d044f54acf5da2ff3430fe7e1ecb36b6": {
+      "id": "56e0f6943e3b3e3ae96f8580b891d3a8d044f54acf5da2ff3430fe7e1ecb36b6",
+      "title": "Tech stocks under pressure as AI jitters persist",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/world-indices/articles/tech-firms-back-crosshairs-huang-024219799.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:35:26.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:57.375Z"
+    },
+    "a2a6f6ac38b36b43bc30fbfb3d2e1d24377beebc9806cbbb04429264c6e709b4": {
+      "id": "a2a6f6ac38b36b43bc30fbfb3d2e1d24377beebc9806cbbb04429264c6e709b4",
+      "title": "The S&P 500 Entered Correction Territory. Here’s What History Says Happens Next.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/the-s-and-p-500-entered-correction-territory-here-s-what-history-says-happens-next/?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:30:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:57.752Z"
+    },
+    "5127379908806509456a97e54c115a487468913bbb50d2f4e4dd23765b059983": {
+      "id": "5127379908806509456a97e54c115a487468913bbb50d2f4e4dd23765b059983",
+      "title": "Jensen Huang Says Nvidia's Next-Gen Vera Rubin Chips Will Generate $40 Billion in Revenue per Gigawatt, Up From $25 Billion for Grace Blackwell. What That Means for NVDA's Growth Runway.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/jensen-huang-says-nvidias-next-gen-vera-rubin-chip/?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:35:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Frames Nvidia's next-gen chips as lifting revenue per gigawatt beyond price increases, implying a favorable growth runway."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:58.399Z"
+    },
+    "800ba7316baeb93593feabd68b1f91a9578813d43e195b55eb7d202cea89ac79": {
+      "id": "800ba7316baeb93593feabd68b1f91a9578813d43e195b55eb7d202cea89ac79",
+      "title": "AI Anxiety Rules Wall Street Pre-Bell; Asia Off, Europe Up",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-anxiety-rules-wall-street-112810095.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:28:10.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:58.815Z"
+    },
+    "4eb5d46d3fd0eb047d9da95bda6b4e4ed26f7b989f47983fc5f181a4af0b438d": {
+      "id": "4eb5d46d3fd0eb047d9da95bda6b4e4ed26f7b989f47983fc5f181a4af0b438d",
+      "title": "CoreWeave Stock At $43: What If It Just Stops Building?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/crwv/articles/627489/coreweave-stock-at-43-what-if-it-just-stops-building/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:31:52.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:59.562Z"
+    },
+    "51a8f992c77a1a42cb87c7cdd49e1e0972a7a59234bfea4910b8b6109865263d": {
+      "id": "51a8f992c77a1a42cb87c7cdd49e1e0972a7a59234bfea4910b8b6109865263d",
+      "title": "Is Elon Musk More Systemically Important Than Jensen Huang?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/tsla/articles/628207/is-elon-musk-more-systemically-important-than-jensen-huang/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:27:22.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:58:59.700Z"
+    },
+    "279723a90b9a8560f0edc6e5fce18cc3ce534a9d41f317bf3ff89eab522c781f": {
+      "id": "279723a90b9a8560f0edc6e5fce18cc3ce534a9d41f317bf3ff89eab522c781f",
+      "title": "Where Will SpaceX Stock Be in 5 Years?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/where-will-spacex-stock-be-in-5-years/?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:26:00.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:00.215Z"
+    },
+    "14f5ca49dcd4f69c1e61950595093655dc20214172e7c490a089633685129493": {
+      "id": "14f5ca49dcd4f69c1e61950595093655dc20214172e7c490a089633685129493",
+      "title": "Can Congress Rein In Jensen Huang And Elon Musk? 3 Rules The Constitution Allows",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/nvda/articles/628206/can-congress-rein-in-jensen-huang-and-elon-musk-3-rules-the-constitution-allows/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:25:18.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:01.382Z"
+    },
+    "b5adbf12d7295becaa6cd1d8f8c5981999917d0cc2bb78eca66da58b66137be0": {
+      "id": "b5adbf12d7295becaa6cd1d8f8c5981999917d0cc2bb78eca66da58b66137be0",
+      "title": "Nvidia Shares Extend Losses as Rally Following Jensen Huang’s Return Loses Momentum",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://investorshub.advfn.com/market-news/article/40690/nvidia-shares-extend-losses-as-rally-following-jensen-huangs-return-loses-momentum?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:22:48.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:01.674Z"
+    },
+    "a68373db1c5fbee34eaabcdab7a9ce7eb40716e306efffceb09ab2e1a49742c7": {
+      "id": "a68373db1c5fbee34eaabcdab7a9ce7eb40716e306efffceb09ab2e1a49742c7",
+      "title": "Buy, Sell Or Hold Nvidia Stock After A 31.5% Day?",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/nvda/articles/628686/buy-sell-or-hold-nvidia-stock-after-a-31-5-day/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:23:14.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:02.043Z"
+    },
+    "bcde3e217221973f92fdc447b9c15914189890cdd5f07565fb5c7c3ffa754eed": {
+      "id": "bcde3e217221973f92fdc447b9c15914189890cdd5f07565fb5c7c3ffa754eed",
+      "title": "Market Chatter: Australia's New Digital Duty of Care Law Targets Harmful Online Content",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/media-advertising/articles/market-chatter-australia-apos-digital-111932219.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:19:32.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:02.715Z"
+    },
+    "42f06e20ae4bb233f830a46716d3f4707a55653db20957620bedd9de700d4675": {
+      "id": "42f06e20ae4bb233f830a46716d3f4707a55653db20957620bedd9de700d4675",
+      "title": "Broadcom Bought $1 Billion Worth of Anthropic’s IPO, and It Has Tens of Billions More Riding on Its Success.",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/broadcom-bought-1-billion-worth-of-anthropic-tens-of-billions-more-riding-on-its-success/?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:20:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "Says Broadcom's Anthropic deals are worth far more than its equity stake, implying a favorable view of its position."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:03.208Z"
+    },
+    "4c1ebf731ff2bc8c0aca3e65aa10aa102f08ba5db4887075d0b9f7a9fc62035a": {
+      "id": "4c1ebf731ff2bc8c0aca3e65aa10aa102f08ba5db4887075d0b9f7a9fc62035a",
+      "title": "“The Bank of NVIDIA” Is Back. Applied Digital Is the Real Winner",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/the-bank-of-nvidia-is-back-applied-digital-is-the-real-winner?ref=yahoofinance&tlnk=yf-261125-ppwv3gxj&.tsrc=rss",
+      "publishedAt": "2026-11-25T11:20:37.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "APLD",
+          "company": "Applied Digital",
+          "sentiment": 0.6,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Calls Applied Digital the real winner, arguing it benefits more from Nvidia's support for CoreWeave than Nvidia does."
+        },
+        {
+          "ticker": "CRWV",
+          "company": "CoreWeave",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports CoreWeave's more-than-22% share gain as context for Nvidia's support, without giving its own view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:03.798Z"
+    },
+    "2cca898c0eb15374f36c5bc616a4584a90e1c189d640fc607097af7cad2c14bc": {
+      "id": "2cca898c0eb15374f36c5bc616a4584a90e1c189d640fc607097af7cad2c14bc",
+      "title": "History Says This Simple Investing Strategy Could Turn $500 a Month Into a $1 Million Portfolio With Almost No Effort",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/history-says-this-simple-investing-strategy-could-turn-usd500-a-month-into-a-usd1-million-portfolio-with-almost-no-effort/?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:13:02.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:04.148Z"
+    },
+    "7dced34ddc85ca604172ebc120f595f594ae25b32afc89f552f1876f41f95a73": {
+      "id": "7dced34ddc85ca604172ebc120f595f594ae25b32afc89f552f1876f41f95a73",
+      "title": "Indian startup Intrinsic Foundries crowned winner of L'Oréal's 2026 Big Bang Beauty Tech Innovation Program; Hector earns Special Mention",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/small-business/articles/indian-startup-intrinsic-foundries-crowned-111600256.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:16:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:04.215Z"
+    },
+    "5b2d3f79bbe3a82aa9d882ddff835cb692821c1c217ff551c872b2b8870f1ec7": {
+      "id": "5b2d3f79bbe3a82aa9d882ddff835cb692821c1c217ff551c872b2b8870f1ec7",
+      "title": "What's Happening To Anthropic Stock Below Its IPO Price",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/ant/articles/628750/what-s-happening-to-anthropic-stock-below-its-ipo-price/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:14:53.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:04.617Z"
+    },
+    "277d5a5b043bc318bdf9e3655ce05496ed883cc38373a4e9a43670c90c3ec8e9": {
+      "id": "277d5a5b043bc318bdf9e3655ce05496ed883cc38373a4e9a43670c90c3ec8e9",
+      "title": "Tesla and SpaceX $3.5 Trillion Merger Talks Take a Major Step Forward",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/tesla-spacex-3-5-trillion-111122235.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:11:22.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:05.705Z"
+    },
+    "5eacfa6fc941a97989cb82ad3dbe5556e8097e36a22916fe39d94cce88f32b78": {
+      "id": "5eacfa6fc941a97989cb82ad3dbe5556e8097e36a22916fe39d94cce88f32b78",
+      "title": "5-Star Analyst Revamps Nvidia Stock Price Target for 2027",
+      "source": "Yahoo Finance — NVDA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/5-star-analyst-revamps-nvidia-110832740.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:08:32.000Z",
+      "tickerHint": "NVDA",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0.5,
+          "confidence": 0.6,
+          "stance": "bullish",
+          "rationale": "A bullish analyst raises the 2027 price target, valuing Nvidia near $1 trillion tied to Jensen Huang's leadership."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:06.185Z"
+    },
+    "3448b8f7fdd798b551a6e65f1c8a93a162f9c9c6568ed0cd9451a2b567b55e78": {
+      "id": "3448b8f7fdd798b551a6e65f1c8a93a162f9c9c6568ed0cd9451a2b567b55e78",
+      "title": "iShares Expanded Tech-Software (IGV) Buys $15 Million More Palo Alto on Nov. 23",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-expanded-tech-software-igv-110551099.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:51.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:06.261Z"
+    },
+    "f3d7e82f797340d6ab556c99899fa41afc0e8fe5e60f1909b821738bd418ba8b": {
+      "id": "f3d7e82f797340d6ab556c99899fa41afc0e8fe5e60f1909b821738bd418ba8b",
+      "title": "Proshares Trust (TQQQ) Sells Apple and Nvidia on Nov. 23",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/proshares-trust-tqqq-sells-apple-110547396.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:47.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:07.379Z"
+    },
+    "1bbe81a5be9eed531e67f9fa9f7cc52e040a4df3c9bfa4c1615ebb443c970d8f": {
+      "id": "1bbe81a5be9eed531e67f9fa9f7cc52e040a4df3c9bfa4c1615ebb443c970d8f",
+      "title": "State Street SPDR Portfolio S&P 500 (SPYM) Buys $14.2 Million More Apple on Monday",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-spdr-portfolio-p-110543019.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:43.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:08.609Z"
+    },
+    "1c5b4ee5e2163c4eacccaf32a5353f5dab42a8c2d437ece1a5f2ca9051c149ea": {
+      "id": "1c5b4ee5e2163c4eacccaf32a5353f5dab42a8c2d437ece1a5f2ca9051c149ea",
+      "title": "State Street Technology SPDR (XLK) Adds Apple and Nvidia on Monday",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-technology-spdr-xlk-110536754.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:36.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:08.729Z"
+    },
+    "8159d5e55d00519859ccdc9e81cdef6b0788bcada01dd657d8ae9c3a62110dbf": {
+      "id": "8159d5e55d00519859ccdc9e81cdef6b0788bcada01dd657d8ae9c3a62110dbf",
+      "title": "What iShares Russell 1000 ETF (IWB) Bought: Apple Leads on Nov. 23",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-russell-1000-etf-iwb-110526380.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:26.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports that an ETF's Apple purchase was its largest addition, with no view on Apple itself."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:09.291Z"
+    },
+    "95a9064789f82235dde30442c2d8e58fdae72799c7073ce2108606ee88a3610f": {
+      "id": "95a9064789f82235dde30442c2d8e58fdae72799c7073ce2108606ee88a3610f",
+      "title": "Invesco S&P 500 High Beta (SPHB) Buys $13.4 Million More Bloom Energy on Monday",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-high-beta-110539855.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:39.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:09.762Z"
+    },
+    "f82cc17b36e32dddc8dd9242d2cc3f0a7deae1f7cfc65047a4a3c82cf1782136": {
+      "id": "f82cc17b36e32dddc8dd9242d2cc3f0a7deae1f7cfc65047a4a3c82cf1782136",
+      "title": "Franklin Systematic Style Premia (FLSP) Sells $8.1 Million of Costco on Monday",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/franklin-systematic-style-premia-flsp-110453628.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:53.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:10.710Z"
+    },
+    "2a747adefdc2d546a5863dfaa443aa589441e646d11ec063969c62be0821ef37": {
+      "id": "2a747adefdc2d546a5863dfaa443aa589441e646d11ec063969c62be0821ef37",
+      "title": "State Street Utilities SPDR (XLU) Sells $32.8 Million of NextEra on Nov. 23",
+      "source": "Yahoo Finance — CEG",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-utilities-spdr-xlu-110516162.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:05:16.000Z",
+      "tickerHint": "CEG",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:10.744Z"
+    },
+    "e07196b480a9b09f94ace0a4746d04d21fbcbb01ddb1f46dc2b3e8de0fc9c36e": {
+      "id": "e07196b480a9b09f94ace0a4746d04d21fbcbb01ddb1f46dc2b3e8de0fc9c36e",
+      "title": "What Direxion Daily Technology Bull 3X ETF (TECL) Sold: Apple Leads on Monday",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/direxion-daily-technology-bull-3x-110437163.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:37.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reported as a large holding the ETF sold, with no view on Apple's outlook expressed."
+        },
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reported as a stock the ETF sold in a trading summary, with no stated view on Nvidia."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:11.593Z"
+    },
+    "456e096856a08aca0cbabdab3f18c4a6ad7e739637c8b8d57d85db30eff0ac8e": {
+      "id": "456e096856a08aca0cbabdab3f18c4a6ad7e739637c8b8d57d85db30eff0ac8e",
+      "title": "iShares PHLX SOX Semiconductor (SOXX) Buys $46.9 Million More AMD on Nov. 23",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-phlx-sox-semiconductor-soxx-110447635.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:47.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "AMD",
+          "company": "Advanced Micro Devices",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports that an semiconductor ETF added to its AMD position, with no view expressed by the author on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:11.635Z"
+    },
+    "1f58ba09c46a75dc223dff27d882542617c9b7fb01acfec28d0eb39008263475": {
+      "id": "1f58ba09c46a75dc223dff27d882542617c9b7fb01acfec28d0eb39008263475",
+      "title": "State Street Financial SPDR (XLF) Buys $83.4 Million More Berkshire on Monday",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-financial-spdr-xlf-110431476.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:31.000Z",
+      "tickerHint": "JPM",
+      "mentions": [
+        {
+          "ticker": "BRK.B",
+          "company": "Berkshire Hathaway",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports that an ETF added to its Berkshire Hathaway position; the item expresses no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:12.516Z"
+    },
+    "019959841e46f1a9a7ffe12fc5cb69f9bf07b5e17ebfe85056ccc6b1ee1f1adc": {
+      "id": "019959841e46f1a9a7ffe12fc5cb69f9bf07b5e17ebfe85056ccc6b1ee1f1adc",
+      "title": "iShares Core S&P 500 (IVV) Sells Apple and Nvidia on Nov. 23",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-core-p-500-ivv-110419284.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:19.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:13.473Z"
+    },
+    "c5c68c4192baa885c6e08f3294dd15bb2c500d0f548cde3e5b44acaeb30fc83a": {
+      "id": "c5c68c4192baa885c6e08f3294dd15bb2c500d0f548cde3e5b44acaeb30fc83a",
+      "title": "Invesco NASDAQ 100 ETF (QQQM) Adds Apple and NVIDIA on Monday",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/invesco-nasdaq-100-etf-qqqm-110416507.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:16.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "AAPL",
+          "company": "Apple",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports a Nasdaq-100 ETF bought about $78.9 million of the company's stock, with no stated view on its outlook."
+        },
+        {
+          "ticker": "NVDA",
+          "company": "NVIDIA",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Reports a Nasdaq-100 ETF bought about $61.6 million of the company's stock, with no stated view on its outlook."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:14.224Z"
+    },
+    "b3cf49804b49ffcd157650ce83f678c5ba47d1d87445cf397e5798be86b37046": {
+      "id": "b3cf49804b49ffcd157650ce83f678c5ba47d1d87445cf397e5798be86b37046",
+      "title": "INVESCO QQQ Trust (QQQ) Sells Apple and NVIDIA on Nov. 23",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/invesco-qqq-trust-qqq-sells-110412143.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:12.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:15.054Z"
+    },
+    "6244a35f080dc120f10bf1c61a713efe124323459484ddd1092c20bcdcb6ecd8": {
+      "id": "6244a35f080dc120f10bf1c61a713efe124323459484ddd1092c20bcdcb6ecd8",
+      "title": "SPDR S&P 500 ETF (SPY) Adds Apple and Nvidia on Monday",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spdr-p-500-etf-spy-110402304.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:04:02.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:15.282Z"
+    },
+    "9bade0552c0a151bf3ca4aaad46754aa2b2da8bae24f81db445cdd0414def5a0": {
+      "id": "9bade0552c0a151bf3ca4aaad46754aa2b2da8bae24f81db445cdd0414def5a0",
+      "title": "ETFs Are Net Sellers of Alphabet (GOOG) on Nov. 23",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-alphabet-goog-110257127.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:02:57.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "GOOG",
+          "company": "Alphabet",
+          "sentiment": 0,
+          "confidence": 0.9,
+          "stance": "neutral",
+          "rationale": "Reports a factual figure of net ETF selling in Alphabet shares on one trading day, with no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:15.957Z"
+    },
+    "1cb967ca357b7279558dadd4ccf71eb23cc95f3df69c97d21b5fe2d0f37d94bd": {
+      "id": "1cb967ca357b7279558dadd4ccf71eb23cc95f3df69c97d21b5fe2d0f37d94bd",
+      "title": "ARK Autonomous Technology & Robotics ETF (ARKQ) Sells Tesla and SpaceX on Monday",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ark-autonomous-technology-robotics-etf-110358357.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:03:58.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:16.575Z"
+    },
+    "d8ea8d00757c2b53dbef2cee85caa246441b823d31f3815ecc1b124d7ade4869": {
+      "id": "d8ea8d00757c2b53dbef2cee85caa246441b823d31f3815ecc1b124d7ade4869",
+      "title": "ETFs Are Net Sellers of Palantir (PLTR) on Monday",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-palantir-pltr-110251086.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:02:51.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [
+        {
+          "ticker": "PLTR",
+          "company": "Palantir",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports that ETFs were net sellers of Palantir shares on a specific day, with no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:16.778Z"
+    },
+    "41d5e03e85e68bf8e892dccec7e9d918987e091af611907d16a3435268fe31dd": {
+      "id": "41d5e03e85e68bf8e892dccec7e9d918987e091af611907d16a3435268fe31dd",
+      "title": "ETFs Are Net Sellers of Amazon (AMZN) on Monday",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-amazon-amzn-110242019.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:02:42.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [
+        {
+          "ticker": "AMZN",
+          "company": "Amazon",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports a factual ETF net outflow in Amazon shares without offering any view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:17.192Z"
+    },
+    "89473d92e4535a7dda6f7d54e9b1d70b8cd727a5c8667570650fd4fdfae8adaf": {
+      "id": "89473d92e4535a7dda6f7d54e9b1d70b8cd727a5c8667570650fd4fdfae8adaf",
+      "title": "ETFs Are Net Sellers of Tesla (TSLA) on Nov. 23",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-tesla-tsla-110217480.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:02:17.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": 0,
+          "confidence": 0.85,
+          "stance": "neutral",
+          "rationale": "Reports that ETFs were net sellers of Tesla on Monday, with no explicit view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:17.451Z"
+    },
+    "4a6aaf87d1ce91aab671e632a0f5f69ec3529e8204c95ffa77d1bffa32265099": {
+      "id": "4a6aaf87d1ce91aab671e632a0f5f69ec3529e8204c95ffa77d1bffa32265099",
+      "title": "JPMorgan Chase (JPM) Sees $92.2 Million in Net ETF Buying on Nov. 23",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-chase-jpm-sees-92-110101868.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:01:01.000Z",
+      "tickerHint": "JPM",
+      "mentions": [
+        {
+          "ticker": "JPM",
+          "company": "JPMorgan Chase",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports a net inflow of ETF buying in the stock on one trading day, with no view on its prospects."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:18.562Z"
+    },
+    "3f583b83ed9b83831cef33692467c16c92b3f0dd98efca1ca502740cdd2ad604": {
+      "id": "3f583b83ed9b83831cef33692467c16c92b3f0dd98efca1ca502740cdd2ad604",
+      "title": "55 ETFs Add to Broadcom (AVGO) on Monday",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/55-etfs-add-broadcom-avgo-110057015.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:00:57.000Z",
+      "tickerHint": "AVGO",
+      "mentions": [
+        {
+          "ticker": "AVGO",
+          "company": "Broadcom",
+          "sentiment": 0,
+          "confidence": 0.8,
+          "stance": "neutral",
+          "rationale": "Reports that ETFs bought about $99.7 million of Broadcom stock on a single day, with no view offered."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:18.597Z"
+    },
+    "5b0d7fd32fc97de2ddb03876fc80e5a3dfe00db960b65128e7e88d8197de6cc6": {
+      "id": "5b0d7fd32fc97de2ddb03876fc80e5a3dfe00db960b65128e7e88d8197de6cc6",
+      "title": "Anthropic Below Its IPO Price: Do Giants Come Back?",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/ant/articles/628732/anthropic-below-its-ipo-price-do-giants-come-back/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:00:14.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:18.849Z"
+    },
+    "2af1e8dec72188392aab6d288e984d3eb2f6ed124fa6f413aa81cba1674bfef7": {
+      "id": "2af1e8dec72188392aab6d288e984d3eb2f6ed124fa6f413aa81cba1674bfef7",
+      "title": "Can Broadcom Stock Hit $450?",
+      "source": "Yahoo Finance — AVGO",
+      "sourceType": "TickerNews",
+      "url": "https://www.trefis.com/stock/avgo/articles/628740/can-broadcom-stock-hit-450/2026-11-25?.tsrc=rss",
+      "publishedAt": "2026-11-25T11:00:14.000Z",
+      "tickerHint": "AVGO",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:19.324Z"
+    },
+    "0b206e2bd22fbbcfc3af21645a8771c9c57f6d58a5589deaa3a9a003cedd6834": {
+      "id": "0b206e2bd22fbbcfc3af21645a8771c9c57f6d58a5589deaa3a9a003cedd6834",
+      "title": "U.S. chip stocks extend losses premarket as AI spending concerns resurface",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/u-chip-stocks-extend-losses-104903644.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:49:03.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:19.696Z"
+    },
+    "a268b103191e05a0a1829725877752945c0a46ba38c82bd67c2e42cbde1c0a8e": {
+      "id": "a268b103191e05a0a1829725877752945c0a46ba38c82bd67c2e42cbde1c0a8e",
+      "title": "Tell Schwab to Move $19,000 of Apple Stock to Your Son on December 30 and If the Shares Land January 4 the IRS Counts It as a 2027 Gift. This Year’s Exclusion Is Gone for Good",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/personal-finance/2026/11/25/tell-schwab-to-move-19000-of-apple-stock-to-your-son-on-december-30-and-if-the-shares-land-january-4-the-irs-counts-it-as-a-2027-gift-this-years-exclusion-is-gone-for-good/?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:52:08.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:20.616Z"
+    },
+    "49c7a51ab70f2fa9af4543f5e72feda7706882116bfcb54c474250913638a702": {
+      "id": "49c7a51ab70f2fa9af4543f5e72feda7706882116bfcb54c474250913638a702",
+      "title": "Warren Buffett's Successor, Greg Abel, Has Quietly Purchased 3 Stocks Since the Start of the Fourth Quarter, Including Shares of a Legal Monopoly",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/warren-buffett-successor-greg-abel-purchased-3-stocks-since-start-fourth-quarter-including-legal-monopoly/?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:26:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:20.792Z"
+    },
+    "bbe0a87b39d56c7c8fbf75db6fee418dfae44b7d5670231e14921425b1fabf00": {
+      "id": "bbe0a87b39d56c7c8fbf75db6fee418dfae44b7d5670231e14921425b1fabf00",
+      "title": "Market Chatter: Amazon.com, Meta Platforms in Talks Over Allowing Muse AI Access Shopping Site",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/market-chatter-amazon-com-meta-104905932.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:49:05.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:20.827Z"
+    },
+    "68734bb101deb9524ed0f0504b7f4a08fce700ab62a719ba2dc500dcb0fe13cb": {
+      "id": "68734bb101deb9524ed0f0504b7f4a08fce700ab62a719ba2dc500dcb0fe13cb",
+      "title": "Tesla’s FSD Version 15 Is an Improvement. How That Helps the Stock.",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/m/2c17d7f3-1b8f-3c65-962c-b31a60522eff/tesla%E2%80%99s-fsd-version-15-is-an.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:43:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [
+        {
+          "ticker": "TSLA",
+          "company": "Tesla",
+          "sentiment": 0.5,
+          "confidence": 0.7,
+          "stance": "bullish",
+          "rationale": "Says early reviews of the new FSD version are encouraging and should help the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:20.861Z"
+    },
+    "ab4dcc726ca6038fb218bb631a67f8c29afc09d6dcd60eb063e0096ca4554833": {
+      "id": "ab4dcc726ca6038fb218bb631a67f8c29afc09d6dcd60eb063e0096ca4554833",
+      "title": "Market Chatter: Meta Platforms' Muse Seen Boosting Advertising Revenue Via Instagram",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/media-advertising/articles/market-chatter-meta-platforms-apos-102004084.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:20:04.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:22.244Z"
+    },
+    "f3095e3ec5a9629ca60fb0b401a44b3c4b96c730626e4ebcae81eb18d88981b7": {
+      "id": "f3095e3ec5a9629ca60fb0b401a44b3c4b96c730626e4ebcae81eb18d88981b7",
+      "title": "Jack Bogle Told Investors to Own the Market ‘Warts and All.’ Then Nvidia Soared 31% and Moved a 68-Year-Old’s $1 Million S&P 500 Index Fund by $16,000 in a Day",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://247wallst.com/investing/2026/11/25/jack-bogle-told-investors-to-own-the-market-warts-and-all-then-nvidia-soared-31-and-moved-a-68-year-olds-1-million-sp-500-index-fund-by-16000-in-a-day/?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:12:00.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "NVDA",
+          "company": "Nvidia",
+          "sentiment": 0,
+          "confidence": 0.6,
+          "stance": "neutral",
+          "rationale": "Describes Nvidia's recent sharp gain as a driver of an index fund's one-day move, without stating a view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:23.134Z"
+    },
+    "ebd68c1b34f3ef7c8c2789c7baf8f65ab59a2e898e6c3fd886ef24750bd0a761": {
+      "id": "ebd68c1b34f3ef7c8c2789c7baf8f65ab59a2e898e6c3fd886ef24750bd0a761",
+      "title": "Shopify Keeps Sliding After Its Q3 Miss: Why Piper Sandler Still Sees 30% Upside",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/shopify-keeps-sliding-after-its-q3-miss-why-piper-sandler-still-sees-30-upside?ref=yahoofinance&tlnk=yf-261125-ch439v4q&.tsrc=rss",
+      "publishedAt": "2026-11-25T10:06:50.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:23.642Z"
+    },
+    "aeb8937a92383ea8a5edce557eab0bf5abb61370fea105eccb465a0ae18604fe": {
+      "id": "aeb8937a92383ea8a5edce557eab0bf5abb61370fea105eccb465a0ae18604fe",
+      "title": "Not Tesla. Not Nvidia. This \"Magnificent Seven\" Stock Could Be Overdue for a Big Rally.",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/not-tesla-nvidia-magnificent-seven-stock-big-rally/?.tsrc=rss",
+      "publishedAt": "2026-11-25T10:25:00.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:24.028Z"
+    },
+    "226dd903a98ca02c92bedf28890499351a08668a3543825d40f51c450ef7c5aa": {
+      "id": "226dd903a98ca02c92bedf28890499351a08668a3543825d40f51c450ef7c5aa",
+      "title": "Market Chatter: Google Ends ABC Deal Amid Australian Media Funding Retreat",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/media-advertising/articles/market-chatter-google-ends-abc-094828413.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:48:28.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:24.841Z"
+    },
+    "3970c765feb1c0acec7ee3acddec134b96014853e51cf7562476fb289be7a4bd": {
+      "id": "3970c765feb1c0acec7ee3acddec134b96014853e51cf7562476fb289be7a4bd",
+      "title": "Billionaire David Tepper Dumped Appaloosa's Stake in AMD and Broadcom and Piled Into an Artificial Intelligence (AI) Stock Trading at 44x Forward Adjusted EPS",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/billionaire-david-tepper-appaloosa-stake-amd-broadcom-artificial-intelligence-ai-stock-trading-44x-forward-eps/?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:40:02.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:25.423Z"
+    },
+    "40a49f654098df280d938ea53a911fc6f01a57c92cf05d10fe7b8bb4fe78ec99": {
+      "id": "40a49f654098df280d938ea53a911fc6f01a57c92cf05d10fe7b8bb4fe78ec99",
+      "title": "Tim Cook Could Have Purchased Any of 489 S&P 500 Companies With $903 Billion. Instead, He Bought Something That Transformed Apple Forever.",
+      "source": "Yahoo Finance — AAPL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/tim-cook-purchase-any-489-sp-500-companies-with-903-billion-he-bought-something-transformed-apple-forever/?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:26:02.000Z",
+      "tickerHint": "AAPL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:25.573Z"
+    },
+    "2b61c6300dcc92150d1c03379c437f278bcc5deb64cd61a64c2cb2d059d7ed55": {
+      "id": "2b61c6300dcc92150d1c03379c437f278bcc5deb64cd61a64c2cb2d059d7ed55",
+      "title": "ASML Dips Premarket Amid Chip Rout: Dutch Lawmakers Push Back On Proposed US Curbs On Sales To China",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/asml-dips-premarket-amid-chip-rout-dutch-lawmakers-push-back-on-proposed-us-curbs-on-sales-to-china/cNbH9EDR9ls?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:25:35.000Z",
+      "tickerHint": "AMD",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:26.547Z"
+    },
+    "08b3a201fc69e91b52483af77376d13f95792d4ba497f9d9a56ad8d2a5c8a650": {
+      "id": "08b3a201fc69e91b52483af77376d13f95792d4ba497f9d9a56ad8d2a5c8a650",
+      "title": "Big Banks Carry Heavy Debt—This Bond-Trading Network Surged 26%",
+      "source": "Yahoo Finance — JPM",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/big-banks-carry-heavy-debt-092349714.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:23:49.000Z",
+      "tickerHint": "JPM",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:26.664Z"
+    },
+    "860333c1836944e282903ec303eb0d8f62f858bd0367713086998883003d2f3e": {
+      "id": "860333c1836944e282903ec303eb0d8f62f858bd0367713086998883003d2f3e",
+      "title": "AppLovin Jumped 32% in a Brutal Month—Then Dropped 15% This Week",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/applovin-jumped-32-brutal-month-092509748.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:25:09.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:27.466Z"
+    },
+    "03949d852d2f52bf091b5a1451acf8d6068d0080fccc6fbc4507733e76664ecf": {
+      "id": "03949d852d2f52bf091b5a1451acf8d6068d0080fccc6fbc4507733e76664ecf",
+      "title": "Solana’s Tokenized Stock Market Surpasses $600M as Equities Gain Traction as DeFi Collateral",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://www.ccn.com/news/crypto/solana-tokenized-stocks-defi-collateral-growth/?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:02:16.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:27.504Z"
+    },
+    "c644d530626ab41d50d59d699caa43b1efacc277caec7c52ef46d325cfa173ce": {
+      "id": "c644d530626ab41d50d59d699caa43b1efacc277caec7c52ef46d325cfa173ce",
+      "title": "Prediction: Here’s What Anthropic’s Valuation Will Be in 2027, According to History",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/prediction-heres-what-anthropics-valuation-will-be-in-2027-according-to-history/?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:58:02.000Z",
+      "tickerHint": "META",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:27.868Z"
+    },
+    "1a3b7ad2e2c7f91c4a1c9df2f1bbc32e4172ea1b9cf58b7a7b3311e99d081dd0": {
+      "id": "1a3b7ad2e2c7f91c4a1c9df2f1bbc32e4172ea1b9cf58b7a7b3311e99d081dd0",
+      "title": "Super Micro forecasts 130% profit growth, yet shares sank to $22",
+      "source": "Yahoo Finance — SMCI",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-forecasts-130-profit-092445717.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T09:24:45.000Z",
+      "tickerHint": "SMCI",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:27.970Z"
+    },
+    "4636c284c44caf632a8d06335eff466d2fb9d8608d7faf84bced9fb1502b5a4f": {
+      "id": "4636c284c44caf632a8d06335eff466d2fb9d8608d7faf84bced9fb1502b5a4f",
+      "title": "Asia's AI race heads offshore with launch of Floating Data Centres in Singapore",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/asias-ai-race-heads-offshore-085300682.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:53:00.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:28.425Z"
+    },
+    "530fd1b7697f95a271a16ec2ac71f2ad0bd51754707b531c3bf60462d8353b6a": {
+      "id": "530fd1b7697f95a271a16ec2ac71f2ad0bd51754707b531c3bf60462d8353b6a",
+      "title": "Europe has spent $15.9 billion trying to win the quantum race. Is it enough?",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/europe-spent-15-9-billion-082901792.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:29:01.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:28.861Z"
+    },
+    "298f46681e4428a1a979624ff687b317af8621e3f5ce2c7e56c2fa58796b66c5": {
+      "id": "298f46681e4428a1a979624ff687b317af8621e3f5ce2c7e56c2fa58796b66c5",
+      "title": "1 Reason to Buy AMD Stock Before 2027",
+      "source": "Yahoo Finance — AMD",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/1-reason-to-buy-amd-stock-before-2027/?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:26:02.000Z",
+      "tickerHint": "AMD",
+      "mentions": [
+        {
+          "ticker": "AMD",
+          "company": "Advanced Micro Devices",
+          "sentiment": 0.6,
+          "confidence": 0.8,
+          "stance": "bullish",
+          "rationale": "Says AMD is oversold amid an AI chip sell-off and that its chiplet approach offers an overlooked edge."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:29.638Z"
+    },
+    "ffeddb05b43ed15ed2cb8dd4b7b7bd28a0199703a2e44fd7f994e8e82400b68e": {
+      "id": "ffeddb05b43ed15ed2cb8dd4b7b7bd28a0199703a2e44fd7f994e8e82400b68e",
+      "title": "Walmart’s shopper base is shifting: High earners lead its gains as low-income shoppers turn to Amazon",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-shopper-shifting-high-earners-083200748.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:32:00.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:29.762Z"
+    },
+    "2c81ca6b4660e1f6eba46657b1a6540e10dca2799ad85e94803a159790742d94": {
+      "id": "2c81ca6b4660e1f6eba46657b1a6540e10dca2799ad85e94803a159790742d94",
+      "title": "SpaceX Could Fall Below $100 On A Tesla Bid, Gary Black Says — JPMorgan Sees The Same Deal As A Shortcut To The S&P 500",
+      "source": "Yahoo Finance — TSLA",
+      "sourceType": "TickerNews",
+      "url": "https://stocktwits.com/news-articles/markets/equity/spacex-fall-tesla-bid-gary-black-jp-morgan-shortcut-sp500/cNbH7PdR9lF?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:07:08.000Z",
+      "tickerHint": "TSLA",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:30.489Z"
+    },
+    "5838c9fba671c84a409c41222ac182209e6ec45f9a7883bc6ba9426692967185": {
+      "id": "5838c9fba671c84a409c41222ac182209e6ec45f9a7883bc6ba9426692967185",
+      "title": "After $26 billion in gifts, MacKenzie Scott is still worth $27 billion—and just gave Atlanta students $8 million more",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/small-business/articles/26-billion-gifts-mackenzie-scott-080300124.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:03:00.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:30.536Z"
+    },
+    "863e3fa4795eddd6ea69433afd3653804fc7a987f838fdf51ff20c139adc6011": {
+      "id": "863e3fa4795eddd6ea69433afd3653804fc7a987f838fdf51ff20c139adc6011",
+      "title": "Clarivate Develops IPOne in Collaboration with Leading Global Organizations",
+      "source": "Yahoo Finance — MSFT",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/clarivate-develops-ipone-collaboration-leading-080000275.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:00:00.000Z",
+      "tickerHint": "MSFT",
+      "mentions": [
+        {
+          "ticker": "CLVT",
+          "company": "Clarivate",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Promotional announcement of an IP intelligence platform with corporate partners; the item expresses no view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:31.632Z"
+    },
+    "b19f2a4e20a26eda56d99d2e94ae8fd2e11a1588a44b64644287a759ac6d84e3": {
+      "id": "b19f2a4e20a26eda56d99d2e94ae8fd2e11a1588a44b64644287a759ac6d84e3",
+      "title": "Bear of the Day: Zillow Group (ZG)",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/real-estate/articles/bear-day-zillow-group-zg-080000482.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:00:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "ZG",
+          "company": "Zillow Group",
+          "sentiment": -0.7,
+          "confidence": 0.85,
+          "stance": "bearish",
+          "rationale": "Labels Zillow a Bear of the Day, citing mortgage-rate pressure, uneven earnings, rising competition, and legal settlement costs."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:31.805Z"
+    },
+    "c9f51b5c29dbef295c5a679e9a887b5df9c21a9d135096021743b7b1b449e80c": {
+      "id": "c9f51b5c29dbef295c5a679e9a887b5df9c21a9d135096021743b7b1b449e80c",
+      "title": "Bull of the Day: Quanta Services (PWR)",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bull-day-quanta-services-pwr-080000871.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:00:00.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [
+        {
+          "ticker": "PWR",
+          "company": "Quanta Services",
+          "sentiment": 0.6,
+          "confidence": 0.75,
+          "stance": "bullish",
+          "rationale": "Titled Bull of the Day, it argues Quanta is well placed to gain from AI-driven grid and infrastructure spending."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:31.867Z"
+    },
+    "b957ace158cad7c40620c7a4759272f7a6a3da8144f399c109ee66c2df3d3aeb": {
+      "id": "b957ace158cad7c40620c7a4759272f7a6a3da8144f399c109ee66c2df3d3aeb",
+      "title": "Exclusive: Meta and Amazon discuss ending Muse shopping bot blockade, as ads, search emerge as key issues",
+      "source": "Yahoo Finance — AMZN",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/technology/ai/articles/exclusive-meta-amazon-discuss-ending-080100266.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T08:01:00.000Z",
+      "tickerHint": "AMZN",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:31.992Z"
+    },
+    "ba16b3c4f01c3abce55365b27abd56476395abb1974399173de6c22e16963ee8": {
+      "id": "ba16b3c4f01c3abce55365b27abd56476395abb1974399173de6c22e16963ee8",
+      "title": "Can Palantir Technologies (PLTR) Justify Its Price Through Cash Flow?",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/palantir-technologies-pltr-justify-price-070848763.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T07:08:48.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:33.299Z"
+    },
+    "df5190349a86ec917b1fee4fe3934acbe0e368e78cade21307eb8ea9c1bae6e8": {
+      "id": "df5190349a86ec917b1fee4fe3934acbe0e368e78cade21307eb8ea9c1bae6e8",
+      "title": "Alphabet Has $251 Billion Invested In 2 of Its Biggest Artificial Intelligence Partners",
+      "source": "Yahoo Finance — GOOGL",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/alphabet-has-251-billion-invested-in-2-of-its-biggest-artificial-intelligence-partners/?.tsrc=rss",
+      "publishedAt": "2026-11-25T07:29:02.000Z",
+      "tickerHint": "GOOGL",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:33.334Z"
+    },
+    "ef77af20897bac76f3c4eb8a03ee033db3e5a4d5a866600ddf9b850f6b8e8661": {
+      "id": "ef77af20897bac76f3c4eb8a03ee033db3e5a4d5a866600ddf9b850f6b8e8661",
+      "title": "Cathie Wood Just Sold $14 Million of Meta",
+      "source": "Yahoo Finance — META",
+      "sourceType": "TickerNews",
+      "url": "https://www.tikr.com/blog/cathie-wood-just-sold-14-million-of-meta?ref=yahoofinance&tlnk=yf-261125-3qjvv3gp&.tsrc=rss",
+      "publishedAt": "2026-11-25T07:09:01.000Z",
+      "tickerHint": "META",
+      "mentions": [
+        {
+          "ticker": "META",
+          "company": "Meta Platforms",
+          "sentiment": 0,
+          "confidence": 0.7,
+          "stance": "neutral",
+          "rationale": "Reports that an ARK fund sold a small Meta stake, calling it minor relative to its holdings, without giving a view on the stock."
+        }
+      ],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:33.487Z"
+    },
+    "74bf6cdfb5c6802f3bd211087fb2296d75cf634141de1315ca36a15c8938fb36": {
+      "id": "74bf6cdfb5c6802f3bd211087fb2296d75cf634141de1315ca36a15c8938fb36",
+      "title": "Goldman Sachs Sees U.S. Natural Gas Demand Surging on Data Center Boom",
+      "source": "Yahoo Finance — GS",
+      "sourceType": "TickerNews",
+      "url": "https://finance.yahoo.com/energy/articles/goldman-sachs-sees-u-natural-064500252.html?.tsrc=rss",
+      "publishedAt": "2026-11-25T06:45:00.000Z",
+      "tickerHint": "GS",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:34.564Z"
+    },
+    "bd7785435820a470dedebae0fedf6ffc8584d3c9dfad2f353cf6ce94956b7a43": {
+      "id": "bd7785435820a470dedebae0fedf6ffc8584d3c9dfad2f353cf6ce94956b7a43",
+      "title": "Where Will Palantir Stock Be at the End of 2030?",
+      "source": "Yahoo Finance — PLTR",
+      "sourceType": "TickerNews",
+      "url": "https://www.fool.com/investing/2026/11/25/where-will-palantir-stock-be-at-the-end-of-2030/?.tsrc=rss",
+      "publishedAt": "2026-11-25T06:47:02.000Z",
+      "tickerHint": "PLTR",
+      "mentions": [],
+      "model": "anthropic/claude-haiku-5.5",
+      "provider": "openrouter",
+      "extractedAt": "2026-11-25T11:59:34.990Z"
     }
   }
 }

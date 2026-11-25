@@ -2,6 +2,29 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "b3cea54257043e3c",
+      "ticker": "APLD",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-25T12:05:15.124Z",
+      "firedDate": "2026-11-25",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.6,
+        "sentShift": 0.367,
+        "retRecent": -0.1543,
+        "excessRecent": -0.1387,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/the-bank-of-nvidia-is-back-applied-digital-is-the-real-winner?ref=yahoofinance&tlnk=yf-261125-ppwv3gxj&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/applied-digital-apld-could-71-011156493.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/02/applied-digital-slumps-8-as-ceo-says-800-mw-still-needs-financing-nebius-and-coreweave-fall-6/?.tsrc=rss"
+      ]
+    },
+    {
       "id": "719e4acd56d9fbc9",
       "ticker": "MSTR",
       "rule": "MENTION_SPIKE",
