@@ -2,6 +2,351 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "76ad70fb983b1733",
+      "ticker": "NOW",
+      "rule": "BEARISH_SHIFT",
+      "ruleLabel": "Bearish sentiment shift",
+      "flag": "SHORT",
+      "firedAt": "2026-11-26T03:46:37.781Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 2.143,
+        "sentRecent": 0,
+        "sentShift": -0.464,
+        "retRecent": 0.037,
+        "excessRecent": 0.0359,
+        "score": 0
+      },
+      "topItems": [
+        "https://finance.yahoo.com/small-business/articles/leading-chros-business-executives-convene-212500658.html?.tsrc=rss",
+        "https://www.fool.com/coverage/better-buy/2026/11/20/salesforce-vs-servicenow-which-technology-stock-is-a-better-buy-for-2027/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/servicenow-stock-now-historic-sell-213800295.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "82b93c37d0620c86",
+      "ticker": "DELL",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-26T03:46:37.779Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 5,
+        "spikeRatio": 2.679,
+        "sentRecent": 0.118,
+        "sentShift": 0.107,
+        "retRecent": -0.0495,
+        "excessRecent": -0.0507,
+        "score": 0.212
+      },
+      "topItems": [
+        "https://finance.yahoo.com/video/anthropic-falls-below-ipo-price-as-nvidia-gives-back-gains-214558309.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-stocks-fall-7-174249169.html?.tsrc=rss",
+        "https://www.usatoday.com/story/news/state/texas/2026/11/21/heb-leads-southwest-dell-tesla-in-texas-company-ranking/92879701007/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7c67f25740cfed02",
+      "ticker": "NBIS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-26T03:46:37.776Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.233,
+        "sentShift": -0.019,
+        "retRecent": -0.1231,
+        "excessRecent": -0.1243,
+        "score": 0.3235
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/could-investing-500-a-month-in-nebius-help-you-retire-a-millionaire/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/20/michael-burry-says-he-tried-to-warn-you-about-nebius-the-stock-just-crashed-16-and-is-72-below-its-record/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "2dddf9415ffc0f2b",
+      "ticker": "INTC",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.773Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.209,
+        "sentRecent": 0.343,
+        "sentShift": 0.508,
+        "retRecent": -0.0224,
+        "excessRecent": -0.0236,
+        "score": 0.3767
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/billionaire-investor-philippe-laffont-just-highlighted-2-companies-he-expects-to-be-big-winners-of-the-agentic-ai-era/?.tsrc=rss",
+        "https://www.tikr.com/blog/a-3-8-billion-fund-just-bought-these-3-stocks?ref=yahoofinance&tlnk=yf-261121-g555pj6m&.tsrc=rss",
+        "https://www.verdict.co.uk/intel-microsoft-deal-azure-cloud/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "59d3668cc9d6f788",
+      "ticker": "APLD",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.771Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": 0.6,
+        "sentShift": 0.367,
+        "retRecent": -0.1209,
+        "excessRecent": -0.122,
+        "score": 0.4159
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/the-bank-of-nvidia-is-back-applied-digital-is-the-real-winner?ref=yahoofinance&tlnk=yf-261125-ppwv3gxj&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/applied-digital-apld-could-71-011156493.html?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/02/applied-digital-slumps-8-as-ceo-says-800-mw-still-needs-financing-nebius-and-coreweave-fall-6/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "8de0bab887b7e9dd",
+      "ticker": "HPE",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.768Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.4,
+        "sentShift": 0.1,
+        "retRecent": -0.1027,
+        "excessRecent": -0.1038,
+        "score": 0.4394
+      },
+      "topItems": [
+        "https://www.marketbeat.com/instant-alerts/transcript-hewlett-packard-enterprise-q4-earnings-call-highlights-2026-11-23/?utm_source=yahoofinance&utm_medium=yahoofinance&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/hpes-q4-earnings-likely-reflect-142300207.html?.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/does-hewlett-packard-enterprise-hpe-030945349.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7dccd4e000664dc7",
+      "ticker": "CRDO",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.766Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.071,
+        "sentRecent": 0.7,
+        "sentShift": 0.58,
+        "retRecent": -0.0931,
+        "excessRecent": -0.0943,
+        "score": 0.4852
+      },
+      "topItems": [
+        "https://finance.yahoo.com/technology/ai/articles/credo-technology-ai-rebound-potential-185817118.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/15/is-credo-technology-a-better-ai-networking-buy-than-broadcom/?.tsrc=rss",
+        "https://www.tikr.com/blog/credo-sinks-10-as-democratic-sweep-hits-ai-data-center-stocks-biggest-worry?ref=yahoofinance&tlnk=yf-261104-q6q34365&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "11d37773ddbe53ee",
+      "ticker": "BABA",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.763Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.517,
+        "sentShift": 0.417,
+        "retRecent": 0.0354,
+        "excessRecent": 0.0343,
+        "score": 0.5682
+      },
+      "topItems": [
+        "https://www.tikr.com/blog/could-alibaba-actually-climb-112-or-is-goldman-sachs-totally-wrong?ref=yahoofinance&tlnk=yf-261120-mh79x6w7&.tsrc=rss",
+        "https://www.tikr.com/blog/goldman-sachs-177-target-says-alibabas-selloff-went-too-far?ref=yahoofinance&tlnk=yf-261120-hfh887rj&.tsrc=rss",
+        "https://finance.yahoo.com/technology/ai/articles/alibaba-baba-ai-growth-prospects-205249409.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "acccb8f93be84711",
+      "ticker": "NFLX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-26T03:46:37.761Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.364,
+        "sentShift": 0.101,
+        "retRecent": 0.0163,
+        "excessRecent": 0.0151,
+        "score": 0.5863
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/24/netflix-stock-is-down-37-in-2026-but-the-business-is-still-growing-heres-why-id-buy-it-before-the-end-of-november/?.tsrc=rss",
+        "https://finance.yahoo.com/m/34be458f-965e-30c4-8fb7-e730267a65a9/tech-keeps-eating-hollywood.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/netflix-falls-below-usd60-bill-ackman-explains-why-that-s-an-incredible-investment-opportunity/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "eb66b313a97e989b",
+      "ticker": "WMT",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.758Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.576,
+        "sentShift": 0.503,
+        "retRecent": 0.0468,
+        "excessRecent": 0.0457,
+        "score": 0.6326
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/22/walmart-has-raised-its-dividend-53-straight-years-id-buy-it-before-december-and-never-sell/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/article/walmart-costco-see-some-panic-buying-after-tech-outages-191922568.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "ed1ce772822b0a19",
+      "ticker": "MU",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.755Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 0.519,
+        "sentRecent": 0.4,
+        "sentShift": -0.031,
+        "retRecent": -0.1292,
+        "excessRecent": -0.1303,
+        "score": 0.6438
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/billionaire-david-tepper-just-made-a-massive-ai-chip-rotation-will-it-pay-off/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/micron-stock-just-hit-its-lowest-price-since-may-i-d-buy-more-now/?.tsrc=rss",
+        "https://www.tikr.com/blog/microns-president-says-we-cant-support-every-customer-apple-just-locked-in-samsungs-dram?ref=yahoofinance&tlnk=yf-261120-2c7wfx6r&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "7d5e78ff9945a2ac",
+      "ticker": "RKLB",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.753Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.6,
+        "sentShift": 0.65,
+        "retRecent": -0.0779,
+        "excessRecent": -0.079,
+        "score": 0.6592
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/20/prediction-rocket-lab-will-triple-its-revenue-by-2028-here-s-what-that-would-mean-for-the-stock/?.tsrc=rss",
+        "https://www.tikr.com/blog/rocket-lab-sinks-7-ast-spacemobile-down-12-as-tech-selloff-and-vulcan-failure-hit-space-stocks?ref=yahoofinance&tlnk=yf-261116-xj5m8wmh&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "f3c8cee939993e32",
+      "ticker": "RKLB",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.750Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 4,
+        "sentRecent": 0.6,
+        "sentShift": 0.65,
+        "retRecent": -0.0779,
+        "excessRecent": -0.079,
+        "score": 0.6592
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/20/prediction-rocket-lab-will-triple-its-revenue-by-2028-here-s-what-that-would-mean-for-the-stock/?.tsrc=rss",
+        "https://www.tikr.com/blog/rocket-lab-sinks-7-ast-spacemobile-down-12-as-tech-selloff-and-vulcan-failure-hit-space-stocks?ref=yahoofinance&tlnk=yf-261116-xj5m8wmh&.tsrc=rss"
+      ]
+    },
+    {
+      "id": "59bcb95f05c1e09d",
+      "ticker": "CEG",
+      "rule": "DIVERGENCE_LONG",
+      "ruleLabel": "Bullish divergence (research up, price lagging)",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.747Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.245,
+        "sentRecent": 0.655,
+        "sentShift": 0.369,
+        "retRecent": -0.0665,
+        "excessRecent": -0.0676,
+        "score": 0.7194
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/3-reasons-why-constellation-energy-164502937.html?.tsrc=rss",
+        "https://www.tikr.com/blog/45-upside-for-constellation-energy-barclays-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261120-x635426w&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-ceg-following-earnings-201045909.html?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "482bea7ece274e71",
+      "ticker": "CEG",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-26T03:46:37.741Z",
+      "firedDate": "2026-11-26",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.245,
+        "sentRecent": 0.655,
+        "sentShift": 0.369,
+        "retRecent": -0.0665,
+        "excessRecent": -0.0676,
+        "score": 0.7194
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/3-reasons-why-constellation-energy-164502937.html?.tsrc=rss",
+        "https://www.tikr.com/blog/45-upside-for-constellation-energy-barclays-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261120-x635426w&.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/constellation-energy-ceg-following-earnings-201045909.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "b3cea54257043e3c",
       "ticker": "APLD",
       "rule": "DIVERGENCE_LONG",
