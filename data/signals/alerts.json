@@ -2,6 +2,121 @@
   "schema_version": 1,
   "alerts": [
     {
+      "id": "49c03893b38fd0e0",
+      "ticker": "DKNG",
+      "rule": "DIVERGENCE_SHORT",
+      "ruleLabel": "Bearish divergence (research down, price leading)",
+      "flag": "SHORT",
+      "firedAt": "2026-11-27T04:47:56.338Z",
+      "firedDate": "2026-11-27",
+      "metrics": {
+        "mentionsRecent": 1,
+        "spikeRatio": 1.429,
+        "sentRecent": -0.45,
+        "sentShift": 0.119,
+        "retRecent": 0.1171,
+        "excessRecent": 0.0781,
+        "score": -0.3119
+      },
+      "topItems": [
+        "https://finance.yahoo.com/markets/stocks/articles/outlook-cut-might-change-case-001554237.html?.tsrc=rss",
+        "https://finance.yahoo.com/markets/stocks/articles/draftkings-predictions-bet-bulls-reeling-143010643.html?.tsrc=rss",
+        "https://www.barchart.com/story/news/8742534/analysts-are-turning-bearish-on-draftkings-stock-here-s-why?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "d0c295a610e8eea8",
+      "ticker": "NBIS",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-27T04:47:56.335Z",
+      "firedDate": "2026-11-27",
+      "metrics": {
+        "mentionsRecent": 3,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.233,
+        "sentShift": -0.019,
+        "retRecent": 0.0453,
+        "excessRecent": 0.0063,
+        "score": 0.3235
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/23/rocket-lab-and-nebius-are-each-about-66-below-their-highs-i-d-buy-both-and-hold-through-2030/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/could-investing-500-a-month-in-nebius-help-you-retire-a-millionaire/?.tsrc=rss",
+        "https://247wallst.com/investing/2026/11/20/michael-burry-says-he-tried-to-warn-you-about-nebius-the-stock-just-crashed-16-and-is-72-below-its-record/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "b657cc1899723de7",
+      "ticker": "INTC",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-27T04:47:56.331Z",
+      "firedDate": "2026-11-27",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 0.209,
+        "sentRecent": 0.343,
+        "sentShift": 0.508,
+        "retRecent": 0.0622,
+        "excessRecent": 0.0232,
+        "score": 0.3767
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/21/billionaire-investor-philippe-laffont-just-highlighted-2-companies-he-expects-to-be-big-winners-of-the-agentic-ai-era/?.tsrc=rss",
+        "https://www.tikr.com/blog/a-3-8-billion-fund-just-bought-these-3-stocks?ref=yahoofinance&tlnk=yf-261121-g555pj6m&.tsrc=rss",
+        "https://www.verdict.co.uk/intel-microsoft-deal-azure-cloud/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0a95082a32f13c70",
+      "ticker": "NFLX",
+      "rule": "MENTION_SPIKE",
+      "ruleLabel": "Mention spike",
+      "flag": "WATCH",
+      "firedAt": "2026-11-27T04:47:56.328Z",
+      "firedDate": "2026-11-27",
+      "metrics": {
+        "mentionsRecent": 4,
+        "spikeRatio": 2.143,
+        "sentRecent": 0.364,
+        "sentShift": 0.101,
+        "retRecent": 0.0472,
+        "excessRecent": 0.0083,
+        "score": 0.5863
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/24/netflix-stock-is-down-37-in-2026-but-the-business-is-still-growing-heres-why-id-buy-it-before-the-end-of-november/?.tsrc=rss",
+        "https://finance.yahoo.com/m/34be458f-965e-30c4-8fb7-e730267a65a9/tech-keeps-eating-hollywood.html?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/netflix-falls-below-usd60-bill-ackman-explains-why-that-s-an-incredible-investment-opportunity/?.tsrc=rss"
+      ]
+    },
+    {
+      "id": "0018dc37dc2baa7e",
+      "ticker": "WMT",
+      "rule": "BULLISH_SHIFT",
+      "ruleLabel": "Bullish sentiment shift",
+      "flag": "LONG",
+      "firedAt": "2026-11-27T04:47:56.322Z",
+      "firedDate": "2026-11-27",
+      "metrics": {
+        "mentionsRecent": 2,
+        "spikeRatio": 1.714,
+        "sentRecent": 0.576,
+        "sentShift": 0.503,
+        "retRecent": 0.0312,
+        "excessRecent": -0.0078,
+        "score": 0.6326
+      },
+      "topItems": [
+        "https://www.fool.com/investing/2026/11/22/walmart-has-raised-its-dividend-53-straight-years-id-buy-it-before-december-and-never-sell/?.tsrc=rss",
+        "https://www.fool.com/investing/2026/11/21/walmart-has-paid-investors-a-growing-dividend-for/?.tsrc=rss",
+        "https://finance.yahoo.com/markets/article/walmart-costco-see-some-panic-buying-after-tech-outages-191922568.html?.tsrc=rss"
+      ]
+    },
+    {
       "id": "76ad70fb983b1733",
       "ticker": "NOW",
       "rule": "BEARISH_SHIFT",
